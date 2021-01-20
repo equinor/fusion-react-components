@@ -20,6 +20,7 @@
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-is": "^17.0.1",
+    "@equinor/fusion-react-table": "file://../packages/table",
     "typescript": "^4.1.3"
   }
 }
