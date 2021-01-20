@@ -1,0 +1,20 @@
+{
+  "extends": "../tsconfig.base.json",
+  "compilerOptions": {
+    "rootDir": "stories",
+    "resolveJsonModule": true,
+  },
+  "include": [
+    "stories/**/*.ts",
+    "stories/**/*.tsx",
+    "stories/**/*.json"
+  ],
+  "exclude": [
+    "node_modules",
+  ],
+  "references": [
+    {
+      "path": "../packages/table",
+    }
+  ]
+}

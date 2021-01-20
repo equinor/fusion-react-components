@@ -1,0 +1,25 @@
+{
+  "name": "@equinor/fusion-react-components-stories",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "start": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@storybook/addon-actions": "^6.1.14",
+    "@storybook/addon-essentials": "^6.1.14",
+    "@storybook/addon-links": "^6.1.14",
+    "@storybook/react": "^6.1.14",
+    "babel-loader": "^8.2.2",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-is": "^17.0.1",
+    "typescript": "^4.1.3"
+  }
+}
