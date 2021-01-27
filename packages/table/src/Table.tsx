@@ -1,4 +1,3 @@
-import { FunctionComponent } from 'react';
 import { TableOptions, useTable, useSortBy, PluginHook } from 'react-table';
 import styled from 'styled-components';
 
@@ -6,19 +5,17 @@ import { useTableHeaders } from './ColumnHeader';
 import { FusionColumn, TableData } from './types';
 
 const Table = styled.table`
-   {
-    background: var(--frc-table-background);
-    font-size: var(--table-font-size, 0.8rem);
-  }
+  background: var(--frc-table-background);
+  font-size: var(--table-font-size, 0.8rem);
 `;
 
-export interface FusionTableProps<D extends TableData = TableData> extends TableOptions<D> {
+export interface FusionTableProps<D extends TableData> extends TableOptions<D> {
   columns: Array<FusionColumn<D>>;
   plugins?: Array<PluginHook<D>>;
   sort?: boolean;
 }
 
-export const FusionTable: FunctionComponent<FusionTableProps> = <D extends TableData>(props: FusionTableProps<D>) => {
+export const FusionTable = <D extends TableData>(props: FusionTableProps<D>): JSX.Element => {
   const { data, sort, plugins = [] } = props;
 
   // TODO: check if sort is allready added?

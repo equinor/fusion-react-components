@@ -4,7 +4,7 @@ import { Column } from 'react-table';
 declare module 'react-table' {
   // @ts-ignore
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  interface ColumnInstance<D extends TableData = TableData> {
+  interface ColumnInstance<D extends TableData> {
     isSorted: boolean;
     isSortedDesc: boolean;
     getSortByToggleProps: () => Record<string, unknown>;
@@ -15,7 +15,6 @@ export type TableData = Record<string, unknown>;
 
 export type TableType = 'table' | 'flex';
 
-// extends default header to allow custom attributes
-export type FusionColumn<D extends TableData = TableData> = Column<D> & {
+export type FusionColumn<D extends TableData> = Column<D> & {
   columns?: Array<FusionColumn<D>>;
 };
