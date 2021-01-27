@@ -1,16 +1,14 @@
-import { FunctionComponent, PropsWithChildren, useMemo } from 'react';
+import { PropsWithChildren, useMemo } from 'react';
 import styled from 'styled-components';
 
 import { HeaderProps } from 'react-table';
-import { FusionColumn, TableData, TableType } from './types';
+import { TableData, FusionColumn, TableType } from './types';
 
 const TableHeaderContent = styled.span`
-   {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    line-height: 1.5;
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  line-height: 1.5;
 `;
 
 const TableHeader = styled.th`
@@ -26,7 +24,7 @@ const createHeader = (type: TableType = 'table') => <D extends TableData>(column
   ({
     ...column,
     // eslint-disable-next-line react/display-name
-    Header: (args: HeaderProps<TableData>) => (
+    Header: (args: HeaderProps<D>) => (
       <FusionColumnHeader {...args} type={type}>
         <span>{column.Header}</span>
       </FusionColumnHeader>
@@ -52,7 +50,7 @@ export const useTableHeaders = <D extends TableData>(
   type: TableType = 'table'
 ): Array<FusionColumn<D>> => useMemo(() => createHeaders(type)(columns), [columns, type]);
 
-export type FusionColumnHeaderProps<D extends TableData = TableData> = PropsWithChildren<
+export type FusionColumnHeaderProps<D extends TableData> = PropsWithChildren<
   HeaderProps<D> & {
     type: TableType;
     classes?: {
@@ -61,9 +59,7 @@ export type FusionColumnHeaderProps<D extends TableData = TableData> = PropsWith
   }
 >;
 
-export const FusionColumnHeader: FunctionComponent<FusionColumnHeaderProps> = <D extends TableData>(
-  args: FusionColumnHeaderProps<D>
-) => {
+export const FusionColumnHeader = <D extends TableData>(args: FusionColumnHeaderProps<D>): JSX.Element => {
   const { column, children, type = 'table', classes = {} } = args;
   const Component = type === 'flex' ? FlexHeader : TableHeader;
   const sort = !!column.getSortByToggleProps;
