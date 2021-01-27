@@ -1,4 +1,4 @@
-import { FusionColumn, FusionTable } from '@equinor/fusion-react-table';
+import { FusionColumn, FusionTable, FusionTableProps } from '@equinor/fusion-react-table';
 import { Story, Meta } from '@storybook/react/types-6-0';
 
 export default {
@@ -9,10 +9,32 @@ export default {
 import data from './data.json';
 
 type DataType = {
-  name: string;
+  name: string | undefined;
+  address: string | undefined;
+  date: string | undefined;
+  order: string | undefined;
 };
 
 const columns: Array<FusionColumn<DataType>> = [
+  {
+    Header: 'Name',
+    accessor: 'name',
+  },
+  {
+    Header: 'Address',
+    accessor: 'address',
+  },
+  {
+    Header: 'Date',
+    accessor: 'date',
+  },
+  {
+    Header: 'Order #',
+    accessor: 'order',
+  },
+];
+
+const groupedColumns: Array<FusionColumn<DataType>> = [
   {
     Header: 'User Info',
     columns: [
@@ -41,6 +63,10 @@ const columns: Array<FusionColumn<DataType>> = [
   },
 ];
 
-const Template: Story<Text> = (args) => <FusionTable data={data} columns={columns} sort />;
+const Template: Story<FusionTableProps<DataType>> = (args) => <FusionTable {...args} />;
 
 export const SortableTable = Template.bind({});
+SortableTable.args = { data: data, columns: columns, sort: true };
+
+export const GroupedSortableTable = Template.bind({});
+GroupedSortableTable.args = { data: data, columns: groupedColumns, sort: true };
