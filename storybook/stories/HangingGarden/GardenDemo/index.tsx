@@ -15,20 +15,16 @@ import { getColumns, getYearAndWeekFromDate } from './columns/columns';
 import ProjectPopover from './components/ProjectPopover';
 import styled from 'styled-components';
 
-export const getItemSearchableValues = (workOrder: WorkOrderType): WorkOrderType => {
-  workOrder.searchableValues = [
-    workOrder.workOrderNumber,
-    workOrder.description,
-    workOrder.responsible,
-    workOrder.materialStatus,
-    workOrder.materialComments,
+export const getItemSearchableValues = (workOrder: WorkOrderType): WorkOrderType => ({
+  ...workOrder,
+  searchableValues:
+    workOrder.workOrderNumber +
+    workOrder.description +
+    workOrder.responsible +
+    workOrder.materialStatus +
+    workOrder.materialComments +
     workOrder.constructionComments,
-  ]
-    .filter((value) => value)
-    .map((value) => (value ? value.toLowerCase() : null))
-    .join();
-  return workOrder;
-};
+});
 
 export const SortWorkOrdersByFilterTerms = (workorders: WorkOrderType[]) =>
   workorders.sort((a, b) => (parseInt(a.projectProgress) || 0) - (parseInt(b.projectProgress) || 0));
