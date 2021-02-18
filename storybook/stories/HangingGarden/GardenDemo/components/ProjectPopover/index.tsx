@@ -1,8 +1,8 @@
-import WorkOrderType from '../../models/WorkOrderType';
 import styled from 'styled-components';
+import GardenItem from '../../models/GardenItem';
 
 type ProjectPopoverType = {
-  item: WorkOrderType;
+  item: GardenItem;
 };
 
 const WoPopover = styled.div`
@@ -34,7 +34,7 @@ const ProjectPopover: React.FC<ProjectPopoverType> = ({ item }) => {
             <li>
               <b>Project(ProCoSys):</b>
             </li>
-            <li>{`${item.projectIdentifier}, ${item.projectDescription}`}</li>
+            <li>{`${item.id}, ${item.description}`}</li>
           </ul>
         </div>
       </section>

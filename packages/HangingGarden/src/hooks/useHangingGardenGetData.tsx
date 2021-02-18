@@ -42,9 +42,9 @@ export const useHangingGardenGetData = <T,>(getDataAsync: (invalidateCache: bool
           return null;
         }
 
-        const cacheAgeHeader = response.headers.get('x-pp-cache-age');
-        const cacheAge = cacheAgeHeader === null || cacheAgeHeader === 'live' ? new Date() : new Date(cacheAgeHeader);
-        const cacheDurationHeader = response.headers.get('x-pp-cache-duration-minutes');
+        const cacheAgeHeader = response?.headers?.get('x-pp-cache-age');
+        const cacheAge = cacheAgeHeader == null || cacheAgeHeader === 'live' ? new Date() : new Date(cacheAgeHeader);
+        const cacheDurationHeader = response?.headers?.get('x-pp-cache-duration-minutes');
         const cacheDuration = parseInt(cacheDurationHeader || '30', 10);
 
         setIsFetching(false);

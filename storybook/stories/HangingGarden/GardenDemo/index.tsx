@@ -9,27 +9,13 @@ import {
   useHangingGardenErrorMessage,
   useHangingGardenData,
 } from '@equinor/fusion-react-hanging-garden';
-import WorkOrderType from './models/WorkOrderType';
-import { followUpColorMapHex, getFollowUpStatus, getMatStatusColor } from './helpers';
-import { getColumns, getYearAndWeekFromDate } from './columns/columns';
+import { getStateColorHex } from './helpers';
+import { fetchGardenItemsAsync, getColumns, getYearAndWeekFromDate } from './columns/columns';
 import ProjectPopover from './components/ProjectPopover';
 import styled from 'styled-components';
-import { useApiClients } from '@equinor/fusion';
+
 import { useCallback } from 'react';
-
-export const getItemSearchableValues = (workOrder: WorkOrderType): WorkOrderType => ({
-  ...workOrder,
-  searchableValues:
-    workOrder.workOrderNumber +
-    workOrder.description +
-    workOrder.responsible +
-    workOrder.materialStatus +
-    workOrder.materialComments +
-    workOrder.constructionComments,
-});
-
-export const SortWorkOrdersByFilterTerms = (workorders: WorkOrderType[]) =>
-  workorders.sort((a, b) => (parseInt(a.projectProgress) || 0) - (parseInt(b.projectProgress) || 0));
+import GardenItem from './models/GardenItem';
 
 const HangingGardenContainer = styled.div`
   display: flex;
@@ -39,58 +25,52 @@ const HangingGardenContainer = styled.div`
 `;
 
 const GardenDemo: FC = () => {
-  const apiClients = useApiClients();
+  const getData = useCallback(async () => {
+    return await fetchGardenItemsAsync();
+  }, []);
 
-  const getData = useCallback(() => {
-    return apiClients.dataProxy.getWorkOrdersAsync('2d489afd-d3ec-43f8-b7ca-cf2de5f39a89', false);
-  }, [apiClients]);
+  const { data, error, isFetching, retry } = useHangingGardenData<GardenItem>(getData);
 
-  const { data, error, isFetching, retry, invalidate, cacheIsInvalid, cacheAge } = useHangingGardenData(
-    getData,
-    SortWorkOrdersByFilterTerms,
-    getItemSearchableValues
-  );
-
-  const { errorMessage } = useHangingGardenErrorMessage('handover', error, retry);
-  const [selectedWorkOrder, setSelectedWorkOrder] = useState<WorkOrderType | null>(null);
-  const [columns, setColumns] = useState<HangingGardenColumn<WorkOrderType>[]>([]);
+  const { errorMessage } = useHangingGardenErrorMessage('Garden items', error, retry);
+  const [selectedWorkOrder, setSelectedWorkOrder] = useState<GardenItem | null>(null);
+  const [columns, setColumns] = useState<HangingGardenColumn<GardenItem>[]>([]);
   const highlightedKey = getYearAndWeekFromDate(new Date());
 
   useEffect(() => {
+    console.log('data', data);
     setColumns(getColumns(data));
   }, [data]);
+
+  useEffect(() => {
+    console.log('errorMessage', errorMessage);
+  }, [errorMessage]);
 
   const getItemWidth = () => {
     const longestKey = Math.max.apply(
       Math,
-      data.map((workOrder) => workOrder.workOrderNumber.length)
+      data.map((item) => item.id.length)
     );
 
     return Math.max(longestKey * 8 + 35, 102);
   };
 
-  const renderItem = (item: WorkOrderType, context: ItemRenderContext) => {
-    const status = getFollowUpStatus(item);
-
-    context.createRect({ x: 0, y: 0 }, { width: context.width, height: context.height }, followUpColorMapHex[status]);
-    context.enquedRender(item.workOrderNumber, (context) => {
-      const textNode = context.createTextNode(
-        item.workOrderNumber,
-        status === 'MaterialAndWoAvailable' ? 0x212121 : 0xffffff
-      );
+  const renderItem = (item: GardenItem, context: ItemRenderContext) => {
+    context.createRect({ x: 0, y: 0 }, { width: context.width, height: context.height }, getStateColorHex(item.state));
+    context.enquedRender(item.id, (context) => {
+      const textNode = context.createTextNode(item.id, item.state === 'closed' ? 0xffffff : 0x212121);
       context.graphics.addChild(textNode);
       textNode.x = 20;
       textNode.y = context.height / 2 - textNode.height / 2;
     });
 
-    context.addDot(getMatStatusColor(item), { x: context.width - 12, y: 8 });
+    context.addDot(0xffffff, { x: context.width - 12, y: 8 });
     context.addPopover(new PIXI.Rectangle(0, 0, context.width, context.height), () => <ProjectPopover item={item} />);
   };
 
   const renderHeader = (key: string, context: HeaderRenderContext) => {
     const textNode = context.createTextNode(
       context.isExpanded ? key + ' Expanded' || 'NA Expanded' : key || 'NA',
-      context.isHighlighted ? 0xffffff : 0x243746
+      context.isHighlighted ? 0xffffff : 0x212121
     );
 
     context.container.addChild(textNode);
@@ -103,18 +83,18 @@ const GardenDemo: FC = () => {
   return (
     <>
       {isFetching && <div>Loading...</div>}
-      {!isFetching && data.length && (
+      {!isFetching && Boolean(data.length) && (
         <HangingGardenContainer>
-          <HangingGarden<WorkOrderType>
+          <HangingGarden<GardenItem>
             columns={columns}
             highlightedColumnKey={highlightedKey}
             highlightedItem={selectedWorkOrder}
-            itemKeyProp={'workOrderId'}
+            itemKeyProp={'id'}
             itemWidth={getItemWidth()}
             itemHeight={24}
             renderItemContext={renderItem}
-            getItemDescription={(item: WorkOrderType) => item.description}
-            onItemClick={(item: WorkOrderType) => setSelectedWorkOrder(item)}
+            getItemDescription={(item: GardenItem) => item.description}
+            onItemClick={(item: GardenItem) => setSelectedWorkOrder(item)}
             headerHeight={40}
             renderHeaderContext={renderHeader}
             provideController={gardenController}
