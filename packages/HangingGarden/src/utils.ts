@@ -11,7 +11,7 @@ export const HIGHLIGHTED_ITEM_KEY = 'highlighted-item';
 
 export const DEFAULT_ITEM_TEXT_STYLE = new PIXI.TextStyle({
   fontFamily: 'Equinor',
-  fill: 'white',
+  fill: 'White',
   fontSize: 13,
   align: 'center',
 });

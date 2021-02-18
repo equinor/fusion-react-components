@@ -77,6 +77,14 @@ export const useHangingGardenErrorMessage = (
             onTakeAction: onTakeAction,
           };
       }
+
+      return {
+        hasError: true,
+        errorType: 'error',
+        message: error?.errorResponse?.message,
+        action: 'Retry',
+        onTakeAction: onTakeAction,
+      };
     },
     [resourceName, onTakeAction]
   );

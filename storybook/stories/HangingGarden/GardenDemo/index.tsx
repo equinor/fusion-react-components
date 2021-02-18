@@ -6,14 +6,16 @@ import {
   HeaderRenderContext,
   ItemRenderContext,
   PIXI,
-  useHangingGardenData,
   useHangingGardenErrorMessage,
+  useHangingGardenData,
 } from '@equinor/fusion-react-hanging-garden';
 import WorkOrderType from './models/WorkOrderType';
 import { followUpColorMapHex, getFollowUpStatus, getMatStatusColor } from './helpers';
 import { getColumns, getYearAndWeekFromDate } from './columns/columns';
 import ProjectPopover from './components/ProjectPopover';
 import styled from 'styled-components';
+import { useApiClients } from '@equinor/fusion';
+import { useCallback } from 'react';
 
 export const getItemSearchableValues = (workOrder: WorkOrderType): WorkOrderType => ({
   ...workOrder,
@@ -37,9 +39,14 @@ const HangingGardenContainer = styled.div`
 `;
 
 const GardenDemo: FC = () => {
+  const apiClients = useApiClients();
+
+  const getData = useCallback(() => {
+    return apiClients.dataProxy.getWorkOrdersAsync('2d489afd-d3ec-43f8-b7ca-cf2de5f39a89', false);
+  }, [apiClients]);
+
   const { data, error, isFetching, retry, invalidate, cacheIsInvalid, cacheAge } = useHangingGardenData(
-    'dataProxy',
-    'getWorkOrdersAsync',
+    getData,
     SortWorkOrdersByFilterTerms,
     getItemSearchableValues
   );

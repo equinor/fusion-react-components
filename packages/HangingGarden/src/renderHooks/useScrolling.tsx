@@ -60,6 +60,9 @@ const useScrolling = <T extends HangingGardenColumnIndex>(
               highlightedColumnIndex * itemWidth - container.current.offsetWidth / 2 + itemWidth / 2)
           : 0;
 
+      if (canvas?.current)
+        canvas.current.style.transform = `translate(${scrollLeft.current}px, ${scrollTop.current}px)`;
+
       return scrollLeft.current !== 0;
     },
     [container?.current]

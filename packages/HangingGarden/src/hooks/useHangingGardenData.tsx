@@ -1,13 +1,12 @@
-import { useCallback, useState, useRef, useEffect } from 'react';
-import { useCurrentContext, ApiClients } from '@equinor/fusion';
-import useHangingGardenGetData from './useHangingGardenGetData';
+import { useHangingGardenGetData } from './useHangingGardenGetData';
 import { formatDistance } from 'date-fns';
+import { useState, useRef, useCallback, useEffect } from 'react';
+import { HttpResponse } from '@equinor/fusion/lib/http/HttpClient';
 
 /**
  * The useHangingGardenData hook fetched and stores your raw garden data. It also gives you cache invalidation capabilities and error handling. 
  * 
- * @param client Name of ApiClient to be used when fetching data.
- * @param endpoint Name of endpoint on given ApiClient to be used when fetching data.
+ * @param getDataAsync A function that retrieves data from API Endpoint. Needs to return as a HTTPResponse Promise 
  * @param applyToFetchedData Optional. A function that takes in and return the fetched data. Can be used if one wants "massage" the dat before returned
  * @param searchableValues Optional. A function that is used in a map to add a searchable field to each fetched item. 
  * @returns data: fetched data, array of T. error: null if OK, else a GardenError object. isFetching: fetching state. retry: a function to initiate a new fetch. Will first remove current data.
@@ -43,14 +42,12 @@ export const setItemSearchableValues = (commpkg: HandoverPackage) => ({
     );
  */
 
-export const useHangingGardenData = <T, C extends keyof ApiClients, E extends keyof ApiClients[C]>(
-  client: C,
-  endpoint: E,
+export const useHangingGardenData = <T,>(
+  getDataAsync: (invalidateCache: boolean) => Promise<HttpResponse<T[]>>,
   applyToFetchedData?: ((data: T[]) => T[]) | null,
   searchableValues?: ((data: T) => T) | null
 ) => {
-  const currentContext = useCurrentContext();
-  const { isFetching, error, getData } = useHangingGardenGetData(client, endpoint);
+  const { isFetching, error, getData } = useHangingGardenGetData<T>(getDataAsync);
   const [data, setData] = useState<T[]>([]);
 
   const [cacheAgeDate, setCacheAgeDate] = useState<Date>(new Date());
@@ -84,20 +81,18 @@ export const useHangingGardenData = <T, C extends keyof ApiClients, E extends ke
 
   const fetch = useCallback(
     async (invalidateCache: boolean) => {
-      if (!currentContext) return;
-
-      const result = await getData(currentContext.id, invalidateCache);
-      setData(formatData((result?.data as T[]) || []));
+      const result = await getData(invalidateCache);
+      setData(formatData(result?.data || []));
       setCacheAgeDate(result?.cacheAge || new Date());
       setCacheDuration(result?.cacheDurationInMinutes || 30);
     },
-    [currentContext, isFetching, error, getData, formatData]
+    [isFetching, error, getData, formatData]
   );
 
   useEffect(() => {
     setData([]);
     fetch(false);
-  }, [currentContext?.id]);
+  }, [getData]);
 
   const retry = useCallback(() => {
     setData([]);

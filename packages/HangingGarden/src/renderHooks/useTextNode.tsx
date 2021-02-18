@@ -47,9 +47,9 @@ const useTextNode = () => {
           const textSprite = new PIXI.Sprite(getCharTexture(char));
           textSprite.x = x;
           textSprite.y = 0;
-          if (color) {
-            textSprite.tint = color;
-          }
+
+          textSprite.tint = color;
+
           textContainer.addChild(textSprite);
           x = x + textSprite.width;
         });

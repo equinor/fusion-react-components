@@ -1,7 +1,6 @@
-import { useState, useCallback } from 'react';
-import { HttpResponse } from '@equinor/fusion/lib/http/HttpClient';
-import { useApiClients, ApiClients } from '@equinor/fusion';
 import { GardenDataError } from '../models/GardenDataError';
+import { HttpResponse } from '@equinor/fusion/lib/http/HttpClient';
+import { useState, useCallback } from 'react';
 /**
  * The useHangingGardenGetData is used by useHangingGardenData for the acutal api call, but can be used on it own.
  *
@@ -15,19 +14,21 @@ import { GardenDataError } from '../models/GardenDataError';
  * const data = await getData(currentContext.id, true);
  *
  */
-const useHangingGardenGetData = <T, C extends keyof ApiClients, E extends keyof ApiClients[C]>(
-  client: C,
-  endpoint: E
-) => {
-  const api = useApiClients();
+export const useHangingGardenGetData = <T,>(getDataAsync: (invalidateCache: boolean) => Promise<HttpResponse<T[]>>) => {
   const [error, setError] = useState<GardenDataError | null>(null);
   const [isFetching, setIsFetching] = useState(false);
 
   const fetchData = useCallback(
-    async (currentContext: string, invalidateCache?: boolean) => {
+    async (invalidateCache?: boolean) => {
       setIsFetching(true);
       try {
-        const response = (await (api[client][endpoint] as any)(currentContext, invalidateCache)) as HttpResponse<T[]>;
+        const response = await getDataAsync(Boolean(invalidateCache));
+
+        if (response === null) {
+          setError({ errorType: 'noData' });
+          setIsFetching(false);
+          return null;
+        }
 
         if (response.status === 202) {
           setError({ errorType: 'noCache' });
@@ -61,14 +62,14 @@ const useHangingGardenGetData = <T, C extends keyof ApiClients, E extends keyof 
         return null;
       }
     },
-    [client, endpoint, api]
+    [getDataAsync]
   );
 
   const getData = useCallback(
-    (currentContext: string, invalidateCache?: boolean) => {
+    (invalidateCache?: boolean) => {
       setError(null);
       setIsFetching(false);
-      return fetchData(currentContext, invalidateCache);
+      return fetchData(invalidateCache);
     },
     [fetchData]
   );
@@ -79,5 +80,3 @@ const useHangingGardenGetData = <T, C extends keyof ApiClients, E extends keyof 
     isFetching,
   };
 };
-
-export default useHangingGardenGetData;
