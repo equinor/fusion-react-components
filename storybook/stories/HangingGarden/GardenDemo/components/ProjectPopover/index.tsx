@@ -6,10 +6,9 @@ type ProjectPopoverType = {
 };
 
 const WoPopover = styled.div`
-background-color: var(--color-white);
 ul {
     margin: 0;
-    padding: calc(var(--grid-unit) * 1px);
+    padding: 8px;
     list-style: none;
     white-space: nowrap;
 
@@ -17,7 +16,7 @@ ul {
         display: flex;
         align-items: center;
         font-size: 12px;
-        margin-bottom: calc(var(--grid-unit) * 2px);
+        margin-bottom: 16px;
 
         &:last-child {
             margin-bottom: 0;

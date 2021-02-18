@@ -44,7 +44,7 @@ const usePopover = (delay?: number): UsePopover => {
 
       hitAreaContainer.on('mouseout', () => {
         clearTimeout(timer);
-        setSelectedPopover(null);
+        //setSelectedPopover(null);
       });
 
       hitContainer.addChild(hitAreaContainer);
