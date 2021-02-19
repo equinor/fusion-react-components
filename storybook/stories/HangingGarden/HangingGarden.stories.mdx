@@ -65,15 +65,17 @@ It is not possible to have variable columns width or variable widths withing sam
 You will probably want to calculate this field.
 As you might not now the length of the text or other objects you show on your rendered items.
 
-In the example, we show the workorderNumbers for each item.
-To figure the width we find the longest workorderNumber.
+In the example, we show the id for each item.
+To figure the width we find the longest id.
 then add some additional pixels to it, and also a minimum length
 
 ```jsx
 const getItemWidth = () => {
-  const longestKey = Math.max.apply;
-  Math;
-  data.map((workOrder) => workOrder.workOrderNumber.length);
+  const longestKey = Math.max.apply(
+    Math,
+    data.map((item) => item.id.length)
+  );
+
   return Math.max(longestKey * 8 + 35, 102);
 };
 ```
@@ -107,7 +109,7 @@ Revealing an area where the itemDescription is shown.
 The arguments takes in a function that receives the items and returns a string.
 
 ```jsx
-(item: WorkOrderType) => item.description;
+(item: GardenItem) => item.description;
 ```
 
 You can do more complex thing where if needed, but you are limited to returning a string.
@@ -120,7 +122,7 @@ This function will fire when a rendered item is clicked.
 in the example this is used to set the selected Item.
 
 ```jsx
-(item: WorkOrderType) => setSelectedWorkOrder(item);
+(item: GardenItem) => setSelectedWorkOrder(item);
 ```
 
 This will then highlighted the item, and scroll to this item in the garden.
@@ -191,10 +193,10 @@ Hanging Garden component is generic and takes in the model of the data we will b
 <HangingGarden<T> {...props} />
 ```
 
-We will be working with workorders, giving us a implementations like this.
+We will be working with GardenItems, giving us a implementations like this.
 
 ```jsx
-<HangingGarden<WorkOrderType> {...props} />
+<HangingGarden<GardenItem> {...props} />
 ```
 
 ### Creating Columns
@@ -210,21 +212,25 @@ in our example we will sort the data by year/week. Meaning each column represent
 Then we check a specific field in each item and place it accordingly.
 
 ```jsx
-getColumns = (data: WorkOrderType[]) => {
+export const getColumns = (data: GardenItem[]) => {
   const highlightedKey = getYearAndWeekFromDate(new Date());
 
   const newColumns =
     data.reduce <
     HangingGardenColumn <
-    WorkOrderType >
+    GardenItem >
     [] >
-    ((columns, commpkg) => {
-      const key = commpkg.plannedStartDate ? getYearAndWeek(commpkg.plannedStartDate) : 'N/A';
-      const column = columns.find((c) => c.key === key);
-      column ? column.data.push({ ...commpkg, key }) : columns.push({ key, data: [{ ...commpkg, key }] });
+    ((columns, item) => {
+      const key = getYearAndWeekFromDate(item.date);
+      const column = columns.findIndex((c) => c.key === key);
+      column >= 0 ? columns[column].data.push(item) : columns.push({ key, data: [{ ...item }] });
+
       return columns;
     },
-    []);
+    []).map((column) => ({
+      ...column,
+      data: column.data.sort((a, b) => getStateOrder(a.state) - getStateOrder(b.state)),
+    }));
 
   const highlightedKeyIndex = newColumns.findIndex((c) => c.key === highlightedKey);
   if (highlightedKey && highlightedKeyIndex === -1) {
@@ -236,15 +242,15 @@ getColumns = (data: WorkOrderType[]) => {
 ```
 
 This function takes in all the data we have, then reduces the data into our columns array.
-It find our key by getting back the key name from getYearAndWeek (example 2020/48).
+It find our key by getting back the key name from getYearAndWeekFromDate (example 2020/48).
 Then decides if the column exists or not. If it exists we push the package into the data array.
 Else we create a new object with this key and the item into the data property.
 
 When that is done we have our columns that are technically ready to be sent into the Garden.
 but we do a couple more things to the array.
-First we check if the column we have as highlightedColumn exists, if not we add it.
+First we check if the column we have as highlightedColumn exists, if not we add it. (this is not mandatory)
 
-Then we sort the array, so early the year week is ascending.
+Then we sort the array, so earlier weeks comes first
 
 The Garden will not add, remove, sort or manipulate data in anyway on its own.
 So make sure all is in order before sending it in.
@@ -279,7 +285,7 @@ In our example it looks as follows
 const renderHeader = (key: string, context: HeaderRenderContext) => {
   const textNode = context.createTextNode(
     context.isExpanded ? key + ' Expanded' || 'NA Expanded' : key || 'NA',
-    context.isHighlighted ? 0xffffff : 0x243746
+    context.isHighlighted ? 0xffffff : 0x212121
   );
 
   context.container.addChild(textNode);
@@ -357,15 +363,13 @@ context has similarities with the header context but is not the same.
 to start of our we items we need to create the rectangle.
 
 ```jsx
-const status = getFollowUpStatus(item);
-
-context.createRect({ x: 0, y: 0 }, { width: context.width, height: context.height }, followUpColorMapHex[status]);
+context.createRect({ x: 0, y: 0 }, { width: context.width, height: context.height }, getStateColorHex(item.state));
 ```
 
 createRect creates the rectangle for us. it takes in a position, size and background color.
 We here set the position to be top left. and use the full height and width off our container.
 In most circumstance, this is how we would set this up.
-the last argument is color. We here have a function getFollowUpStatus that returns the items status.
+the last argument is color. We here have a function getStateColorHex that returns the items status.
 We then have an array with different colors based on the items status.
 Logic like we use here to get color is all up to us to create as we see fit.
 but as with header, this code will run once per item in our garden.
@@ -377,11 +381,8 @@ Then it takes a functions which will received the context object.
 In this function we will draw everything we need onto our item.
 
 ```jsx
-context.enquedRender(item.workOrderNumber, (context) => {
-  const textNode = context.createTextNode(
-    item.workOrderNumber,
-    status === 'MaterialAndWoAvailable' ? 0x212121 : 0xffffff
-  );
+context.enquedRender(item.id, (context) => {
+  const textNode = context.createTextNode(item.id, item.state === 'closed' ? 0xffffff : 0x212121);
   context.graphics.addChild(textNode);
   textNode.x = 20;
   textNode.y = context.height / 2 - textNode.height / 2;
@@ -389,7 +390,7 @@ context.enquedRender(item.workOrderNumber, (context) => {
 ```
 
 This is very similar to how we added text to to the header. Remark that we added the child to graphics here.
-We here set the workorder number as text onto the item, then center it.
+We here set the gardenitem id as text onto the item, then center it.
 we also choose a text color based on status.
 
 This is all that is needed to create an item. And our simple garden is now complete.
@@ -417,13 +418,12 @@ it takes in a color and position.
 In our example :
 
 ```jsx
-context.addDot(getMatStatusColor(item), { x: context.width - 12, y: 8 });
+context.addDot(0xffffff, { x: context.width - 12, y: 8 });
 ```
 
-We get a different color again based on the item.
-Then place it in the top right corner.
-
-We can add multiple context.addDot to the renderItem function
+In this example we will just add a withe dot to the top right corner.
+You can Add as many dots as you need.
+Just add multiple lines of context.addDot.
 
 ##### context.addPopover
 
@@ -434,17 +434,20 @@ The hit are will need to be a PIXI shape. In most cases a rectangle will be a go
 In our example:
 
 ```jsx
-context.addPopover(new PIXI.Rectangle(0, 0, context.width, context.height), () => <ProjectPopover item={item} />);
+context.addPopover(new PIXI.Rectangle(0, 0, context.width / 2, context.height), () => (
+  <ProjectPopover text={`Left hover for item ${item.id}`} />
+));
+
+context.addPopover(new PIXI.Rectangle(context.width / 2, 0, context.width / 2, context.height), () => (
+  <ProjectPopover text={`Right hover for item ${item.id}`} />
+));
 ```
 
 We create a PIXI.Rectangle. The rectangle takes in its arguments that decides it placement and size.
-In this example it covers our entire item.  
-Then we give it a function that return our popover.
+In this example we have added to popovers.  
+Each covers half of each side of the item. Giving you different popover depending on where you hover on the item.
 The component is just any React component. We can make this anyway we like.
 but it is still a hover and we will not be able to interact with it.
-
-In the same fashion as addDot, we can add as many popovers as we like.
-We just need to make sure we get our position and sizes right.
 
 ### Some useful hooks
 
@@ -453,7 +456,7 @@ These are not implemented in the garden in anyway, but can be used if found help
 
 #### useHangingGardenData
 
-This hooks fetches data based on the currentContext and the supplied endpoint.
+This hooks fetches data based on a supplied callback.
 It also has built in functionality for cache invalidation and refetch data.
 That includes handling cache age.
 This is used in many Garden to give the user an indication of how old the data is.

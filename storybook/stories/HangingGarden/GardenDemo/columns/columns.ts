@@ -7,10 +7,10 @@ export const getColumns = (data: GardenItem[]) => {
   const highlightedKey = getYearAndWeekFromDate(new Date());
 
   const newColumns = data
-    .reduce<HangingGardenColumn<GardenItem>[]>((columns, commpkg) => {
-      const key = getYearAndWeekFromDate(commpkg.date);
+    .reduce<HangingGardenColumn<GardenItem>[]>((columns, item) => {
+      const key = getYearAndWeekFromDate(item.date);
       const column = columns.findIndex((c) => c.key === key);
-      column >= 0 ? columns[column].data.push(commpkg) : columns.push({ key, data: [{ ...commpkg }] });
+      column >= 0 ? columns[column].data.push(item) : columns.push({ key, data: [{ ...item }] });
 
       return columns;
     }, [])
