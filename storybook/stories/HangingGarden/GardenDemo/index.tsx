@@ -64,7 +64,14 @@ const GardenDemo: FC = () => {
     });
 
     context.addDot(0xffffff, { x: context.width - 12, y: 8 });
-    context.addPopover(new PIXI.Rectangle(0, 0, context.width, context.height), () => <ProjectPopover item={item} />);
+
+    context.addPopover(new PIXI.Rectangle(0, 0, context.width / 2, context.height), () => (
+      <ProjectPopover text={`Left hover for item ${item.id}`} />
+    ));
+
+    context.addPopover(new PIXI.Rectangle(context.width / 2, 0, context.width / 2, context.height), () => (
+      <ProjectPopover text={`Right hover for item ${item.id}`} />
+    ));
   };
 
   const renderHeader = (key: string, context: HeaderRenderContext) => {

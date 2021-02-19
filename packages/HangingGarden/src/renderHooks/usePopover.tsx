@@ -2,8 +2,6 @@ import { useCallback, useMemo, useState } from 'react';
 import * as PIXI from 'pixi.js-legacy';
 import PopoverContainer from '../components/PopoverContainer';
 
-const POPOVER_MARGIN = 8;
-
 export type UsePopover = {
   popover: JSX.Element | null;
   addPopover: (hitContainer: PIXI.Container, hitArea: PIXI.Rectangle, renderPopover: () => JSX.Element) => void;
@@ -14,6 +12,7 @@ export type Popover = {
   left: number;
   render: () => JSX.Element;
 };
+
 /**
  * Handles popovers.
  * Holds the state of weither a popover should be shown and where.
@@ -30,13 +29,15 @@ const usePopover = (delay?: number): UsePopover => {
       hitAreaContainer.interactive = true;
       hitAreaContainer.hitArea = hitArea;
 
+      console.log('hitArea', hitArea);
+
       let timer: NodeJS.Timeout;
       hitAreaContainer.on('mouseover', () => {
         clearTimeout(timer);
         timer = setTimeout(() => {
           setSelectedPopover({
             top: hitContainer.y + hitArea.height,
-            left: hitContainer.x + hitArea.x - POPOVER_MARGIN,
+            left: hitContainer.x + hitArea.x + hitArea.width / 2,
             render: renderPopover,
           });
         }, delay || 500);
@@ -44,7 +45,7 @@ const usePopover = (delay?: number): UsePopover => {
 
       hitAreaContainer.on('mouseout', () => {
         clearTimeout(timer);
-        //setSelectedPopover(null);
+        setSelectedPopover(null);
       });
 
       hitContainer.addChild(hitAreaContainer);

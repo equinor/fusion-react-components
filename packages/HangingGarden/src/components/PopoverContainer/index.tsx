@@ -1,10 +1,8 @@
 import Arrow from './Arrow';
 import styled from 'styled-components';
-import { FC } from 'react';
+import { forwardRef, PropsWithChildren, ReactNode, Ref } from 'react';
 
 const Container = styled.div`
-  top: 100%;
-  left: 50%;
   padding: 16px;
   background-color: white;
   border-radius: 4px;
@@ -15,13 +13,15 @@ const Container = styled.div`
   margin-top: 8px;
 `;
 
-const PopoverContainer: FC = ({ children }) => {
+const PopoverContainer = forwardRef<HTMLDivElement | null, PropsWithChildren<ReactNode>>(({ children }, ref) => {
   return (
-    <Container>
+    <Container ref={ref as Ref<HTMLDivElement>}>
       <Arrow />
       <div>{children}</div>
     </Container>
   );
-};
+});
+
+PopoverContainer.displayName = 'PopoverContainer';
 
 export default PopoverContainer;
