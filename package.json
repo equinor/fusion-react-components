@@ -4,8 +4,9 @@
   "description": "colleaction of fusion components",
   "main": "index.js",
   "scripts": {
+    "install": "lerna bootstrap",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "npm run start --prefix storybook",
     "build-storybook": "build-storybook"
   },
   "repository": {
