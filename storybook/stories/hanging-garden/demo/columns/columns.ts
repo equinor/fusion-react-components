@@ -1,6 +1,6 @@
 import { format } from 'date-fns';
 import { HangingGardenColumn } from '@equinor/fusion-react-hanging-garden';
-import GardenItem, { ItemState } from '../models/GardenItem';
+import GardenItem, { ItemState } from '../models/garden-item';
 import { getStateOrder } from '../helpers';
 
 export const getColumns = (data: GardenItem[]) => {

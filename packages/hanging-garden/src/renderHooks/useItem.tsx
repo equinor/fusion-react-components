@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import { useCallback, useRef } from 'react';
 import * as PIXI from 'pixi.js-legacy';
 import { useHangingGardenContext } from './useHangingGardenContext';
 import useTextNode from './useTextNode';
@@ -62,6 +62,8 @@ const useItem = <T extends HangingGardenColumnIndex>() => {
     [pixiApp, getTextureFromCache, addTextureToCache]
   );
 
+  const clickRef = useRef<boolean>();
+
   const renderItem = useCallback(
     (item: T, index: number, columnIndex: number) => {
       const x = getColumnX(columnIndex, expandedColumns, itemWidth);
@@ -76,8 +78,15 @@ const useItem = <T extends HangingGardenColumnIndex>() => {
         renderedItem.height = itemHeight;
         renderedItem.buttonMode = true;
         renderedItem.interactive = true;
+        renderedItem.on('pointerdown', (e: PIXI.InteractionEvent) => {
+          clickRef.current = true;
+          e.data.pointerType === 'touch' && setTimeout(() => (clickRef.current = false), 50);
+        });
+
+        renderedItem.on('pointerup', () => {
+          clickRef.current && onItemClick(item);
+        });
         renderedItem.on('click', () => onItemClick(item));
-        renderedItem.on('touchend', () => onItemClick(item));
         const graphicsContext = new PIXI.Graphics();
         graphicsContext.cacheAsBitmap = true;
         renderedItem.addChild(graphicsContext);

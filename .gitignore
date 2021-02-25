@@ -77,3 +77,5 @@ yalc.lock
 # ignore lock file of packages - might include later, usally conflixt with hoisting
 packages/**/package-lock.json
 packages/**/dist
+
+storybook/package-lock.json

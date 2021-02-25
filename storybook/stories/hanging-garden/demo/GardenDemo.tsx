@@ -11,11 +11,11 @@ import {
 } from '@equinor/fusion-react-hanging-garden';
 import { getStateColorHex } from './helpers';
 import { fetchGardenItemsAsync, getColumns, getYearAndWeekFromDate } from './columns/columns';
-import ProjectPopover from './components/ProjectPopover';
+import ProjectPopover from './components/project-popover';
 import styled from 'styled-components';
 
 import { useCallback } from 'react';
-import GardenItem from './models/GardenItem';
+import GardenItem from './models/garden-item';
 
 const HangingGardenContainer = styled.div`
   display: flex;

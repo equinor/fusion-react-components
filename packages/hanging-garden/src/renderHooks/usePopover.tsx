@@ -29,8 +29,6 @@ const usePopover = (delay?: number): UsePopover => {
       hitAreaContainer.interactive = true;
       hitAreaContainer.hitArea = hitArea;
 
-      console.log('hitArea', hitArea);
-
       let timer: NodeJS.Timeout;
       hitAreaContainer.on('mouseover', () => {
         clearTimeout(timer);

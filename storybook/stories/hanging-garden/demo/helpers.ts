@@ -1,4 +1,4 @@
-import { ItemState } from './models/GardenItem';
+import { ItemState } from './models/garden-item';
 import { PIXI } from '@equinor/fusion-react-hanging-garden';
 
 const StateColorMap: Record<ItemState, string> = {

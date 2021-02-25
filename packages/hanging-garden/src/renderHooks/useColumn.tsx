@@ -26,7 +26,8 @@ const useColumn = <T,>() => {
       const endRow = Math.min(column.data.length, Math.ceil((scrollTop.current + offSetHeigth) / itemHeight));
 
       for (let i = startRow; i < endRow; i++) {
-        renderItem(column.data[i], i, index);
+        const item = column.data[i];
+        item && renderItem(item, i, index);
       }
 
       renderHeader(column.key, index);
