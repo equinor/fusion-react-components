@@ -5,11 +5,11 @@ import GardenDemo from './GardenDemo';
 
 <Meta title="Hanging Garden" component={GardenDemo} />
 
-export const Garden = () => <GardenDemo />;
+export const Garden = (args) => <GardenDemo {...args}/>;
 
 # Hanging Garden Component
 
-<Story name="Hanging Garden">{Garden}</Story>
+<Story name="Hanging Garden"  args={{ rows: 5000, height: 500 }}>{Garden}</Story>
 
 <br />
 <br />

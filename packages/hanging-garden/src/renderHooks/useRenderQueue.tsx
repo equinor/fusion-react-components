@@ -33,31 +33,30 @@ const useRenderQueue = (): RenderQueue => {
         render,
         context,
       });
-
-      return;
+      processRenderQueue();
     },
     [renderQueue.current]
   );
 
-  const processRenderQueue = React.useCallback(() => {
-    if (isRendering.current || !renderQueue.current.length) {
+  const processRenderQueue = React.useCallback(async () => {
+    if (isRendering.current || !renderQueue.current.length) return;
+
+    const queueLength = 50;
+    const renderers = renderQueue.current.splice(0, queueLength);
+
+    isRendering.current = true;
+
+    Promise.all(renderers.map(processRenderer)).then(() => {
       if (!renderQueue.current.length) {
         pixiApp.current?.render();
       }
-
-      return;
-    }
-
-    isRendering.current = true;
-    const renderers = renderQueue.current.splice(0, 100);
-    renderers.forEach(processRenderer);
-    pixiApp.current?.render();
-    isRendering.current = false;
-    window.requestAnimationFrame(processRenderQueue);
-  }, [isRendering.current, pixiApp, renderQueue.current]);
+      isRendering.current = false;
+      window.requestAnimationFrame(processRenderQueue);
+    });
+  }, [isRendering, pixiApp, renderQueue]);
 
   const processRenderer = React.useCallback(
-    (renderer: RenderItem) => {
+    async (renderer: RenderItem) => {
       let graphicsContainer = getTextureFromCache('graphics', renderer.key) as PIXI.RenderTexture;
 
       if (!graphicsContainer) {

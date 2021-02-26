@@ -17,17 +17,23 @@ import styled from 'styled-components';
 import { useCallback } from 'react';
 import GardenItem from './models/garden-item';
 
-const HangingGardenContainer = styled.div`
+const HangingGardenContainer = styled.div<any>`
   display: flex;
   flex: 1 1 auto;
-  height: 500px;
+  height: ${({height}) => height && `${height}px`};
   min-width: 0;
 `;
 
-const GardenDemo: FC = () => {
+export type GardenDemoProps = {
+  rows?: number;
+  height?: number;
+}
+
+
+const GardenDemo: FC<GardenDemoProps> = ({rows, height}) => {
   const getData = useCallback(async () => {
-    return await fetchGardenItemsAsync();
-  }, []);
+    return await fetchGardenItemsAsync(rows);
+  }, [rows]);
 
   const { data, error, isFetching, retry } = useHangingGardenData<GardenItem>(getData);
 
@@ -91,7 +97,7 @@ const GardenDemo: FC = () => {
     <>
       {isFetching && <div>Loading...</div>}
       {!isFetching && Boolean(data.length) && (
-        <HangingGardenContainer>
+        <HangingGardenContainer height={height}>
           <HangingGarden<GardenItem>
             columns={columns}
             highlightedColumnKey={highlightedKey}

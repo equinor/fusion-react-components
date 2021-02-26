@@ -110,9 +110,6 @@ const useItem = <T extends HangingGardenColumnIndex>() => {
 
         renderItemContext(item, itemRenderContext);
 
-        window.cancelAnimationFrame(processRenderQueueAnimationFrame.current);
-        processRenderQueueAnimationFrame.current = window.requestAnimationFrame(processRenderQueue);
-
         addTextureToCache('items', item[itemKeyProp as keyof T], renderedItem);
       }
 
