@@ -7,11 +7,11 @@ declare module 'react-table' {
   interface ColumnInstance<D extends TableData> {
     isSorted: boolean;
     isSortedDesc: boolean;
-    getSortByToggleProps: () => Record<string, unknown>;
+    getSortByToggleProps: () => TableData;
   }
 }
 
-export type TableData = Record<string, unknown>;
+export type TableData = Record<string | number, unknown>;
 
 export type TableType = 'table' | 'flex';
 
