@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.1-alpha.3](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-table@0.0.1-alpha.1...@equinor/fusion-react-table@0.0.1-alpha.3) (2021-03-02)
+
+
+### Bug Fixes
+
+* added export for types ([19dcaaf](https://github.com/equinor/fusion-react-components/commit/19dcaaff564c5c5d49d8a13d94d5c22c3e19a9cd))
+* added number type ([ebe3fe6](https://github.com/equinor/fusion-react-components/commit/ebe3fe6fb885f411c92290a21a385c040d63afc5))
+* change format of eslint ([25bc7e8](https://github.com/equinor/fusion-react-components/commit/25bc7e87c6bf3eef56e4993b4bc9d7737e7530cc))
+* fixed types for table ([cd34799](https://github.com/equinor/fusion-react-components/commit/cd347990bb89ea98f932bb4b4ed6800a9cabea1d))
+* moved react-table dependency ([0233303](https://github.com/equinor/fusion-react-components/commit/023330335d70bb8a7aea263652f9a2d15e1079c2))
+* upped version ([0bf4b67](https://github.com/equinor/fusion-react-components/commit/0bf4b67662a33e4c1b46a1e08c9e48b25ad3eeec))
+
+
+### Features
+
+* setup basic straucture of table ([9a0fb62](https://github.com/equinor/fusion-react-components/commit/9a0fb62fcc2f42de40aff568e3251dcd5ab3d15a))
+
+
+
+
+
+
 ## [0.0.1-alpha.2](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-table@0.0.1-alpha.1...@equinor/fusion-react-table@0.0.1-alpha.2) (2021-01-27)
 
 
