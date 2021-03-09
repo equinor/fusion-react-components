@@ -27,7 +27,6 @@ export const FusionTable = <D extends TableData>(props: FusionTableProps<D>): JS
 
   return (
     <div>
-      <h1>test</h1>
       <Table {...getTableProps()}>
         {headerGroups.map((headerGroup) => (
           // eslint-disable-next-line react/jsx-key
