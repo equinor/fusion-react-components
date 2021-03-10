@@ -2,19 +2,13 @@
   "extends": "../tsconfig.base.json",
   "compilerOptions": {
     "rootDir": "stories",
-    "resolveJsonModule": true,
+    "resolveJsonModule": true
   },
-  "include": [
-    "stories/**/*.ts",
-    "stories/**/*.tsx",
-    "stories/**/*.json"
-  ],
-  "exclude": [
-    "node_modules",
-  ],
+  "include": ["stories/**/*.ts", "stories/**/*.tsx", "stories/**/*.json"],
+  "exclude": ["node_modules"],
   "references": [
     {
-      "path": "../packages/table",
+      "path": "../packages/hanging-garden"
     }
   ]
 }
