@@ -13,9 +13,6 @@ const useStyle = makeStyles(
         alignItems: 'center',
         ...theme.typography.table.cell_header.style,
       },
-      elg: {
-        color: 'red',
-      },
     }),
   { name: 'fusion-table-header' }
 );
@@ -68,7 +65,6 @@ export const FusionColumnHeader = <D extends TableData>(args: FusionColumnHeader
   const styles = useStyle();
   return (
     <div {...attr} className={styles.root}>
-      <p className={styles.elg}></p>
       {children}
       {sort && <span>{column.isSorted ? (column.isSortedDesc ? '⬇' : '⬆') : ''}</span>}
     </div>

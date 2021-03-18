@@ -10,6 +10,13 @@ const useStyles = makeStyles(
     createStyles({
       root: {
         ...theme.typography.table.cell_text.style,
+        borderCollapse: 'collapse',
+      },
+      thead: {
+        background: theme.colors.interactive.table__header__fill_resting.value.hex,
+      },
+      cellSpacing: {
+        ...theme.spacing.comfortable.x_small.style,
       },
     }),
   { name: 'fusion-table' }
@@ -33,18 +40,18 @@ export const FusionTable = <D extends TableData>(props: FusionTableProps<D>): JS
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({ columns, data }, ...plugins);
 
-  const omg = clsx(styles.root);
-
   return (
     <div>
-      <table {...getTableProps()} className={omg}>
-        <thead>
+      <table {...getTableProps()} className={styles.root}>
+        <thead className={styles.thead}>
           {headerGroups.map((headerGroup) => (
             // eslint-disable-next-line react/jsx-key
             <tr {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map((column) => (
                 // eslint-disable-next-line react/jsx-key
-                <th {...column.getHeaderProps()}>{column.render('Header')}</th>
+                <th {...column.getHeaderProps()} className={clsx(styles.cellSpacing)}>
+                  {column.render('Header')}
+                </th>
               ))}
             </tr>
           ))}
@@ -57,7 +64,9 @@ export const FusionTable = <D extends TableData>(props: FusionTableProps<D>): JS
               <tr {...row.getRowProps()}>
                 {row.cells.map((cell) => (
                   // eslint-disable-next-line react/jsx-key
-                  <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
+                  <td {...cell.getCellProps()} className={clsx(styles.cellSpacing)}>
+                    {cell.render('Cell')}
+                  </td>
                 ))}
               </tr>
             );
