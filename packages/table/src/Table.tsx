@@ -14,9 +14,13 @@ const useStyles = makeStyles(
       },
       thead: {
         background: theme.colors.interactive.table__header__fill_resting.value.hex,
+        borderWidth: '2px',
       },
-      cellSpacing: {
+      cell: {
         ...theme.spacing.comfortable.x_small.style,
+      },
+      row: {
+        borderBottom: `1px solid ${theme.colors.ui.background__medium.value.hex}`,
       },
     }),
   { name: 'fusion-table' }
@@ -43,13 +47,13 @@ export const FusionTable = <D extends TableData>(props: FusionTableProps<D>): JS
   return (
     <div>
       <table {...getTableProps()} className={styles.root}>
-        <thead className={styles.thead}>
+        <thead className={clsx(styles.thead, styles.row)}>
           {headerGroups.map((headerGroup) => (
             // eslint-disable-next-line react/jsx-key
             <tr {...headerGroup.getHeaderGroupProps()}>
               {headerGroup.headers.map((column) => (
                 // eslint-disable-next-line react/jsx-key
-                <th {...column.getHeaderProps()} className={clsx(styles.cellSpacing)}>
+                <th {...column.getHeaderProps()} className={clsx(styles.cell)}>
                   {column.render('Header')}
                 </th>
               ))}
@@ -61,10 +65,10 @@ export const FusionTable = <D extends TableData>(props: FusionTableProps<D>): JS
             prepareRow(row);
             return (
               // eslint-disable-next-line react/jsx-key
-              <tr {...row.getRowProps()}>
+              <tr {...row.getRowProps()} className={styles.row}>
                 {row.cells.map((cell) => (
                   // eslint-disable-next-line react/jsx-key
-                  <td {...cell.getCellProps()} className={clsx(styles.cellSpacing)}>
+                  <td {...cell.getCellProps()} className={clsx(styles.cell)}>
                     {cell.render('Cell')}
                   </td>
                 ))}
