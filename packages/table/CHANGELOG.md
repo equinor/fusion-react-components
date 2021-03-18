@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.1.0-alpha.1](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-table@0.1.0-alpha.0...@equinor/fusion-react-table@0.1.0-alpha.1) (2021-03-18)
+
+
+### Bug Fixes
+
+* update styles ([0cdf309](https://github.com/equinor/fusion-react-components/commit/0cdf309292f45660947cb24a0b2fc6075b51aedc))
+
+
+
+
+
 # [0.1.0-alpha.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-table@0.0.1-alpha.1...@equinor/fusion-react-table@0.1.0-alpha.0) (2021-03-18)
 
 
