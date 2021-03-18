@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0-alpha.4](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.1.0-alpha.3...@equinor/fusion-react-components-stories@1.1.0-alpha.4) (2021-03-18)
+
+
+### Features
+
+* add adjustable spacing ([a9dd9e4](https://github.com/equinor/fusion-react-components/commit/a9dd9e4e127bcc7aa246215f9c035fd09c12450f))
+
+
+
+
+
 # [1.1.0-alpha.3](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.1.0-alpha.2...@equinor/fusion-react-components-stories@1.1.0-alpha.3) (2021-03-18)
 
 **Note:** Version bump only for package @equinor/fusion-react-components-stories

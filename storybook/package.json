@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-components-stories",
-  "version": "1.1.0-alpha.3",
+  "version": "1.1.0-alpha.4",
   "description": "",
   "private": true,
   "scripts": {
@@ -12,7 +12,7 @@
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.12.10",
-    "@equinor/fusion-react-table": "^0.1.0-alpha.3",
+    "@equinor/fusion-react-table": "^0.1.0-alpha.4",
     "@storybook/addon-actions": "^6.1.14",
     "@storybook/addon-essentials": "^6.1.14",
     "@storybook/addon-links": "^6.1.14",
