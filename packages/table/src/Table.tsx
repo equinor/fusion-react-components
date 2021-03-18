@@ -14,13 +14,19 @@ const useStyles = makeStyles(
       },
       thead: {
         background: theme.colors.interactive.table__header__fill_resting.value.hex,
-        borderWidth: '2px',
+        borderBottom: `2px solid ${theme.colors.ui.background__medium.value.hex}`,
+        '& th:hover': {
+          background: theme.colors.interactive.table__header__fill_hover.value.rgba,
+        },
       },
       cell: {
         ...theme.spacing.comfortable.x_small.style,
       },
       row: {
         borderBottom: `1px solid ${theme.colors.ui.background__medium.value.hex}`,
+        '&:hover': {
+          background: theme.colors.interactive.table__cell__fill_hover.value.rgba,
+        },
       },
     }),
   { name: 'fusion-table' }
@@ -47,7 +53,7 @@ export const FusionTable = <D extends TableData>(props: FusionTableProps<D>): JS
   return (
     <div>
       <table {...getTableProps()} className={styles.root}>
-        <thead className={clsx(styles.thead, styles.row)}>
+        <thead className={clsx(styles.thead)}>
           {headerGroups.map((headerGroup) => (
             // eslint-disable-next-line react/jsx-key
             <tr {...headerGroup.getHeaderGroupProps()}>
