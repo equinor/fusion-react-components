@@ -63,7 +63,7 @@ const groupedColumns: Array<FusionColumn<DataType>> = [
   },
 ];
 
-const Template: Story<FusionTableProps<DataType>> = (args) => <FusionTable {...args} />;
+const Template: Story<FusionTableProps<DataType>> = (args) => <FusionTable {...args} style={{width: '100%'}} />;
 
 export const SortableTable = Template.bind({});
 SortableTable.args = { data: data, columns: columns, sort: true };
