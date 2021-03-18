@@ -1,13 +1,19 @@
 import { TableOptions, useTable, useSortBy, PluginHook } from 'react-table';
-import styled from 'styled-components';
+
+import { makeStyles, createStyles, clsx } from '@equinor/fusion-react-styles';
 
 import { useTableHeaders } from './ColumnHeader';
 import { FusionColumn, TableData } from './types';
 
-const Table = styled.table`
-  background: var(--frc-table-background);
-  font-size: var(--table-font-size, 0.8rem);
-`;
+const useStyles = makeStyles(
+  (theme) =>
+    createStyles({
+      root: {
+        ...theme.typography.table.cell_text.style,
+      },
+    }),
+  { name: 'fusion-table' }
+);
 
 export interface FusionTableProps<D extends TableData> extends TableOptions<D> {
   columns: Array<FusionColumn<D>>;
@@ -18,6 +24,8 @@ export interface FusionTableProps<D extends TableData> extends TableOptions<D> {
 export const FusionTable = <D extends TableData>(props: FusionTableProps<D>): JSX.Element => {
   const { data, sort, plugins = [] } = props;
 
+  const styles = useStyles();
+
   // TODO: check if sort is allready added?
   sort && plugins.push(useSortBy);
 
@@ -25,9 +33,11 @@ export const FusionTable = <D extends TableData>(props: FusionTableProps<D>): JS
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({ columns, data }, ...plugins);
 
+  const omg = clsx(styles.root);
+
   return (
     <div>
-      <Table {...getTableProps()}>
+      <table {...getTableProps()} className={omg}>
         <thead>
           {headerGroups.map((headerGroup) => (
             // eslint-disable-next-line react/jsx-key
@@ -53,7 +63,7 @@ export const FusionTable = <D extends TableData>(props: FusionTableProps<D>): JS
             );
           })}
         </tbody>
-      </Table>
+      </table>
     </div>
   );
 };

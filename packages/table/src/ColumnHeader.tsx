@@ -1,24 +1,24 @@
 import { PropsWithChildren, useMemo } from 'react';
-import styled from 'styled-components';
 
 import { HeaderProps } from 'react-table';
 import { TableData, FusionColumn, TableType } from './types';
+import { createStyles, makeStyles } from '@equinor/fusion-react-styles';
 
-const TableHeaderContent = styled.span`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  line-height: 1.5;
-`;
-
-const TableHeader = styled.th`
-  ${TableHeaderContent} {
-  }
-`;
-const FlexHeader = styled.div`
-  ${TableHeaderContent} {
-  }
-`;
+const useStyle = makeStyles(
+  (theme) =>
+    createStyles({
+      root: {
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        ...theme.typography.table.cell_header.style,
+      },
+      elg: {
+        color: 'red',
+      },
+    }),
+  { name: 'fusion-table-header' }
+);
 
 const createHeader = (type: TableType = 'table') => <D extends TableData>(column: FusionColumn<D>): FusionColumn<D> =>
   ({
@@ -61,16 +61,17 @@ export type FusionColumnHeaderProps<D extends TableData> = PropsWithChildren<
 
 export const FusionColumnHeader = <D extends TableData>(args: FusionColumnHeaderProps<D>): JSX.Element => {
   const { column, children, type = 'table', classes = {} } = args;
-  const Component = type === 'flex' ? FlexHeader : TableHeader;
+  type;
+  classes;
   const sort = !!column.getSortByToggleProps;
   const attr = sort ? column.getHeaderProps(column.getSortByToggleProps()) : column.getHeaderProps();
+  const styles = useStyle();
   return (
-    <Component {...attr} className={classes.tableContent}>
-      <TableHeaderContent>
-        {children}
-        {sort && <span>{column.isSorted ? (column.isSortedDesc ? '⬇' : '⬆') : ''}</span>}
-      </TableHeaderContent>
-    </Component>
+    <div {...attr} className={styles.root}>
+      <p className={styles.elg}></p>
+      {children}
+      {sort && <span>{column.isSorted ? (column.isSortedDesc ? '⬇' : '⬆') : ''}</span>}
+    </div>
   );
 };
 
