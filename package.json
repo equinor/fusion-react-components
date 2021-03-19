@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "install": "lerna bootstrap",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "lerna run test",
+    "lint": "lerna run lint",
+    "lint:report": "eslint --output-file eslint-report.log.json --format json packages/*/src",
     "storybook": "npm run start --prefix storybook",
     "storybook:install": "npm i --prefix storybook",
     "build-storybook": "build-storybook",
