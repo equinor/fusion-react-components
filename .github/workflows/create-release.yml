@@ -1,0 +1,27 @@
+
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  publish-gpr:
+    name: Create release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v2
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Config git user
+        run: |
+          git config --global user.name "${{ github.actor }}"
+          git config --global user.email "${{ github.actor }}@users.noreply.github.com"
+
+      - name: Bump versions
+        run: npx lerna version --yes --conventional-graduate --no-private --create-release github
+        env:
+          GH_TOKEN: ${{ github.token }}
