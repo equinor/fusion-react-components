@@ -11,7 +11,6 @@ jobs:
   publish-gpr:
     name: Publish to PR
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master'
     steps:
 
       - name: Checkout project
