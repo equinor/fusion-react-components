@@ -22,7 +22,6 @@ jobs:
         uses: actions/setup-node@v2
         with:
           registry-url: https://registry.npmjs.org
-          scope: '@equinor'
 
       - name: Config git user
         run: |
