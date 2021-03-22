@@ -1,0 +1,31 @@
+name: Publish package
+
+on:
+  release:
+    types: 
+      - published
+
+jobs:
+  publish-gpr:
+    name: Publish release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-node@v2
+
+      - name: Cache Node Modules
+        id: cache-node
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: ${{ runner.OS }}-build-${{ hashFiles('**/package.json') }}
+      
+      - name: Install Node Dependencies
+        if: steps.cache-node.outputs.cache-hit != 'true'
+        run: npm install
+        env:
+          CI: TRUE
+
+      - name: Release packages
+        run: npx lerna publish from-package --yes
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
