@@ -11,7 +11,6 @@ jobs:
   publish-gpr:
     name: Publish to PR
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master'
     steps:
 
       - name: Checkout project
@@ -41,8 +40,7 @@ jobs:
           CI: TRUE
 
       - name: Bump versions (pre-release)
-        run: | 
-          npx lerna version --yes --conventional-prerelease --no-changelog --no-git-tag-version --no-private --preid ${{ github.event.inputs.tag }}
+        run: npx lerna version --yes --conventional-prerelease --no-changelog --no-git-tag-version --no-private --preid ${{ github.event.inputs.tag }}
         env:
           GH_TOKEN: ${{ github.token }}
 
@@ -51,8 +49,8 @@ jobs:
             git add packages/*/package.json 
             git commit -m'chore(prerelease): bumped version with tag ${{ github.event.inputs.tag }}'
             git push
-          env:
-            GH_TOKEN: ${{ github.token }}
+        env:
+          GH_TOKEN: ${{ github.token }}
 
       - name: Release packages
         run: npx lerna publish from-package --yes --dist-tag ${{ github.event.inputs.tag }}
