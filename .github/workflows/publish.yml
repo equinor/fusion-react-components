@@ -21,11 +21,11 @@ jobs:
       
       - name: Install Node Dependencies
         if: steps.cache-node.outputs.cache-hit != 'true'
-        run: npm install
+        run: npm ci
         env:
           CI: TRUE
 
       - name: Release packages
-        run: npx lerna publish from-package --yes
+        run: npx lerna publish from-package --yes --no-verify-access
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
