@@ -7,11 +7,10 @@
     "install": "lerna bootstrap",
     "test": "lerna run test",
     "lint": "lerna run lint",
-    "build": "lerna run build",
+    "build": "lerna run build --ignore '@equinor/fusion-react-components-stories'",
     "lint:report": "eslint --output-file eslint-report.log.json --format json packages/*/src",
     "storybook": "npm run start --prefix storybook",
-    "storybook:install": "npm i --prefix storybook",
-    "build-storybook": "build-storybook",
+    "storybook:build": "npm run build --prefix storybook",
     "npm:clean": "rm -rf node_modules && lerna exec 'rm -rf node_modules'"
   },
   "repository": {

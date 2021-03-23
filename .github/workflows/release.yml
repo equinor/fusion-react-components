@@ -8,7 +8,7 @@ on:
       - 'packages/**'
 
 jobs:
-  publish-gpr:
+  release-pkg:
     name: Create release
     runs-on: ubuntu-latest
     steps:
@@ -28,7 +28,7 @@ jobs:
           git fetch --depth=1 origin +refs/tags/*:refs/tags/*
 
       - name: Bump versions
-        run: npx lerna version --yes --conventional-graduate --no-private --create-release github
+        run: npx lerna version --yes --conventional-graduate --create-release github
         env:
           GH_TOKEN: ${{ github.token }}
 

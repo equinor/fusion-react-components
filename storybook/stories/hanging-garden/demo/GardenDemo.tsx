@@ -12,17 +12,22 @@ import {
 import { getStateColorHex } from './helpers';
 import { fetchGardenItemsAsync, getColumns, getYearAndWeekFromDate } from './columns/columns';
 import ProjectPopover from './components/project-popover';
-import styled from 'styled-components';
+import { createStyles, FusionTheme, makeStyles } from '@equinor/fusion-react-styles';
+
 
 import { useCallback } from 'react';
 import GardenItem from './models/garden-item';
 
-const HangingGardenContainer = styled.div<any>`
-  display: flex;
-  flex: 1 1 auto;
-  height: ${({height}) => height && `${height}px`};
-  min-width: 0;
-`;
+const useStyles = makeStyles<FusionTheme, {height?:number}>(() =>
+  createStyles({
+    root: ({height}) => ({
+      height,
+      display: 'flex',
+      flex: '1 1 auto',
+      minWidth: 0
+    }),
+  })
+);
 
 export type GardenDemoProps = {
   rows?: number;
@@ -50,6 +55,8 @@ const GardenDemo: FC<GardenDemoProps> = ({rows, height}) => {
   useEffect(() => {
     console.log('errorMessage', errorMessage);
   }, [errorMessage]);
+
+  const style = useStyles({height});
 
   const getItemWidth = () => {
     const longestKey = Math.max.apply(
@@ -97,7 +104,7 @@ const GardenDemo: FC<GardenDemoProps> = ({rows, height}) => {
     <>
       {isFetching && <div>Loading...</div>}
       {!isFetching && Boolean(data.length) && (
-        <HangingGardenContainer height={height}>
+        <div className={style.root}>
           <HangingGarden<GardenItem>
             columns={columns}
             highlightedColumnKey={highlightedKey}
@@ -112,7 +119,7 @@ const GardenDemo: FC<GardenDemoProps> = ({rows, height}) => {
             renderHeaderContext={renderHeader}
             provideController={gardenController}
           />
-        </HangingGardenContainer>
+        </div>
       )}
     </>
   );
