@@ -8,7 +8,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
-      - name: Checkout project
+      - name: Checkout main
+        uses: actions/checkout@v2
+        with:
+          ref: main
+
+      - name: Checkout docs
         uses: actions/checkout@v2
         with:
           ref: docs
@@ -22,9 +27,7 @@ jobs:
           git config --global user.email "${{ github.actor }}@users.noreply.github.com"
 
       - name: update branch
-        run: |
-          git fetch main
-          git merge main
+        run: git merge main
 
       - name: Install Node Dependencies
         if: steps.cache-node.outputs.cache-hit != 'true'
