@@ -1,6 +1,7 @@
 # `@equinor/fusion-react-table`
 
 > WIP - more docs comming
+
 ## Basic
 ```tsx
 const data = [
