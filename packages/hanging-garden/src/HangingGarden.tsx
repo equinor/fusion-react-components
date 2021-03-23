@@ -8,8 +8,9 @@ import { ExpandedColumns } from './models/ExpandedColumn';
 import useScrolling from './renderHooks/useScrolling';
 import usePixiApp from './renderHooks/usePixiApp';
 import usePopover from './renderHooks/usePopover';
-import styled from 'styled-components';
 import { useState, useRef, useEffect } from 'react';
+
+import { makeStyles, createStyles } from '@equinor/fusion-react-styles';
 
 /**
  * The Hanging Garden component renders you a Garden based on supplied parameters.
@@ -29,12 +30,16 @@ import { useState, useRef, useEffect } from 'react';
  * @param backgroundColor Backgroun color for the garden. Defaults to  white(0xffffff),
  */
 
-const HangingGardenContainer = styled.div`
-  display: flex;
-  flex: 1 1 auto;
-  height: 100%;
-  min-width: 0;
-`;
+const useStyles = makeStyles(() =>
+  createStyles({
+    root: {
+      display: 'flex',
+      flex: '1 1 auto',
+      height: '100%',
+      minWidth: 0,
+    },
+  })
+);
 
 function HangingGarden<T extends HangingGardenColumnIndex>({
   columns,
@@ -68,8 +73,10 @@ function HangingGarden<T extends HangingGardenColumnIndex>({
     textureCaches.clearItemTextureCaches();
   }, [itemHeight, itemWidth]);
 
+  const styles = useStyles();
+
   return (
-    <HangingGardenContainer>
+    <div className={styles.root}>
       {columns.length && (
         <HangingGardenContext.Provider
           value={{
@@ -101,7 +108,7 @@ function HangingGarden<T extends HangingGardenColumnIndex>({
           <Garden<T> provideController={provideController} />
         </HangingGardenContext.Provider>
       )}
-    </HangingGardenContainer>
+    </div>
   );
 }
 

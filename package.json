@@ -7,6 +7,7 @@
     "install": "lerna bootstrap",
     "test": "lerna run test",
     "lint": "lerna run lint",
+    "build": "lerna run build",
     "lint:report": "eslint --output-file eslint-report.log.json --format json packages/*/src",
     "storybook": "npm run start --prefix storybook",
     "storybook:install": "npm i --prefix storybook",

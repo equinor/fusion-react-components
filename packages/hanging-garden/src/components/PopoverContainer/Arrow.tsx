@@ -1,17 +1,29 @@
-import styled from 'styled-components';
+import { makeStyles, createStyles } from '@equinor/fusion-react-styles';
 
-const ArrowContainer = styled.svg`
-  position: absolute;
-  width: 12px;
-  height: 8px;
-  left: 50%;
-  bottom: 100%;
-  transform: translateX(-50%);
-`;
+const useStyles = makeStyles(() =>
+  createStyles({
+    root: {
+      position: 'absolute',
+      width: '12px',
+      height: '8px',
+      left: '50%',
+      bottom: '100%',
+      transform: 'translateX(-50%)',
+    },
+  })
+);
 
 const Arrow = () => {
+  const styles = useStyles();
   return (
-    <ArrowContainer width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      width="12"
+      height="8"
+      viewBox="0 0 12 8"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      className={styles.root}
+    >
       <path
         d="M9.79423 7.5L10.7152 7.5L10.2135 6.72765L7.15506 2.0188C6.56361 1.10821 5.23062 1.10821 4.63917 2.0188L1.58069 6.72765L1.07903 7.5L2 7.5L9.79423 7.5Z"
         fill="white"
@@ -21,7 +33,7 @@ const Arrow = () => {
         d="M5.29289 3.70711C5.68342 3.31658 6.31658 3.31658 6.70711 3.70711L11 8L1 8L5.29289 3.70711Z"
         fill="white"
       />
-    </ArrowContainer>
+    </svg>
   );
 };
 
