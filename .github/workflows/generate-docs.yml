@@ -24,7 +24,7 @@ jobs:
           git config --global user.email "${{ github.actor }}@users.noreply.github.com"
 
       - name: update branch
-        run: git merge main
+        run: git merge origin/main
 
       - name: Install Node Dependencies
         if: steps.cache-node.outputs.cache-hit != 'true'
