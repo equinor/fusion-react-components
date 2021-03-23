@@ -25,7 +25,7 @@ jobs:
 
       - name: update branch
         run: |
-          git checkout docs
+          git checkout origin/docs
           git merge origin/main
 
       - name: Install Node Dependencies
