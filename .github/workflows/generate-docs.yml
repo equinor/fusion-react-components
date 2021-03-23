@@ -11,7 +11,7 @@ jobs:
       - name: Checkout project
         uses: actions/checkout@v2
         with:
-          ref: docs
+          ref: main
 
       - name: Setup node
         uses: actions/setup-node@v2
@@ -24,7 +24,9 @@ jobs:
           git config --global user.email "${{ github.actor }}@users.noreply.github.com"
 
       - name: update branch
-        run: git merge origin/main
+        run: |
+          git checkout docs
+          git merge origin/main
 
       - name: Install Node Dependencies
         if: steps.cache-node.outputs.cache-hit != 'true'
