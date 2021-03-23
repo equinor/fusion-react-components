@@ -12,9 +12,9 @@
   "license": "ISC",
   "dependencies": {
     "@babel/core": "^7.12.10",
-    "@equinor/fusion-react-table": "../packages/table",
-    "@equinor/fusion-react-hanging-garden": "../packages/hanging-garden",
-    "@equinor/fusion-react-styles": "../packages/styles",
+    "@equinor/fusion-react-hanging-garden": "^1.1.0",
+    "@equinor/fusion-react-styles": "^0.1.0",
+    "@equinor/fusion-react-table": "^0.1.0",
     "@storybook/addon-actions": "^6.1.14",
     "@storybook/addon-docs": "^6.1.18",
     "@storybook/addon-essentials": "^6.1.14",
