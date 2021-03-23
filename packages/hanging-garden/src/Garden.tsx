@@ -1,17 +1,32 @@
 import { MutableRefObject, useEffect, useCallback, UIEvent } from 'react';
-import styled from 'styled-components';
 import { HangingGardenColumnIndex, HangingGardenColumn, GardenController } from './models/HangingGarden';
 import { getCalculatedWidth, getCalculatedHeight } from './utils';
 import { useHangingGardenContext } from './renderHooks/useHangingGardenContext';
 import useGarden from './renderHooks/useGarden';
 import useRendererSize from './renderHooks/useRendererSize';
+import { createStyles, FusionTheme, makeStyles } from '@equinor/fusion-react-styles';
 
-const GardenContainer = styled.div`
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  position: relative;
-`;
+type StyleProps = {
+  wrapper: {
+    height: number;
+    width: number;
+  };
+};
+const useStyles = makeStyles<FusionTheme, StyleProps>(() =>
+  createStyles({
+    root: {
+      width: '100%',
+      height: '100%',
+      overflow: 'auto',
+      position: 'relative',
+    },
+    wrapper: ({ wrapper }) => ({
+      minWidth: '100%',
+      minHeight: '100%',
+      ...wrapper,
+    }),
+  })
+);
 
 type GardenProps = {
   provideController?: MutableRefObject<GardenController | null>;
@@ -55,20 +70,20 @@ function Garden<T extends HangingGardenColumnIndex>({ provideController }: Garde
     [renderGarden, onScroll]
   );
 
+  const style = useStyles({
+    wrapper: {
+      width: getCalculatedWidth(expandedColumns, (columns as HangingGardenColumn<T>[]).length, itemWidth),
+      height: getCalculatedHeight(headerHeight, itemHeight, maxRowCount),
+    },
+  });
+
   return (
-    <GardenContainer ref={container} onScroll={handleScroll}>
-      <div
-        style={{
-          width: getCalculatedWidth(expandedColumns, (columns as HangingGardenColumn<T>[]).length, itemWidth),
-          height: getCalculatedHeight(headerHeight, itemHeight, maxRowCount),
-          minWidth: '100%',
-          minHeight: '100%',
-        }}
-      >
+    <div ref={container} onScroll={handleScroll} className={style.root}>
+      <div className={style.wrapper}>
         <canvas ref={canvas} />
       </div>
       {popover}
-    </GardenContainer>
+    </div>
   );
 }
 

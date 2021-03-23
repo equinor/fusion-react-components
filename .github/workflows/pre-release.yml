@@ -1,4 +1,4 @@
-name: Prerelease
+name: Pre-release
 
 on: 
   workflow_dispatch:
@@ -20,11 +20,14 @@ jobs:
 
       - name: Setup node
         uses: actions/setup-node@v2
+        with:
+          registry-url: https://registry.npmjs.org
 
       - name: Config git user
         run: |
           git config --global user.name "${{ github.actor }}"
           git config --global user.email "${{ github.actor }}@users.noreply.github.com"
+          git fetch --depth=1 origin +refs/tags/*:refs/tags/*
 
       - name: Cache Node Modules
         id: cache-node
@@ -35,7 +38,7 @@ jobs:
 
       - name: Install Node Dependencies
         if: steps.cache-node.outputs.cache-hit != 'true'
-        run: npm install
+        run: npm ci
         env:
           CI: TRUE
 
@@ -53,6 +56,6 @@ jobs:
           GH_TOKEN: ${{ github.token }}
 
       - name: Release packages
-        run: npx lerna publish from-package --yes --dist-tag --no-verify-access  ${{ github.event.inputs.tag }}
+        run: npx lerna publish from-package --yes --no-verify-access --dist-tag ${{ github.event.inputs.tag }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}

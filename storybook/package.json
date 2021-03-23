@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-components-stories",
-  "version": "1.0.1-alpha.2",
+  "version": "1.1.0-alpha.4",
   "description": "",
   "private": true,
   "scripts": {
@@ -10,9 +10,10 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
+  "dependencies": {
     "@babel/core": "^7.12.10",
-    "@equinor/fusion-react-hanging-garden": "file:../packages/hanging-garden",
+    "@equinor/fusion-react-table": "^0.1.0-alpha.4",
+    "@equinor/fusion-react-hanging-garden": "^1.0.2-table.3",
     "@storybook/addon-actions": "^6.1.14",
     "@storybook/addon-docs": "^6.1.18",
     "@storybook/addon-essentials": "^6.1.14",
@@ -23,10 +24,5 @@
     "react-dom": "^17.0.1",
     "react-is": "^17.0.1",
     "typescript": "^4.1.3"
-  },
-  "dependencies": {
-    "@types/history": "^4.7.8",
-    "date-fns": "^2.17.0",
-    "history": "^4.9.0"
   }
 }

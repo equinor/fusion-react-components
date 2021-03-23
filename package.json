@@ -5,7 +5,14 @@
   "main": "index.js",
   "scripts": {
     "install": "lerna bootstrap",
-    "storybook": "npm run start --prefix storybook"
+    "test": "lerna run test",
+    "lint": "lerna run lint",
+    "build": "lerna run build",
+    "lint:report": "eslint --output-file eslint-report.log.json --format json packages/*/src",
+    "storybook": "npm run start --prefix storybook",
+    "storybook:install": "npm i --prefix storybook",
+    "build-storybook": "build-storybook",
+    "npm:clean": "rm -rf node_modules && lerna exec 'rm -rf node_modules'"
   },
   "repository": {
     "type": "git",
@@ -27,7 +34,6 @@
     "@commitlint/config-conventional": "^11.0.0",
     "@equinor/eslint-config-fusion": "0.0.3",
     "@types/react": "^17.0.0",
-    "@types/styled-components": "^5.1.7",
     "eslint": "^7.17.0",
     "husky": "^4.3.7",
     "lerna": "^3.22.1",
@@ -46,8 +52,5 @@
     "./packages/**/src/**/*.{ts,tsx}": [
       "eslint --quiet --fix"
     ]
-  },
-  "dependencies": {
-    "styled-components": "^5.2.1"
   }
 }

@@ -3,12 +3,26 @@
   "compilerOptions": {
     "noEmit": true
   },
-  "include": ["packages/**/src/**/*"],
-  "exclude": ["node_modules", "dist", "lib", "*.spec.ts", "api"],
+  "include": [
+    "packages/**/src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "lib",
+    "*.spec.ts",
+    "api"
+  ],
   "files": [],
   "references": [
     {
       "path": "packages/hanging-garden"
+    },
+    {
+      "path": "packages/styles"
+    },
+    {
+      "path": "packages/table"
     }
   ]
 }

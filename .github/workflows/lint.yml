@@ -23,12 +23,12 @@ jobs:
 
       - name: Install Node Dependencies
         if: steps.cache-node.outputs.cache-hit != 'true'
-        run: npm install
+        run: npm ci
         env:
           CI: TRUE
 
-      - name: Test Code Linting
-        run: npm run lint
+      - name: Build project
+        run: npx tsc -b
 
       - name: Save Code Linting Report JSON
         run: npm run lint:report
