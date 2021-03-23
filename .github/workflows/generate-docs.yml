@@ -15,8 +15,6 @@ jobs:
 
       - name: Setup node
         uses: actions/setup-node@v2
-        with:
-          registry-url: https://registry.npmjs.org
 
       - name: Config git user
         run: |
@@ -25,14 +23,12 @@ jobs:
 
       - name: update branch
         run: |
-          git fetch origin/main
-          git merge origin/main
+          git fetch main
+          git merge main
 
       - name: Install Node Dependencies
         if: steps.cache-node.outputs.cache-hit != 'true'
         run: npm ci
-        env:
-          CI: TRUE
 
       - name: Build project
         run: npm run build
@@ -46,5 +42,3 @@ jobs:
             git add docs 
             git commit -m'docs: Build of storybook'
             git push --force
-        env:
-          GH_TOKEN: ${{ github.token }}
