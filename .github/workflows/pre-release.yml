@@ -43,7 +43,7 @@ jobs:
           CI: TRUE
 
       - name: Bump versions (pre-release)
-        run: npx lerna version --yes --conventional-prerelease --no-changelog --no-git-tag-version --no-private --preid ${{ github.event.inputs.tag }}
+        run: npx lerna version --yes --conventional-prerelease --no-changelog --no-git-tag-version --no-private --no-verify-access --preid ${{ github.event.inputs.tag }}
         env:
           GH_TOKEN: ${{ github.token }}
 
