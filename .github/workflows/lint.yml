@@ -27,6 +27,9 @@ jobs:
         env:
           CI: TRUE
 
+      - name: Build project
+        run: npx tsc -b
+
       - name: Save Code Linting Report JSON
         run: npm run lint:report
         continue-on-error: true
