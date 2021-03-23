@@ -1,15 +1,20 @@
-import styled from 'styled-components';
+import { createStyles, makeStyles } from '@equinor/fusion-react-styles';
 
 type ProjectPopoverType = {
   text: string;
 };
 
-const Text = styled.div`
-  white-space: nowrap;
-`;
+const useStyles = makeStyles(() =>
+  createStyles({
+    root: {
+      whiteSpace: 'nowrap'
+    },
+  })
+);
 
 const ProjectPopover: React.FC<ProjectPopoverType> = ({ text }) => {
-  return <Text>{text}</Text>;
+  const styles = useStyles();
+  return <div className={styles.root}>{text}</div>;
 };
 
 export default ProjectPopover;
