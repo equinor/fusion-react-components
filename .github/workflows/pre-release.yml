@@ -56,7 +56,6 @@ jobs:
           GH_TOKEN: ${{ github.token }}
 
       - name: Release packages
-        run: |
-          npx lerna publish from-package --yes --no-verify-access --dist-tag ${{ github.event.inputs.tag }}
+        run: npx lerna publish from-package --yes --no-verify-access --dist-tag ${{ github.event.inputs.tag }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
