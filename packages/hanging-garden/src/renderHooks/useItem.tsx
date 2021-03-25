@@ -71,7 +71,8 @@ const useItem = <T extends HangingGardenColumnIndex>() => {
       const y = headerHeight + index * itemHeight;
       const key = `${item[itemKeyProp as keyof T]}_${colorMode}`;
       let renderedItem = getTextureFromCache('items', key) as PIXI.Container;
-      if (!renderedItem) {
+
+      if (!renderedItem || renderedItem.width !== itemWidth) {
         renderedItem = new PIXI.Container();
         renderedItem;
         renderedItem.x = x;
