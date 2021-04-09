@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.2.0 (2021-04-09)
+
+
+### Features
+
+* **table:** add column menu ([369eedc](https://github.com/equinor/fusion-react-components/commit/369eedc8e57b1895df068440bb24e8323355bee2))
+* **table:** add sort icons ([3bf8c61](https://github.com/equinor/fusion-react-components/commit/3bf8c61544578ce35518b80698517c6f4c102de3))
+
+
+
+
+
 # [0.1.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-table@0.1.0-alpha.4...@equinor/fusion-react-table@0.1.0) (2021-03-23)
 
 **Note:** Version bump only for package @equinor/fusion-react-table
