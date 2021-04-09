@@ -6,13 +6,14 @@ on:
 jobs:
   merge:
     runs-on: ubuntu-latest
-    uses: actions/checkout@v2
-    uses: devmasx/merge-branch@v1.3.1
-      with:
-        type: now
-        from_branch: main
-        target_branch: docs
-        github_token: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: devmasx/merge-branch@v1.3.1
+        with:
+          type: now
+          from_branch: main
+          target_branch: docs
+          github_token: ${{ github.token }}
 
   generate-docs:
     runs-on: ubuntu-latest
