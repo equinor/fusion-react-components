@@ -36,7 +36,7 @@ jobs:
         run: npm run build
 
       - name: Build storybook
-        run: /
+        run: |
           rm -rf docs
           npm run storybook:build
 
