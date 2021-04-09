@@ -98,3 +98,55 @@ const columns: Array<FusionColumn<DataType>> = [
   },
 ];
 ```
+
+## Column Menu
+```tsx
+type ColumnMenuOptions<D extends TableData> = {
+  readonly showMenu?: boolean;
+  readonly menuItems?: FunctionComponent<HeaderProps<D>>[];
+  MenuIcon?: (instance: ColumnInstance<D>) => ReactNode;
+};
+
+// example
+import {ColumnMenuItems} from '@equinor/fusion-react-table';
+
+const columns: Array<FusionColumn<DataType>> = [
+  {
+      {
+        Header: 'Name',
+        accessor: 'name',
+        // only display sort and custom menu button
+        menuItems: [
+          ColumnMenuItems.ColumnMenuItemSort,
+          ({column}) => column.canResize && <span>canResize</span>
+        ],
+        // custom menu icon
+        MenuIcon: () => <span>🤖</span>,
+      },
+      {
+        Header: 'Address',
+        accessor: 'address',
+        // do not show menu
+        showMenu: false,
+      },
+      {
+        Header: 'Date',
+        accessor: 'date',
+      },
+      {
+        Header: 'Order #',
+        accessor: 'order',
+      },
+  },
+];
+```
+
+### Context
+```tsx
+type ColumnMenuContext<D extends TableData = TableData> = {
+  header?: HeaderProps<D>;
+  open?: boolean;
+  show: VoidFunction;
+  close: VoidFunction;
+};
+```

@@ -1,10 +1,12 @@
 import { CSSProperties } from 'react';
-import { TableOptions, useTable, useSortBy, PluginHook } from 'react-table';
+import { TableOptions, useTable, useSortBy, PluginHook, Column } from 'react-table';
 
 import { makeStyles, createStyles, clsx, theme, FusionTheme } from '@equinor/fusion-react-styles';
 
-import { useTableHeaders } from './ColumnHeader';
-import { FusionColumn, TableData } from './types';
+import { FusionColumnHeader } from './column/ColumnHeader';
+import { TableData } from './types';
+import { useDefaultColumn } from './column';
+// import { TableData } from './types';
 
 type SpacingType = keyof typeof theme.spacing.comfortable;
 
@@ -44,7 +46,7 @@ const useStyles = makeStyles<FusionTheme, StyleProps>(
 );
 
 export interface FusionTableProps<D extends TableData> extends TableOptions<D> {
-  columns: Array<FusionColumn<D>>;
+  columns: Array<Column<D>>;
   plugins?: Array<PluginHook<D>>;
   sort?: boolean;
   spacing?: SpacingType;
@@ -53,16 +55,19 @@ export interface FusionTableProps<D extends TableData> extends TableOptions<D> {
 }
 
 export const FusionTable = <D extends TableData>(props: FusionTableProps<D>): JSX.Element => {
-  const { data, sort, plugins = [], spacing = 'x_small', style, className } = props;
+  const { sort, plugins = [], spacing = 'x_small', style, className, ...options } = props;
 
   const styles = useStyles({ ...defaultStyleProps, spacing });
 
   // TODO: check if sort is allready added?
   sort && plugins.push(useSortBy);
 
-  const columns = useTableHeaders(props.columns, 'table');
+  const columns = props.columns; // useTableHeaders(props.columns, 'table');
 
-  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = useTable({ columns, data }, ...plugins);
+  const defaultColumn = useDefaultColumn<D>(props);
+
+  const instance = useTable({ ...options, columns, defaultColumn }, ...plugins);
+  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = instance;
 
   return (
     <table {...getTableProps()} style={style} className={clsx(styles.root, className)}>
@@ -73,7 +78,7 @@ export const FusionTable = <D extends TableData>(props: FusionTableProps<D>): JS
             {headerGroup.headers.map((column) => (
               // eslint-disable-next-line react/jsx-key
               <th {...column.getHeaderProps()} className={clsx(styles.cell)}>
-                {column.render('Header')}
+                <FusionColumnHeader {...instance} column={column} />
               </th>
             ))}
           </tr>
