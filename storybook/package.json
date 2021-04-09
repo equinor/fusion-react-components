@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-components-stories",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "",
   "private": true,
   "scripts": {
@@ -14,7 +14,7 @@
     "@babel/core": "^7.12.10",
     "@equinor/fusion-react-hanging-garden": "^1.1.1",
     "@equinor/fusion-react-styles": "^0.1.0",
-    "@equinor/fusion-react-table": "^0.1.0",
+    "@equinor/fusion-react-table": "^0.2.0",
     "@storybook/addon-actions": "^6.1.14",
     "@storybook/addon-docs": "^6.1.18",
     "@storybook/addon-essentials": "^6.1.14",
