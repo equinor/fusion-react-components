@@ -4,8 +4,20 @@ on:
   workflow_dispatch:
 
 jobs:
+  merge:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: devmasx/merge-branch@v1.3.1
+        with:
+          type: now
+          from_branch: main
+          target_branch: docs
+          github_token: ${{ github.token }}
+
   generate-docs:
     runs-on: ubuntu-latest
+    needs: merge
     steps:
 
       - name: Checkout docs
@@ -16,19 +28,6 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v2
 
-      - name: Config git user
-        run: |
-          git config --global user.name "${{ github.actor }}"
-          git config --global user.email "${{ github.actor }}@users.noreply.github.com"
-
-      - name: update branch
-        uses: devmasx/merge-branch@v1.3.1
-        with:
-          type: now
-          from_branch: main
-          target_branch: docs
-          github_token: ${{ github.token }}
-
       - name: Install Node Dependencies
         if: steps.cache-node.outputs.cache-hit != 'true'
         run: npm ci
@@ -37,7 +36,14 @@ jobs:
         run: npm run build
 
       - name: Build storybook
-        run: npm run storybook:build
+        run: /
+          rm -rf docs
+          npm run storybook:build
+
+      - name: Config git user
+        run: |
+          git config --global user.name "${{ github.actor }}"
+          git config --global user.email "${{ github.actor }}@users.noreply.github.com"
 
       - name: Commit changes
         run: |
