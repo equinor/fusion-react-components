@@ -1,5 +1,5 @@
 import { CSSProperties } from 'react';
-import { TableOptions, useTable, useSortBy, PluginHook, Column } from 'react-table';
+import { TableOptions, useTable, useSortBy, PluginHook, Column, useResizeColumns, useFlexLayout } from 'react-table';
 
 import { makeStyles, createStyles, clsx, theme, FusionTheme } from '@equinor/fusion-react-styles';
 
@@ -61,46 +61,53 @@ export const FusionTable = <D extends TableData>(props: FusionTableProps<D>): JS
 
   // TODO: check if sort is allready added?
   sort && plugins.push(useSortBy);
+  true && plugins.push(useFlexLayout);
+  true && plugins.push(useResizeColumns);
 
   const columns = props.columns; // useTableHeaders(props.columns, 'table');
 
   const defaultColumn = useDefaultColumn<D>(props);
 
   const instance = useTable({ ...options, columns, defaultColumn }, ...plugins);
-  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = instance;
+  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow, state } = instance;
 
   return (
-    <table {...getTableProps()} style={style} className={clsx(styles.root, className)}>
-      <thead className={clsx(styles.thead)}>
-        {headerGroups.map((headerGroup) => (
-          // eslint-disable-next-line react/jsx-key
-          <tr {...headerGroup.getHeaderGroupProps()}>
-            {headerGroup.headers.map((column) => (
-              // eslint-disable-next-line react/jsx-key
-              <th {...column.getHeaderProps()} className={clsx(styles.cell)}>
-                <FusionColumnHeader {...instance} column={column} />
-              </th>
-            ))}
-          </tr>
-        ))}
-      </thead>
-      <tbody {...getTableBodyProps()}>
-        {rows.map((row) => {
-          prepareRow(row);
-          return (
+    <>
+      <div {...getTableProps()} style={style} className={clsx(styles.root, className)}>
+        <section className={clsx(styles.thead)}>
+          {headerGroups.map((headerGroup) => (
             // eslint-disable-next-line react/jsx-key
-            <tr {...row.getRowProps()} className={styles.row}>
-              {row.cells.map((cell) => (
+            <div {...headerGroup.getHeaderGroupProps()}>
+              {headerGroup.headers.map((column, index) => (
                 // eslint-disable-next-line react/jsx-key
-                <td {...cell.getCellProps()} className={clsx(styles.cell)}>
-                  {cell.render('Cell')}
-                </td>
+                <div {...column.getHeaderProps()} className={clsx(styles.cell)}>
+                  <FusionColumnHeader {...instance} key={index} className={clsx(styles.cell)} column={column} />
+                </div>
               ))}
-            </tr>
-          );
-        })}
-      </tbody>
-    </table>
+            </div>
+          ))}
+        </section>
+        <section {...getTableBodyProps()}>
+          {rows.map((row) => {
+            prepareRow(row);
+            return (
+              // eslint-disable-next-line react/jsx-key
+              <div {...row.getRowProps()} className={styles.row}>
+                {row.cells.map((cell) => (
+                  // eslint-disable-next-line react/jsx-key
+                  <div {...cell.getCellProps()} className={clsx(styles.cell)}>
+                    {cell.render('Cell')}
+                  </div>
+                ))}
+              </div>
+            );
+          })}
+        </section>
+      </div>
+      <pre>
+        <code>{JSON.stringify(state, null, 2)}</code>
+      </pre>
+    </>
   );
 };
 
