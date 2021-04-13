@@ -1,7 +1,7 @@
 import { FunctionComponent, ReactNode } from 'react';
 import { Column as ColumnDefault, ColumnInstance, HeaderProps, UseSortByOptions } from 'react-table';
 
-export type ColumnType = 'text' | 'number' | 'datetime';
+export type ColumnType = 'text' | 'number' | 'datetime'; // person
 
 export type TableData = Record<string | number, unknown>;
 
