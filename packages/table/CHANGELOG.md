@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-table@0.2.0...@equinor/fusion-react-table@0.3.0) (2021-04-13)
+
+
+### Features
+
+* allow resize of columns ([9b2c6f9](https://github.com/equinor/fusion-react-components/commit/9b2c6f96fb17036c1528ca1638b71084d1047954))
+
+
+
+
+
 # 0.2.0 (2021-04-09)
 
 
