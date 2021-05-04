@@ -10,10 +10,12 @@ export type FusionDatePickerProps = {
   excludeDates?: Date[];
   excludeTimes?: Date[];
   filterDate?(date: Date): boolean;
+  fluid?: boolean;
   includeDates?: Date[];
   includeTimes?: Date[];
   injectTimes?: Date[];
   inline?: boolean;
+  locale?: string | Locale | undefined;
   maxDate?: Date | null;
   maxTime?: Date;
   minDate?: Date | null;

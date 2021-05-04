@@ -34,6 +34,7 @@ const useStyles = makeStyles<FusionTheme, StyleProps>(
         ...theme.colors.text.static_icons__tertiary.style,
         border: 'none',
         background: 'none',
+        width: '100%',
         '&:focus': {
           outline: `none`,
         },

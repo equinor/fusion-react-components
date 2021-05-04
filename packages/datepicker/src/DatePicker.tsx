@@ -3,8 +3,23 @@ import DatePicker from 'react-datepicker';
 import { FusionDatePickerProps } from './types';
 import FusionDatePickerInput from './DatePickerInput';
 import FusionDatePickerHeader from './DatePickerHeader';
+import { makeStyles, createStyles, FusionTheme } from '@equinor/fusion-react-styles';
 
 import 'react-datepicker/dist/react-datepicker.css';
+
+type StyleProps = {
+  fluid?: boolean;
+};
+
+const useStyles = makeStyles<FusionTheme, StyleProps>(
+  () =>
+    createStyles({
+      wrapper: ({ fluid }) => ({
+        width: fluid ? '100%' : 'auto',
+      }),
+    }),
+  { name: 'fusion-datepicker-header' }
+);
 
 export const FusionDatePicker: FunctionComponent<FusionDatePickerProps> = (
   props: FusionDatePickerProps
@@ -21,10 +36,12 @@ export const FusionDatePicker: FunctionComponent<FusionDatePickerProps> = (
     excludeDates,
     excludeTimes,
     filterDate,
+    fluid,
     includeDates,
     includeTimes,
     injectTimes,
     inline,
+    locale,
     maxDate,
     maxTime,
     minDate,
@@ -48,11 +65,13 @@ export const FusionDatePicker: FunctionComponent<FusionDatePickerProps> = (
     tabIndex,
   } = props;
 
+  const classes = useStyles({ fluid: fluid });
+
   return (
     <DatePicker
       allowSameDay={allowSameDay}
       customInput={<FusionDatePickerInput />}
-      dateFormat={dateFormat}
+      dateFormat={dateFormat ?? showTimeSelect ? 'dd/MM/yyyy HH:mm' : 'dd/MM/yyyy'}
       disabled={disabled}
       disabledKeyboardNavigation={!allowKeyboardControl}
       endDate={endDate}
@@ -63,6 +82,7 @@ export const FusionDatePicker: FunctionComponent<FusionDatePickerProps> = (
       includeTimes={includeTimes}
       injectTimes={injectTimes}
       inline={inline}
+      locale={locale}
       maxDate={maxDate ?? disableFuture ? new Date() : null}
       maxTime={maxTime}
       minDate={minDate ?? disablePast ? new Date() : null}
@@ -89,6 +109,7 @@ export const FusionDatePicker: FunctionComponent<FusionDatePickerProps> = (
       startOpen={startOpen}
       tabIndex={tabIndex}
       todayButton={showTodayButton ? 'Today' : null}
+      wrapperClassName={classes.wrapper}
     />
   );
 };
