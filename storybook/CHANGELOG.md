@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.1](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.2.0...@equinor/fusion-react-components-stories@1.2.1) (2021-05-04)
+
+
+### Bug Fixes
+
+* added new variations to datepicker and other small fixes ([d3bbdee](https://github.com/equinor/fusion-react-components/commit/d3bbdee0e80cb059b1340a1efa1e355f0877db5b))
+
+
+
+
+
 # [1.2.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.1.3...@equinor/fusion-react-components-stories@1.2.0) (2021-05-04)
 
 
