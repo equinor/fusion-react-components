@@ -2,7 +2,6 @@ export type FusionDatePickerProps = {
   allowKeyboardControl?: boolean;
   allowSameDay?: boolean;
   date: Date | null | undefined;
-  dateFormat?: string;
   disabled?: boolean;
   disableFuture?: boolean;
   disablePast?: boolean;
@@ -32,37 +31,12 @@ export type FusionDatePickerProps = {
   readOnly?: boolean;
   shouldDisableDate?(date: Date): boolean;
   shouldCloseOnSelect?: boolean;
-  showTimeSelect?: boolean;
   showTodayButton?: boolean;
   showWeekNumbers?: boolean;
   startDate?: Date;
   startOpen?: boolean;
   tabIndex?: number;
+  type?: DatePickerType;
 };
 
-export type InputProps = {
-  disabled?: boolean;
-  onClick?(): void;
-  value?: string;
-  placeholder?: string;
-};
-
-export type HeaderProps = {
-  date: Date;
-  changeYear(year: number): void;
-  changeMonth(month: number): void;
-  customHeaderCount: number;
-  decreaseMonth(): void;
-  increaseMonth(): void;
-  prevMonthButtonDisabled: boolean;
-  nextMonthButtonDisabled: boolean;
-  decreaseYear(): void;
-  increaseYear(): void;
-  prevYearButtonDisabled: boolean;
-  nextYearButtonDisabled: boolean;
-};
-
-export type DayProps = {
-  dayOfMonth: number;
-  date: Date | undefined;
-};
+export type DatePickerType = 'year' | 'month' | 'date' | 'datetime' | 'time' | undefined;

@@ -1,9 +1,10 @@
 import { FunctionComponent } from 'react';
 import DatePicker from 'react-datepicker';
-import { FusionDatePickerProps } from './types';
+import { DatePickerType, FusionDatePickerProps } from './types';
 import FusionDatePickerInput from './DatePickerInput';
 import FusionDatePickerHeader from './DatePickerHeader';
 import { makeStyles, createStyles, FusionTheme } from '@equinor/fusion-react-styles';
+import { enGB } from 'date-fns/locale';
 
 import 'react-datepicker/dist/react-datepicker.css';
 
@@ -18,8 +19,25 @@ const useStyles = makeStyles<FusionTheme, StyleProps>(
         width: fluid ? '100%' : 'auto',
       }),
     }),
-  { name: 'fusion-datepicker-header' }
+  { name: 'fusion-datepicker' }
 );
+
+const getDateFormat = (type: DatePickerType): string => {
+  switch (type) {
+    case 'year':
+      return 'yyyy';
+    case 'month':
+      return 'MMMM yyyy';
+    case 'date':
+      return 'dd/MM/yyyy';
+    case 'datetime':
+      return 'dd/MM/yyyy HH:mm';
+    case 'time':
+      return 'HH:mm';
+    default:
+      return 'dd/MM/yyyy';
+  }
+};
 
 export const FusionDatePicker: FunctionComponent<FusionDatePickerProps> = (
   props: FusionDatePickerProps
@@ -28,7 +46,6 @@ export const FusionDatePicker: FunctionComponent<FusionDatePickerProps> = (
     allowKeyboardControl = true,
     allowSameDay = true,
     date,
-    dateFormat,
     disabled,
     disableFuture,
     disablePast,
@@ -41,7 +58,7 @@ export const FusionDatePicker: FunctionComponent<FusionDatePickerProps> = (
     includeTimes,
     injectTimes,
     inline,
-    locale,
+    locale = enGB,
     maxDate,
     maxTime,
     minDate,
@@ -57,12 +74,12 @@ export const FusionDatePicker: FunctionComponent<FusionDatePickerProps> = (
     placeholder,
     readOnly,
     shouldCloseOnSelect = true,
-    showTimeSelect,
     showWeekNumbers,
     startDate,
     startOpen,
     showTodayButton,
     tabIndex,
+    type = 'date',
   } = props;
 
   const classes = useStyles({ fluid: fluid });
@@ -71,7 +88,7 @@ export const FusionDatePicker: FunctionComponent<FusionDatePickerProps> = (
     <DatePicker
       allowSameDay={allowSameDay}
       customInput={<FusionDatePickerInput />}
-      dateFormat={dateFormat ?? showTimeSelect ? 'dd/MM/yyyy HH:mm' : 'dd/MM/yyyy'}
+      dateFormat={getDateFormat(type)}
       disabled={disabled}
       disabledKeyboardNavigation={!allowKeyboardControl}
       endDate={endDate}
@@ -98,12 +115,15 @@ export const FusionDatePicker: FunctionComponent<FusionDatePickerProps> = (
       placeholderText={placeholder}
       readOnly={readOnly}
       renderCustomHeader={(props) => {
-        return <FusionDatePickerHeader {...props} />;
+        return <FusionDatePickerHeader {...props} type={type} />;
       }}
       selected={date}
       shouldCloseOnSelect={shouldCloseOnSelect}
       showPopperArrow={false}
-      showTimeSelect={showTimeSelect}
+      showTimeSelect={type === 'datetime' || type === 'time'}
+      showTimeSelectOnly={type === 'time'}
+      showMonthYearPicker={type === 'month'}
+      showYearPicker={type === 'year'}
       showWeekNumbers={showWeekNumbers}
       startDate={startDate}
       startOpen={startOpen}
