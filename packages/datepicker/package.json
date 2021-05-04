@@ -1,15 +1,16 @@
 {
-  "name": "@equinor/fusion-react-table",
-  "version": "0.3.1",
-  "description": "component for displaying tables",
+  "name": "@equinor/fusion-react-datepicker",
+  "version": "0.2.0",
+  "description": "component for displaying a date picker",
   "keywords": [
-    "table",
+    "date",
+    "datepicker",
     "react",
     "fusion",
     "equinor"
   ],
-  "author": "odin thomas rochmann <odin.rochmann@gmail.com>",
-  "homepage": "https://github.com/equinor/fusion-react-components/tree/master/packages/table#readme",
+  "author": "mats oftedal <maof@equinor.com>",
+  "homepage": "https://github.com/equinor/fusion-react-components/tree/master/packages/datepicker#readme",
   "license": "ISC",
   "main": "dist/index.js",
   "directories": {
@@ -38,10 +39,10 @@
     "@equinor/fusion-react-styles": "^0.1.0",
     "@equinor/fusion-wc-icon": "^1.0.2",
     "@equinor/fusion-wc-popover": "^1.0.1",
-    "@types/react-table": "^7.0.26",
-    "react-table": "^7.6.3"
+    "react-datepicker": "^3.8.0"
   },
   "devDependencies": {
+    "@types/react-datepicker": "^3.1.8",
     "typescript": "^4.1.3"
   }
 }

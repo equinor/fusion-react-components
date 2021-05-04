@@ -6,7 +6,6 @@ import { makeStyles, createStyles, clsx, theme, FusionTheme } from '@equinor/fus
 import { FusionColumnHeader } from './column/ColumnHeader';
 import { TableData } from './types';
 import { useDefaultColumn } from './column';
-// import { TableData } from './types';
 
 type SpacingType = keyof typeof theme.spacing.comfortable;
 
@@ -69,7 +68,7 @@ export const FusionTable = <D extends TableData>(props: FusionTableProps<D>): JS
   const defaultColumn = useDefaultColumn<D>(props);
 
   const instance = useTable({ ...options, columns, defaultColumn }, ...plugins);
-  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow, state } = instance;
+  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = instance;
 
   return (
     <>
@@ -104,9 +103,6 @@ export const FusionTable = <D extends TableData>(props: FusionTableProps<D>): JS
           })}
         </section>
       </div>
-      <pre>
-        <code>{JSON.stringify(state, null, 2)}</code>
-      </pre>
     </>
   );
 };
