@@ -1,10 +1,12 @@
 import { FunctionComponent } from 'react';
 import DatePicker from 'react-datepicker';
 import { DatePickerType, FusionDatePickerProps } from './types';
-import FusionDatePickerInput from './DatePickerInput';
-import FusionDatePickerHeader from './DatePickerHeader';
 import { makeStyles, createStyles, FusionTheme } from '@equinor/fusion-react-styles';
+//import { isSameDay } from 'date-fns';
 import { enGB } from 'date-fns/locale';
+
+import FusionDatePickerHeader from './DatePickerHeader';
+import FusionDatePickerInput from './DatePickerInput';
 
 import 'react-datepicker/dist/react-datepicker.css';
 
@@ -13,11 +15,17 @@ type StyleProps = {
 };
 
 const useStyles = makeStyles<FusionTheme, StyleProps>(
-  () =>
+  (theme) =>
     createStyles({
       wrapper: ({ fluid }) => ({
         width: fluid ? '100%' : 'auto',
       }),
+      day: {
+        ...theme.typography.navigation.button.style,
+      },
+      selectedDay: {
+        backgroundColor: 'red',
+      },
     }),
   { name: 'fusion-datepicker' }
 );
@@ -87,7 +95,16 @@ export const FusionDatePicker: FunctionComponent<FusionDatePickerProps> = (
   return (
     <DatePicker
       allowSameDay={allowSameDay}
-      customInput={<FusionDatePickerInput />}
+      customInput={
+        <FusionDatePickerInput
+          onClear={() => {
+            onChange(null);
+          }}
+          onChange={(value: string) => {
+            console.log('value', value);
+          }}
+        />
+      }
       dateFormat={getDateFormat(type)}
       disabled={disabled}
       disabledKeyboardNavigation={!allowKeyboardControl}
@@ -117,6 +134,7 @@ export const FusionDatePicker: FunctionComponent<FusionDatePickerProps> = (
       renderCustomHeader={(props) => {
         return <FusionDatePickerHeader {...props} type={type} />;
       }}
+      //dayClassName={(d) => clsx(classes.day, date && isSameDay(d, date) && classes.selectedDay)}
       selected={date}
       shouldCloseOnSelect={shouldCloseOnSelect}
       showPopperArrow={false}

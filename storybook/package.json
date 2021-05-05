@@ -12,7 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "@babel/core": "^7.12.10",
-    "@equinor/fusion-react-datepicker": "^0.2.1",
+    "@equinor/fusion-react-datepicker": "file:.yalc/@equinor/fusion-react-datepicker",
     "@equinor/fusion-react-hanging-garden": "^1.1.1",
     "@equinor/fusion-react-styles": "^0.1.0",
     "@equinor/fusion-react-table": "^0.3.1",

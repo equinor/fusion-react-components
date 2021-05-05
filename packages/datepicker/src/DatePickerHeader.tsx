@@ -1,9 +1,10 @@
-import { FunctionComponent } from 'react';
-import { makeStyles, createStyles, theme, FusionTheme } from '@equinor/fusion-react-styles';
+import { FunctionComponent, forwardRef } from 'react';
+import { makeStyles, createStyles, theme, FusionTheme, clsx } from '@equinor/fusion-react-styles';
 import { format } from 'date-fns';
-import DatePicker from 'react-datepicker';
-import Arrow from './icons/Arrow';
 import { DatePickerType } from './types';
+import DatePicker from 'react-datepicker';
+import Icon from './Icon';
+import { arrow_back, arrow_drop_down, arrow_forward } from '@equinor/eds-icons';
 
 type SpacingType = keyof typeof theme.spacing.comfortable;
 
@@ -27,6 +28,14 @@ type HeaderProps = {
   type: DatePickerType;
 };
 
+type InputProps = {
+  disabled?: boolean;
+  onClear?(): void;
+  onClick?(): void;
+  placeholder?: string;
+  value?: string;
+};
+
 const defaultStyleProps: StyleProps = {
   spacing: 'small',
 };
@@ -34,28 +43,54 @@ const defaultStyleProps: StyleProps = {
 const useStyles = makeStyles<FusionTheme, StyleProps>(
   (theme) =>
     createStyles({
-      container: ({ spacing }) => ({
-        ...theme.spacing.comfortable[spacing].style,
-        display: 'flex',
-        alignItems: 'center',
-      }),
-      monthHeader: {
-        ...theme.typography.navigation.menu_title.style,
-        flex: 1,
-        textAlign: 'center',
+      clickable: {
         '&:hover': {
           cursor: 'pointer',
           color: theme.colors.interactive.primary__hover.value.hex,
         },
       },
+      container: ({ spacing }) => ({
+        ...theme.spacing.comfortable[spacing].style,
+        display: 'flex',
+        alignItems: 'center',
+      }),
+      disabled: {
+        color: theme.colors.interactive.disabled__text.value.hex,
+      },
+      monthHeader: {
+        flex: 1,
+      },
+      monthHeaderInput: {
+        ...theme.typography.navigation.menu_title.style,
+        color: 'currentColor',
+        verticalAlign: 'middle',
+        userSelect: 'none',
+      },
       yearHeader: {
         ...theme.typography.navigation.menu_title.style,
         flex: 1,
         textAlign: 'center',
+        userSelect: 'none',
       },
     }),
   { name: 'fusion-datepicker-header' }
 );
+
+const MonthHeaderInput = forwardRef<HTMLInputElement, InputProps>(
+  ({ onClick, value }: InputProps, ref: React.ForwardedRef<HTMLInputElement>) => {
+    const classes = useStyles(defaultStyleProps);
+    return (
+      <div onClick={onClick}>
+        <span className={classes.monthHeaderInput} ref={ref}>
+          {value}
+        </span>
+        <Icon icon={arrow_drop_down} />
+      </div>
+    );
+  }
+);
+
+MonthHeaderInput.displayName = 'MonthHeaderInput';
 
 const MonthHeader: FunctionComponent<HeaderProps> = (props: HeaderProps) => {
   const {
@@ -72,9 +107,12 @@ const MonthHeader: FunctionComponent<HeaderProps> = (props: HeaderProps) => {
 
   return (
     <div className={classes.container}>
-      <Arrow direction="back" disabled={prevMonthButtonDisabled} onClick={decreaseMonth} />
+      <div onClick={decreaseMonth} className={nextMonthButtonDisabled ? classes.disabled : classes.clickable}>
+        <Icon icon={arrow_back} />
+      </div>
       <DatePicker
-        customInput={<span>{format(date, 'MMMM yyyy')}</span>}
+        customInput={<MonthHeaderInput />}
+        dateFormat="MMMM yyyy"
         renderCustomHeader={(props) => {
           return <YearHeader {...props} type={'month'} />;
         }}
@@ -84,10 +122,11 @@ const MonthHeader: FunctionComponent<HeaderProps> = (props: HeaderProps) => {
           changeYear(date.getFullYear());
         }}
         showMonthYearPicker={true}
-        wrapperClassName={classes.monthHeader}
+        wrapperClassName={clsx(classes.monthHeader, classes.clickable)}
       />
-
-      <Arrow direction="forward" disabled={nextMonthButtonDisabled} onClick={increaseMonth} />
+      <div onClick={increaseMonth} className={prevMonthButtonDisabled ? classes.disabled : classes.clickable}>
+        <Icon icon={arrow_forward} />
+      </div>
     </div>
   );
 };
@@ -99,9 +138,13 @@ const YearHeader: FunctionComponent<HeaderProps> = (props: HeaderProps) => {
 
   return (
     <div className={classes.container}>
-      <Arrow direction="back" disabled={prevYearButtonDisabled} onClick={decreaseYear} />
+      <div onClick={decreaseYear} className={prevYearButtonDisabled ? classes.disabled : classes.clickable}>
+        <Icon icon={arrow_back} />
+      </div>
       <span className={classes.yearHeader}>{format(date, 'yyyy')}</span>
-      <Arrow direction="forward" disabled={nextYearButtonDisabled} onClick={increaseYear} />
+      <div onClick={increaseYear} className={nextYearButtonDisabled ? classes.disabled : classes.clickable}>
+        <Icon icon={arrow_forward} />
+      </div>
     </div>
   );
 };
