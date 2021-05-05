@@ -1,6 +1,5 @@
 import { forwardRef } from 'react';
 import { makeStyles, createStyles, theme, FusionTheme } from '@equinor/fusion-react-styles';
-import { InputProps } from './types';
 import Calendar from './icons/Calendar';
 
 type SpacingType = keyof typeof theme.spacing.comfortable;
@@ -8,6 +7,13 @@ type SpacingType = keyof typeof theme.spacing.comfortable;
 type StyleProps = {
   disabled?: boolean;
   spacing: SpacingType;
+};
+
+type InputProps = {
+  disabled?: boolean;
+  onClick?(): void;
+  value?: string;
+  placeholder?: string;
 };
 
 const defaultStyleProps: StyleProps = {
