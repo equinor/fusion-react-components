@@ -100,9 +100,6 @@ export const FusionDatePicker: FunctionComponent<FusionDatePickerProps> = (
           onClear={() => {
             onChange(null);
           }}
-          onChange={(value: string) => {
-            console.log('value', value);
-          }}
         />
       }
       dateFormat={getDateFormat(type)}

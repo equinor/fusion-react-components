@@ -7,8 +7,10 @@ type StyleProps = {
 };
 
 type IconProps = {
+  className?: string;
   icon: IconData;
   size?: string;
+  onClick?(): void;
 };
 
 const useStyle = makeStyles<FusionTheme, StyleProps>(
@@ -24,18 +26,20 @@ const useStyle = makeStyles<FusionTheme, StyleProps>(
   { name: 'fusion-datepicker-icon' }
 );
 
-export const Icon: FunctionComponent<IconProps> = ({ icon, size }: IconProps) => {
+export const Icon: FunctionComponent<IconProps> = ({ className, icon, size, onClick }: IconProps) => {
   const classes = useStyle({ size });
   return (
-    <svg
-      className={classes.root}
-      width={icon.width}
-      height={icon.height}
-      viewBox={`0 0 ${icon.width} ${icon.height}`}
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path fillRule="evenodd" clipRule="evenodd" d={icon.svgPathData} />
-    </svg>
+    <div className={className} onClick={onClick}>
+      <svg
+        className={classes.root}
+        width={icon.width}
+        height={icon.height}
+        viewBox={`0 0 ${icon.width} ${icon.height}`}
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path fillRule="evenodd" clipRule="evenodd" d={icon.svgPathData} />
+      </svg>
+    </div>
   );
 };
 

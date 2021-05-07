@@ -1,4 +1,4 @@
-import { forwardRef } from 'react';
+import { forwardRef, InputHTMLAttributes } from 'react';
 import { makeStyles, createStyles, theme, FusionTheme } from '@equinor/fusion-react-styles';
 import Icon from './Icon';
 import { calendar, clear } from '@equinor/eds-icons';
@@ -11,18 +11,8 @@ type StyleProps = {
   spacing: SpacingType;
 };
 
-type IconProps = {
-  disabled?: boolean;
-  onClick?(): void;
-};
-
 type InputProps = {
-  disabled?: boolean;
-  onChange(value: string | null | undefined): void;
   onClear?(): void;
-  onClick?(): void;
-  placeholder?: string;
-  value?: string;
 };
 
 const defaultStyleProps: StyleProps = {
@@ -70,45 +60,25 @@ const useStyles = makeStyles<FusionTheme, StyleProps>(
   { name: 'fusion-datepicker-input' }
 );
 
-const CalendarIcon = ({ disabled, onClick }: IconProps) => {
-  const classes = useStyles({ ...defaultStyleProps, disabled: disabled });
-
-  return (
-    <div className={classes.icon} onClick={onClick}>
-      <Icon icon={calendar} />
-    </div>
-  );
-};
-
-const ClearIcon = ({ disabled, onClick }: IconProps) => {
-  const classes = useStyles({ ...defaultStyleProps, disabled: disabled });
-
-  return (
-    <div className={classes.icon} onClick={onClick}>
-      <Icon icon={clear} />
-    </div>
-  );
-};
-
-export const FusionDatePickerInput = forwardRef<HTMLInputElement, InputProps>(
+export const FusionDatePickerInput = forwardRef<HTMLInputElement, InputHTMLAttributes<HTMLInputElement> & InputProps>(
   (
-    { disabled, onChange, onClear, onClick, placeholder, value }: InputProps,
+    { disabled, onChange, onClick, placeholder, value, onClear }: InputHTMLAttributes<HTMLInputElement> & InputProps,
     ref: React.ForwardedRef<HTMLInputElement>
   ) => {
     const classes = useStyles({ ...defaultStyleProps, disabled: disabled, hasValue: value ? true : false });
 
     return (
-      <div className={classes.container}>
+      <div className={classes.container} onClick={onClick}>
         <input
           value={value}
           className={classes.input}
           ref={ref}
           disabled={disabled}
           placeholder={placeholder}
-          onChange={(e: React.FormEvent<HTMLInputElement>) => onChange(e.currentTarget.value)}
+          onChange={onChange}
         />
-        {value && <ClearIcon onClick={onClear} />}
-        <CalendarIcon onClick={onClick} />
+        {value && <Icon icon={clear} className={classes.icon} onClick={onClear} />}
+        <Icon icon={calendar} className={classes.icon} />
       </div>
     );
   }
