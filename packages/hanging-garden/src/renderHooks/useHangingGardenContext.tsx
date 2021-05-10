@@ -6,30 +6,29 @@ import { ItemRenderContext, HeaderRenderContext } from '../models/RenderContext'
 import { Scroll } from './useScrolling';
 import { UsePopover } from './usePopover';
 import { ColorMode } from '../models/HangingGarden';
-import { HangingGardenColumn, HangingGardenColumnIndex } from '../models/HangingGarden';
 
 export interface IHangingGardenContext {
   container: MutableRefObject<HTMLDivElement | null>;
   canvas: MutableRefObject<HTMLCanvasElement | null>;
   stage: MutableRefObject<PIXI.Container>;
   pixiApp: MutableRefObject<PIXI.Application | null>;
-  scroll: Scroll<HangingGardenColumnIndex>;
+  scroll: Scroll<any>;
   maxRowCount: number;
   setMaxRowCount: Dispatch<React.SetStateAction<number>>;
   expandedColumns: ExpandedColumns;
   setExpandedColumns: Dispatch<SetStateAction<Record<string, ExpandedColumn>>>;
   textureCaches: Caches;
   backgroundColor: number;
-  columns: HangingGardenColumn<unknown>[];
+  columns: unknown;
   itemKeyProp: unknown;
   itemHeight: number;
   itemWidth: number;
   headerHeight: number;
   highlightedItem: unknown;
   highlightedColumnKey: string | null;
-  getItemDescription: (item: unknown) => string;
-  onItemClick: (item: unknown) => void;
-  renderItemContext: (item: unknown, context: ItemRenderContext) => void;
+  getItemDescription: (item: any) => string;
+  onItemClick: (item: any) => void;
+  renderItemContext: (item: any, context: ItemRenderContext) => void;
   renderHeaderContext: (key: string, context: HeaderRenderContext) => void;
   popover: UsePopover;
   colorMode: ColorMode;
@@ -37,7 +36,6 @@ export interface IHangingGardenContext {
 
 const HangingGardenContext = createContext<IHangingGardenContext>({} as IHangingGardenContext);
 
-export const useHangingGardenContext = (): IHangingGardenContext =>
-  useContext<IHangingGardenContext>(HangingGardenContext);
+export const useHangingGardenContext = () => useContext<IHangingGardenContext>(HangingGardenContext);
 
 export default HangingGardenContext;

@@ -6,13 +6,13 @@ export type HangingGardenColumn<T> = {
   data: T[];
 };
 
-export type HangingGardenColumnIndex = Record<string, unknown>;
+export type HangingGardenColumnIndex = Record<string, any>;
 
 export type GardenController = {
   clearGarden: () => void;
 };
 
-export type HangingGardenProps<T> = {
+export type HangingGardenProps<T extends HangingGardenColumnIndex> = {
   columns: HangingGardenColumn<T>[];
   highlightedColumnKey: string | null;
   highlightedItem: T | null;
