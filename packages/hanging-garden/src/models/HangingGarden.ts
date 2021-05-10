@@ -6,15 +6,13 @@ export type HangingGardenColumn<T> = {
   data: T[];
 };
 
-export type HangingGardenColumnIndex = Record<string, any>;
+export type HangingGardenColumnIndex = Record<string, unknown>;
 
 export type GardenController = {
   clearGarden: () => void;
 };
 
-export type ColorMode = 'Regular' | 'Color blind';
-
-export type HangingGardenProps<T extends HangingGardenColumnIndex> = {
+export type HangingGardenProps<T> = {
   columns: HangingGardenColumn<T>[];
   highlightedColumnKey: string | null;
   highlightedItem: T | null;

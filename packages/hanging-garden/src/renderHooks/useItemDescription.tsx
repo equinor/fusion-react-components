@@ -37,13 +37,13 @@ const useItemDescription = <T extends HangingGardenColumnIndex>(): UseItemDescri
 
   const getRenderedItemDescription = useCallback(
     (item: T) => {
-      let itemDescription = getTextureFromCache('descriptions', item[itemKeyProp as keyof T]);
+      let itemDescription = getTextureFromCache('descriptions', item[itemKeyProp as keyof T] as string);
 
       if (!itemDescription) {
         const description = getItemDescription(item);
         const textNode = createTextNode(description, 0x243746);
         itemDescription = createRenderedItemDescription(backgroundColor, textNode);
-        addTextureToCache('descriptions', item[itemKeyProp as keyof T], itemDescription);
+        addTextureToCache('descriptions', item[itemKeyProp as keyof T] as string, itemDescription);
       }
       return itemDescription as PIXI.Container;
     },
