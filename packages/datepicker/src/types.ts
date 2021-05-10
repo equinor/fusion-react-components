@@ -14,6 +14,7 @@ export type FusionDatePickerProps = {
   includeTimes?: Date[];
   injectTimes?: Date[];
   inline?: boolean;
+  isClearable?: boolean;
   locale?: string | Locale | undefined;
   maxDate?: Date | null;
   maxTime?: Date;
@@ -37,6 +38,7 @@ export type FusionDatePickerProps = {
   startOpen?: boolean;
   tabIndex?: number;
   type?: DatePickerType;
+  width?: string;
 };
 
 export type DatePickerType = 'year' | 'month' | 'date' | 'datetime' | 'time' | undefined;

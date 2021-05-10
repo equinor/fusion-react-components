@@ -68,7 +68,7 @@ export const FusionDatePickerInput = forwardRef<HTMLInputElement, InputHTMLAttri
     const classes = useStyles({ ...defaultStyleProps, disabled: disabled, hasValue: value ? true : false });
 
     return (
-      <div className={classes.container} onClick={onClick}>
+      <div className={classes.container}>
         <input
           value={value}
           className={classes.input}
@@ -77,8 +77,8 @@ export const FusionDatePickerInput = forwardRef<HTMLInputElement, InputHTMLAttri
           placeholder={placeholder}
           onChange={onChange}
         />
-        {value && <Icon icon={clear} className={classes.icon} onClick={onClear} />}
-        <Icon icon={calendar} className={classes.icon} />
+        {value && onClear && <Icon icon={clear} className={classes.icon} onClick={onClear} />}
+        <Icon icon={calendar} className={classes.icon} onClick={onClick} />
       </div>
     );
   }

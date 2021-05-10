@@ -1,4 +1,4 @@
-import { FunctionComponent } from 'react';
+import { FunctionComponent, MouseEventHandler } from 'react';
 import { FusionTheme, makeStyles, createStyles } from '@equinor/fusion-react-styles';
 import { IconData } from '@equinor/eds-icons';
 
@@ -10,7 +10,7 @@ type IconProps = {
   className?: string;
   icon: IconData;
   size?: string;
-  onClick?(): void;
+  onClick?: MouseEventHandler<HTMLElement>;
 };
 
 const useStyle = makeStyles<FusionTheme, StyleProps>(

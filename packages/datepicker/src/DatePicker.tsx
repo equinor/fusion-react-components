@@ -11,14 +11,14 @@ import FusionDatePickerInput from './DatePickerInput';
 import 'react-datepicker/dist/react-datepicker.css';
 
 type StyleProps = {
-  fluid?: boolean;
+  width?: string;
 };
 
 const useStyles = makeStyles<FusionTheme, StyleProps>(
   (theme) =>
     createStyles({
-      wrapper: ({ fluid }) => ({
-        width: fluid ? '100%' : 'auto',
+      wrapper: ({ width }) => ({
+        width: width,
       }),
       day: {
         ...theme.typography.navigation.button.style,
@@ -66,6 +66,7 @@ export const FusionDatePicker: FunctionComponent<FusionDatePickerProps> = (
     includeTimes,
     injectTimes,
     inline,
+    isClearable = true,
     locale = enGB,
     maxDate,
     maxTime,
@@ -88,18 +89,23 @@ export const FusionDatePicker: FunctionComponent<FusionDatePickerProps> = (
     showTodayButton,
     tabIndex,
     type = 'date',
+    width = '15em',
   } = props;
 
-  const classes = useStyles({ fluid: fluid });
+  const classes = useStyles({ width: fluid ? '100%' : width });
 
   return (
     <DatePicker
       allowSameDay={allowSameDay}
       customInput={
         <FusionDatePickerInput
-          onClear={() => {
-            onChange(null);
-          }}
+          onClear={
+            isClearable
+              ? () => {
+                  onChange(null);
+                }
+              : undefined
+          }
         />
       }
       dateFormat={getDateFormat(type)}
