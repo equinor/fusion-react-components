@@ -48,7 +48,7 @@ const useHightLightedItem = <T extends HangingGardenColumnIndex>(): UseHightLigh
         column.data.findIndex(
           (item) => item[itemKeyProp as keyof T] === (highlightedItem as T)[itemKeyProp as keyof T]
         ),
-        (columns as T).indexOf(column)
+        (columns as HangingGardenColumn<T>[]).indexOf(column)
       );
     }
   }, [highlightedItem, getTextureFromCache, addTextureToCache, stage.current, columns]);
