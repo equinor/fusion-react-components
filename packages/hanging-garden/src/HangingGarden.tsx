@@ -56,7 +56,7 @@ function HangingGarden<T extends HangingGardenColumnIndex>({
   provideController,
   backgroundColor = 0xffffff,
   colorMode = 'Regular',
-}: HangingGardenProps<T>) {
+}: HangingGardenProps<T>): JSX.Element {
   const [maxRowCount, setMaxRowCount] = useState(0);
   const [expandedColumns, setExpandedColumns] = useState<ExpandedColumns>({});
 

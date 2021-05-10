@@ -7,11 +7,15 @@ import * as PIXI from 'pixi.js-legacy';
  * This hook is used by the Garden and is not intended to be used or implemented
  * outside the Garden component.
  */
+type UsePixiApp = {
+  pixiApp: React.MutableRefObject<PIXI.Application | null>;
+};
+
 const usePixiApp = (
   canvas: React.RefObject<HTMLCanvasElement> | null,
   container: React.RefObject<HTMLDivElement> | null,
   backgroundColor: number
-) => {
+): UsePixiApp => {
   PIXI.utils.skipHello(); // Don't output the pixi message to the console
   PIXI.Ticker.shared.autoStart = false;
   PIXI.settings.ROUND_PIXELS = true;

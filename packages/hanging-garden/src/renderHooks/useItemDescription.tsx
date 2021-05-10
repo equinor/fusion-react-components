@@ -13,7 +13,13 @@ import { HangingGardenColumn, HangingGardenColumnIndex } from '../models/Hanging
  * This hook is used by the Garden and is not intended to be used or implemented
  * outside the Garden component.
  */
-const useItemDescription = <T extends HangingGardenColumnIndex>() => {
+
+type UseItemDescription<T> = {
+  renderItemDescription: (item: T, index: number, columnIndex: number) => void;
+  getRenderedItemDescription: (item: T) => PIXI.Container;
+};
+
+const useItemDescription = <T extends HangingGardenColumnIndex>(): UseItemDescription<T> => {
   const {
     stage,
     backgroundColor,

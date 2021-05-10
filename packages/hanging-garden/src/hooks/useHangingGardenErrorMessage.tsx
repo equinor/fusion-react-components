@@ -16,11 +16,16 @@ import { GardenDataError, ErrorMessageProps } from '../models/GardenDataError';
  *   const { errorMessage } = useHangingGardenErrorMessage('handover', error, retry);
  *   return(<ErrorMessage {...errorMessage}>{children}</ErrorMessage>)
  */
+
+type UseHangingGardenErrorMessage = {
+  errorMessage: ErrorMessageProps | null;
+};
+
 export const useHangingGardenErrorMessage = (
   resourceName: string,
   error: GardenDataError | null,
   onTakeAction: () => void
-) => {
+): UseHangingGardenErrorMessage => {
   const [errorMessage, setErrorMessage] = useState<ErrorMessageProps | null>(null);
 
   const buildErrorMessage = useCallback(

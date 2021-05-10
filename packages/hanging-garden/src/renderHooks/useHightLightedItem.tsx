@@ -11,7 +11,12 @@ import useRenderItem from './useItem';
  * This hook is used by the Garden and is not intended to be used or implemented
  * outside the Garden component.
  */
-const useHightLightedItem = <T extends HangingGardenColumnIndex>() => {
+
+type UseHightLightedItem = {
+  renderHighlightedItem: () => void;
+};
+
+const useHightLightedItem = <T extends HangingGardenColumnIndex>(): UseHightLightedItem => {
   const {
     columns,
     itemKeyProp,

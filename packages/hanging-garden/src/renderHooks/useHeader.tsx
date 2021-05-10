@@ -13,7 +13,12 @@ import useTextNode from './useTextNode';
  * This hook is used by the Garden and is not intended to be used or implemented
  * outside the Garden component.
  */
-const useHeader = <T extends HangingGardenColumnIndex>() => {
+
+type UseHeader = {
+  renderHeader: (key: string, index: number) => void;
+};
+
+const useHeader = <T extends HangingGardenColumnIndex>(): UseHeader => {
   const {
     stage,
     expandedColumns,

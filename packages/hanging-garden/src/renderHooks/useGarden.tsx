@@ -15,7 +15,12 @@ import useHightLightedItem from './useHightLightedItem';
  * This hook is used by the Garden and is not intended to be used or implemented
  * outside the Garden component.
  */
-const useGarden = <T extends HangingGardenColumnIndex>() => {
+
+type UseGarden = {
+  renderGarden: () => void;
+};
+
+const useGarden = <T extends HangingGardenColumnIndex>(): UseGarden => {
   const {
     pixiApp,
     stage,

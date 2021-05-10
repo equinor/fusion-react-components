@@ -3,7 +3,7 @@ import { useHangingGardenContext } from './useHangingGardenContext';
 import useGarden from './useGarden';
 
 declare class ResizeObserver {
-  constructor(callback: any);
+  constructor(callback: (arr: ResizeObserverArray[]) => void);
   observe: (target: Element | null) => void;
   unobserve: (target: Element | null) => void;
 }
@@ -20,7 +20,7 @@ type ResizeObserverArray = {
  * This hook is used by the Garden and is not intended to be used or implemented
  * outside the Garden component.
  */
-const useRendererSize = () => {
+const useRendererSize = (): void => {
   const { pixiApp, container } = useHangingGardenContext();
   const { renderGarden } = useGarden();
   const resizeObserverRef = React.useRef<ResizeObserver>();

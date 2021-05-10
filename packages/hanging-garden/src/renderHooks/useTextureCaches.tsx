@@ -22,7 +22,7 @@ export type TextureCaches = {
   items: ContainerCache;
   chars: TextureCache;
   graphics: RenderTextureCache;
-  descriptions: any;
+  descriptions: ContainerCache;
   masks: GraphicsCache;
   texts: RenderTextureCache;
   rects: RenderTextureCache;

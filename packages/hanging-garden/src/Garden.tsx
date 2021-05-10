@@ -32,7 +32,7 @@ type GardenProps = {
   provideController?: MutableRefObject<GardenController | null>;
 };
 
-function Garden<T extends HangingGardenColumnIndex>({ provideController }: GardenProps) {
+function Garden<T extends HangingGardenColumnIndex>({ provideController }: GardenProps): JSX.Element {
   const {
     pixiApp,
     container,
