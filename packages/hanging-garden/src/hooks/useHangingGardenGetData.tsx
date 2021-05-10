@@ -15,14 +15,10 @@ import { useState, useCallback } from 'react';
  *
  */
 
+type GetDataPromise<T> = { data: T[]; cacheAge: Date; cacheDurationInMinutes: number };
+
 type UseHangingGardenGetData<T> = {
-  getData: (
-    invalidateCache?: boolean | undefined
-  ) => Promise<{
-    data: T[];
-    cacheAge: Date;
-    cacheDurationInMinutes: number;
-  } | null>;
+  getData: (invalidateCache?: boolean) => Promise<GetDataPromise<T> | null>;
   error: GardenDataError | null;
   isFetching: boolean;
 };

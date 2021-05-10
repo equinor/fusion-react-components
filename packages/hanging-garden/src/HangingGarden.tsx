@@ -37,6 +37,9 @@ const useStyles = makeStyles(() =>
       flex: '1 1 auto',
       height: '100%',
       minWidth: 0,
+      minHeight: 0,
+      maxWidth: '100%',
+      maxHeight: '100%',
     },
   })
 );
