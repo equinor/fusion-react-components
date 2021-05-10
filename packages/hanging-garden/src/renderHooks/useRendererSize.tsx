@@ -53,7 +53,9 @@ const useRendererSize = (): void => {
 
     resizeObserverRef?.current?.observe(container.current);
 
-    return () => resizeObserverRef?.current?.unobserve(container.current);
+    return () => {
+      container?.current && resizeObserverRef?.current?.unobserve(container.current);
+    };
   }, [resizeRenderer]);
 
   return;
