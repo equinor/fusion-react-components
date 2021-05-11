@@ -1,19 +1,20 @@
-import { forwardRef } from 'react';
+import { forwardRef, InputHTMLAttributes } from 'react';
 import { makeStyles, createStyles, theme, FusionTheme } from '@equinor/fusion-react-styles';
-import Calendar from './icons/Calendar';
+import Icon from './Icon';
+import { calendar, clear } from '@equinor/eds-icons';
 
 type SpacingType = keyof typeof theme.spacing.comfortable;
 
 type StyleProps = {
   disabled?: boolean;
+  hasValue?: boolean;
+  isError?: boolean;
   spacing: SpacingType;
 };
 
 type InputProps = {
-  disabled?: boolean;
-  onClick?(): void;
-  value?: string;
-  placeholder?: string;
+  isClearable?: boolean;
+  onClear(): void;
 };
 
 const defaultStyleProps: StyleProps = {
@@ -35,9 +36,16 @@ const useStyles = makeStyles<FusionTheme, StyleProps>(
         justifyContent: 'center',
         alignItems: 'center',
       }),
-      input: {
+      error: {
+        color: 'red',
+      },
+      input: ({ hasValue, isError }) => ({
         ...theme.typography.input.text.style,
-        ...theme.colors.text.static_icons__tertiary.style,
+        color: isError
+          ? theme.colors.interactive.danger__text.value.hex
+          : hasValue
+          ? theme.colors.text.static_icons__default.value.hex
+          : theme.colors.text.static_icons__tertiary.value.hex,
         border: 'none',
         background: 'none',
         width: '100%',
@@ -47,27 +55,41 @@ const useStyles = makeStyles<FusionTheme, StyleProps>(
         '&:disabled': {
           color: theme.colors.interactive.disabled__text.value.hex,
         },
+      }),
+      icon: {
+        ...theme.typography.navigation.menu_title.style,
+        '&:hover': {
+          cursor: 'pointer',
+          color: theme.colors.interactive.primary__hover.value.hex,
+        },
       },
     }),
   { name: 'fusion-datepicker-input' }
 );
 
-export const FusionDatePickerInput = forwardRef<HTMLInputElement, InputProps>(
-  ({ value, onClick, disabled, placeholder }: InputProps, ref: React.ForwardedRef<HTMLInputElement>) => {
-    const classes = useStyles({ ...defaultStyleProps, disabled: disabled });
+export const FusionDatePickerInput = forwardRef<HTMLInputElement, InputHTMLAttributes<HTMLInputElement> & InputProps>(
+  (props: InputHTMLAttributes<HTMLInputElement> & InputProps, ref: React.ForwardedRef<HTMLInputElement>) => {
+    const { isClearable, onClear, ...rest } = props;
+
+    const classes = useStyles({
+      ...defaultStyleProps,
+      disabled: props.disabled,
+      hasValue: props.value ? true : false,
+    });
 
     return (
       <div className={classes.container}>
-        <input
-          value={value}
-          onClick={onClick}
-          className={classes.input}
-          ref={ref}
-          disabled={disabled}
-          placeholder={placeholder}
-          readOnly
-        />
-        <Calendar disabled={disabled} />
+        <input {...rest} className={classes.input} ref={ref} />
+        {isClearable && props.value && (
+          <Icon
+            icon={clear}
+            className={classes.icon}
+            onClick={() => {
+              onClear();
+            }}
+          />
+        )}
+        <Icon icon={calendar} className={classes.icon} onClick={props.onClick} />
       </div>
     );
   }

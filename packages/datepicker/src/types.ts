@@ -2,6 +2,7 @@ export type FusionDatePickerProps = {
   allowKeyboardControl?: boolean;
   allowSameDay?: boolean;
   date: Date | null | undefined;
+  dateFormat?: string;
   disabled?: boolean;
   disableFuture?: boolean;
   disablePast?: boolean;
@@ -14,7 +15,8 @@ export type FusionDatePickerProps = {
   includeTimes?: Date[];
   injectTimes?: Date[];
   inline?: boolean;
-  locale?: string | Locale | undefined;
+  isClearable?: boolean;
+  locale?: Locale | undefined;
   maxDate?: Date | null;
   maxTime?: Date;
   minDate?: Date | null;
@@ -37,6 +39,7 @@ export type FusionDatePickerProps = {
   startOpen?: boolean;
   tabIndex?: number;
   type?: DatePickerType;
+  width?: string;
 };
 
 export type DatePickerType = 'year' | 'month' | 'date' | 'datetime' | 'time' | undefined;

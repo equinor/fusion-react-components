@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.2.1...@equinor/fusion-react-components-stories@1.3.0) (2021-05-11)
+
+
+### Bug Fixes
+
+* fixes to  header and icon handling ([babc3bd](https://github.com/equinor/fusion-react-components/commit/babc3bdd70714e02d205aad59e8ecc2d99824c36))
+
+
+### Features
+
+* added arrow icon to dropdown and other minor fixes ([03a8a84](https://github.com/equinor/fusion-react-components/commit/03a8a84ccf6d080bd65ae325748239d5c967197b))
+
+
+
+
+
 ## [1.2.1](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.2.0...@equinor/fusion-react-components-stories@1.2.1) (2021-05-04)
 
 
