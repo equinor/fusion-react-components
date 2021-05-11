@@ -9,6 +9,8 @@ import FusionDatePickerHeader from './DatePickerHeader';
 import FusionDatePickerInput from './DatePickerInput';
 
 import 'react-datepicker/dist/react-datepicker.css';
+import { useState } from 'react';
+import { useEffect } from 'react';
 
 type StyleProps = {
   width?: string;
@@ -94,21 +96,17 @@ export const FusionDatePicker: FunctionComponent<FusionDatePickerProps> = (
 
   const classes = useStyles({ width: fluid ? '100%' : width });
 
+  const [dateFormat, setDateFormat] = useState<string>(getDateFormat(type));
+
+  useEffect(() => {
+    setDateFormat(getDateFormat(type));
+  }, [type]);
+
   return (
     <DatePicker
       allowSameDay={allowSameDay}
-      customInput={
-        <FusionDatePickerInput
-          onClear={
-            isClearable
-              ? () => {
-                  onChange(null);
-                }
-              : undefined
-          }
-        />
-      }
-      dateFormat={getDateFormat(type)}
+      customInput={<FusionDatePickerInput isClearable={isClearable} locale={locale} onDateChange={onChange} />}
+      dateFormat={dateFormat}
       disabled={disabled}
       disabledKeyboardNavigation={!allowKeyboardControl}
       endDate={endDate}

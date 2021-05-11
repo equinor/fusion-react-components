@@ -15,7 +15,7 @@ export type FusionDatePickerProps = {
   injectTimes?: Date[];
   inline?: boolean;
   isClearable?: boolean;
-  locale?: string | Locale | undefined;
+  locale?: Locale | undefined;
   maxDate?: Date | null;
   maxTime?: Date;
   minDate?: Date | null;
