@@ -2,6 +2,7 @@ export type FusionDatePickerProps = {
   allowKeyboardControl?: boolean;
   allowSameDay?: boolean;
   date: Date | null | undefined;
+  dateFormat?: string;
   disabled?: boolean;
   disableFuture?: boolean;
   disablePast?: boolean;
