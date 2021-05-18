@@ -8,13 +8,30 @@ export default {
 } as Meta;
 
 const Template: Story<FusionDatePickerProps> = (args) => {
-  const [date, setDate] = useState<Date | null | undefined>();
+  const [date, setDate] = useState<Date | null>(null);
 
   return <FusionDatePicker {...args} onChange={setDate} date={date} />;
 };
 
-export const Date = Template.bind({});
-Date.args = { placeholder: 'Select date', type: 'date' };
+const RangeTemplate: Story<FusionDatePickerProps> = (args) => {
+  const [dateFrom, setDateFrom] = useState<Date | null>(null);
+  const [dateTo, setDateTo] = useState<Date | null>(null);
+
+  const setDateRange = (range: [Date | null, Date | null]) => {
+    console.log('setDateRange', range);
+    const [from, to] = range;
+    setDateFrom(from);
+    setDateTo(to);
+  };
+
+  return <FusionDatePicker {...args} onRangeChange={setDateRange} dateFrom={dateFrom} dateTo={dateTo} />;
+};
+
+export const Dates = Template.bind({});
+Dates.args = { placeholder: 'Select date', type: 'date' };
+
+export const DateRange = RangeTemplate.bind({});
+DateRange.args = { placeholder: 'Select date range (from-to)', type: 'date-range' };
 
 export const DateAndTime = Template.bind({});
 DateAndTime.args = {

@@ -1,8 +1,9 @@
 import { FunctionComponent } from 'react';
 import DatePicker from 'react-datepicker';
-import { DatePickerType, FusionDatePickerProps } from './types';
+import { FusionDatePickerType, FusionDatePickerProps } from './types';
 import { makeStyles, createStyles, FusionTheme } from '@equinor/fusion-react-styles';
 //import { isSameDay } from 'date-fns';
+import { format } from 'date-fns';
 import { enGB } from 'date-fns/locale';
 
 import FusionDatePickerHeader from './DatePickerHeader';
@@ -33,13 +34,15 @@ const useStyles = makeStyles<FusionTheme, StyleProps>(
   { name: 'fusion-datepicker' }
 );
 
-const getDateFormat = (type: DatePickerType): string => {
+const getDateFormat = (type: FusionDatePickerType): string => {
   switch (type) {
     case 'year':
       return 'yyyy';
     case 'month':
       return 'MMMM yyyy';
     case 'date':
+      return 'dd/MM/yyyy';
+    case 'date-range':
       return 'dd/MM/yyyy';
     case 'datetime':
       return 'dd/MM/yyyy HH:mm';
@@ -58,10 +61,11 @@ export const FusionDatePicker: FunctionComponent<FusionDatePickerProps> = (
     allowSameDay = true,
     date,
     dateFormat,
+    dateFrom,
+    dateTo,
     disabled,
     disableFuture,
     disablePast,
-    endDate,
     excludeDates,
     excludeTimes,
     filterDate,
@@ -82,13 +86,13 @@ export const FusionDatePicker: FunctionComponent<FusionDatePickerProps> = (
     onFocus,
     onMonthChange,
     onOpen,
+    onRangeChange,
     onYearChange,
     openToDate,
     placeholder,
     readOnly,
     shouldCloseOnSelect = true,
     showWeekNumbers,
-    startDate,
     startOpen,
     showTodayButton,
     tabIndex,
@@ -98,14 +102,41 @@ export const FusionDatePicker: FunctionComponent<FusionDatePickerProps> = (
 
   const classes = useStyles({ width: fluid ? '100%' : width });
 
+  const isRange = type === 'date-range';
+
+  if (!isRange && !onChange) {
+    throw new Error('onChange is required');
+  }
+
+  if (isRange && !onRangeChange) {
+    throw new Error('onRangeChange is required');
+  }
+
+  const dateOnChange = (value: Date | [Date, Date] | null) => {
+    if (!isRange && onChange) {
+      onChange(value as Date | null);
+    } else if (isRange && onRangeChange) {
+      onRangeChange(value ? (value as [Date | null, Date | null]) : ([null, null] as [Date | null, Date | null]));
+    }
+  };
+
+  // Workaround for date range bug, see https://github.com/Hacker0x01/react-datepicker/issues/2959
+  const getValue = () => {
+    let dateStr = dateFrom ? format(dateFrom, dateFormat ?? getDateFormat(type)) : '';
+    if (dateStr && dateTo) {
+      dateStr = `${dateStr} - ${format(dateTo, dateFormat ?? getDateFormat(type))}`;
+    }
+    return dateStr;
+  };
+
   return (
     <DatePicker
       allowSameDay={allowSameDay}
-      customInput={<FusionDatePickerInput isClearable={isClearable} onClear={() => onChange(null)} />}
+      customInput={<FusionDatePickerInput isClearable={isClearable} onClear={() => dateOnChange(null)} />}
       dateFormat={dateFormat ?? getDateFormat(type)}
       disabled={disabled}
       disabledKeyboardNavigation={!allowKeyboardControl}
-      endDate={endDate}
+      endDate={isRange ? dateTo : undefined}
       excludeDates={excludeDates}
       excludeTimes={excludeTimes}
       filterDate={filterDate}
@@ -121,7 +152,7 @@ export const FusionDatePicker: FunctionComponent<FusionDatePickerProps> = (
       onBlur={onBlur}
       onCalendarClose={onClose}
       onCalendarOpen={onOpen}
-      onChange={onChange}
+      onChange={dateOnChange}
       onFocus={onFocus}
       onMonthChange={onMonthChange}
       onYearChange={onYearChange}
@@ -132,19 +163,24 @@ export const FusionDatePicker: FunctionComponent<FusionDatePickerProps> = (
       renderCustomHeader={(props) => {
         return <FusionDatePickerHeader {...props} type={type} />;
       }}
+      onChangeRaw={(event) => {
+        console.log('RAW', event.target);
+      }}
       //dayClassName={(d) => clsx(classes.day, date && isSameDay(d, date) && classes.selectedDay)}
-      selected={date}
-      shouldCloseOnSelect={shouldCloseOnSelect}
+      selected={isRange ? dateFrom : date}
+      selectsRange={isRange}
+      shouldCloseOnSelect={!isRange && shouldCloseOnSelect}
       showPopperArrow={false}
       showTimeSelect={type === 'datetime' || type === 'time'}
       showTimeSelectOnly={type === 'time'}
       showMonthYearPicker={type === 'month'}
       showYearPicker={type === 'year'}
       showWeekNumbers={showWeekNumbers}
-      startDate={startDate}
+      startDate={isRange ? dateFrom : undefined}
       startOpen={startOpen}
       tabIndex={tabIndex}
-      todayButton={showTodayButton ? 'Today' : null}
+      todayButton={showTodayButton ? 'Today' : undefined}
+      value={isRange ? getValue() : undefined} // Workaround for range bug
       wrapperClassName={classes.wrapper}
     />
   );
