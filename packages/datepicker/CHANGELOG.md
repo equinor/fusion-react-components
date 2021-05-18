@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-datepicker@0.3.0...@equinor/fusion-react-datepicker@0.4.0) (2021-05-18)
+
+
+### Bug Fixes
+
+* fixed clearable and dateformat ([dd7b6f7](https://github.com/equinor/fusion-react-components/commit/dd7b6f772366ffc728f2e8f236d9c91f5323a14b))
+* fixed layout and clear functionality ([3204007](https://github.com/equinor/fusion-react-components/commit/3204007ee05b5935bcf3dfb2dafbde423a5c72e6))
+* fixed written input and format ([ed72504](https://github.com/equinor/fusion-react-components/commit/ed72504145e255b84e3e12610d6930b524f3fea9))
+* fixed zindex for popper ([6138d10](https://github.com/equinor/fusion-react-components/commit/6138d102b1fed3334a9850b1dd811877602bdbe0))
+* fixes to  header and icon handling ([babc3bd](https://github.com/equinor/fusion-react-components/commit/babc3bdd70714e02d205aad59e8ecc2d99824c36))
+
+
+### Features
+
+* added arrow icon to dropdown and other minor fixes ([03a8a84](https://github.com/equinor/fusion-react-components/commit/03a8a84ccf6d080bd65ae325748239d5c967197b))
+
+
+
+
+
 # [0.3.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-datepicker@0.2.1...@equinor/fusion-react-datepicker@0.3.0) (2021-05-11)
 
 
