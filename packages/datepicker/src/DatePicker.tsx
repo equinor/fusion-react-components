@@ -17,6 +17,9 @@ type StyleProps = {
 const useStyles = makeStyles<FusionTheme, StyleProps>(
   (theme) =>
     createStyles({
+      popper: {
+        zIndex: 99,
+      },
       wrapper: ({ width }) => ({
         width: width,
       }),
@@ -124,6 +127,7 @@ export const FusionDatePicker: FunctionComponent<FusionDatePickerProps> = (
       onYearChange={onYearChange}
       openToDate={openToDate}
       placeholderText={placeholder}
+      popperClassName={classes.popper}
       readOnly={readOnly}
       renderCustomHeader={(props) => {
         return <FusionDatePickerHeader {...props} type={type} />;
