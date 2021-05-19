@@ -163,9 +163,6 @@ export const FusionDatePicker: FunctionComponent<FusionDatePickerProps> = (
       renderCustomHeader={(props) => {
         return <FusionDatePickerHeader {...props} type={type} />;
       }}
-      onChangeRaw={(event) => {
-        console.log('RAW', event.target);
-      }}
       //dayClassName={(d) => clsx(classes.day, date && isSameDay(d, date) && classes.selectedDay)}
       selected={isRange ? dateFrom : date}
       selectsRange={isRange}
