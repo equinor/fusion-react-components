@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.3.1...@equinor/fusion-react-components-stories@1.4.0) (2021-05-25)
+
+
+### Features
+
+* added support for selection of date range ([751abbc](https://github.com/equinor/fusion-react-components/commit/751abbcdb9a4a7aa5478a82158b71b6ca188b1f6))
+
+
+
+
+
 ## [1.3.1](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.3.0...@equinor/fusion-react-components-stories@1.3.1) (2021-05-18)
 
 **Note:** Version bump only for package @equinor/fusion-react-components-stories
