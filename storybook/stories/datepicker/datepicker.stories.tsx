@@ -31,7 +31,6 @@ Dates.args = {
   label: 'Date',
   placeholder: 'Select date',
   type: 'date',
-  maxDate: new Date('2021-03-20T03:24:00'),
 };
 
 export const DateRange = RangeTemplate.bind({});

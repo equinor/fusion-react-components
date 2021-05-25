@@ -19,12 +19,12 @@ type StyleProps = {
 const useStyles = makeStyles<FusionTheme, StyleProps>(
   (theme) =>
     createStyles({
-      container: {
-        height: '3.5em',
+      container: ({ height }) => ({
+        height: height ?? '3.5em',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
-      },
+      }),
       label: {
         ...theme.typography.input.label.style,
         color: theme.colors.text.static_icons__tertiary.value.hex,
