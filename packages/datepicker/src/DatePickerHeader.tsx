@@ -21,6 +21,8 @@ type HeaderProps = {
   decreaseYear(): void;
   increaseMonth(): void;
   increaseYear(): void;
+  maxDate?: Date | null;
+  minDate?: Date | null;
   nextMonthButtonDisabled: boolean;
   nextYearButtonDisabled: boolean;
   prevMonthButtonDisabled: boolean;
@@ -110,6 +112,8 @@ export const FusionDatePickerHeader: FunctionComponent<HeaderProps> = (props: He
     prevMonthButtonDisabled,
     prevYearButtonDisabled,
     type,
+    maxDate,
+    minDate,
   } = props;
 
   const classes = useStyles(defaultStyleProps);
@@ -120,7 +124,15 @@ export const FusionDatePickerHeader: FunctionComponent<HeaderProps> = (props: He
     <div className={classes.container}>
       <Icon
         icon={arrow_back}
-        onClick={showYearPicker ? decreaseYear : decreaseMonth}
+        onClick={
+          showYearPicker
+            ? prevYearButtonDisabled
+              ? undefined
+              : decreaseYear
+            : prevMonthButtonDisabled
+            ? undefined
+            : decreaseMonth
+        }
         className={
           (showYearPicker && prevYearButtonDisabled) || prevMonthButtonDisabled ? classes.disabled : classes.clickable
         }
@@ -131,14 +143,16 @@ export const FusionDatePickerHeader: FunctionComponent<HeaderProps> = (props: He
         <DatePicker
           customInput={<MonthHeaderInput />}
           dateFormat="MMMM yyyy"
-          renderCustomHeader={() => {
-            return <FusionDatePickerHeader {...props} type="month" />;
+          maxDate={maxDate}
+          minDate={minDate}
+          onChange={(d: Date) => {
+            changeYear(d.getFullYear());
+            changeMonth(d.getMonth());
+          }}
+          renderCustomHeader={(props) => {
+            return <FusionDatePickerHeader {...props} type="month" maxDate={maxDate} minDate={minDate} />;
           }}
           selected={date}
-          onChange={(date: Date) => {
-            changeMonth(date.getMonth());
-            changeYear(date.getFullYear());
-          }}
           showMonthYearPicker={true}
           wrapperClassName={clsx(classes.monthHeader, classes.clickable)}
         />
@@ -146,7 +160,15 @@ export const FusionDatePickerHeader: FunctionComponent<HeaderProps> = (props: He
 
       <Icon
         icon={arrow_forward}
-        onClick={showYearPicker ? increaseYear : increaseMonth}
+        onClick={
+          showYearPicker
+            ? nextYearButtonDisabled
+              ? undefined
+              : increaseYear
+            : nextMonthButtonDisabled
+            ? undefined
+            : increaseMonth
+        }
         className={
           (showYearPicker && nextYearButtonDisabled) || nextMonthButtonDisabled ? classes.disabled : classes.clickable
         }

@@ -77,8 +77,6 @@ export const FusionDatePickerInput = forwardRef<HTMLInputElement, InputHTMLAttri
       hasValue: props.value ? true : false,
     });
 
-    console.log('VALUE', props.value);
-
     return (
       <div className={classes.container}>
         <input {...rest} className={classes.input} ref={ref} />

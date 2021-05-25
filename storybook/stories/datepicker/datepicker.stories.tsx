@@ -18,7 +18,6 @@ const RangeTemplate: Story<FusionDatePickerProps> = (args) => {
   const [dateTo, setDateTo] = useState<Date | null>(null);
 
   const setDateRange = (range: [Date | null, Date | null]) => {
-    console.log('setDateRange', range);
     const [from, to] = range;
     setDateFrom(from);
     setDateTo(to);
@@ -28,31 +27,40 @@ const RangeTemplate: Story<FusionDatePickerProps> = (args) => {
 };
 
 export const Dates = Template.bind({});
-Dates.args = { placeholder: 'Select date', type: 'date' };
+Dates.args = {
+  label: 'Date',
+  placeholder: 'Select date',
+  type: 'date',
+  maxDate: new Date('2021-03-20T03:24:00'),
+};
 
 export const DateRange = RangeTemplate.bind({});
-DateRange.args = { placeholder: 'Select date range (from-to)', type: 'date-range' };
+DateRange.args = { label: 'Date range', placeholder: 'Select date range (from-to)', type: 'date-range' };
 
 export const DateAndTime = Template.bind({});
 DateAndTime.args = {
+  label: 'Date and time',
   placeholder: 'Select date and time',
   type: 'datetime',
 };
 
 export const Month = Template.bind({});
 Month.args = {
+  label: 'Month',
   placeholder: 'Select month',
   type: 'month',
 };
 
 export const Time = Template.bind({});
 Time.args = {
+  label: 'Time',
   placeholder: 'Select time',
   type: 'time',
 };
 
 export const Year = Template.bind({});
 Year.args = {
+  label: 'Year',
   placeholder: 'Select year',
   type: 'year',
 };
