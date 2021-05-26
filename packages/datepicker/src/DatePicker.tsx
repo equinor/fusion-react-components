@@ -127,7 +127,6 @@ export const FusionDatePicker: FunctionComponent<FusionDatePickerProps> = (
   }
 
   const dateOnChange = (value: Date | [Date, Date] | null) => {
-    console.log('VALUE', value);
     if (!isRange && onChange) {
       onChange(value as Date | null);
     } else if (isRange && onRangeChange) {
