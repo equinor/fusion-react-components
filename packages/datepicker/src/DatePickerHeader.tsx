@@ -1,6 +1,6 @@
 import { FunctionComponent, forwardRef } from 'react';
 import { makeStyles, createStyles, theme, FusionTheme, clsx } from '@equinor/fusion-react-styles';
-import { format } from 'date-fns';
+import { format, lastDayOfMonth } from 'date-fns';
 import { FusionDatePickerType } from './types';
 import DatePicker from 'react-datepicker';
 import Icon from './Icon';
@@ -143,11 +143,13 @@ export const FusionDatePickerHeader: FunctionComponent<HeaderProps> = (props: He
         <DatePicker
           customInput={<MonthHeaderInput />}
           dateFormat="MMMM yyyy"
-          maxDate={maxDate}
-          minDate={minDate}
+          maxDate={maxDate ? lastDayOfMonth(maxDate) : undefined}
+          minDate={minDate ? new Date(minDate.getFullYear(), minDate.getMonth()) : undefined}
           onChange={(d: Date) => {
-            changeYear(d.getFullYear());
-            changeMonth(d.getMonth());
+            const day = maxDate && maxDate?.getDate() < date.getDate() ? maxDate.getDate() : date.getDate();
+            const month = new Date(d.getFullYear(), d.getMonth(), day);
+            changeYear(month.getFullYear());
+            changeMonth(month.getMonth());
           }}
           renderCustomHeader={(props) => {
             return <FusionDatePickerHeader {...props} type="month" maxDate={maxDate} minDate={minDate} />;
