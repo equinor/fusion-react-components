@@ -13,11 +13,23 @@ import 'react-datepicker/dist/react-datepicker.css';
 
 type StyleProps = {
   width?: string;
+  height?: string;
 };
 
 const useStyles = makeStyles<FusionTheme, StyleProps>(
   (theme) =>
     createStyles({
+      container: ({ height }) => ({
+        height: height ?? '3.5em',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+      }),
+      label: {
+        ...theme.typography.input.label.style,
+        color: theme.colors.text.static_icons__tertiary.value.hex,
+        paddingLeft: 'calc(0.5em + 2px)',
+      },
       popper: {
         zIndex: 99,
       },
@@ -70,11 +82,13 @@ export const FusionDatePicker: FunctionComponent<FusionDatePickerProps> = (
     excludeTimes,
     filterDate,
     fluid,
+    height,
     includeDates,
     includeTimes,
     injectTimes,
     inline,
     isClearable = true,
+    label,
     locale = enGB,
     maxDate,
     maxTime,
@@ -100,7 +114,7 @@ export const FusionDatePicker: FunctionComponent<FusionDatePickerProps> = (
     width = '15em',
   } = props;
 
-  const classes = useStyles({ width: fluid ? '100%' : width });
+  const classes = useStyles({ width: fluid ? '100%' : width, height: height });
 
   const isRange = type === 'date-range';
 
@@ -130,56 +144,66 @@ export const FusionDatePicker: FunctionComponent<FusionDatePickerProps> = (
   };
 
   return (
-    <DatePicker
-      allowSameDay={allowSameDay}
-      customInput={<FusionDatePickerInput isClearable={isClearable} onClear={() => dateOnChange(null)} />}
-      dateFormat={dateFormat ?? getDateFormat(type)}
-      disabled={disabled}
-      disabledKeyboardNavigation={!allowKeyboardControl}
-      endDate={isRange ? dateTo : undefined}
-      excludeDates={excludeDates}
-      excludeTimes={excludeTimes}
-      filterDate={filterDate}
-      includeDates={includeDates}
-      includeTimes={includeTimes}
-      injectTimes={injectTimes}
-      inline={inline}
-      locale={locale}
-      maxDate={maxDate ?? disableFuture ? new Date() : null}
-      maxTime={maxTime}
-      minDate={minDate ?? disablePast ? new Date() : null}
-      minTime={minTime}
-      onBlur={onBlur}
-      onCalendarClose={onClose}
-      onCalendarOpen={onOpen}
-      onChange={dateOnChange}
-      onFocus={onFocus}
-      onMonthChange={onMonthChange}
-      onYearChange={onYearChange}
-      openToDate={openToDate}
-      placeholderText={placeholder}
-      popperClassName={classes.popper}
-      readOnly={readOnly}
-      renderCustomHeader={(props) => {
-        return <FusionDatePickerHeader {...props} type={type} />;
-      }}
-      //dayClassName={(d) => clsx(classes.day, date && isSameDay(d, date) && classes.selectedDay)}
-      selected={isRange ? dateFrom : date}
-      selectsRange={isRange}
-      shouldCloseOnSelect={!isRange && shouldCloseOnSelect}
-      showPopperArrow={false}
-      showTimeSelect={type === 'datetime' || type === 'time'}
-      showTimeSelectOnly={type === 'time'}
-      showMonthYearPicker={type === 'month'}
-      showYearPicker={type === 'year'}
-      showWeekNumbers={showWeekNumbers}
-      startDate={isRange ? dateFrom : undefined}
-      startOpen={startOpen}
-      tabIndex={tabIndex}
-      todayButton={showTodayButton ? 'Today' : undefined}
-      value={isRange ? getValue() : undefined} // Workaround for range bug
-      wrapperClassName={classes.wrapper}
-    />
+    <div className={classes.container}>
+      {label && <span className={classes.label}>{label}</span>}
+      <DatePicker
+        allowSameDay={allowSameDay}
+        customInput={<FusionDatePickerInput isClearable={isClearable} onClear={() => dateOnChange(null)} />}
+        dateFormat={dateFormat ?? getDateFormat(type)}
+        disabled={disabled}
+        disabledKeyboardNavigation={!allowKeyboardControl}
+        endDate={isRange ? dateTo : undefined}
+        excludeDates={excludeDates}
+        excludeTimes={excludeTimes}
+        filterDate={filterDate}
+        includeDates={includeDates}
+        includeTimes={includeTimes}
+        injectTimes={injectTimes}
+        inline={inline}
+        locale={locale}
+        maxDate={disableFuture ? new Date() : maxDate}
+        maxTime={disableFuture ? new Date() : maxTime}
+        minDate={disablePast ? new Date() : minDate}
+        minTime={disablePast ? new Date() : minTime}
+        onBlur={onBlur}
+        onCalendarClose={onClose}
+        onCalendarOpen={onOpen}
+        onChange={dateOnChange}
+        onFocus={onFocus}
+        onMonthChange={onMonthChange}
+        onYearChange={onYearChange}
+        openToDate={openToDate}
+        placeholderText={placeholder}
+        popperClassName={classes.popper}
+        readOnly={readOnly}
+        renderCustomHeader={(props) => {
+          return (
+            <FusionDatePickerHeader
+              {...props}
+              type={type}
+              maxDate={disableFuture ? new Date() : maxDate}
+              minDate={disablePast ? new Date() : minDate}
+            />
+          );
+        }}
+        //dayClassName={(d) => clsx(classes.day, date && isSameDay(d, date) && classes.selectedDay)}
+        selected={isRange ? dateFrom : date}
+        selectsRange={isRange}
+        shouldCloseOnSelect={!isRange && shouldCloseOnSelect}
+        showPopperArrow={false}
+        showTimeSelect={type === 'datetime' || type === 'time'}
+        showTimeSelectOnly={type === 'time'}
+        showMonthYearPicker={type === 'month'}
+        showYearPicker={type === 'year'}
+        showWeekNumbers={showWeekNumbers}
+        startDate={isRange ? dateFrom : undefined}
+        startOpen={startOpen}
+        tabIndex={tabIndex}
+        todayButton={showTodayButton ? 'Today' : undefined}
+        value={isRange ? getValue() : undefined} // Workaround for range bug
+        wrapperClassName={classes.wrapper}
+      />
+    </div>
   );
 };
 
