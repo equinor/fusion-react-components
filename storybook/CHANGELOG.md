@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.4.0...@equinor/fusion-react-components-stories@1.5.0) (2021-05-26)
+
+
+### Bug Fixes
+
+* fixed height ([5a5cf06](https://github.com/equinor/fusion-react-components/commit/5a5cf06e53b788789785a0ab33f5197356d77083))
+* fixed multiple bugs and added label ([676ebc7](https://github.com/equinor/fusion-react-components/commit/676ebc73d65d1e9582d2943e3e74ad74e7d8ae1c))
+
+
+### Features
+
+* added support for selection of date range ([751abbc](https://github.com/equinor/fusion-react-components/commit/751abbcdb9a4a7aa5478a82158b71b6ca188b1f6))
+
+
+
+
+
 # [1.4.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.3.1...@equinor/fusion-react-components-stories@1.4.0) (2021-05-25)
 
 
