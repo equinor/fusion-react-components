@@ -28,11 +28,11 @@ const getComponent = (type: IconType): SortIconComponent => {
   }
 };
 
-export const Icon: FunctionComponent<IconProps> = ({ type, active, ...props }: IconProps) => {
+export const SortIcon: FunctionComponent<IconProps> = ({ type, active, ...props }: IconProps) => {
   const Component = getComponent(type);
   const classes = useStyle();
   const className = clsx(classes.root, active && classes.active);
   return <Component className={className} {...props} />;
 };
 
-export default Icon;
+export default SortIcon;

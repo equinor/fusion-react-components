@@ -1,4 +1,6 @@
-// import * as MenuItems from './column'
-export * from './Table';
-export { ColumnMenuContext, ColumnMenuItems } from './column';
+export * from './useTable';
+export * from './components';
 export * from './types';
+
+export * from './Table';
+export * from './TableProvider';
