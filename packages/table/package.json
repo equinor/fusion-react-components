@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-table",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "component for displaying tables",
   "keywords": [
     "table",
@@ -42,6 +42,7 @@
     "react-table": "^7.6.3"
   },
   "devDependencies": {
+    "typesafe-actions": "^5.1.0",
     "typescript": "^4.1.3"
   }
 }

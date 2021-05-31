@@ -1,0 +1,51 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import { Table, TableProps } from '@equinor/fusion-react-table';
+import data from './data.json';
+const columns = [
+  {
+    Header: 'Name',
+    accessor: 'name',
+    dataType: 'text',
+  },
+  {
+    Header: 'Address',
+    accessor: 'address',
+    disableMenu: true,
+    width: 200,
+  },
+  {
+    Header: 'Date',
+    accessor: 'date',
+    dataType: 'datetime',
+  },
+  {
+    Header: 'Order #',
+    accessor: 'order',
+    dataType: 'number',
+  },
+];
+
+<Meta title="Data/Table" component={Table} />
+
+
+
+# Fusion React Table
+
+
+export const Template = (props) => {
+  return <Table {...props} style={{ width: '100%' }} />
+}
+
+<ArgsTable of={Table} />
+
+
+# plain
+<Canvas>
+  <Story name="default" args={{options: {data, columns}}}>{Template.bind({})}</Story>
+</Canvas>
+
+### Something
+
+<Canvas>
+  <Story id="table-stories--sortable-table"></Story>
+</Canvas>
