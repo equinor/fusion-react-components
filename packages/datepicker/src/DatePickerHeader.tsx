@@ -1,7 +1,7 @@
 import { FunctionComponent, forwardRef } from 'react';
 import { makeStyles, createStyles, theme, FusionTheme, clsx } from '@equinor/fusion-react-styles';
-import { format } from 'date-fns';
-import { DatePickerType } from './types';
+import { format, lastDayOfMonth } from 'date-fns';
+import { FusionDatePickerType } from './types';
 import DatePicker from 'react-datepicker';
 import Icon from './Icon';
 import { arrow_back, arrow_drop_down, arrow_forward } from '@equinor/eds-icons';
@@ -21,11 +21,13 @@ type HeaderProps = {
   decreaseYear(): void;
   increaseMonth(): void;
   increaseYear(): void;
+  maxDate?: Date | null;
+  minDate?: Date | null;
   nextMonthButtonDisabled: boolean;
   nextYearButtonDisabled: boolean;
   prevMonthButtonDisabled: boolean;
   prevYearButtonDisabled: boolean;
-  type: DatePickerType;
+  type: FusionDatePickerType;
 };
 
 type InputProps = {
@@ -110,6 +112,8 @@ export const FusionDatePickerHeader: FunctionComponent<HeaderProps> = (props: He
     prevMonthButtonDisabled,
     prevYearButtonDisabled,
     type,
+    maxDate,
+    minDate,
   } = props;
 
   const classes = useStyles(defaultStyleProps);
@@ -120,7 +124,15 @@ export const FusionDatePickerHeader: FunctionComponent<HeaderProps> = (props: He
     <div className={classes.container}>
       <Icon
         icon={arrow_back}
-        onClick={showYearPicker ? decreaseYear : decreaseMonth}
+        onClick={
+          showYearPicker
+            ? prevYearButtonDisabled
+              ? undefined
+              : decreaseYear
+            : prevMonthButtonDisabled
+            ? undefined
+            : decreaseMonth
+        }
         className={
           (showYearPicker && prevYearButtonDisabled) || prevMonthButtonDisabled ? classes.disabled : classes.clickable
         }
@@ -131,14 +143,18 @@ export const FusionDatePickerHeader: FunctionComponent<HeaderProps> = (props: He
         <DatePicker
           customInput={<MonthHeaderInput />}
           dateFormat="MMMM yyyy"
-          renderCustomHeader={() => {
-            return <FusionDatePickerHeader {...props} type="month" />;
+          maxDate={maxDate ? lastDayOfMonth(maxDate) : undefined}
+          minDate={minDate ? new Date(minDate.getFullYear(), minDate.getMonth()) : undefined}
+          onChange={(d: Date) => {
+            const day = maxDate && maxDate?.getDate() < date.getDate() ? maxDate.getDate() : date.getDate();
+            const month = new Date(d.getFullYear(), d.getMonth(), day);
+            changeYear(month.getFullYear());
+            changeMonth(month.getMonth());
+          }}
+          renderCustomHeader={(props) => {
+            return <FusionDatePickerHeader {...props} type="month" maxDate={maxDate} minDate={minDate} />;
           }}
           selected={date}
-          onChange={(date: Date) => {
-            changeMonth(date.getMonth());
-            changeYear(date.getFullYear());
-          }}
           showMonthYearPicker={true}
           wrapperClassName={clsx(classes.monthHeader, classes.clickable)}
         />
@@ -146,7 +162,15 @@ export const FusionDatePickerHeader: FunctionComponent<HeaderProps> = (props: He
 
       <Icon
         icon={arrow_forward}
-        onClick={showYearPicker ? increaseYear : increaseMonth}
+        onClick={
+          showYearPicker
+            ? nextYearButtonDisabled
+              ? undefined
+              : increaseYear
+            : nextMonthButtonDisabled
+            ? undefined
+            : increaseMonth
+        }
         className={
           (showYearPicker && nextYearButtonDisabled) || nextMonthButtonDisabled ? classes.disabled : classes.clickable
         }
