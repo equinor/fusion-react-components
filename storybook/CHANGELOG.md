@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.2](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.5.1...@equinor/fusion-react-components-stories@1.5.2) (2021-05-31)
+
+
+### Bug Fixes
+
+* plugins for table ([5993eed](https://github.com/equinor/fusion-react-components/commit/5993eedabfde8694af269af89ba03ab82dae9050))
+
+
+
+
+
 ## [1.5.1](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.5.0...@equinor/fusion-react-components-stories@1.5.1) (2021-05-26)
 
 **Note:** Version bump only for package @equinor/fusion-react-components-stories
