@@ -30,7 +30,7 @@ const useStyles = makeStyles<FusionTheme, StyleProps>(
         borderBottom: disabled ? 'none' : `1px solid ${theme.colors.text.static_icons__tertiary.value.hex}`,
         '&:focus-within': {
           outline: `2px solid ${theme.colors.interactive.focus.value.hex}`,
-          borderBottom: 'none',
+          borderBottom: '1px solid transparent',
         },
         display: 'flex',
         justifyContent: 'center',
@@ -58,6 +58,7 @@ const useStyles = makeStyles<FusionTheme, StyleProps>(
       }),
       icon: {
         ...theme.typography.navigation.menu_title.style,
+        color: theme.colors.text.static_icons__tertiary.value.hex,
         '&:hover': {
           cursor: 'pointer',
           color: theme.colors.interactive.primary__hover.value.hex,
@@ -80,7 +81,7 @@ export const FusionDatePickerInput = forwardRef<HTMLInputElement, InputHTMLAttri
     return (
       <div className={classes.container}>
         <input {...rest} className={classes.input} ref={ref} />
-        {isClearable && props.value && (
+        {isClearable && props.value ? (
           <Icon
             icon={clear}
             className={classes.icon}
@@ -88,8 +89,9 @@ export const FusionDatePickerInput = forwardRef<HTMLInputElement, InputHTMLAttri
               onClear();
             }}
           />
+        ) : (
+          <Icon icon={calendar} className={classes.icon} onClick={props.onClick} />
         )}
-        <Icon icon={calendar} className={classes.icon} onClick={props.onClick} />
       </div>
     );
   }
