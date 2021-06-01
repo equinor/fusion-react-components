@@ -72,9 +72,11 @@ const useStyles = makeStyles<FusionTheme, StyleProps>(
                 },
                 '&:focus': {
                   outline: `1px dashed ${theme.colors.interactive.primary__resting.value.hex}`,
+                  outlineOffset: '-1px',
                 },
                 '&:enabled': {
                   outline: `1px solid ${theme.colors.interactive.primary__resting.value.hex}`,
+                  outlineOffset: '-1px',
                 },
               },
               '& .react-datepicker__day--weekend': {
@@ -83,7 +85,7 @@ const useStyles = makeStyles<FusionTheme, StyleProps>(
                   backgroundColor: theme.colors.interactive.primary__hover_alt.value.hex,
                 },
               },
-              '& .react-datepicker__day--keyboard-selected': {
+              '& :not(.react-datepicker__day--weekend).react-datepicker__day--keyboard-selected': {
                 backgroundColor: 'transparent',
               },
               '& .react-datepicker__day--selected, .react-datepicker__day--in-range, .react-datepicker__day--in-selecting-range, .react-datepicker__day--range-end': {
@@ -95,6 +97,9 @@ const useStyles = makeStyles<FusionTheme, StyleProps>(
               },
               '& .react-datepicker__day--today': {
                 fontWeight: 'bold',
+              },
+              '& .react-datepicker__day--disabled': {
+                color: theme.colors.interactive.disabled__text.value.hex,
               },
             },
             '& .react-datepicker__month-wrapper': {
@@ -121,6 +126,9 @@ const useStyles = makeStyles<FusionTheme, StyleProps>(
                 '&:hover': {
                   backgroundColor: theme.colors.interactive.table__cell__fill_hover.value.hex,
                 },
+              },
+              '& .react-datepicker__month--disabled': {
+                color: theme.colors.interactive.disabled__text.value.hex,
               },
             },
           },
@@ -178,6 +186,9 @@ const useStyles = makeStyles<FusionTheme, StyleProps>(
               '& .react-datepicker__year-text--today': {
                 fontWeight: 'bold',
               },
+              '& .react-datepicker__year-text--disabled': {
+                color: theme.colors.interactive.disabled__text.value.hex,
+              },
             },
           },
         },
@@ -203,6 +214,9 @@ const useStyles = makeStyles<FusionTheme, StyleProps>(
               '&:hover': {
                 backgroundColor: `${theme.colors.interactive.primary__selected_hover.value.hex} !important`,
               },
+            },
+            '& .react-datepicker__time-list-item--disabled': {
+              color: theme.colors.interactive.disabled__text.value.hex,
             },
           },
         },

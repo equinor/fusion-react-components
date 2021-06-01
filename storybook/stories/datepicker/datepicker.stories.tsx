@@ -34,7 +34,11 @@ Dates.args = {
 };
 
 export const DateRange = RangeTemplate.bind({});
-DateRange.args = { label: 'Date range', placeholder: 'Select date range (from-to)', type: 'date-range' };
+DateRange.args = {
+  label: 'Date range',
+  placeholder: 'Select date range (from-to)',
+  type: 'date-range',
+};
 
 export const DateAndTime = Template.bind({});
 DateAndTime.args = {
