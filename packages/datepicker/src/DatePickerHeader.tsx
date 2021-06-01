@@ -51,11 +51,15 @@ const useStyles = makeStyles<FusionTheme, StyleProps>(
           color: theme.colors.interactive.primary__hover.value.hex,
         },
       },
-      container: ({ spacing }) => ({
-        ...theme.spacing.comfortable[spacing].style,
+      arrow: {
+        color: theme.colors.interactive.primary__resting.value.hex,
+      },
+      container: {
+        ...theme.spacing.comfortable.medium.style,
         display: 'flex',
         alignItems: 'center',
-      }),
+        borderBottom: `1px solid ${theme.colors.ui.background__medium.value.hex}`,
+      },
       disabled: {
         color: theme.colors.interactive.disabled__text.value.hex,
       },
@@ -71,12 +75,14 @@ const useStyles = makeStyles<FusionTheme, StyleProps>(
         ...theme.typography.navigation.menu_title.style,
         color: 'currentColor',
         userSelect: 'none',
+        lineHeight: '1.25em',
       },
       yearHeader: {
         ...theme.typography.navigation.menu_title.style,
         flex: 1,
         textAlign: 'center',
         userSelect: 'none',
+        lineHeight: '1.25em',
       },
     }),
   { name: 'fusion-datepicker-header' }
@@ -90,7 +96,7 @@ const MonthHeaderInput = forwardRef<HTMLInputElement, InputProps>(
         <span className={classes.monthHeaderInputText} ref={ref}>
           {value}
         </span>
-        <Icon icon={arrow_drop_down} />
+        <Icon className={classes.arrow} icon={arrow_drop_down} />
       </div>
     );
   }
@@ -134,7 +140,9 @@ export const FusionDatePickerHeader: FunctionComponent<HeaderProps> = (props: He
             : decreaseMonth
         }
         className={
-          (showYearPicker && prevYearButtonDisabled) || prevMonthButtonDisabled ? classes.disabled : classes.clickable
+          (showYearPicker && prevYearButtonDisabled) || prevMonthButtonDisabled
+            ? classes.disabled
+            : clsx(classes.clickable, classes.arrow)
         }
       />
       {showYearPicker ? (
@@ -172,7 +180,9 @@ export const FusionDatePickerHeader: FunctionComponent<HeaderProps> = (props: He
             : increaseMonth
         }
         className={
-          (showYearPicker && nextYearButtonDisabled) || nextMonthButtonDisabled ? classes.disabled : classes.clickable
+          (showYearPicker && nextYearButtonDisabled) || nextMonthButtonDisabled
+            ? classes.disabled
+            : clsx(classes.clickable, classes.arrow)
         }
       />
     </div>
