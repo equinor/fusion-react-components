@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.2](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-datepicker@0.7.1...@equinor/fusion-react-datepicker@0.7.2) (2021-06-01)
+
+
+### Bug Fixes
+
+* fixed styling issues ([691736f](https://github.com/equinor/fusion-react-components/commit/691736f4f5aed95497efe2e7098cb1e0fa80860a))
+
+
+
+
+
 ## [0.7.1](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-datepicker@0.7.0...@equinor/fusion-react-datepicker@0.7.1) (2021-06-01)
 
 

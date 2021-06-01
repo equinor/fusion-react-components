@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.4](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.5.3...@equinor/fusion-react-components-stories@1.5.4) (2021-06-01)
+
+
+### Bug Fixes
+
+* add equinor default font ([7863a5a](https://github.com/equinor/fusion-react-components/commit/7863a5ad5001a281332c23bf49a42cbc550576f7))
+* fixed styling issues ([691736f](https://github.com/equinor/fusion-react-components/commit/691736f4f5aed95497efe2e7098cb1e0fa80860a))
+* removed incorrect props from story ([e13349e](https://github.com/equinor/fusion-react-components/commit/e13349eb5b938aad7931c497d169d64cbce5a935))
+
+
+
+
+
 ## [1.5.3](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.5.2...@equinor/fusion-react-components-stories@1.5.3) (2021-06-01)
 
 **Note:** Version bump only for package @equinor/fusion-react-components-stories
