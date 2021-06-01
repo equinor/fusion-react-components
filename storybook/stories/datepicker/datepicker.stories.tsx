@@ -55,6 +55,8 @@ Time.args = {
   label: 'Time',
   placeholder: 'Select time',
   type: 'time',
+  disableFuture: true,
+  disablePast: true,
 };
 
 export const Year = Template.bind({});
@@ -62,4 +64,5 @@ Year.args = {
   label: 'Year',
   placeholder: 'Select year',
   type: 'year',
+  disableFuture: true,
 };
