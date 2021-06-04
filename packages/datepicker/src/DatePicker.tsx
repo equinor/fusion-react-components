@@ -88,13 +88,14 @@ const useStyles = makeStyles<FusionTheme, StyleProps>(
               '& :not(.react-datepicker__day--weekend).react-datepicker__day--keyboard-selected': {
                 backgroundColor: 'transparent',
               },
-              '& .react-datepicker__day--selected, .react-datepicker__day--in-range, .react-datepicker__day--in-selecting-range, .react-datepicker__day--range-end': {
-                backgroundColor: `${theme.colors.interactive.primary__selected_highlight.value.hex} !important`,
-                color: theme.colors.interactive.primary__resting.value.hex,
-                '&:hover': {
-                  backgroundColor: `${theme.colors.interactive.primary__selected_hover.value.hex} !important`,
+              '& .react-datepicker__day--selected, .react-datepicker__day--in-range, .react-datepicker__day--in-selecting-range, .react-datepicker__day--range-end':
+                {
+                  backgroundColor: `${theme.colors.interactive.primary__selected_highlight.value.hex} !important`,
+                  color: theme.colors.interactive.primary__resting.value.hex,
+                  '&:hover': {
+                    backgroundColor: `${theme.colors.interactive.primary__selected_hover.value.hex} !important`,
+                  },
                 },
-              },
               '& .react-datepicker__day--today': {
                 fontWeight: 'bold',
               },
@@ -114,12 +115,13 @@ const useStyles = makeStyles<FusionTheme, StyleProps>(
                 alignItems: 'center',
                 borderRadius: 0,
               },
-              '& .react-datepicker__month--selected, .react-datepicker__month--selected .react-datepicker__month-text--keyboard-selected': {
-                backgroundColor: `${theme.colors.interactive.primary__selected_highlight.value.hex} !important`,
-                '&:hover': {
-                  backgroundColor: `${theme.colors.interactive.primary__selected_hover.value.hex} !important`,
+              '& .react-datepicker__month--selected, .react-datepicker__month--selected .react-datepicker__month-text--keyboard-selected':
+                {
+                  backgroundColor: `${theme.colors.interactive.primary__selected_highlight.value.hex} !important`,
+                  '&:hover': {
+                    backgroundColor: `${theme.colors.interactive.primary__selected_hover.value.hex} !important`,
+                  },
                 },
-              },
               '& :not(.react-datepicker__month--selected).react-datepicker__month-text--keyboard-selected': {
                 background: 'transparent',
                 outline: `1px dashed ${theme.colors.interactive.primary__resting.value.hex}`,
@@ -169,13 +171,14 @@ const useStyles = makeStyles<FusionTheme, StyleProps>(
                 alignItems: 'center',
                 borderRadius: 0,
               },
-              '& .react-datepicker__year-text--selected, .react-datepicker__year-text--selected .react-datepicker__year-text--today': {
-                backgroundColor: `${theme.colors.interactive.primary__selected_highlight.value.hex} !important`,
-                color: theme.colors.interactive.primary__resting.value.hex,
-                '&:hover': {
-                  backgroundColor: `${theme.colors.interactive.primary__selected_hover.value.hex} !important`,
+              '& .react-datepicker__year-text--selected, .react-datepicker__year-text--selected .react-datepicker__year-text--today':
+                {
+                  backgroundColor: `${theme.colors.interactive.primary__selected_highlight.value.hex} !important`,
+                  color: theme.colors.interactive.primary__resting.value.hex,
+                  '&:hover': {
+                    backgroundColor: `${theme.colors.interactive.primary__selected_hover.value.hex} !important`,
+                  },
                 },
-              },
               '& .react-datepicker__year-text--keyboard-selected': {
                 background: 'transparent',
                 outline: `1px dashed ${theme.colors.interactive.primary__resting.value.hex}`,
@@ -245,6 +248,15 @@ const getDateFormat = (type: FusionDatePickerType): string => {
     default:
       return 'dd/MM/yyyy';
   }
+};
+
+const getDisplayDateFormat = (type: FusionDatePickerType): string => {
+  const dateFormat = getDateFormat(type).toLowerCase();
+
+  if (type === 'date-range') {
+    return `${dateFormat} - ${dateFormat}`;
+  }
+  return dateFormat;
 };
 
 export const FusionDatePicker: FunctionComponent<FusionDatePickerProps> = (
@@ -330,7 +342,13 @@ export const FusionDatePicker: FunctionComponent<FusionDatePickerProps> = (
       {label && <span className={classes.label}>{label}</span>}
       <DatePicker
         allowSameDay={allowSameDay}
-        customInput={<FusionDatePickerInput isClearable={isClearable} onClear={() => dateOnChange(null)} />}
+        customInput={
+          <FusionDatePickerInput
+            dateFormat={getDisplayDateFormat(type)}
+            isClearable={isClearable}
+            onClear={() => dateOnChange(null)}
+          />
+        }
         dateFormat={dateFormat ?? getDateFormat(type)}
         disabled={disabled}
         disabledKeyboardNavigation={!allowKeyboardControl}
