@@ -2,7 +2,6 @@ import { FunctionComponent } from 'react';
 import DatePicker from 'react-datepicker';
 import { FusionDatePickerType, FusionDatePickerProps } from './types';
 import { makeStyles, createStyles, FusionTheme } from '@equinor/fusion-react-styles';
-//import { isSameDay } from 'date-fns';
 import { format } from 'date-fns';
 import { enGB } from 'date-fns/locale';
 

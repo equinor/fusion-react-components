@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-datepicker",
-  "version": "0.7.1",
+  "version": "0.7.2",
   "description": "component for displaying a date picker",
   "keywords": [
     "date",
@@ -28,8 +28,8 @@
   },
   "scripts": {
     "build": "tsc -b",
-    "lint": "eslint 'src/**/*.{js,ts,tsx}'",
-    "lint:fix": "eslint 'src/**/*.{js,ts,tsx}' --fix",
+    "lint": "eslint src/**/*.{js,ts,tsx}",
+    "lint:fix": "eslint src/**/*.{js,ts,tsx} --fix",
     "prepack": "npm run build"
   },
   "bugs": {
