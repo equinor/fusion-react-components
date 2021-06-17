@@ -7,9 +7,7 @@ import reducer from './reducer';
 import './types';
 
 export const useColumnMenu = <D extends TableData>(hooks: Hooks<D>): void => {
-  hooks.stateReducers.push(
-    reducer<D>({ menu: {} })
-  );
+  hooks.stateReducers.push(reducer<D>({ menu: {} }));
   hooks.useInstance.push(useInstance);
 };
 
