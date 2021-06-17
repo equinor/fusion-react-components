@@ -1,15 +1,10 @@
 import { RefObject, useEffect, useRef } from 'react';
 
-export const isScrim =
-  (node: Node) =>
-  (e: Event): boolean =>
-    !e.composedPath().includes(node);
+export const isScrim = (node: Node) => (e: Event): boolean => !e.composedPath().includes(node);
 
-export const scrimClick =
-  (node: Node, cb: VoidFunction) =>
-  (e: Event): void => {
-    isScrim(node)(e) && cb();
-  };
+export const scrimClick = (node: Node, cb: VoidFunction) => (e: Event): void => {
+  isScrim(node)(e) && cb();
+};
 
 /**
  * Hook for detecting scrim clicks
