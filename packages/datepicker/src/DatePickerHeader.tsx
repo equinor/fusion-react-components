@@ -154,7 +154,7 @@ export const FusionDatePickerHeader: FunctionComponent<HeaderProps> = (props: He
           maxDate={maxDate ? lastDayOfMonth(maxDate) : undefined}
           minDate={minDate ? new Date(minDate.getFullYear(), minDate.getMonth()) : undefined}
           onChange={(d: Date) => {
-            const day = maxDate && maxDate?.getDate() < date.getDate() ? maxDate.getDate() : date.getDate();
+            const day = maxDate && maxDate?.getDate() < d.getDate() ? maxDate.getDate() : d.getDate();
             const month = new Date(d.getFullYear(), d.getMonth(), day);
             changeYear(month.getFullYear());
             changeMonth(month.getMonth());
