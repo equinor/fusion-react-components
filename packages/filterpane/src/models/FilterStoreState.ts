@@ -1,6 +1,6 @@
-type FilterStoreState<TSelections extends Record<string, unknown> = Record<string, unknown>, TData = unknown> = {
+type FilterStoreState<TSelection extends Record<string, unknown> = Record<string, unknown>, TData = unknown> = {
   data: TData;
-  selection: TSelections;
+  selection: TSelection;
 };
 
 export default FilterStoreState;

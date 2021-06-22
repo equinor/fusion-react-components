@@ -1,9 +1,8 @@
 import { CSSProperties } from 'react';
-import { TSelection } from '../FilterProvider';
-import { Filter } from './Filter';
+import Filter from './Filter';
 
 export type FilterContainerProps<TData> = {
-  filter: Filter<TData, TSelection>;
+  filter: Filter<TData>;
   useSearch?: boolean;
   useSelectAll?: boolean;
   style?: CSSProperties;

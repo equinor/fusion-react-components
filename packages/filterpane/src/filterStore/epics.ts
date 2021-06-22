@@ -6,11 +6,11 @@ import { isActionOf } from 'typesafe-actions';
 import FilterStoreState from '../models/FilterStoreState';
 import actions, { Actions } from './actions';
 
-const updateFilterEpic = <TSelections extends Record<string, unknown> = Record<string, unknown>, TData = unknown>(
+const updateFilterEpic = <TSelection extends Record<string, unknown> = Record<string, unknown>, TData = unknown>(
   action$: Observable<Actions>,
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  state$: StatefulObserver<FilterStoreState<TSelections, TData>>
-) => action$.pipe(filter(isActionOf(actions.selection.clearSingle)));
+  state$: StatefulObserver<FilterStoreState<TSelection, TData>>
+) => action$.pipe(filter(isActionOf(actions.selection.clear)));
 
 const epics = combineEpics<Actions, Actions, FilterStoreState>(updateFilterEpic);
 
