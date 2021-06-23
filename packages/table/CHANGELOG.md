@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.3.3 (2021-06-17)
+
+
+### Bug Fixes
+
+* fixed linting ([e85f56c](https://github.com/equinor/fusion-react-components/commit/e85f56c8a159ca6e65c3dfab4a3c2387888e96f4))
+* fixed linting ([0278fb0](https://github.com/equinor/fusion-react-components/commit/0278fb00da66f4cf6be855fc66eaa06074806465))
+
+
+
+
+
 ## [0.3.2](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-table@0.3.0...@equinor/fusion-react-table@0.3.2) (2021-05-31)
 
 

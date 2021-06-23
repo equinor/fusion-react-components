@@ -1,14 +1,14 @@
 import { FunctionComponent } from 'react';
 import DatePicker from 'react-datepicker';
 import { FusionDatePickerType, FusionDatePickerProps } from './types';
-import { makeStyles, createStyles, FusionTheme } from '@equinor/fusion-react-styles';
+import { makeStyles, createStyles, FusionTheme, Styles } from '@equinor/fusion-react-styles';
 import { format } from 'date-fns';
 import { enGB } from 'date-fns/locale';
 
 import FusionDatePickerHeader from './DatePickerHeader';
 import FusionDatePickerInput from './DatePickerInput';
 
-import 'react-datepicker/dist/react-datepicker.css';
+import style from './react-datepicker.css';
 
 type StyleProps = {
   width?: string;
@@ -18,6 +18,7 @@ type StyleProps = {
 const useStyles = makeStyles<FusionTheme, StyleProps>(
   (theme) =>
     createStyles({
+      ...(style as Styles<FusionTheme, any, string>),
       container: ({ height }) => ({
         height: height ?? '3.5em',
         display: 'flex',
