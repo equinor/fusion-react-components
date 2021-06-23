@@ -28,6 +28,7 @@
   },
   "scripts": {
     "build": "tsc -b",
+    "build:style": "jss convert ../../node_modules/react-datepicker/dist/react-datepicker.css -f js -e es6 > ./src/react-datepicker.css.ts",
     "lint": "eslint src/**/*.{js,ts,tsx}",
     "lint:fix": "eslint src/**/*.{js,ts,tsx} --fix",
     "prepack": "npm run build"
@@ -44,6 +45,7 @@
   },
   "devDependencies": {
     "@types/react-datepicker": "^3.1.8",
-    "typescript": "^4.1.3"
+    "typescript": "^4.1.3",
+    "jss-cli": "^6.0.2"
   }
 }
