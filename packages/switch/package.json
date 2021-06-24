@@ -1,14 +1,14 @@
 {
-  "name": "@equinor/fusion-react-checkbox",
-  "version": "0.2.0",
-  "description": "component for displaying checkbox",
+  "name": "@equinor/fusion-react-switch",
+  "version": "0.1.0",
+  "description": "component for displaying switch",
   "keywords": [
-    "checkbox",
+    "switch",
     "react",
     "fusion",
     "equinor"
   ],
-  "homepage": "https://github.com/equinor/fusion-react-components/tree/master/packages/checkbox#readme",
+  "homepage": "https://github.com/equinor/fusion-react-components/tree/master/packages/switch#readme",
   "license": "ISC",
   "main": "dist/index.js",
   "directories": {
@@ -34,7 +34,7 @@
     "url": "https://github.com/equinor/fusion-react-components/issues"
   },
   "dependencies": {
-    "@equinor/fusion-wc-checkbox": "^0.2.1"
+    "@equinor/fusion-wc-switch": "^0.2.1"
   },
   "devDependencies": {
     "typescript": "^4.1.3"

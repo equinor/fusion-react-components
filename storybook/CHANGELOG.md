@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.5.6...@equinor/fusion-react-components-stories@1.6.0) (2021-06-24)
+
+
+### Features
+
+* added checkbox react component ([5a511a0](https://github.com/equinor/fusion-react-components/commit/5a511a0c7925481629380483149e5f6c90e188a0))
+
+
+
+
+
 ## [1.5.6](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.5.5...@equinor/fusion-react-components-stories@1.5.6) (2021-06-23)
 
 **Note:** Version bump only for package @equinor/fusion-react-components-stories
