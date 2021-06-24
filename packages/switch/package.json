@@ -1,0 +1,42 @@
+{
+  "name": "@equinor/fusion-react-switch",
+  "version": "0.1.0",
+  "description": "component for displaying switch",
+  "keywords": [
+    "switch",
+    "react",
+    "fusion",
+    "equinor"
+  ],
+  "homepage": "https://github.com/equinor/fusion-react-components/tree/master/packages/switch#readme",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "directories": {
+    "dist": "dist"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/equinor/fusion-react-components.git"
+  },
+  "scripts": {
+    "build": "tsc -b",
+    "lint": "eslint src/**/*.{js,ts,tsx}",
+    "lint:fix": "eslint src/**/*.{js,ts,tsx} --fix",
+    "prepack": "npm run build"
+  },
+  "bugs": {
+    "url": "https://github.com/equinor/fusion-react-components/issues"
+  },
+  "dependencies": {
+    "@equinor/fusion-wc-switch": "^0.2.1"
+  },
+  "devDependencies": {
+    "typescript": "^4.1.3"
+  }
+}
