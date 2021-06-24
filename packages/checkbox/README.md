@@ -1,5 +1,5 @@
 <!--prettier-ignore-start-->
-## `<fusion-react-checkbox>` [![Published on npm](https://img.shields.io/npm/v/@equinor/fusion-react-checkbox.svg)](https://www.npmjs.com/package/@equinor/fusion-react-checkbox)
+## `<@equinor/fusion-react-checkbox>` [![Published on npm](https://img.shields.io/npm/v/@equinor/fusion-react-checkbox.svg)](https://www.npmjs.com/package/@equinor/fusion-react-checkbox)
 
 [Storybook](https://equinor.github.io/fusion-react-checkbox/?path=/docs/input-checkbox)
 
