@@ -1,15 +1,14 @@
 {
-  "name": "@equinor/fusion-react-table",
-  "version": "0.3.4",
-  "description": "component for displaying tables",
+  "name": "@equinor/fusion-react-checkbox",
+  "version": "0.1.0",
+  "description": "component for displaying checkbox",
   "keywords": [
-    "table",
+    "checkbox",
     "react",
     "fusion",
     "equinor"
   ],
-  "author": "odin thomas rochmann <odin.rochmann@gmail.com>",
-  "homepage": "https://github.com/equinor/fusion-react-components/tree/master/packages/table#readme",
+  "homepage": "https://github.com/equinor/fusion-react-components/tree/master/packages/checkbox#readme",
   "license": "ISC",
   "main": "dist/index.js",
   "directories": {
@@ -35,14 +34,9 @@
     "url": "https://github.com/equinor/fusion-react-components/issues"
   },
   "dependencies": {
-    "@equinor/fusion-react-styles": "^0.1.2",
-    "@equinor/fusion-wc-icon": "^1.0.2",
-    "@equinor/fusion-wc-popover": "^1.0.1",
-    "@types/react-table": "^7.0.26",
-    "react-table": "^7.6.3"
+    "@equinor/fusion-wc-checkbox": "^0.2.1"
   },
   "devDependencies": {
-    "typesafe-actions": "^5.1.0",
     "typescript": "^4.1.3"
   }
 }
