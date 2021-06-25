@@ -8,7 +8,7 @@
     "test": "lerna run test",
     "lint": "lerna run lint",
     "build": "lerna run build --ignore '@equinor/fusion-react-components-stories'",
-    "lint:report": "eslint --output-file eslint-report.log.json --format json packages/*/src",
+    "lint:report": "eslint --output-file eslint-report.log.json --format json ./packages/*/src/**",
     "storybook": "npm run start --prefix storybook",
     "storybook:build": "npm run build --prefix storybook",
     "npm:clean": "rm -rf node_modules && lerna exec 'rm -rf node_modules'"

@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-styles",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "style lib inspired by @material-ui/styles",
   "keywords": [
     "styling",
@@ -28,8 +28,8 @@
   },
   "scripts": {
     "build": "tsc -b",
-    "lint": "eslint 'src/**/*.{js,ts,tsx}'",
-    "lint:fix": "eslint 'src/**/*.{js,ts,tsx}' --fix",
+    "lint": "eslint src/**/*.{js,ts,tsx}",
+    "lint:fix": "eslint src/**/*.{js,ts,tsx} --fix",
     "prepack": "npm run build"
   },
   "bugs": {
