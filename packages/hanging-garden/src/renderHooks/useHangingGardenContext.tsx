@@ -5,6 +5,7 @@ import { ExpandedColumns, ExpandedColumn } from '../models/ExpandedColumn';
 import { ItemRenderContext, HeaderRenderContext } from '../models/RenderContext';
 import { Scroll } from './useScrolling';
 import { UsePopover } from './usePopover';
+import { ColorMode } from '../models/HangingGarden';
 
 export interface IHangingGardenContext {
   container: MutableRefObject<HTMLDivElement | null>;
@@ -30,6 +31,7 @@ export interface IHangingGardenContext {
   renderItemContext: (item: any, context: ItemRenderContext) => void;
   renderHeaderContext: (key: string, context: HeaderRenderContext) => void;
   popover: UsePopover;
+  colorMode: ColorMode;
 }
 
 const HangingGardenContext = createContext<IHangingGardenContext>({} as IHangingGardenContext);
