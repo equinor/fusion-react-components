@@ -16,16 +16,16 @@ export const DEFAULT_ITEM_TEXT_STYLE = new PIXI.TextStyle({
   align: 'center',
 });
 
-export const createTextStyle = (style: PIXI.TextStyle) => new PIXI.TextStyle(style);
+export const createTextStyle = (style: PIXI.TextStyle): PIXI.TextStyle => new PIXI.TextStyle(style);
 
-export const getMaxRowCount = (columns: HangingGardenColumn<any>[]) => {
+export const getMaxRowCount = (columns: HangingGardenColumn<unknown>[]): number => {
   return Math.max(...columns.map((column) => column.data.length));
 };
 
-export const getExpandedWith = (width: number, c: ExpandedColumn) =>
+export const getExpandedWith = (width: number, c: ExpandedColumn): number =>
   (width += c.maxWidth + EXPANDED_COLUMN_PADDING * 2);
 
-export const getColumnX = (index: number, currentExpandedColumns: ExpandedColumns, defaultWidth: number) => {
+export const getColumnX = (index: number, currentExpandedColumns: ExpandedColumns, defaultWidth: number): number => {
   const expandedWidthBeforeIndex = Object.values(currentExpandedColumns)
     .filter((c) => c.index < index && c.isExpanded)
     .reduce(getExpandedWith, 0);
@@ -33,18 +33,18 @@ export const getColumnX = (index: number, currentExpandedColumns: ExpandedColumn
   return index * defaultWidth + expandedWidthBeforeIndex;
 };
 
-export const isHeaderExpanded = (columnKey: string, expandedColumns: ExpandedColumns) =>
+export const isHeaderExpanded = (columnKey: string, expandedColumns: ExpandedColumns): boolean =>
   (expandedColumns && expandedColumns[columnKey])?.isExpanded;
 
-export const getHeaderWidth = (columnKey: string, expandedColumns: ExpandedColumns, defaultWidth: number) =>
+export const getHeaderWidth = (columnKey: string, expandedColumns: ExpandedColumns, defaultWidth: number): number =>
   isHeaderExpanded(columnKey, expandedColumns)
     ? defaultWidth + expandedColumns[columnKey].maxWidth + EXPANDED_COLUMN_PADDING * 2
     : defaultWidth;
 
-export const getCalculatedHeight = (headerHeight: number, itemHeight: number, maxRowCount: number) =>
+export const getCalculatedHeight = (headerHeight: number, itemHeight: number, maxRowCount: number): number =>
   maxRowCount ? headerHeight + itemHeight * maxRowCount : 0;
 
-export const addDot = (context: ItemRenderContext, color: number, position: Position, borderColor = 0xffffff) => {
+export const addDot = (context: ItemRenderContext, color: number, position: Position, borderColor = 0xffffff): void => {
   const circle = new PIXI.Circle(position.x, position.y, 2);
 
   context.graphics.lineStyle(1, borderColor, 1, 1);
@@ -58,14 +58,14 @@ export const getCalculatedWidth = (
   currentExpandedColumns: ExpandedColumns,
   columnsLength: number,
   itemWidth: number
-) => {
+): number => {
   const expandedWidth = Object.values(currentExpandedColumns)
     .filter((c) => c.isExpanded)
     .reduce(getExpandedWith, 0);
   return columnsLength * itemWidth + expandedWidth;
 };
 
-export const createRenderedItemDescription = (backgroundColor: number, textNode: PIXI.Sprite) => {
+export const createRenderedItemDescription = (backgroundColor: number, textNode: PIXI.Sprite): PIXI.Container => {
   const itemDescription = new PIXI.Container();
   itemDescription.cacheAsBitmap = true;
 
@@ -78,7 +78,7 @@ export const createRenderedItemDescription = (backgroundColor: number, textNode:
   return itemDescription;
 };
 
-export const createRoundedRectMask = (width: number, height: number) => {
+export const createRoundedRectMask = (width: number, height: number): PIXI.Graphics => {
   const mask = new PIXI.Graphics();
   mask.cacheAsBitmap = true;
   mask.beginFill(0xff3300);

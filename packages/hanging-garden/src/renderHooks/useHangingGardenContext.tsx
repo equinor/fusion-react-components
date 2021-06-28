@@ -36,6 +36,7 @@ export interface IHangingGardenContext {
 
 const HangingGardenContext = createContext<IHangingGardenContext>({} as IHangingGardenContext);
 
-export const useHangingGardenContext = () => useContext<IHangingGardenContext>(HangingGardenContext);
+export const useHangingGardenContext = (): IHangingGardenContext =>
+  useContext<IHangingGardenContext>(HangingGardenContext);
 
 export default HangingGardenContext;

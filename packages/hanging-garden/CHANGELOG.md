@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.2.0 (2021-06-28)
+
+
+### Features
+
+* add color blind mode to hanging carden component and cache key ([53aea21](https://github.com/equinor/fusion-react-components/commit/53aea2115f2d8907e61661a8bb256fe4c519c6b9))
+
+
+
+
+
 ## [1.1.3](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-hanging-garden@1.1.2...@equinor/fusion-react-hanging-garden@1.1.3) (2021-06-23)
 
 **Note:** Version bump only for package @equinor/fusion-react-hanging-garden

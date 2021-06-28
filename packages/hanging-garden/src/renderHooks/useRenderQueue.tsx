@@ -18,6 +18,7 @@ export type RenderQueue = {
 const useRenderQueue = (): RenderQueue => {
   const {
     pixiApp,
+    itemWidth,
     textureCaches: { getTextureFromCache, addTextureToCache },
   } = useHangingGardenContext();
 
@@ -59,7 +60,7 @@ const useRenderQueue = (): RenderQueue => {
     async (renderer: RenderItem) => {
       let graphicsContainer = getTextureFromCache('graphics', renderer.key) as PIXI.RenderTexture;
 
-      if (!graphicsContainer) {
+      if (!graphicsContainer || graphicsContainer.width !== itemWidth) {
         const graphics = new PIXI.Graphics();
         graphics.cacheAsBitmap = false;
         renderer.render({
@@ -77,7 +78,7 @@ const useRenderQueue = (): RenderQueue => {
 
       renderer.context.container.addChild(new PIXI.Sprite(graphicsContainer));
     },
-    [getTextureFromCache, addTextureToCache, pixiApp]
+    [getTextureFromCache, addTextureToCache, pixiApp, itemWidth]
   );
 
   return { enqueueRenderer, processRenderQueue, processRenderQueueAnimationFrame };

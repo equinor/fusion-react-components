@@ -14,17 +14,17 @@ import { fetchGardenItemsAsync, getColumns, getYearAndWeekFromDate } from './col
 import ProjectPopover from './components/project-popover';
 import { createStyles, FusionTheme, makeStyles } from '@equinor/fusion-react-styles';
 
-
 import { useCallback } from 'react';
 import GardenItem from './models/garden-item';
+import { HttpResponse } from '@equinor/fusion/lib/http/HttpClient';
 
-const useStyles = makeStyles<FusionTheme, {height?:number}>(() =>
+const useStyles = makeStyles<FusionTheme, { height?: number }>(() =>
   createStyles({
-    root: ({height}) => ({
+    root: ({ height }) => ({
       height,
       display: 'flex',
       flex: '1 1 auto',
-      minWidth: 0
+      minWidth: 0,
     }),
   })
 );
@@ -32,12 +32,11 @@ const useStyles = makeStyles<FusionTheme, {height?:number}>(() =>
 export type GardenDemoProps = {
   rows?: number;
   height?: number;
-}
+};
 
-
-const GardenDemo: FC<GardenDemoProps> = ({rows, height}) => {
+const GardenDemo: FC<GardenDemoProps> = ({ rows, height }: GardenDemoProps) => {
   const getData = useCallback(async () => {
-    return await fetchGardenItemsAsync(rows);
+    return (await fetchGardenItemsAsync(rows)) as Promise<HttpResponse<GardenItem[]>>;
   }, [rows]);
 
   const { data, error, isFetching, retry } = useHangingGardenData<GardenItem>(getData);
@@ -56,13 +55,10 @@ const GardenDemo: FC<GardenDemoProps> = ({rows, height}) => {
     console.log('errorMessage', errorMessage);
   }, [errorMessage]);
 
-  const style = useStyles({height});
+  const style = useStyles({ height });
 
   const getItemWidth = () => {
-    const longestKey = Math.max.apply(
-      Math,
-      data.map((item) => item.id.length)
-    );
+    const longestKey = Math.max(...data.map((item) => item.id.length));
 
     return Math.max(longestKey * 8 + 35, 102);
   };

@@ -26,7 +26,7 @@ export type HeaderRenderContext = RenderContext & {
 export type ItemRenderContext = RenderContext & {
   createRect: (position: Position, size: Size, color: number) => void;
   addDot: (color: number, position: Position, borderColor?: number) => void;
-  addPopover: (hitArea: any, renderPopover: () => JSX.Element) => void;
+  addPopover: (hitArea: PIXI.Rectangle, renderPopover: () => JSX.Element) => void;
   enquedRender: (key: string, render: (context: ItemRenderContext) => void) => void;
 };
 

@@ -2,6 +2,7 @@ import { useHangingGardenGetData } from './useHangingGardenGetData';
 import { formatDistance } from 'date-fns';
 import { useState, useRef, useCallback, useEffect } from 'react';
 import { HttpResponse } from '@equinor/fusion/lib/http/HttpClient';
+import { GardenDataError } from '../models/GardenDataError';
 
 /**
  * The useHangingGardenData hook fetched and stores your raw garden data. It also gives you cache invalidation capabilities and error handling. 
@@ -42,11 +43,21 @@ export const setItemSearchableValues = (commpkg: HandoverPackage) => ({
     );
  */
 
+type UseHangingGardenData<T> = {
+  data: T[];
+  error: GardenDataError | null;
+  isFetching: boolean;
+  retry: () => void;
+  invalidate: () => void;
+  cacheIsInvalid: boolean;
+  cacheAge: string;
+};
+
 export const useHangingGardenData = <T,>(
   getDataAsync: (invalidateCache: boolean) => Promise<HttpResponse<T[]>>,
   applyToFetchedData?: ((data: T[]) => T[]) | null,
   searchableValues?: ((data: T) => T) | null
-) => {
+): UseHangingGardenData<T> => {
   const { isFetching, error, getData } = useHangingGardenGetData<T>(getDataAsync);
   const [data, setData] = useState<T[]>([]);
 
