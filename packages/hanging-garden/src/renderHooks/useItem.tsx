@@ -31,6 +31,7 @@ const useItem = <T extends HangingGardenColumnIndex>() => {
     renderItemContext,
     textureCaches: { getTextureFromCache, addTextureToCache },
     popover: { addPopover },
+    colorMode,
   } = useHangingGardenContext();
 
   const { createTextNode } = useTextNode();
@@ -68,7 +69,8 @@ const useItem = <T extends HangingGardenColumnIndex>() => {
     (item: T, index: number, columnIndex: number) => {
       const x = getColumnX(columnIndex, expandedColumns, itemWidth);
       const y = headerHeight + index * itemHeight;
-      let renderedItem = getTextureFromCache('items', item[itemKeyProp as keyof T]) as PIXI.Container;
+      const key = `${item[itemKeyProp as keyof T]}_${colorMode}`;
+      let renderedItem = getTextureFromCache('items', key) as PIXI.Container;
       if (!renderedItem) {
         renderedItem = new PIXI.Container();
         renderedItem;
@@ -110,7 +112,7 @@ const useItem = <T extends HangingGardenColumnIndex>() => {
 
         renderItemContext(item, itemRenderContext);
 
-        addTextureToCache('items', item[itemKeyProp as keyof T], renderedItem);
+        addTextureToCache('items', key, renderedItem);
       }
 
       if (highlightedItem && (highlightedItem as T)[itemKeyProp as keyof T] === item[itemKeyProp as keyof T]) {
@@ -150,6 +152,7 @@ const useItem = <T extends HangingGardenColumnIndex>() => {
       processRenderQueue,
       renderItemDescription,
       onItemClick,
+      colorMode,
     ]
   );
 
