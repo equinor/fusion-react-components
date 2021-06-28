@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.6.0...@equinor/fusion-react-components-stories@1.7.0) (2021-06-24)
+
+
+### Features
+
+* added switch react component ([4984847](https://github.com/equinor/fusion-react-components/commit/4984847dc99bb0d1c85a74a9bd946a2d79478abc))
+
+
+
+
+
 # [1.6.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.5.6...@equinor/fusion-react-components-stories@1.6.0) (2021-06-24)
 
 
