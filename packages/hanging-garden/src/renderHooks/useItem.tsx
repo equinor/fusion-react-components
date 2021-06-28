@@ -17,7 +17,11 @@ import useItemDescription from './useItemDescription';
  * This hook is used by the Garden and is not intended to be used or implemented
  * outside the Garden component.
  */
-const useItem = <T extends HangingGardenColumnIndex>() => {
+type UseItem<T> = {
+  renderItem: (item: T, index: number, columnIndex: number) => void;
+};
+
+const useItem = <T extends HangingGardenColumnIndex>(): UseItem<T> => {
   const {
     pixiApp,
     stage,
@@ -71,7 +75,7 @@ const useItem = <T extends HangingGardenColumnIndex>() => {
       const y = headerHeight + index * itemHeight;
       const key = `${item[itemKeyProp as keyof T]}_${colorMode}`;
       let renderedItem = getTextureFromCache('items', key) as PIXI.Container;
-      if (!renderedItem) {
+      if (!renderedItem || renderedItem.width !== itemWidth) {
         renderedItem = new PIXI.Container();
         renderedItem;
         renderedItem.x = x;

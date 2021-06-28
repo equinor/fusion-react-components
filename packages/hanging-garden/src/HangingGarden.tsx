@@ -28,6 +28,7 @@ import { makeStyles, createStyles } from '@equinor/fusion-react-styles';
  * @param headerHeight The height of the column header. Defaults to 32,
  * @param provideController Returns a ref. this contains the renderGarden function. Used to trigger rerenders at will.
  * @param backgroundColor Backgroun color for the garden. Defaults to  white(0xffffff),
+ * @param disableScrollToHighlightedItem Per default garden centers column of clicked item. This disables that interaction.
  */
 
 const useStyles = makeStyles(() =>
@@ -37,6 +38,9 @@ const useStyles = makeStyles(() =>
       flex: '1 1 auto',
       height: '100%',
       minWidth: 0,
+      minHeight: 0,
+      maxWidth: '100%',
+      maxHeight: '100%',
     },
   })
 );
@@ -56,7 +60,8 @@ function HangingGarden<T extends HangingGardenColumnIndex>({
   provideController,
   backgroundColor = 0xffffff,
   colorMode = 'Regular',
-}: HangingGardenProps<T>) {
+  disableScrollToHighlightedItem = false,
+}: HangingGardenProps<T>): JSX.Element {
   const [maxRowCount, setMaxRowCount] = useState(0);
   const [expandedColumns, setExpandedColumns] = useState<ExpandedColumns>({});
 
@@ -64,7 +69,7 @@ function HangingGarden<T extends HangingGardenColumnIndex>({
   const canvas = useRef<HTMLCanvasElement>(null);
   const stage = useRef<PIXI.Container>(new PIXI.Container());
 
-  const scroll = useScrolling<T>(canvas, container, itemKeyProp);
+  const scroll = useScrolling<T>(canvas, container, itemKeyProp, disableScrollToHighlightedItem);
   const textureCaches = useTextureCaches();
   const popover = usePopover();
 

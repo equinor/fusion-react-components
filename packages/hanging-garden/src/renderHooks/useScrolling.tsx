@@ -23,7 +23,8 @@ export type Scroll<T extends HangingGardenColumnIndex> = {
 const useScrolling = <T extends HangingGardenColumnIndex>(
   canvas: RefObject<HTMLCanvasElement> | null,
   container: RefObject<HTMLDivElement> | null,
-  itemKeyProp: keyof T
+  itemKeyProp: keyof T,
+  disableScrollToHighlightedItem?: boolean
 ): Scroll<T> => {
   const isScrolling = useRef(false);
   const scrollTop = useRef(0);
@@ -79,7 +80,7 @@ const useScrolling = <T extends HangingGardenColumnIndex>(
 
   const scrollToHighlightedItem = useCallback(
     (columns: HangingGardenColumn<T>[], highlightedItem: T | null, itemWidth: number): boolean => {
-      if (!highlightedItem) return false;
+      if (disableScrollToHighlightedItem || !highlightedItem) return false;
       const highlightedIndex = columns.findIndex((column) =>
         column.data.some((item) => {
           return item[itemKeyProp] === highlightedItem[itemKeyProp];
@@ -88,7 +89,7 @@ const useScrolling = <T extends HangingGardenColumnIndex>(
 
       return scrollTo(highlightedIndex, itemWidth);
     },
-    [scrollTo, itemKeyProp]
+    [scrollTo, itemKeyProp, disableScrollToHighlightedItem]
   );
 
   return {

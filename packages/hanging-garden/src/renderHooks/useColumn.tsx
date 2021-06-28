@@ -8,7 +8,12 @@ import useHeader from './useHeader';
  * This hook is used by the Garden and is not intended to be used or implemented
  * outside the Garden component.
  */
-const useColumn = <T,>() => {
+
+type UseColumn<T> = {
+  renderColumn: (column: HangingGardenColumn<T>, index: number) => void;
+};
+
+const useColumn = <T,>(): UseColumn<T> => {
   const {
     scroll: { scrollTop },
     container,

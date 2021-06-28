@@ -29,4 +29,5 @@ export type HangingGardenProps<T extends HangingGardenColumnIndex> = {
   provideController?: MutableRefObject<GardenController | null>;
   backgroundColor?: number;
   colorMode?: ColorMode;
+  disableScrollToHighlightedItem?: boolean;
 };
