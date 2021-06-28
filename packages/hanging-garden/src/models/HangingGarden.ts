@@ -12,6 +12,8 @@ export type GardenController = {
   clearGarden: () => void;
 };
 
+export type ColorMode = 'Regular' | 'Color blind';
+
 export type HangingGardenProps<T extends HangingGardenColumnIndex> = {
   columns: HangingGardenColumn<T>[];
   highlightedColumnKey: string | null;
