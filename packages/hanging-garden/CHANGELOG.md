@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-hanging-garden@1.2.0...@equinor/fusion-react-hanging-garden@1.3.0) (2021-06-28)
+
+
+### Bug Fixes
+
+* a minor hack to get control over the caches ([20a14df](https://github.com/equinor/fusion-react-components/commit/20a14df2391f21487eafcb63bd5bc63bc778db62))
+* handle onload error ([3813f5e](https://github.com/equinor/fusion-react-components/commit/3813f5e04e7c728bbe9a9c23557106b60d4f1b67))
+
+
+### Features
+
+* added a new setting: disableScrollToHighlightedItem ([e9bcb0b](https://github.com/equinor/fusion-react-components/commit/e9bcb0b728133ed7b4f82c0c5a3f9d093e32d98c))
+
+
+
+
+
 # 1.2.0 (2021-06-28)
 
 
