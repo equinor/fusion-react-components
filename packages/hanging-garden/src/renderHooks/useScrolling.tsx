@@ -55,13 +55,16 @@ const useScrolling = <T extends HangingGardenColumnIndex>(
         return false;
       }
 
-      scrollLeft.current = container.current.scrollLeft = Math.max(
+      //Calculate how far from the left to scroll, while ensuring scroll is not below 0.
+      const scrollWindowTo = Math.max(
         highlightedColumnIndex >= 0
           ? (container.current.scrollLeft =
               highlightedColumnIndex * itemWidth - container.current.offsetWidth / 2 + itemWidth / 2)
           : 0,
         0
       );
+
+      scrollLeft.current = container.current.scrollLeft = scrollWindowTo;
 
       if (canvas?.current)
         canvas.current.style.transform = `translate(${scrollLeft.current}px, ${scrollTop.current}px)`;
