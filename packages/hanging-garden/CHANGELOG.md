@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.1](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-hanging-garden@1.4.0...@equinor/fusion-react-hanging-garden@1.4.1) (2021-06-30)
+
+
+### Bug Fixes
+
+* ensure that the scroll to calcualtion does not endup being below 0 ([1f64d86](https://github.com/equinor/fusion-react-components/commit/1f64d861d00cb7eb9d349bdbc1ef78c0b49ac9aa))
+
+
+
+
+
 # [1.4.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-hanging-garden@1.3.0...@equinor/fusion-react-hanging-garden@1.4.0) (2021-06-28)
 
 
