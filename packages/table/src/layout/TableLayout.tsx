@@ -25,8 +25,12 @@ export const TableLayoutTemplate = (props: LayoutProps): JSX.Element => {
               const isGroupHeader = !!column.columns?.length;
               const renderer = isGroupHeader ? 'Header' : 'ColumnHeader';
               const className = clsx(isGroupHeader && styles.groupHeader, styles.cell);
+
+              const style = {
+                width: column.canResize ? column.width : undefined,
+              };
               // eslint-disable-next-line react/jsx-key
-              return <th {...column.getHeaderProps({ className })}>{column.render(renderer)}</th>;
+              return <th {...column.getHeaderProps({ className, style })}>{column.render(renderer)}</th>;
             })}
           </tr>
         ))}

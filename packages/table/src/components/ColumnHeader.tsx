@@ -8,26 +8,26 @@ const useStyle = makeStyles(
       root: {
         display: 'flex',
         alignItems: 'center',
-        userDrag: 'none',
       },
       container: {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
         width: '100%',
-        userSelect: 'none',
-        userDrag: 'none',
         // only when resize
       },
       content: {
         display: 'inline-flex',
         alignItems: 'center',
-        userDrag: 'none',
       },
       menu: {
         display: 'inline-flex',
         alignItems: 'center',
         marginRight: 5,
+      },
+      nodrag: {
+        userDrag: 'none',
+        userSelect: 'none',
       },
       resizer: {
         touchAction: 'none',
@@ -55,12 +55,12 @@ export const ColumnHeader = <D extends TableData>(props: HeaderProps<D>): JSX.El
   const { column } = props;
   const styles = useStyle({ spacing: column.spacing });
   return (
-    <div className={clsx(styles.root)}>
-      <div className={clsx(styles.container)}>
-        <span className={styles.content}>{column.render('Header')}</span>
+    <div className={clsx(styles.root, styles.nodrag)}>
+      <div className={clsx(styles.container, styles.nodrag)}>
+        <span className={clsx(styles.content, styles.nodrag)}>{column.render('Header')}</span>
         {!column.disableMenu && <span className={styles.menu}>{column.render('Menu')}</span>}
       </div>
-      <span className={styles.resizer} {...column.getResizerProps()}></span>
+      {column.canResize && <span className={styles.resizer} {...column.getResizerProps()}></span>}
     </div>
   );
 };
