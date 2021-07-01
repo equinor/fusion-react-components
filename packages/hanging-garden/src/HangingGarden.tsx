@@ -61,6 +61,7 @@ function HangingGarden<T extends HangingGardenColumnIndex>({
   backgroundColor = 0xffffff,
   colorMode = 'Regular',
   disableScrollToHighlightedItem = false,
+  groupLevels = 0,
 }: HangingGardenProps<T>): JSX.Element {
   const [maxRowCount, setMaxRowCount] = useState(0);
   const [expandedColumns, setExpandedColumns] = useState<ExpandedColumns>({});
@@ -110,6 +111,7 @@ function HangingGarden<T extends HangingGardenColumnIndex>({
             renderHeaderContext,
             popover,
             colorMode,
+            groupLevels,
           }}
         >
           <Garden<T> provideController={provideController} />
