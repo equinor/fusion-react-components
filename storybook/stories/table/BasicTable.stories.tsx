@@ -3,7 +3,7 @@ import { Meta } from '@storybook/react/types-6-0';
 import { useMemo } from 'react';
 
 export default {
-  title: 'Data/Table/Basic',
+  title: 'Table/Stories',
   component: Table,
 } as Meta;
 
@@ -56,7 +56,7 @@ const Template = ({ rows }: { rows: number }) => {
   );
 };
 
-export const SortableTable = Template.bind({});
-SortableTable.args = {
+export const DefaultTable = Template.bind({});
+DefaultTable.args = {
   rows: 10,
 };
