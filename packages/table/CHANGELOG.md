@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.3.6 (2021-07-01)
+
+
+### Bug Fixes
+
+* **table:** column resize ([f475441](https://github.com/equinor/fusion-react-components/commit/f4754414e6e110218342f7b17a689b91f4040683))
+
+
+
+
+
 ## 0.3.5 (2021-06-28)
 
 **Note:** Version bump only for package @equinor/fusion-react-table
