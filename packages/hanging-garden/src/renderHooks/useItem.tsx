@@ -2,7 +2,7 @@ import { useCallback, useRef } from 'react';
 import * as PIXI from 'pixi.js-legacy';
 import { useHangingGardenContext } from './useHangingGardenContext';
 import useTextNode from './useTextNode';
-import { getColumnX, addDot, HIGHLIGHTED_ITEM_KEY } from '../utils';
+import { getColumnX, addDot, HIGHLIGHTED_ITEM_KEY, GROUP_LEVEL_OFFSET } from '../utils';
 import { HangingGardenColumnIndex } from '../models/HangingGarden';
 import { Size, Position, ItemRenderContext } from '../models/RenderContext';
 import useRenderQueue from './useRenderQueue';
@@ -36,6 +36,7 @@ const useItem = <T extends HangingGardenColumnIndex>(): UseItem<T> => {
     textureCaches: { getTextureFromCache, addTextureToCache },
     popover: { addPopover },
     colorMode,
+    groupLevels,
   } = useHangingGardenContext();
 
   const { createTextNode } = useTextNode();
@@ -71,14 +72,15 @@ const useItem = <T extends HangingGardenColumnIndex>(): UseItem<T> => {
 
   const renderItem = useCallback(
     (item: T, index: number, columnIndex: number) => {
-      const x = getColumnX(columnIndex, expandedColumns, itemWidth);
+      const x = getColumnX(columnIndex, expandedColumns, itemWidth, groupLevels);
       const y = headerHeight + index * itemHeight;
+
       const key = `${item[itemKeyProp as keyof T]}_${colorMode}`;
       let renderedItem = getTextureFromCache('items', key) as PIXI.Container;
+
       if (!renderedItem || renderedItem.width !== itemWidth) {
         renderedItem = new PIXI.Container();
-        renderedItem;
-        renderedItem.x = x;
+        renderedItem.x = x + GROUP_LEVEL_OFFSET * groupLevels;
         renderedItem.y = y;
         renderedItem.width = itemWidth;
         renderedItem.height = itemHeight;
@@ -128,14 +130,14 @@ const useItem = <T extends HangingGardenColumnIndex>(): UseItem<T> => {
           renderedHighlightedItem.drawRoundedRect(0, 0, itemWidth - 2, itemHeight - 2, 4);
         }
 
-        renderedHighlightedItem.x = x;
+        renderedHighlightedItem.x = x + GROUP_LEVEL_OFFSET * groupLevels;
         renderedHighlightedItem.y = y;
         stage.current.addChild(renderedHighlightedItem);
       }
 
       renderItemDescription(item, index, columnIndex);
 
-      renderedItem.x = x;
+      renderedItem.x = x + GROUP_LEVEL_OFFSET * groupLevels;
       renderedItem.y = y;
 
       stage.current.addChild(renderedItem);
@@ -157,6 +159,7 @@ const useItem = <T extends HangingGardenColumnIndex>(): UseItem<T> => {
       renderItemDescription,
       onItemClick,
       colorMode,
+      groupLevels,
     ]
   );
 

@@ -1,6 +1,6 @@
 import { MutableRefObject, useEffect, useCallback, UIEvent } from 'react';
 import { HangingGardenColumnIndex, HangingGardenColumn, GardenController } from './models/HangingGarden';
-import { getCalculatedWidth, getCalculatedHeight } from './utils';
+import { getCalculatedWidth, getCalculatedHeight, GROUP_LEVEL_OFFSET } from './utils';
 import { useHangingGardenContext } from './renderHooks/useHangingGardenContext';
 import useGarden from './renderHooks/useGarden';
 import useRendererSize from './renderHooks/useRendererSize';
@@ -46,6 +46,7 @@ function Garden<T extends HangingGardenColumnIndex>({ provideController }: Garde
     textureCaches: { clearTextureCaches, clearItemTextureCaches },
     scroll: { onScroll },
     popover: { popover },
+    groupLevels,
   } = useHangingGardenContext();
 
   const { renderGarden } = useGarden();
@@ -72,7 +73,11 @@ function Garden<T extends HangingGardenColumnIndex>({ provideController }: Garde
 
   const style = useStyles({
     wrapper: {
-      width: getCalculatedWidth(expandedColumns, (columns as HangingGardenColumn<T>[]).length, itemWidth),
+      width: getCalculatedWidth(
+        expandedColumns,
+        (columns as HangingGardenColumn<T>[]).length,
+        itemWidth + groupLevels * GROUP_LEVEL_OFFSET
+      ),
       height: getCalculatedHeight(headerHeight, itemHeight, maxRowCount),
     },
   });

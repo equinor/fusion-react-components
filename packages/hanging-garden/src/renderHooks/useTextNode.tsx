@@ -40,8 +40,8 @@ const useTextNode = (): UseTextNode => {
   );
 
   const createTextNode = useCallback(
-    (text: string, color: number) => {
-      let cachedText = getTextureFromCache('texts', text + color) as PIXI.RenderTexture;
+    (text: string, color: number, cacheString?: string) => {
+      let cachedText = getTextureFromCache('texts', text + color + cacheString) as PIXI.RenderTexture;
 
       if (!cachedText) {
         const chars = text.split('');
