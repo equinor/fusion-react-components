@@ -1,5 +1,5 @@
 import * as PIXI from 'pixi.js-legacy';
-import { ColumnGroupHeader, HangingGardenColumn } from './models/HangingGarden';
+import { ColumnGroupHeader, HangingGardenColumn, HangingGardenColumnIndex } from './models/HangingGarden';
 import { ExpandedColumn, ExpandedColumns } from './models/ExpandedColumn';
 import { ItemRenderContext, Position } from './models/RenderContext';
 
@@ -19,7 +19,7 @@ export const DEFAULT_ITEM_TEXT_STYLE = new PIXI.TextStyle({
 
 export const createTextStyle = (style: PIXI.TextStyle): PIXI.TextStyle => new PIXI.TextStyle(style);
 
-export const getMaxRowCount = (columns: HangingGardenColumn<Record<string, string>>[]): number => {
+export const getMaxRowCount = <T extends HangingGardenColumnIndex>(columns: HangingGardenColumn<T>[]): number => {
   return Math.max(...columns.map((column) => column.data.length));
 };
 
@@ -101,7 +101,9 @@ export const createRoundedRectMask = (width: number, height: number): PIXI.Graph
   return mask;
 };
 
-export const isMultiGrouped = <T>(columns: T[] | HangingGardenColumn<T>[]): columns is HangingGardenColumn<T>[] => {
+export const isMultiGrouped = <T extends HangingGardenColumnIndex>(
+  columns: T[] | HangingGardenColumn<T>[]
+): columns is HangingGardenColumn<T>[] => {
   const columnType = columns[0] as HangingGardenColumn<T>;
 
   return Boolean(columnType?.key && columnType?.data);
@@ -119,7 +121,7 @@ export const isMultiGrouped = <T>(columns: T[] | HangingGardenColumn<T>[]): colu
  * Ending up with a flat array ready for rendering in the Garden
  */
 
-const flattenGroup = <T>(
+const flattenGroup = <T extends HangingGardenColumnIndex>(
   flattenedGroups: (T | ColumnGroupHeader)[],
   group: HangingGardenColumn<T>,
   level: number
@@ -148,7 +150,9 @@ const flattenGroup = <T>(
  * checks if the columns data is grouped, is not returns the columns.
  * else reduces the Columns into a flat array of items and group by headers.
  */
-export const flattenColumn = <T>(column: HangingGardenColumn<T>): (ColumnGroupHeader | T)[] =>
+export const flattenColumn = <T extends HangingGardenColumnIndex>(
+  column: HangingGardenColumn<T>
+): (ColumnGroupHeader | T)[] =>
   isMultiGrouped(column.data)
     ? column.data.reduce(
         (flattenedGroups: (T | ColumnGroupHeader)[], group) => flattenGroup(flattenedGroups, group, 0),
