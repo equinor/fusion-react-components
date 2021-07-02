@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.8.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.7.5...@equinor/fusion-react-components-stories@1.8.0) (2021-07-02)
+
+
+### Features
+
+* added radio component ([3e4fb97](https://github.com/equinor/fusion-react-components/commit/3e4fb97d7b4211a28707d9b03c9c5fb03d6bb4bf))
+
+
+
+
+
 ## [1.7.5](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.7.4...@equinor/fusion-react-components-stories@1.7.5) (2021-07-01)
 
 
