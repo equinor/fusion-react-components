@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 import { useHangingGardenContext } from './useHangingGardenContext';
-import { ColumnGroupHeader, HangingGardenColumn } from '../models/HangingGarden';
+import { ColumnGroupHeader, HangingGardenColumn, HangingGardenColumnIndex } from '../models/HangingGarden';
 import useRenderItem from './useItem';
 import useHeader from './useHeader';
 import useGroupHeader from './useGroupHeader';
@@ -11,11 +11,11 @@ import { flattenColumn } from '../utils';
  * outside the Garden component.
  */
 
-type UseColumn<T> = {
+type UseColumn<T extends HangingGardenColumnIndex> = {
   renderColumn: (column: HangingGardenColumn<T>, index: number) => void;
 };
 
-const useColumn = <T,>(): UseColumn<T> => {
+const useColumn = <T extends HangingGardenColumnIndex>(): UseColumn<T> => {
   const {
     scroll: { scrollTop },
     container,

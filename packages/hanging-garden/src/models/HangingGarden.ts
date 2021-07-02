@@ -1,7 +1,7 @@
 import { MutableRefObject } from 'react';
 import { ItemRenderContext, HeaderRenderContext } from './RenderContext';
 
-export type HangingGardenColumnIndex = Record<string, any>;
+export type HangingGardenColumnIndex = Record<string, unknown>;
 
 export type ColumnGroupHeader = {
   key: string;
