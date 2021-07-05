@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.10.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.9.0...@equinor/fusion-react-components-stories@1.10.0) (2021-07-05)
+
+
+### Bug Fixes
+
+* fixed types and stories ([287af57](https://github.com/equinor/fusion-react-components/commit/287af578df018f80b3961842fe07cb210ee61f1e))
+
+
+### Features
+
+* added text input component ([ea356fe](https://github.com/equinor/fusion-react-components/commit/ea356fe0bb454d7a36aaf90e2287e98f0abfd2ce))
+
+
+
+
+
 # [1.9.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.8.0...@equinor/fusion-react-components-stories@1.9.0) (2021-07-05)
 
 
