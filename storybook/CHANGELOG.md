@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.9.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.8.0...@equinor/fusion-react-components-stories@1.9.0) (2021-07-05)
+
+
+### Features
+
+* added theme provider ([a7e3e3f](https://github.com/equinor/fusion-react-components/commit/a7e3e3f0657ce4d5659bb387ca71d823242df20f))
+
+
+
+
+
 # [1.8.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.7.5...@equinor/fusion-react-components-stories@1.8.0) (2021-07-02)
 
 
