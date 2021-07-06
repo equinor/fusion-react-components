@@ -10,6 +10,25 @@ export interface TextInputProps extends React.HTMLProps<HTMLInputElement> {
   outlined?: boolean;
   prefix?: string;
   suffix?: string;
+  type?: TextFieldType;
+  readonly validity?: ValidityState;
   validateOnInitialRender?: boolean;
-  validityTransform?(value: string, nativeValidity: ValidityState): Partial<ValidityState>;
+  validityTransform?: ValidityTransform;
 }
+
+export type TextFieldType =
+  | 'text'
+  | 'search'
+  | 'tel'
+  | 'url'
+  | 'email'
+  | 'password'
+  | 'date'
+  | 'month'
+  | 'week'
+  | 'time'
+  | 'datetime-local'
+  | 'number'
+  | 'color';
+
+export type ValidityTransform = (value: string, nativeValidity: ValidityState) => Partial<ValidityState>;
