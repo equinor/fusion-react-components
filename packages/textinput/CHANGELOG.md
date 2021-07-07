@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.1](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-textinput@0.2.0...@equinor/fusion-react-textinput@0.2.1) (2021-07-06)
+
+
+### Bug Fixes
+
+* added missing types ([2c9f147](https://github.com/equinor/fusion-react-components/commit/2c9f147834c37f18ac0f392abd8cff16a9f0f99d))
+
+
+
+
+
 # 0.2.0 (2021-07-05)
 
 
