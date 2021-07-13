@@ -13,6 +13,7 @@ type StyleProps = {
 };
 
 type InputProps = {
+  dateFormat: string;
   isClearable?: boolean;
   onClear(): void;
 };
@@ -70,7 +71,7 @@ const useStyles = makeStyles<FusionTheme, StyleProps>(
 
 export const FusionDatePickerInput = forwardRef<HTMLInputElement, InputHTMLAttributes<HTMLInputElement> & InputProps>(
   (props: InputHTMLAttributes<HTMLInputElement> & InputProps, ref: React.ForwardedRef<HTMLInputElement>) => {
-    const { isClearable, onClear, ...rest } = props;
+    const { dateFormat, isClearable, onClear, placeholder, ...rest } = props;
 
     const classes = useStyles({
       ...defaultStyleProps,
@@ -80,7 +81,14 @@ export const FusionDatePickerInput = forwardRef<HTMLInputElement, InputHTMLAttri
 
     return (
       <div className={classes.container}>
-        <input {...rest} className={classes.input} ref={ref} />
+        <input
+          {...rest}
+          placeholder={placeholder}
+          onFocus={(e) => (e.target.placeholder = dateFormat)}
+          onBlur={(e) => (e.target.placeholder = placeholder ?? '')}
+          className={classes.input}
+          ref={ref}
+        />
         {isClearable && props.value ? (
           <Icon
             icon={clear}
