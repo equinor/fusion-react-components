@@ -7,12 +7,12 @@ type ProjectPopoverType = {
 const useStyles = makeStyles(() =>
   createStyles({
     root: {
-      whiteSpace: 'nowrap'
+      whiteSpace: 'nowrap',
     },
   })
 );
 
-const ProjectPopover: React.FC<ProjectPopoverType> = ({ text }) => {
+const ProjectPopover: React.FC<ProjectPopoverType> = ({ text }: ProjectPopoverType) => {
   const styles = useStyles();
   return <div className={styles.root}>{text}</div>;
 };

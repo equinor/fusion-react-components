@@ -10,7 +10,12 @@ import { DEFAULT_ITEM_TEXT_STYLE } from '../utils';
  * This hook is used by the Garden and is not intended to be used or implemented
  * outside the Garden component.
  */
-const useTextNode = () => {
+
+type UseTextNode = {
+  createTextNode: (text: string, color: number) => PIXI.Sprite;
+};
+
+const useTextNode = (): UseTextNode => {
   const {
     pixiApp,
     stage,

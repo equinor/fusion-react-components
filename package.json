@@ -8,7 +8,7 @@
     "test": "lerna run test",
     "lint": "lerna run lint",
     "build": "lerna run build --ignore '@equinor/fusion-react-components-stories'",
-    "lint:report": "eslint --output-file eslint-report.log.json --format json packages/*/src",
+    "lint:report": "eslint --output-file eslint-report.log.json --format json ./packages/*/src/**",
     "storybook": "npm run start --prefix storybook",
     "storybook:build": "npm run build --prefix storybook",
     "npm:clean": "rm -rf node_modules && lerna exec 'rm -rf node_modules'"
@@ -31,13 +31,13 @@
   "devDependencies": {
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
-    "@equinor/eslint-config-fusion": "0.0.3",
+    "@equinor/eslint-config-fusion": "^0.1.2",
     "@types/react": "^17.0.0",
     "eslint": "^7.17.0",
     "husky": "^4.3.7",
     "lerna": "^3.22.1",
     "lint-staged": "^10.5.3",
-    "prettier": "^2.2.1",
+    "prettier": "^2.3.2",
     "react": "^17.0.1",
     "typescript": "^4.1.3"
   },

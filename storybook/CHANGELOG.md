@@ -3,6 +3,144 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.11.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.10.1...@equinor/fusion-react-components-stories@1.11.0) (2021-07-07)
+
+
+### Features
+
+* added text area component ([f245775](https://github.com/equinor/fusion-react-components/commit/f245775348b06a5a5095a719a5b8540411a94567))
+
+
+
+
+
+## [1.10.1](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.10.0...@equinor/fusion-react-components-stories@1.10.1) (2021-07-06)
+
+**Note:** Version bump only for package @equinor/fusion-react-components-stories
+
+
+
+
+
+# [1.10.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.9.0...@equinor/fusion-react-components-stories@1.10.0) (2021-07-05)
+
+
+### Bug Fixes
+
+* fixed types and stories ([287af57](https://github.com/equinor/fusion-react-components/commit/287af578df018f80b3961842fe07cb210ee61f1e))
+
+
+### Features
+
+* added text input component ([ea356fe](https://github.com/equinor/fusion-react-components/commit/ea356fe0bb454d7a36aaf90e2287e98f0abfd2ce))
+
+
+
+
+
+# [1.9.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.8.0...@equinor/fusion-react-components-stories@1.9.0) (2021-07-05)
+
+
+### Features
+
+* added theme provider ([a7e3e3f](https://github.com/equinor/fusion-react-components/commit/a7e3e3f0657ce4d5659bb387ca71d823242df20f))
+
+
+
+
+
+# [1.8.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.7.5...@equinor/fusion-react-components-stories@1.8.0) (2021-07-02)
+
+
+### Features
+
+* added radio component ([3e4fb97](https://github.com/equinor/fusion-react-components/commit/3e4fb97d7b4211a28707d9b03c9c5fb03d6bb4bf))
+
+
+
+
+
+## [1.7.5](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.7.4...@equinor/fusion-react-components-stories@1.7.5) (2021-07-01)
+
+
+### Bug Fixes
+
+* **table:** column resize ([f475441](https://github.com/equinor/fusion-react-components/commit/f4754414e6e110218342f7b17a689b91f4040683))
+
+
+
+
+
+## [1.7.4](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.7.3...@equinor/fusion-react-components-stories@1.7.4) (2021-06-30)
+
+**Note:** Version bump only for package @equinor/fusion-react-components-stories
+
+
+
+
+
+## [1.7.3](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.7.2...@equinor/fusion-react-components-stories@1.7.3) (2021-06-28)
+
+**Note:** Version bump only for package @equinor/fusion-react-components-stories
+
+
+
+
+
+## [1.7.2](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.7.1...@equinor/fusion-react-components-stories@1.7.2) (2021-06-28)
+
+**Note:** Version bump only for package @equinor/fusion-react-components-stories
+
+
+
+
+
+## [1.7.1](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.7.0...@equinor/fusion-react-components-stories@1.7.1) (2021-06-28)
+
+**Note:** Version bump only for package @equinor/fusion-react-components-stories
+
+
+
+
+
+# [1.7.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.6.0...@equinor/fusion-react-components-stories@1.7.0) (2021-06-24)
+
+
+### Features
+
+* added switch react component ([4984847](https://github.com/equinor/fusion-react-components/commit/4984847dc99bb0d1c85a74a9bd946a2d79478abc))
+
+
+
+
+
+# [1.6.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.5.6...@equinor/fusion-react-components-stories@1.6.0) (2021-06-24)
+
+
+### Features
+
+* added checkbox react component ([5a511a0](https://github.com/equinor/fusion-react-components/commit/5a511a0c7925481629380483149e5f6c90e188a0))
+
+
+
+
+
+## [1.5.6](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.5.5...@equinor/fusion-react-components-stories@1.5.6) (2021-06-23)
+
+**Note:** Version bump only for package @equinor/fusion-react-components-stories
+
+
+
+
+
+## [1.5.5](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.5.4...@equinor/fusion-react-components-stories@1.5.5) (2021-06-17)
+
+**Note:** Version bump only for package @equinor/fusion-react-components-stories
+
+
+
+
+
 ## [1.5.4](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.5.3...@equinor/fusion-react-components-stories@1.5.4) (2021-06-01)
 
 

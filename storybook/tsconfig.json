@@ -11,13 +11,25 @@
       "path": "../packages/hanging-garden"
     },
     {
-      "path": "../packages/style"
-    },
-    {
       "path": "../packages/table"
     },
     {
+      "path": "../packages/checkbox"
+    },
+    {
       "path": "../packages/datepicker"
+    },
+    {
+      "path": "../packages/radio"
+    },
+    {
+      "path": "../packages/switch"
+    },
+    {
+      "path": "../packages/textarea"
+    },
+    {
+      "path": "../packages/textinput"
     }
   ]
 }

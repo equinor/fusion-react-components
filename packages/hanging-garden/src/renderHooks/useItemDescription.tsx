@@ -13,7 +13,13 @@ import { HangingGardenColumn, HangingGardenColumnIndex } from '../models/Hanging
  * This hook is used by the Garden and is not intended to be used or implemented
  * outside the Garden component.
  */
-const useItemDescription = <T extends HangingGardenColumnIndex>() => {
+
+type UseItemDescription<T> = {
+  renderItemDescription: (item: T, index: number, columnIndex: number) => void;
+  getRenderedItemDescription: (item: T) => PIXI.Container;
+};
+
+const useItemDescription = <T extends HangingGardenColumnIndex>(): UseItemDescription<T> => {
   const {
     stage,
     backgroundColor,
@@ -31,13 +37,13 @@ const useItemDescription = <T extends HangingGardenColumnIndex>() => {
 
   const getRenderedItemDescription = useCallback(
     (item: T) => {
-      let itemDescription = getTextureFromCache('descriptions', item[itemKeyProp as keyof T]);
+      let itemDescription = getTextureFromCache('descriptions', item[itemKeyProp as keyof T] as string);
 
       if (!itemDescription) {
         const description = getItemDescription(item);
         const textNode = createTextNode(description, 0x243746);
         itemDescription = createRenderedItemDescription(backgroundColor, textNode);
-        addTextureToCache('descriptions', item[itemKeyProp as keyof T], itemDescription);
+        addTextureToCache('descriptions', item[itemKeyProp as keyof T] as string, itemDescription);
       }
       return itemDescription as PIXI.Container;
     },

@@ -3,7 +3,7 @@ import { HangingGardenColumn } from '@equinor/fusion-react-hanging-garden';
 import GardenItem, { ItemState } from '../models/garden-item';
 import { getStateOrder } from '../helpers';
 
-export const getColumns = (data: GardenItem[]) => {
+export const getColumns = (data: GardenItem[]): HangingGardenColumn<GardenItem>[] => {
   const highlightedKey = getYearAndWeekFromDate(new Date());
 
   const newColumns = data
@@ -27,9 +27,9 @@ export const getColumns = (data: GardenItem[]) => {
   return newColumns.sort(({ key: a }, { key: b }) => a.localeCompare(b));
 };
 
-export const getYearAndWeekFromDate = (date: Date) => format(date, 'yyyy/II', { weekStartsOn: 1 });
+export const getYearAndWeekFromDate = (date: Date): string => format(date, 'yyyy/II', { weekStartsOn: 1 });
 
-export const createDataSet = (itemsCount: number = 1000, dayDiff: number = 200): GardenItem[] => {
+export const createDataSet = (itemsCount = 1000, dayDiff = 200): GardenItem[] => {
   const states: ItemState[] = ['new', 'active', 'onhold', 'verification', 'closed'];
   const items: GardenItem[] = [];
   for (let item = 0; item < itemsCount; item++) {
@@ -47,8 +47,8 @@ export const createDataSet = (itemsCount: number = 1000, dayDiff: number = 200):
   return items;
 };
 
-export const fetchGardenItemsAsync = (itemsCount?: number, dayDiff?: number) =>
-  new Promise<any>((resolve) => {
+export const fetchGardenItemsAsync = (itemsCount?: number, dayDiff?: number): Promise<unknown> =>
+  new Promise<unknown>((resolve) => {
     resolve({
       status: 200,
       data: createDataSet(itemsCount, dayDiff),

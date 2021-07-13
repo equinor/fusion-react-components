@@ -8,16 +8,31 @@
   "files": [],
   "references": [
     {
+      "path": "packages/checkbox"
+    },
+    {
       "path": "packages/hanging-garden"
     },
     {
+      "path": "packages/radio"
+    },
+    {
       "path": "packages/styles"
+    },
+    {
+      "path": "packages/switch"
     },
     {
       "path": "packages/table"
     },
     {
       "path": "packages/datepicker"
+    },
+    {
+      "path": "packages/textarea"
+    },
+    {
+      "path": "packages/textinput"
     }
   ]
 }

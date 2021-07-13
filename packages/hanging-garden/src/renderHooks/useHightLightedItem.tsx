@@ -11,7 +11,12 @@ import useRenderItem from './useItem';
  * This hook is used by the Garden and is not intended to be used or implemented
  * outside the Garden component.
  */
-const useHightLightedItem = <T extends HangingGardenColumnIndex>() => {
+
+type UseHightLightedItem = {
+  renderHighlightedItem: () => void;
+};
+
+const useHightLightedItem = <T extends HangingGardenColumnIndex>(): UseHightLightedItem => {
   const {
     columns,
     itemKeyProp,
@@ -43,7 +48,7 @@ const useHightLightedItem = <T extends HangingGardenColumnIndex>() => {
         column.data.findIndex(
           (item) => item[itemKeyProp as keyof T] === (highlightedItem as T)[itemKeyProp as keyof T]
         ),
-        (columns as T).indexOf(column)
+        (columns as HangingGardenColumn<T>[]).indexOf(column)
       );
     }
   }, [highlightedItem, getTextureFromCache, addTextureToCache, stage.current, columns]);

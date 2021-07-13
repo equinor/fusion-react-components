@@ -13,7 +13,7 @@ const useStyles = makeStyles(() =>
   })
 );
 
-const Arrow = () => {
+const Arrow = (): JSX.Element => {
   const styles = useStyles();
   return (
     <svg

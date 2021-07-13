@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-styles",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "style lib inspired by @material-ui/styles",
   "keywords": [
     "styling",
@@ -28,8 +28,8 @@
   },
   "scripts": {
     "build": "tsc -b",
-    "lint": "eslint 'src/**/*.{js,ts,tsx}'",
-    "lint:fix": "eslint 'src/**/*.{js,ts,tsx}' --fix",
+    "lint": "eslint --ext .ts,.tsx,.js src/",
+    "lint:fix": "eslint --ext .ts,.tsx,.js src/ --fix",
     "prepack": "npm run build"
   },
   "bugs": {
@@ -44,6 +44,7 @@
     "react-dom": "^16.8.0 || ^17.0.0"
   },
   "dependencies": {
+    "@equinor/fusion-wc-theme": "^0.2.5",
     "@equinor/fusion-web-theme": "0.1.0-alpha.4",
     "@material-ui/styles": "^4.11.3",
     "clsx": "^1.1.1"

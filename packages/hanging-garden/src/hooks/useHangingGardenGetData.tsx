@@ -14,7 +14,18 @@ import { useState, useCallback } from 'react';
  * const data = await getData(currentContext.id, true);
  *
  */
-export const useHangingGardenGetData = <T,>(getDataAsync: (invalidateCache: boolean) => Promise<HttpResponse<T[]>>) => {
+
+type GetDataPromise<T> = { data: T[]; cacheAge: Date; cacheDurationInMinutes: number };
+
+type UseHangingGardenGetData<T> = {
+  getData: (invalidateCache?: boolean) => Promise<GetDataPromise<T> | null>;
+  error: GardenDataError | null;
+  isFetching: boolean;
+};
+
+export const useHangingGardenGetData = <T,>(
+  getDataAsync: (invalidateCache: boolean) => Promise<HttpResponse<T[]>>
+): UseHangingGardenGetData<T> => {
   const [error, setError] = useState<GardenDataError | null>(null);
   const [isFetching, setIsFetching] = useState(false);
 

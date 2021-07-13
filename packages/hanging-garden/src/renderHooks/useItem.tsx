@@ -17,7 +17,11 @@ import useItemDescription from './useItemDescription';
  * This hook is used by the Garden and is not intended to be used or implemented
  * outside the Garden component.
  */
-const useItem = <T extends HangingGardenColumnIndex>() => {
+type UseItem<T> = {
+  renderItem: (item: T, index: number, columnIndex: number) => void;
+};
+
+const useItem = <T extends HangingGardenColumnIndex>(): UseItem<T> => {
   const {
     pixiApp,
     stage,
@@ -31,6 +35,7 @@ const useItem = <T extends HangingGardenColumnIndex>() => {
     renderItemContext,
     textureCaches: { getTextureFromCache, addTextureToCache },
     popover: { addPopover },
+    colorMode,
   } = useHangingGardenContext();
 
   const { createTextNode } = useTextNode();
@@ -68,8 +73,9 @@ const useItem = <T extends HangingGardenColumnIndex>() => {
     (item: T, index: number, columnIndex: number) => {
       const x = getColumnX(columnIndex, expandedColumns, itemWidth);
       const y = headerHeight + index * itemHeight;
-      let renderedItem = getTextureFromCache('items', item[itemKeyProp as keyof T]) as PIXI.Container;
-      if (!renderedItem) {
+      const key = `${item[itemKeyProp as keyof T]}_${colorMode}`;
+      let renderedItem = getTextureFromCache('items', key) as PIXI.Container;
+      if (!renderedItem || renderedItem.width !== itemWidth) {
         renderedItem = new PIXI.Container();
         renderedItem;
         renderedItem.x = x;
@@ -110,7 +116,7 @@ const useItem = <T extends HangingGardenColumnIndex>() => {
 
         renderItemContext(item, itemRenderContext);
 
-        addTextureToCache('items', item[itemKeyProp as keyof T], renderedItem);
+        addTextureToCache('items', key, renderedItem);
       }
 
       if (highlightedItem && (highlightedItem as T)[itemKeyProp as keyof T] === item[itemKeyProp as keyof T]) {
@@ -150,6 +156,7 @@ const useItem = <T extends HangingGardenColumnIndex>() => {
       processRenderQueue,
       renderItemDescription,
       onItemClick,
+      colorMode,
     ]
   );
 
