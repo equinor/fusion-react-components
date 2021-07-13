@@ -250,6 +250,15 @@ const getDateFormat = (type: FusionDatePickerType): string => {
   }
 };
 
+const getDisplayDateFormat = (type: FusionDatePickerType): string => {
+  const dateFormat = getDateFormat(type).toLowerCase();
+
+  if (type === 'date-range') {
+    return `${dateFormat} - ${dateFormat}`;
+  }
+  return dateFormat;
+};
+
 export const FusionDatePicker: FunctionComponent<FusionDatePickerProps> = (
   props: FusionDatePickerProps
 ): JSX.Element => {
@@ -333,7 +342,13 @@ export const FusionDatePicker: FunctionComponent<FusionDatePickerProps> = (
       {label && <span className={classes.label}>{label}</span>}
       <DatePicker
         allowSameDay={allowSameDay}
-        customInput={<FusionDatePickerInput isClearable={isClearable} onClear={() => dateOnChange(null)} />}
+        customInput={
+          <FusionDatePickerInput
+            dateFormat={getDisplayDateFormat(type)}
+            isClearable={isClearable}
+            onClear={() => dateOnChange(null)}
+          />
+        }
         dateFormat={dateFormat ?? getDateFormat(type)}
         disabled={disabled}
         disabledKeyboardNavigation={!allowKeyboardControl}
