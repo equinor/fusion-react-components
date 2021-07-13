@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.7](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-datepicker@0.7.2...@equinor/fusion-react-datepicker@0.7.7) (2021-07-13)
+
+
+### Bug Fixes
+
+* added dateformat to focus and fixed lerna bootstrap ([6e98513](https://github.com/equinor/fusion-react-components/commit/6e9851334cccd58377edf20dd33afc00af8b42be))
+
+
+
+
+
 ## 0.7.6 (2021-07-05)
 
 **Note:** Version bump only for package @equinor/fusion-react-datepicker
