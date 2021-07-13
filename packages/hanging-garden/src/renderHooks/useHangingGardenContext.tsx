@@ -32,6 +32,7 @@ export interface IHangingGardenContext {
   renderHeaderContext: (key: string, context: HeaderRenderContext) => void;
   popover: UsePopover;
   colorMode: ColorMode;
+  groupLevels: number;
 }
 
 const HangingGardenContext = createContext<IHangingGardenContext>({} as IHangingGardenContext);
