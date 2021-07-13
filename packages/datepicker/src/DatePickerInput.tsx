@@ -1,7 +1,8 @@
 import { forwardRef, InputHTMLAttributes } from 'react';
 import { makeStyles, createStyles, theme, FusionTheme } from '@equinor/fusion-react-styles';
 import Icon from './Icon';
-import { calendar, clear } from '@equinor/eds-icons';
+import { calendar, clear, time } from '@equinor/eds-icons';
+import { FusionDatePickerType } from './types';
 
 type SpacingType = keyof typeof theme.spacing.comfortable;
 
@@ -15,6 +16,7 @@ type StyleProps = {
 type InputProps = {
   isClearable?: boolean;
   onClear(): void;
+  type: FusionDatePickerType;
 };
 
 const defaultStyleProps: StyleProps = {
@@ -70,7 +72,7 @@ const useStyles = makeStyles<FusionTheme, StyleProps>(
 
 export const FusionDatePickerInput = forwardRef<HTMLInputElement, InputHTMLAttributes<HTMLInputElement> & InputProps>(
   (props: InputHTMLAttributes<HTMLInputElement> & InputProps, ref: React.ForwardedRef<HTMLInputElement>) => {
-    const { isClearable, onClear, ...rest } = props;
+    const { isClearable, onClear, type, ...rest } = props;
 
     const classes = useStyles({
       ...defaultStyleProps,
@@ -89,6 +91,8 @@ export const FusionDatePickerInput = forwardRef<HTMLInputElement, InputHTMLAttri
               onClear();
             }}
           />
+        ) : type === 'time' ? (
+          <Icon icon={time} className={classes.icon} onClick={props.onClick} />
         ) : (
           <Icon icon={calendar} className={classes.icon} onClick={props.onClick} />
         )}
