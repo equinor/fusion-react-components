@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-components-stories",
-  "version": "1.11.1",
+  "version": "1.11.2",
   "description": "",
   "private": true,
   "scripts": {
@@ -13,7 +13,7 @@
   "dependencies": {
     "@babel/core": "^7.12.10",
     "@equinor/fusion-react-checkbox": "^0.2.1",
-    "@equinor/fusion-react-datepicker": "^0.7.7",
+    "@equinor/fusion-react-datepicker": "^0.7.8",
     "@equinor/fusion-react-hanging-garden": "^1.4.2",
     "@equinor/fusion-react-radio": "^0.2.1",
     "@equinor/fusion-react-styles": "^0.2.0",
