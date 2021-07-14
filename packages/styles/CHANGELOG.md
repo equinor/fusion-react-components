@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.2.1 (2021-07-14)
+
+
+### Bug Fixes
+
+* updated packages ([6d8da47](https://github.com/equinor/fusion-react-components/commit/6d8da478103a94b34a3e0a3d107633f77ef4e7aa))
+
+
+
+
+
 # 0.2.0 (2021-07-05)
 
 
