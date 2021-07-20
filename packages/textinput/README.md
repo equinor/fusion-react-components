@@ -42,6 +42,7 @@ Name                      | Type                          | Description
 `validateOnInitialRender` | `boolean`                     | Runs validation check on initial render.
 `name`                    | `string`                      | Sets the `name` attribute on the internal input.\*\*\*
 
+\* `TextFieldType` is exported from mwc-textfield.
 ```ts
 type TextFieldType = 'text'|'search'|'tel'|'url'|'email'|'password'|
     'date'|'month'|'week'|'time'|'datetime-local'|'number'|'color';
