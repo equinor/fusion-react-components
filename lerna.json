@@ -2,7 +2,6 @@
   "version": "independent",
   "command": {
     "version": {
-      "allowBranch": ["main", "feat/*", "feature/*", "fix/*"],
       "conventionalCommits": true,
       "ignoreChanges": ["*.spec.ts", "*.md"]
     },
