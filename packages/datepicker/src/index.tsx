@@ -1,2 +1,4 @@
-export * from './DatePicker';
-export * from './types';
+export { FusionDatePicker } from './DatePicker';
+export { FusionDatePickerProps, FusionDatePickerType } from './types';
+
+export { default } from './DatePicker';
