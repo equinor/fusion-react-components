@@ -1,3 +1,4 @@
+/* eslint-disable react/no-multi-comp */
 import { FusionDatePicker, FusionDatePickerProps } from '@equinor/fusion-react-datepicker';
 import { Story, Meta } from '@storybook/react/types-6-0';
 import { useState } from 'react';
@@ -24,6 +25,18 @@ const RangeTemplate: Story<FusionDatePickerProps> = (args) => {
   };
 
   return <FusionDatePicker {...args} onRangeChange={setDateRange} dateFrom={dateFrom} dateTo={dateTo} />;
+};
+
+const PopperTemplate: Story<FusionDatePickerProps & { offsetX: number; offsetY: number }> = (args) => {
+  const { offsetX, offsetY, ...props } = args;
+  const [date, setDate] = useState<Date | null>(null);
+  props.popperModifiers = [
+    {
+      name: 'offset',
+      options: { offset: [offsetX, offsetY] },
+    },
+  ];
+  return <FusionDatePicker {...props} onChange={setDate} date={date} startOpen />;
 };
 
 export const Dates = Template.bind({});
@@ -66,4 +79,11 @@ Year.args = {
   label: 'Year',
   placeholder: 'Select year',
   type: 'year',
+};
+
+export const Popper = PopperTemplate.bind({});
+Popper.args = {
+  popperPlacement: 'top-end',
+  offsetX: 10,
+  offsetY: 10,
 };
