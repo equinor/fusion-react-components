@@ -8,13 +8,13 @@
   "exclude": ["node_modules"],
   "references": [
     {
-      "path": "../packages/hanging-garden"
-    },
-    {
-      "path": "../packages/table"
+      "path": "../packages/button"
     },
     {
       "path": "../packages/checkbox"
+    },
+    {
+      "path": "../packages/hanging-garden"
     },
     {
       "path": "../packages/datepicker"
@@ -24,6 +24,9 @@
     },
     {
       "path": "../packages/switch"
+    },
+    {
+      "path": "../packages/table"
     },
     {
       "path": "../packages/textarea"
