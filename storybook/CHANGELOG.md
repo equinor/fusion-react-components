@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.12.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.11.4...@equinor/fusion-react-components-stories@1.12.0) (2021-07-29)
+
+
+### Features
+
+* allow adjustment to popper ([bef382b](https://github.com/equinor/fusion-react-components/commit/bef382bf2fd2278698621a4ee30aa4a90ab1fb53))
+
+
+
+
+
 ## [1.11.4](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.11.3...@equinor/fusion-react-components-stories@1.11.4) (2021-07-20)
 
 **Note:** Version bump only for package @equinor/fusion-react-components-stories
