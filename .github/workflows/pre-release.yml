@@ -49,7 +49,7 @@ jobs:
 
       - name: Commit changes
         run: |
-            git add packages/*/package.json 
+            git add packages/*/package.json storybook/package.json 
             git commit -m'chore(prerelease): bumped version with tag ${{ github.event.inputs.tag }}'
             git push
         env:

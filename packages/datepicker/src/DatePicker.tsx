@@ -6,6 +6,7 @@ import { useStyles } from './style';
 
 import FusionDatePickerHeader from './DatePickerHeader';
 import FusionDatePickerInput from './DatePickerInput';
+import { clsx } from '@equinor/fusion-react-styles';
 
 const getDateFormat = (type: FusionDatePickerType): string => {
   switch (type) {
@@ -39,52 +40,35 @@ export const FusionDatePicker: FunctionComponent<FusionDatePickerProps> = (
   props: FusionDatePickerProps
 ): JSX.Element => {
   const {
-    allowKeyboardControl = true,
-    allowSameDay = true,
+    // custom props
+    allowKeyboardControl,
+    classes,
     date,
-    dateFormat,
     dateFrom,
     dateTo,
-    disabled,
     disableFuture,
     disablePast,
-    excludeDates,
-    excludeTimes,
-    filterDate,
     fluid,
     height,
-    includeDates,
-    includeTimes,
-    injectTimes,
-    inline,
-    isClearable = true,
+    isClearable,
     label,
-    locale = enGB,
-    maxDate,
-    maxTime,
-    minDate,
-    minTime,
-    onBlur,
     onChange,
     onClose,
-    onFocus,
-    onMonthChange,
     onOpen,
     onRangeChange,
-    onYearChange,
-    openToDate,
     placeholder,
-    readOnly,
-    shouldCloseOnSelect = true,
-    showWeekNumbers,
-    startOpen,
+    shouldCloseOnSelect,
+    shouldDisableDate,
     showTodayButton,
-    tabIndex,
-    type = 'date',
-    width = '15em',
+    type,
+    width,
+    // base props
+    ...args
   } = props;
 
-  const classes = useStyles({ width: fluid ? '100%' : width, height: height });
+  shouldDisableDate; // TODO @maoft - why not in use?
+
+  const styles = useStyles({ width: fluid ? '100%' : width, height: height });
 
   const isRange = type === 'date-range';
 
@@ -104,11 +88,16 @@ export const FusionDatePicker: FunctionComponent<FusionDatePickerProps> = (
     }
   };
 
+  args.dateFormat ??= getDateFormat(type);
+  args.locale ??= enGB;
+  disableFuture && (args.maxDate = args.maxTime = new Date());
+  disablePast && (args.minDate = args.minTime = new Date());
+
   return (
-    <div className={classes.container}>
-      {label && <span className={classes.label}>{label}</span>}
+    <div className={clsx(styles.container, classes?.host)}>
+      {label && <span className={styles.label}>{label}</span>}
       <DatePicker
-        allowSameDay={allowSameDay}
+        {...args}
         customInput={
           <FusionDatePickerInput
             dateFormat={getDisplayDateFormat(type)}
@@ -117,43 +106,16 @@ export const FusionDatePicker: FunctionComponent<FusionDatePickerProps> = (
             type={type}
           />
         }
-        dateFormat={dateFormat ?? getDateFormat(type)}
-        disabled={disabled}
         disabledKeyboardNavigation={!allowKeyboardControl}
         endDate={isRange ? dateTo : undefined}
-        excludeDates={excludeDates}
-        excludeTimes={excludeTimes}
-        filterDate={filterDate}
-        includeDates={includeDates}
-        includeTimes={includeTimes}
-        injectTimes={injectTimes}
-        inline={inline}
-        locale={locale}
-        maxDate={disableFuture ? new Date() : maxDate}
-        maxTime={disableFuture ? new Date() : maxTime}
-        minDate={disablePast ? new Date() : minDate}
-        minTime={disablePast ? new Date() : minTime}
-        onBlur={onBlur}
         onCalendarClose={onClose}
         onCalendarOpen={onOpen}
         onChange={dateOnChange}
-        onFocus={onFocus}
-        onMonthChange={onMonthChange}
-        onYearChange={onYearChange}
-        openToDate={openToDate}
         placeholderText={placeholder}
-        popperClassName={classes.popper}
-        readOnly={readOnly}
-        renderCustomHeader={(props) => {
-          return (
-            <FusionDatePickerHeader
-              {...props}
-              type={type}
-              maxDate={disableFuture ? new Date() : maxDate}
-              minDate={disablePast ? new Date() : minDate}
-            />
-          );
-        }}
+        popperClassName={clsx(styles.popper, classes?.popper)}
+        renderCustomHeader={(props) => (
+          <FusionDatePickerHeader {...props} type={type} maxDate={args.maxDate} minDate={args.minDate} />
+        )}
         selected={isRange ? dateFrom : date}
         selectsRange={isRange}
         shouldCloseOnSelect={!isRange && shouldCloseOnSelect}
@@ -162,13 +124,10 @@ export const FusionDatePicker: FunctionComponent<FusionDatePickerProps> = (
         showTimeSelectOnly={type === 'time'}
         showMonthYearPicker={type === 'month'}
         showYearPicker={type === 'year'}
-        showWeekNumbers={showWeekNumbers}
         startDate={isRange ? dateFrom : undefined}
         calendarStartDay={1}
-        startOpen={startOpen}
-        tabIndex={tabIndex}
         todayButton={showTodayButton ? 'Today' : undefined}
-        wrapperClassName={classes.wrapper}
+        wrapperClassName={clsx(styles.wrapper, classes?.wrapper)}
       />
     </div>
   );
