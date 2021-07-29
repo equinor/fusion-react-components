@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.8.0 (2021-07-29)
+
+
+### Features
+
+* allow adjustment to popper ([bef382b](https://github.com/equinor/fusion-react-components/commit/bef382bf2fd2278698621a4ee30aa4a90ab1fb53))
+
+
+
+
+
 ## [0.7.9](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-datepicker@0.7.8...@equinor/fusion-react-datepicker@0.7.9) (2021-07-14)
 
 **Note:** Version bump only for package @equinor/fusion-react-datepicker
