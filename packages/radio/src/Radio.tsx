@@ -1,9 +1,11 @@
-import { FunctionComponent } from 'react';
-import { RadioProps } from './types';
+import { HTMLAttributes } from 'react';
+import RadioElement, { RadioElementProps } from '@equinor/fusion-wc-radio/lib/element';
 import '@equinor/fusion-wc-radio';
 
-export const Radio: FunctionComponent<RadioProps> = (props) => {
-  return <fwc-radio {...props}></fwc-radio>;
+export type RadioProps = RadioElementProps & HTMLAttributes<RadioElement>;
+
+export const Radio = ({ ...rest }: RadioProps): JSX.Element => {
+  return <fwc-radio {...rest}></fwc-radio>;
 };
 
 export default Radio;

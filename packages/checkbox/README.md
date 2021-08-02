@@ -6,8 +6,15 @@
 [Fusion Web Component](https://github.com/equinor/fusion-web-components/tree/main/packages/checkbox)
 
 ### Installation
+
 ```sh
 npm install @equinor/fusion-react-checkbox
+```
+
+## Example Usage
+
+```html
+<Checkbox value='value' checked/>
 ```
 
 ### Properties/Attributes
@@ -19,11 +26,6 @@ Name            | Type      | Default | Description
 `disabled`           | `boolean` | `false` | When `true`, the checkbox cannot be interacted with, and renders in muted colors.
 `value`              | `string`  | `''`    | The value that will be included if the checkbox is submitted in a form.
 `reducedTouchTarget` | `boolean` | `false` | When `true`, the checkbox remove padding for touchscreens and increase density. Note, the checkbox will no longer meet accessibility guidelines for touch.
-
-
-### Methods
-
-*None*
 
 ### Events
 
