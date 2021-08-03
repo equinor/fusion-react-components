@@ -10,15 +10,18 @@
 npm install @equinor/fusion-react-switch
 ```
 
+## Example Usage
+
+```html
+<Switch value='value' checked/>
+```
+
 ### Properties/Attributes
+
 | Name       | Type      | Default | Description
 | ---------- | --------- | ------- | -----------
 | `checked`  | `boolean` | `false` | Whether or not the switch should be checked / activated.
 | `disabled` | `boolean` | `false` | Disables the input and sets the disabled styles.
-
-### Methods
-
-*None*
 
 ### Events
 
