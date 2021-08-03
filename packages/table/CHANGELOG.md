@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.3.9 (2021-08-03)
+
+
+### Bug Fixes
+
+* fixed type definitions and upgraded packages ([5efbbd2](https://github.com/equinor/fusion-react-components/commit/5efbbd2cee688bcefc554c113512f834a91f39fd))
+
+
+
+
+
 ## 0.3.8 (2021-07-14)
 
 **Note:** Version bump only for package @equinor/fusion-react-table
