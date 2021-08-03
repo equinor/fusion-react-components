@@ -1,2 +1,1 @@
-export { TextArea } from './TextArea';
-export { TextAreaProps } from './types';
+export { TextArea as default, TextAreaProps } from './TextArea';
