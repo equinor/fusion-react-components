@@ -7,5 +7,3 @@ export type TextInputProps = TextInputElementProps & HTMLAttributes<TextInputEle
 export const TextInput = ({ children, ...rest }: PropsWithChildren<TextInputProps>): JSX.Element => {
   return <fwc-textinput {...rest}>{children}</fwc-textinput>;
 };
-
-export default TextInput;
