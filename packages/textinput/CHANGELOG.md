@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.4](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-textinput@0.2.3...@equinor/fusion-react-textinput@0.2.4) (2021-08-05)
+
+
+### Bug Fixes
+
+* fixed textinput typing and export ([8d4b005](https://github.com/equinor/fusion-react-components/commit/8d4b00588c00c6247c33e9569a1ef34b870ea1d2))
+
+
+
+
+
 ## 0.2.3 (2021-08-03)
 
 

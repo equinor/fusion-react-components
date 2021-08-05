@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-components-stories",
-  "version": "1.13.1",
+  "version": "1.13.2",
   "description": "",
   "private": true,
   "scripts": {
@@ -20,8 +20,8 @@
     "@equinor/fusion-react-styles": "^0.2.1",
     "@equinor/fusion-react-switch": "^0.2.2",
     "@equinor/fusion-react-table": "^0.3.9",
-    "@equinor/fusion-react-textarea": "^0.2.2",
-    "@equinor/fusion-react-textinput": "^0.2.3",
+    "@equinor/fusion-react-textarea": "^0.2.3",
+    "@equinor/fusion-react-textinput": "^0.2.4",
     "@equinor/fusion-wc-theme": "^0.2.7",
     "@storybook/addon-actions": "^6.3.6",
     "@storybook/addon-docs": "^6.3.6",
