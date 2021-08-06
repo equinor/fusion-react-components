@@ -28,7 +28,7 @@ const selectionReducer = <TSelection extends Record<string, unknown>>(initial: T
       ...state,
       ...(action.payload as TSelection),
     }))
-    .handleAction(actions.selection.override, (state, action) => ({
+    .handleAction(actions.selection.override, (_, action) => ({
       ...(action.payload as TSelection),
     }))
     .handleAction(actions.selection.triggerFilter, (state) => ({
