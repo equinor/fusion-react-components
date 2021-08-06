@@ -1,7 +1,9 @@
 import FilterProvider from './FilterProvider';
+import useFilterStore from './hooks/useFilterStore';
+export { useFilterStore };
 export default FilterProvider;
-//export { default as FilterPanel } from './components/FilterPanel';
-//export { default as FilterSection } from './components/FilterPanel/components/FilterSection';
+export { default as FilterPanel } from './components/HorizontalFilterPanel';
+export { default as FilterSection } from './components/HorizontalFilterPanel/components/FilterSection';
 //export { default as TopBar } from './components/FilterPanel/components/TopBar';
-//export { default as CheckBoxFilter } from './components/CheckBoxFilter';
-//export { default as RadioFilter } from './components/RadioFilter';
+export { default as CheckBoxFilter } from './components/CheckBoxFilter';
+export { default as RadioFilter } from './components/RadioFilter';

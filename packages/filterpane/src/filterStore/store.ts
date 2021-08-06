@@ -37,7 +37,7 @@ export class FilterStore<
     delete this._filterFn[key];
   }
 
-  public registerFilter(key: string, filterFn: (data: any, selection: any) => any): void {
+  public registerFilter(key: string, filterFn: FilterFn<TData>): void {
     this._filterFn[key] = filterFn;
   }
 
