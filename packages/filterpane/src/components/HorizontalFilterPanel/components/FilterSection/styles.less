@@ -1,0 +1,82 @@
+.FilterSectionContainer {
+  display:flex;
+  flex-direction: column;
+
+  
+  .FilterSection {
+  display: flex;
+  width: 100%;
+  background-color: var(--color-black-alt5) ;
+  box-sizing: border-box;
+  border-bottom: solid 1px var(--color-black-alt4) ;
+  overflow-y: auto;
+  
+  .FilterSectionEmptyText {
+    padding : calc(var(--grid-unit) * 2px)
+    
+  }
+  
+}
+}
+
+.resizeHandle {
+  width: 100%;
+  z-index: 2;
+  height:calc(var(--grid-unit) * 0.5px); ;
+  left: calc(var(--grid-unit) * -2px);
+  cursor: row-resize;
+
+  .bar {
+      width: 100%;
+      position: relative;
+      z-index: 1;
+      height:calc(var(--grid-unit) * 0.5px);
+  }
+
+  .indicator {
+      position: relative;
+      left: 50%;
+      width: calc(var(--grid-unit) * 3px);
+      height: calc(var(--grid-unit) * 3px);
+      background: var(--color-white);
+      border-radius: 4px;
+      transform:rotate(90deg) translateX(-50%);
+      display: flex;
+      align-items: center;
+      opacity: 0;
+      transition: opacity 0.2s;
+      z-index: 2;
+  }
+
+  &:hover {
+      .bar {
+          background: rgba(0, 0, 0, 0.1);
+      }
+
+      .indicator {
+          opacity: 1;
+      }
+  }
+}
+
+&.isResizing {
+  user-select: none;
+  transition: none;
+
+  .resizeHandle {
+      .bar {
+          background: rgba(0, 0, 0, 0.1);
+      }
+
+      .indicator {
+          opacity: 1;
+      }
+  }
+}
+
+&.isMinimized {
+  display:none
+}
+
+
+
