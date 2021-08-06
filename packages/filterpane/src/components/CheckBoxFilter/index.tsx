@@ -8,11 +8,10 @@ import useFilterSelection from '../../hooks/useFilterSelection';
 import CheckboxOption from './components/CheckBoxOption';
 import SelectAllOption from './components/SelectAllOption';
 import { CSSProperties } from 'react';
-import { Filter } from '../../models/Filter';
+import Filter from '../../models/Filter';
 import FilterStore from '../../filterStore/store';
 import TextInput from '@equinor/fusion-react-textinput';
 import { createStyles, FusionTheme, makeStyles } from '@equinor/fusion-react-styles';
-import { TSelection } from 'filterpane/src/FilterProvider';
 
 export type CheckBoxFilterStyleProps = { checkBoxFilterContainer?: CSSProperties; filterHeader?: CSSProperties };
 
@@ -69,37 +68,24 @@ const selectionUpdate = (change: { key: string; checked: boolean; singleSelect?:
 };
 
 export type FilterContainerProps<TData> = {
-  filter: Filter<TData, TSelection>;
+  filter: Filter<TData>;
   useSearch?: boolean;
   useSelectAll?: boolean;
-  useSingleSelect?: boolean;
   compact?: boolean;
   style?: CheckBoxFilterStyleProps;
 };
 
-/**
- *Standard Checkbox filter.
- *List out all options, and user can check of each item they want to filter on.
- *
- * @param filter Filter definition
- * @param useSearch Show a search bar at top, searching withing the filter options
- * @param useSelectAll Add a (All) Checkbox on top that selects/deselects all options
- * @param compact Compact Filter options text and checkbox size
- * @param useSingleSelect When clicking the option text, only this options will remain selected.
- * @param style Add additional styling to the Filter container and header.
- */
-const CheckBoxFilter = <TSelections extends Record<string, TSelection>, TData>({
+const CheckBoxFilter = <TSelection extends Record<string, unknown>, TData>({
   filter,
   useSearch,
   useSelectAll,
-  useSingleSelect = false,
   compact = false,
   style,
 }: FilterContainerProps<TData>): JSX.Element => {
   const [filterSearch, setFilterSearch] = useState('');
 
   const context = useContext(FilterContext);
-  const store = context.store as FilterStore<TSelections, TData>;
+  const store = context.store as FilterStore<TSelection, TData>;
   const { key, title, filterFn, optionsBuilderFn, counterFn, description } = filter;
 
   const handleSelectionChange = useFilterChangeHandler(key, selectionUpdate);
@@ -126,7 +112,14 @@ const CheckBoxFilter = <TSelections extends Record<string, TSelection>, TData>({
       <header title={description} className={styles.FilterHeader}>
         {title}
       </header>
-      {useSearch && <TextInput value={filterSearch} placeholder={'Search'} type={'search'} />}
+      {useSearch && (
+        <TextInput
+          onChange={(a: string) => console.log('onChange', a)}
+          value={filterSearch}
+          placeholder={'Search'}
+          type={'search'}
+        />
+      )}
       <ul className={styles.FilterOptionsContainer}>
         {useSelectAll && filterOptions && (
           <SelectAllOption
@@ -152,7 +145,6 @@ const CheckBoxFilter = <TSelections extends Record<string, TSelection>, TData>({
               label={filterSetting.label}
               counter={currentOptionsCounters ? currentOptionsCounters?.[key] || '0' : undefined}
               compact={compact}
-              singleSelect={useSingleSelect}
             />
           );
         })}

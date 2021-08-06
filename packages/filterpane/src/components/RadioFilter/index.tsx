@@ -5,45 +5,25 @@ import useFilterChangeHandler from '../../hooks/useFilterChangeHandler';
 import useFilterOptionsBuilder from '../../hooks/useFilterOptionsBuilder';
 import useFilterSelection from '../../hooks/useFilterSelection';
 
-import { Filter } from '../../models/Filter';
+import Filter from '../../models/Filter';
 import FilterStore from '../../filterStore/store';
 import TextInput from '@equinor/fusion-react-textinput';
 import Radio from '@equinor/fusion-react-radio';
 import useStyles, { RadioFilterStyles } from './useStyles';
-import { TSelection } from '../../FilterProvider';
-import FilterOption from '../../models/FilterOption';
-
-const optionVisible = (option: FilterOption, searchString: string): boolean =>
-  Boolean(
-    searchString.length
-      ? (option.searchString || option.label?.toString())
-          ?.toLocaleLowerCase()
-          .includes(searchString.toLocaleLowerCase())
-      : true
-  );
 
 export type RadioFilterContainerProps<TData> = {
-  filter: Filter<TData, TSelection>;
+  filter: Filter<TData>;
   useSearch?: boolean;
   styles?: RadioFilterStyles;
 };
 
-/**
- *Standard Checkbox filter.
- *List out all options, and user can check of each item they want to filter on.
- *
- * @param filter Filter definition
- * @param useSearch Show a search bar at top, searching withing the filter options
- * @param style Add additional styling to the Filter container and header.
- */
-
-const RadioFilter = <TSelections extends Record<string, TSelection>, TData>({
+const RadioFilter = <TSelection extends Record<string, unknown>, TData>({
   filter,
   useSearch,
   styles,
 }: RadioFilterContainerProps<TData>): JSX.Element => {
   const context = useContext(FilterContext);
-  const store = context.store as FilterStore<TSelections, TData>;
+  const store = context.store as FilterStore<TSelection, TData>;
   const { key, title, filterFn, optionsBuilderFn } = filter;
 
   const [filterSearch, setFilterSearch] = useState('');
@@ -73,13 +53,26 @@ const RadioFilter = <TSelections extends Record<string, TSelection>, TData>({
   return (
     <div className={Styles.RadioFilterContainer} key={'Radio' + title}>
       <header className={Styles.FilterHeader}>{title}</header>
-      {useSearch && <TextInput value={filterSearch} placeholder={'Search'} type={'search'} />}
+      {useSearch && (
+        <TextInput
+          onChange={(a: string) => console.log('onChange', a)}
+          value={filterSearch}
+          placeholder={'Search'}
+          type={'search'}
+        />
+      )}
 
       <div className={Styles.FilterOptionsContainer}>
         {filterOptions?.sortOrder?.map((key) => {
           const data = filterOptions.options[key];
 
-          if (!optionVisible(data, filterSearch)) return;
+          if (
+            filterSearch.length &&
+            !(data.searchString || data.label?.toString())
+              ?.toLocaleLowerCase()
+              .includes(filterSearch.toLocaleLowerCase())
+          )
+            return;
 
           return (
             <div className={Styles.FilterOption} key={key} onClick={() => onChange(key)}>

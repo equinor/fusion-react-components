@@ -31,9 +31,9 @@ const useResizablePanel = ({
 }: ResizablePaneOptions): ResizablePane => {
   const resizeSettingsKey = `${id}Size`;
   //TODO: Appsettings didnt work. reimplement later
-  // const [appSettings, setAppSettings] = useAppSettings();
+  //  const [appSettings, setAppSettings] = useAppSettings();
   const [appSettings, setAppSettings] = useState<Record<string, ResizedSize>>({
-    [resizeSettingsKey]: { height: defaultHeight || window.innerHeight * 0.4 },
+    [resizeSettingsKey]: { height: 150 },
   });
   const [isResizing, setIsResizing] = useState(false);
   const [mouseIsDown, setMouseIsDown] = useState(false);
@@ -68,7 +68,7 @@ const useResizablePanel = ({
   );
 
   const onResize = useCallback(
-    (e) => {
+    (e: Event) => {
       if (!isResizing || !mouseIsDown) return;
 
       const height = (e as MouseEvent).pageY - topOffset;

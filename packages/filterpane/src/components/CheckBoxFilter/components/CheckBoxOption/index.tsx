@@ -57,7 +57,7 @@ const CheckboxOption = ({
         <CheckBox
           selected={selected || undefined}
           reducedTouchTarget={compact}
-          intermediate={indeterminate || undefined}
+          indeterminate={indeterminate || undefined}
         />
       </span>
       <label onClick={() => onSelectionChange(filterKey, selected, singleSelect)} className={styles.FilterOptionLabel}>

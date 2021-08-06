@@ -8,7 +8,7 @@ const actions = {
     clear: createAction('@FILTER/SELECTION_CLEAR')<string>(),
     clearAll: createAction('@FILTER/SELECTION_CLEAR_ALL')<FilterSettingsStore<any>>(),
     update: createAction('@FILTER/SELECTION_UPDATE')<{ key: string; values: unknown }>(),
-    // set initial values aka bookmark
+    // set filter values
     set: createAction('@FILTER/SELECTION_SET')<SelectionValues>(),
     override: createAction('@FILTER/SELECTION_OVERRIDE')<SelectionValues>(),
     triggerFilter: createAction('@FILTER/TRIGGER_FILTER')<void>(),
