@@ -26,6 +26,9 @@ const useStyles = makeStyles((theme) =>
       height: '4px',
       left: '-16px',
       cursor: 'row-resize',
+      opacity: 0,
+      transition: 'opacity 0.2s',
+      '&:hover': { opacity: 1 },
     },
 
     Resizing: {
@@ -33,26 +36,26 @@ const useStyles = makeStyles((theme) =>
       transition: 'none',
     },
 
-    ResizeBar: { width: '100%', position: 'relative', zIndex: 1, height: '4px' },
-
-    ResizingBar: { background: ' rgba(0, 0, 0, 0.1)' },
+    ResizeBar: {
+      width: '100%',
+      position: 'relative',
+      zIndex: 1,
+      height: '4px',
+      background: 'rgba(0, 0, 0, 0.1)',
+    },
 
     ResizeIndicator: {
       position: 'relative',
-      left: '50%',
+      left: 'calc(50% - 12px)',
       top: '-14px',
+      height: '24px',
       width: '24px',
       background: 'white',
       borderRadius: '4px',
       display: 'flex',
       alignItems: 'center',
-      opacity: 1,
-      transition: 'opacity 0.2s',
       zIndex: 2,
     },
-
-    ResizingIndictor: { opacity: 1 },
-
     Minimized: {
       display: 'none',
     },
