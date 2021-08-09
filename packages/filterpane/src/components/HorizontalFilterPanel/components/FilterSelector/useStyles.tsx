@@ -2,15 +2,23 @@ import { createStyles, makeStyles } from '@equinor/fusion-react-styles';
 
 const useStyles = makeStyles((theme) =>
   createStyles({
-    FilterSelectorOpenContainer: {
+    FilterSelectorContainer: {
+      position: 'sticky',
+      left: 0,
+      zIndex: 99,
       display: 'flex',
       flexDirection: 'column',
       height: '100%',
-      minWidth: '250px',
+      boxSizing: 'border-box',
       padding: '16px',
       paddingBottom: '0px',
-      boxSizing: 'border-box',
       borderRight: `solid 1px ${theme.colors.ui.background__medium.value.hex}`,
+    },
+    FilterSelectorOpen: {
+      minWidth: '250px',
+    },
+    FilterSelectorMinimized: {
+      width: '48px',
     },
     SelectorHeader: {
       display: 'flex',
