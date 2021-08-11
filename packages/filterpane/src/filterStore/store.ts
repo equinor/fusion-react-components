@@ -1,15 +1,11 @@
 import { EpicReducer } from '@equinor/fusion/lib/epic';
 import { of, Observable, BehaviorSubject } from 'rxjs';
 import { pluck, switchMap, withLatestFrom, distinctUntilChanged } from 'rxjs/operators';
-import Filter from '../models/Filter';
+import { Filter, FilterFn, FilterFnStore, FilterSettingsStore } from '../models/Filter';
 import FilterStoreState from '../models/FilterStoreState';
 import actions, { Actions } from './actions';
 import epics from './epics';
 import reducers from './reducers';
-
-export type FilterFn<TData> = (data: TData, selection: unknown, allData?: TData) => TData;
-export type FilterFnStore<TData> = Record<string, FilterFn<TData>>;
-export type FilterSettingsStore<TData> = Record<string, Filter<TData>>;
 
 const filterReducer =
   <TSelection extends Record<string, unknown>, TData>(filters: FilterFnStore<TData>) =>
