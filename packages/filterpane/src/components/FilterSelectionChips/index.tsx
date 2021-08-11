@@ -47,11 +47,6 @@ const useChipsSelection = () => {
   return chips;
 };
 
-/**
- *Looks at the filter selections and summarized all none-empty selections into a Chip.
- *Chip will show name filter title, amount selected and a clear filter button .
- */
-
 const FilterSelectionChips = (): JSX.Element => {
   const chips = useChipsSelection();
   const { store } = useContext(FilterContext);

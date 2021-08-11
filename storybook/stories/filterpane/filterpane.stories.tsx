@@ -1,6 +1,14 @@
 import { Meta, Story } from '@storybook/react/types-6-0';
 import Filter from 'filterpane/src/models/Filter';
-import FilterProvider, { CheckBoxFilter, RadioFilter, FilterPanel, FilterSection } from '../../../packages/filterpane';
+import { useState } from 'react';
+
+import FilterProvider, {
+  CheckBoxFilter,
+  RadioFilter,
+  FilterPanel,
+  FilterSection,
+  GeneralBar,
+} from '../../../packages/filterpane';
 import FilteredDataTable from './FilteredDataTable';
 import { counter, createFilterOptions, getFilter, makeData, Person } from './functions';
 
@@ -24,7 +32,11 @@ const Template: Story<TemplateArgs> = (args) => {
   const radioFilter: Filter<Person[]> = {
     key: 'status',
     title: 'Status',
-    filterFn: (persons, s) => (s === 'all' ? persons : persons.filter((person) => person.status === (s as string))),
+    mandatory: true,
+    priority: 1,
+    resetFilterFn: () => 'all',
+    filterFn: (persons, selection) =>
+      selection === 'all' ? persons : persons.filter((person) => person.status === (selection as string)),
     optionsBuilderFn: () => ({
       options: {
         all: { key: 'all', label: 'All' },
@@ -36,12 +48,14 @@ const Template: Story<TemplateArgs> = (args) => {
   };
 
   const data = args.data;
+  const [minimized, setMinimized] = useState(false);
 
   return (
     <FilterProvider initialData={data} initialFilters={{ firstName: [], status: 'all' }}>
       <FilterPanel>
-        <FilterSection useFilterSelector>
-          <CheckBoxFilter filter={firstName} useSearch useSelectAll />
+        <GeneralBar onMinimize={() => setMinimized((s) => !s)} minimized={minimized} searchFilterFn={(f) => f} />
+        <FilterSection isMinimized={minimized} useFilterSelector>
+          <CheckBoxFilter filter={firstName} useSelectAll />
           <RadioFilter filter={radioFilter} />
         </FilterSection>
       </FilterPanel>
