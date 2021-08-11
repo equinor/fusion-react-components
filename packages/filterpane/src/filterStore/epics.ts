@@ -10,7 +10,7 @@ const updateFilterEpic = <TSelection extends Record<string, unknown> = Record<st
   action$: Observable<Actions>,
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   state$: StatefulObserver<FilterStoreState<TSelection, TData>>
-) => action$.pipe(filter(isActionOf(actions.selection.clear)));
+) => action$.pipe(filter(isActionOf(actions.selection.clearSingle)));
 
 const epics = combineEpics<Actions, Actions, FilterStoreState>(updateFilterEpic);
 

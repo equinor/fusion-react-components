@@ -83,7 +83,7 @@ const FilterSection = ({
   return (
     <div className={filterContainerClassNames}>
       <div ref={resizeContainerRef} className={styles.FilterSection} style={{ ...resizedSize }}>
-        {useFilterSelector && <FilterSelector compact={compactFilterSelector}>{children}</FilterSelector>}
+        {/*!!useFilterSelector && <FilterSelector compact={compactFilterSelector}>{children}</FilterSelector>*/}
         {selection.length ? (
           selection
         ) : (

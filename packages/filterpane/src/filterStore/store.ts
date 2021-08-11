@@ -34,6 +34,7 @@ export class FilterStore<
   }
 
   public unRegisterFilter(key: string): void {
+    if (this.getFilterSetting(key)?.mandatory) return;
     delete this._filterFn[key];
   }
 
@@ -48,6 +49,10 @@ export class FilterStore<
 
   public clearAllFilterSelections(): void {
     this.dispatch(actions.selection.clearAll(this._filterSettings));
+  }
+
+  public clearSingleFilterSelection(key: string): void {
+    this.dispatch(actions.selection.clearSingle(this._filterSettings[key]));
   }
 
   public unSetFilter(key: string): void {

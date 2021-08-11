@@ -112,14 +112,7 @@ const CheckBoxFilter = <TSelection extends Record<string, unknown>, TData>({
       <header title={description} className={styles.FilterHeader}>
         {title}
       </header>
-      {useSearch && (
-        <TextInput
-          onChange={(a: string) => console.log('onChange', a)}
-          value={filterSearch}
-          placeholder={'Search'}
-          type={'search'}
-        />
-      )}
+      {useSearch && <TextInput value={filterSearch} placeholder={'Search'} type={'search'} />}
       <ul className={styles.FilterOptionsContainer}>
         {useSelectAll && filterOptions && (
           <SelectAllOption

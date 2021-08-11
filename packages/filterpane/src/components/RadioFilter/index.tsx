@@ -53,14 +53,7 @@ const RadioFilter = <TSelection extends Record<string, unknown>, TData>({
   return (
     <div className={Styles.RadioFilterContainer} key={'Radio' + title}>
       <header className={Styles.FilterHeader}>{title}</header>
-      {useSearch && (
-        <TextInput
-          onChange={(a: string) => console.log('onChange', a)}
-          value={filterSearch}
-          placeholder={'Search'}
-          type={'search'}
-        />
-      )}
+      {useSearch && <TextInput value={filterSearch} placeholder={'Search'} type={'search'} />}
 
       <div className={Styles.FilterOptionsContainer}>
         {filterOptions?.sortOrder?.map((key) => {
