@@ -10,12 +10,6 @@ import { arrow_back, arrow_forward } from '@equinor/eds-icons';
 
 type FilterSelectorProps = { compact?: boolean };
 
-export type FilterCategory = {
-  filterKey: string;
-  title: string;
-  selected: boolean;
-};
-
 export type FilterCategoryType = {
   filterKey: string;
   title: string;

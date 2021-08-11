@@ -13,17 +13,15 @@ type IconProps = {
   onClick?: MouseEventHandler<HTMLElement>;
 };
 
-const useStyle = makeStyles<FusionTheme, StyleProps>(
-  () =>
-    createStyles({
-      root: ({ size }) => ({
-        fill: 'currentColor',
-        height: size ?? '1.375em',
-        width: 'auto',
-        verticalAlign: 'middle',
-      }),
+const useStyle = makeStyles<FusionTheme, StyleProps>(() =>
+  createStyles({
+    root: ({ size }) => ({
+      fill: 'currentColor',
+      height: size ?? '1.375em',
+      width: 'auto',
+      verticalAlign: 'middle',
     }),
-  { name: 'fusion-datepicker-icon' }
+  })
 );
 
 export const Icon: FunctionComponent<IconProps> = ({ className, icon, size, onClick }: IconProps) => {

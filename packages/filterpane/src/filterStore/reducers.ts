@@ -21,8 +21,11 @@ const selectionReducer = <TSelection extends Record<string, unknown>>(initial: T
         }, {}) as TSelection
     )
 
-    .handleAction(actions.selection.clear, (state, action) => {
-      return { ...state, [action.payload]: [] };
+    .handleAction(actions.selection.clearSingle, (state, { payload: { key, noFilterReset, resetFilterFn } }) => {
+      return {
+        ...state,
+        [key]: noFilterReset ? state[key] : resetFilterFn?.() || '',
+      };
     })
     .handleAction(actions.selection.set, (state, action) => ({
       ...state,
