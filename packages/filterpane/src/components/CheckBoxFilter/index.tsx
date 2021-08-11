@@ -8,10 +8,11 @@ import useFilterSelection from '../../hooks/useFilterSelection';
 import CheckboxOption from './components/CheckBoxOption';
 import SelectAllOption from './components/SelectAllOption';
 import { CSSProperties } from 'react';
-import Filter from '../../models/Filter';
+import { Filter } from '../../models/Filter';
 import FilterStore from '../../filterStore/store';
 import TextInput from '@equinor/fusion-react-textinput';
 import { createStyles, FusionTheme, makeStyles } from '@equinor/fusion-react-styles';
+import { TSelection } from 'filterpane/src/FilterProvider';
 
 export type CheckBoxFilterStyleProps = { checkBoxFilterContainer?: CSSProperties; filterHeader?: CSSProperties };
 
@@ -68,14 +69,14 @@ const selectionUpdate = (change: { key: string; checked: boolean; singleSelect?:
 };
 
 export type FilterContainerProps<TData> = {
-  filter: Filter<TData>;
+  filter: Filter<TData, TSelection>;
   useSearch?: boolean;
   useSelectAll?: boolean;
   compact?: boolean;
   style?: CheckBoxFilterStyleProps;
 };
 
-const CheckBoxFilter = <TSelection extends Record<string, unknown>, TData>({
+const CheckBoxFilter = <TSelections extends Record<string, TSelection>, TData>({
   filter,
   useSearch,
   useSelectAll,
@@ -85,7 +86,7 @@ const CheckBoxFilter = <TSelection extends Record<string, unknown>, TData>({
   const [filterSearch, setFilterSearch] = useState('');
 
   const context = useContext(FilterContext);
-  const store = context.store as FilterStore<TSelection, TData>;
+  const store = context.store as FilterStore<TSelections, TData>;
   const { key, title, filterFn, optionsBuilderFn, counterFn, description } = filter;
 
   const handleSelectionChange = useFilterChangeHandler(key, selectionUpdate);

@@ -1,5 +1,5 @@
-import { FilterFn } from 'filterpane/src/filterStore/store';
-import FilterOption, { FilterOptions } from 'filterpane/src/models/FilterOption';
+import { FilterFn } from '../../../packages/filterpane/src/models/Filter';
+import FilterOption, { FilterOptions } from '../../../packages/filterpane/src/models/FilterOption';
 import namor from 'namor';
 
 export type RelationshipStatus = 'relationship' | 'complicated' | 'single';
@@ -37,11 +37,9 @@ export const counter = (data: Person[], getItemValue: (item: Person) => string):
   }, {});
 
 export const getFilter =
-  (getValueFn: (item: Person, blankKeyValue?: string) => string, blankKeyValue?: string): FilterFn<Person[]> =>
-  (data: Person[], selection: unknown) =>
-    (selection as string[])?.length
-      ? data.filter((item) => (selection as string[]).includes(getValueFn(item, blankKeyValue)))
-      : data;
+  (getValueFn: (item: Person) => string): FilterFn<Person[], string[]> =>
+  (data: Person[], selection: string[]) =>
+    selection?.length ? data.filter((item) => selection.includes(getValueFn(item))) : data;
 
 export const createFilterOptions = (key: keyof Person, data: Person[]): FilterOptions => {
   const options = data.reduce((curr: Record<string, FilterOption>, item) => {

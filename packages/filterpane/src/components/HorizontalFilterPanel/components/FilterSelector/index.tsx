@@ -69,7 +69,6 @@ const FilterSelector = ({ compact = false, children }: PropsWithChildren<FilterS
 
       {show && (
         <>
-          <TextInput value={filterSearch} placeholder={'Search'} />
           <div className={styles.SelectorSection}>
             {categories.map((category) => (
               <FilterCategory key={category.filterKey} compact={compact} {...category} />

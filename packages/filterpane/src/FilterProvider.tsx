@@ -2,16 +2,18 @@ import { PropsWithChildren, useEffect, useMemo } from 'react';
 import FilterContext from './FilterContext';
 import { createFilterStore } from './filterStore/store';
 
-type FilterProviderProps<TSelection extends Record<string, unknown>, TData> = {
+export type TSelection = unknown;
+
+type FilterProviderProps<TSelections extends Record<string, TSelection>, TData> = {
   initialData: TData;
-  initialFilters?: TSelection;
+  initialFilters?: TSelections;
 };
 
-const FilterProvider = <TSelection extends Record<string, unknown>, TData>(
-  props: PropsWithChildren<FilterProviderProps<TSelection, TData>>
+const FilterProvider = <TSelections extends Record<string, unknown>, TData>(
+  props: PropsWithChildren<FilterProviderProps<TSelections, TData>>
 ): JSX.Element => {
   const { initialData, initialFilters = {}, children } = props;
-  const store = useMemo(() => createFilterStore(initialData, initialFilters as TSelection), []);
+  const store = useMemo(() => createFilterStore(initialData, initialFilters || {}), []);
 
   useEffect(() => {
     store.setData(initialData);

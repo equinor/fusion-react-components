@@ -5,25 +5,26 @@ import useFilterChangeHandler from '../../hooks/useFilterChangeHandler';
 import useFilterOptionsBuilder from '../../hooks/useFilterOptionsBuilder';
 import useFilterSelection from '../../hooks/useFilterSelection';
 
-import Filter from '../../models/Filter';
+import { Filter } from '../../models/Filter';
 import FilterStore from '../../filterStore/store';
 import TextInput from '@equinor/fusion-react-textinput';
 import Radio from '@equinor/fusion-react-radio';
 import useStyles, { RadioFilterStyles } from './useStyles';
+import { TSelection } from 'filterpane/src/FilterProvider';
 
 export type RadioFilterContainerProps<TData> = {
-  filter: Filter<TData>;
+  filter: Filter<TData, TSelection>;
   useSearch?: boolean;
   styles?: RadioFilterStyles;
 };
 
-const RadioFilter = <TSelection extends Record<string, unknown>, TData>({
+const RadioFilter = <TSelections extends Record<string, TSelection>, TData>({
   filter,
   useSearch,
   styles,
 }: RadioFilterContainerProps<TData>): JSX.Element => {
   const context = useContext(FilterContext);
-  const store = context.store as FilterStore<TSelection, TData>;
+  const store = context.store as FilterStore<TSelections, TData>;
   const { key, title, filterFn, optionsBuilderFn } = filter;
 
   const [filterSearch, setFilterSearch] = useState('');

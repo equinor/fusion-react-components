@@ -1,20 +1,20 @@
 import FilterCounters from './FilterCounters';
-import { FilterOptions, FilterOptionsFn } from './FilterOption';
+import { FilterOptionsFn } from './FilterOption';
 
-export type FilterFn<TData> = (data: TData, selection: unknown, allData?: TData) => TData;
+export type FilterFn<TData, TSelection> = (data: TData, selection: TSelection, allData?: TData) => TData;
 
-export type Filter<TData> = {
+export type Filter<TData, TSelection> = {
   key: string;
   title: string;
   optionsBuilderFn: FilterOptionsFn<TData>;
   mandatory?: boolean;
   noFilterReset?: boolean;
-  filterFn?: FilterFn<TData>;
+  filterFn?: FilterFn<TData, TSelection>;
   counterFn?: (data: TData) => FilterCounters;
-  resetFilterFn?: (options?: FilterOptions) => unknown;
+  resetFilterFn?: (currentSelection?: TSelection) => TSelection;
   description?: string;
   priority?: number;
 };
 
-export type FilterFnStore<TData> = Record<string, FilterFn<TData>>;
-export type FilterSettingsStore<TData> = Record<string, Filter<TData>>;
+export type FilterFnStore<TData, TSelection = unknown> = Record<string, FilterFn<TData, TSelection>>;
+export type FilterSettingsStore<TData, TSelection = unknown> = Record<string, Filter<TData, TSelection>>;
