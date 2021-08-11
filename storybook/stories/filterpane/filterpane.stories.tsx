@@ -1,5 +1,5 @@
 import { Meta, Story } from '@storybook/react/types-6-0';
-import Filter from 'filterpane/src/models/Filter';
+import { Filter } from '../../../packages/filterpane/src/models/Filter';
 import { useState } from 'react';
 
 import FilterProvider, {
@@ -20,7 +20,7 @@ export default {
 type TemplateArgs = { data: Person[] };
 
 const Template: Story<TemplateArgs> = (args) => {
-  const firstName: Filter<Person[]> = {
+  const firstName: Filter<Person[], string[]> = {
     key: 'firstName',
     title: 'First Name',
     filterFn: getFilter((p) => p.firstName, 'blank'),
@@ -29,14 +29,14 @@ const Template: Story<TemplateArgs> = (args) => {
     priority: 4,
   };
 
-  const radioFilter: Filter<Person[]> = {
+  const radioFilter: Filter<Person[], string> = {
     key: 'status',
     title: 'Status',
     mandatory: true,
     priority: 1,
     resetFilterFn: () => 'all',
     filterFn: (persons, selection) =>
-      selection === 'all' ? persons : persons.filter((person) => person.status === (selection as string)),
+      selection === 'all' ? persons : persons.filter((person) => person.status === selection),
     optionsBuilderFn: () => ({
       options: {
         all: { key: 'all', label: 'All' },
@@ -50,10 +50,13 @@ const Template: Story<TemplateArgs> = (args) => {
   const data = args.data;
   const [minimized, setMinimized] = useState(false);
 
+  const searchFilterFn = (data: Person[], searchString: unknown) =>
+    (searchString as string)?.length ? data.filter((d) => d.firstName.includes(searchString as string)) : data;
+
   return (
-    <FilterProvider initialData={data} initialFilters={{ firstName: [], status: 'all' }}>
+    <FilterProvider initialData={data} initialFilters={{ status: 'all' }}>
       <FilterPanel>
-        <GeneralBar onMinimize={() => setMinimized((s) => !s)} minimized={minimized} searchFilterFn={(f) => f} />
+        <GeneralBar onMinimize={() => setMinimized((s) => !s)} minimized={minimized} searchFilterFn={searchFilterFn} />
         <FilterSection isMinimized={minimized} useFilterSelector>
           <CheckBoxFilter filter={firstName} useSelectAll />
           <RadioFilter filter={radioFilter} />

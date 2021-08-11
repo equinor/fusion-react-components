@@ -1,6 +1,7 @@
 import { EpicReducer } from '@equinor/fusion/lib/epic';
 import { of, Observable, BehaviorSubject } from 'rxjs';
 import { pluck, switchMap, withLatestFrom, distinctUntilChanged } from 'rxjs/operators';
+import { TSelection } from '../FilterProvider';
 import { Filter, FilterFn, FilterFnStore, FilterSettingsStore } from '../models/Filter';
 import FilterStoreState from '../models/FilterStoreState';
 import actions, { Actions } from './actions';
@@ -8,24 +9,27 @@ import epics from './epics';
 import reducers from './reducers';
 
 const filterReducer =
-  <TSelection extends Record<string, unknown>, TData>(filters: FilterFnStore<TData>) =>
-  (data: TData, selection: TSelection): TData =>
-    Object.keys(filters).reduce((acc, key) => filters[key](acc, selection[key] as unknown, data), data) as TData;
-
+  <TSelections extends Record<string, unknown>, TData>(filters: FilterFnStore<TData>) =>
+  (data: TData, selections: TSelections): TData => {
+    return Object.keys(filters).reduce(
+      (acc, key) => filters[key](acc, selections[key] as unknown, data),
+      data
+    ) as TData;
+  };
 export class FilterStore<
-  TSelection extends Record<string, unknown> = Record<string, unknown>,
+  TSelections extends Record<string, unknown> = Record<string, unknown>,
   TData = unknown
-> extends EpicReducer<FilterStoreState<TSelection, TData>, Actions> {
+> extends EpicReducer<FilterStoreState<TSelections, TData>, Actions> {
   protected _filterFn: FilterFnStore<TData> = {};
   protected _filterSettings: FilterSettingsStore<TData> = {};
 
-  public selection$ = new BehaviorSubject<TSelection>({} as TSelection);
+  public selection$ = new BehaviorSubject<TSelections>({} as TSelections);
 
-  public getFilterSetting(key: string): Filter<TData> {
+  public getFilterSetting(key: string): Filter<TData, TSelection> {
     return this._filterSettings[key];
   }
 
-  public registerFilterSettings(filter: Filter<TData>): void {
+  public registerFilterSettings(filter: Filter<TData, TSelection>): void {
     this._filterSettings[filter.key] = filter;
   }
 
@@ -34,7 +38,7 @@ export class FilterStore<
     delete this._filterFn[key];
   }
 
-  public registerFilter(key: string, filterFn: FilterFn<TData>): void {
+  public registerFilter(key: string, filterFn: FilterFn<TData, TSelection>): void {
     this._filterFn[key] = filterFn;
   }
 
@@ -60,7 +64,7 @@ export class FilterStore<
     this.dispatch(actions.selection.set({ [key]: values }));
   }
 
-  public overwriteFilterSelection(values: TSelection): void {
+  public overwriteFilterSelection(values: TSelections): void {
     this.dispatch(actions.selection.override({ ...values }));
   }
 
@@ -76,6 +80,7 @@ export class FilterStore<
       pluck('selection'),
       withLatestFrom(data$),
       switchMap(([selection, data]) => {
+        console.log('filterSelectiondata', data);
         const filterFn = { ...this._filterFn };
         delete filterFn[key];
         const applyFilter = filterReducer(filterFn);
@@ -89,21 +94,23 @@ export class FilterStore<
     return this.selection$.pipe(
       withLatestFrom(data$),
       switchMap(([selection, data]) => {
+        console.log(' get data$', data);
         const applyFilter = filterReducer(this._filterFn);
+
         return of(applyFilter(data, selection));
       })
     );
   }
 }
 
-export const createFilterStore = <TSelection extends Record<string, unknown>, TData>(
+export const createFilterStore = <TSelections extends Record<string, unknown>, TData>(
   initialData: TData,
-  initialSelection?: TSelection
-): FilterStore<TSelection, TData> => {
-  const store = new FilterStore<TSelection, TData>(
+  initialSelections?: TSelections
+): FilterStore<TSelections, TData> => {
+  const store = new FilterStore<TSelections, TData>(
     reducers,
     epics, //TODO: CAN WE GET RID OF THIS ?????
-    { data: initialData, selection: initialSelection || ({} as TSelection) },
+    { data: initialData, selection: initialSelections || ({} as TSelections) },
     undefined
   );
 

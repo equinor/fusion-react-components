@@ -5,7 +5,7 @@ export type SelectionValues<TValue = unknown> = Record<string, TValue>;
 
 const actions = {
   selection: {
-    clearSingle: createAction('@FILTER/SELECTION_CLEAR_SINGLE')<Filter<any>>(),
+    clearSingle: createAction('@FILTER/SELECTION_CLEAR_SINGLE')<Filter<any, any>>(),
     clearAll: createAction('@FILTER/SELECTION_CLEAR_ALL')<FilterSettingsStore<any>>(),
     update: createAction('@FILTER/SELECTION_UPDATE')<{ key: string; values: unknown }>(),
     // set filter values
