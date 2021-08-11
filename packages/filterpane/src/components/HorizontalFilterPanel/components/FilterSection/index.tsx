@@ -32,12 +32,12 @@ const FilterSection = ({
   compactFilterSelector = false,
   children,
 }: PropsWithChildren<FilterSectionProps>): JSX.Element => {
-  const [selection, setSelection] = useState<(ReactChild | ReactFragment | ReactPortal)[]>([]);
+  const [selection, setSelections] = useState<(ReactChild | ReactFragment | ReactPortal)[]>([]);
   const { store } = useContext(FilterContext);
 
   useEffect(() => {
     if (!useFilterSelector) {
-      setSelection(Children.toArray(children));
+      setSelections(Children.toArray(children));
       return;
     }
 
@@ -52,7 +52,7 @@ const FilterSection = ({
 
             return aPriority - bPriority;
           });
-        setSelection(activeChildren);
+        setSelections(activeChildren);
       })
     );
 
@@ -83,7 +83,7 @@ const FilterSection = ({
   return (
     <div className={filterContainerClassNames}>
       <div ref={resizeContainerRef} className={styles.FilterSection} style={{ ...resizedSize }}>
-        {/*!!useFilterSelector && <FilterSelector compact={compactFilterSelector}>{children}</FilterSelector>*/}
+        {useFilterSelector && <FilterSelector compact={compactFilterSelector}>{children}</FilterSelector>}
         {selection.length ? (
           selection
         ) : (
