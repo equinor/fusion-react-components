@@ -1,8 +1,9 @@
-import { FilterFn } from '../filterStore/store';
 import FilterCounters from './FilterCounters';
 import { FilterOptions, FilterOptionsFn } from './FilterOption';
 
-type Filter<TData> = {
+export type FilterFn<TData> = (data: TData, selection: unknown, allData?: TData) => TData;
+
+export type Filter<TData> = {
   key: string;
   title: string;
   optionsBuilderFn: FilterOptionsFn<TData>;
@@ -15,4 +16,5 @@ type Filter<TData> = {
   priority?: number;
 };
 
-export default Filter;
+export type FilterFnStore<TData> = Record<string, FilterFn<TData>>;
+export type FilterSettingsStore<TData> = Record<string, Filter<TData>>;
