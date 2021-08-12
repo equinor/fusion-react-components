@@ -35,6 +35,15 @@ const filterCategories = (children: React.ReactNode, selection: unknown, filterS
       };
     });
 
+/**
+ * Filter Selector provides a way to select and unselect Filters.
+ * Supplied filters will be list out and can be (un)selected through a checkbox.
+ * The filter will then be (de)registered as an active filter.
+ *
+ * @param compact Compact Filter options text and checkbox size
+ * @returns
+ */
+
 const FilterSelector = ({ compact = false, children }: PropsWithChildren<FilterSelectorProps>): JSX.Element => {
   const [show, setShow] = useState(true);
   const [filterSearch] = useState('');

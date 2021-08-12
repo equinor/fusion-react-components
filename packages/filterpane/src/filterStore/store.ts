@@ -80,7 +80,6 @@ export class FilterStore<
       pluck('selection'),
       withLatestFrom(data$),
       switchMap(([selection, data]) => {
-        console.log('filterSelectiondata', data);
         const filterFn = { ...this._filterFn };
         delete filterFn[key];
         const applyFilter = filterReducer(filterFn);
