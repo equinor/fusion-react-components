@@ -1,4 +1,4 @@
-import { Column, Table } from '@equinor/fusion-react-table';
+import { Column, Table, TableData, TableOptions } from '@equinor/fusion-react-table';
 import { useMemo } from 'react';
 import { useFilterStore } from '../../../packages/filterpane';
 import { Person } from './functions';
@@ -17,23 +17,15 @@ const columns: Column[] = [
     accessor: 'age',
   },
   {
-    Header: 'Visits',
-    accessor: 'visits',
-  },
-  {
     Header: 'Status',
     accessor: 'status',
-  },
-  {
-    Header: 'Profile Progress',
-    accessor: 'progress',
   },
 ];
 
 const FilteredDataTable = (): JSX.Element => {
   const { filteredData } = useFilterStore();
 
-  const options = useMemo(
+  const options: TableOptions<TableData, TableData> = useMemo(
     () => ({
       data: filteredData as Person[],
       columns,

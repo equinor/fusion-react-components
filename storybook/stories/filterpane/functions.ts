@@ -1,26 +1,23 @@
 import { FilterFn } from '../../../packages/filterpane/src/models/Filter';
 import FilterOption, { FilterOptions } from '../../../packages/filterpane/src/models/FilterOption';
-import namor from 'namor';
 
 export type RelationshipStatus = 'relationship' | 'complicated' | 'single';
+const firstName = ['Olav', 'Helge', 'Marit', 'Kjersti'];
+const lastName = ['Strand', 'Våg', 'Haugen', 'Voll'];
 
 export type Person = {
   firstName: string;
   lastName: string;
   age: number;
-  visits: number;
-  progress: number;
   status: RelationshipStatus;
 };
 
 const newPerson = (): Person => {
   const statusChance = Math.random();
   return {
-    firstName: namor.generate({ words: 1, saltLength: 0 }),
-    lastName: namor.generate({ words: 1, saltLength: 0 }),
-    age: Math.floor(Math.random() * 30),
-    visits: Math.floor(Math.random() * 100),
-    progress: Math.floor(Math.random() * 100),
+    firstName: firstName[Math.floor(Math.random() * 4)],
+    lastName: lastName[Math.floor(Math.random() * 4)],
+    age: Math.floor(Math.random() * 80),
     status: statusChance > 0.66 ? 'relationship' : statusChance > 0.33 ? 'complicated' : 'single',
   };
 };
@@ -44,6 +41,34 @@ export const getFilter =
 export const createFilterOptions = (key: keyof Person, data: Person[]): FilterOptions => {
   const options = data.reduce((curr: Record<string, FilterOption>, item) => {
     const option = item[key].toString();
+
+    curr[option] = {
+      key: option,
+      searchString: option,
+      label: option,
+    };
+
+    return curr;
+  }, {});
+
+  return {
+    options,
+    sortOrder: Object.keys(options).sort((a, b) => a.localeCompare(b)),
+  };
+};
+
+export type AgeBrackets = '0-19' | '20-39' | '40-59' | '60++';
+export const getAgeBracket = (age: number): AgeBrackets => {
+  if (age < 20) return '0-19';
+  if (age < 40) return '20-39';
+  if (age < 60) return '40-59';
+
+  return '60++';
+};
+
+export const createAgeFilterOptions = (data: Person[]): FilterOptions => {
+  const options = data.reduce((curr: Record<string, FilterOption>, item) => {
+    const option = getAgeBracket(item.age);
 
     curr[option] = {
       key: option,
