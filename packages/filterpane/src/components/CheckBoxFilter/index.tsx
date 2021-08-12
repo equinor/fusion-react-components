@@ -72,14 +72,27 @@ export type FilterContainerProps<TData> = {
   filter: Filter<TData, TSelection>;
   useSearch?: boolean;
   useSelectAll?: boolean;
+  useSingleSelect?: boolean;
   compact?: boolean;
   style?: CheckBoxFilterStyleProps;
 };
 
+/**
+ *Standard Checkbox filter.
+ *List out all options, and user can check of each item they want to filter on.
+ *
+ * @param filter Filter definition
+ * @param useSearch Show a search bar at top, searching withing the filter options
+ * @param useSelectAll Add a (All) Checkbox on top that selects/deselects all options
+ * @param compact Compact Filter options text and checkbox size
+ * @param useSingleSelect When clicking the option text, only this options will remain selected.
+ * @param style Add additional styling to the Filter container and header.
+ */
 const CheckBoxFilter = <TSelections extends Record<string, TSelection>, TData>({
   filter,
   useSearch,
   useSelectAll,
+  useSingleSelect = false,
   compact = false,
   style,
 }: FilterContainerProps<TData>): JSX.Element => {
@@ -139,6 +152,7 @@ const CheckBoxFilter = <TSelections extends Record<string, TSelection>, TData>({
               label={filterSetting.label}
               counter={currentOptionsCounters ? currentOptionsCounters?.[key] || '0' : undefined}
               compact={compact}
+              singleSelect={useSingleSelect}
             />
           );
         })}
