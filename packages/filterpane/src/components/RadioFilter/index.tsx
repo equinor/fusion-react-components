@@ -18,6 +18,15 @@ export type RadioFilterContainerProps<TData> = {
   styles?: RadioFilterStyles;
 };
 
+/**
+ *Standard Checkbox filter.
+ *List out all options, and user can check of each item they want to filter on.
+ *
+ * @param filter Filter definition
+ * @param useSearch Show a search bar at top, searching withing the filter options
+ * @param style Add additional styling to the Filter container and header.
+ */
+
 const RadioFilter = <TSelections extends Record<string, TSelection>, TData>({
   filter,
   useSearch,

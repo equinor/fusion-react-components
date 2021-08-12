@@ -26,6 +26,21 @@ type FilterSectionProps = {
   compactFilterSelector?: boolean;
 };
 
+/**
+ *FilterSection is a vertically adjustable, that list out registered filters horizontally.
+ *When used with FilterSelector, the are will show all filters that are selected in the selector.
+ *The filter selector will give the user the ability to select the filters that are currently relevant.
+ *Giving greater clarity of what is being filtered at the moment.
+ *It also helps with performance, as all filteres does not need to be registered at all times.
+ *Resulting in less work for the Filter provider when a selection is made.
+ *
+ *
+ *
+ * @param isMinimized Minimised will set the section to display :'none'
+ * @param useFilterSelector Add a filter selector on the left side. Where user can (de)select filters for use.
+ * @param compactFilterSelector Compact Filter options text and checkbox size
+ */
+
 const FilterSection = ({
   isMinimized,
   useFilterSelector,
