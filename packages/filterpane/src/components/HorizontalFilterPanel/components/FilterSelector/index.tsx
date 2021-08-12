@@ -4,9 +4,10 @@ import { useSelector } from '@equinor/fusion';
 import FilterContext from '../../../../FilterContext';
 import FilterCategory from './components/FilterCategory';
 import useStyles from './useStyles';
-import TextInput from '@equinor/fusion-react-textinput';
+
 import Icon from '../../../Icon';
 import { arrow_back, arrow_forward } from '@equinor/eds-icons';
+import { Filter } from '../../../../models/Filter';
 
 type FilterSelectorProps = { compact?: boolean };
 
@@ -18,20 +19,19 @@ export type FilterCategoryType = {
   description?: string;
 };
 
-const filterCategories = (children: React.ReactNode, selection: any, filterSearch: string): FilterCategoryType[] =>
+const filterCategories = (children: React.ReactNode, selection: unknown, filterSearch: string): FilterCategoryType[] =>
   Children.toArray(children)
     .filter((child) =>
       (child as ReactElement).props.filter.title.toLocaleLowerCase().includes(filterSearch.toLocaleLowerCase())
     )
     .map((child) => {
+      const { key, title, mandatory, description } = (child as ReactElement).props.filter as Filter<unknown, unknown>;
       return {
-        filterKey: (child as ReactElement).props.filter.key,
-        title: (child as ReactElement).props.filter.title,
-        selected:
-          Boolean((child as ReactElement).props.filter.mandatory) ||
-          Object.hasOwnProperty.call(selection, (child as ReactElement).props.filter.key),
-        disabled: Boolean((child as ReactElement).props.filter.mandatory),
-        description: (child as ReactElement).props.filter.description,
+        filterKey: key,
+        title: title,
+        selected: Boolean(mandatory) || Object.hasOwnProperty.call(selection, key),
+        disabled: Boolean(mandatory),
+        description: description,
       };
     });
 
