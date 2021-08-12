@@ -1,14 +1,14 @@
 {
-  "name": "@equinor/fusion-react-textinput",
-  "version": "0.2.4",
-  "description": "component for displaying text input",
+  "name": "@equinor/fusion-react-utils",
+  "version": "1.0.0",
+  "description": "Helper and util function for React",
   "keywords": [
-    "text input",
+    "switch",
     "react",
     "fusion",
     "equinor"
   ],
-  "homepage": "https://github.com/equinor/fusion-react-components/tree/master/packages/textinput#readme",
+  "homepage": "https://github.com/equinor/fusion-react-components/tree/master/packages/switch#readme",
   "license": "ISC",
   "main": "dist/index.js",
   "directories": {
@@ -17,12 +17,10 @@
   "files": [
     "dist"
   ],
-  "publishConfig": {
-    "access": "public"
-  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/equinor/fusion-react-components.git"
+    "url": "git+https://github.com/equinor/fusion-react-components.git",
+    "directory": "packages/util"
   },
   "scripts": {
     "build": "tsc -b",
@@ -32,9 +30,6 @@
   },
   "bugs": {
     "url": "https://github.com/equinor/fusion-react-components/issues"
-  },
-  "dependencies": {
-    "@equinor/fusion-wc-textinput": "^0.2.6"
   },
   "devDependencies": {
     "typescript": "^4.3.5"

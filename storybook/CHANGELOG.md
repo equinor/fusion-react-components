@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.13.2](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.13.1...@equinor/fusion-react-components-stories@1.13.2) (2021-08-05)
+
+
+### Bug Fixes
+
+* fixed storybook ([ba1777c](https://github.com/equinor/fusion-react-components/commit/ba1777cfeeda2c4b0a86ac0961a5534bb4f27ea4))
+* fixed textinput typing and export ([8d4b005](https://github.com/equinor/fusion-react-components/commit/8d4b00588c00c6247c33e9569a1ef34b870ea1d2))
+
+
+
+
+
 ## [1.13.1](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.13.0...@equinor/fusion-react-components-stories@1.13.1) (2021-08-03)
 
 
