@@ -94,9 +94,7 @@ export class FilterStore<
     return this.selection$.pipe(
       withLatestFrom(data$),
       switchMap(([selection, data]) => {
-        console.log(' get data$', data);
         const applyFilter = filterReducer(this._filterFn);
-
         return of(applyFilter(data, selection));
       })
     );
