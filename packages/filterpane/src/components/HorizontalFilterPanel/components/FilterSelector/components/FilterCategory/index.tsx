@@ -45,7 +45,7 @@ const FilterCategory = ({
 
   return (
     <div className={styles.FilterCategoryContainer} key={filterKey}>
-      <CheckBox selected={selected || undefined} reducedTouchTarget={compact} />
+      <CheckBox selected={selected || undefined} reducedTouchTarget={compact} disabled={disabled} />
       <label className={styles.CategoryLabel} onClick={() => !disabled && onChange(!selected)} title={description}>
         {title}
       </label>
