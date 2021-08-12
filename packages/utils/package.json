@@ -1,0 +1,37 @@
+{
+  "name": "@equinor/fusion-react-utils",
+  "version": "1.0.0",
+  "description": "Helper and util function for React",
+  "keywords": [
+    "switch",
+    "react",
+    "fusion",
+    "equinor"
+  ],
+  "homepage": "https://github.com/equinor/fusion-react-components/tree/master/packages/switch#readme",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "directories": {
+    "dist": "dist"
+  },
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/equinor/fusion-react-components.git",
+    "directory": "packages/util"
+  },
+  "scripts": {
+    "build": "tsc -b",
+    "lint": "eslint --ext .ts,.tsx,.js src/",
+    "lint:fix": "eslint --ext .ts,.tsx,.js src/ --fix",
+    "prepack": "npm run build"
+  },
+  "bugs": {
+    "url": "https://github.com/equinor/fusion-react-components/issues"
+  },
+  "devDependencies": {
+    "typescript": "^4.3.5"
+  }
+}
