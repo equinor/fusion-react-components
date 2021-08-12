@@ -23,7 +23,7 @@ const Template: Story<TemplateArgs> = (args) => {
   const firstName: Filter<Person[], string[]> = {
     key: 'firstName',
     title: 'First Name',
-    filterFn: getFilter((p) => p.firstName, 'blank'),
+    filterFn: getFilter((p) => p.firstName),
     optionsBuilderFn: (data) => createFilterOptions('firstName', data),
     counterFn: (data) => counter(data, (d) => d.firstName),
     priority: 4,
