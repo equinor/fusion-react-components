@@ -1,5 +1,4 @@
-import { Meta, Story } from '@storybook/react/types-6-0';
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import FilterProvider, {
   CheckBoxFilter,
   RadioFilter,
@@ -11,18 +10,14 @@ import { firstNameCheck, lastNameCheck, ageCheck, statusRadio } from './filterDe
 import FilteredDataTable from './FilteredDataTable';
 import { makeData, Person } from './functions';
 
-export default {
-  title: 'Filterpane/Filterpane',
-  component: FilterProvider,
-} as Meta;
+export type FilterpaneProps = { amount: number };
 
-type TemplateArgs = { data: Person[] };
-
-const Template: Story<TemplateArgs> = (args) => {
-  const data = args.data;
+const Filterpane = ({ amount }: FilterpaneProps): JSX.Element => {
   const [minimized, setMinimized] = useState(false);
 
-  const searchFilterFn = (data: Person[], searchString: unknown) =>
+  const data = useMemo(() => makeData(amount), [amount]);
+
+  const searchFilterFn = (data: Person[], searchString: string) =>
     (searchString as string)?.length ? data.filter((d) => d.firstName.includes(searchString as string)) : data;
 
   return (
@@ -36,10 +31,8 @@ const Template: Story<TemplateArgs> = (args) => {
           <RadioFilter filter={statusRadio} />
         </FilterSection>
       </FilterPanel>
-      <FilteredDataTable />
     </FilterProvider>
   );
 };
 
-export const Filterpane = Template.bind({});
-Filterpane.args = { data: makeData(10) };
+export default Filterpane;
