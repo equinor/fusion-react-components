@@ -1,153 +1,95 @@
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import Filterpane from './filterpane';
 
-<Meta title="Filterpane/Filterprovider" />
+<Meta
+  title="Filterpane/FilterPane"
+  parameters={{
+    viewMode: 'docs',
+  }}
+/>
 
-# Fusion Filterprovider
+# Fusion Filterpane components
 
-The FilterProvider is a stand alone context that delivers filtering capabilites to your app.
-While the filterpane comes with some built out UI components, these are optional to use or for inspiration.
-The filterprovider itself can be used as a wrapper around any component, to handle filtering off a dataset.
+These components are build to cover common use cases for a general filter panel.
+The components are build to work interchangeably, as inspiration or something to build off of.
 
-## General Implementation and usage
-
-```jsx
-const myApp = () => {
-  const myData:Data[] = fetchData();
-
-  const myFilterDefintion:Filter<Data[],string[]> = {
-    key:'myFilter',
-    title:'My Filter',
-    optionsBuilderFn: (data) => builOptions(data),
-    filterFn: (data,selection) => filterTheData(data,selection)
-  }
-
-  return (
-    <FilterProvider initialData={myData} />
-      <CheckBoxFilter filter={myFilterDefintion} />
-      <MyDataTable />
-    </FilterProvider>
-  );
+export const Pane = (args) => {
+  return <Filterpane {...args} />;
 };
 
-const MyDataTable = () => {
-  const { filteredData } = useFilterStore();
+<Story name="Filterpane" args={{ amount: 12 }}>
+  {Pane}
+</Story>
 
-  return ( <div>{filteredData.map((d)=>printoutData(d))} <div> );
-};
-```
-
-This is a bare minimum implementation for the FilterProvider, to get any use out of it.
-We have a CheckBoxFilter, that is a filter and MyDataTable that will access the filteredData.
-The CheckBoxFilter register its filterFn with the filterProvider.  
-When a selection is made the Provider runs the filterFn, and MyDataTable can access the data from the useFilterStore hook.
-
-## Registering Filters and filtering
-
-For the provider to have any functionality we need to have filters registered with the provider.
-If not, the full dataset will always go straight through untouched.
-The prebuilt CheckBoxFilters registers them self automatically with the provider.
-If you are building your own filter components, you need to handle the registering process yourself.
-When they are registered the FilterFn is added to the FilterFunctionStore.
-When a user does a selection, the provider will send the full dataset through each of the filter functions added to the store.
-
-## Adding multiple filters
-
-You can add as many filters as you need. They are all added as children components inside the `provider`.
-The same filter component can be used multiple times, just make sure the `key` is unique.
-As long as the `FilterFn` is registered with the `provider`, the filter will be used.
-
-## Interacting with the Filterprovider context
-
-### useFilterStore hook
-
-As shown in the example this hooks used to get hold of the filteredData, but theres more.
+The above filterpane is structed in code like this :
 
 ```jsx
-const { filteredData, selection, store } = useFilterStore();
+<FilterProvider initialData={data} initialFilters={{ status: 'all', firstName: [] }}>
+  <FilterPanel>
+    <GeneralBar onMinimize={() => setMinimized((s) => !s)} minimized={minimized} searchFilterFn={searchFilterFn} />
+    <FilterSection isMinimized={minimized} useFilterSelector>
+      <CheckBoxFilter filter={{ ...firstNameCheck }} useSelectAll />
+      <CheckBoxFilter filter={{ ...lastNameCheck }} useSelectAll />
+      <CheckBoxFilter filter={{ ...ageCheck }} useSelectAll />
+      <RadioFilter filter={statusRadio} />
+    </FilterSection>
+  </FilterPanel>
+</FilterProvider>
 ```
 
-filteredData is a `useState` . When the provides filteredData changes, state gets update and exposed through filteredData
-selection is also a `useState`. This updates whenever a selection in the filters changes. Back from this you will get all the selections that are made in all registered filters.
-store is the entire FilterStore Context object, this is the same as accessing the context directly with `useContext`
+#### FilterProvider
 
-### The FilterStore Context
+the filter provider is the only give component in this hierachy. It provides the context that is used in all the other components.
+`initialData` is our dataset.
+`initialFilters` set a default filter state on load. Here we have added an object for status and firstName.
+These are then added to `selections$`. This is why the they are set as `selected` in the Filter Categories.
+status also set to `all`, this is why all is the selected radio.
+If names was added to the `firstName` object, they would also be selected.
 
-Accessed through the useFilterStore or through `useContext`
+#### FilterPanel
 
-```jsx
-const store = useFilterStore(FilterContext);
-```
+A simple container panel with no acutal features to it. just some styling making this a horizontal flowing FilterPanel.
 
-This gives your access to the entire machine that is the Filter Provider.
-Both access to the filtered dataset, selections and functions controlling the provider.
+#### GeneralBar
 
-### Data access
+A general purpose bar that gives some basic features.
+It has a `search bar` that searches and filters the dataset based on the supplied searchFilterFn.
+`onMinimize` and `minimized` is used for the Hide/Show filter button. In this scenario the minimized state will hide the FilterSection.
+`Clear filters` clears all the filter selections. This functionality comes from the FilterProvider.
+When minimized The bar will show a set of chips as a summary of your selection, if any are done.
+The bar will handle `children` if added. They will flowa after the buttons/chips.
 
-#### data$
+#### FilterSections
 
-Provides the filtered data for use in your app.
+This area holds all the filter controllers we have added.
+if you implement `useFilterSelector`, you will se the Filter Categories box.
+In the Filter Categories you can see the filters that are registered.
+If you check one of the filters they will show up in the area to the right.
+The selector uses the initialFilters to decide which filters should show up on load.
+If no initialFilters given, are will be empty.
+A filter marked as `mandatory`, will be show, but disabled. As seen with the `status` filter.
 
-#### filterSelectionData
+If `useFilterSelector` is not used. All registered filteres will be shown at all times.
 
-Get filtered data for given Filter key, to be used for getting filter Options.
-This will return a filtered dataset, without filtering on the given filter key.
+Using `useFilterSelector` is handy when you have large dataset and many filter categories.
+Since all categories needs to be recalculated with each selection, performance can become an issue.
 
-#### selections$
+#### CheckBoxFilter
 
-Provides all the selections from each filter that has been made.
-This is what the filtering functions receives when the filtering process runs.
+A standard filter controller using checkboxes.
+Expects its selections to be an array.
+`filter` takes in an Filter object that has all the necessery setup (see filter settings).
+`useSelectAll` add a button on top of the options, that (de)selects all options.
+use full when there are many options, and user want to remove just a few options.
 
-### Selection and Filter handling functions
+filter options are dynamic and will populate when doing selection in other filters.
+If the counter hits 0, the options will disappear.
+It can happen that a selected option has a 0 counter. These will still show, for clarity.
 
-#### registerFilterSettings
+#### RadioFilter
 
-Add the filter settings created for your filter to the filterSetting store.
+a standard filter controller using radio button.
+Expects its selection to be a singular `string`.  
+`filter` is the same object as in Checkboxes (see filter settings)
 
-#### getFilterSetting
-
-Get filter settings from the FilterSettings store.
-
-#### registerFilter
-
-Register a filters filter function in the filterfunction store.
-When registered this function is used in combination with the filter selection to filter the dataset.
-Both are identified by the filter Key.
-
-#### unRegisterFilter
-
-Remove a registered filter function from the filterFunction store.
-This filter function no longer be used in the filtering process, even if a selection still exist in selections$
-
-#### updateFilterSelection
-
-updates the selection for given key in selections$.
-This replaces the current selection.
-So how items are added and removed to the selections itself, needs to be handled by the filter component.
-
-#### clearSingleFilterSelection
-
-clear(empties) the selection for a give filter key.
-Uses supplied `resetFilterFn` if supplied, else set the selection to `''`
-If the filters `noFilterReset` is `true`, this function has no effect.
-
-#### clearAllFilterSelections
-
-Functions in same matter as `clearSingleFilterSelection`, but loops through all selections$ and resets them.
-`resetFilterFn` and `noFilterReset` is taken into account.
-
-#### registerSelection
-
-Adds a new key value pair in selections$
-
-#### unregisterSelection
-
-Removes a key-value pair from the selections$
-
-#### setFilterSelections
-
-Overwrite all current register selections with the supplied selections
-
-#### setData
-
-Overwrite the current dataset with a new dataset.
-Will trigger new filtering based on current selection.
+Filter options are not dynamic. Meaning they will not be added removed based on the other filters.
