@@ -10,7 +10,17 @@ import FilterStore from '../../filterStore/store';
 import TextInput from '@equinor/fusion-react-textinput';
 import Radio from '@equinor/fusion-react-radio';
 import useStyles, { RadioFilterStyles } from './useStyles';
-import { TSelection } from 'filterpane/src/FilterProvider';
+import { TSelection } from '../../FilterProvider';
+import FilterOption from '../../models/FilterOption';
+
+const optionVisible = (option: FilterOption, searchString: string): boolean =>
+  Boolean(
+    searchString.length
+      ? (option.searchString || option.label?.toString())
+          ?.toLocaleLowerCase()
+          .includes(searchString.toLocaleLowerCase())
+      : true
+  );
 
 export type RadioFilterContainerProps<TData> = {
   filter: Filter<TData, TSelection>;
@@ -69,13 +79,7 @@ const RadioFilter = <TSelections extends Record<string, TSelection>, TData>({
         {filterOptions?.sortOrder?.map((key) => {
           const data = filterOptions.options[key];
 
-          if (
-            filterSearch.length &&
-            !(data.searchString || data.label?.toString())
-              ?.toLocaleLowerCase()
-              .includes(filterSearch.toLocaleLowerCase())
-          )
-            return;
+          if (!optionVisible(data, filterSearch)) return;
 
           return (
             <div className={Styles.FilterOption} key={key} onClick={() => onChange(key)}>
