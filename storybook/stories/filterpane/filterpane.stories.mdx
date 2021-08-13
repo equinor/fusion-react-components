@@ -78,4 +78,76 @@ Accessed through the useFilterStore or through `useContext`
 const store = useFilterStore(FilterContext);
 ```
 
-This gives your access to the entire machine that is the Filter Provider
+This gives your access to the entire machine that is the Filter Provider.
+Both access to the filtered dataset, selections and functions controlling the provider.
+
+### Data access
+
+#### data$
+
+Provides the filtered data for use in your app.
+
+#### filterSelectionData
+
+Get filtered data for given Filter key, to be used for getting filter Options.
+This will return a filtered dataset, without filtering on the given filter key.
+
+#### selections$
+
+Provides all the selections from each filter that has been made.
+This is what the filtering functions receives when the filtering process runs.
+
+### Selection and Filter handling functions
+
+#### registerFilterSettings
+
+Add the filter settings created for your filter to the filterSetting store.
+
+#### getFilterSetting
+
+Get filter settings from the FilterSettings store.
+
+#### registerFilter
+
+Register a filters filter function in the filterfunction store.
+When registered this function is used in combination with the filter selection to filter the dataset.
+Both are identified by the filter Key.
+
+#### unRegisterFilter
+
+Remove a registered filter function from the filterFunction store.
+This filter function no longer be used in the filtering process, even if a selection still exist in selections$
+
+#### updateFilterSelection
+
+updates the selection for given key in selections$.
+This replaces the current selection.
+So how items are added and removed to the selections itself, needs to be handled by the filter component.
+
+#### clearSingleFilterSelection
+
+clear(empties) the selection for a give filter key.
+Uses supplied `resetFilterFn` if supplied, else set the selection to `''`
+If the filters `noFilterReset` is `true`, this function has no effect.
+
+#### clearAllFilterSelections
+
+Functions in same matter as `clearSingleFilterSelection`, but loops through all selections$ and resets them.
+`resetFilterFn` and `noFilterReset` is taken into account.
+
+#### registerSelection
+
+Adds a new key value pair in selections$
+
+#### unregisterSelection
+
+Removes a key-value pair from the selections$
+
+#### setFilterSelections
+
+Overwrite all current register selections with the supplied selections
+
+#### setData
+
+Overwrite the current dataset with a new dataset.
+Will trigger new filtering based on current selection.

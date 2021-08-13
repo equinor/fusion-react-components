@@ -23,7 +23,7 @@ const useChangeHandler = (key: string) => {
 
   useEffect(() => {
     const subscription = change$.subscribe((checked) => {
-      checked ? store.setFilter(key, []) : store.unSetFilter(key);
+      checked ? store.registerSelection(key, []) : store.unregisterSelection(key);
     });
     return () => subscription.unsubscribe();
   }, [store, key, change$]);
