@@ -2,13 +2,13 @@ import { useCallback, useContext, useEffect, useMemo, useState, PropsWithChildre
 
 import { Subject } from 'rxjs';
 import { pluck, withLatestFrom } from 'rxjs/operators';
-import FilterContext from '../../../../FilterContext';
+import FilterContext from '../../FilterContext';
 
 import Button from '@equinor/fusion-react-button';
 import useStyles from './useStyles';
-import FilterSelectionChips from '../../../FilterSelectionChips';
+import FilterSelectionChips from '../FilterSelectionChips';
 import HorizontalBar from '../HorizontalBar';
-import FilterStore from '../../../../filterStore/store';
+import FilterStore from '../../filterStore/store';
 import { TSelection } from 'filterpane/src/FilterProvider';
 
 const useChangeHandler = (key: string) => {
@@ -44,6 +44,18 @@ type GeneralBarProps<TData, TSelection> = {
   searchFilterFn: (data: TData, searchString: TSelection) => TData;
 };
 
+/**
+ *A general purpose Bar that implements a "global" search for your dataset.
+ *Show/hide buttons for the filter section and Clear filters button.
+ *When minimized it also shows Chips, that summarized the chosen filters.
+ *
+ *Own components can be added as children. These will be shown after built in components.
+ *
+ * @param searchFilterFn How the search box should interact with the data
+ * @param minimized open/close state of main filter view
+ * @param onMinimize function added to Show/Hide filter button
+ * @returns
+ */
 const GeneralBar = <TData,>({
   searchFilterFn,
   minimized,
@@ -68,11 +80,11 @@ const GeneralBar = <TData,>({
   return (
     <HorizontalBar>
       <div className={styles.SearchBar} style={{ background: 'lightgrey', lineHeight: '48px' }}>
-        "SEARCH BAR"
+        {`"SEARCH BAR"}`}
       </div>
 
       <div className={styles.ButtonContainer}>
-        <Button variant={'outlined'} icon={'filter_list'} onClick={() => onMinimize((prevState) => !prevState)}>
+        <Button variant={'outlined'} icon={'filter_list'} onClick={() => onMinimize(!minimized)}>
           {minimized ? 'Show filters' : 'Hide filters'}
         </Button>
         <Button variant={'outlined'} icon={'close'} onClick={() => store.clearAllFilterSelections()}>
