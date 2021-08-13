@@ -1,17 +1,33 @@
+import { formatISO } from 'date-fns';
+
+const objectToString = (object: Object) => {
+  switch (object.constructor) {
+    case Date:
+      return formatISO(object as Date);
+    default:
+      return JSON.stringify(object);
+  }
+};
+
 /**
  * Utility to remove empty attributes from properties, JSX does not comply with the W3 standard
  * [W3](https://www.w3.org/TR/2008/WD-html5-20080610/semantics.html#boolean)
  */
-export const elementAttributes = <T extends Record<string, unknown> = Record<string, unknown>>(
-  props: T
-): Partial<T> => {
+export const elementAttributes = <T extends Partial<Record<keyof T, unknown>> = Record<string, unknown>>(
+  props: Partial<T>
+): T => {
   return Object.keys(props).reduce((cur, key) => {
-    switch (typeof props[key]) {
+    const value = props[key as keyof T];
+    switch (typeof value) {
       case 'string':
-        return Object.assign(cur, { [key]: props[key] });
+        return Object.assign(cur, { [key]: value });
+      case 'object':
+        return Object.assign(cur, { [key]: objectToString(value as Object) });
+      default:
+        return value ? Object.assign(cur, { [key]: value }) : cur;
     }
-    return props[key] ? Object.assign(cur, { [key]: props[key] }) : cur;
-  }, {} as Partial<T>);
+    return cur;
+  }, {} as T);
 };
 
 export default elementAttributes;
