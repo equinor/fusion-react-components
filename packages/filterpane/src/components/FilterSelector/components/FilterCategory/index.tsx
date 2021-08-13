@@ -2,7 +2,7 @@ import { createStyles, makeStyles } from '@equinor/fusion-react-styles';
 import { useContext, useMemo, useEffect, useCallback } from 'react';
 import { Subject } from 'rxjs';
 import CheckBox from '@equinor/fusion-react-checkbox';
-import FilterContext from '../../../../../../FilterContext';
+import FilterContext from '../../../../FilterContext';
 import { FilterCategoryType } from '../..';
 
 const useStyles = makeStyles(() =>

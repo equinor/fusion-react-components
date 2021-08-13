@@ -1,13 +1,13 @@
 import { Children, PropsWithChildren, ReactElement, useContext, useMemo, useState } from 'react';
 import { clsx } from '@equinor/fusion-react-styles';
 import { useSelector } from '@equinor/fusion';
-import FilterContext from '../../../../FilterContext';
+import FilterContext from '../../FilterContext';
 import FilterCategory from './components/FilterCategory';
 import useStyles from './useStyles';
 
-import Icon from '../../../Icon';
+import Icon from '../Icon';
 import { arrow_back, arrow_forward } from '@equinor/eds-icons';
-import { Filter } from '../../../../models/Filter';
+import { Filter } from '../../models/Filter';
 
 type FilterSelectorProps = { compact?: boolean };
 

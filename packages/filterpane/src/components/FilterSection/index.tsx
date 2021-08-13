@@ -11,14 +11,14 @@ import {
   useRef,
   useState,
 } from 'react';
-import FilterContext from '../../../../FilterContext';
+import FilterContext from '../../FilterContext';
 import FilterSelector from '../FilterSelector';
-import useResizablePanel from '../../../../hooks/useResizablePanel';
+import useResizablePanel from '../../hooks/useResizablePanel';
 import { pipe } from 'rxjs';
 import { clsx } from '@equinor/fusion-react-styles';
 import useStyles from './useStyles';
 import { unfold_more } from '@equinor/eds-icons';
-import Icon from '../../../Icon';
+import Icon from '../Icon';
 
 type FilterSectionProps = {
   isMinimized?: boolean;
@@ -33,8 +33,6 @@ type FilterSectionProps = {
  *Giving greater clarity of what is being filtered at the moment.
  *It also helps with performance, as all filteres does not need to be registered at all times.
  *Resulting in less work for the Filter provider when a selection is made.
- *
- *
  *
  * @param isMinimized Minimised will set the section to display :'none'
  * @param useFilterSelector Add a filter selector on the left side. Where user can (de)select filters for use.
