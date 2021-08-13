@@ -1,8 +1,9 @@
+import { FC } from 'react';
 import { createStyles, makeStyles } from '@equinor/fusion-react-styles';
 
 const useStyles = makeStyles((theme) =>
   createStyles({
-    HorizontalBaR: {
+    HorizontalBar: {
       padding: '8px',
       display: 'flex',
       alignItems: 'center',
@@ -12,4 +13,13 @@ const useStyles = makeStyles((theme) =>
   })
 );
 
-export default useStyles;
+/**
+ * Generic empty horizontal bar. Use for consistent styling
+ */
+const HorizontalBar: FC = (props): JSX.Element => {
+  const styles = useStyles();
+
+  return <div className={styles.HorizontalBar}>{props?.children}</div>;
+};
+
+export default HorizontalBar;
