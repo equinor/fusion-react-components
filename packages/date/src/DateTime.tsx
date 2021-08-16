@@ -1,6 +1,6 @@
 import { FC, HTMLAttributes } from 'react';
 import { DateTimeElement, DateTimeElementProps } from '@equinor/fusion-wc-date';
-import elementAttributes from 'utils/src/element-attributes';
+import { elementAttributes } from '@equinor/fusion-react-utils';
 export { DateTimeFormat } from '@equinor/fusion-wc-date';
 import '@equinor/fusion-wc-date';
 
