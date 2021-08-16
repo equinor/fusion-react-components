@@ -1,5 +1,6 @@
 import { formatISO } from 'date-fns';
 
+// eslint-disable-next-line @typescript-eslint/ban-types
 const objectToString = (object: Object) => {
   switch (object.constructor) {
     case Date:
@@ -22,6 +23,7 @@ export const elementAttributes = <T extends Partial<Record<keyof T, unknown>> = 
       case 'string':
         return Object.assign(cur, { [key]: value });
       case 'object':
+        // eslint-disable-next-line @typescript-eslint/ban-types
         return Object.assign(cur, { [key]: objectToString(value as Object) });
       default:
         return value ? Object.assign(cur, { [key]: value }) : cur;
