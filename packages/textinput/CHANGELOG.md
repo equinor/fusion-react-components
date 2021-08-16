@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.3.0 (2021-08-16)
+
+
+### Features
+
+* add on change event to textinput ([b48bc24](https://github.com/equinor/fusion-react-components/commit/b48bc24be5229224b714b5e9de626947c79c1ec4))
+
+
+
+
+
 ## [0.2.4](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-textinput@0.2.3...@equinor/fusion-react-textinput@0.2.4) (2021-08-05)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-textarea",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "component for displaying text area",
   "keywords": [
     "text area",
@@ -34,7 +34,7 @@
     "url": "https://github.com/equinor/fusion-react-components/issues"
   },
   "dependencies": {
-    "@equinor/fusion-react-textinput": "^0.2.4",
+    "@equinor/fusion-react-textinput": "^0.3.0",
     "@equinor/fusion-wc-textarea": "^0.2.3"
   },
   "devDependencies": {
