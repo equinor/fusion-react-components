@@ -34,7 +34,8 @@
     "url": "https://github.com/equinor/fusion-react-components/issues"
   },
   "dependencies": {
-    "@equinor/fusion-wc-textinput": "^0.2.6"
+    "@equinor/fusion-wc-textinput": "^0.2.10",
+    "@equinor/fusion-react-utils": "^1.1.1"
   },
   "devDependencies": {
     "typescript": "^4.3.5"
