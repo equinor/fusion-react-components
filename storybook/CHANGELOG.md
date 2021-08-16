@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.14.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.13.4...@equinor/fusion-react-components-stories@1.14.0) (2021-08-16)
+
+
+### Bug Fixes
+
+* add missing dep ([d137429](https://github.com/equinor/fusion-react-components/commit/d137429a49043dd2a5ad6af5c3df522f58de7da9))
+* import of react utils ([c9f852a](https://github.com/equinor/fusion-react-components/commit/c9f852a3738bfd902298a6fefd9fa30ee90e8b80))
+* title of story ([3334c36](https://github.com/equinor/fusion-react-components/commit/3334c36a3936ea0e5ef485e5a2c0359a8ce18e9b))
+* update datepicker story ([fa9162f](https://github.com/equinor/fusion-react-components/commit/fa9162f5d3c3dddc330bf40f8162a07cf8b27ec2))
+
+
+### Features
+
+* added date component ([b32b637](https://github.com/equinor/fusion-react-components/commit/b32b637bfe0aee74db1b372a28b73dea821e7d35))
+
+
+
+
+
 ## [1.13.4](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.13.3...@equinor/fusion-react-components-stories@1.13.4) (2021-08-16)
 
 **Note:** Version bump only for package @equinor/fusion-react-components-stories
