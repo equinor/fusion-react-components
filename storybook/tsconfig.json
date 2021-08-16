@@ -15,10 +15,13 @@
       "path": "../packages/checkbox"
     },
     {
-      "path": "../packages/hanging-garden"
+      "path": "../packages/date"
     },
     {
       "path": "../packages/datepicker"
+    },
+    {
+      "path": "../packages/hanging-garden"
     },
     {
       "path": "../packages/radio"
@@ -34,6 +37,9 @@
     },
     {
       "path": "../packages/textinput"
+    },
+    {
+      "path": "../packages/utils"
     }
   ]
 }
