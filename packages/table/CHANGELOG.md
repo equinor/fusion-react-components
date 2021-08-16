@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.3.10 (2021-08-16)
+
+
+### Bug Fixes
+
+* export of column meny items ([0bec601](https://github.com/equinor/fusion-react-components/commit/0bec60107e9ad1bb96f2b55ec114e82e405ef4f0))
+
+
+
+
+
 ## 0.3.9 (2021-08-03)
 
 
