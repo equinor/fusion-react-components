@@ -1,5 +1,4 @@
 import { makeStyles, createStyles } from '@equinor/fusion-react-styles';
-import React from 'react';
 import { HeaderProps } from 'react-table';
 
 import SortIcon, { IconType } from '../../../components/icons/Sort';
