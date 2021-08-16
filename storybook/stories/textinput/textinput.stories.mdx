@@ -1,118 +1,172 @@
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
-import { TextInput } from '@equinor/fusion-react-textinput';
+import { TextInput, TextInputProps } from '@equinor/fusion-react-textinput';
+import { iconNames } from '@equinor/fusion-wc-icon';
+
+import { Template } from './Template';
 
 <Meta
-  title="Input/TextInput"
+  title="Input/OLD"
   parameters={{
     viewMode: 'docs',
-    previewTabs: {
-      canvas: { hidden: true },
+  }}
+  argTypes={{
+    value: {
+      control: 'text',
+      description: 'set value of element',
+    },
+    helper: {
+      control: 'text',
+    },
+    pattern: {
+      control: 'text',
+    },
+    validationMessage: { 
+      control: 'text' 
+    },
+    required: { 
+      control: 'boolean' 
+    },
+    disabled: { 
+      control: 'boolean' 
+    },
+    helperPersistent: { 
+      control: 'boolean' 
+    },
+    autoValidate: { 
+      control: 'boolean' 
+    },
+    validateOnInitialRender: { 
+      control: 'boolean' 
+    },
+    icon: {
+      control: 'select',
+      options: iconNames,
+    },
+    maxlength: { 
+      control: 'number' 
+    },
+    charCounter: { 
+      control: 'boolean' 
+    },
+    onChange: {
+      action: 'onChange',
     },
   }}
 />
 
-export const Default = ({}) => {
-  return <TextInput label="Default" />;
-};
+# TextInput
 
-export const Required = ({}) => {
-  return <TextInput label="Required" required />;
-};
+```sh
+npm i -D @equinor/fusion-react-textinput
+```
 
-export const Pattern = ({}) => {
+```tsx
+import { TextInput, TextInputChangeEvent } from '@equinor/fusion-react-textinput';
+const Component = ({value}: ComponentProps) => {
+  const [txt, setTxt] = useState(value);
+  const onChange = useCallback(
+    (e: TextInputChangeEvent) => setTxt(e.target.value ?? ''),
+    [setTxt]
+  );
   return (
-    <TextInput
-      label="Pattern"
-      pattern="[0-9]"
-      value="1337"
-      validationMessage="Input must be a number between 0-9!"
-      autoValidate
-      validateOnInitialRender
-    />
+    <div>
+      <TextInput onChange={onChange} />
+      <span>Value: {txt}</span>
+    </div>
   );
 };
-
-export const Disabled = ({}) => {
-  return <TextInput label="Disabled" disabled />;
-};
-
-export const Helper = ({}) => {
-  return <TextInput label="Helper" helper="This helper shows when active!" />;
-};
-
-export const PersistentHelper = ({}) => {
-  return <TextInput label="Persistent helper" helper="This helper is persistent!" helperpersistent />;
-};
-
-export const Icon = ({}) => {
-  return <TextInput label="Icon" icon="settings" />;
-};
-
-export const IconTrailing = ({}) => {
-  return <TextInput label="Trailing icon" iconTrailing="settings" />;
-};
-
-export const Counter = ({}) => {
-  return <TextInput label="Character counter" helper="Helper Text" helperPersistent maxlength="10" charCounter />;
-};
-
-## TextInput
+```
 
 ### Default
 
+
 <Canvas>
-  <Story
-    name="Default"
-    args={{
+  <Story name="Default" args={{
+      label: 'default',
       validityTransform: (message, nativeValidity) => {
         return { valid: false };
       },
-    }}
-  >
-    {Default.bind({})}
+  }}>
+    {Template.bind({})}
   </Story>
-  <Story name="Disabled" args={{}}>
-    {Disabled.bind({})}
+  <Story name="Disabled" args={{
+    label: 'disabled', 
+    disabled: true
+  }}>
+    {Template.bind({})}
   </Story>
 </Canvas>
 
 ### Validation
 
 <Canvas>
-  <Story name="Required" args={{}}>
-    {Required.bind({})}
+  <Story name="Required" args={{
+    label: 'Required', 
+    required: true
+  }}>
+    {Template.bind({})}
   </Story>
-  <Story name="Pattern" args={{}}>
-    {Pattern.bind({})}
+  <Story name="Pattern" args={{
+      label: 'Required', 
+      required: true, 
+      pattern: "[0-9]",
+      value:"1337",
+      validationMessage:"Input must be a number between 0-9!",
+      autoValidate: true,
+      validateOnInitialRender: true 
+  }}>
+    {Template.bind({})}
   </Story>
 </Canvas>
 
 ### Helper
 
 <Canvas>
-  <Story name="Helper" args={{}}>
-    {Helper.bind({})}
+  <Story name="Helper" args={{
+    label:"Helper", 
+    helper:"This helper shows when active!" 
+  }}>
+    {Template.bind({})}
   </Story>
-  <Story name="PersistentHelper" args={{}}>
-    {PersistentHelper.bind({})}
+  <Story name="PersistentHelper" args={{
+    label:"Helper", 
+    helper:"This helper shows when active!", 
+    PersistentHelper: true
+  }}>
+    {Template.bind({})}
   </Story>
 </Canvas>
 
 ### Icon
 
 <Canvas>
-  <Story name="Icon" args={{}}>
-    {Icon.bind({})}
+  <Story name="Icon" args={{
+    label: "Icon",
+    icon: "settings"
+  }}>
+    {Template.bind({})}
   </Story>
-  <Story name="IconTrailing" args={{}}>
-    {IconTrailing.bind({})}
+  <Story name="Trailing icon" args={{
+    label: "Trailing icon",
+    iconTrailing: "settings",
+  }}>
+    {Template.bind({})}
   </Story>
 </Canvas>
 
 ### Counter
 
 <Canvas>
-  <Story name="Counter" args={{}}>
-    {Counter.bind({})}
+  <Story name="Counter" args={{
+      label:"Character counter", 
+      maxlength:10,
+      charCounter: true,
+      helper:"Helper Text", 
+      helperPersistent: true, 
+  }}>
+    {Template.bind({})}
   </Story>
 </Canvas>
+
+## Propperties
+<ArgsTable of={Template} />
