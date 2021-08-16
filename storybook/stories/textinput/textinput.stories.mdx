@@ -82,7 +82,7 @@ const Component = ({value}: ComponentProps) => {
 
 <Canvas>
   <Story name="Default" args={{
-      label: 'default',
+      label: 'Default',
       validityTransform: (message, nativeValidity) => {
         return { valid: false };
       },
@@ -90,7 +90,7 @@ const Component = ({value}: ComponentProps) => {
     {Template.bind({})}
   </Story>
   <Story name="Disabled" args={{
-    label: 'disabled', 
+    label: 'Disabled', 
     disabled: true
   }}>
     {Template.bind({})}
@@ -107,7 +107,7 @@ const Component = ({value}: ComponentProps) => {
     {Template.bind({})}
   </Story>
   <Story name="Pattern" args={{
-      label: 'Required', 
+      label: 'Pattern', 
       required: true, 
       pattern: "[0-9]",
       value:"1337",
@@ -129,9 +129,9 @@ const Component = ({value}: ComponentProps) => {
     {Template.bind({})}
   </Story>
   <Story name="PersistentHelper" args={{
-    label:"Helper", 
+    label:"PersistentHelper", 
     helper:"This helper shows when active!", 
-    PersistentHelper: true
+    helperPersistent: true
   }}>
     {Template.bind({})}
   </Story>
