@@ -29,7 +29,7 @@ const RangeTemplate: Story<FusionDatePickerProps> = (args) => {
 
 const PopperTemplate: Story<FusionDatePickerProps & { offsetX: number; offsetY: number }> = (args) => {
   const { offsetX, offsetY, ...props } = args;
-  const [date, setDate] = useState<Date | null>(null);
+  const [date, setDate] = useState<Date | null | any>(null);
   props.popperModifiers = [
     {
       name: 'offset',
