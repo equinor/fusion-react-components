@@ -7,7 +7,7 @@ import useFilterSelection from '../../hooks/useFilterSelection';
 
 import { Filter } from '../../models/Filter';
 import FilterStore from '../../filterStore/store';
-import TextInput from '@equinor/fusion-react-textinput';
+import { TextInput, TextInputChangeEvent } from '@equinor/fusion-react-textinput';
 import Radio from '@equinor/fusion-react-radio';
 import useStyles, { RadioFilterStyles } from './useStyles';
 import { TSelection } from '../../FilterProvider';
@@ -44,7 +44,7 @@ const RadioFilter = <TSelections extends Record<string, TSelection>, TData>({
 }: RadioFilterContainerProps<TData>): JSX.Element => {
   const context = useContext(FilterContext);
   const store = context.store as FilterStore<TSelections, TData>;
-  const { key, title, filterFn, optionsBuilderFn } = filter;
+  const { key, title, filterFn, optionsBuilderFn, description } = filter;
 
   const [filterSearch, setFilterSearch] = useState('');
 
@@ -70,10 +70,14 @@ const RadioFilter = <TSelections extends Record<string, TSelection>, TData>({
 
   const Styles = useStyles(styles || {});
 
+  const onInput = useCallback((e: TextInputChangeEvent) => setFilterSearch(e.currentTarget.value), [setFilterSearch]);
+
   return (
     <div className={Styles.RadioFilterContainer} key={'Radio' + title}>
-      <header className={Styles.FilterHeader}>{title}</header>
-      {useSearch && <TextInput value={filterSearch} placeholder={'Search'} type={'search'} />}
+      <header className={Styles.FilterHeader} title={description}>
+        {title}
+      </header>
+      {useSearch && <TextInput onInput={onInput} value={filterSearch} placeholder={'Search'} type={'search'} />}
 
       <div className={Styles.FilterOptionsContainer}>
         {filterOptions?.sortOrder?.map((key) => {
@@ -84,7 +88,7 @@ const RadioFilter = <TSelections extends Record<string, TSelection>, TData>({
           return (
             <div className={Styles.FilterOption} key={key} onClick={() => onChange(key)}>
               <Radio checked={currentOptionsSelection === key ? true : undefined} />
-              <label style={{ cursor: 'pointer' }}>{data.label}</label>
+              <label className={Styles.FilterOptionLabel}>{data.label}</label>
             </div>
           );
         })}

@@ -1,15 +1,14 @@
 import { useCallback, useContext, useEffect, useMemo, useState, PropsWithChildren } from 'react';
-
 import { Subject } from 'rxjs';
 import { pluck, withLatestFrom } from 'rxjs/operators';
 import FilterContext from '../../FilterContext';
-
 import Button from '@equinor/fusion-react-button';
 import useStyles from './useStyles';
 import FilterSelectionChips from '../FilterSelectionChips';
 import HorizontalBar from '../HorizontalBar';
 import FilterStore from '../../filterStore/store';
 import { TSelection } from 'filterpane/src/FilterProvider';
+import { TextInput, TextInputChangeEvent } from '@equinor/fusion-react-textinput';
 
 const useChangeHandler = (key: string) => {
   const { store } = useContext(FilterContext);
@@ -30,7 +29,7 @@ const useSearch = (searchKey: string) => {
 
   useEffect(() => {
     const subscription = store.selection$.pipe(pluck(searchKey)).subscribe((selection) => {
-      setSearchValue(selection);
+      setSearchValue(selection || '');
     });
     return () => subscription.unsubscribe();
   }, []);
@@ -68,7 +67,10 @@ const GeneralBar = <TData,>({
 
   const filterSearch = useSearch(SEARCH_KEY);
   const handleChange = useChangeHandler(SEARCH_KEY);
-  const onChange = useCallback((searchValue: string) => handleChange(searchValue), [handleChange]);
+  const onChange = useCallback(
+    (searchValue: TextInputChangeEvent) => handleChange(searchValue.currentTarget.value),
+    [handleChange]
+  );
 
   useEffect(() => {
     store.registerFilter(SEARCH_KEY, searchFilterFn);
@@ -79,10 +81,7 @@ const GeneralBar = <TData,>({
 
   return (
     <HorizontalBar>
-      <div className={styles.SearchBar} style={{ background: 'lightgrey', lineHeight: '48px' }}>
-        {`"SEARCH BAR"}`}
-      </div>
-
+      <TextInput onInput={onChange} value={filterSearch} placeholder={'Search'} type={'search'} />
       <div className={styles.ButtonContainer}>
         <Button variant={'outlined'} icon={'filter_list'} onClick={() => onMinimize(!minimized)}>
           {minimized ? 'Show filters' : 'Hide filters'}

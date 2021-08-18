@@ -7,43 +7,11 @@ import useFilterOptionsBuilder from '../../hooks/useFilterOptionsBuilder';
 import useFilterSelection from '../../hooks/useFilterSelection';
 import CheckboxOption from './components/CheckBoxOption';
 import SelectAllOption from './components/SelectAllOption';
-import { CSSProperties } from 'react';
 import { Filter } from '../../models/Filter';
 import FilterStore from '../../filterStore/store';
-import TextInput from '@equinor/fusion-react-textinput';
-import { createStyles, FusionTheme, makeStyles } from '@equinor/fusion-react-styles';
+import { TextInput, TextInputChangeEvent } from '@equinor/fusion-react-textinput';
 import { TSelection } from 'filterpane/src/FilterProvider';
-
-export type CheckBoxFilterStyleProps = { checkBoxFilterContainer?: CSSProperties; filterHeader?: CSSProperties };
-
-const useStyles = makeStyles<FusionTheme, CheckBoxFilterStyleProps>(() =>
-  createStyles({
-    CheckBoxFilterContainer: ({ checkBoxFilterContainer }) => ({
-      display: 'flex',
-      flexDirection: 'column',
-      padding: '16px',
-      paddingBottom: '0px',
-      boxSizing: 'border-box',
-      minWidth: '100px',
-      maxWidth: '240px',
-      ...checkBoxFilterContainer,
-    }),
-    FilterHeader: {
-      padding: '0 8px',
-      fontWeight: 'bold',
-    },
-    TextInputIcon: {
-      transform: 'scale(0.8)',
-      cursor: 'pointer',
-    },
-    FilterOptionsContainer: {
-      flexDirection: 'column',
-      overflowY: 'auto',
-      margin: 0,
-      padding: 0,
-    },
-  })
-);
+import useStyles, { CheckBoxFilterStyleProps } from './useStyles';
 
 const optionVisible = (
   filter: FilterOption,
@@ -121,12 +89,14 @@ const CheckBoxFilter = <TSelections extends Record<string, TSelection>, TData>({
 
   const styles = useStyles(style || {});
 
+  const onInput = useCallback((e: TextInputChangeEvent) => setFilterSearch(e.currentTarget.value), [setFilterSearch]);
+
   return (
     <div className={styles.CheckBoxFilterContainer} key={'Checkbox' + title}>
       <header title={description} className={styles.FilterHeader}>
         {title}
       </header>
-      {useSearch && <TextInput value={filterSearch} placeholder={'Search'} type={'search'} />}
+      {useSearch && <TextInput onInput={onInput} value={filterSearch} placeholder={'Search'} type={'search'} />}
       <ul className={styles.FilterOptionsContainer}>
         {useSelectAll && filterOptions && (
           <SelectAllOption

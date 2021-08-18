@@ -12,6 +12,7 @@ import {
 export const firstNameCheck: Filter<Person[], string[]> = {
   key: 'firstName',
   title: 'First Name',
+  description: 'Persons first name',
   filterFn: getFilter((i) => i.firstName),
   optionsBuilderFn: (data) => createFilterOptions('firstName', data),
   counterFn: (data) => counter(data, (d) => d.firstName),
@@ -19,6 +20,7 @@ export const firstNameCheck: Filter<Person[], string[]> = {
 export const lastNameCheck: Filter<Person[], string[]> = {
   key: 'lastName',
   title: 'Last Name',
+  description: 'Persons last name',
   filterFn: getFilter((i) => i.lastName),
   optionsBuilderFn: (data) => createFilterOptions('lastName', data),
   counterFn: (data) => counter(data, (d) => d.lastName),
@@ -27,6 +29,7 @@ export const lastNameCheck: Filter<Person[], string[]> = {
 export const ageCheck: Filter<Person[], AgeBrackets[]> = {
   key: 'age',
   title: 'Age',
+  description: 'Age of people divided into 20 year brackets ',
   filterFn: getFilter((i) => getAgeBracket(i.age)),
   optionsBuilderFn: (data) => createAgeFilterOptions(data),
   counterFn: (data) => counter(data, (p) => getAgeBracket(p.age)),

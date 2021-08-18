@@ -1,7 +1,13 @@
-import FilterProvider from './FilterProvider';
-export default FilterProvider;
-import useFilterStore from './hooks/useFilterStore';
-export { useFilterStore };
+export { default as FilterProvider } from './FilterProvider';
+
+//Hooks
+export { default as useFilterStore } from './hooks/useFilterStore';
+export { default as useFilterChangeHandler } from './hooks/useFilterChangeHandler';
+export { default as useFilterOptionsBuilder } from './hooks/useFilterOptionsBuilder';
+export { default as useFilterOptionsCounter } from './hooks/useFilterOptionsCounter';
+export { default as useFilterSelection } from './hooks/useFilterSelection';
+
+// UI Components
 export { default as FilterPanel } from './components/HorizontalFilterPanel';
 export { default as FilterSection } from './components/FilterSection';
 export { default as CheckBoxFilter } from './components/CheckBoxFilter';

@@ -12,10 +12,11 @@ const useStyles = makeStyles((theme) =>
       boxSizing: 'border-box',
       padding: '16px',
       paddingBottom: '0px',
+      backgroundColor: 'inherit',
       borderRight: `solid 1px ${theme.colors.ui.background__medium.value.hex}`,
     },
     FilterSelectorOpen: {
-      minWidth: '250px',
+      minWidth: '200px',
     },
     FilterSelectorMinimized: {
       width: '48px',
@@ -25,6 +26,8 @@ const useStyles = makeStyles((theme) =>
       justifyContent: 'space-between',
       alignItems: 'center',
       cursor: 'pointer',
+      fontWeight: 'bold',
+      whiteSpace: 'nowrap',
     },
 
     SelectorHeaderText: {

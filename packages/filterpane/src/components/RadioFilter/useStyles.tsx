@@ -5,7 +5,8 @@ export type RadioFilterStyles = {
   filterContainer?: CSSProperties;
   filterHeader?: CSSProperties;
   filterOptionsContainer?: CSSProperties;
-  filterOptions?: CSSProperties;
+  filterOption?: CSSProperties;
+  filterOptionLabel?: CSSProperties;
 };
 
 const useStyles = makeStyles<FusionTheme, RadioFilterStyles>(() =>
@@ -16,13 +17,14 @@ const useStyles = makeStyles<FusionTheme, RadioFilterStyles>(() =>
       padding: '16px',
       paddingBottom: '0px',
       boxSizing: 'border-box',
-      minWidth: '100px',
+      minWidth: '150px',
       maxWidth: '240px',
       ...filterContainer,
     }),
     FilterHeader: ({ filterHeader }) => ({
       padding: '0 8px',
       fontWeight: 'bold',
+      whiteSpace: 'nowrap',
       ...filterHeader,
     }),
     FilterOptionsContainer: ({ filterOptionsContainer }) => ({
@@ -32,11 +34,20 @@ const useStyles = makeStyles<FusionTheme, RadioFilterStyles>(() =>
       paddingRight: '8px',
       ...filterOptionsContainer,
     }),
-    FilterOption: ({ filterOptions }) => ({
+    FilterOption: ({ filterOption }) => ({
       display: 'flex',
       flex: 1,
       alignItems: 'center',
-      ...filterOptions,
+      ...filterOption,
+    }),
+    FilterOptionLabel: ({ filterOptionLabel }) => ({
+      flex: 1,
+      overflow: 'hidden',
+      height: '100%',
+      cursor: 'pointer',
+      alignItems: 'center',
+      textOverflow: 'ellipsis',
+      ...filterOptionLabel,
     }),
   })
 );

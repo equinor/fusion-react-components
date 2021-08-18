@@ -1,15 +1,15 @@
-import { Children, PropsWithChildren, ReactElement, useContext, useMemo, useState } from 'react';
+import { Children, PropsWithChildren, ReactElement, useCallback, useContext, useMemo, useState } from 'react';
 import { clsx } from '@equinor/fusion-react-styles';
 import { useSelector } from '@equinor/fusion';
 import FilterContext from '../../FilterContext';
 import FilterCategory from './components/FilterCategory';
 import useStyles from './useStyles';
-
+import { TextInput, TextInputChangeEvent } from '@equinor/fusion-react-textinput';
 import Icon from '../Icon';
 import { arrow_back, arrow_forward } from '@equinor/eds-icons';
 import { Filter } from '../../models/Filter';
 
-type FilterSelectorProps = { compact?: boolean };
+type FilterSelectorProps = { useSearch?: boolean; compact?: boolean };
 
 export type FilterCategoryType = {
   filterKey: string;
@@ -44,12 +44,18 @@ const filterCategories = (children: React.ReactNode, selection: unknown, filterS
  * @returns
  */
 
-const FilterSelector = ({ compact = false, children }: PropsWithChildren<FilterSelectorProps>): JSX.Element => {
+const FilterSelector = ({
+  useSearch = false,
+  compact = false,
+  children,
+}: PropsWithChildren<FilterSelectorProps>): JSX.Element => {
   const [show, setShow] = useState(true);
-  const [filterSearch] = useState('');
+  const [filterSearch, setFilterSearch] = useState('');
 
   const { store } = useContext(FilterContext);
   const selection = useSelector(store, 'selection');
+
+  const onInput = useCallback((e: TextInputChangeEvent) => setFilterSearch(e.currentTarget.value), [setFilterSearch]);
 
   const categories = useMemo(
     () => filterCategories(children, selection, filterSearch),
@@ -78,11 +84,12 @@ const FilterSelector = ({ compact = false, children }: PropsWithChildren<FilterS
 
       {show && (
         <>
+          {useSearch && <TextInput onInput={onInput} value={filterSearch} placeholder={'Search'} type={'search'} />}
           <div className={styles.SelectorSection}>
             {categories.map((category) => (
               <FilterCategory key={category.filterKey} compact={compact} {...category} />
             ))}
-          </div>
+          </div>{' '}
         </>
       )}
     </div>

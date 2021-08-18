@@ -8,12 +8,10 @@ const useStyles = makeStyles(() =>
       display: 'flex',
       alignItems: 'center',
       cursor: 'pointer',
-      wordBreak: 'break-word',
     },
     FilterOptionLabel: {
       flex: 1,
       overflow: 'hidden',
-      wordBreak: 'break-word',
       height: '100%',
       cursor: 'pointer',
       alignItems: 'center',
@@ -55,9 +53,9 @@ const CheckboxOption = ({
     <li className={styles.FilterOption} key={filterKey}>
       <span onClick={() => onSelectionChange(filterKey, selected)}>
         <CheckBox
-          selected={selected || undefined}
+          checked={selected || undefined}
           reducedTouchTarget={compact}
-          intermediate={indeterminate || undefined}
+          indeterminate={indeterminate || undefined}
         />
       </span>
       <label onClick={() => onSelectionChange(filterKey, selected, singleSelect)} className={styles.FilterOptionLabel}>
