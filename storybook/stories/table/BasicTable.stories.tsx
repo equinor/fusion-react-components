@@ -1,6 +1,7 @@
-import { Column, Table, useTableContext } from '@equinor/fusion-react-table';
-import { Meta } from '@storybook/react/types-6-0';
+import { Column, Table, Toolbar } from '@equinor/fusion-react-table';
+import { Meta, Story } from '@storybook/react/types-6-0';
 import { useMemo } from 'react';
+import Button from '@equinor/fusion-react-button';
 
 export default {
   title: 'Table/Stories',
@@ -35,28 +36,38 @@ const columns: Column[] = [
     accessor: 'progress',
   },
 ];
-
-const Debugger = () => {
-  const { instance } = useTableContext();
-  return <pre>{JSON.stringify(instance.state, null, 2)}</pre>;
+type Props = {
+  rows: number;
+  toolbarChildren?: JSX.Element;
 };
-
-const Template = ({ rows }: { rows: number }) => {
+const Template: Story<Props> = (args) => {
   const options = useMemo(
     () => ({
-      data: makeData(rows),
+      data: makeData(args.rows),
       columns,
     }),
-    [rows]
+    [args.rows]
   );
+
+  return <Table options={options} slots={{ Toolbar: <Toolbar children={args.toolbarChildren} /> }}></Table>;
+};
+
+const ToolbarChildren = () => {
   return (
-    <Table options={options} style={{ minWidth: '100%' }}>
-      <Debugger />
-    </Table>
+    <div style={{ display: 'flex' }}>
+      <Button>Select</Button> <Button>Example</Button>
+      <div>Not only buttons</div>
+    </div>
   );
 };
 
 export const DefaultTable = Template.bind({});
 DefaultTable.args = {
   rows: 10,
+};
+
+export const CustomTableToolbar = Template.bind({});
+CustomTableToolbar.args = {
+  rows: 10,
+  toolbarChildren: <ToolbarChildren />,
 };
