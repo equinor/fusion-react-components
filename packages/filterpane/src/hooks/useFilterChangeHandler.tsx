@@ -18,7 +18,7 @@ const useFilterChangeHandler = <TChange, TSelection>(
         store.updateFilterSelection(key, fn(change, selection as TSelection));
       });
     return () => subscription.unsubscribe();
-  }, [store, key]);
+  }, [store, key, change$, fn]);
   return useCallback(
     (data: TChange) => {
       change$.next(data);

@@ -43,12 +43,17 @@ const FilterCategory = ({
   const onChange = useChangeHandler(filterKey);
   const styles = useStyles();
   return (
-    <div className={styles.FilterCategoryContainer} key={filterKey}>
-      <CheckBox selected={selected || undefined} reducedTouchTarget={compact} disabled={disabled || undefined} />
+    <li className={styles.FilterCategoryContainer} key={filterKey}>
+      <CheckBox
+        onInput={() => onChange(!selected)}
+        checked={selected || undefined}
+        reducedTouchTarget={compact}
+        disabled={disabled || undefined}
+      />
       <label className={styles.CategoryLabel} onClick={() => !disabled && onChange(!selected)} title={description}>
         {title}
       </label>
-    </div>
+    </li>
   );
 };
 

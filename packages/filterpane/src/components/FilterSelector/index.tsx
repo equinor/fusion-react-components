@@ -55,7 +55,6 @@ const FilterSelector = ({ compact = false, children }: PropsWithChildren<FilterS
     () => filterCategories(children, selection, filterSearch),
     [children, selection, filterSearch]
   );
-
   const styles = useStyles();
 
   const filterSelectorContainer = useMemo(
@@ -78,11 +77,12 @@ const FilterSelector = ({ compact = false, children }: PropsWithChildren<FilterS
 
       {show && (
         <>
-          <div className={styles.SelectorSection}>
+          {useSearch && <TextInput onInput={onInput} value={filterSearch} placeholder={'Search'} type={'search'} />}
+          <ul className={styles.SelectorSection}>
             {categories.map((category) => (
               <FilterCategory key={category.filterKey} compact={compact} {...category} />
             ))}
-          </div>
+          </ul>
         </>
       )}
     </div>
