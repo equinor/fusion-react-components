@@ -38,6 +38,7 @@ const columns: Column[] = [
 ];
 type Props = {
   rows: number;
+  justifyContent: 'flex-start' | 'center' | 'flex-end';
   toolbarChildren?: JSX.Element;
 };
 const Template: Story<Props> = (args) => {
@@ -49,14 +50,19 @@ const Template: Story<Props> = (args) => {
     [args.rows]
   );
 
-  return <Table options={options} slots={{ Toolbar: <Toolbar children={args.toolbarChildren} /> }}></Table>;
+  return (
+    <Table
+      options={options}
+      slots={{ Toolbar: <Toolbar children={args.toolbarChildren} justify={args.justifyContent} /> }}
+    ></Table>
+  );
 };
 
 const ToolbarChildren = () => {
   return (
-    <div style={{ display: 'flex' }}>
-      <Button>Select</Button> <Button>Example</Button>
-      <div>Not only buttons</div>
+    <div style={{ display: 'flex', gap: '1em' }}>
+      <Button>Select</Button>
+      <Button>Example</Button>
     </div>
   );
 };
@@ -69,5 +75,6 @@ DefaultTable.args = {
 export const CustomTableToolbar = Template.bind({});
 CustomTableToolbar.args = {
   rows: 10,
+  justifyContent: 'flex-end',
   toolbarChildren: <ToolbarChildren />,
 };
