@@ -42,6 +42,7 @@ const useStyles = makeStyles((theme) =>
     SelectorSection: {
       padding: '8px 0',
       overflowY: 'auto',
+      margin: '0px',
     },
   })
 );

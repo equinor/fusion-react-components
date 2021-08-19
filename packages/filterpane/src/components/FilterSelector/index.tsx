@@ -61,7 +61,6 @@ const FilterSelector = ({
     () => filterCategories(children, selection, filterSearch),
     [children, selection, filterSearch]
   );
-
   const styles = useStyles();
 
   const filterSelectorContainer = useMemo(
@@ -85,11 +84,11 @@ const FilterSelector = ({
       {show && (
         <>
           {useSearch && <TextInput onInput={onInput} value={filterSearch} placeholder={'Search'} type={'search'} />}
-          <div className={styles.SelectorSection}>
+          <ul className={styles.SelectorSection}>
             {categories.map((category) => (
               <FilterCategory key={category.filterKey} compact={compact} {...category} />
             ))}
-          </div>{' '}
+          </ul>
         </>
       )}
     </div>
