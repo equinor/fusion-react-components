@@ -5,11 +5,11 @@ export type ErrorTypes = 'error' | 'accessDenied' | 'notFound' | 'noData' | 'fai
 export type ErrorMessageProps = {
   hasError?: boolean;
   errorType?: ErrorTypes;
-  message?: any;
+  message?: unknown;
   resourceName?: string;
   title?: string;
-  children?: any;
-  icon?: any;
+  children?: unknown;
+  icon?: unknown;
   action?: string;
   onTakeAction?: (event?: React.SyntheticEvent<Element, Event>) => void;
 };

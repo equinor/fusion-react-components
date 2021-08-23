@@ -4,7 +4,6 @@ import { useHangingGardenContext } from './useHangingGardenContext';
 import { getColumnX, getHeaderWidth, getMaxRowCount } from '../utils';
 import useColumn from './useColumn';
 import { HangingGardenColumnIndex, HangingGardenColumn } from '../models/HangingGarden';
-import useHightLightedItem from './useHightLightedItem';
 
 /**
  * Main hook and starting point for a Garden.
@@ -34,10 +33,10 @@ const useGarden = <T extends HangingGardenColumnIndex>(): UseGarden => {
     highlightedItem,
     scroll: { scrollLeft, scrollTop, scrollToHighlightedColumn, scrollToHighlightedItem },
     textureCaches: { clearTextureCaches },
+    groupLevels,
   } = useHangingGardenContext();
 
   const { renderColumn } = useColumn<T>();
-  const { renderHighlightedItem } = useHightLightedItem();
 
   useEffect(() => {
     clearTextureCaches();
@@ -71,15 +70,11 @@ const useGarden = <T extends HangingGardenColumnIndex>(): UseGarden => {
     const scrollRight = scrollLeft.current + offsetWidth + 10;
     for (let i = 0; i < (columns as HangingGardenColumn<T>[]).length; i++) {
       const column = (columns as HangingGardenColumn<T>[])[i];
-      const columnX = getColumnX(i, expandedColumns, itemWidth);
-      const width = getHeaderWidth(column.key, expandedColumns, itemWidth);
+      const columnX = getColumnX(i, expandedColumns, itemWidth, groupLevels);
+      const width = getHeaderWidth(column.key, expandedColumns, itemWidth, groupLevels);
 
-      if (column && columnX + width >= scrollLeft.current && columnX <= scrollRight) {
-        renderColumn(column, i);
-      }
+      if (column && columnX + width >= scrollLeft.current && columnX <= scrollRight) renderColumn(column, i);
     }
-
-    renderHighlightedItem();
 
     pixiApp.current.stage.addChild(stage.current);
 
@@ -98,7 +93,6 @@ const useGarden = <T extends HangingGardenColumnIndex>(): UseGarden => {
     renderColumn,
     getColumnX,
     getHeaderWidth,
-    renderHighlightedItem,
   ]);
 
   return { renderGarden };
