@@ -2,8 +2,8 @@ import { useCallback, useMemo } from 'react';
 
 import useFilterChangeHandler from '../../../hooks/useFilterChangeHandler';
 import useFilterSelection from '../../../hooks/useFilterSelection';
-import FilterCounters from '../../../models/FilterCounters';
-import FilterOption from '../../../models/FilterOption';
+import FilterCounters from '../../../types/FilterCounters';
+import FilterOption from '../../../types/FilterOption';
 import CheckboxOption from './CheckBoxOption';
 
 type SelectAllOptionProps = {

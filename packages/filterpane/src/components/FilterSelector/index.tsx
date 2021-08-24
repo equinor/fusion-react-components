@@ -7,7 +7,7 @@ import useStyles from './useStyles';
 
 import Icon from '../Icon';
 import { arrow_back, arrow_forward } from '@equinor/eds-icons';
-import { Filter } from '../../models/Filter';
+import { Filter } from '../../types/Filter';
 
 type FilterSelectorProps = { compact?: boolean };
 
@@ -40,8 +40,16 @@ const filterCategories = (children: React.ReactNode, selection: unknown, filterS
  * Supplied filters will be list out and can be (un)selected through a checkbox.
  * The filter will then be (de)registered as an active filter.
  *
+ * Component decides which filter that is selected by looking at the Selections.
+ * If the key is in selections, filter will be marked as selected.
+ *
+ * @param useSearch Add a search bar to filter selector, to search for filters.
  * @param compact Compact Filter options text and checkbox size
- * @returns
+ * @param children Add Filters components as children.
+ * @example
+ * <FilterSelector useSearch compact >
+ *     <CheckBoxFilter filter={filterSettings}  />
+ * </FilterSection>
  */
 
 const FilterSelector = ({ compact = false, children }: PropsWithChildren<FilterSelectorProps>): JSX.Element => {

@@ -3,7 +3,7 @@ import { StatefulObserver } from '@equinor/fusion/lib/epic';
 import { Observable } from 'rxjs';
 import { filter } from 'rxjs/operators';
 import { isActionOf } from 'typesafe-actions';
-import FilterStoreState from '../models/FilterStoreState';
+import FilterStoreState from '../types/FilterStoreState';
 import actions, { Actions } from './actions';
 
 const updateFilterEpic = <TSelections extends Record<string, unknown> = Record<string, unknown>, TData = unknown>(

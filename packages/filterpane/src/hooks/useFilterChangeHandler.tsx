@@ -4,10 +4,31 @@ import { withLatestFrom, pluck } from 'rxjs/operators';
 import FilterContext from '../FilterContext';
 
 type FilterChange<TChange> = (data: TChange) => void;
-
+/**
+ *Handled updating the filterSelection, when a selection i made.
+ * used the  updateFilterSelection to interact with the current selection.
+ * Supply the Key for the selection, and a function that describes how the selection should be updated.
+ * TChange is the object you send in to the updateSelectionFunction, and can be any information you need.
+ *
+ * @param key registered filter key
+ * @param updateSelectionFunction function that applies the change to the current selection,TChange can be any type of object
+ * @returns FilterChange Function
+ * @example
+ *
+ * const selectionUpdate = (change:{name:string,selected:boolean}, selection:string[]) => {
+ *    if(change.selected) return  [...selected, change.name]
+ *    selection.splice(selection.indexOf(change.name), 1);
+ *    return [...selection];
+ * }
+ *
+ * const {onChange} = useFilterChangeHandles('Name',selectionUpdate)
+ *
+ * <Checbox onInput={(e) => onChange({name:'Helge',selected:e.currentTarget.checked})}
+ *
+ */
 const useFilterChangeHandler = <TChange, TSelection>(
   key: string,
-  fn: (change: TChange, selection: TSelection) => TSelection
+  updateSelectionFunction: (change: TChange, selection: TSelection) => TSelection
 ): FilterChange<TChange> => {
   const { store } = useContext(FilterContext);
   const change$: Subject<TChange> = useMemo(() => new Subject<TChange>(), []);
@@ -15,10 +36,10 @@ const useFilterChangeHandler = <TChange, TSelection>(
     const subscription = change$
       .pipe(withLatestFrom(store.selection$.pipe(pluck(key))))
       .subscribe(([change, selection]) => {
-        store.updateFilterSelection(key, fn(change, selection as TSelection));
+        store.updateFilterSelection(key, updateSelectionFunction(change, selection as TSelection));
       });
     return () => subscription.unsubscribe();
-  }, [store, key, change$, fn]);
+  }, [store, key, change$, updateSelectionFunction]);
   return useCallback(
     (data: TChange) => {
       change$.next(data);

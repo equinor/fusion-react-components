@@ -11,16 +11,27 @@ type FilterChips = {
   selection: any;
 };
 
-const useStyles = makeStyles(() =>
-  createStyles({
-    ChipsContainer: {
-      display: 'grid',
-      gridAutoFlow: 'column',
-      gridGap: '8px',
-      alignContent: 'center',
-      overflow: 'auto',
-    },
-  })
+const useStyles = makeStyles(
+  () =>
+    createStyles({
+      ChipsContainer: {
+        display: 'grid',
+        gridAutoFlow: 'column',
+        gridGap: '8px',
+        alignContent: 'center',
+        overflow: 'auto',
+      },
+      Chip: {
+        display: 'flex',
+        background: 'lightgrey',
+        borderRadius: '8px',
+        whiteSpace: 'nowrap',
+        padding: '8px',
+        lineHeight: '24px',
+        alignItems: 'center',
+      },
+    }),
+  { name: 'fusion-filterpane-chips' }
 );
 
 const useChipsSelection = () => {
@@ -60,18 +71,7 @@ const FilterSelectionChips = (): JSX.Element => {
   return (
     <div className={styles.ChipsContainer}>
       {chips.map((chip) => (
-        <div
-          key={'Chips' + chip.key}
-          style={{
-            display: 'flex',
-            background: 'lightgrey',
-            borderRadius: '8px',
-            whiteSpace: 'nowrap',
-            padding: '8px',
-            lineHeight: '24px',
-            alignItems: 'center',
-          }}
-        >
+        <div key={'Chip' + chip.key} className={styles.Chip}>
           {`${chip.title} (${Array.isArray(chip.selection) ? chip.selection.length : chip.selection}) `}
           <Icon
             icon={close}

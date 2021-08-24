@@ -14,7 +14,22 @@ type FilterProviderProps<TSelections extends Record<string, TSelection>, TData> 
  *Access data using  const { store } = useContext(FilterContext);
  *
  * @param initialData  The full dataset that should be filtered.
- * @param initialFilters Filters to be registered when first loading the provider. Can also send in data that should be filtered on load.
+ * @param initialFilters Filters to be registered when first loading the provider.
+ * Can also send in data that should be filtered on load. keys must correspond with keys added to defined filter settings.
+ * Or they will not be recognized
+ *
+ * @example
+ *
+ *  initialFilter = {firstName: ['Helge'],lastName:[] }  //predefined filters.
+ * //firstName will be added to selections with a predefined selection ('Helge'),
+ * //while lastName is added to empty([]) to selections.
+ *
+ * const data = getData();
+ *
+ *  <FilterProvider initialData={data} initialFilters={initialFilter}>
+ *    <MyFilterPanel />
+ *    <MyApp> />
+ * </FilterProvider>
  */
 const FilterProvider = <TSelections extends Record<string, unknown>, TData>(
   props: PropsWithChildren<FilterProviderProps<TSelections, TData>>

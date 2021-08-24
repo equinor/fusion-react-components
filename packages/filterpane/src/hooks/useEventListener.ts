@@ -6,7 +6,7 @@ export default <T extends EventListenerOrEventListenerObject>(
   handler: T,
   dependencies: any[],
   useCapture = false
-) => {
+): void => {
   useEffect(() => {
     if (node == null) {
       return;
