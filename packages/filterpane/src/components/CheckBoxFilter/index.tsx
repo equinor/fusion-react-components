@@ -1,13 +1,13 @@
 import { useCallback, useContext, useEffect, useState } from 'react';
 import FilterContext from '../../FilterContext';
-import FilterOption from '../../models/FilterOption';
+import FilterOption from '../../types/FilterOption';
 import useFilterChangeHandler from '../../hooks/useFilterChangeHandler';
 import useFilterOptionsCounter from '../../hooks/useFilterOptionsCounter';
 import useFilterOptionsBuilder from '../../hooks/useFilterOptionsBuilder';
 import useFilterSelection from '../../hooks/useFilterSelection';
 import CheckboxOption from './components/CheckBoxOption';
 import SelectAllOption from './components/SelectAllOption';
-import { Filter } from '../../models/Filter';
+import { Filter } from '../../types/Filter';
 import FilterStore from '../../filterStore/store';
 import { TextInput, TextInputChangeEvent } from '@equinor/fusion-react-textinput';
 import { TSelection } from 'filterpane/src/FilterProvider';
@@ -55,6 +55,17 @@ export type FilterContainerProps<TData> = {
  * @param compact Compact Filter options text and checkbox size
  * @param useSingleSelect When clicking the option text, only this options will remain selected.
  * @param style Add additional styling to the Filter container and header.
+ *
+ * @example
+ * filterSettings: Filter<TData, TSelection> = {
+    key: 'FilterKey',
+    title: 'Filter Name',
+    description: 'extended details on filter',
+    filterFn: (data: TData, selection: TSelection, allData?: TData) => TData,
+    optionsBuilderFn: (data: TData) => FilterOptions,
+    counterFn: (data:TData) => FilterCounters,
+};
+ * <CheckBoxFilter filter={filterSettings} useSearch useSelectAll />
  */
 const CheckBoxFilter = <TSelections extends Record<string, TSelection>, TData>({
   filter,

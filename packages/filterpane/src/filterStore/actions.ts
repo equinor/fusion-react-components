@@ -1,5 +1,5 @@
 import { ActionType, createAction } from 'typesafe-actions';
-import { Filter, FilterSettingsStore } from '../models/Filter';
+import { Filter, FilterSettingsStore } from '../types/Filter';
 
 export type SelectionValues<TValue = unknown> = Record<string, TValue>;
 

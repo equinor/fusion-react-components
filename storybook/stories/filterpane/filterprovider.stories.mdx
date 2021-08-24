@@ -22,7 +22,7 @@ The filterprovider itself can be used as a wrapper around any component, to hand
 const myApp = () => {
   const myData:Data[] = fetchData();
 
-  const myFilterDefintion:Filter<Data[],string[]> = {
+  const myFilterDefinition:Filter<Data[],string[]> = {
     key:'myFilter',
     title:'My Filter',
     optionsBuilderFn: (data) => builOptions(data),
@@ -31,7 +31,7 @@ const myApp = () => {
 
   return (
     <FilterProvider initialData={myData} />
-      <CheckBoxFilter filter={myFilterDefintion} />
+      <CheckBoxFilter filter={myFilterDefinition} />
       <MyDataTable />
     </FilterProvider>
   );

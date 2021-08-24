@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import { createReducer } from 'typesafe-actions';
-import FilterStoreState from '../models/FilterStoreState';
+import FilterStoreState from '../types/FilterStoreState';
 import actions, { Actions } from './actions';
 
 const selectionReducer = <TSelections extends Record<string, unknown>>(initial: TSelections) =>

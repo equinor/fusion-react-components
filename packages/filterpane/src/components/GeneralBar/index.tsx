@@ -53,7 +53,11 @@ type GeneralBarProps<TData, TSelection> = {
  * @param searchFilterFn How the search box should interact with the data
  * @param minimized open/close state of main filter view
  * @param onMinimize function added to Show/Hide filter button
- * @returns
+ * @param children Added after built in components, flows left to right.
+ * @example
+ *  const searchFn = (data,search) => data.filter((d) => d.name.includes(search) )
+ *  const [minimized,setMinimized] = useState(false)
+ *  <GeneralBar searchFilterFn={searchFn} minimized={minimized} onMinimize={setMinimized}
  */
 const GeneralBar = <TData,>({
   searchFilterFn,

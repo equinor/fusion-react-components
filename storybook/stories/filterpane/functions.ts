@@ -1,5 +1,5 @@
-import { FilterFn } from '../../../packages/filterpane/src/models/Filter';
-import FilterOption, { FilterOptions } from '../../../packages/filterpane/src/models/FilterOption';
+import { FilterFn } from '../../../packages/filterpane/src/types/Filter';
+import FilterOption, { FilterOptions } from '../../../packages/filterpane/src/types/FilterOption';
 
 export type RelationshipStatus = 'relationship' | 'complicated' | 'single';
 const firstName = ['Olav', 'Helge', 'Marit', 'Kjersti'];

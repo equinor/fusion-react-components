@@ -1,4 +1,4 @@
-import { Filter } from '../../../packages/filterpane/src/models/Filter';
+import { Filter } from '../../../packages/filterpane/src/types/Filter';
 import {
   AgeBrackets,
   counter,

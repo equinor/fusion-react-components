@@ -5,13 +5,13 @@ import useFilterChangeHandler from '../../hooks/useFilterChangeHandler';
 import useFilterOptionsBuilder from '../../hooks/useFilterOptionsBuilder';
 import useFilterSelection from '../../hooks/useFilterSelection';
 
-import { Filter } from '../../models/Filter';
+import { Filter } from '../../types/Filter';
 import FilterStore from '../../filterStore/store';
 import { TextInput, TextInputChangeEvent } from '@equinor/fusion-react-textinput';
 import Radio from '@equinor/fusion-react-radio';
 import useStyles, { RadioFilterStyles } from './useStyles';
 import { TSelection } from '../../FilterProvider';
-import FilterOption from '../../models/FilterOption';
+import FilterOption from '../../types/FilterOption';
 
 const optionVisible = (option: FilterOption, searchString: string): boolean =>
   Boolean(
