@@ -9,40 +9,9 @@ import CheckboxOption from './components/CheckBoxOption';
 import SelectAllOption from './components/SelectAllOption';
 import { Filter } from '../../types/Filter';
 import FilterStore from '../../filterStore/store';
-import TextInput from '@equinor/fusion-react-textinput';
-import { createStyles, FusionTheme, makeStyles } from '@equinor/fusion-react-styles';
-import { TSelection } from 'filterpane/src/FilterProvider';
-
-export type CheckBoxFilterStyleProps = { checkBoxFilterContainer?: CSSProperties; filterHeader?: CSSProperties };
-
-const useStyles = makeStyles<FusionTheme, CheckBoxFilterStyleProps>(() =>
-  createStyles({
-    CheckBoxFilterContainer: ({ checkBoxFilterContainer }) => ({
-      display: 'flex',
-      flexDirection: 'column',
-      padding: '16px',
-      paddingBottom: '0px',
-      boxSizing: 'border-box',
-      minWidth: '100px',
-      maxWidth: '240px',
-      ...checkBoxFilterContainer,
-    }),
-    FilterHeader: {
-      padding: '0 8px',
-      fontWeight: 'bold',
-    },
-    TextInputIcon: {
-      transform: 'scale(0.8)',
-      cursor: 'pointer',
-    },
-    FilterOptionsContainer: {
-      flexDirection: 'column',
-      overflowY: 'auto',
-      margin: 0,
-      padding: 0,
-    },
-  })
-);
+import { TextInput, TextInputChangeEvent } from '@equinor/fusion-react-textinput';
+import { TSelection } from '../../FilterProvider';
+import useStyles, { CheckBoxFilterStyleProps } from './useStyles';
 
 const optionVisible = (
   filter: FilterOption,
