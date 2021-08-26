@@ -10,7 +10,7 @@ import SelectAllOption from './components/SelectAllOption';
 import { Filter } from '../../types/Filter';
 import FilterStore from '../../filterStore/store';
 import { TextInput, TextInputChangeEvent } from '@equinor/fusion-react-textinput';
-import { TSelection } from '../../FilterProvider';
+import { TSelection } from 'filterpane/src/FilterProvider';
 import useStyles, { CheckBoxFilterStyleProps } from './useStyles';
 
 const optionVisible = (
