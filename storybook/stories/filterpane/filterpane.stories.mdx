@@ -1,5 +1,9 @@
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import { useState } from 'react';
 import Filterpane from './filterpane';
+import { firstNameCheck, lastNameCheck, ageCheck, statusRadio } from './filterDefinitions';
+import { FilterProvider, CheckBoxFilter, RadioFilter, GeneralBar, FilterSection } from '../../../packages/filterpane';
+import { makeData, Person } from './functions';
 
 <Meta
   title="Filterpane/FilterPane"
@@ -13,15 +17,47 @@ import Filterpane from './filterpane';
 These components are build to cover common use cases for a general filter panel.
 The components are build to work interchangeably, as inspiration or something to build off of.
 
-export const Pane = (args) => {
-  return <Filterpane {...args} />;
+export const Pane = (args) => <Filterpane {...args} />;
+
+export const CheckBox = (args) => (
+  <FilterProvider initialData={args.data}>
+    <CheckBoxFilter filter={firstNameCheck} useSelectAll useSearch useSingleSelect />
+  </FilterProvider>
+);
+
+export const Radio = (args) => (
+  <FilterProvider initialData={args.data} initialFilters={{ status: 'all' }}>
+    <RadioFilter filter={statusRadio} useSearch />
+  </FilterProvider>
+);
+
+export const General = (args) => {
+  const [minimized, setMinimized] = useState(false);
+  return (
+    <FilterProvider initialData={args.data}>
+      <GeneralBar onMinimize={() => setMinimized((s) => !s)} minimized={minimized} searchFilterFn={() => {}} />
+    </FilterProvider>
+  );
 };
 
-<Story name="Filterpane" args={{ amount: 12 }}>
-  {Pane}
-</Story>
+export const Filtersection = (args) => {
+  return (
+    <FilterProvider initialData={args.data} initialFilters={{ firstName: [] }}>
+      <FilterSection useFilterSelector>
+        <CheckBoxFilter filter={{ ...firstNameCheck }} />
+        <CheckBoxFilter filter={{ ...lastNameCheck }} />
+      </FilterSection>
+    </FilterProvider>
+  );
+};
 
-The above filterpane is structed in code like this :
+<Canvas>
+  <Story name="Filterpane" args={{ amount: 12 }}>
+    {Pane}
+  </Story>
+</Canvas>
+
+The above filterpane is structured in code like this :
 
 ```jsx
 <FilterProvider initialData={data} initialFilters={{ status: 'all', firstName: [] }}>
@@ -59,7 +95,19 @@ It has a `search bar` that searches and filters the dataset based on the supplie
 When minimized The bar will show a set of chips as a summary of your selection, if any are done.
 The bar will handle `children` if added. They will flowa after the buttons/chips.
 
+<Canvas>
+  <Story name="GeneralBar" args={{ data: makeData(12) }}>
+    {General}
+  </Story>
+</Canvas>
+
 #### FilterSections
+
+<Canvas>
+  <Story name="Filtersection" args={{ data: makeData(12) }}>
+    {Filtersection}
+  </Story>
+</Canvas>
 
 This area holds all the filter controllers we have added.
 if you implement `useFilterSelector`, you will se the Filter Categories box.
@@ -76,6 +124,12 @@ Since all categories needs to be recalculated with each selection, performance c
 
 #### CheckBoxFilter
 
+<Canvas>
+  <Story name="CheckBox" args={{ data: makeData(12) }}>
+    {CheckBox}
+  </Story>
+</Canvas>
+
 A standard filter controller using checkboxes.
 Expects its selections to be an array.
 `filter` takes in an Filter object that has all the necessary setup (see filter settings).
@@ -89,6 +143,12 @@ If the counter hits 0, the options will disappear.
 It can happen that a selected option has a 0 counter. These will still show, for clarity.
 
 #### RadioFilter
+
+<Canvas>
+  <Story name="Radio" args={{ data: makeData(12) }}>
+    {Radio}
+  </Story>
+</Canvas>
 
 a standard filter controller using radio button.
 Expects its selection to be a singular `string`.  
