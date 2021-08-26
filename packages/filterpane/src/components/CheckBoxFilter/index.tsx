@@ -100,12 +100,14 @@ const CheckBoxFilter = <TSelections extends Record<string, TSelection>, TData>({
 
   const styles = useStyles(style || {});
 
+  const onInput = useCallback((e: TextInputChangeEvent) => setFilterSearch(e.currentTarget.value), [setFilterSearch]);
+
   return (
     <div className={styles.CheckBoxFilterContainer} key={'Checkbox' + title}>
       <header title={description} className={styles.FilterHeader}>
         {title}
       </header>
-      {useSearch && <TextInput value={filterSearch} placeholder={'Search'} type={'search'} />}
+      {useSearch && <TextInput onInput={onInput} value={filterSearch} placeholder={'Search'} type={'search'} />}
       <ul className={styles.FilterOptionsContainer}>
         {useSelectAll && filterOptions && (
           <SelectAllOption

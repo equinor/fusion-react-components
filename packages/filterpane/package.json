@@ -45,7 +45,7 @@
     "@equinor/fusion-react-checkbox": "^0.2.2",
     "@equinor/fusion-react-radio": "^0.2.2",
     "@equinor/fusion-react-styles": "0.1.0",
-    "@equinor/fusion-react-textinput": "^0.2.3",
+    "@equinor/fusion-react-textinput": "^0.3.x",
     "redux": "^4.0.5"
   },
   "peerDependencies": {

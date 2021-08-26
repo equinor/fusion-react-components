@@ -1,15 +1,15 @@
-import { Children, PropsWithChildren, ReactElement, useContext, useMemo, useState } from 'react';
+import { Children, PropsWithChildren, ReactElement, useCallback, useContext, useMemo, useState } from 'react';
 import { clsx } from '@equinor/fusion-react-styles';
 import { useSelector } from '@equinor/fusion';
 import FilterContext from '../../FilterContext';
 import FilterCategory from './components/FilterCategory';
 import useStyles from './useStyles';
-
+import { TextInput, TextInputChangeEvent } from '@equinor/fusion-react-textinput';
 import Icon from '../Icon';
 import { arrow_back, arrow_forward } from '@equinor/eds-icons';
 import { Filter } from '../../types/Filter';
 
-type FilterSelectorProps = { compact?: boolean };
+type FilterSelectorProps = { useSearch?: boolean; compact?: boolean };
 
 export type FilterCategoryType = {
   filterKey: string;
@@ -52,12 +52,18 @@ const filterCategories = (children: React.ReactNode, selection: unknown, filterS
  * </FilterSection>
  */
 
-const FilterSelector = ({ compact = false, children }: PropsWithChildren<FilterSelectorProps>): JSX.Element => {
+const FilterSelector = ({
+  useSearch = false,
+  compact = false,
+  children,
+}: PropsWithChildren<FilterSelectorProps>): JSX.Element => {
   const [show, setShow] = useState(true);
-  const [filterSearch] = useState('');
+  const [filterSearch, setFilterSearch] = useState('');
 
   const { store } = useContext(FilterContext);
   const selection = useSelector(store, 'selection');
+
+  const onInput = useCallback((e: TextInputChangeEvent) => setFilterSearch(e.currentTarget.value), [setFilterSearch]);
 
   const categories = useMemo(
     () => filterCategories(children, selection, filterSearch),

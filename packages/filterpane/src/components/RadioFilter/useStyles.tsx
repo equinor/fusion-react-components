@@ -5,7 +5,8 @@ export type RadioFilterStyles = {
   filterContainer?: CSSProperties;
   filterHeader?: CSSProperties;
   filterOptionsContainer?: CSSProperties;
-  filterOptions?: CSSProperties;
+  filterOption?: CSSProperties;
+  filterOptionLabel?: CSSProperties;
 };
 
 const useStyles = makeStyles<FusionTheme, RadioFilterStyles>(

@@ -24,6 +24,7 @@ type FilterSectionProps = {
   isMinimized?: boolean;
   useFilterSelector?: boolean;
   compactFilterSelector?: boolean;
+  useFilterSelectorSearch?: boolean;
 };
 
 /**
@@ -50,6 +51,7 @@ const FilterSection = ({
   isMinimized,
   useFilterSelector,
   compactFilterSelector = false,
+  useFilterSelectorSearch,
   children,
 }: PropsWithChildren<FilterSectionProps>): JSX.Element => {
   const [selection, setSelections] = useState<(ReactChild | ReactFragment | ReactPortal)[]>([]);
@@ -103,7 +105,11 @@ const FilterSection = ({
   return (
     <div className={filterContainerClassNames}>
       <div ref={resizeContainerRef} className={styles.FilterSection} style={{ ...resizedSize }}>
-        {useFilterSelector && <FilterSelector compact={compactFilterSelector}>{children}</FilterSelector>}
+        {useFilterSelector && (
+          <FilterSelector useSearch={useFilterSelectorSearch} compact={compactFilterSelector}>
+            {children}
+          </FilterSelector>
+        )}
         {selection.length ? (
           selection
         ) : (
