@@ -76,18 +76,16 @@ const { filteredData, selection, store } = useFilterStore();
 
 filteredData is a `useState` . When the provides filteredData changes, state gets update and exposed through filteredData
 selection is also a `useState`. This updates whenever a selection in the filters changes. Back from this you will get all the selections that are made in all registered filters.
-store is the entire FilterStore Context object, this is the same as accessing the context directly with `useContext`
+store is the entire FilterStore Context object, this is the same as accessing the context directly with `useFilterContext`
 
-### The FilterStore Context
+### useFilterContext
 
-Accessed through the useFilterStore or through `useContext`
+Gives access to the store only. This `store` is the same as the store provided by `useFilterStore`.
+But it dosnt have the state handling for filteredData and selection, which might be beneficial, when they are not needed.
 
 ```jsx
-const store = useFilterStore(FilterContext);
+const { store } = useFilterContext();
 ```
-
-This gives your access to the entire machine that is the Filter Provider.
-Both access to the filtered dataset, selections and functions controlling the provider.
 
 ### Data access
 
