@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.5.0 (2021-08-23)
+
+
+### Bug Fixes
+
+* changed erroMessageProps with any types to unknown ([5ac75ab](https://github.com/equinor/fusion-react-components/commit/5ac75ab6361eae5603a038611684b069e45ecbff))
+
+
+### Features
+
+* added the group by multiple level functionaly that was build for the swcr garden app ([4878ab9](https://github.com/equinor/fusion-react-components/commit/4878ab9a2769cb1aea104cfe8962b7c1f64ceeee))
+
+
+
+
+
 ## 1.4.3 (2021-07-14)
 
 **Note:** Version bump only for package @equinor/fusion-react-hanging-garden
