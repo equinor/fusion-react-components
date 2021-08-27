@@ -11,7 +11,7 @@ import { FilterOptionsFn } from './FilterOption';
 export type FilterFn<TData, TSelection> = (data: TData, selection: TSelection, allData?: TData) => TData;
 
 /**
- * Filter defintion for Registering Filters.
+ * Filter definition for Registering Filters.
  * Provider will only accept this format, when registering a filter.
  *
  * @param key Unique key for the filter.
@@ -19,7 +19,7 @@ export type FilterFn<TData, TSelection> = (data: TData, selection: TSelection, a
  * @param optionsBuilderFn A function that returns the valid options based on dataSet.
  * @param mandatory (optional) Is the filter mandatory. Filter Provider will not remove this on filter resets.
  * @param noFilterReset (optional) Stop Provider from resetting the filter, when reset functions are fired.
- * @param filterFn(optional) Function that filters data based on the selection. If no supplied, provider will ignore this filter.
+ * @param filterFn(optional) Function that filters data based on the selection. If not supplied, the filter can no be added to the filtering process.
  * @param counterFn(optional) Functions that counts the occurrence of each option in the dataset.
  * @param resetFilterFn(optional) Function that overrides default filter reset. If not supplied, filter selection will be emptied.
  * @param description(optional) description of the filter and how it work.

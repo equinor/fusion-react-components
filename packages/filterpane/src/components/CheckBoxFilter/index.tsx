@@ -1,5 +1,4 @@
-import { useCallback, useContext, useEffect, useState } from 'react';
-import FilterContext from '../../FilterContext';
+import { useCallback, useEffect, useState } from 'react';
 import FilterOption from '../../types/FilterOption';
 import useFilterChangeHandler from '../../hooks/useFilterChangeHandler';
 import useFilterOptionsCounter from '../../hooks/useFilterOptionsCounter';
@@ -10,8 +9,9 @@ import SelectAllOption from './components/SelectAllOption';
 import { Filter } from '../../types/Filter';
 import FilterStore from '../../filterStore/store';
 import { TextInput, TextInputChangeEvent } from '@equinor/fusion-react-textinput';
-import { TSelection } from 'filterpane/src/FilterProvider';
+import { TSelection } from '../../FilterProvider';
 import useStyles, { CheckBoxFilterStyleProps } from './useStyles';
+import useFilterContext from '../../hooks/useFilterContext';
 
 const optionVisible = (
   filter: FilterOption,
@@ -77,8 +77,7 @@ const CheckBoxFilter = <TSelections extends Record<string, TSelection>, TData>({
 }: FilterContainerProps<TData>): JSX.Element => {
   const [filterSearch, setFilterSearch] = useState('');
 
-  const context = useContext(FilterContext);
-  const store = context.store as FilterStore<TSelections, TData>;
+  const store = useFilterContext().store as FilterStore<TSelections, TData>;
   const { key, title, filterFn, optionsBuilderFn, counterFn, description } = filter;
 
   const handleSelectionChange = useFilterChangeHandler(key, selectionUpdate);

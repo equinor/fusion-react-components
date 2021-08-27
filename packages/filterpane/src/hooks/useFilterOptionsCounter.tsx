@@ -1,6 +1,6 @@
-import { useContext, useState, useMemo, useEffect } from 'react';
-import FilterContext from '../FilterContext';
+import { useState, useMemo, useEffect } from 'react';
 import FilterCounters from '../types/FilterCounters';
+import useFilterContext from './useFilterContext';
 
 /**
  * This hook uses the supplied function to count the amount of times a given options occurs in the filtered dataset
@@ -18,7 +18,7 @@ const useFilterOptionsCounter = <TData,>(
   key: string,
   counterFn?: (data: TData) => FilterCounters
 ): FilterCounters | null => {
-  const { store } = useContext(FilterContext);
+  const { store } = useFilterContext();
   const [optionsCount, setOptionsCount] = useState<FilterCounters | null>(null);
 
   const filteredSelectionData = useMemo(() => store.filterSelectionData(key), [store]);

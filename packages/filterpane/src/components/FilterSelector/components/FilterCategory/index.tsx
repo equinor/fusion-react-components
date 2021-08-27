@@ -1,9 +1,10 @@
 import { createStyles, makeStyles } from '@equinor/fusion-react-styles';
-import { useContext, useMemo, useEffect, useCallback } from 'react';
+import { useMemo, useEffect, useCallback } from 'react';
 import { Subject } from 'rxjs';
 import CheckBox from '@equinor/fusion-react-checkbox';
-import FilterContext from '../../../../FilterContext';
+
 import { FilterCategoryType } from '../..';
+import useFilterContext from '../../../../hooks/useFilterContext';
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -18,7 +19,7 @@ const useStyles = makeStyles(() =>
 );
 
 const useChangeHandler = (key: string) => {
-  const { store } = useContext(FilterContext);
+  const { store } = useFilterContext();
   const change$: Subject<boolean> = useMemo(() => new Subject<boolean>(), []);
 
   useEffect(() => {

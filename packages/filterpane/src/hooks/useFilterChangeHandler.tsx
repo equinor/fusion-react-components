@@ -1,7 +1,7 @@
-import { useCallback, useContext, useEffect, useMemo } from 'react';
+import { useCallback, useEffect, useMemo } from 'react';
 import { Subject } from 'rxjs';
 import { withLatestFrom, pluck } from 'rxjs/operators';
-import FilterContext from '../FilterContext';
+import useFilterContext from './useFilterContext';
 
 type FilterChange<TChange> = (data: TChange) => void;
 /**
@@ -23,14 +23,14 @@ type FilterChange<TChange> = (data: TChange) => void;
  *
  * const {onChange} = useFilterChangeHandles('Name',selectionUpdate)
  *
- * <Checbox onInput={(e) => onChange({name:'Helge',selected:e.currentTarget.checked})}
+ * <Checkbox onInput={(e) => onChange({name:'Helge',selected:e.currentTarget.checked})}
  *
  */
 const useFilterChangeHandler = <TChange, TSelection>(
   key: string,
   updateSelectionFunction: (change: TChange, selection: TSelection) => TSelection
 ): FilterChange<TChange> => {
-  const { store } = useContext(FilterContext);
+  const { store } = useFilterContext();
   const change$: Subject<TChange> = useMemo(() => new Subject<TChange>(), []);
   useEffect(() => {
     const subscription = change$

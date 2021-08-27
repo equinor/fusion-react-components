@@ -1,5 +1,5 @@
-import { useContext, useState, useEffect } from 'react';
-import FilterContext from '../FilterContext';
+import { useState, useEffect } from 'react';
+import useFilterContext from './useFilterContext';
 
 /**
  * Gives you the current selection for a given filter key.
@@ -12,7 +12,7 @@ import FilterContext from '../FilterContext';
  * const currentOptionsSelection = useFilterSelection<string[]>('name');
  */
 const useFilterSelection = <TSelection,>(key: string): TSelection | null => {
-  const { store } = useContext(FilterContext);
+  const { store } = useFilterContext();
   const [filterSelection, setFilterSelection] = useState<TSelection | null>(null);
 
   useEffect(() => {

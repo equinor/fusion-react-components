@@ -1,7 +1,8 @@
 import { useSelector } from '@equinor/fusion';
-import { useContext, useMemo } from 'react';
-import FilterContext from '../FilterContext';
+import { useMemo } from 'react';
+
 import { FilterOptions, FilterOptionsFn } from '../types/FilterOption';
+import useFilterContext from './useFilterContext';
 
 /**
  * Handles building filter options for a filter.
@@ -27,7 +28,7 @@ import { FilterOptions, FilterOptionsFn } from '../types/FilterOption';
  * const {options,sortOrder} = useFilterOptionsBuilder(optionsBuilderFn);
  */
 const useFilterOptionsBuilder = <TData,>(optionsBuilderFn: FilterOptionsFn<TData>): FilterOptions | null => {
-  const { store } = useContext(FilterContext);
+  const { store } = useFilterContext();
   const data$ = useSelector(store, 'data');
   const filterOptions = useMemo(() => (data$ ? optionsBuilderFn(data$) : null), [optionsBuilderFn, data$]);
 

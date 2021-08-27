@@ -11,7 +11,7 @@ type FilterProviderProps<TSelections extends Record<string, TSelection>, TData> 
 
 /**
  *Filter Context provider for filtering functionality.
- *Access data using  const { store } = useContext(FilterContext);
+ *Access data using  const { filteredData, selection, store } = useFilterStore();
  *
  * @param initialData  The full dataset that should be filtered.
  * @param initialFilters Filters to be registered when first loading the provider.

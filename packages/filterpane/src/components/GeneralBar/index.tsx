@@ -1,17 +1,18 @@
-import { useCallback, useContext, useEffect, useMemo, useState, PropsWithChildren } from 'react';
+import { useCallback, useEffect, useMemo, useState, PropsWithChildren } from 'react';
 import { Subject } from 'rxjs';
 import { pluck, withLatestFrom } from 'rxjs/operators';
-import FilterContext from '../../FilterContext';
+
 import Button from '@equinor/fusion-react-button';
 import useStyles from './useStyles';
 import FilterSelectionChips from '../FilterSelectionChips';
 import HorizontalBar from '../HorizontalBar';
 import FilterStore from '../../filterStore/store';
-import { TSelection } from 'filterpane/src/FilterProvider';
+import { TSelection } from '../../FilterProvider';
 import { TextInput, TextInputChangeEvent } from '@equinor/fusion-react-textinput';
+import useFilterContext from '../../hooks/useFilterContext';
 
 const useChangeHandler = (key: string) => {
-  const { store } = useContext(FilterContext);
+  const { store } = useFilterContext();
   const change$: Subject<string> = useMemo(() => new Subject<string>(), []);
   useEffect(() => {
     const subscription = change$
@@ -24,7 +25,7 @@ const useChangeHandler = (key: string) => {
 };
 
 const useSearch = (searchKey: string) => {
-  const { store } = useContext(FilterContext);
+  const { store } = useFilterContext();
   const [searchValue, setSearchValue] = useState('');
 
   useEffect(() => {
@@ -65,8 +66,7 @@ const GeneralBar = <TData,>({
   onMinimize,
   children,
 }: PropsWithChildren<GeneralBarProps<TData, TSelection>>): JSX.Element => {
-  const context = useContext(FilterContext);
-  const store = context.store as FilterStore<Record<string, string>, TData>;
+  const store = useFilterContext().store as FilterStore<Record<string, string>, TData>;
   const SEARCH_KEY = 'GENERALBAR_SEARCH';
 
   const filterSearch = useSearch(SEARCH_KEY);

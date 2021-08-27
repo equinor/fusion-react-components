@@ -1,13 +1,14 @@
-import { Children, PropsWithChildren, ReactElement, useCallback, useContext, useMemo, useState } from 'react';
+import { Children, PropsWithChildren, ReactElement, useCallback, useMemo, useState } from 'react';
 import { clsx } from '@equinor/fusion-react-styles';
 import { useSelector } from '@equinor/fusion';
-import FilterContext from '../../FilterContext';
+
 import FilterCategory from './components/FilterCategory';
 import useStyles from './useStyles';
 import { TextInput, TextInputChangeEvent } from '@equinor/fusion-react-textinput';
 import Icon from '../Icon';
 import { arrow_back, arrow_forward } from '@equinor/eds-icons';
 import { Filter } from '../../types/Filter';
+import useFilterContext from '../../hooks/useFilterContext';
 
 type FilterSelectorProps = { useSearch?: boolean; compact?: boolean };
 
@@ -60,7 +61,7 @@ const FilterSelector = ({
   const [show, setShow] = useState(true);
   const [filterSearch, setFilterSearch] = useState('');
 
-  const { store } = useContext(FilterContext);
+  const { store } = useFilterContext();
   const selection = useSelector(store, 'selection');
 
   const onInput = useCallback((e: TextInputChangeEvent) => setFilterSearch(e.currentTarget.value), [setFilterSearch]);

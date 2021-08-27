@@ -1,8 +1,9 @@
-import { useContext, useEffect, useState } from 'react';
-import FilterContext from '../../FilterContext';
+import { useEffect, useState } from 'react';
+
 import { createStyles, makeStyles } from '@equinor/fusion-react-styles';
 import Icon from '../Icon';
 import { close } from '@equinor/eds-icons';
+import useFilterContext from '../../hooks/useFilterContext';
 
 type FilterChips = {
   key: string;
@@ -35,7 +36,7 @@ const useStyles = makeStyles(
 );
 
 const useChipsSelection = () => {
-  const { store } = useContext(FilterContext);
+  const { store } = useFilterContext();
   const [chips, setChips] = useState<FilterChips[]>([]);
 
   useEffect(() => {
@@ -65,7 +66,7 @@ const useChipsSelection = () => {
 
 const FilterSelectionChips = (): JSX.Element => {
   const chips = useChipsSelection();
-  const { store } = useContext(FilterContext);
+  const { store } = useFilterContext();
   const styles = useStyles();
 
   return (

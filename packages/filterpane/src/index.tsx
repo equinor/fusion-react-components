@@ -6,6 +6,7 @@ export { default as useFilterChangeHandler } from './hooks/useFilterChangeHandle
 export { default as useFilterOptionsBuilder } from './hooks/useFilterOptionsBuilder';
 export { default as useFilterOptionsCounter } from './hooks/useFilterOptionsCounter';
 export { default as useFilterSelection } from './hooks/useFilterSelection';
+export { default as useFilterContext } from './hooks/useFilterContext';
 
 // UI Components
 export { default as FilterPanel } from './components/HorizontalFilterPanel';

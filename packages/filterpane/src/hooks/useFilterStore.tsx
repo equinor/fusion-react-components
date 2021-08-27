@@ -1,6 +1,6 @@
-import { useContext, useState, useEffect } from 'react';
-import FilterContext from '../FilterContext';
+import { useState, useEffect } from 'react';
 import { FilterStore } from '../filterStore/store';
+import useFilterContext from './useFilterContext';
 
 type FilterStoreHook<TData> = {
   filteredData: TData | null;
@@ -18,14 +18,15 @@ type FilterStoreHook<TData> = {
  * @returns filteredData, selection and store
  *
  * @example
+ * ```tsx
  * const {filteredData,selection,store} = useFilterStore();
  *
  * <MyTableComponent data={filteredData} />
- *
+ * ```
  */
 
 const useFilterStore = <TData,>(): FilterStoreHook<TData> => {
-  const { store } = useContext(FilterContext);
+  const { store } = useFilterContext();
   const [filteredData, setFilteredData] = useState<TData | null>(null);
   const [selection, setSelection] = useState<Record<string, unknown>>({});
 

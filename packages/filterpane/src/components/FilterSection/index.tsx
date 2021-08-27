@@ -5,13 +5,11 @@ import {
   ReactElement,
   ReactFragment,
   ReactPortal,
-  useContext,
   useEffect,
   useMemo,
   useRef,
   useState,
 } from 'react';
-import FilterContext from '../../FilterContext';
 import FilterSelector from '../FilterSelector';
 import useResizablePanel from '../../hooks/useResizablePanel';
 import { pipe } from 'rxjs';
@@ -19,6 +17,7 @@ import { clsx } from '@equinor/fusion-react-styles';
 import useStyles from './useStyles';
 import { unfold_more } from '@equinor/eds-icons';
 import Icon from '../Icon';
+import useFilterContext from '../../hooks/useFilterContext';
 
 type FilterSectionProps = {
   isMinimized?: boolean;
@@ -55,7 +54,7 @@ const FilterSection = ({
   children,
 }: PropsWithChildren<FilterSectionProps>): JSX.Element => {
   const [selection, setSelections] = useState<(ReactChild | ReactFragment | ReactPortal)[]>([]);
-  const { store } = useContext(FilterContext);
+  const { store } = useFilterContext();
 
   useEffect(() => {
     if (!useFilterSelector) {
