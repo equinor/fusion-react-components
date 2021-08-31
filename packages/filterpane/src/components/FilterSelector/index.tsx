@@ -1,6 +1,5 @@
 import { Children, PropsWithChildren, ReactElement, useCallback, useMemo, useState } from 'react';
 import { clsx } from '@equinor/fusion-react-styles';
-import { useSelector } from '@equinor/fusion';
 
 import FilterCategory from './components/FilterCategory';
 import useStyles from './useStyles';
@@ -9,6 +8,7 @@ import Icon from '../Icon';
 import { arrow_back, arrow_forward } from '@equinor/eds-icons';
 import { Filter } from '../../types/Filter';
 import useFilterContext from '../../hooks/useFilterContext';
+import useSelector from 'filterpane/src/epic/hooks/useSelector';
 
 type FilterSelectorProps = { useSearch?: boolean; compact?: boolean };
 

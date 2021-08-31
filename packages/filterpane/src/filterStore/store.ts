@@ -1,11 +1,11 @@
-import { EpicReducer } from '@equinor/fusion/lib/epic';
 import { of, Observable, BehaviorSubject } from 'rxjs';
 import { pluck, switchMap, withLatestFrom, distinctUntilChanged } from 'rxjs/operators';
+import EpicReducer from '../epic/reducer';
 import { TSelection } from '../FilterProvider';
 import { Filter, FilterFn, FilterFnStore, FilterSettingsStore } from '../types/Filter';
 import FilterStoreState from '../types/FilterStoreState';
 import actions, { Actions } from './actions';
-import epics from './epics';
+
 import reducers from './reducers';
 
 const filterReducer =
@@ -183,7 +183,6 @@ export const createFilterStore = <TSelections extends Record<string, unknown>, T
 ): FilterStore<TSelections, TData> => {
   const store = new FilterStore<TSelections, TData>(
     reducers,
-    epics, //TODO: CAN WE GET RID OF THIS ?????
     { data: initialData, selection: initialSelections || ({} as TSelections) },
     undefined
   );

@@ -1,0 +1,37 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import {
+  FilterProvider,
+  CheckBoxFilter,
+  RadioFilter,
+  GeneralBar,
+  FilterSection,
+  Filter,
+} from '../../../packages/filterpane';
+
+<Meta
+  title="Filterpane/Create custom filter"
+  parameters={{
+    viewMode: 'docs',
+    previewTabs: {
+      canvas: { hidden: true },
+    },
+  }}
+/>
+
+# Create a custom filter
+
+The filerprovider in built to be able to handle any type of filtering you might need.
+While the filterpane comes with some built in filtertypes, they are only built to cover the most common use cases.
+
+If you need something more specific, you have full freedom to do so.
+Either by building from scratch or just simply taking the prebuilt components, and make your own take on them.
+
+> It is recommended to be familiar with the FilterProvider when writing your own filter.  
+> Check out the [Filter Provider page](?path=/docs/filterpane-filterprovider--page) for more details
+
+## How to register your filter with the FilterProvider
+
+To get the filterprovider to acknowledge your component, it needs to be registered with the filter provider store.
+This can be done through the `useFilterContext` hook.
+
+> Read about useFilterContext [here](?path=/docs/filterpane-filterprovider--page#usefiltercontext)

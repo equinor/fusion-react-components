@@ -1,5 +1,5 @@
-import { useSelector } from '@equinor/fusion';
 import { useMemo } from 'react';
+import useSelector from '../epic/hooks/useSelector';
 
 import { FilterOptions, FilterOptionsFn } from '../types/FilterOption';
 import useFilterContext from './useFilterContext';
