@@ -77,4 +77,4 @@ declare module 'react-table' {
   }
 }
 
-export { TableOptions } from 'react-table';
+export { TableOptions, CellProps } from 'react-table';
