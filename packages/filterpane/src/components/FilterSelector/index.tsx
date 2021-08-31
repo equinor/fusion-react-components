@@ -8,7 +8,7 @@ import Icon from '../Icon';
 import { arrow_back, arrow_forward } from '@equinor/eds-icons';
 import { Filter } from '../../types/Filter';
 import useFilterContext from '../../hooks/useFilterContext';
-import useSelector from 'filterpane/src/epic/hooks/useSelector';
+import useSelector from '../../epic/hooks/useSelector';
 
 type FilterSelectorProps = { useSearch?: boolean; compact?: boolean };
 

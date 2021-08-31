@@ -261,7 +261,7 @@ This means that the filterProvider will use the filters FilterFn, when it runs i
 In the same way it "unregister" itself when a the component is unmounted.
 Meaning the filterFn is removed from the filtering process.
 
-This runs in a useEffect
+In the prebuilt filters they are added like this
 
 ```tsx
 useEffect(() => {
@@ -271,11 +271,13 @@ useEffect(() => {
 }, [store, key, filterFn, filter]);
 ```
 
-> Mounting and Unmounting affects your filters !  
-> Unintentional mounting and unmounting will probably cause unwanted effects
+> Be ware of the register and unregister. If you for example want to hide the component,  
+> and unmounts the component in the process. Might give you some unintended consequences.  
+> If using a plane `display: none` in css is not an option. you should think abit about how you register and unregister your filter.
 
 If you want to show hide your filterpane. It is recommended to to this through css.
 By hiding the container. If you unload, the filter process will run and filtered dataset will change.
 
 In the above example, you can se the filterSetting is registered. This is not removed on unload.
 Meaning all the filtersSettings that are once registered, will be available in the provider for its entire lifecycle.
+The filter Provider will use this when accessing settings some settings like mandatory, resetFilterFn and some others.
