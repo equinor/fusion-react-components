@@ -68,15 +68,16 @@ const RadioFilter = <TSelections extends Record<string, TSelection>, TData>({
 
   const Styles = useStyles(styles || {});
 
-  const onInput = useCallback((e: TextInputChangeEvent) => setFilterSearch(e.currentTarget.value), [setFilterSearch]);
+  const onSearchValueChange = (e: TextInputChangeEvent) => setFilterSearch(e.target.value);
 
   return (
     <div className={Styles.RadioFilterContainer} key={'Radio' + title}>
       <header className={Styles.FilterHeader} title={description}>
         {title}
       </header>
-      {useSearch && <TextInput onInput={onInput} value={filterSearch} placeholder={'Search'} type={'search'} />}
-
+      {useSearch && (
+        <TextInput onChange={onSearchValueChange} value={filterSearch} placeholder={'Search'} type={'search'} />
+      )}
       <div className={Styles.FilterOptionsContainer}>
         {filterOptions?.sortOrder?.map((key) => {
           const data = filterOptions.options[key];

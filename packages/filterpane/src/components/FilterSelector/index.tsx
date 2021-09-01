@@ -1,4 +1,4 @@
-import { Children, PropsWithChildren, ReactElement, useCallback, useMemo, useState } from 'react';
+import { Children, PropsWithChildren, ReactElement, useMemo, useState } from 'react';
 import { clsx } from '@equinor/fusion-react-styles';
 
 import FilterCategory from './components/FilterCategory';
@@ -64,7 +64,7 @@ const FilterSelector = ({
   const { store } = useFilterContext();
   const selection = useSelector(store, 'selection');
 
-  const onInput = useCallback((e: TextInputChangeEvent) => setFilterSearch(e.currentTarget.value), [setFilterSearch]);
+  const onChange = (e: TextInputChangeEvent) => setFilterSearch(e.target.value);
 
   const categories = useMemo(
     () => filterCategories(children, selection, filterSearch),
@@ -92,7 +92,7 @@ const FilterSelector = ({
 
       {show && (
         <>
-          {useSearch && <TextInput onInput={onInput} value={filterSearch} placeholder={'Search'} type={'search'} />}
+          {useSearch && <TextInput onChange={onChange} value={filterSearch} placeholder={'Search'} type={'search'} />}
           <ul className={styles.SelectorSection}>
             {categories.map((category) => (
               <FilterCategory key={category.filterKey} compact={compact} {...category} />
