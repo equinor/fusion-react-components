@@ -33,6 +33,7 @@ export interface IHangingGardenContext {
   popover: UsePopover;
   colorMode: ColorMode;
   groupLevels: number;
+  padding: number;
 }
 
 const HangingGardenContext = createContext<IHangingGardenContext>({} as IHangingGardenContext);
