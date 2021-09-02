@@ -2,6 +2,7 @@ import * as PIXI from 'pixi.js-legacy';
 import { ColumnGroupHeader, HangingGardenColumn, HangingGardenColumnIndex } from './models/HangingGarden';
 import { ExpandedColumn, ExpandedColumns } from './models/ExpandedColumn';
 import { ItemRenderContext, Position } from './models/RenderContext';
+import { Vector2 } from './components/Vector2';
 
 export const DEFAULT_ITEM_HEIGHT = 24;
 export const DEFAULT_HEADER_HEIGHT = 32;
@@ -159,3 +160,29 @@ export const flattenColumn = <T extends HangingGardenColumnIndex>(
         []
       )
     : column.data;
+
+/**
+ * Method for drawing dashed lines
+ * @param toX x-coordinate you want to draw the dashed lines to
+ * @param toY y-coordinate you want to draw the dashed lines to
+ * @param dash length of the dashed lines
+ * @param gap the gap between the dashed lines
+ */
+//@ts-ignore
+PIXI.Graphics.prototype.drawDashLine = function (toX: number, toY: number, dash = 12, gap = 5) {
+  //@ts-ignore
+  const lastPosition = this.currentPath.points;
+  const from = new Vector2(lastPosition[lastPosition.length - 2] || 0, lastPosition[lastPosition.length - 1] || 0);
+  const to = new Vector2(toX, toY);
+  const a = from.x - to.x;
+  const b = from.y - to.y;
+  const distance = Math.sqrt(a * a + b * b);
+  const v = new Vector2();
+  for (let i = dash + gap; i <= distance; i += dash + gap) {
+    v.lerpVectors(from, to, (i - gap) / distance);
+    this.lineTo(v.x, v.y);
+    v.lerpVectors(from, to, i / distance);
+    this.moveTo(v.x, v.y);
+  }
+  this.lineTo(to.x, to.y);
+};

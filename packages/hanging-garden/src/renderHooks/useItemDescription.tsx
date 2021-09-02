@@ -32,6 +32,7 @@ const useItemDescription = <T extends HangingGardenColumnIndex>(): UseItemDescri
     getItemDescription,
     textureCaches: { getTextureFromCache, addTextureToCache },
     groupLevels,
+    padding,
   } = useHangingGardenContext();
 
   const { createTextNode } = useTextNode();
@@ -61,10 +62,12 @@ const useItemDescription = <T extends HangingGardenColumnIndex>(): UseItemDescri
       }
 
       const pixiContainer = getRenderedItemDescription(item);
-      pixiContainer.y = headerHeight + index * itemHeight + (itemHeight / 2 - pixiContainer.height / 2);
+      pixiContainer.y =
+        headerHeight + index * (itemHeight + padding) + ((itemHeight + padding) / 2 - pixiContainer.height / 2);
       pixiContainer.x =
-        getColumnX(columnIndex, expandedColumns, itemWidth, groupLevels) +
+        getColumnX(columnIndex, expandedColumns, itemWidth + padding, groupLevels) +
         itemWidth +
+        padding +
         groupLevels * GROUP_LEVEL_OFFSET +
         EXPANDED_COLUMN_PADDING;
       stage.current.removeChild(pixiContainer);
