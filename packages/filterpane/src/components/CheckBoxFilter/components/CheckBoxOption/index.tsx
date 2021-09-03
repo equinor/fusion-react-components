@@ -51,6 +51,7 @@ const CheckboxOption = ({
 }: CheckboxOptionProps): JSX.Element => {
   const styles = useStyles();
 
+  // TODO: @olerichard - when fusion-react-components support attribute filter, remove undefined from props
   return (
     <li className={styles.FilterOption} key={filterKey}>
       <CheckBox

@@ -1,4 +1,5 @@
 //import { useAppSettings } from '@equinor/fusion';
+// TODO @odinr - make this a global component in the future
 import { useState, useCallback, useEffect, RefObject, useMemo } from 'react';
 import useEventListener from './useEventListener';
 

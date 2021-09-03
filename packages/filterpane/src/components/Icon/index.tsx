@@ -2,6 +2,8 @@ import { FunctionComponent, MouseEventHandler } from 'react';
 import { FusionTheme, makeStyles, createStyles } from '@equinor/fusion-react-styles';
 import { IconData } from '@equinor/eds-icons';
 
+// TODO - @odinr @olerichard - replace when icon component is in fusion-react-components
+
 type StyleProps = {
   size?: string;
 };
