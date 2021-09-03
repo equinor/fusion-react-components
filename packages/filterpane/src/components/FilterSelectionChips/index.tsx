@@ -1,10 +1,9 @@
-import { useContext, useEffect, useState } from 'react';
-import FilterContext from '../../FilterContext';
+import { useEffect, useState } from 'react';
+
 import { createStyles, makeStyles } from '@equinor/fusion-react-styles';
 import Icon from '../Icon';
 import { close } from '@equinor/eds-icons';
-
-// TODO @odinr @olerichard - replace this when chips are mode as a component 
+import useFilterContext from '../../hooks/useFilterContext';
 
 type FilterChips = {
   key: string;
@@ -13,20 +12,33 @@ type FilterChips = {
   selection: any;
 };
 
-const useStyles = makeStyles(() =>
-  createStyles({
-    ChipsContainer: {
-      display: 'grid',
-      gridAutoFlow: 'column',
-      gridGap: '8px',
-      alignContent: 'center',
-      overflow: 'auto',
-    },
-  })
+// TODO @odinr @olerichard - replace this when chips are mode as a component
+
+const useStyles = makeStyles(
+  () =>
+    createStyles({
+      ChipsContainer: {
+        display: 'grid',
+        gridAutoFlow: 'column',
+        gridGap: '8px',
+        alignContent: 'center',
+        overflow: 'auto',
+      },
+      Chip: {
+        display: 'flex',
+        background: 'lightgrey',
+        borderRadius: '8px',
+        whiteSpace: 'nowrap',
+        padding: '8px',
+        lineHeight: '24px',
+        alignItems: 'center',
+      },
+    }),
+  { name: 'fusion-filterpane-chips' }
 );
 
 const useChipsSelection = () => {
-  const { store } = useContext(FilterContext);
+  const { store } = useFilterContext();
   const [chips, setChips] = useState<FilterChips[]>([]);
 
   useEffect(() => {
@@ -56,24 +68,13 @@ const useChipsSelection = () => {
 
 const FilterSelectionChips = (): JSX.Element => {
   const chips = useChipsSelection();
-  const { store } = useContext(FilterContext);
+  const { store } = useFilterContext();
   const styles = useStyles();
 
   return (
     <div className={styles.ChipsContainer}>
       {chips.map((chip) => (
-        <div
-          key={'Chips' + chip.key}
-          style={{
-            display: 'flex',
-            background: 'lightgrey',
-            borderRadius: '8px',
-            whiteSpace: 'nowrap',
-            padding: '8px',
-            lineHeight: '24px',
-            alignItems: 'center',
-          }}
-        >
+        <div key={'Chip' + chip.key} className={styles.Chip}>
           {`${chip.title} (${Array.isArray(chip.selection) ? chip.selection.length : chip.selection}) `}
           <Icon
             icon={close}
