@@ -15,7 +15,7 @@ type FilterChips = {
 // TODO @odinr @olerichard - replace this when chips are mode as a component
 
 const useStyles = makeStyles(
-  () =>
+  (theme) =>
     createStyles({
       ChipsContainer: {
         display: 'grid',
@@ -25,13 +25,23 @@ const useStyles = makeStyles(
         overflow: 'auto',
       },
       Chip: {
+        fontFamily: 'Equinor',
+        fontWeight: 500,
+        fontSize: '0.875rem',
+        color: theme.colors.interactive.primary__resting.value.hex,
         display: 'flex',
-        background: 'lightgrey',
-        borderRadius: '8px',
+        borderRadius: '16px',
+        background: theme.colors.interactive.primary__selected_highlight.value.hex,
         whiteSpace: 'nowrap',
-        padding: '8px',
+        padding: '4px 8px ',
         lineHeight: '24px',
         alignItems: 'center',
+      },
+      ChipResetFilter: {
+        borderRadius: '16px',
+        '&:hover': {
+          background: theme.colors.interactive.primary__hover_alt.value.hex,
+        },
       },
     }),
   { name: 'fusion-filterpane-chips' }
@@ -76,10 +86,12 @@ const FilterSelectionChips = (): JSX.Element => {
       {chips.map((chip) => (
         <div key={'Chip' + chip.key} className={styles.Chip}>
           {`${chip.title} (${Array.isArray(chip.selection) ? chip.selection.length : chip.selection}) `}
-          <Icon
-            icon={close}
-            onClick={chip.noFilterReset ? undefined : () => store.clearSingleFilterSelection(chip.key)}
-          />
+          <div className={styles.ChipResetFilter}>
+            <Icon
+              icon={close}
+              onClick={chip.noFilterReset ? undefined : () => store.clearSingleFilterSelection(chip.key)}
+            />
+          </div>
         </div>
       ))}
     </div>
