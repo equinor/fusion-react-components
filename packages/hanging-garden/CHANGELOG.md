@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.6.0 (2021-09-06)
+
+
+### Features
+
+* padding option and new dashed highlight border around packages ([68a9eaf](https://github.com/equinor/fusion-react-components/commit/68a9eaf672fc7f02729d9d39fa7790a591fbf229))
+
+
+
+
+
 # 1.5.0 (2021-08-23)
 
 
