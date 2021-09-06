@@ -19,6 +19,7 @@ const useRenderQueue = (): RenderQueue => {
   const {
     pixiApp,
     itemWidth,
+    padding,
     textureCaches: { getTextureFromCache, addTextureToCache },
   } = useHangingGardenContext();
 
@@ -60,7 +61,7 @@ const useRenderQueue = (): RenderQueue => {
     async (renderer: RenderItem) => {
       let graphicsContainer = getTextureFromCache('graphics', renderer.key) as PIXI.RenderTexture;
 
-      if (!graphicsContainer || graphicsContainer.width !== itemWidth) {
+      if (!graphicsContainer || graphicsContainer.width !== itemWidth + padding) {
         const graphics = new PIXI.Graphics();
         graphics.cacheAsBitmap = false;
         renderer.render({

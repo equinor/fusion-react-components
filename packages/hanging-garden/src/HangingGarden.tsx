@@ -29,6 +29,7 @@ import { makeStyles, createStyles } from '@equinor/fusion-react-styles';
  * @param provideController Returns a ref. this contains the renderGarden function. Used to trigger rerenders at will.
  * @param backgroundColor Backgroun color for the garden. Defaults to  white(0xffffff),
  * @param disableScrollToHighlightedItem Per default garden centers column of clicked item. This disables that interaction.
+ * @param padding Used to add padding to the packages and will also enable a different highlighted item border if above padding above 0. Defaults to 0.
  */
 
 const useStyles = makeStyles(() =>
@@ -62,6 +63,7 @@ function HangingGarden<T extends HangingGardenColumnIndex>({
   colorMode = 'Regular',
   disableScrollToHighlightedItem = false,
   groupLevels = 0,
+  padding = 0,
 }: HangingGardenProps<T>): JSX.Element {
   const [maxRowCount, setMaxRowCount] = useState(0);
   const [expandedColumns, setExpandedColumns] = useState<ExpandedColumns>({});
@@ -70,7 +72,7 @@ function HangingGarden<T extends HangingGardenColumnIndex>({
   const canvas = useRef<HTMLCanvasElement>(null);
   const stage = useRef<PIXI.Container>(new PIXI.Container());
 
-  const scroll = useScrolling<T>(canvas, container, itemKeyProp, disableScrollToHighlightedItem);
+  const scroll = useScrolling<T>(canvas, container, itemKeyProp, padding, disableScrollToHighlightedItem);
   const textureCaches = useTextureCaches();
   const popover = usePopover();
 
@@ -112,6 +114,7 @@ function HangingGarden<T extends HangingGardenColumnIndex>({
             popover,
             colorMode,
             groupLevels,
+            padding,
           }}
         >
           <Garden<T> provideController={provideController} />
