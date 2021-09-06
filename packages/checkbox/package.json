@@ -34,11 +34,9 @@
     "url": "https://github.com/equinor/fusion-react-components/issues"
   },
   "dependencies": {
-    "@equinor/fusion-react-utils": "^1.1.1",
+    "@equinor/fusion-react-utils": "^1.1.2",
     "@equinor/fusion-wc-checkbox": "^0.2.2",
     "@equinor/fusion-wc-formfield": "^0.2.1"
   },
-  "devDependencies": {
-    "typescript": "^4.3.5"
-  }
+  "devDependencies": {}
 }
