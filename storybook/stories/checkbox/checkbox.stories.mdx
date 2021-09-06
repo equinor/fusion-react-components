@@ -1,66 +1,48 @@
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
-import Checkbox from '@equinor/fusion-react-checkbox';
+import Template from './CheckBoxTemplate';
 
-<Meta
-  title="Input/Checkbox"
-  parameters={{
-    viewMode: 'docs',
-    previewTabs: {
-      canvas: { hidden: true },
-    },
-  }}
+import { Checkbox, CheckboxProps } from '@equinor/fusion-react-checkbox';
+
+export const Container = ({ children}) => (
+    <div style={{display: 'flex', flexFlow: 'column', gap: '10px'}}> 
+      {children}
+    </div>
+);
+
+<Meta 
+  title="Input/Checkbox" 
+  component={Template}
 />
 
-export const Default = ({}) => {
-  return <Checkbox />;
-};
+# Checkbox
 
-export const DefaultChecked = ({}) => {
-  return <Checkbox checked />;
-};
-
-export const DefaultIndeterminate = ({}) => {
-  return <Checkbox indeterminate />;
-};
-
-export const Disabled = ({}) => {
-  return <Checkbox disabled />;
-};
-
-export const DisabledChecked = ({}) => {
-  return <Checkbox disabled checked />;
-};
-
-export const DisabledIndeterminate = ({}) => {
-  return <Checkbox disabled indeterminate />;
-};
-
-## Checkbox
-
-### Default
+```sh
+npm i @equinor/fusion-react-checkbox
+```
 
 <Canvas>
-  <Story name="default" args={{}}>
-    {Default.bind({})}
-  </Story>
-  <Story name="default-checked" args={{}}>
-    {DefaultChecked.bind({})}
-  </Story>
-  <Story name="default-indeterminate" args={{}}>
-    {DefaultIndeterminate.bind({})}
+  <Story name="demo" parameters={{chromatic: { disableSnapshot: true }}}>
+    {Template.bind({})}
   </Story>
 </Canvas>
 
-### Disabled
+<ArgsTable story="demo" />
 
-<Canvas>
-  <Story name="disabled" args={{}}>
-    {Disabled.bind({})}
-  </Story>
-  <Story name="disabled-checked" args={{}}>
-    {DisabledChecked.bind({})}
-  </Story>
-  <Story name="disabled-indeterminate" args={{}}>
-    {DisabledIndeterminate.bind({})}
-  </Story>
-</Canvas>
+## SnapShots
+
+<Story name="snapshots">
+  <div style={{display: 'flex', flexFlow: 'column', gap: '10px'}}>
+    <h4>standard</h4>
+    <div style={{display: 'flex', gap: '10px'}}>
+      <Template />
+      <Template checked/>
+      <Template indeterminate/>
+    </div>
+    <h4>Disabled</h4>
+    <div style={{display: 'flex', gap: '10px'}}>
+      <Template disabled />
+      <Template disabled checked/>
+      <Template disabled indeterminate/>
+    </div>
+  </div>
+</Story>
