@@ -1,10 +1,12 @@
 import { ChangeEvent, ChangeEventHandler, FormEvent, HTMLAttributes, useCallback } from 'react';
-import { CheckboxElement, CheckboxElementProps } from '@equinor/fusion-wc-checkbox';
 
 import { elementAttributes } from '@equinor/fusion-react-utils';
 
-import '@equinor/fusion-wc-checkbox';
-import { FormfieldElementProps } from '@equinor/fusion-wc-formfield';
+import { CheckboxElement, CheckboxElementProps } from '@equinor/fusion-wc-checkbox';
+import { FormfieldElement, FormfieldElementProps } from '@equinor/fusion-wc-formfield';
+
+CheckboxElement;
+FormfieldElement;
 
 // TODO add  prop for label and wrap element inside
 
