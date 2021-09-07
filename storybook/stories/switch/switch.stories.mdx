@@ -1,8 +1,12 @@
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
-import Switch from '@equinor/fusion-react-switch';
+import { Meta, Story, Canvas, ArgsTable, Description } from '@storybook/addon-docs';
+
+import Template from './Switch.template';
+
+import readme from '@equinor/fusion-react-switch/README.md';
 
 <Meta
   title="Input/Switch"
+  component={Template}
   parameters={{
     viewMode: 'docs',
     previewTabs: {
@@ -11,42 +15,35 @@ import Switch from '@equinor/fusion-react-switch';
   }}
 />
 
-export const Default = ({}) => {
-  return <Switch />;
-};
+<Description markdown={readme} />
 
-export const DefaultChecked = ({}) => {
-  return <Switch checked />;
-};
-
-export const Disabled = ({}) => {
-  return <Switch disabled />;
-};
-
-export const DisabledChecked = ({}) => {
-  return <Switch checked disabled />;
-};
-
-## Switch
-
-### Default
+## Playground
 
 <Canvas>
-  <Story name="default" args={{}}>
-    {Default.bind({})}
-  </Story>
-  <Story name="default-checked" args={{}}>
-    {DefaultChecked.bind({})}
+  <Story name="playground" parameters={{chromatic: { disableSnapshot: true }}} args={{label: 'Switch'}}>
+    {Template.bind({})}
   </Story>
 </Canvas>
 
-### Disabled
+<ArgsTable story="playground" />
 
-<Canvas>
-  <Story name="disabled" args={{}}>
-    {Disabled.bind({})}
-  </Story>
-  <Story name="disabled-checked" args={{}}>
-    {DisabledChecked.bind({})}
-  </Story>
-</Canvas>
+## SnapShots
+
+<Story name="standard" args={{name:"my-group"}}>
+  {(args) => 
+    <>
+      <Template {...args} value="value1" label="Switch-1" />
+      <Template {...args} value="value2" label="Switch-2" checked />
+    </>
+  }
+</Story>
+
+
+<Story name="disabled" args={{name:"my-group-s", disabled: true}}>
+  {(args) => 
+    <>
+      <Template {...args} value="value1" label="Switch-1" />
+      <Template {...args} value="value2" label="Switch-2" checked />
+    </>
+  }
+</Story>

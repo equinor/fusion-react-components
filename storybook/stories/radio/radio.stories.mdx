@@ -1,6 +1,7 @@
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
-import Template from './RadioTemplate';
+import { Meta, Story, Canvas, ArgsTable, Description } from '@storybook/addon-docs';
+import Template from './Radio.template';
 import Radio from '@equinor/fusion-react-radio';
+import readme from '@equinor/fusion-react-radio/README.md';
 
 <Meta
   title="Input/Radio"
@@ -13,13 +14,17 @@ import Radio from '@equinor/fusion-react-radio';
   }}
 />
 
+<Description markdown={readme} />
+
+## Playground
+
 <Canvas>
-  <Story name="demo" parameters={{chromatic: { disableSnapshot: true }}} args={{label: 'Radio'}}>
+  <Story name="playground" parameters={{chromatic: { disableSnapshot: true }}} args={{label: 'Radio'}}>
     {Template.bind({})}
   </Story>
 </Canvas>
 
-<ArgsTable story="demo" />
+<ArgsTable story="playground" />
 
 ## SnapShots
 

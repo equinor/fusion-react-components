@@ -1,10 +1,11 @@
 /* eslint-disable react/no-multi-comp */
 import { FusionDatePicker, FusionDatePickerProps } from '@equinor/fusion-react-datepicker';
+
 import { Story, Meta } from '@storybook/react/types-6-0';
 import { useState } from 'react';
 
 export default {
-  title: 'DatePicker/Stories',
+  title: 'Data/DatePicker',
   component: FusionDatePicker,
 } as Meta;
 

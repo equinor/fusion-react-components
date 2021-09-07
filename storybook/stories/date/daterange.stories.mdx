@@ -1,8 +1,12 @@
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
-import { DateRange } from '@equinor/fusion-react-date';
+import { Meta, Story, Canvas, ArgsTable,Description } from '@storybook/addon-docs/blocks';
+import DateRangeTemplate from './DateRange.template';
+import DateTimeTemplate from './DateTime.template';
+
+import readme from '@equinor/fusion-react-date/README.md';
 
 <Meta
   title="Data/DateRange"
+  component={DateRangeTemplate}
   parameters={{
     viewMode: 'docs',
     previewTabs: {
@@ -11,20 +15,28 @@ import { DateRange } from '@equinor/fusion-react-date';
   }}
 />
 
-export const Default = ({}) => {
-  return (
-    <>
-      <DateRange name="my-group" value="value1" />
-    </>
-  );
-};
+<Description markdown={readme} />
 
-## DateRange
+## Playground
 
-### Default
+### DateRange
 
 <Canvas>
-  <Story name="default" args={{}}>
-    {Default.bind({})}
+  <Story name="DateRange" parameters={{chromatic: { disableSnapshot: true }}} args={{label:'DateRange'}} >
+    {DateRangeTemplate.bind({})}
   </Story>
 </Canvas>
+
+<ArgsTable story="DateRange" />
+
+### DateTime
+
+<Canvas>
+  <Story name="DateTime" parameters={{chromatic: { disableSnapshot: true }}} args={{label:'DateTime'}} >
+    {DateTimeTemplate.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable story="DateTime" />
+
+## SnapShots
