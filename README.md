@@ -48,7 +48,7 @@
 | --------- | ------- | ------
 | [`<Avatar>`](https://github.com/equinor/fusion-react-components/tree/main/packages/avatar) | `@equinor/fusion-react-avatar` | TBD
 | [`<Chip>`](https://github.com/equinor/fusion-react-components/tree/main/packages/chip) | `@equinor/fusion-react-chip` | TBD
-| [`<Icon>`](https://github.com/equinor/fusion-react-components/tree/main/packages/icon) | `@equinor/fusion-react-icon` | TBD
-| [`<Picture>`](https://github.com/equinor/fusion-react-components/tree/main/packages/picture) | `@equinor/fusion-react-picture` | [![Published on npm](https://img.shields.io/npm/v/@equinor/fusion-react-icon.svg)](https://www.npmjs.com/package/@equinor/fusion-react-icon)
+| [`<Icon>`](https://github.com/equinor/fusion-react-components/tree/main/packages/icon) | `@equinor/fusion-react-icon` | [![Published on npm](https://img.shields.io/npm/v/@equinor/fusion-react-icon.svg)](https://www.npmjs.com/package/@equinor/fusion-react-icon)
+| [`<Picture>`](https://github.com/equinor/fusion-react-components/tree/main/packages/picture) | `@equinor/fusion-react-picture` | TBD
 | [`<Table>`](https://github.com/equinor/fusion-react-components/tree/main/packages/table) | `@equinor/fusion-react-table` | [![Published on npm](https://img.shields.io/npm/v/@equinor/fusion-react-table.svg)](https://www.npmjs.com/package/@equinor/fusion-react-table)
 <!--prettier-ignore-end-->
