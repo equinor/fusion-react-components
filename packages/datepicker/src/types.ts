@@ -1,9 +1,7 @@
 import type { ReactDatePickerProps } from 'react-datepicker';
 
-export type DatePickerPopperProps = Pick<
-  // TOOD @maoft was missing replaced with `string`
-  ReactDatePickerProps<string>,
-  'popperModifiers' | 'popperProps' | 'popperPlacement'
+export type DatePickerPopperProps = Partial<
+  Pick<ReactDatePickerProps<string>, 'popperModifiers' | 'popperProps' | 'popperPlacement'>
 >;
 
 export type DatePickerCustomClasses = Record<'host' | 'popper' | 'wrapper', string>;
