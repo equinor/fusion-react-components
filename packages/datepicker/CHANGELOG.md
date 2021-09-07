@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.9.2](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-datepicker@0.9.1...@equinor/fusion-react-datepicker@0.9.2) (2021-09-07)
+
+
+### Bug Fixes
+
+* make datepicker popper optional ([9b29bfa](https://github.com/equinor/fusion-react-components/commit/9b29bfa22f7aed039b0abd7b5c251b8a1bac5e9f))
+* make datepicker props optional ([5d13f5c](https://github.com/equinor/fusion-react-components/commit/5d13f5c012e4a85a6ef6af424d3659667cfffeeb))
+
+
+
+
+
 ## [0.9.1](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-datepicker@0.9.0...@equinor/fusion-react-datepicker@0.9.1) (2021-09-07)
 
 

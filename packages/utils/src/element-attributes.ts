@@ -24,7 +24,7 @@ export const elementAttributes = <T extends Partial<Record<keyof T, unknown>> = 
         return Object.assign(cur, { [key]: value });
       case 'object':
         // eslint-disable-next-line @typescript-eslint/ban-types
-        return Object.assign(cur, { [key]: objectToString(value as Object) });
+        return Object.assign(cur, { [key]: key === 'style' ? value : objectToString(value as Object) });
       default:
         return value ? Object.assign(cur, { [key]: value }) : cur;
     }
