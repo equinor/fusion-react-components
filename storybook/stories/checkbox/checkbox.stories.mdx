@@ -1,7 +1,10 @@
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
-import Template from './CheckBoxTemplate';
+import { useState, useCallback } from 'react';
+import { Meta, Story, Canvas, ArgsTable, Description } from '@storybook/addon-docs';
+
+import Template from './Checkbox.template';
 
 import { Checkbox, CheckboxProps } from '@equinor/fusion-react-checkbox';
+import readme from '@equinor/fusion-react-checkbox/README.md';
 
 export const Container = ({ children}) => (
     <div style={{display: 'flex', flexFlow: 'column', gap: '10px'}}> 
@@ -12,29 +15,38 @@ export const Container = ({ children}) => (
 <Meta 
   title="Input/Checkbox" 
   component={Template}
+  argTypes={{
+    onInput: {
+      table: {
+        category: 'Events',
+        type: {
+          summary: 'FormEventHandler<Checkbox>', 
+          detail: '(e) => setChecked(!e.target.checked)' 
+        }
+      }
+    },
+  }}
 />
 
-# Checkbox
+<Description markdown={readme} />
 
-```sh
-npm i @equinor/fusion-react-checkbox
-```
+## Playground
 
 <Canvas>
-  <Story name="demo" parameters={{chromatic: { disableSnapshot: true }}}>
+  <Story name="Playground" parameters={{chromatic: { disableSnapshot: true }}} args={{label:'Playground'}} >
     {Template.bind({})}
   </Story>
 </Canvas>
 
-<ArgsTable story="demo" />
+<ArgsTable story="Playground" />
 
 ## SnapShots
 
-<Story name="snapshots">
+<Story name="Snapshots">
   <div style={{display: 'flex', flexFlow: 'column', gap: '10px'}}>
     <h4>standard</h4>
     <div style={{display: 'flex', gap: '10px'}}>
-      <Template />
+      <Template onChange={console.log}/>
       <Template checked/>
       <Template indeterminate/>
     </div>

@@ -1,5 +1,7 @@
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
-import TextArea from '@equinor/fusion-react-textarea';
+import { Meta, Story, Canvas, ArgsTable, Description } from '@storybook/addon-docs';
+
+import Template from './TextArea.template';
+import readme from '@equinor/fusion-react-textarea/README.md';
 
 <Meta
   title="Input/TextArea"
@@ -11,74 +13,65 @@ import TextArea from '@equinor/fusion-react-textarea';
   }}
 />
 
-export const Default = ({}) => {
-  return <TextArea label="Default" />;
-};
+<Description markdown={readme} />
 
-export const Disabled = ({}) => {
-  return <TextArea label="Disabled" disabled />;
-};
+## Playground
 
-export const Rows = ({}) => {
-  return <TextArea label="Multiple rows" rows={4} />;
-};
+<Canvas>
+  <Story name="Playground" parameters={{chromatic: { disableSnapshot: true }}} args={{label:'Playground'}} >
+    {Template.bind({})}
+  </Story>
+</Canvas>
 
-export const Required = ({}) => {
-  return <TextArea label="Required" required />;
-};
+<ArgsTable story="Playground" />
+
+## SnapShots
 
 export const Helper = ({}) => {
-  return <TextArea label="Helper" helper="This helper shows when active!" />;
+  return <Template label="Helper" helper="This helper shows when active!" />;
 };
 
 export const PersistentHelper = ({}) => {
-  return <TextArea label="Persistent helper" helper="This helper is persistent!" helperpersistent />;
+  return <Template label="Persistent helper" helper="This helper is persistent!" helperpersistent />;
 };
 
 export const Counter = ({}) => {
-  return <TextArea label="Character counter" helper="Helper Text" helperPersistent maxlength={10} charCounter />;
+  return <Template label="Character counter" helper="Helper Text" helperPersistent maxlength={10} charCounter />;
 };
-
-## TextArea
 
 ### Default
 
-<Canvas>
-  <Story name="Default">{Default.bind({})}</Story>
-  <Story name="Disabled" args={{}}>
-    {Disabled.bind({})}
-  </Story>
-</Canvas>
+<Story name="Default">
+  <Template label="Default" />
+  <Template label="Default" value="Fusion"/>
+  <br/>
+  <br/>
+  <Template label="Disabled" disabled />
+  <Template label="Disabled" disabled value="Fusion"/>
+</Story>
 
 ### Size
 
-<Canvas>
-  <Story name="Rows">{Rows.bind({})}</Story>
-</Canvas>
+<Story name="Rows">
+  <Template label="Multiple rows" rows={4} />
+</Story>
 
 ### Validation
 
-<Canvas>
-  <Story name="Required" args={{}}>
-    {Required.bind({})}
-  </Story>
-</Canvas>
+<Story name="Required">
+  <Template label="Required" required />
+</Story>
 
 ### Helper
 
-<Canvas>
-  <Story name="Helper" args={{}}>
-    {Helper.bind({})}
-  </Story>
-  <Story name="PersistentHelper" args={{}}>
-    {PersistentHelper.bind({})}
-  </Story>
-</Canvas>
+<Story name="Helper">
+  <Template label="Helper" helper="This helper shows when active!" />
+  <Template label="Persistent helper" helper="This helper is persistent!" helperpersistent />
+</Story>
 
 ### Counter
 
-<Canvas>
-  <Story name="Counter" args={{}}>
-    {Counter.bind({})}
-  </Story>
-</Canvas>
+<Story name="Counter">
+  <Template label="Character counter" helper="Helper Text" helperPersistent maxlength={10} charCounter />
+  <Template label="Character counter" helper="Helper Text" helperPersistent maxlength={10} charCounter value="Fusion" />
+</Story>
