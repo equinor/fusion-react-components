@@ -1,5 +1,7 @@
 <!--prettier-ignore-start-->
-## `@equinor/fusion-react-radio` [![Published on npm](https://img.shields.io/npm/v/@equinor/fusion-react-radio.svg)](https://www.npmjs.com/package/@equinor/fusion-react-radio)
+# @equinor/fusion-react-radio 
+
+[![Published on npm](https://img.shields.io/npm/v/@equinor/fusion-react-radio.svg)](https://www.npmjs.com/package/@equinor/fusion-react-radio)
 
 [Storybook](https://equinor.github.io/fusion-react-components/?path=/docs/input-radio)
 
