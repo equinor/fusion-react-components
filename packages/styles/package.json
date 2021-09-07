@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-styles",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "style lib inspired by @material-ui/styles",
   "keywords": [
     "styling",
@@ -35,7 +35,6 @@
   "bugs": {
     "url": "https://github.com/equinor/fusion-react-components/issues"
   },
-  "devDependencies": {},
   "peerDependencies": {
     "@types/react": "^17.0.14",
     "react": "^17.0.2",

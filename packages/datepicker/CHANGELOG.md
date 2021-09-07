@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.9.0 (2021-09-07)
+
+
+### Bug Fixes
+
+* linting ([7cb89a8](https://github.com/equinor/fusion-react-components/commit/7cb89a8b2fdb3d78b4ff947b732c974cfe92f61a))
+
+
+### Features
+
+* update doc and include readme ([04b2544](https://github.com/equinor/fusion-react-components/commit/04b25443398507b35c3b88bf90a26d56c5b1c460))
+
+
+
+
+
 # 0.8.0 (2021-07-29)
 
 

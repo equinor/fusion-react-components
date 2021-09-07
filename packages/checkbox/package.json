@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-checkbox",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "component for displaying checkbox",
   "keywords": [
     "checkbox",
@@ -34,9 +34,8 @@
     "url": "https://github.com/equinor/fusion-react-components/issues"
   },
   "dependencies": {
-    "@equinor/fusion-react-utils": "^1.1.2",
+    "@equinor/fusion-react-utils": "^1.1.3",
     "@equinor/fusion-wc-checkbox": "^0.2.2",
     "@equinor/fusion-wc-formfield": "^0.2.1"
-  },
-  "devDependencies": {}
+  }
 }
