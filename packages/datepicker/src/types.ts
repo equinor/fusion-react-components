@@ -1,8 +1,8 @@
 import type { ReactDatePickerProps } from 'react-datepicker';
 
 export type DatePickerPopperProps = Pick<
-  // TOOD @maoft was missing replaced with `unknown`
-  ReactDatePickerProps<unknown>,
+  // TOOD @maoft was missing replaced with `string`
+  ReactDatePickerProps<string>,
   'popperModifiers' | 'popperProps' | 'popperPlacement'
 >;
 
@@ -10,8 +10,8 @@ export type DatePickerCustomClasses = Record<'host' | 'popper' | 'wrapper', stri
 
 export type DatePickerBaseProps = DatePickerPopperProps &
   Pick<
-    // TOOD @maoft was missing replaced with `unknown`
-    ReactDatePickerProps<unknown>,
+    // TOOD @maoft was missing replaced with `string`
+    ReactDatePickerProps<string>,
     | 'allowSameDay'
     | 'dateFormat'
     | 'disabled'
