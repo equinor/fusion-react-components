@@ -1,4 +1,4 @@
-import { FormEvent, HTMLAttributes, useCallback } from 'react';
+import { HTMLAttributes } from 'react';
 
 import { elementAttributes } from '@equinor/fusion-react-utils';
 
@@ -15,18 +15,11 @@ export type RadioProps = RadioElementProps &
   };
 
 export const Radio = (props: RadioProps): JSX.Element => {
-  const { formfield = {}, label, onChange, ...attr } = elementAttributes(props as RadioProps);
+  const { formfield = {}, label, ...attr } = elementAttributes(props as RadioProps);
   formfield.label = label;
-  const onInput = useCallback(
-    ({ nativeEvent, currentTarget: target }: FormEvent<RadioElement>) => {
-      // @ts-ignore
-      onChange && onChange({ nativeEvent, target });
-    },
-    [onChange]
-  );
   return (
     <fwc-formfield {...formfield}>
-      <fwc-radio {...attr} onInput={onInput} />
+      <fwc-radio {...attr} />
     </fwc-formfield>
   );
 };

@@ -1,4 +1,4 @@
-import { ChangeEvent, ChangeEventHandler, FormEvent, HTMLAttributes, useCallback } from 'react';
+import { ChangeEventHandler, HTMLAttributes } from 'react';
 
 import { elementAttributes } from '@equinor/fusion-react-utils';
 
@@ -8,31 +8,19 @@ import { FormfieldElement, FormfieldElementProps } from '@equinor/fusion-wc-form
 CheckboxElement;
 FormfieldElement;
 
-// TODO add  prop for label and wrap element inside
-
-export type TextInputChangeHandler = ChangeEventHandler<CheckboxElement>;
-export type TextInputChangeEvent = ChangeEvent<CheckboxElement>;
-
 export type CheckboxProps = CheckboxElementProps &
   HTMLAttributes<CheckboxElement> & {
-    onChange?: TextInputChangeHandler;
+    onChange?: ChangeEventHandler<CheckboxElement>;
     label?: string;
     formfield?: FormfieldElementProps;
   };
 
-export const Checkbox = ({ onChange, ...props }: CheckboxProps): JSX.Element => {
+export const Checkbox = (props: CheckboxProps): JSX.Element => {
   const { formfield = {}, label, ...attr } = elementAttributes(props as CheckboxProps);
   formfield.label = label;
-  const onInput = useCallback(
-    ({ nativeEvent, currentTarget: target }: FormEvent<CheckboxElement>) => {
-      // @ts-ignore
-      onChange && onChange({ nativeEvent, target });
-    },
-    [onChange]
-  );
   return (
     <fwc-formfield {...formfield}>
-      <fwc-checkbox {...attr} onInput={onInput} />
+      <fwc-checkbox {...attr} />
     </fwc-formfield>
   );
 };
