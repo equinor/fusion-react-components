@@ -7,34 +7,35 @@ export type DatePickerPopperProps = Partial<
 export type DatePickerCustomClasses = Record<'host' | 'popper' | 'wrapper', string>;
 
 export type DatePickerBaseProps = DatePickerPopperProps &
-  Pick<
-    // TOOD @maoft was missing replaced with `string`
-    ReactDatePickerProps<string>,
-    | 'allowSameDay'
-    | 'dateFormat'
-    | 'disabled'
-    | 'excludeDates'
-    | 'excludeTimes'
-    | 'filterDate'
-    | 'includeDates'
-    | 'includeTimes'
-    | 'injectTimes'
-    | 'inline'
-    | 'locale'
-    | 'maxDate'
-    | 'maxTime'
-    | 'minDate'
-    | 'minTime'
-    | 'onBlur'
-    | 'onChange'
-    | 'onFocus'
-    | 'onMonthChange'
-    | 'onYearChange'
-    | 'openToDate'
-    | 'readOnly'
-    | 'startOpen'
-    | 'showWeekNumbers'
-    | 'tabIndex'
+  Partial<
+    Pick<
+      ReactDatePickerProps<string>,
+      | 'allowSameDay'
+      | 'dateFormat'
+      | 'disabled'
+      | 'excludeDates'
+      | 'excludeTimes'
+      | 'filterDate'
+      | 'includeDates'
+      | 'includeTimes'
+      | 'injectTimes'
+      | 'inline'
+      | 'locale'
+      | 'maxDate'
+      | 'maxTime'
+      | 'minDate'
+      | 'minTime'
+      | 'onBlur'
+      | 'onChange'
+      | 'onFocus'
+      | 'onMonthChange'
+      | 'onYearChange'
+      | 'openToDate'
+      | 'readOnly'
+      | 'startOpen'
+      | 'showWeekNumbers'
+      | 'tabIndex'
+    >
   >;
 
 export type DatePickerCustomProps = {
