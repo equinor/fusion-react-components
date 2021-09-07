@@ -70,9 +70,9 @@ export const useHangingGardenGetData = <T,>(
       } catch (e) {
         // TODO . @olerichard check if this typing is correct
         const { response } = e as HttpClientRequestFailedError<GardenDataError>;
-        setError({ 
-          errorType: response.errorType || ' error', 
-          errorResponse: response.errorResponse 
+        setError({
+          errorType: response.errorType || ' error',
+          errorResponse: response.errorResponse,
         });
         setIsFetching(false);
         return null;
