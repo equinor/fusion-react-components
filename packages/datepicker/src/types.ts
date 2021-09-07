@@ -1,12 +1,17 @@
 import type { ReactDatePickerProps } from 'react-datepicker';
 
-export type DatePickerPopperProps = Pick<ReactDatePickerProps, 'popperModifiers' | 'popperProps' | 'popperPlacement'>;
+export type DatePickerPopperProps = Pick<
+  // TOOD @maoft was missing replaced with `string`
+  ReactDatePickerProps<string>,
+  'popperModifiers' | 'popperProps' | 'popperPlacement'
+>;
 
 export type DatePickerCustomClasses = Record<'host' | 'popper' | 'wrapper', string>;
 
 export type DatePickerBaseProps = DatePickerPopperProps &
   Pick<
-    ReactDatePickerProps,
+    // TOOD @maoft was missing replaced with `string`
+    ReactDatePickerProps<string>,
     | 'allowSameDay'
     | 'dateFormat'
     | 'disabled'

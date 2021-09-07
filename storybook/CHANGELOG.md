@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.15.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.14.3...@equinor/fusion-react-components-stories@1.15.0) (2021-09-07)
+
+
+### Bug Fixes
+
+* add label to checkbox ([a752f4f](https://github.com/equinor/fusion-react-components/commit/a752f4f64616d365f8046d9ee213c3373c3964c3))
+* add label to radio element ([d8daa78](https://github.com/equinor/fusion-react-components/commit/d8daa789bec2bb27a68713462865eb3bf719f461))
+
+
+### Features
+
+* add readme ([9c9e81d](https://github.com/equinor/fusion-react-components/commit/9c9e81d5ebdd8f701423c385663ce62b281ec280))
+
+
+
+
+
+## [1.14.3](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.14.2...@equinor/fusion-react-components-stories@1.14.3) (2021-09-06)
+
+**Note:** Version bump only for package @equinor/fusion-react-components-stories
+
+
+
+
+
 ## [1.14.2](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.14.1...@equinor/fusion-react-components-stories@1.14.2) (2021-08-27)
 
 **Note:** Version bump only for package @equinor/fusion-react-components-stories

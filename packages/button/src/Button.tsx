@@ -1,6 +1,7 @@
 import { HTMLAttributes, PropsWithChildren } from 'react';
-import ButtonElement, { ButtonElementProps } from '@equinor/fusion-wc-button/lib/element';
-import '@equinor/fusion-wc-button';
+import { ButtonElement, ButtonElementProps } from '@equinor/fusion-wc-button';
+
+ButtonElement;
 
 export type ButtonProps = ButtonElementProps & HTMLAttributes<ButtonElement>;
 

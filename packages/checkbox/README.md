@@ -1,19 +1,31 @@
-<!--prettier-ignore-start-->
-## `@equinor/fusion-react-checkbox` [![Published on npm](https://img.shields.io/npm/v/@equinor/fusion-react-checkbox.svg)](https://www.npmjs.com/package/@equinor/fusion-react-checkbox)
+#@equinor/fusion-react-checkbox
+[![Published on npm](https://img.shields.io/npm/v/@equinor/fusion-react-checkbox.svg)](https://www.npmjs.com/package/@equinor/fusion-react-checkbox)
 
 [Storybook](https://equinor.github.io/fusion-react-components/?path=/docs/input-checkbox)
 
 [Fusion Web Component](https://github.com/equinor/fusion-web-components/tree/main/packages/checkbox)
 
-### Installation
+**Installation**
 
 ```sh
 npm install @equinor/fusion-react-checkbox
 ```
 
-## Example Usage
+**Example Usage**
 
-```html
+```tsx
+const MyComponent = () => {
+  const [checked, setChecked] = useState(undefined);
+  const onInput = useCallback((e) => {
+      setChecked(!e.target.checked);
+  }, [setChecked] );
+  return (
+    <div>
+      <Checkbox value={checked} onInput={onInput} label="Example" />
+      <p>Current State: <pre>{JSON.stringify({checked})}</pre></p>
+    </div>
+  );
+}
 <Checkbox value='value' checked/>
 ```
 

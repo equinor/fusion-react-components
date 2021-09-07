@@ -1,19 +1,35 @@
 <!--prettier-ignore-start-->
-## `@equinor/fusion-react-textinput` [![Published on npm](https://img.shields.io/npm/v/@equinor/fusion-react-textinput.svg)](https://www.npmjs.com/package/@equinor/fusion-react-textinput)
+# @equinor/fusion-react-textinput 
+
+[![Published on npm](https://img.shields.io/npm/v/@equinor/fusion-react-textinput.svg)](https://www.npmjs.com/package/@equinor/fusion-react-textinput)
 
 [Storybook](https://equinor.github.io/fusion-react-components/?path=/docs/input-textinput)
 
 [Fusion Web Component](https://github.com/equinor/fusion-web-components/tree/main/packages/textinput)
 
 ### Installation
+
 ```sh
 npm install @equinor/fusion-react-textinput
 ```
 
-## Example Usage
+### Example Usage
 
-```html
-<TextInput label='My Label' icon="settings">Hello world!</TextInput>
+```tsx
+import { TextInput, TextInputChangeEvent } from '@equinor/fusion-react-textinput';
+const Component = ({value}: ComponentProps) => {
+  const [txt, setTxt] = useState(value);
+  const onChange = useCallback(
+    (e: TextInputChangeEvent) => setTxt(e.target.value ?? ''),
+    [setTxt]
+  );
+  return (
+    <div>
+      <TextInput onChange={onChange} />
+      <span>Value: {txt}</span>
+    </div>
+  );
+};
 ```
 
 ### Properties/Attributes
@@ -49,27 +65,32 @@ Name                      | Type                            | Description
 `name`                    | `string`                        | Sets the `name` attribute on the internal input.\*\*\*
 
 \*  `TextInputType` is exported by `TextInput`.
+
 ```ts
 type TextInputType = 'text'|'search'|'tel'|'url'|'email'|'password'|
     'date'|'month'|'week'|'time'|'datetime-local'|'number'|'color';
 ```
 
 \*\*  `TextInputVariant` is exported by `TextInput`.
+
 ```ts
 export type TextInputVariant = 'filled' | 'outlined';
 ```
 
 \*\*\* `IconName` is exported by `fwc-icon`.
+
 ```ts
 type IconName = keyof typeof edsIcons | string;
 ```
 
 \*\*\*\* `TextInputCharCounter` is exported by `TextInput`.
+
 ```ts
 type TextInputCharCounter = 'external' | 'internal';
 ```
 
 \*\*\*\*\* `ValidityTransform` is exported by `TextInput`.
+
 ```ts
 type ValidityTransform = (value: string, nativeValidity: ValidityState) => Partial<ValidityState>
 ```
