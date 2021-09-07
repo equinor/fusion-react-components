@@ -1,6 +1,7 @@
 import { HTMLAttributes, PropsWithChildren } from 'react';
-import TextAreaElement, { TextAreaElementProps } from '@equinor/fusion-wc-textarea/lib/element';
-import '@equinor/fusion-wc-textarea';
+import { TextAreaElement, TextAreaElementProps } from '@equinor/fusion-wc-textarea';
+
+TextAreaElement;
 
 export type TextAreaProps = TextAreaElementProps & HTMLAttributes<TextAreaElement>;
 
