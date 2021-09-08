@@ -1,6 +1,6 @@
-[![npm version](https://badge.fury.io/js/%40equinor%2Ffusion-react-styles.svg)](https://www.npmjs.com/package/@equinor/fusion-react-styles)
-
 # @equinor/fusion-react-styles
+
+[![npm version](https://badge.fury.io/js/%40equinor%2Ffusion-react-styles.svg)](https://www.npmjs.com/package/@equinor/fusion-react-styles)
 
 ## Install
 ```
@@ -9,7 +9,7 @@ npm install @equinor/fusion-react-styles
 
 ## Basic
 ```tsx
-import { makeStyles, createStyles, clsx, theme, FusionTheme } from '@equinor/fusion-react-styles';
+import { makeStyles, createStyles, clsx, theme } from '@equinor/fusion-react-styles';
 
 type StyleProps = {
   color: string;
@@ -21,20 +21,22 @@ const defaultStyleProps: StyleProps = {
   color: 'white'
 }
 
-const useStyles = makeStyles<FusionTheme, StyleProps>((theme) =>
+const useStyles = makeStyles((theme) =>
   createStyles({
     // style rule
-    foo: ({ background }) => ({
+    foo: ({ background }: StyleProps) => ({
       // theme style
       ...theme.typography.paragraph.ingress.style,
       // theme value
-      backgroundColor: theme.colors.ui[background].value.hex,
+      backgroundColor: theme.colors.ui[background].getAttribute('color'),
     }),
     bar: {
       // CSS property
-      color: (props) => props.color,
+      color: (props: StyleProps) => props.color,
     },
-  })
+  }),
+  // name the stylesheet for easy debugging
+  { name: 'my-component' }
 );
 
 
@@ -58,6 +60,41 @@ const App = () => {
 };
 ```
 
-## 🏗 Comming
+### Specificity
 
-* __FusionThemeProvider__ - Component for providing theme context to theme consumers (_makeStyles_)
+In some cases one need higher specificity to override class from imported component.
+This is achieved by increasing the specificity.
+
+```tsx
+const styles = makeStyles(createStyles({
+  root: {
+    '&$disabled': {
+      color: 'white',
+    },
+  },
+  disabled: {},
+}));
+
+const MyComponent = (props: StyleProps) => {
+  const [disabled, setDisabled] = useState(false);
+  const classes = useStyles();
+  const className = clsx(classes.root, disabled && classes.disabled);
+  return <div className={className} />;
+};
+
+```
+
+## Provider
+> 🏗 WIP - there will be better way to provide custom theme object
+
+**When developing for Fusion, this is not necessary, since provider is injected into the portal framework**
+
+```tsx
+import {ThemeProvider} from '@equinor/fusion-react-styles';
+const mount = (
+  <ThemeProvider seed="my-app">
+    <MyApp />
+  </ThemeProvider>
+);
+ReactDOM.render(mount, document.getElementById('root'));
+```

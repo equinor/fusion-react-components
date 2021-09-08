@@ -1,11 +1,20 @@
-import { FunctionComponent } from 'react';
-import '@equinor/fusion-wc-theme';
+import { createGenerateClassName, StylesProvider, StylesProviderProps } from '@material-ui/styles';
 
-export const ThemeProvider: FunctionComponent = ({ children }: { children?: React.ReactNode }) => {
+import Element from '@equinor/fusion-wc-theme';
+Element;
+
+type ThemeProviderProps = StylesProviderProps & {
+  seed?: string;
+};
+
+export const ThemeProvider = (props: ThemeProviderProps): JSX.Element => {
+  const { children, seed, ...args } = props;
+  if (seed && !args.generateClassName) {
+    args.generateClassName = createGenerateClassName({ seed });
+  }
   return (
-    <>
-      <fwc-theme></fwc-theme>
-      {children}
-    </>
+    <StylesProvider {...args}>
+      <fwc-theme>{children}</fwc-theme>
+    </StylesProvider>
   );
 };
