@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.3.0 (2021-09-08)
+
+
+### Features
+
+* add theme provider ([ad17d8e](https://github.com/equinor/fusion-react-components/commit/ad17d8e4938ae0057e53fe64edbe084406f28c5f))
+
+
+
+
+
 ## 0.2.2 (2021-09-07)
 
 **Note:** Version bump only for package @equinor/fusion-react-styles
