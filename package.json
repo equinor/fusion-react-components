@@ -12,7 +12,8 @@
     "storybook": "npm run start --prefix storybook",
     "storybook:build": "npm run build --prefix storybook",
     "npm:clean": "rm -rf node_modules && lerna exec 'rm -rf node_modules'",
-    "lerna:dedupe": "lernaupdate --dedupe"
+    "lernaupdate": "lernaupdate",
+    "lernaupdate:dedupe": "lernaupdate --dedupe"
   },
   "repository": {
     "type": "git",
