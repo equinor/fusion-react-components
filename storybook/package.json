@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-components-stories",
-  "version": "1.17.1",
+  "version": "1.17.3",
   "description": "",
   "private": true,
   "scripts": {
@@ -12,7 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "@babel/core": "^7.15.5",
-    "@equinor/fusion-react-button": "^0.3.1",
+    "@equinor/fusion-react-button": "^0.3.3",
     "@equinor/fusion-react-checkbox": "^0.3.1",
     "@equinor/fusion-react-date": "^0.3.1",
     "@equinor/fusion-react-datepicker": "^0.9.3",

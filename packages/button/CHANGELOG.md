@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.3](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-button@0.3.2...@equinor/fusion-react-button@0.3.3) (2021-09-09)
+
+
+### Bug Fixes
+
+* **button:** add ref to real element ([7f66df2](https://github.com/equinor/fusion-react-components/commit/7f66df277a5bab2f05f3d7e0ecf95e2d18bc1b8a))
+
+
+
+
+
+## [0.3.2](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-button@0.3.1...@equinor/fusion-react-button@0.3.2) (2021-09-08)
+
+
+### Bug Fixes
+
+* **button:** add ref to real element ([7f66df2](https://github.com/equinor/fusion-react-components/commit/7f66df277a5bab2f05f3d7e0ecf95e2d18bc1b8a))
+
+
+
+
+
 ## 0.3.1 (2021-09-08)
 
 
