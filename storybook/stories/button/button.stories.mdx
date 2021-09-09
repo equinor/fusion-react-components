@@ -45,6 +45,8 @@ export const ButtonStory = (props) => (
 
 <Description markdown={readme} />
 
+
+
 ## Playground
 
 <Canvas>
@@ -54,6 +56,36 @@ export const ButtonStory = (props) => (
 </Canvas>
 
 <ArgsTable story="Playground" />
+
+## Customizing
+
+The button component exposes the native custom element slots: 
+- `default` slot for custom label
+- `icon` slot custom icon inside this placeholder
+- `trailingIcon` slot custom trailing icon inside this placeholder
+
+<Canvas>
+  <Story name="Customizing" parameters={{chromatic: { disableSnapshot: true }}}>
+    <Button variant="outlined">
+      <span slot="icon">🚨</span>
+      <span><b>Custom</b> - <i>label</i></span>
+      <span slot="trailingIcon">🚀</span>
+    </Button>
+  </Story>
+</Canvas>
+
+### Ref
+
+This component is created using `forwardRef` which exposes the `HTMLButtonCustomElement`.
+
+```tsx
+import Button, { HTMLButtonCustomElement } from '@equinor/fusion-react-button';
+export const Component = () => {
+  const btnRef = useRef<HTMLButtonCustomElement>(null);
+  return <Button ref={btnRef} />
+}
+export default Component;
+```
 
 ## Snapshots
 
