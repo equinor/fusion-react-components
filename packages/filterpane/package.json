@@ -28,10 +28,10 @@
   },
   "scripts": {
     "build": "tsc -b",
+    "watch": "tsc -w",
     "lint": "eslint src/**/*.{js,ts,tsx}",
     "lint:fix": "eslint src/**/*.{js,ts,tsx} --fix",
-    "prepack": "npm run build",
-    "dev": "tsc -w"
+    "prepack": "npm run build"
   },
   "bugs": {
     "url": "https://github.com/equinor/fusion-react-components/issues"
@@ -49,13 +49,5 @@
   },
   "peerDependencies": {
     "@equinor/fusion-react-styles": "0.1.0"
-  },
-  "peerDependenciesMeta": {
-    "@types/history": {
-      "optional": true
-    },
-    "@types/react": {
-      "optional": true
-    }
   }
 }
