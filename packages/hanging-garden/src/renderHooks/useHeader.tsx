@@ -31,6 +31,7 @@ const useHeader = <T extends HangingGardenColumnIndex>(): UseHeader => {
     scroll: { scrollTop },
     textureCaches: { getTextureFromCache, addTextureToCache },
     groupLevels,
+    padding,
   } = useHangingGardenContext();
 
   const { getRenderedItemDescription } = useItemDescription<T>();
@@ -94,7 +95,7 @@ const useHeader = <T extends HangingGardenColumnIndex>(): UseHeader => {
         const headerWidth = getHeaderWidth(
           (columns as HangingGardenColumn<T>[])[index]?.key,
           expandedColumns,
-          itemWidth,
+          itemWidth + padding,
           groupLevels
         );
         const isHighlighted = highlightedColumnKey === key;
@@ -106,7 +107,7 @@ const useHeader = <T extends HangingGardenColumnIndex>(): UseHeader => {
         renderedHeader.on('tap', () => onHeaderClick(key, index));
 
         // Header container position and size
-        const x = getColumnX(index, expandedColumns, itemWidth, groupLevels);
+        const x = getColumnX(index, expandedColumns, itemWidth + padding, groupLevels);
         renderedHeader.x = x;
         renderedHeader.y = 0;
         renderedHeader.width = headerWidth;

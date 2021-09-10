@@ -1,37 +1,41 @@
 import type { ReactDatePickerProps } from 'react-datepicker';
 
-export type DatePickerPopperProps = Pick<ReactDatePickerProps, 'popperModifiers' | 'popperProps' | 'popperPlacement'>;
+export type DatePickerPopperProps = Partial<
+  Pick<ReactDatePickerProps<string>, 'popperModifiers' | 'popperProps' | 'popperPlacement'>
+>;
 
 export type DatePickerCustomClasses = Record<'host' | 'popper' | 'wrapper', string>;
 
 export type DatePickerBaseProps = DatePickerPopperProps &
-  Pick<
-    ReactDatePickerProps,
-    | 'allowSameDay'
-    | 'dateFormat'
-    | 'disabled'
-    | 'excludeDates'
-    | 'excludeTimes'
-    | 'filterDate'
-    | 'includeDates'
-    | 'includeTimes'
-    | 'injectTimes'
-    | 'inline'
-    | 'locale'
-    | 'maxDate'
-    | 'maxTime'
-    | 'minDate'
-    | 'minTime'
-    | 'onBlur'
-    | 'onChange'
-    | 'onFocus'
-    | 'onMonthChange'
-    | 'onYearChange'
-    | 'openToDate'
-    | 'readOnly'
-    | 'startOpen'
-    | 'showWeekNumbers'
-    | 'tabIndex'
+  Partial<
+    Pick<
+      ReactDatePickerProps<string>,
+      | 'allowSameDay'
+      | 'dateFormat'
+      | 'disabled'
+      | 'excludeDates'
+      | 'excludeTimes'
+      | 'filterDate'
+      | 'includeDates'
+      | 'includeTimes'
+      | 'injectTimes'
+      | 'inline'
+      | 'locale'
+      | 'maxDate'
+      | 'maxTime'
+      | 'minDate'
+      | 'minTime'
+      | 'onBlur'
+      | 'onChange'
+      | 'onFocus'
+      | 'onMonthChange'
+      | 'onYearChange'
+      | 'openToDate'
+      | 'readOnly'
+      | 'startOpen'
+      | 'showWeekNumbers'
+      | 'tabIndex'
+    >
   >;
 
 export type DatePickerCustomProps = {

@@ -1,8 +1,11 @@
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas, ArgsTable, Description } from '@storybook/addon-docs';
+import Template from './Radio.template';
 import Radio from '@equinor/fusion-react-radio';
+import readme from '@equinor/fusion-react-radio/README.md';
 
 <Meta
   title="Input/Radio"
+  component={Template}
   parameters={{
     viewMode: 'docs',
     previewTabs: {
@@ -11,38 +14,35 @@ import Radio from '@equinor/fusion-react-radio';
   }}
 />
 
-export const Default = ({}) => {
-  return (
-    <>
-      <Radio name="my-group" value="value1" />
-      <Radio name="my-group" value="value2" checked />
-    </>
-  );
-};
+<Description markdown={readme} />
 
-export const Disabled = ({}) => {
-  return (
-    <>
-      <Radio name="my-group-disabled" value="value1" disabled />
-      <Radio name="my-group-disabled" value="value2" checked disabled />
-    </>
-  );
-};
-
-## Radio
-
-### Default
+## Playground
 
 <Canvas>
-  <Story name="default" args={{}}>
-    {Default.bind({})}
+  <Story name="playground" parameters={{chromatic: { disableSnapshot: true }}} args={{label: 'Radio'}}>
+    {Template.bind({})}
   </Story>
 </Canvas>
 
-### Disabled
+<ArgsTable story="playground" />
 
-<Canvas>
-  <Story name="disabled" args={{}}>
-    {Disabled.bind({})}
-  </Story>
-</Canvas>
+## SnapShots
+
+<Story name="standard" args={{name:"my-group"}}>
+  {(args) => 
+    <>
+      <Radio {...args} value="value1" label="radio-1" />
+      <Radio {...args} value="value2" label="radio-2" checked />
+    </>
+  }
+</Story>
+
+
+<Story name="disabled" args={{name:"my-group-s", disabled: true}}>
+  {(args) => 
+    <>
+      <Radio {...args} value="value1" label="radio-1" />
+      <Radio {...args} value="value2" label="radio-2" checked />
+    </>
+  }
+</Story>

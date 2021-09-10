@@ -47,6 +47,7 @@ function Garden<T extends HangingGardenColumnIndex>({ provideController }: Garde
     scroll: { onScroll },
     popover: { popover },
     groupLevels,
+    padding,
   } = useHangingGardenContext();
 
   const { renderGarden } = useGarden();
@@ -76,9 +77,9 @@ function Garden<T extends HangingGardenColumnIndex>({ provideController }: Garde
       width: getCalculatedWidth(
         expandedColumns,
         (columns as HangingGardenColumn<T>[]).length,
-        itemWidth + groupLevels * GROUP_LEVEL_OFFSET
+        itemWidth + padding + groupLevels * GROUP_LEVEL_OFFSET
       ),
-      height: getCalculatedHeight(headerHeight, itemHeight, maxRowCount),
+      height: getCalculatedHeight(headerHeight, itemHeight + padding, maxRowCount),
     },
   });
 

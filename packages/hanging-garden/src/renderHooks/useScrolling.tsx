@@ -25,6 +25,7 @@ const useScrolling = <T extends HangingGardenColumnIndex>(
   canvas: RefObject<HTMLCanvasElement> | null,
   container: RefObject<HTMLDivElement> | null,
   itemKeyProp: keyof T,
+  padding: number,
   disableScrollToHighlightedItem?: boolean
 ): Scroll<T> => {
   const isScrolling = useRef(false);
@@ -60,7 +61,9 @@ const useScrolling = <T extends HangingGardenColumnIndex>(
       const scrollWindowTo = Math.max(
         highlightedColumnIndex >= 0
           ? (container.current.scrollLeft =
-              highlightedColumnIndex * itemWidth - container.current.offsetWidth / 2 + itemWidth / 2)
+              highlightedColumnIndex * (itemWidth + padding) -
+              container.current.offsetWidth / 2 +
+              (itemWidth + padding) / 2)
           : 0,
         0
       );

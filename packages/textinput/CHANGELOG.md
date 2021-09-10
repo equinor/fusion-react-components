@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.4.1 (2021-09-07)
+
+**Note:** Version bump only for package @equinor/fusion-react-textinput
+
+
+
+
+
+# 0.4.0 (2021-09-07)
+
+
+### Bug Fixes
+
+* fix exports and deps ([b614834](https://github.com/equinor/fusion-react-components/commit/b614834c32db4fbb9b06407e53557109128ec95b))
+
+
+### Features
+
+* update doc and include readme ([04b2544](https://github.com/equinor/fusion-react-components/commit/04b25443398507b35c3b88bf90a26d56c5b1c460))
+
+
+
+
+
 ## 0.3.1 (2021-08-16)
 
 **Note:** Version bump only for package @equinor/fusion-react-textinput

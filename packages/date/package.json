@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-date",
-  "version": "0.2.0",
+  "version": "0.3.1",
   "description": "component for formatting and displaying dates",
   "keywords": [
     "date",
@@ -26,6 +26,7 @@
   },
   "scripts": {
     "build": "tsc -b",
+    "watch": "tsc -w",
     "lint": "eslint --ext .ts,.tsx,.js src/",
     "lint:fix": "eslint --ext .ts,.tsx,.js src/ --fix",
     "prepack": "npm run build"
@@ -34,10 +35,7 @@
     "url": "https://github.com/equinor/fusion-react-components/issues"
   },
   "dependencies": {
-    "@equinor/fusion-react-utils": "^1.1.2",
+    "@equinor/fusion-react-utils": "^1.1.4",
     "@equinor/fusion-wc-date": "^0.2.6"
-  },
-  "devDependencies": {
-    "typescript": "^4.3.5"
   }
 }

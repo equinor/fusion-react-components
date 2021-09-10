@@ -5,6 +5,12 @@ import { useMemo } from 'react';
 export default {
   title: 'Table/Stories',
   component: Table,
+  parameters: {
+    viewMode: 'docs',
+    previewTabs: {
+      canvas: { hidden: true },
+    },
+  },
 } as Meta;
 
 import { makeData } from './makeData';

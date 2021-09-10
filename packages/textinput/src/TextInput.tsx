@@ -3,6 +3,8 @@ import { TextInputElement, TextInputElementProps } from '@equinor/fusion-wc-text
 
 import { elementAttributes } from '@equinor/fusion-react-utils';
 
+TextInputElement;
+
 export type TextInputChangeHandler = ChangeEventHandler<TextInputElement>;
 export type TextInputChangeEvent = ChangeEvent<TextInputElement>;
 

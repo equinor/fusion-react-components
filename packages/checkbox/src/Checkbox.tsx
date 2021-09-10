@@ -1,11 +1,28 @@
-import { HTMLAttributes } from 'react';
-import CheckboxElement, { CheckboxElementProps } from '@equinor/fusion-wc-checkbox/lib/element';
-import '@equinor/fusion-wc-checkbox';
+import { ChangeEventHandler, HTMLAttributes } from 'react';
 
-export type CheckboxProps = CheckboxElementProps & HTMLAttributes<CheckboxElement>;
+import { elementAttributes } from '@equinor/fusion-react-utils';
 
-export const Checkbox = ({ ...rest }: CheckboxProps): JSX.Element => {
-  return <fwc-checkbox {...rest}></fwc-checkbox>;
+import { CheckboxElement, CheckboxElementProps } from '@equinor/fusion-wc-checkbox';
+import { FormfieldElement, FormfieldElementProps } from '@equinor/fusion-wc-formfield';
+
+CheckboxElement;
+FormfieldElement;
+
+export type CheckboxProps = CheckboxElementProps &
+  HTMLAttributes<CheckboxElement> & {
+    onChange?: ChangeEventHandler<CheckboxElement>;
+    label?: string;
+    formfield?: FormfieldElementProps;
+  };
+
+export const Checkbox = (props: CheckboxProps): JSX.Element => {
+  const { formfield = {}, label, ...attr } = elementAttributes(props as CheckboxProps);
+  formfield.label = label;
+  return (
+    <fwc-formfield {...formfield}>
+      <fwc-checkbox {...attr} />
+    </fwc-formfield>
+  );
 };
 
 export default Checkbox;

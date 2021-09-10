@@ -37,6 +37,7 @@ const useItem = <T extends HangingGardenColumnIndex>(): UseItem<T> => {
     popover: { addPopover },
     colorMode,
     groupLevels,
+    padding,
   } = useHangingGardenContext();
 
   const { createTextNode } = useTextNode();
@@ -72,8 +73,8 @@ const useItem = <T extends HangingGardenColumnIndex>(): UseItem<T> => {
 
   const renderItem = useCallback(
     (item: T, index: number, columnIndex: number) => {
-      const x = getColumnX(columnIndex, expandedColumns, itemWidth, groupLevels);
-      const y = headerHeight + index * itemHeight;
+      const x = getColumnX(columnIndex, expandedColumns, itemWidth + padding, groupLevels);
+      const y = headerHeight + index * (itemHeight + padding);
 
       const key = `${item[itemKeyProp as keyof T]}_${colorMode}`;
       let renderedItem = getTextureFromCache('items', key) as PIXI.Container;
@@ -82,8 +83,8 @@ const useItem = <T extends HangingGardenColumnIndex>(): UseItem<T> => {
         renderedItem = new PIXI.Container();
         renderedItem.x = x + GROUP_LEVEL_OFFSET * groupLevels;
         renderedItem.y = y;
-        renderedItem.width = itemWidth;
-        renderedItem.height = itemHeight;
+        renderedItem.width = itemWidth + padding;
+        renderedItem.height = itemHeight + padding;
         renderedItem.buttonMode = true;
         renderedItem.interactive = true;
         renderedItem.on('pointerdown', (e: PIXI.InteractionEvent) => {
@@ -126,8 +127,24 @@ const useItem = <T extends HangingGardenColumnIndex>(): UseItem<T> => {
         if (!renderedHighlightedItem) {
           renderedHighlightedItem = new PIXI.Graphics();
           renderedHighlightedItem.cacheAsBitmap = true;
-          renderedHighlightedItem.lineStyle(4, 0x243746);
-          renderedHighlightedItem.drawRoundedRect(0, 0, itemWidth - 2, itemHeight - 2, 4);
+          if (padding <= 0) {
+            renderedHighlightedItem.lineStyle(4, 0x243746);
+            renderedHighlightedItem.drawRoundedRect(0, 0, itemWidth - 2, itemHeight - 2, 4);
+          } else {
+            const POS = 2;
+            renderedHighlightedItem.lineStyle(2, 0x007079);
+            renderedHighlightedItem.moveTo(-POS, -POS);
+
+            // @ts-ignore
+            renderedHighlightedItem.drawDashLine(itemWidth, -POS);
+            // @ts-ignore
+            renderedHighlightedItem.drawDashLine(itemWidth, itemHeight);
+            // @ts-ignore
+            renderedHighlightedItem.drawDashLine(-POS, itemHeight);
+
+            //@ts-ignore
+            renderedHighlightedItem.drawDashLine(-POS, -POS);
+          }
         }
 
         renderedHighlightedItem.x = x + GROUP_LEVEL_OFFSET * groupLevels;
@@ -160,6 +177,7 @@ const useItem = <T extends HangingGardenColumnIndex>(): UseItem<T> => {
       onItemClick,
       colorMode,
       groupLevels,
+      padding,
     ]
   );
 

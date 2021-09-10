@@ -34,6 +34,7 @@ const useGarden = <T extends HangingGardenColumnIndex>(): UseGarden => {
     scroll: { scrollLeft, scrollTop, scrollToHighlightedColumn, scrollToHighlightedItem },
     textureCaches: { clearTextureCaches },
     groupLevels,
+    padding,
   } = useHangingGardenContext();
 
   const { renderColumn } = useColumn<T>();
@@ -70,8 +71,8 @@ const useGarden = <T extends HangingGardenColumnIndex>(): UseGarden => {
     const scrollRight = scrollLeft.current + offsetWidth + 10;
     for (let i = 0; i < (columns as HangingGardenColumn<T>[]).length; i++) {
       const column = (columns as HangingGardenColumn<T>[])[i];
-      const columnX = getColumnX(i, expandedColumns, itemWidth, groupLevels);
-      const width = getHeaderWidth(column.key, expandedColumns, itemWidth, groupLevels);
+      const columnX = getColumnX(i, expandedColumns, itemWidth + padding, groupLevels);
+      const width = getHeaderWidth(column.key, expandedColumns, itemWidth + padding, groupLevels);
 
       if (column && columnX + width >= scrollLeft.current && columnX <= scrollRight) renderColumn(column, i);
     }

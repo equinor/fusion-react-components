@@ -1,11 +1,27 @@
 import { HTMLAttributes } from 'react';
-import SwitchElement, { SwitchElementProps } from '@equinor/fusion-wc-switch/lib/element';
-import '@equinor/fusion-wc-switch';
 
-export type SwitchProps = SwitchElementProps & HTMLAttributes<SwitchElement>;
+import { elementAttributes } from '@equinor/fusion-react-utils';
 
-export const Switch = ({ ...rest }: SwitchProps): JSX.Element => {
-  return <fwc-switch {...rest}></fwc-switch>;
+import SwitchElement, { SwitchElementProps } from '@equinor/fusion-wc-switch';
+import FormFieldElement, { FormfieldElementProps } from '@equinor/fusion-wc-formfield';
+
+SwitchElement;
+FormFieldElement;
+
+export type SwitchProps = SwitchElementProps &
+  HTMLAttributes<SwitchElement> & {
+    label?: string;
+    formfield?: FormfieldElementProps;
+  };
+
+export const Switch = (props: SwitchProps): JSX.Element => {
+  const { formfield = {}, label, ...attr } = elementAttributes(props as SwitchProps);
+  formfield.label = label;
+  return (
+    <fwc-formfield {...formfield}>
+      <fwc-switch {...attr} />
+    </fwc-formfield>
+  );
 };
 
 export default Switch;

@@ -37,4 +37,5 @@ export type HangingGardenProps<T extends HangingGardenColumnIndex> = {
   colorMode?: ColorMode;
   disableScrollToHighlightedItem?: boolean;
   groupLevels?: number;
+  padding?: number;
 };

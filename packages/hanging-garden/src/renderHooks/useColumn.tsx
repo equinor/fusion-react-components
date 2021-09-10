@@ -21,6 +21,7 @@ const useColumn = <T extends HangingGardenColumnIndex>(): UseColumn<T> => {
     container,
     itemHeight,
     expandedColumns,
+    padding,
   } = useHangingGardenContext();
 
   const { renderItem } = useRenderItem();
@@ -66,10 +67,10 @@ const useColumn = <T extends HangingGardenColumnIndex>(): UseColumn<T> => {
 
   const renderColumn = useCallback(
     (column: HangingGardenColumn<T>, index: number) => {
-      const startRow = Math.floor(scrollTop.current / itemHeight);
+      const startRow = Math.floor(scrollTop.current / (itemHeight + padding));
       const offSetHeight = container.current?.offsetHeight || 0;
 
-      const endRow = Math.min(column.data.length, Math.ceil((scrollTop.current + offSetHeight) / itemHeight));
+      const endRow = Math.min(column.data.length, Math.ceil((scrollTop.current + offSetHeight) / itemHeight + padding));
 
       isMultiGrouped(column.data)
         ? renderGroupedItems(column, startRow, index)
@@ -85,6 +86,7 @@ const useColumn = <T extends HangingGardenColumnIndex>(): UseColumn<T> => {
       container.current?.offsetHeight,
       scrollTop.current,
       itemHeight,
+      padding,
     ]
   );
 
