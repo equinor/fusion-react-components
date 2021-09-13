@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.18.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.17.4...@equinor/fusion-react-components-stories@1.18.0) (2021-09-10)
+
+
+### Bug Fixes
+
+* Added useSelector and reducer from fusion API ([693973e](https://github.com/equinor/fusion-react-components/commit/693973eb1adc1e4b4e97e73b89f23d7c6ce44d85))
+* search functionality, css adjustments and description ([e187592](https://github.com/equinor/fusion-react-components/commit/e18759227012eac564d36972d58a6362cdf30d43))
+
+
+### Features
+
+* Moved over and implemented most of the components used for horizontal filterpanel ([c556396](https://github.com/equinor/fusion-react-components/commit/c5563960610b14a39bd3db72f558e435eb25dd88))
+* Moved over and implemented most of the components used for horizontal filterpanel ([c189a96](https://github.com/equinor/fusion-react-components/commit/c189a96f5a150f1774b93913a744987ecc08e2d1))
+* Moved over and implemented most of the components used for horizontal filterpanel ([b1a80c1](https://github.com/equinor/fusion-react-components/commit/b1a80c1bf8fb8e1ca4230236083f14da0dd915ac))
+
+
+
+
+
 ## [1.17.4](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.17.3...@equinor/fusion-react-components-stories@1.17.4) (2021-09-10)
 
 **Note:** Version bump only for package @equinor/fusion-react-components-stories
