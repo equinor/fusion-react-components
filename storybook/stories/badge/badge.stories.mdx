@@ -33,7 +33,7 @@ export const Container = ({ title, children }) => (
   </section>
 );
 
-export const PositionsTemplate = (props) => (
+export const BadgeTemplate = (props) => (
   <div>
     <Container title="Positions">
       <BadgeWrapper circular={props.circular}>
@@ -103,9 +103,9 @@ export const PositionsTemplate = (props) => (
 ## SnapShots
 
 <Story name="Rectangular" args={{ name: 'rectangular' }}>
-  {PositionsTemplate.bind({})}
+  {BadgeTemplate.bind({})}
 </Story>
 
 <Story name="Circular" args={{ name: 'circular', circular: true }}>
-  {PositionsTemplate.bind({})}
+  {BadgeTemplate.bind({})}
 </Story>
