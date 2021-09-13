@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.20.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.19.0...@equinor/fusion-react-components-stories@1.20.0) (2021-09-13)
+
+
+### Features
+
+* created react component ([f8c8846](https://github.com/equinor/fusion-react-components/commit/f8c88469f335ca963d578b3aba364bfa33faa0b2))
+
+
+
+
+
 # [1.19.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.18.0...@equinor/fusion-react-components-stories@1.19.0) (2021-09-13)
 
 
