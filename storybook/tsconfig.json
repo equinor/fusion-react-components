@@ -9,6 +9,9 @@
   "exclude": ["node_modules"],
   "references": [
     {
+      "path": "../packages/avatar"
+    },
+    {
       "path": "../packages/badge"
     },
     {

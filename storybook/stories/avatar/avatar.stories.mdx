@@ -1,0 +1,74 @@
+import { Meta, Story, Canvas, ArgsTable, Description } from '@storybook/addon-docs';
+import Template, { AvatarWrapper } from './Avatar.template';
+import Avatar from '@equinor/fusion-react-avatar';
+import readme from '@equinor/fusion-react-avatar/README.md';
+
+<Meta
+  title="Data/Avatar"
+  component={Template}
+  parameters={{
+    viewMode: 'docs',
+    previewTabs: {
+      canvas: { hidden: true },
+    },
+  }}
+/>
+
+<Description markdown={readme} />
+
+## Playground
+
+<Canvas>
+  <Story name="playground" parameters={{ chromatic: { disableSnapshot: true } }} args={{ label: 'Avatar' }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable story="playground" />
+
+export const Container = ({ title, children }) => (
+  <section>
+    <h4>{title}</h4>
+    <div style={{ display: 'flex', gap: '10px' }}>{children}</div>
+  </section>
+);
+
+export const AvatarTemplate = (props) => (
+  <>
+    <Container title="Presence">
+      <Avatar presence="Available" {...props} />
+      <Avatar presence="AvailableIdle" {...props} />
+      <Avatar presence="Away" {...props} />
+      <Avatar presence="BeRightBack" {...props} />
+      <Avatar presence="Busy" {...props} />
+      <Avatar presence="BusyIdle" {...props} />
+      <Avatar presence="DoNotDisturb" {...props} />
+      <Avatar presence="Offline" {...props} />
+      <Avatar presence="PresenceUnknown" {...props} />
+    </Container>
+    <Container title="Positions">
+      <Avatar presence="Available" position="Employee" {...props} />
+      <Avatar presence="Available" position="External hire" {...props} />
+      <Avatar presence="Available" position="X-External" {...props} />
+      <Avatar presence="Available" position="Joint venture/Affiliate" {...props} />
+    </Container>
+    <Container title="Sizes">
+      <Avatar size="small" position="Employee" presence="Available" {...props} />
+      <Avatar size="medium" position="Employee" presence="Available" {...props} />
+      <Avatar size="large" position="Employee" presence="Available" {...props} />
+    </Container>
+    <Container title="Clickable">
+      <Avatar presence="Available" position="Employee" clickable {...props} />
+    </Container>
+  </>
+);
+
+## SnapShots
+
+<Story name="Picture" args={{ name: 'picture', src: 'https://i.imgur.com/GcZeeXX.jpeg' }}>
+  {AvatarTemplate.bind({})}
+</Story>
+
+<Story name="Initial" args={{ name: 'initial', initial: 'A' }}>
+  {AvatarTemplate.bind({})}
+</Story>
