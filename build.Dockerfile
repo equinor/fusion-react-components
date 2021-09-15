@@ -1,4 +1,4 @@
-FROM node:14-buster
+FROM node:lts-alpine
 WORKDIR /app 
 COPY . .
 RUN npm ci

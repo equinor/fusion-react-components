@@ -37,9 +37,7 @@
   "bugs": {
     "url": "https://github.com/equinor/fusion-react-components/issues"
   },
-  "devDependencies": {
-    "typescript": "^4.1.3"
-  },
+  "devDependencies": {},
   "dependencies": {
     "@equinor/fusion-react-button": "^0.2.0",
     "@equinor/fusion-react-checkbox": "^0.2.2",
