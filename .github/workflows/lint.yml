@@ -28,7 +28,7 @@ jobs:
           CI: TRUE
 
       - name: Build project
-        run: npx tsc -b
+        run: npm run build
 
       - name: Save Code Linting Report JSON
         run: npm run lint:report
