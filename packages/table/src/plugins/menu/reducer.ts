@@ -22,11 +22,10 @@ export const reducer = <D extends TableData>(
 
       return state;
     })
-    .handleAction(
-      () => ({ type: tableActions.init }),
-      (state) => {
-        return { ...state, menu: {} };
-      }
-    );
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    .handleAction(tableActions.init, (state) => {
+      return { ...state, menu: {} };
+    });
 
 export default reducer;
