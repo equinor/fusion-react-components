@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+
 import {
   Column as ColumnDefault,
   PluginHook as PluginHookDefault,
