@@ -1,2 +1,5 @@
-node_modules
-storybook
+/storybook
+/docs
+/node_modules
+/packages/*/node_modules
+tsconfig.tsbuildinfo
