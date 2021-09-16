@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-textinput",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "component for displaying text input",
   "keywords": [
     "text input",
@@ -34,7 +34,7 @@
     "url": "https://github.com/equinor/fusion-react-components/issues"
   },
   "dependencies": {
-    "@equinor/fusion-react-utils": "^1.1.4",
+    "@equinor/fusion-react-utils": "^1.1.5",
     "@equinor/fusion-wc-textinput": "^0.2.10"
   }
 }

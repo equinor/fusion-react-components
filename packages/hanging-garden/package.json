@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-hanging-garden",
-  "version": "1.6.2",
+  "version": "1.6.3",
   "description": "component handling rendering of hanging gardens",
   "author": "",
   "homepage": "https://github.com/equinor/fusion-react-components/tree/master/packages/HangingGarden#readme",
@@ -36,7 +36,7 @@
     "url": "https://github.com/equinor/fusion-react-components/issues"
   },
   "dependencies": {
-    "@equinor/fusion-react-styles": "^0.3.0",
+    "@equinor/fusion-react-styles": "^0.3.1",
     "@types/history": "^4.7.9",
     "date-fns": "^2.23.0",
     "history": "^4.9.0",
