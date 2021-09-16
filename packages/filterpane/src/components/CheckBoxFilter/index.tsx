@@ -10,7 +10,7 @@ import { Filter } from '../../types/Filter';
 import FilterStore from '../../filterStore/store';
 import { TextInput, TextInputChangeEvent } from '@equinor/fusion-react-textinput';
 import { TSelection } from '../../FilterProvider';
-import useStyles, { CheckBoxFilterStyleProps } from './useStyles';
+import useStyles from './useStyles';
 import useFilterContext from '../../hooks/useFilterContext';
 
 const optionVisible = (
@@ -42,7 +42,6 @@ export type FilterContainerProps<TData> = {
   useSelectAll?: boolean;
   useSingleSelect?: boolean;
   compact?: boolean;
-  style?: CheckBoxFilterStyleProps;
 };
 
 /**
@@ -73,7 +72,6 @@ const CheckBoxFilter = <TSelections extends Record<string, TSelection>, TData>({
   useSelectAll,
   useSingleSelect = false,
   compact = false,
-  style,
 }: FilterContainerProps<TData>): JSX.Element => {
   const [filterSearch, setFilterSearch] = useState('');
 
@@ -97,7 +95,7 @@ const CheckBoxFilter = <TSelections extends Record<string, TSelection>, TData>({
     return () => store.unRegisterFilter(key);
   }, [store, key, filterFn, filter]);
 
-  const styles = useStyles(style || {});
+  const styles = useStyles();
 
   const onChange = (e: TextInputChangeEvent) => setFilterSearch(e.target.value);
   return (

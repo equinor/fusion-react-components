@@ -9,7 +9,7 @@ export { HTMLBadgeCustomElement };
 
 export type BadgeProps = BadgeElementProps & HTMLAttributes<HTMLBadgeCustomElement>;
 
-export const Badge = (props: PropsWithChildren<BadgeProps>) => {
+export const Badge = (props: PropsWithChildren<BadgeProps>): JSX.Element => {
   const { children, ...attr } = props;
   return <fwc-badge {...attr}>{children}</fwc-badge>;
 };

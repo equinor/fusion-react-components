@@ -1,12 +1,9 @@
-import { createStyles, FusionTheme, makeStyles } from '@equinor/fusion-react-styles';
-import { CSSProperties } from 'react';
+import { createStyles, makeStyles } from '@equinor/fusion-react-styles';
 
-export type CheckBoxFilterStyleProps = { checkBoxFilterContainer?: CSSProperties; filterHeader?: CSSProperties };
-
-const useStyles = makeStyles<FusionTheme, CheckBoxFilterStyleProps>(
+const useStyles = makeStyles(
   () =>
     createStyles({
-      CheckBoxFilterContainer: ({ checkBoxFilterContainer }) => ({
+      CheckBoxFilterContainer: {
         display: 'flex',
         flexDirection: 'column',
         padding: '16px',
@@ -14,8 +11,7 @@ const useStyles = makeStyles<FusionTheme, CheckBoxFilterStyleProps>(
         boxSizing: 'border-box',
         minWidth: '150px',
         maxWidth: '240px',
-        ...checkBoxFilterContainer,
-      }),
+      },
       FilterHeader: {
         padding: '0 8px',
         fontWeight: 'bold',
