@@ -6,7 +6,7 @@ import { Filter } from '../../types/Filter';
 import FilterStore from '../../filterStore/store';
 import { TextInput, TextInputChangeEvent } from '@equinor/fusion-react-textinput';
 import Radio from '@equinor/fusion-react-radio';
-import useStyles, { RadioFilterStyles } from './useStyles';
+import useStyles from './useStyles';
 import { TSelection } from '../../FilterProvider';
 import FilterOption from '../../types/FilterOption';
 import useFilterContext from '../../hooks/useFilterContext';
@@ -23,7 +23,6 @@ const optionVisible = (option: FilterOption, searchString: string): boolean =>
 export type RadioFilterContainerProps<TData> = {
   filter: Filter<TData, TSelection>;
   useSearch?: boolean;
-  styles?: RadioFilterStyles;
 };
 
 /**
@@ -38,7 +37,6 @@ export type RadioFilterContainerProps<TData> = {
 const RadioFilter = <TSelections extends Record<string, TSelection>, TData>({
   filter,
   useSearch,
-  styles,
 }: RadioFilterContainerProps<TData>): JSX.Element => {
   const context = useFilterContext();
   const store = context.store as FilterStore<TSelections, TData>;
@@ -66,7 +64,7 @@ const RadioFilter = <TSelections extends Record<string, TSelection>, TData>({
     return () => store.unRegisterFilter(key);
   }, [store, key, filterFn, filter]);
 
-  const Styles = useStyles(styles || {});
+  const Styles = useStyles();
 
   const onSearchValueChange = (e: TextInputChangeEvent) => setFilterSearch(e.target.value);
 

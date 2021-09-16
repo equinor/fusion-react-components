@@ -3,7 +3,7 @@
         "strict": true,
         "allowSyntheticDefaultImports": true,
         "module": "ESNext",
-        "target": "ES6",
+        "target": "es2021",
         "moduleResolution": "node",
         "esModuleInterop": true,
         "experimentalDecorators": true,

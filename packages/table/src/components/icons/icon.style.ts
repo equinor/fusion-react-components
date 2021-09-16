@@ -7,10 +7,10 @@ export const useStyle = makeStyles(
         fill: 'currentColor',
         height: '1em',
         width: 'auto',
-        ...theme.colors.text.static_icons__default,
+        color: theme.colors.text.static_icons__default.getVariable('color'),
       },
       active: {
-        ...theme.colors.interactive.primary__hover.style,
+        color: theme.colors.interactive.primary__hover.getVariable('color'),
       },
     }),
   { name: 'fusion-table-icon' }

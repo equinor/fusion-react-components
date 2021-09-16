@@ -161,16 +161,7 @@ export const flattenColumn = <T extends HangingGardenColumnIndex>(
       )
     : column.data;
 
-/**
- * Method for drawing dashed lines
- * @param toX x-coordinate you want to draw the dashed lines to
- * @param toY y-coordinate you want to draw the dashed lines to
- * @param dash length of the dashed lines
- * @param gap the gap between the dashed lines
- */
-//@ts-ignore
-PIXI.Graphics.prototype.drawDashLine = function (toX: number, toY: number, dash = 12, gap = 5) {
-  //@ts-ignore
+PIXI.Graphics.prototype.drawDashLine = function (this: PIXI.Graphics, toX: number, toY: number, dash = 12, gap = 5) {
   const lastPosition = this.currentPath.points;
   const from = new Vector2(lastPosition[lastPosition.length - 2] || 0, lastPosition[lastPosition.length - 1] || 0);
   const to = new Vector2(toX, toY);

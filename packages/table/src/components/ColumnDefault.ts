@@ -12,13 +12,7 @@ import ColumnHeader from './ColumnHeader';
 
 export const createDefaultColumn = <D extends TableData>(props?: TableOptions<D>): Partial<Column<D>> => ({
   minWidth: 60,
-  // width: 200,
-  // maxWidth: 400,
   ColumnHeader,
-  // @ts-ignore
-  // Cell: (...args) => {
-  //   return 'p';
-  // },
   get spacing() {
     return (props?.spacing || 'small') as SpacingType;
   },

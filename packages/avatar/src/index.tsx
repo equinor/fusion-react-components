@@ -9,7 +9,7 @@ export { HTMLAvatarCustomElement };
 
 export type AvatarProps = AvatarElementProps & HTMLAttributes<HTMLAvatarCustomElement>;
 
-export const Avatar = (props: PropsWithChildren<AvatarProps>) => {
+export const Avatar = (props: PropsWithChildren<AvatarProps>): JSX.Element => {
   const { children, ...attr } = props;
   return <fwc-avatar {...attr}>{children}</fwc-avatar>;
 };
