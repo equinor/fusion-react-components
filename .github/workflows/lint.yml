@@ -23,9 +23,9 @@ jobs:
 
       - name: Install Node Dependencies
         if: steps.cache-node.outputs.cache-hit != 'true'
-        run: npm ci
-        env:
-          CI: TRUE
+        run: |
+          npm ci
+          npm run bootstrap
 
       - name: Build project
         run: npm run build
