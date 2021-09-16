@@ -22,7 +22,6 @@ export const reducer = <D extends TableData>(
 
       return state;
     })
-    // @ts-ignore
     .handleAction(tableActions.init, (state) => {
       return { ...state, menu: {} };
     });
