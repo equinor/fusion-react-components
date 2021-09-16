@@ -19,7 +19,8 @@ jobs:
     runs-on: ubuntu-latest
     # Job steps
     steps:
-      - uses: actions/checkout@v2
+      # requires v1 @see https://www.chromatic.com/docs/github-actions
+      - uses: actions/checkout@v1
       - uses: actions/setup-node@v2
         with:
           node-version: '14'
