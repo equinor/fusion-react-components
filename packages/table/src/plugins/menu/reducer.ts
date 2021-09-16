@@ -22,8 +22,11 @@ export const reducer = <D extends TableData>(
 
       return state;
     })
-    .handleAction(tableActions.init, (state) => {
-      return { ...state, menu: {} };
-    });
+    .handleAction(
+      () => ({ type: tableActions.init }),
+      (state) => {
+        return { ...state, menu: {} };
+      }
+    );
 
 export default reducer;
