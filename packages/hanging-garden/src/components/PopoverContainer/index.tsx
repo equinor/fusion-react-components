@@ -1,6 +1,8 @@
-import Arrow from './Arrow';
+import { ForwardedRef, forwardRef, PropsWithChildren, ReactNode } from 'react';
+
 import { makeStyles, createStyles } from '@equinor/fusion-react-styles';
-import { forwardRef, PropsWithChildren, ReactNode, Ref } from 'react';
+
+import Arrow from './Arrow';
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -16,12 +18,12 @@ const useStyles = makeStyles(() =>
   })
 );
 
-const PopoverContainer = forwardRef<HTMLDivElement | null, PropsWithChildren<ReactNode>>(({ children }, ref) => {
+const PopoverContainer = forwardRef((props: PropsWithChildren<ReactNode>, ref: ForwardedRef<HTMLDivElement>) => {
   const styles = useStyles();
   return (
-    <div ref={ref as Ref<HTMLDivElement>} className={styles.root}>
+    <div ref={ref} className={styles.root}>
       <Arrow />
-      <div>{children}</div>
+      <div>{props.children}</div>
     </div>
   );
 });
