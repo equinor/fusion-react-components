@@ -1,0 +1,58 @@
+import { Meta, Story, Canvas, ArgsTable, Description, Source } from '@storybook/addon-docs';
+
+import { TextArea } from '@equinor/fusion-react-textarea';
+
+export const Container = ({children}) => <div style={{display:'flex', gap: 10}}>{children}</div>; 
+
+<Meta
+  title="Input/TextArea/Snapshots"
+  parameters={{chromatic: { disableSnapshot: false }}}
+/>
+
+### Default
+
+<Story name="Default">
+  <div>
+    <Container>
+      <TextArea label="Default" />
+      <TextArea label="Default" value="Fusion"/>
+    </Container>
+    <br />
+    <Container>
+      <TextArea label="Disabled" disabled />
+      <TextArea label="Disabled" disabled value="Fusion"/>
+    </Container>
+  </div>
+</Story>
+
+### Size
+
+<Story name="Rows">
+  <TextArea label="Multiple rows" rows={4} />
+</Story>
+
+### Validation
+
+<Story name="Required">
+  <TextArea label="Required" required />
+</Story>
+
+### Helper
+
+<Story name="Helper">
+  <Container>
+    <TextArea label="Helper" helper="This helper shows when active!" />
+    <TextArea label="Persistent helper" helper="This helper is persistent!" helperpersistent />
+  </Container>
+</Story>
+
+### Counter
+
+<Story name="Counter">
+  <Container>
+    <TextArea label="Character counter" helper="Helper Text" helperPersistent maxlength={10} charCounter />
+    <TextArea label="Character counter" helper="Helper Text" helperPersistent maxlength={10} charCounter value="Fusion" />
+  </Container>
+</Story>
+
+
