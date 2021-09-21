@@ -1,31 +1,20 @@
-import {
-  ChangeEvent,
-  ChangeEventHandler,
-  createRef,
-  FormEvent,
-  ForwardedRef,
-  forwardRef,
-  HTMLAttributes,
-  PropsWithChildren,
-  ReactElement,
-  RefObject,
-  useCallback,
-  useEffect,
-  useLayoutEffect,
-} from 'react';
+import { createRef, FormEvent, ForwardedRef, forwardRef, useCallback, useEffect, useLayoutEffect } from 'react';
 
 import { TextAreaElement, TextAreaElementProps } from '@equinor/fusion-wc-textarea';
 
 import { elementAttributes } from '@equinor/fusion-react-utils';
 
 export { TextAreaElement };
-export type TextAreaChangeHandler = ChangeEventHandler<TextAreaElement>;
-export type TextAreaChangeEvent = ChangeEvent<TextAreaElement>;
+export type TextAreaChangeHandler = React.ChangeEventHandler<TextAreaElement>;
+export type TextAreaChangeEvent = React.ChangeEvent<TextAreaElement>;
 export type TextAreaValidity = TextAreaElement['validity'];
 export type TextAreaValidityFn = (validity: TextAreaValidity, el: TextAreaElement) => string | null;
 
 export type TextAreaProps = Partial<Omit<TextAreaElementProps, 'validationMessage'>> &
-  HTMLAttributes<TextAreaElement> & {
+  React.HTMLAttributes<TextAreaElement> & {
+    /**
+     * Since most react developers hooks on to this, this proxy the onInput event
+     */
     onChange?: TextAreaChangeHandler;
     /**
      * When `string` is provided this will set a validation message and mark the element as invalid.
@@ -35,15 +24,14 @@ export type TextAreaProps = Partial<Omit<TextAreaElementProps, 'validationMessag
     validationMessage?: string | TextAreaValidityFn;
   };
 
-export const TextArea = forwardRef(
+export const TextInput = forwardRef(
   (
-    { children, onChange, validationMessage, validityTransform, ...props }: PropsWithChildren<TextAreaProps>,
+    { children, onChange, validationMessage, validityTransform, ...props }: React.PropsWithChildren<TextAreaProps>,
     ref: ForwardedRef<TextAreaElement>
-  ): ReactElement => {
+  ): React.ReactElement => {
     const attr = elementAttributes(props as TextAreaElementProps);
 
-    const elRef = (ref || createRef()) as RefObject<TextAreaElement>;
-    // useRef<TextAreaElement | ForwardedRef<TextAreaElement>>(_ref);
+    const elRef = (ref || createRef()) as React.RefObject<TextAreaElement>;
 
     const onInput = useCallback(
       (e: FormEvent<TextAreaElement>) => {
@@ -91,6 +79,6 @@ export const TextArea = forwardRef(
   }
 );
 
-TextArea.displayName = 'TextArea';
+TextInput.displayName = 'TextArea';
 
-export default TextArea;
+export default TextInput;
