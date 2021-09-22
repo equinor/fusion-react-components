@@ -25,8 +25,6 @@ export type DatePickerBaseProps = DatePickerPopperProps &
       | 'maxTime'
       | 'minDate'
       | 'minTime'
-      | 'onBlur'
-      | 'onChange'
       | 'onFocus'
       | 'onMonthChange'
       | 'onYearChange'
