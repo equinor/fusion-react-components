@@ -1,10 +1,20 @@
+:root {
+  font-family: 'Equinor';
+  --mdc-typography-font-family: 'Equinor';
+}
+
 blockquote {
-  background: rgba(0,127,255,.25);
+  background: rgba(0,127,255,.1);
   color: #333;
   margin: 1rem 0;
   padding: 0.5rem 2rem;
   border-radius: .5rem;
-  box-shadow: 1px 1px 5px 0px rgba(0, 0, 0, .2);
+  box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, .1);
+  min-height: 3rem;
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  border-left: none !important;
 }
 
 p code {
@@ -27,7 +37,36 @@ p code {
   background-color: #F8F8F8;
 }
 
-:root {
-  font-family: 'Equinor';
-  --mdc-typography-font-family: 'Equinor';
+#bug-fixes  + ul > li,
+#features  + ul > li {
+  display: inline-flex;
+}
+
+#bug-fixes + ul,
+#features + ul {
+  margin: 0;
+  padding: 0;
+}
+
+#bug-fixes  + ul,
+#features  + ul {
+  display: flex;
+  flex-flow: column;
+}
+
+#bug-fixes  + ul > li,
+#features  + ul > li {
+  display: inline-flex;
+}
+
+#bug-fixes + ul > li:before {
+  content: '🐞';
+  display: block;
+  margin-right: .5em;
+}
+
+#features + ul > li:before {
+  content: '🚀';
+  display: block;
+  margin-right: .5em;
 }
