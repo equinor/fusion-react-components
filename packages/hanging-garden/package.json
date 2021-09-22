@@ -48,7 +48,7 @@
   },
   "peerDependencies": {
     "@equinor/fusion": "3.3.x",
-    "@equinor/fusion-react-styles": "^0.3.0",
+    "@equinor/fusion-react-styles": "0.3.1",
     "@types/history": "4.x",
     "date-fns": "2.x",
     "history": "4.x"
