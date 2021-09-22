@@ -1,9 +1,9 @@
 import { Column, Table, useTableContext } from '@equinor/fusion-react-table';
-import { Meta } from '@storybook/react/types-6-0';
+import { Meta } from '@storybook/react';
 import { useMemo } from 'react';
 
 export default {
-  title: 'Table/Stories',
+  title: 'Data/Table/Stories',
   component: Table,
   parameters: {
     viewMode: 'docs',
@@ -12,8 +12,6 @@ export default {
     },
   },
 } as Meta;
-
-import { makeData } from './makeData';
 
 const columns: Column[] = [
   {
@@ -47,10 +45,11 @@ const Debugger = () => {
   return <pre>{JSON.stringify(instance.state, null, 2)}</pre>;
 };
 
+// TODO - generate data
 const Template = ({ rows }: { rows: number }) => {
   const options = useMemo(
     () => ({
-      data: makeData(rows),
+      data: [],
       columns,
     }),
     [rows]

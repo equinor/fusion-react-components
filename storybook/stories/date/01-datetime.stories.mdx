@@ -1,0 +1,22 @@
+import { Meta, Story, Canvas, ArgsTable,Description } from '@storybook/addon-docs';
+import DateTimeTemplate from './DateTime.template';
+import readme from '@equinor/fusion-react-date/README.md';
+
+<Meta
+  title="Data/Date/DateTime"
+  component={DateTimeTemplate}
+/>
+
+<Description markdown={readme} />
+
+<Canvas>
+  <Story name="DateTime" args={{date:'2021-09-08:18:42.000Z'}} >
+    {DateTimeTemplate.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable story="DateTime" />
+
+
+
+

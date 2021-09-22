@@ -6,12 +6,6 @@ import readme from '@equinor/fusion-react-badge/README.md';
 <Meta
   title="Data/Badge"
   component={Template}
-  parameters={{
-    viewMode: 'docs',
-    previewTabs: {
-      canvas: { hidden: true },
-    },
-  }}
 />
 
 <Description markdown={readme} />
@@ -19,7 +13,7 @@ import readme from '@equinor/fusion-react-badge/README.md';
 ## Playground
 
 <Canvas>
-  <Story name="playground" parameters={{ chromatic: { disableSnapshot: true } }} args={{ label: 'Badge' }}>
+  <Story name="playground" args={{ label: 'Badge' }}>
     {Template.bind({})}
   </Story>
 </Canvas>
@@ -102,10 +96,10 @@ export const BadgeTemplate = (props) => (
 
 ## SnapShots
 
-<Story name="Rectangular" args={{ name: 'rectangular' }}>
+<Story name="Rectangular" parameters={{ chromatic: { disableSnapshot: false } }}  args={{ name: 'rectangular' }}>
   {BadgeTemplate.bind({})}
 </Story>
 
-<Story name="Circular" args={{ name: 'circular', circular: true }}>
+<Story name="Circular" parameters={{ chromatic: { disableSnapshot: false } }} args={{ name: 'circular', circular: true }}>
   {BadgeTemplate.bind({})}
 </Story>
