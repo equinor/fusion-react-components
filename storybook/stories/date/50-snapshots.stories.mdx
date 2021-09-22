@@ -1,0 +1,22 @@
+import { Meta, Story, Canvas, ArgsTable,Description } from '@storybook/addon-docs';
+
+import { DateTime, DateRange } from '@equinor/fusion-react-date';
+
+<Meta title="Data/Date/Snapshots" parameters={{ chromatic: { disableSnapshot: false } }}/>
+
+export const Container = ({children}) => <div style={{display:'flex', flexFlow:'column', gap: 10}}>{children}</div>
+
+<Story name="Snapshots">
+  <h4>DateTime</h4>
+  <Container>
+    <DateTime date="2021-09-21T13:18:42.000Z" />
+  </Container>
+  <h4>DateRange</h4>
+  <Container>
+    <DateRange from="2021-09-20T13:18:42.000Z" to="2021-09-21T13:18:42.000Z" variant="distance" />
+    <DateRange from="2021-09-20T13:18:42.000Z" to="2021-09-21T13:18:42.000Z" variant="relative" />
+    <DateRange from="2021-09-20T13:18:42.000Z" to="2021-09-21T13:18:42.000Z" variant="datetime" />
+  </Container>
+</Story>
+
+

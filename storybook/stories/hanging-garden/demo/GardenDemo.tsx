@@ -47,12 +47,11 @@ const GardenDemo: FC<GardenDemoProps> = ({ rows, height }: GardenDemoProps) => {
   const highlightedKey = getYearAndWeekFromDate(new Date());
 
   useEffect(() => {
-    console.log('data', data);
     setColumns(getColumns(data));
   }, [data]);
 
   useEffect(() => {
-    console.log('errorMessage', errorMessage);
+    console.error('errorMessage', errorMessage);
   }, [errorMessage]);
 
   const style = useStyles({ height });
