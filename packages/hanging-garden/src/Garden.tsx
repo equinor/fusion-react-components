@@ -32,7 +32,7 @@ type GardenProps = {
   provideController?: MutableRefObject<GardenController | null>;
 };
 
-function Garden<T extends HangingGardenColumnIndex>({ provideController }: GardenProps): JSX.Element {
+const Garden = <T extends HangingGardenColumnIndex>({ provideController }: GardenProps): JSX.Element => {
   const {
     pixiApp,
     container,
@@ -91,6 +91,6 @@ function Garden<T extends HangingGardenColumnIndex>({ provideController }: Garde
       {popover}
     </div>
   );
-}
+};
 
 export default Garden;
