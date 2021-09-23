@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-textinput@0.4.2...@equinor/fusion-react-textinput@0.5.0) (2021-09-23)
+
+
+### Features
+
+* **textinput:** add validation ([5f3a5c3](https://github.com/equinor/fusion-react-components/commit/5f3a5c3c3ebad502788bdea65857e1c6fde7b9e6))
+
+
+
+
+
 ## 0.4.2 (2021-09-16)
 
 **Note:** Version bump only for package @equinor/fusion-react-textinput
