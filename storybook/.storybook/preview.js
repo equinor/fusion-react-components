@@ -1,5 +1,6 @@
 import { ThemeProvider } from '@equinor/fusion-react-styles';
 
+ThemeProvider;
 
 import './theme.css';
 

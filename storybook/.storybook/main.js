@@ -4,7 +4,7 @@ module.exports = {
   core: {
     builder: "webpack5",
   },
-  stories: ['../stories/**/*.stories.{mdx,tsx}'],
+  stories: ['../src/stories/**/*.stories.{mdx,tsx}'],
     typescript: {
       check: false,
       checkOptions: {},
