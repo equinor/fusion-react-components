@@ -12,6 +12,12 @@ export const parameters = {
   chromatic: { 
     disableSnapshot: true 
   },
+  options: {
+    storySort: {
+      includeName: true,
+      order: ['*', 'Snapshots'], 
+    },
+  },
 };
 
 export const decorators = [

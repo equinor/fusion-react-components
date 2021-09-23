@@ -1,25 +1,7 @@
-import { Meta, Story, Canvas, ArgsTable, Description } from '@storybook/addon-docs';
-import Template, { AvatarWrapper } from './Avatar.template';
+import { Meta, Story } from '@storybook/addon-docs';
 import Avatar from '@equinor/fusion-react-avatar';
-import readme from '@equinor/fusion-react-avatar/README.md';
 
-<Meta
-  title="Data/Avatar"
-  component={Template}
-  
-/>
-
-<Description markdown={readme} />
-
-## Playground
-
-<Canvas>
-  <Story name="playground" args={{ label: 'Avatar' }}>
-    {Template.bind({})}
-  </Story>
-</Canvas>
-
-<ArgsTable story="playground" />
+<Meta title="Snapshots/Avatar" />
 
 export const Container = ({ title, children }) => (
   <section>
@@ -57,8 +39,6 @@ export const AvatarTemplate = (props) => (
     </Container>
   </>
 );
-
-## SnapShots
 
 <Story name="Picture" parameters={{ chromatic: { disableSnapshot: false } }} args={{ name: 'picture', src: 'https://i.imgur.com/GcZeeXX.jpeg'  }}>
   {AvatarTemplate.bind({})}
