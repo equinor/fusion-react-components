@@ -34,20 +34,21 @@ export const ButtonStory = (props) => (
 <Meta
   title="Snapshots/Button"
   component={Button}
+  parameters={{ chromatic: { disableSnapshot: false } }}
 />
 
 
 ### Basic
-<Story name="Basic" parameters={{ chromatic: { disableSnapshot: false } }}>
+<Story name="Basic">
   <ButtonStory label="Basic" />
 </Story>
 
 ### Icon
-<Story name="With icon" parameters={{ chromatic: { disableSnapshot: false } }}>
+<Story name="With icon">
   <ButtonStory label="Icon" icon="settings" />
 </Story>
 
-<Story name="With trailing icon" parameters={{ chromatic: { disableSnapshot: false } }}>
+<Story name="With trailing icon">
   <ButtonStory label="traling" icon="settings" trailingIcon />
 </Story>
 

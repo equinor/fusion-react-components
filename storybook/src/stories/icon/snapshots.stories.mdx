@@ -19,24 +19,28 @@ export const Container = ({children}) => (
 export const IconInfo = (props) => {
   const style = {
     display: 'inline-flex',
-    flexFlow: 'column',
+    flexFlow: 'row',
     alignItems: 'center',
-    border: '1px solid',
     borderRadius: '.25rem',
-    minWidth: '175px'
+    minWidth: '200px',
+    fontSize: 16,
+    cursour: 'copy',
   };
+  const onClick = () => {
+    navigator.clipboard.writeText(props.icon);
+    alert("Copied the text: " + copyText.value);
+  }
   return (
-    <div style={style}>
+    <div style={style} onClick={onClick}>
       <Template {...props} />
       <span>{props.icon}</span>
     </div>
   );
 }
 
-<Meta title="Snapshots/Icon"/>
+<Meta title="Snapshots/Icon" parameters={{ chromatic: { disableSnapshot: false } }}/>
 
 ### Color
-use the style attribute `color` for adjusting the color of the icon, normally this will have the same color as the font in the paragraph
 <Story name="Colors" args={{size:32, icon: 'person'}}>
   {(args) => {
     const colors = ['red', 'green', '#334455'];
@@ -49,7 +53,6 @@ use the style attribute `color` for adjusting the color of the icon, normally th
 </Story>
 
 ### Size
-use the style attribute `font-size` for adjusting the size of the icon. Normally the size is the same as the font size of the paragraph
 <Story name="Size" args={{size:32, icon: 'person'}}>
   {(args) => {
     const sizes = [50, 40, 30, 20, 10];
@@ -62,8 +65,7 @@ use the style attribute `font-size` for adjusting the size of the icon. Normally
 </Story>
 
 ### All Icons
-Below are all registered icons listed out, copy the name and use on the `icon` attribute
-<Story name="List" args={{size:32}}>
+<Story name="List" args={{size:16}}>
   {(args) => {
     return (
       <Container>
