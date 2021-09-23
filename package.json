@@ -15,7 +15,8 @@
     "storybook:build": "npm run build --prefix storybook",
     "npm:clean": "rm -rf node_modules && lerna exec 'rm -rf node_modules'",
     "lerna:update": "lernaupdate",
-    "lerna:dedupe": "lernaupdate --dedupe"
+    "lerna:dedupe": "lernaupdate --dedupe",
+    "ncu": "lerna exec 'npx ncu \"/fusion-wc.*/\" -u' && npm run bootstrap"
   },
   "repository": {
     "type": "git",
