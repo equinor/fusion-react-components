@@ -46,7 +46,7 @@ const useStyles = makeStyles(() =>
   })
 );
 
-function HangingGarden<T extends HangingGardenColumnIndex>({
+const HangingGarden = <T extends HangingGardenColumnIndex>({
   columns,
   highlightedColumnKey,
   highlightedItem,
@@ -64,7 +64,7 @@ function HangingGarden<T extends HangingGardenColumnIndex>({
   disableScrollToHighlightedItem = false,
   groupLevels = 0,
   padding = 0,
-}: HangingGardenProps<T>): JSX.Element {
+}: HangingGardenProps<T>): JSX.Element => {
   const [maxRowCount, setMaxRowCount] = useState(0);
   const [expandedColumns, setExpandedColumns] = useState<ExpandedColumns>({});
 
@@ -122,6 +122,6 @@ function HangingGarden<T extends HangingGardenColumnIndex>({
       )}
     </div>
   );
-}
+};
 
 export { HangingGarden, PIXI };

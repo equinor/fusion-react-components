@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-avatar",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "React component for displaying an avatar",
   "keywords": [
     "avatar",
@@ -34,6 +34,6 @@
     "url": "https://github.com/equinor/fusion-react-components/issues"
   },
   "dependencies": {
-    "@equinor/fusion-wc-avatar": "^1.0.12"
+    "@equinor/fusion-wc-avatar": "^1.0.22"
   }
 }

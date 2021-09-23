@@ -1,0 +1,16 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+
+import Template from './Switch.template';
+
+<Meta
+  title="Input/Switc/Playground"
+  component={Template}
+/>
+
+<Canvas>
+  <Story name="Playground" args={{label: 'Switch'}}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Playground" />

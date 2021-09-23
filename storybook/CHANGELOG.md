@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.20.1 (2021-09-16)
+
+
+### Bug Fixes
+
+* remove typescript from sub packages ([845115e](https://github.com/equinor/fusion-react-components/commit/845115e1a73687ce75dc3e14ebdebf9463481b28))
+
+
+
+
+
 # [1.20.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.19.0...@equinor/fusion-react-components-stories@1.20.0) (2021-09-13)
 
 

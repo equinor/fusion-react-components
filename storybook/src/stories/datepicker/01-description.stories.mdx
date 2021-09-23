@@ -1,0 +1,47 @@
+import { Meta, Description } from '@storybook/addon-docs';
+
+import readme from '@equinor/fusion-react-datepicker/README.md';
+
+<Meta title="Data/Datepicker/intro" />
+
+<Description markdown={readme} />
+
+## Placement
+
+This component uses [PopperJs](https://popper.js.org/) for displayingthe calendar picker.
+
+
+__popperPlacement__
+```ts
+export type Placement =
+  | 'auto'
+  | 'auto-start'
+  | 'auto-end'
+  | 'top'
+  | 'top-start'
+  | 'top-end'
+  | 'bottom'
+  | 'bottom-start'
+  | 'bottom-end'
+  | 'right'
+  | 'right-start'
+  | 'right-end'
+  | 'left'
+  | 'left-start'
+  | 'left-end';
+```
+
+__[popperModifiers](https://popper.js.org/docs/v2/modifiers/)__
+
+```tsx
+const Comp = () => {
+  const popperModifiers: [
+    {
+      name: 'offset',
+      options: { offset: [-20, -20] },
+    }
+  ];
+  return <FusionDatePicker popperModifiers={popperModifiers} />
+}
+```
+

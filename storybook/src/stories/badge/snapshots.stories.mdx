@@ -1,0 +1,93 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import Template, { BadgeWrapper } from './Badge.template';
+import Badge from '@equinor/fusion-react-badge';
+
+<Meta
+  title="Snapshots/Badge"
+  component={Template}
+  parameters={{ chromatic: { disableSnapshot: false } }}
+/>
+
+export const Container = ({ title, children }) => (
+  <section>
+    <h4>{title}</h4>
+    <div style={{ display: 'flex', gap: '10px' }}>{children}</div>
+  </section>
+);
+
+export const BadgeTemplate = (props) => (
+  <div>
+    <Container title="Positions">
+      <BadgeWrapper circular={props.circular}>
+        <Badge position="top-left" {...props} />
+      </BadgeWrapper>
+      <BadgeWrapper circular={props.circular}>
+        <Badge position="top-right" {...props} />
+      </BadgeWrapper>
+      <BadgeWrapper circular={props.circular}>
+        <Badge position="bottom-left" {...props} />
+      </BadgeWrapper>
+      <BadgeWrapper circular={props.circular}>
+        <Badge position="bottom-right" {...props} />
+      </BadgeWrapper>
+    </Container>
+    <Container title="Sizes">
+      <BadgeWrapper circular={props.circular}>
+        <Badge size="small" {...props}>
+          S
+        </Badge>
+      </BadgeWrapper>
+      <BadgeWrapper circular={props.circular}>
+        <Badge size="medium" {...props}>
+          M
+        </Badge>
+      </BadgeWrapper>
+      <BadgeWrapper circular={props.circular}>
+        <Badge size="large" {...props}>
+          L
+        </Badge>
+      </BadgeWrapper>
+    </Container>
+    <Container title="Colors">
+      <BadgeWrapper circular={props.circular}>
+        <Badge size="medium" color="primary" {...props} />
+      </BadgeWrapper>
+      <BadgeWrapper circular={props.circular}>
+        <Badge size="medium" color="secondary" {...props} />
+      </BadgeWrapper>
+      <BadgeWrapper circular={props.circular}>
+        <Badge size="medium" color="success" {...props} />
+      </BadgeWrapper>
+      <BadgeWrapper circular={props.circular}>
+        <Badge size="medium" color="danger" {...props} />
+      </BadgeWrapper>
+      <BadgeWrapper circular={props.circular}>
+        <Badge size="medium" color="warning" {...props} />
+      </BadgeWrapper>
+      <BadgeWrapper circular={props.circular}>
+        <Badge size="medium" color="disabled" {...props} />
+      </BadgeWrapper>
+    </Container>
+    <Container title="Content">
+      <BadgeWrapper circular={props.circular}>
+        <Badge {...props} />
+      </BadgeWrapper>
+      <BadgeWrapper circular={props.circular}>
+        <Badge value="10" {...props} />
+      </BadgeWrapper>
+      <BadgeWrapper circular={props.circular}>
+        <Badge icon="settings" {...props} />
+      </BadgeWrapper>
+    </Container>
+  </div>
+);
+
+## SnapShots
+
+<Story name="Rectangular" args={{ name: 'rectangular' }}>
+  {BadgeTemplate.bind({})}
+</Story>
+
+<Story name="Circular" args={{ name: 'circular', circular: true }}>
+  {BadgeTemplate.bind({})}
+</Story>

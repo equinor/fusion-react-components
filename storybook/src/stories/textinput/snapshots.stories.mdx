@@ -1,0 +1,125 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import { iconNames } from '@equinor/fusion-wc-icon';
+
+import Template from './TextInput.template';
+
+export const Container = ({column, children}) => (
+  <div style={{display: 'flex', flexFlow: column ? 'column': 'row', gap: 10}}>
+    {children}
+  </div>
+); 
+
+<Meta
+  title="Snapshots/TextInput"
+  parameters={{chromatic: { disableSnapshot: false }}}
+/>
+
+## SnapShots
+
+### Default
+
+<Story name="Default" args={{
+    label: 'Default'
+}}>{
+  args => (
+    <Container column>
+      <Container>
+        <Template {...args} />
+        <Template {...args} value="Fusion"/>
+      </Container>
+      <Container>
+        <Template {...args} disabled/>
+        <Template {...args} value="Fusion" disabled/>
+      </Container>
+    </Container>
+  )
+}</Story>
+
+### Validation
+
+<Story name="Required" args={{
+    label: 'Required', 
+    required: true,
+    pattern: "[0-9]",
+    validationMessage: ({valid}) => valid ? '': 'Input must be a number between 0-9!',
+    autoValidate: true,
+  }}>{
+  args => { 
+    return (
+    <Container column>
+      <Container>
+        <Template {...args} />
+        <Template {...args} value="Fusion"/>
+        <Template {...args} validateOnInitialRender value="Fusion" label="validateOnInitialRender" />
+      </Container>
+      <Container>
+        <Template {...args} disabled/>
+        <Template {...args} value="Fusion" disabled/>
+        <Template {...args} validateOnInitialRender value="Fusion" label="validateOnInitialRender" disabled/>
+      </Container>
+    </Container>
+  )}
+}</Story>
+
+### Helper
+
+<Story name="Helper" args={{
+  label:"Helper", 
+  helper:"Helper Text" 
+}}>{
+  args => (
+    <Container column>
+      <Container>
+        <Template {...args} />
+        <Template {...args} helperPersistent/>
+        <Template {...args} helperPersistent value="Fusion" />
+      </Container>
+      <Container>
+        <Template {...args} disabled/>
+        <Template {...args} helperPersistent disabled/>
+        <Template {...args} helperPersistent value="Fusion" disabled/>
+      </Container>
+    </Container>
+  )
+}</Story>
+
+### Icon
+
+<Story name="Icon" args={{
+  icon: "settings"
+}}>{
+  ({icon}) => (
+    <Container column>
+      <Container>
+        <Template label="icon" icon={icon} />
+        <Template label="icon" iconTrailing={icon}/>
+      </Container>
+      <Container>
+        <Template label="icon trailing" icon={icon} disabled />
+        <Template label="icon trailing" iconTrailing={icon} disabled/>
+      </Container>
+    </Container>
+  )
+}</Story>
+
+### counter
+<Story name="Counter" args={{
+    label:"Character counter", 
+    maxlength:10,
+    charCounter: true,
+    helper:"Helper Text", 
+    helperPersistent: true, 
+}}>{
+  args => (
+    <Container column>
+      <Container>
+        <Template {...args} />
+        <Template {...args} value="Fusion"/>
+      </Container>
+      <Container>
+        <Template {...args} disabled/>
+        <Template {...args} value="Fusion" disabled/>
+      </Container>
+    </Container>
+  )
+}</Story>

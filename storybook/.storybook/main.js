@@ -1,8 +1,29 @@
+const path = require('path');
+
 module.exports = {
-  stories: ['../stories/**/*.stories.mdx', '../stories/**/*.stories.tsx'],
+  core: {
+    builder: "webpack5",
+  },
+  stories: ['../src/stories/**/*.stories.{mdx,tsx}'],
+    typescript: {
+      check: false,
+      checkOptions: {},
+      reactDocgen: 'react-docgen-typescript',
+      reactDocgenTypescriptOptions: {
+        tsconfigPath: path.resolve(__dirname, '../tsconfig.js'),
+        shouldExtractLiteralValuesFromEnum: true,
+        propFilter: (prop) => (prop.parent ? !prop.parent.fileName.includes('@types/react') : true),
+      },
+    },
   addons: [
-    '@storybook/addon-docs',
-    '@storybook/addon-essentials',
-    '@storybook/addon-actions',
-  ],
+    {
+      name: '@storybook/addon-docs',
+      options: {
+        configureJSX: true,
+        babelOptions: {},
+        sourceLoaderOptions: null,
+      }
+    },
+    '@storybook/addon-storysource'
+  ]
 };

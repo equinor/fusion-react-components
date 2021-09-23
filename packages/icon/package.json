@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-icon",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "component for displaying icon",
   "keywords": [
     "icon",
@@ -34,7 +34,7 @@
     "url": "https://github.com/equinor/fusion-react-components/issues"
   },
   "dependencies": {
-    "@equinor/fusion-react-utils": "^1.1.4",
-    "@equinor/fusion-wc-icon": "^1.0.9"
+    "@equinor/fusion-react-utils": "^1.1.5",
+    "@equinor/fusion-wc-icon": "^1.0.11"
   }
 }
