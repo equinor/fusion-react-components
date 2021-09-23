@@ -16,3 +16,4 @@ COPY . .
 RUN npm ci
 RUN npm run bootstrap
 RUN npm run build
+RUN npm run --prefix storybook --silent build
