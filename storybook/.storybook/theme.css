@@ -36,37 +36,3 @@ p code {
   color: rgba(51,51,51,0.9);
   background-color: #F8F8F8;
 }
-
-#bug-fixes  + ul > li,
-#features  + ul > li {
-  display: inline-flex;
-}
-
-#bug-fixes + ul,
-#features + ul {
-  margin: 0;
-  padding: 0;
-}
-
-#bug-fixes  + ul,
-#features  + ul {
-  display: flex;
-  flex-flow: column;
-}
-
-#bug-fixes  + ul > li,
-#features  + ul > li {
-  display: inline-flex;
-}
-
-#bug-fixes + ul > li:before {
-  content: '🐞';
-  display: block;
-  margin-right: .5em;
-}
-
-#features + ul > li:before {
-  content: '🚀';
-  display: block;
-  margin-right: .5em;
-}
