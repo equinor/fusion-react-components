@@ -1,0 +1,15 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+import Template from './Badge.template';
+
+<Meta
+  title="Data/Badge/Playground"
+  component={Template}
+/>
+
+<Canvas>
+  <Story name="Playground" args={{ label: 'Badge' }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Playground" />

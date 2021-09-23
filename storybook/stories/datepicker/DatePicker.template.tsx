@@ -1,7 +1,6 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 
 import { FusionDatePicker, FusionDatePickerProps } from '@equinor/fusion-react-datepicker';
-import { useCallback } from '@storybook/addons';
 
 export const DatePickerTemplate = (props: FusionDatePickerProps): React.ReactElement => {
   const [date, setDate] = useState<Date | null>();

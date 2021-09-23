@@ -94,38 +94,13 @@ export const IconInfo = (props) => {
 
 ### Color
 use the style attribute `color` for adjusting the color of the icon, normally this will have the same color as the font in the paragraph
-<Story name="Icon Colors" args={{size:32, icon: 'person'}}>
-  {(args) => {
-    const colors = ['red', 'green', '#334455'];
-    return (
-      <Container>
-        {colors.map(color => <Template key={color} {...args} color={color} />)}
-      </Container>
-    );
-  }}
-</Story>
+<Story id="snapshots-icon--colors" />
+
 
 ### Size
 use the style attribute `font-size` for adjusting the size of the icon. Normally the size is the same as the font size of the paragraph
-<Story name="Icon Size" args={{size:32, icon: 'person'}}>
-  {(args) => {
-    const sizes = [50, 40, 30, 20, 10];
-    return (
-      <Container>
-        {sizes.map(size => <Template key={size} {...args} size={size} />)}
-      </Container>
-    );
-  }}
-</Story>
+<Story id="snapshots-icon--size" />
 
 ### All Icons
 Below are all registered icons listed out, copy the name and use on the `icon` attribute
-<Story name="Icon List" args={{size:32}}>
-  {(args) => {
-    return (
-      <Container>
-        {iconNames.map(icon => <IconInfo key={icon} icon={icon} {...args} />)}
-      </Container>
-    );
-  }}
-</Story>
+<Story id="snapshots-icon--list"/>

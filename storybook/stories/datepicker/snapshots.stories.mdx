@@ -1,13 +1,15 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs';
 import Template from './DatePicker.template';
 
+import { FusionDatePicker } from '@equinor/fusion-react-datepicker';
+
 <Meta 
-  title="Data/DatePicker/Examples" 
+  title="Snapshots/DatePicker" 
   component={Template}
 />
 
 
-<Canvas withSource="open">
+<Canvas>
   <div style={{height: 300, width: '100vw'}} />
   <Story name="Dates" args={{
     label: 'Date',
