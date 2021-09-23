@@ -1,7 +1,7 @@
 import { Meta, Story } from '@storybook/addon-docs';
 import Avatar from '@equinor/fusion-react-avatar';
 
-<Meta title="Snapshots/Avatar" />
+<Meta title="Snapshots/Avatar" parameters={{ chromatic: { disableSnapshot: false } }} />
 
 export const Container = ({ title, children }) => (
   <section>
@@ -40,10 +40,10 @@ export const AvatarTemplate = (props) => (
   </>
 );
 
-<Story name="Picture" parameters={{ chromatic: { disableSnapshot: false } }} args={{ name: 'picture', src: 'https://i.imgur.com/GcZeeXX.jpeg'  }}>
+<Story name="Picture" args={{ name: 'picture', src: 'https://i.imgur.com/GcZeeXX.jpeg'  }}>
   {AvatarTemplate.bind({})}
 </Story>
 
-<Story name="Initial" parameters={{ chromatic: { disableSnapshot: false } }} args={{ name: 'initial', initial: 'A' }}>
+<Story name="Initial" args={{ name: 'initial', initial: 'A' }}>
   {AvatarTemplate.bind({})}
 </Story>

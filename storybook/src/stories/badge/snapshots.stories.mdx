@@ -5,6 +5,7 @@ import Badge from '@equinor/fusion-react-badge';
 <Meta
   title="Snapshots/Badge"
   component={Template}
+  parameters={{ chromatic: { disableSnapshot: false } }}
 />
 
 export const Container = ({ title, children }) => (
@@ -83,10 +84,10 @@ export const BadgeTemplate = (props) => (
 
 ## SnapShots
 
-<Story name="Rectangular" parameters={{ chromatic: { disableSnapshot: false } }}  args={{ name: 'rectangular' }}>
+<Story name="Rectangular" args={{ name: 'rectangular' }}>
   {BadgeTemplate.bind({})}
 </Story>
 
-<Story name="Circular" parameters={{ chromatic: { disableSnapshot: false } }} args={{ name: 'circular', circular: true }}>
+<Story name="Circular" args={{ name: 'circular', circular: true }}>
   {BadgeTemplate.bind({})}
 </Story>

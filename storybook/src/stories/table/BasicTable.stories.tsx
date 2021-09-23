@@ -10,6 +10,7 @@ export default {
     previewTabs: {
       canvas: { hidden: true },
     },
+    chromatic: { disableSnapshot: false },
   },
 } as Meta;
 

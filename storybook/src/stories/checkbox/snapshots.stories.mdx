@@ -7,10 +7,10 @@ export const Container = ({ children}) => (
     </div>
 );
 
-<Meta title="Snapshots/Checkbox"/>
+<Meta title="Snapshots/Checkbox" parameters={{ chromatic: { disableSnapshot: false } }}/>
 
 <Canvas>
-  <Story name="Snapshots" parameters={{ chromatic: { disableSnapshot: false } }}>
+  <Story name="Checkbox">
     <Container>
       <h4>standard</h4>
       <div style={{display: 'flex', gap: '10px'}}>
