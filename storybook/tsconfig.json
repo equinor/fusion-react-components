@@ -1,13 +1,18 @@
 {
   "extends": "../tsconfig.base.json",
   "compilerOptions": {
-    "rootDir": "stories",
+    "rootDir": "src",
     "resolveJsonModule": true,
-    "module": "ESNext"
   },
-  "include": ["stories/**/*.ts", "stories/**/*.tsx", "stories/**/*.json"],
+  "include": ["src/stories/**/*.ts", "src/stories/**/*.tsx", "src/stories/**/*.json"],
   "exclude": ["node_modules"],
   "references": [
+    {
+      "path": "../packages/avatar"
+    },
+    {
+      "path": "../packages/badge"
+    },
     {
       "path": "../packages/button"
     },
@@ -42,7 +47,8 @@
       "path": "../packages/textinput"
     },
     {
-      "path": "../packages/utils"
-    }
+      "path": "../packages/filterpane"
+    },
+    { "path": "../packages/utils" }
   ]
 }

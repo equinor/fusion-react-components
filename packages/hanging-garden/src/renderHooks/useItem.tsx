@@ -135,14 +135,9 @@ const useItem = <T extends HangingGardenColumnIndex>(): UseItem<T> => {
             renderedHighlightedItem.lineStyle(2, 0x007079);
             renderedHighlightedItem.moveTo(-POS, -POS);
 
-            // @ts-ignore
             renderedHighlightedItem.drawDashLine(itemWidth, -POS);
-            // @ts-ignore
             renderedHighlightedItem.drawDashLine(itemWidth, itemHeight);
-            // @ts-ignore
             renderedHighlightedItem.drawDashLine(-POS, itemHeight);
-
-            //@ts-ignore
             renderedHighlightedItem.drawDashLine(-POS, -POS);
           }
         }

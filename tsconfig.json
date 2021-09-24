@@ -8,6 +8,12 @@
   "files": [],
   "references": [
     {
+      "path": "packages/avatar"
+    },
+    {
+      "path": "packages/badge"
+    },
+    {
       "path": "packages/button"
     },
     {
@@ -41,7 +47,8 @@
       "path": "packages/textinput"
     },
     {
-      "path": "packages/utils"
-    }
+      "path": "packages/filterpane"
+    },
+    { "path": "packages/utils" }
   ]
 }

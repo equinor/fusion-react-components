@@ -1,0 +1,15 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+import Template from './Button.template';
+
+<Meta
+  title="Input/Button/Playground"
+  component={Template}
+/>
+
+<Canvas>
+  <Story name="Playground" args={{label:'Playground'}} >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Playground" />

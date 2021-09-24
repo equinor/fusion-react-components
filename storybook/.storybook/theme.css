@@ -1,0 +1,38 @@
+:root {
+  font-family: 'Equinor';
+  --mdc-typography-font-family: 'Equinor';
+}
+
+blockquote {
+  background: rgba(0,127,255,.1);
+  color: #333;
+  margin: 1rem 0;
+  padding: 0.5rem 2rem;
+  border-radius: .5rem;
+  box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, .1);
+  min-height: 3rem;
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  border-left: none !important;
+}
+
+p code {
+  font-family: "Operator Mono","Fira Code Retina","Fira Code","FiraCode-Retina","Andale Mono","Lucida Console",Consolas,Monaco,monospace;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: inline-block;
+  padding-left: 2px;
+  padding-right: 2px;
+  vertical-align: baseline;
+  color: inherit;
+  line-height: 1;
+  margin: 0 2px;
+  padding: 3px 5px;
+  white-space: nowrap;
+  border-radius: 3px;
+  font-size: 13px;
+  border: 1px solid #EEEEEE;
+  color: rgba(51,51,51,0.9);
+  background-color: #F8F8F8;
+}

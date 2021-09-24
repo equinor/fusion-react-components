@@ -1,0 +1,76 @@
+import { Meta, Story, Canvas, ArgsTable, Description } from '@storybook/addon-docs';
+import readme from '@equinor/fusion-react-icon/README.md';
+import { Icon, iconNames } from '@equinor/fusion-react-icon';
+
+export const Template = ({ icon, size, color }) => {
+  const style = {
+    fontSize: size,
+    color,
+  };
+  return <Icon style={style} icon={icon}/>;
+};
+
+export const Container = ({children}) => (
+  <div style={{display: 'flex', gap: '10px', flexWrap: 'wrap'}}>
+    {children}
+  </div>
+);
+
+export const IconInfo = (props) => {
+  const style = {
+    display: 'inline-flex',
+    flexFlow: 'row',
+    alignItems: 'center',
+    borderRadius: '.25rem',
+    minWidth: '200px',
+    fontSize: 16,
+    cursour: 'copy',
+  };
+  const onClick = () => {
+    navigator.clipboard.writeText(props.icon);
+    alert("Copied the text: " + copyText.value);
+  }
+  return (
+    <div style={style} onClick={onClick}>
+      <Template {...props} />
+      <span>{props.icon}</span>
+    </div>
+  );
+}
+
+<Meta title="Snapshots/Icon" parameters={{ chromatic: { disableSnapshot: false } }}/>
+
+### Color
+<Story name="Colors" args={{size:32, icon: 'person'}}>
+  {(args) => {
+    const colors = ['red', 'green', '#334455'];
+    return (
+      <Container>
+        {colors.map(color => <Template key={color} {...args} color={color} />)}
+      </Container>
+    );
+  }}
+</Story>
+
+### Size
+<Story name="Size" args={{size:32, icon: 'person'}}>
+  {(args) => {
+    const sizes = [50, 40, 30, 20, 10];
+    return (
+      <Container>
+        {sizes.map(size => <Template key={size} {...args} size={size} />)}
+      </Container>
+    );
+  }}
+</Story>
+
+### All Icons
+<Story name="List" args={{size:16}}>
+  {(args) => {
+    return (
+      <Container>
+        {iconNames.map(icon => <IconInfo key={icon} icon={icon} {...args} />)}
+      </Container>
+    );
+  }}
+</Story>

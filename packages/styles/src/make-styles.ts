@@ -11,6 +11,7 @@ export const makeStyles = <
   options = {}
 ): keyof Props extends never ? (props?: Props) => ClassNameMap<ClassKey> : (props: Props) => ClassNameMap<ClassKey> =>
   makeStylesWithoutDefault(stylesOrCreator, {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     defaultTheme,
     ...options,

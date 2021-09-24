@@ -1,0 +1,29 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import Radio from '@equinor/fusion-react-radio';
+
+<Meta
+  title="Snapshots/Radio"
+  parameters={{ chromatic: { disableSnapshot: false } }}
+/>
+
+<Canvas>
+  <Story name="Standard" args={{name:"my-group"}}>
+    {(args) => 
+      <>
+        <Radio {...args} value="value1" label="radio-1" />
+        <Radio {...args} value="value2" label="radio-2" checked />
+      </>
+    }
+  </Story>
+</Canvas>
+
+<Canvas>
+  <Story name="Disabled" args={{name:"my-group-s", disabled: true}}>
+    {(args) => 
+      <>
+        <Radio {...args} value="value1" label="radio-1" />
+        <Radio {...args} value="value2" label="radio-2" checked />
+      </>
+    }
+  </Story>
+</Canvas>

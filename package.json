@@ -4,15 +4,19 @@
   "description": "colleaction of fusion components",
   "main": "index.js",
   "scripts": {
-    "install": "lerna bootstrap",
+    "install": "npm run bootstrap",
+    "bootstrap": "lerna bootstrap",
     "test": "lerna run test",
+    "test:build": "docker build -t test -f build.Dockerfile .",
     "lint": "eslint packages/**/src/**/*.{ts,tsx}",
     "build": "lerna run build --ignore '@equinor/fusion-react-components-stories'",
     "lint:report": "eslint --output-file eslint-report.log.json --format json ./packages/*/src/**",
     "storybook": "npm run start --prefix storybook",
     "storybook:build": "npm run build --prefix storybook",
     "npm:clean": "rm -rf node_modules && lerna exec 'rm -rf node_modules'",
-    "lerna:dedupe": "lernaupdate --dedupe"
+    "lerna:update": "lernaupdate",
+    "lerna:dedupe": "lernaupdate --dedupe",
+    "ncu": "lerna exec 'npx ncu \"/fusion-wc.*/\" -u' && npm run bootstrap"
   },
   "repository": {
     "type": "git",
@@ -41,7 +45,7 @@
     "lint-staged": "^11.1.2",
     "prettier": "^2.3.2",
     "react": "^17.0.2",
-    "typescript": "^4.4.2"
+    "typescript": "^4.4.3"
   },
   "lint-staged": {
     "./packages/**/src/**/*.{ts,tsx}": [
