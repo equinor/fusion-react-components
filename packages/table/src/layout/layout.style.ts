@@ -49,6 +49,10 @@ export const useStyles = makeStyles<FusionTheme, StyleProps>(
           content: '""',
         },
       }),
+      virtualContainer: {
+        overflow: 'auto',
+        height: 'inherit',
+      },
     }),
   { name: 'fusion-table-layout' }
 );

@@ -29,13 +29,7 @@ export const VirtualizedLayoutTemplate = (props: LayoutProps): JSX.Element => {
   const styles = useStyles({ ...defaultStyleProps, spacing, virtualPaddingBottom, virtualPaddingTop });
 
   return (
-    <div
-      ref={parentRef}
-      style={{
-        height: `inherit`,
-        overflow: 'auto',
-      }}
-    >
+    <div ref={parentRef} className={styles.virtualContainer}>
       <table {...getTableProps({ className: clsx(styles.root, className) })}>
         <thead className={styles.thead}>
           {headerGroups.map((headerGroup) => (
@@ -61,7 +55,6 @@ export const VirtualizedLayoutTemplate = (props: LayoutProps): JSX.Element => {
             if (!row) {
               return null;
             }
-            console.log(row);
             prepareRow(row);
             return (
               // eslint-disable-next-line react/jsx-key
