@@ -4,6 +4,8 @@ export type SpacingType = keyof typeof theme.spacing.comfortable;
 
 export type StyleProps = {
   spacing: SpacingType;
+  virtualPaddingTop?: number;
+  virtualPaddingBottom?: number;
 };
 
 export const useStyles = makeStyles<FusionTheme, StyleProps>(
@@ -17,9 +19,6 @@ export const useStyles = makeStyles<FusionTheme, StyleProps>(
         ...theme.typography.table.cell_header,
         background: theme.colors.interactive.table__header__fill_resting.value.hex,
         borderBottom: `2px solid ${theme.colors.ui.background__medium.value.hex}`,
-        // '& th:hover': {
-        //   background: theme.colors.interactive.table__header__fill_hover.value.rgba,
-        // },
       },
       groupHeader: {
         ...theme.typography.heading.h5.style,
@@ -38,6 +37,18 @@ export const useStyles = makeStyles<FusionTheme, StyleProps>(
           background: theme.colors.interactive.table__cell__fill_hover.value.rgba,
         },
       },
+      virtualTableBody: ({ virtualPaddingBottom, virtualPaddingTop }) => ({
+        '&::before': {
+          display: 'block',
+          paddingTop: virtualPaddingTop || 0,
+          content: '""',
+        },
+        '&::after': {
+          display: 'block',
+          paddingBottom: virtualPaddingBottom || 0,
+          content: '""',
+        },
+      }),
     }),
   { name: 'fusion-table-layout' }
 );

@@ -1,4 +1,4 @@
-import { Column, Table, useTableContext } from '@equinor/fusion-react-table';
+import { Column, Table, useTableContext, VirtualizedTableLayout } from '@equinor/fusion-react-table';
 import { Meta } from '@storybook/react/types-6-0';
 import { useMemo } from 'react';
 
@@ -62,7 +62,29 @@ const Template = ({ rows }: { rows: number }) => {
   );
 };
 
+const VirtualizedTableTemplate = ({ rows }: { rows: number }) => {
+  const options = useMemo(
+    () => ({
+      data: makeData(rows),
+      columns,
+    }),
+    [rows]
+  );
+  return (
+    <div style={{ height: '500px' }}>
+      <Table options={options} style={{ minWidth: '100%' }} layout={VirtualizedTableLayout}>
+        <Debugger />
+      </Table>
+    </div>
+  );
+};
+
 export const DefaultTable = Template.bind({});
 DefaultTable.args = {
   rows: 10,
+};
+
+export const VirtualizedTable = VirtualizedTableTemplate.bind({});
+VirtualizedTable.args = {
+  rows: 5000,
 };

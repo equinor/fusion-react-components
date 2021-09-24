@@ -14,7 +14,6 @@ export type TableProps<TData extends TableData> = LayoutProps & {
 export const Table = <TData extends TableData>(props: PropsWithChildren<TableProps<TData>>): JSX.Element => {
   const { options, plugins: basePlugins = [], layout = TableLayout, children, ...layoutProps } = props;
   const { Template } = layout;
-
   const plugins = basePlugins.concat((layout.plugins || []) as PluginHook<TData>[]);
 
   return (
