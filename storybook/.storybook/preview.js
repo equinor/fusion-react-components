@@ -7,6 +7,11 @@ import './theme.css';
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
   viewMode: 'docs',
+  docs: {
+    source:{
+      language: 'tsx'
+    }
+  },
   previewTabs: {
     canvas: { hidden: true },
   },
@@ -16,9 +21,9 @@ export const parameters = {
   options: {
     storySort: {
       includeName: true,
-      order: ['*', 'Snapshots'], 
+      order: ['*', 'Examples', 'Snapshots'], 
     },
-  },
+  }
 };
 
 export const decorators = [

@@ -1,0 +1,15 @@
+import { Meta, Story, Canvas, ArgsTable,Description } from '@storybook/addon-docs';
+import ChangeLog from '../../components/ChangeLog';
+import DateRange from '@equinor/fusion-react-date/src/DateRange';
+
+<Meta title="Examples/DateRange" component={DateRange} />
+
+<Canvas>
+  <Story name="Component" args={{from:new Date('2021-09-21T13:18:42.000Z'), to:'2021-09-21T15:18:42.000Z' }}>
+    {args => <DateRange {...args} />}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Component" />
+
+

@@ -17,10 +17,14 @@ blockquote {
   border-left: none !important;
 }
 
-p code {
+code {
   font-family: "Operator Mono","Fira Code Retina","Fira Code","FiraCode-Retina","Andale Mono","Lucida Console",Consolas,Monaco,monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 13px;
+}
+
+p code {
   display: inline-block;
   padding-left: 2px;
   padding-right: 2px;
@@ -31,8 +35,11 @@ p code {
   padding: 3px 5px;
   white-space: nowrap;
   border-radius: 3px;
-  font-size: 13px;
   border: 1px solid #EEEEEE;
   color: rgba(51,51,51,0.9);
   background-color: #F8F8F8;
+}
+
+.docblock-argstable-body code{
+  white-space: pre !important;
 }
