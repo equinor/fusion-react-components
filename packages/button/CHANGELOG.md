@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.6](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-button@0.3.5...@equinor/fusion-react-button@0.3.6) (2021-09-23)
+
+**Note:** Version bump only for package @equinor/fusion-react-button
+
+
+
+
+
 ## 0.3.5 (2021-09-16)
 
 **Note:** Version bump only for package @equinor/fusion-react-button

@@ -1,0 +1,23 @@
+import { Meta, Story, Canvas, ArgsTable,Description } from '@storybook/addon-docs';
+import DateRangeTemplate from './DateRange.template';
+import readme from '@equinor/fusion-react-date/README.md';
+
+<Meta
+  title="Data/Date/DateRange"
+  component={DateRangeTemplate}
+/>
+
+<Description markdown={readme} />
+
+### DateRange
+
+<Canvas>
+  <Story name="DateRange" args={{from:'2021-09-21T13:18:42.000Z', to:'2021-09-21T13:18:42.000Z' }}>
+    {DateRangeTemplate.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable story="DateRange" />
+
+
+

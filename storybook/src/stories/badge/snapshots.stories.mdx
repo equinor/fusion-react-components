@@ -16,6 +16,7 @@ export const BadgeWrapper = ({ circular, children }) => (
   </div>
 );
 
+
 export const Container = ({ title, children }) => (
   <section>
     <h4>{title}</h4>
@@ -91,6 +92,7 @@ export const BadgeTemplate = (props) => (
 );
 
 <Meta title="Snapshots/Badge" parameters={{ chromatic: { disableSnapshot: false } }} />
+
 
 <Story name="Rectangular" args={{ name: 'rectangular' }}>
   {BadgeTemplate.bind({})}

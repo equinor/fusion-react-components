@@ -1,0 +1,85 @@
+import { Meta, Story, Canvas, ArgsTable, Description } from '@storybook/addon-docs';
+import readme from '@equinor/fusion-react-icon/README.md';
+import { Icon, iconNames } from '@equinor/fusion-react-icon';
+
+export const Template = ({ icon, size, color }) => {
+  const style = {
+    fontSize: size,
+    color,
+  };
+  return <Icon style={style} icon={icon}/>;
+};
+
+export const Container = ({children}) => (
+  <div style={{display: 'flex', gap: '10px', flexWrap: 'wrap'}}>
+    {children}
+  </div>
+);
+
+export const IconInfo = (props) => {
+  const style = {
+    display: 'inline-flex',
+    flexFlow: 'column',
+    alignItems: 'center',
+    border: '1px solid',
+    borderRadius: '.25rem',
+  };
+  return (
+    <div style={style}>
+      <Template {...props} />
+      <span>{props.icon}</span>
+    </div>
+  );
+}
+
+<Meta
+  title="Data/Icon"
+  component={Icon}
+  parameters={{
+    viewMode: 'docs',
+    previewTabs: {
+      canvas: { hidden: true },
+    },
+  }}
+   argTypes={{
+    icon: {
+      control: 'select',
+      options: iconNames,
+    },
+    size: {
+      table: {
+        category: 'style'
+      },
+      control: {
+        type: 'range',
+        min: 8,
+        max: 120,
+        step: 8,
+      },
+    },
+    color: { 
+      table: {
+        category: 'style'
+      },
+      control: 'color' 
+    },
+  }}
+/>
+
+<Canvas>
+  <Story 
+    name="playground" 
+    parameters={{chromatic: { disableSnapshot: true }}}
+    args={{size: 32, color: '#555', icon: 'settings'}}
+  >
+    {args => {
+      const style = {
+        fontSize: args.size,
+        color: args.color
+      };
+      return <Icon style={style} icon={args.icon}/>;
+    }}
+  </Story>
+</Canvas>
+
+<ArgsTable story="playground" />
