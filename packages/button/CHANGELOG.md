@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.7](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-button@0.3.6...@equinor/fusion-react-button@0.3.7) (2021-09-27)
+
+
+### Bug Fixes
+
+* update to lit create element method ([ec68c08](https://github.com/equinor/fusion-react-components/commit/ec68c08d5cbcba43a1b8ca064cccc73662f17421))
+
+
+
+
+
 ## [0.3.6](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-button@0.3.5...@equinor/fusion-react-button@0.3.6) (2021-09-23)
 
 **Note:** Version bump only for package @equinor/fusion-react-button
