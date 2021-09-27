@@ -37,9 +37,9 @@
   "dependencies": {
     "@equinor/fusion-react-styles": "^0.3.3",
     "@equinor/fusion-wc-icon": "^1.0.11",
-    "@equinor/fusion-wc-popover": "^1.0.11",
+    "@equinor/fusion-wc-popover": "^1.0.12",
     "@lit-labs/react": "^1.0.0",
-    "@types/react-table": "^7.7.2",
+    "@types/react-table": "^7.7.5",
     "react-table": "^7.7.0"
   },
   "devDependencies": {
