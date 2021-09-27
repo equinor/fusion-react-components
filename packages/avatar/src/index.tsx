@@ -1,19 +1,10 @@
-import { HTMLAttributes, PropsWithChildren } from 'react';
-import HTMLAvatarCustomElement, { AvatarElementProps } from '@equinor/fusion-wc-avatar';
+import * as ReactModule from 'react';
+import { createComponent } from '@lit-labs/react';
+import HTMLAvatarCustomElement, { tag } from '@equinor/fusion-wc-avatar';
 
-// preserve code
-HTMLAvatarCustomElement;
-
-// reference to real element
 export { HTMLAvatarCustomElement };
 
-export type AvatarProps = AvatarElementProps & HTMLAttributes<HTMLAvatarCustomElement>;
-
-export const Avatar = (props: PropsWithChildren<AvatarProps>): JSX.Element => {
-  const { children, ...attr } = props;
-  return <fwc-avatar {...attr}>{children}</fwc-avatar>;
-};
-
-Avatar.displayName = '@equinor/fusion-react-avatar';
+export const Avatar = createComponent(ReactModule, tag, HTMLAvatarCustomElement);
+export type AvatarProps = React.ComponentProps<typeof Avatar>;
 
 export default Avatar;

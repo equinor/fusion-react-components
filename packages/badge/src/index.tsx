@@ -1,19 +1,10 @@
-import { HTMLAttributes, PropsWithChildren } from 'react';
-import HTMLBadgeCustomElement, { BadgeElementProps } from '@equinor/fusion-wc-badge';
+import * as ReactModule from 'react';
+import { createComponent } from '@lit-labs/react';
+import HTMLBadgeCustomElement, { tag } from '@equinor/fusion-wc-badge';
 
-// preserve code
-HTMLBadgeCustomElement;
-
-// reference to real element
 export { HTMLBadgeCustomElement };
 
-export type BadgeProps = BadgeElementProps & HTMLAttributes<HTMLBadgeCustomElement>;
-
-export const Badge = (props: PropsWithChildren<BadgeProps>): JSX.Element => {
-  const { children, ...attr } = props;
-  return <fwc-badge {...attr}>{children}</fwc-badge>;
-};
-
-Badge.displayName = '@equinor/fusion-react-badge';
+export const Badge = createComponent(ReactModule, tag, HTMLBadgeCustomElement);
+export type BadgeProps = React.ComponentProps<typeof Badge>;
 
 export default Badge;

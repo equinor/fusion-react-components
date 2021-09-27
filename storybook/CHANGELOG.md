@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.21.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.20.1...@equinor/fusion-react-components-stories@1.21.0) (2021-09-23)
+
+
+### Bug Fixes
+
+* **storybook:** duplicate insert of custom elements ([8a6f93b](https://github.com/equinor/fusion-react-components/commit/8a6f93b4ef9e4aa473c9e4a7318fe8df2d2dd22a))
+
+
+### Features
+
+* **docs:** add changelog ([a67464c](https://github.com/equinor/fusion-react-components/commit/a67464c6bf59643ff1d2895975ce396d3010fad9))
+* **storybook:** update to webpack 5 ([f8edef9](https://github.com/equinor/fusion-react-components/commit/f8edef9697438e69b5e19282751cfea8e7a0520f))
+
+
+
+
+
 ## 1.20.1 (2021-09-16)
 
 

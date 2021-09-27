@@ -1,0 +1,34 @@
+import { Meta, Story, Canvas, ArgsTable,Description } from '@storybook/addon-docs';
+import ChangeLog from '../../components/ChangeLog';
+import { Avatar } from '@equinor/fusion-react-avatar/src';
+
+<Meta title="Data/Avatar" />
+
+<Description markdown={require('@equinor/fusion-react-avatar/README.md')} />
+
+<ArgsTable of={Avatar} />
+
+### Simple
+
+<Canvas withSource='open'>
+  <Story id="examples-avatar--simple" />
+</Canvas>
+
+### Size
+
+<Canvas withSource='open'>
+  <Story id="examples-avatar--size" />
+</Canvas>
+
+### Photo
+
+<Canvas withSource='open'>
+  <Story id="examples-avatar--photo" />
+</Canvas>
+
+# Changelog
+
+<ChangeLog changelogs={{
+  react: require('@equinor/fusion-react-avatar/CHANGELOG.md'), 
+  webComponent: require('@equinor/fusion-wc-avatar/CHANGELOG.md')
+}}/>

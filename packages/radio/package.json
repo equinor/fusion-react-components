@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-radio",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "component for displaying radio",
   "keywords": [
     "radio",
@@ -36,6 +36,7 @@
   "dependencies": {
     "@equinor/fusion-react-utils": "^1.1.5",
     "@equinor/fusion-wc-formfield": "^0.2.2",
-    "@equinor/fusion-wc-radio": "^0.2.8"
+    "@equinor/fusion-wc-radio": "^0.2.8",
+    "@lit-labs/react": "^1.0.0"
   }
 }
