@@ -1,28 +1,32 @@
-import { ChangeEventHandler, HTMLAttributes } from 'react';
+import { forwardRef } from 'react';
+import { CheckboxBase, HTMLCheckboxCustomElement } from './CheckboxBase';
+import { FormfieldElementProps, FormfieldElement } from '@equinor/fusion-wc-formfield';
 
-import { elementAttributes } from '@equinor/fusion-react-utils';
-
-import { CheckboxElement, CheckboxElementProps } from '@equinor/fusion-wc-checkbox';
-import { FormfieldElement, FormfieldElementProps } from '@equinor/fusion-wc-formfield';
-
-CheckboxElement;
+// TODO import from @equinor/fusion-react-form when created
 FormfieldElement;
+const createFormfieldProps = (props: FormfieldElementProps) =>
+  Object.keys(props).reduce((cur, key) => {
+    const value = props[key as keyof FormfieldElementProps];
+    return value ? Object.assign(cur, { [key]: value }) : cur;
+  }, {});
 
-export type CheckboxProps = CheckboxElementProps &
-  HTMLAttributes<CheckboxElement> & {
-    onChange?: ChangeEventHandler<CheckboxElement>;
-    label?: string;
-    formfield?: FormfieldElementProps;
-  };
+export type CheckboxProps = React.ComponentProps<typeof CheckboxBase> & FormfieldElementProps;
 
-export const Checkbox = (props: CheckboxProps): JSX.Element => {
-  const { formfield = {}, label, ...attr } = elementAttributes(props as CheckboxProps);
-  formfield.label = label;
+export const Checkbox = forwardRef((props: CheckboxProps, ref: React.ForwardedRef<HTMLCheckboxCustomElement>) => {
+  const { label, alignEnd, spaceBetween, nowrap, ...checkboxProps } = props;
+  const formfieldProps = createFormfieldProps({
+    label,
+    alignEnd,
+    spaceBetween,
+    nowrap,
+  });
   return (
-    <fwc-formfield {...formfield}>
-      <fwc-checkbox {...attr} />
+    <fwc-formfield {...formfieldProps}>
+      <CheckboxBase ref={ref} {...checkboxProps} />
     </fwc-formfield>
   );
-};
+});
+
+Checkbox.displayName = 'Checkbox';
 
 export default Checkbox;

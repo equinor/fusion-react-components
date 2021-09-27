@@ -4,7 +4,6 @@
     "rootDir": "src",
     "resolveJsonModule": true,
   },
-  "include": ["src/stories/**/*.ts", "src/stories/**/*.tsx", "src/stories/**/*.json"],
   "exclude": ["node_modules"],
   "references": [
     {

@@ -1,27 +1,32 @@
-import { HTMLAttributes } from 'react';
+import { forwardRef } from 'react';
+import { RadioBase, HTMLRadioCustomElement } from './RadioBase';
+import { FormfieldElementProps, FormfieldElement } from '@equinor/fusion-wc-formfield';
 
-import { elementAttributes } from '@equinor/fusion-react-utils';
+// TODO import from @equinor/fusion-react-form when created
+FormfieldElement;
+const createFormfieldProps = (props: FormfieldElementProps) =>
+  Object.keys(props).reduce((cur, key) => {
+    const value = props[key as keyof FormfieldElementProps];
+    return value ? Object.assign(cur, { [key]: value }) : cur;
+  }, {});
 
-import RadioElement, { RadioElementProps } from '@equinor/fusion-wc-radio';
-import FormFieldElment, { FormfieldElementProps } from '@equinor/fusion-wc-formfield';
+export type RadioProps = React.ComponentProps<typeof RadioBase> & FormfieldElementProps;
 
-RadioElement;
-FormFieldElment;
-
-export type RadioProps = RadioElementProps &
-  HTMLAttributes<RadioElement> & {
-    label?: string;
-    formfield?: FormfieldElementProps;
-  };
-
-export const Radio = (props: RadioProps): JSX.Element => {
-  const { formfield = {}, label, ...attr } = elementAttributes(props as RadioProps);
-  formfield.label = label;
+export const Radio = forwardRef((props: CheckboxProps, ref: React.ForwardedRef<HTMLRadioCustomElement>) => {
+  const { label, alignEnd, spaceBetween, nowrap, ...checkboxProps } = props;
+  const formfieldProps = createFormfieldProps({
+    label,
+    alignEnd,
+    spaceBetween,
+    nowrap,
+  });
   return (
-    <fwc-formfield {...formfield}>
-      <fwc-radio {...attr} />
+    <fwc-formfield {...formfieldProps}>
+      <RadioBase ref={ref} {...checkboxProps} />
     </fwc-formfield>
   );
-};
+});
+
+Radio.displayName = 'Radio';
 
 export default Radio;

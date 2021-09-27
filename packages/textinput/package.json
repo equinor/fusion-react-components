@@ -35,6 +35,7 @@
   },
   "dependencies": {
     "@equinor/fusion-react-utils": "^1.1.5",
-    "@equinor/fusion-wc-textinput": "^0.3.2"
+    "@equinor/fusion-wc-textinput": "^0.3.2",
+    "@lit-labs/react": "^1.0.0"
   }
 }

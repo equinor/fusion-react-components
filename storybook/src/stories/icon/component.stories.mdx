@@ -1,0 +1,36 @@
+import { Meta, Story, Canvas, ArgsTable,Description } from '@storybook/addon-docs';
+import ChangeLog from '../../components/ChangeLog';
+import Icon from '@equinor/fusion-react-icon/src';
+
+<Meta title="Data/Icon" />
+
+<Description markdown={require('@equinor/fusion-react-icon/README.md')} />
+
+## Component
+
+<ArgsTable of={Icon} />
+
+<Canvas withSource='open'>
+  <Story id="examples-icon--component" />
+</Canvas>
+
+### Color
+use the style attribute `color` for adjusting the color of the icon, normally this will have the same color as the font in the paragraph
+<Story id="snapshots-icon--colors" />
+
+
+### Size
+use the style attribute `font-size` for adjusting the size of the icon. Normally the size is the same as the font size of the paragraph
+<Story id="snapshots-icon--size" />
+
+### All Icons
+Below are all registered icons listed out, copy the name and use on the `icon` attribute
+<Story id="snapshots-icon--list"/>
+
+## Changelog
+
+<ChangeLog changelogs={{
+  react: require('@equinor/fusion-react-icon/CHANGELOG.md'), 
+  webComponent: require('@equinor/fusion-wc-icon/CHANGELOG.md')
+}}/>
+

@@ -25,11 +25,13 @@ Name                    | Type                            | Default           | 
 `clickable`             | `boolean`                       | `false`           | Set to true to activate visual hover effects to indicate that the avatar is clickable.
 
 \*  `AvatarSize` is exported by `fwc-avatar`.
+
 ```ts
 type AvatarSize = 'small' | 'medium' | 'large';
 ```
 
 \*\*  `PersonPresence` is exported by `fwc-avatar`.
+
 ```ts
 type PersonPresence = 
   | 'Available'
@@ -44,6 +46,7 @@ type PersonPresence =
 ```
 
 \*\*\*  `PersonPosition` is exported by `fwc-avatar`.
+
 ```ts
 type PersonPosition = 'Employee' | 'External hire' | 'X-External' | 'Joint venture/Affiliate';
 ```

@@ -1,0 +1,17 @@
+import { Meta, Story, Canvas, ArgsTable, Description } from '@storybook/addon-docs';
+import ChangeLog from '../../components/ChangeLog';
+import { Table } from '@equinor/fusion-react-table/src';
+
+<Meta title="Table/Intro" component={Table} />
+
+<Description markdown={require('@equinor/fusion-react-table/README.md')} />
+
+# Component
+
+<ArgsTable of={Table} />
+
+<Story id="table-examples--basic-table"></Story>
+
+<ChangeLog changelogs={{
+  react: require('@equinor/fusion-react-table/CHANGELOG.md'), 
+}}/>

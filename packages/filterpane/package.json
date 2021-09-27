@@ -43,6 +43,7 @@
     "@equinor/fusion-react-radio": "^0.3.2",
     "@equinor/fusion-react-styles": "^0.3.1",
     "@equinor/fusion-react-textinput": "^0.4.2",
+    "@lit-labs/react": "^1.0.0",
     "redux": "^4.0.5"
   },
   "peerDependencies": {
