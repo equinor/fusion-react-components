@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.17](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-table@0.3.16...@equinor/fusion-react-table@0.3.17) (2021-09-27)
+
+
+### Bug Fixes
+
+* fixed popper classmap issue ([c061417](https://github.com/equinor/fusion-react-components/commit/c061417848d742ee10686d261b6556121da304bb))
+
+
+
+
+
 ## [0.3.16](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-table@0.3.15...@equinor/fusion-react-table@0.3.16) (2021-09-27)
 
 
