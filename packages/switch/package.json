@@ -35,6 +35,7 @@
   },
   "dependencies": {
     "@equinor/fusion-react-utils": "^1.1.5",
-    "@equinor/fusion-wc-switch": "^0.2.8"
+    "@equinor/fusion-wc-switch": "^0.2.8",
+    "@lit-labs/react": "^1.0.0"
   }
 }

@@ -1,0 +1,24 @@
+import { Meta, Story, Canvas, ArgsTable, Description } from '@storybook/addon-docs';
+import ChangeLog from '../../components/ChangeLog';
+import {Badge} from '@equinor/fusion-react-badge/src';
+
+<Meta title="Data/Badge" />
+
+<Description markdown={require('@equinor/fusion-react-badge/README.md')} />
+
+<ArgsTable of={Badge} />
+
+## Component
+
+### Simple
+
+<Canvas withSource='open'>
+  <Story id="examples-badge--simple" />
+</Canvas>
+
+## ChangeLog
+
+<ChangeLog changelogs={{
+  react: require('@equinor/fusion-react-badge/CHANGELOG.md'), 
+  webComponent: require('@equinor/fusion-wc-badge/CHANGELOG.md')
+}}/>

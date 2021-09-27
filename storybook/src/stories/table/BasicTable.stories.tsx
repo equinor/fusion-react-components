@@ -3,7 +3,7 @@ import { Meta } from '@storybook/react';
 import { useMemo } from 'react';
 
 export default {
-  title: 'Data/Table/Stories',
+  title: 'Table/Examples',
   component: Table,
   parameters: {
     viewMode: 'docs',
@@ -62,7 +62,7 @@ const Template = ({ rows }: { rows: number }) => {
   );
 };
 
-export const DefaultTable = Template.bind({});
-DefaultTable.args = {
+export const BasicTable = Template.bind({});
+BasicTable.args = {
   rows: 10,
 };

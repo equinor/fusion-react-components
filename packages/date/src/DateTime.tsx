@@ -1,17 +1,7 @@
-import { FC, HTMLAttributes } from 'react';
-import { DateTimeElement, DateTimeElementProps } from '@equinor/fusion-wc-date';
-import { elementAttributes } from '@equinor/fusion-react-utils';
+import * as React from 'react';
+import { createComponent } from '@lit-labs/react';
+import { DateTimeElement as HTMLDateTimeCustomElement, dateTimeTag } from '@equinor/fusion-wc-date';
 
-DateTimeElement;
-
-export type DateTimeProps = DateTimeElementProps &
-  HTMLAttributes<DateTimeElement> & {
-    date: Date | string;
-  };
-
-export const DateTime: FC<DateTimeProps> = (props) => {
-  const attributes = elementAttributes<DateTimeProps>(props);
-  return <fwc-datetime {...attributes}></fwc-datetime>;
-};
-
+export const DateTime = createComponent(React, dateTimeTag, HTMLDateTimeCustomElement);
+export { HTMLDateTimeCustomElement };
 export default DateTime;

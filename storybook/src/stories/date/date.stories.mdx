@@ -1,0 +1,32 @@
+import { Meta, Story, Canvas, ArgsTable,Description } from '@storybook/addon-docs';
+import ChangeLog from '../../components/ChangeLog';
+import DateRange from '@equinor/fusion-react-date/src/DateRange';
+import DateTime from '@equinor/fusion-react-date/src/DateTime';
+
+<Meta title="Data/Date" />
+
+<Description markdown={require('@equinor/fusion-react-date/README.md')} />
+
+## DateTime
+
+<ArgsTable of={DateTime} />
+
+<Canvas withSource='open'>
+  <Story id="examples-datetime--component" />
+</Canvas>
+
+## DateRange
+
+<ArgsTable of={DateRange} />
+
+<Canvas withSource='open'>
+  <Story id="examples-daterange--component" />
+</Canvas>
+
+## Changelog
+
+<ChangeLog changelogs={{
+  react: require('@equinor/fusion-react-date/CHANGELOG.md'), 
+  webComponent: require('@equinor/fusion-wc-date/CHANGELOG.md')
+}}/>
+
