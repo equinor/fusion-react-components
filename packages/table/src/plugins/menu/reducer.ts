@@ -15,10 +15,11 @@ export const reducer = <D extends TableData>(
 
       // console.log(state, payload);
 
-      if (columnId === menu.columnId) {
+      if (columnId === menu?.columnId) {
         const show = payload.show === undefined ? !menu.show : payload.show;
         return { ...state, menu: { columnId, show } };
       } else if (payload.show !== false) {
+        //TODO: remove console.log
         console.log('ok');
         return { ...state, menu: { columnId, show: true } };
       }
