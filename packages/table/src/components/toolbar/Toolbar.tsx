@@ -1,12 +1,11 @@
 import { createStyles, makeStyles } from '@equinor/fusion-react-styles';
 import { ReactNode } from 'react';
 import { ExportToExcelBtn } from './ExportToExcelBtn';
-import { ExcelExportProps } from './types';
 
 type ToolbarProps = {
   justify?: 'flex-start' | 'center' | 'flex-end';
   children?: ReactNode | undefined;
-  excel?: ExcelExportProps;
+  hideExportBtn?: boolean;
 };
 
 const useStyles = makeStyles(() =>
@@ -20,12 +19,11 @@ const useStyles = makeStyles(() =>
 );
 
 export const Toolbar = (props: ToolbarProps): JSX.Element => {
-  const { justify = 'flex-start', excel, children } = props;
+  const { justify = 'flex-start', hideExportBtn = true, children } = props;
   const styles = useStyles();
-  const showExportBtn = excel && !excel.disabled;
   return (
     <div className={styles.container} style={{ justifyContent: justify }}>
-      {showExportBtn && <ExportToExcelBtn excel={{ client: excel.client, disabled: excel.disabled }} />}
+      {!hideExportBtn && <ExportToExcelBtn />}
       {children}
     </div>
   );
