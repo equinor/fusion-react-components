@@ -14,28 +14,42 @@ const columns: Column[] = [
   {
     Header: 'First Name',
     accessor: 'firstName',
+    dataType: 'text',
   },
   {
     Header: 'Last Name',
     accessor: 'lastName',
+    dataType: 'text',
   },
   {
     Header: 'Age',
     accessor: 'age',
+    dataType: 'number',
   },
   {
     Header: 'Visits',
     accessor: 'visits',
+    dataType: 'number',
   },
   {
     Header: 'Status',
     accessor: 'status',
+    dataType: 'text',
   },
   {
     Header: 'Profile Progress',
     accessor: 'progress',
+    dataType: 'number',
   },
 ];
+const ToolbarChildren = () => {
+  return (
+    <div style={{ display: 'flex', gap: '1em' }}>
+      <Button>Select</Button>
+      <Button>Example</Button>
+    </div>
+  );
+};
 type Props = {
   rows: number;
   justifyContent: 'flex-start' | 'center' | 'flex-end';
@@ -46,6 +60,10 @@ const Template: Story<Props> = (args) => {
     () => ({
       data: makeData(args.rows),
       columns,
+      exportFn: async (data: any) => {
+        await new Promise((resolve) => setTimeout(resolve, 10000));
+        return { url: 'https://vg.no', fileName: 'storybook' };
+      },
     }),
     [args.rows]
   );
@@ -53,17 +71,10 @@ const Template: Story<Props> = (args) => {
   return (
     <Table
       options={options}
-      slots={{ Toolbar: <Toolbar children={args.toolbarChildren} justify={args.justifyContent} /> }}
+      slots={{
+        Toolbar: <Toolbar children={args.toolbarChildren} justify={args.justifyContent} hideExportBtn={false} />,
+      }}
     ></Table>
-  );
-};
-
-const ToolbarChildren = () => {
-  return (
-    <div style={{ display: 'flex', gap: '1em' }}>
-      <Button>Select</Button>
-      <Button>Example</Button>
-    </div>
   );
 };
 
