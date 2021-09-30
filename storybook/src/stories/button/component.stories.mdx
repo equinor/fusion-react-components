@@ -1,0 +1,30 @@
+import { Meta, Story, Canvas, ArgsTable, Description } from '@storybook/addon-docs';
+import ChangeLog from '../../components/ChangeLog';
+import Button from '@equinor/fusion-react-button/src';
+
+<Meta
+  title="Input/Button"
+  component={Button}
+/>
+
+<Description markdown={require('@equinor/fusion-react-button/README.md')} />
+
+<ArgsTable of={Button} />
+
+## Customizing
+
+The button component exposes the native custom element slots: 
+- `default` slot for custom label
+- `icon` slot custom icon inside this placeholder
+- `trailingIcon` slot custom trailing icon inside this placeholder
+
+<Canvas withSource='open'>
+  <Story id="examples-button--custom" />
+</Canvas>
+
+## Changelog
+
+<ChangeLog changelogs={{
+  react: require('@equinor/fusion-react-button/CHANGELOG.md'), 
+  webComponent: require('@equinor/fusion-wc-button/CHANGELOG.md')}} 
+/>

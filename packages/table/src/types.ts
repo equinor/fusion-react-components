@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+
 import {
   Column as ColumnDefault,
   PluginHook as PluginHookDefault,
@@ -91,4 +93,4 @@ declare module 'react-table' {
   //@ts-ignore
   export interface TableInstance<D extends TableData = TableData> extends UseExportToExcelOptions {}
 }
-export { TableOptions } from 'react-table';
+export { TableOptions, CellProps, SortByFn } from 'react-table';

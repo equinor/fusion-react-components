@@ -1,6 +1,9 @@
-import { GardenDataError } from '../models/GardenDataError';
-import { HttpResponse } from '@equinor/fusion/lib/http/HttpClient';
 import { useState, useCallback } from 'react';
+
+import { GardenDataError } from '../models/GardenDataError';
+
+// TODO - @olerichard this should be removed from here, pass client as an provider
+import { HttpClientRequestFailedError, HttpResponse } from '@equinor/fusion/lib/http/HttpClient';
 /**
  * The useHangingGardenGetData is used by useHangingGardenData for the acutal api call, but can be used on it own.
  *
@@ -65,9 +68,11 @@ export const useHangingGardenGetData = <T,>(
           cacheDurationInMinutes: cacheDuration,
         };
       } catch (e) {
+        // TODO . @olerichard check if this typing is correct
+        const { response } = e as HttpClientRequestFailedError<GardenDataError>;
         setError({
-          errorType: e?.response?.error?.code || 'error',
-          errorResponse: e?.response?.error || null,
+          errorType: response.errorType || ' error',
+          errorResponse: response.errorResponse,
         });
         setIsFetching(false);
         return null;

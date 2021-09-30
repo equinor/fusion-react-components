@@ -2,7 +2,7 @@ import { useCallback } from 'react';
 import * as PIXI from 'pixi.js-legacy';
 import { useHangingGardenContext } from './useHangingGardenContext';
 import useTextNode from './useTextNode';
-import { createRenderedItemDescription, getColumnX, EXPANDED_COLUMN_PADDING } from '../utils';
+import { createRenderedItemDescription, getColumnX, EXPANDED_COLUMN_PADDING, GROUP_LEVEL_OFFSET } from '../utils';
 import { HangingGardenColumn, HangingGardenColumnIndex } from '../models/HangingGarden';
 
 /**
@@ -31,6 +31,8 @@ const useItemDescription = <T extends HangingGardenColumnIndex>(): UseItemDescri
     itemKeyProp,
     getItemDescription,
     textureCaches: { getTextureFromCache, addTextureToCache },
+    groupLevels,
+    padding,
   } = useHangingGardenContext();
 
   const { createTextNode } = useTextNode();
@@ -60,8 +62,14 @@ const useItemDescription = <T extends HangingGardenColumnIndex>(): UseItemDescri
       }
 
       const pixiContainer = getRenderedItemDescription(item);
-      pixiContainer.y = headerHeight + index * itemHeight + (itemHeight / 2 - pixiContainer.height / 2);
-      pixiContainer.x = getColumnX(columnIndex, expandedColumns, itemWidth) + itemWidth + EXPANDED_COLUMN_PADDING;
+      pixiContainer.y =
+        headerHeight + index * (itemHeight + padding) + ((itemHeight + padding) / 2 - pixiContainer.height / 2);
+      pixiContainer.x =
+        getColumnX(columnIndex, expandedColumns, itemWidth + padding, groupLevels) +
+        itemWidth +
+        padding +
+        groupLevels * GROUP_LEVEL_OFFSET +
+        EXPANDED_COLUMN_PADDING;
       stage.current.removeChild(pixiContainer);
       stage.current.addChild(pixiContainer);
     },

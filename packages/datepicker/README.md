@@ -1,3 +1,3 @@
-# `@equinor/fusion-react-datepicker`
+# @equinor/fusion-react-datepicker
 
 > WIP - more docs comming

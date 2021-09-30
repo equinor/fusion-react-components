@@ -1,12 +1,18 @@
 import { MutableRefObject } from 'react';
 import { ItemRenderContext, HeaderRenderContext } from './RenderContext';
 
-export type HangingGardenColumn<T> = {
+export type HangingGardenColumnIndex = Record<string, unknown>;
+
+export type ColumnGroupHeader = {
   key: string;
-  data: T[];
+  type: 'groupHeader';
+  level: number;
 };
 
-export type HangingGardenColumnIndex = Record<string, any>;
+export type HangingGardenColumn<T extends HangingGardenColumnIndex> = {
+  key: string;
+  data: T[] | HangingGardenColumn<T>[];
+};
 
 export type GardenController = {
   clearGarden: () => void;
@@ -30,4 +36,6 @@ export type HangingGardenProps<T extends HangingGardenColumnIndex> = {
   backgroundColor?: number;
   colorMode?: ColorMode;
   disableScrollToHighlightedItem?: boolean;
+  groupLevels?: number;
+  padding?: number;
 };

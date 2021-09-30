@@ -1,6 +1,6 @@
 import { MutableRefObject, useEffect, useCallback, UIEvent } from 'react';
 import { HangingGardenColumnIndex, HangingGardenColumn, GardenController } from './models/HangingGarden';
-import { getCalculatedWidth, getCalculatedHeight } from './utils';
+import { getCalculatedWidth, getCalculatedHeight, GROUP_LEVEL_OFFSET } from './utils';
 import { useHangingGardenContext } from './renderHooks/useHangingGardenContext';
 import useGarden from './renderHooks/useGarden';
 import useRendererSize from './renderHooks/useRendererSize';
@@ -32,7 +32,7 @@ type GardenProps = {
   provideController?: MutableRefObject<GardenController | null>;
 };
 
-function Garden<T extends HangingGardenColumnIndex>({ provideController }: GardenProps): JSX.Element {
+const Garden = <T extends HangingGardenColumnIndex>({ provideController }: GardenProps): JSX.Element => {
   const {
     pixiApp,
     container,
@@ -46,6 +46,8 @@ function Garden<T extends HangingGardenColumnIndex>({ provideController }: Garde
     textureCaches: { clearTextureCaches, clearItemTextureCaches },
     scroll: { onScroll },
     popover: { popover },
+    groupLevels,
+    padding,
   } = useHangingGardenContext();
 
   const { renderGarden } = useGarden();
@@ -72,8 +74,12 @@ function Garden<T extends HangingGardenColumnIndex>({ provideController }: Garde
 
   const style = useStyles({
     wrapper: {
-      width: getCalculatedWidth(expandedColumns, (columns as HangingGardenColumn<T>[]).length, itemWidth),
-      height: getCalculatedHeight(headerHeight, itemHeight, maxRowCount),
+      width: getCalculatedWidth(
+        expandedColumns,
+        (columns as HangingGardenColumn<T>[]).length,
+        itemWidth + padding + groupLevels * GROUP_LEVEL_OFFSET
+      ),
+      height: getCalculatedHeight(headerHeight, itemHeight + padding, maxRowCount),
     },
   });
 
@@ -85,6 +91,6 @@ function Garden<T extends HangingGardenColumnIndex>({ provideController }: Garde
       {popover}
     </div>
   );
-}
+};
 
 export default Garden;

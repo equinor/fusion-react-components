@@ -1,13 +1,17 @@
 {
   "extends": "../tsconfig.base.json",
   "compilerOptions": {
-    "rootDir": "stories",
+    "rootDir": "src",
     "resolveJsonModule": true,
-    "module": "ESNext"
   },
-  "include": ["stories/**/*.ts", "stories/**/*.tsx", "stories/**/*.json"],
   "exclude": ["node_modules"],
   "references": [
+    {
+      "path": "../packages/avatar"
+    },
+    {
+      "path": "../packages/badge"
+    },
     {
       "path": "../packages/button"
     },
@@ -15,10 +19,16 @@
       "path": "../packages/checkbox"
     },
     {
-      "path": "../packages/hanging-garden"
+      "path": "../packages/date"
+    },
+    {
+      "path": "../packages/icon"
     },
     {
       "path": "../packages/datepicker"
+    },
+    {
+      "path": "../packages/hanging-garden"
     },
     {
       "path": "../packages/radio"
@@ -34,6 +44,10 @@
     },
     {
       "path": "../packages/textinput"
-    }
+    },
+    {
+      "path": "../packages/filterpane"
+    },
+    { "path": "../packages/utils" }
   ]
 }

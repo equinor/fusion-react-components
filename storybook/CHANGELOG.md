@@ -3,6 +3,232 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.21.3](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.21.2...@equinor/fusion-react-components-stories@1.21.3) (2021-09-27)
+
+**Note:** Version bump only for package @equinor/fusion-react-components-stories
+
+
+
+
+
+## [1.21.2](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.21.1...@equinor/fusion-react-components-stories@1.21.2) (2021-09-27)
+
+**Note:** Version bump only for package @equinor/fusion-react-components-stories
+
+
+
+
+
+## [1.21.1](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.21.0...@equinor/fusion-react-components-stories@1.21.1) (2021-09-27)
+
+
+### Bug Fixes
+
+* update to lit create element method ([ec68c08](https://github.com/equinor/fusion-react-components/commit/ec68c08d5cbcba43a1b8ca064cccc73662f17421))
+
+
+
+
+
+# [1.21.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.20.1...@equinor/fusion-react-components-stories@1.21.0) (2021-09-23)
+
+
+### Bug Fixes
+
+* **storybook:** duplicate insert of custom elements ([8a6f93b](https://github.com/equinor/fusion-react-components/commit/8a6f93b4ef9e4aa473c9e4a7318fe8df2d2dd22a))
+
+
+### Features
+
+* **docs:** add changelog ([a67464c](https://github.com/equinor/fusion-react-components/commit/a67464c6bf59643ff1d2895975ce396d3010fad9))
+* **storybook:** update to webpack 5 ([f8edef9](https://github.com/equinor/fusion-react-components/commit/f8edef9697438e69b5e19282751cfea8e7a0520f))
+
+
+
+
+
+## 1.20.1 (2021-09-16)
+
+
+### Bug Fixes
+
+* remove typescript from sub packages ([845115e](https://github.com/equinor/fusion-react-components/commit/845115e1a73687ce75dc3e14ebdebf9463481b28))
+
+
+
+
+
+# [1.20.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.19.0...@equinor/fusion-react-components-stories@1.20.0) (2021-09-13)
+
+
+### Features
+
+* created react component ([f8c8846](https://github.com/equinor/fusion-react-components/commit/f8c88469f335ca963d578b3aba364bfa33faa0b2))
+
+
+
+
+
+# [1.19.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.18.0...@equinor/fusion-react-components-stories@1.19.0) (2021-09-13)
+
+
+### Features
+
+* created badge react component ([158579d](https://github.com/equinor/fusion-react-components/commit/158579df3d316a26d6f6251da353747e93660944))
+
+
+
+
+
+# [1.18.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.17.4...@equinor/fusion-react-components-stories@1.18.0) (2021-09-10)
+
+
+### Bug Fixes
+
+* Added useSelector and reducer from fusion API ([693973e](https://github.com/equinor/fusion-react-components/commit/693973eb1adc1e4b4e97e73b89f23d7c6ce44d85))
+* search functionality, css adjustments and description ([e187592](https://github.com/equinor/fusion-react-components/commit/e18759227012eac564d36972d58a6362cdf30d43))
+
+
+### Features
+
+* Moved over and implemented most of the components used for horizontal filterpanel ([c556396](https://github.com/equinor/fusion-react-components/commit/c5563960610b14a39bd3db72f558e435eb25dd88))
+* Moved over and implemented most of the components used for horizontal filterpanel ([c189a96](https://github.com/equinor/fusion-react-components/commit/c189a96f5a150f1774b93913a744987ecc08e2d1))
+* Moved over and implemented most of the components used for horizontal filterpanel ([b1a80c1](https://github.com/equinor/fusion-react-components/commit/b1a80c1bf8fb8e1ca4230236083f14da0dd915ac))
+
+
+
+
+
+## [1.17.4](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.17.3...@equinor/fusion-react-components-stories@1.17.4) (2021-09-10)
+
+**Note:** Version bump only for package @equinor/fusion-react-components-stories
+
+
+
+
+
+## [1.17.3](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.17.2...@equinor/fusion-react-components-stories@1.17.3) (2021-09-09)
+
+**Note:** Version bump only for package @equinor/fusion-react-components-stories
+
+
+
+
+
+## [1.17.2](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.17.1...@equinor/fusion-react-components-stories@1.17.2) (2021-09-08)
+
+**Note:** Version bump only for package @equinor/fusion-react-components-stories
+
+
+
+
+
+## [1.17.1](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.17.0...@equinor/fusion-react-components-stories@1.17.1) (2021-09-08)
+
+**Note:** Version bump only for package @equinor/fusion-react-components-stories
+
+
+
+
+
+# [1.17.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.16.0...@equinor/fusion-react-components-stories@1.17.0) (2021-09-08)
+
+
+### Features
+
+* add theme provider ([ad17d8e](https://github.com/equinor/fusion-react-components/commit/ad17d8e4938ae0057e53fe64edbe084406f28c5f))
+
+
+
+
+
+# [1.16.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.15.2...@equinor/fusion-react-components-stories@1.16.0) (2021-09-07)
+
+
+### Features
+
+* add react eds icon components ([3847f64](https://github.com/equinor/fusion-react-components/commit/3847f641e0f4eb57bf83bd8610dad6a375bd2a62))
+
+
+
+
+
+## [1.15.2](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.15.1...@equinor/fusion-react-components-stories@1.15.2) (2021-09-07)
+
+**Note:** Version bump only for package @equinor/fusion-react-components-stories
+
+
+
+
+
+## [1.15.1](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.15.0...@equinor/fusion-react-components-stories@1.15.1) (2021-09-07)
+
+**Note:** Version bump only for package @equinor/fusion-react-components-stories
+
+
+
+
+
+# [1.15.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.14.3...@equinor/fusion-react-components-stories@1.15.0) (2021-09-07)
+
+
+### Bug Fixes
+
+* add label to checkbox ([a752f4f](https://github.com/equinor/fusion-react-components/commit/a752f4f64616d365f8046d9ee213c3373c3964c3))
+* add label to radio element ([d8daa78](https://github.com/equinor/fusion-react-components/commit/d8daa789bec2bb27a68713462865eb3bf719f461))
+
+
+### Features
+
+* add readme ([9c9e81d](https://github.com/equinor/fusion-react-components/commit/9c9e81d5ebdd8f701423c385663ce62b281ec280))
+
+
+
+
+
+## [1.14.3](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.14.2...@equinor/fusion-react-components-stories@1.14.3) (2021-09-06)
+
+**Note:** Version bump only for package @equinor/fusion-react-components-stories
+
+
+
+
+
+## [1.14.2](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.14.1...@equinor/fusion-react-components-stories@1.14.2) (2021-08-27)
+
+**Note:** Version bump only for package @equinor/fusion-react-components-stories
+
+
+
+
+
+## [1.14.1](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.14.0...@equinor/fusion-react-components-stories@1.14.1) (2021-08-23)
+
+**Note:** Version bump only for package @equinor/fusion-react-components-stories
+
+
+
+
+
+# [1.14.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.13.4...@equinor/fusion-react-components-stories@1.14.0) (2021-08-16)
+
+
+### Bug Fixes
+
+* add missing dep ([d137429](https://github.com/equinor/fusion-react-components/commit/d137429a49043dd2a5ad6af5c3df522f58de7da9))
+* import of react utils ([c9f852a](https://github.com/equinor/fusion-react-components/commit/c9f852a3738bfd902298a6fefd9fa30ee90e8b80))
+* title of story ([3334c36](https://github.com/equinor/fusion-react-components/commit/3334c36a3936ea0e5ef485e5a2c0359a8ce18e9b))
+* update datepicker story ([fa9162f](https://github.com/equinor/fusion-react-components/commit/fa9162f5d3c3dddc330bf40f8162a07cf8b27ec2))
+
+
+### Features
+
+* added date component ([b32b637](https://github.com/equinor/fusion-react-components/commit/b32b637bfe0aee74db1b372a28b73dea821e7d35))
+
+
+
+
+
 ## [1.13.4](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.13.3...@equinor/fusion-react-components-stories@1.13.4) (2021-08-16)
 
 **Note:** Version bump only for package @equinor/fusion-react-components-stories

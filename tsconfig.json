@@ -8,10 +8,22 @@
   "files": [],
   "references": [
     {
+      "path": "packages/avatar"
+    },
+    {
+      "path": "packages/badge"
+    },
+    {
       "path": "packages/button"
     },
     {
       "path": "packages/checkbox"
+    },
+    {
+      "path": "packages/date"
+    },
+    {
+      "path": "packages/datepicker"
     },
     {
       "path": "packages/hanging-garden"
@@ -29,13 +41,14 @@
       "path": "packages/table"
     },
     {
-      "path": "packages/datepicker"
-    },
-    {
       "path": "packages/textarea"
     },
     {
       "path": "packages/textinput"
-    }
+    },
+    {
+      "path": "packages/filterpane"
+    },
+    { "path": "packages/utils" }
   ]
 }

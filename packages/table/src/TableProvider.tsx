@@ -42,8 +42,7 @@ export const TableProvider = <TData extends TableData = TableData>(
 
   const defaultColumn = useDefaultColumn(options);
 
-  const instance = useTable({ ...options, defaultColumn }, ...plugins);
+  const instance = useTable({ ...options, defaultColumn }, ...plugins) as TableInstance<TableData>;
 
-  // @ts-ignore
   return <context.Provider value={{ instance, state: instance.state }}>{children}</context.Provider>;
 };

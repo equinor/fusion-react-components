@@ -1,5 +1,6 @@
 import { MutableRefObject, RefObject, useRef, useCallback, UIEvent } from 'react';
-import { HangingGardenColumn, HangingGardenColumnIndex } from '../models/HangingGarden';
+import { ColumnGroupHeader, HangingGardenColumn, HangingGardenColumnIndex } from '../models/HangingGarden';
+import { flattenColumn } from '../utils';
 
 export type Scroll<T extends HangingGardenColumnIndex> = {
   isScrolling: MutableRefObject<boolean>;
@@ -24,6 +25,7 @@ const useScrolling = <T extends HangingGardenColumnIndex>(
   canvas: RefObject<HTMLCanvasElement> | null,
   container: RefObject<HTMLDivElement> | null,
   itemKeyProp: keyof T,
+  padding: number,
   disableScrollToHighlightedItem?: boolean
 ): Scroll<T> => {
   const isScrolling = useRef(false);
@@ -59,7 +61,9 @@ const useScrolling = <T extends HangingGardenColumnIndex>(
       const scrollWindowTo = Math.max(
         highlightedColumnIndex >= 0
           ? (container.current.scrollLeft =
-              highlightedColumnIndex * itemWidth - container.current.offsetWidth / 2 + itemWidth / 2)
+              highlightedColumnIndex * (itemWidth + padding) -
+              container.current.offsetWidth / 2 +
+              (itemWidth + padding) / 2)
           : 0,
         0
       );
@@ -87,7 +91,7 @@ const useScrolling = <T extends HangingGardenColumnIndex>(
     (columns: HangingGardenColumn<T>[], highlightedItem: T | null, itemWidth: number): boolean => {
       if (disableScrollToHighlightedItem || !highlightedItem) return false;
       const highlightedIndex = columns.findIndex((column) =>
-        column.data.some((item) => {
+        (flattenColumn(column).filter((c) => (c as ColumnGroupHeader)?.type !== 'groupHeader') as T[]).some((item) => {
           return item[itemKeyProp] === highlightedItem[itemKeyProp];
         })
       );

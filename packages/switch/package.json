@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-switch",
-  "version": "0.2.2",
+  "version": "0.3.4",
   "description": "component for displaying switch",
   "keywords": [
     "switch",
@@ -34,9 +34,8 @@
     "url": "https://github.com/equinor/fusion-react-components/issues"
   },
   "dependencies": {
-    "@equinor/fusion-wc-switch": "^0.2.2"
-  },
-  "devDependencies": {
-    "typescript": "^4.3.5"
+    "@equinor/fusion-react-utils": "^1.1.6",
+    "@equinor/fusion-wc-switch": "^0.2.8",
+    "@lit-labs/react": "^1.0.0"
   }
 }

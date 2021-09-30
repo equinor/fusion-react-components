@@ -1,9 +1,9 @@
 import { useCallback } from 'react';
 import * as PIXI from 'pixi.js-legacy';
 import { useHangingGardenContext } from './useHangingGardenContext';
-import { getHeaderWidth, isHeaderExpanded, getColumnX, createRoundedRectMask } from '../utils';
+import { getHeaderWidth, isHeaderExpanded, getColumnX, createRoundedRectMask, flattenColumn } from '../utils';
 import useItemDescription from './useItemDescription';
-import { HangingGardenColumn, HangingGardenColumnIndex } from '../models/HangingGarden';
+import { ColumnGroupHeader, HangingGardenColumn, HangingGardenColumnIndex } from '../models/HangingGarden';
 import useTextNode from './useTextNode';
 
 /**
@@ -30,6 +30,8 @@ const useHeader = <T extends HangingGardenColumnIndex>(): UseHeader => {
     renderHeaderContext,
     scroll: { scrollTop },
     textureCaches: { getTextureFromCache, addTextureToCache },
+    groupLevels,
+    padding,
   } = useHangingGardenContext();
 
   const { getRenderedItemDescription } = useItemDescription<T>();
@@ -53,7 +55,10 @@ const useHeader = <T extends HangingGardenColumnIndex>(): UseHeader => {
         return;
       }
 
-      const renderedDescriptions = column.data.map(getRenderedItemDescription);
+      const renderedDescriptions = (
+        flattenColumn(column).filter((c) => (c as ColumnGroupHeader)?.type !== 'groupHeader') as T[]
+      ).map(getRenderedItemDescription);
+
       const maxWidth = Math.max(...renderedDescriptions.map((description) => description.width));
 
       setExpandedColumns((prevColumns) => ({
@@ -90,7 +95,8 @@ const useHeader = <T extends HangingGardenColumnIndex>(): UseHeader => {
         const headerWidth = getHeaderWidth(
           (columns as HangingGardenColumn<T>[])[index]?.key,
           expandedColumns,
-          itemWidth
+          itemWidth + padding,
+          groupLevels
         );
         const isHighlighted = highlightedColumnKey === key;
         const isExpanded = isHeaderExpanded(key, expandedColumns);
@@ -101,7 +107,7 @@ const useHeader = <T extends HangingGardenColumnIndex>(): UseHeader => {
         renderedHeader.on('tap', () => onHeaderClick(key, index));
 
         // Header container position and size
-        const x = getColumnX(index, expandedColumns, itemWidth);
+        const x = getColumnX(index, expandedColumns, itemWidth + padding, groupLevels);
         renderedHeader.x = x;
         renderedHeader.y = 0;
         renderedHeader.width = headerWidth;
@@ -151,6 +157,7 @@ const useHeader = <T extends HangingGardenColumnIndex>(): UseHeader => {
       stage.current,
       createTextNode,
       scrollTop.current,
+      groupLevels,
     ]
   );
 

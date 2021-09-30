@@ -1,0 +1,51 @@
+{
+  "name": "@equinor/fusion-react-filterpane",
+  "version": "1.1.5",
+  "description": "component for Filtering data",
+  "author": "",
+  "homepage": "https://github.com/equinor/fusion-react-components/tree/master/packages/filterpane#readme",
+  "keywords": [
+    "Filter",
+    "Filterpane",
+    "react",
+    "fusion",
+    "equinor"
+  ],
+  "license": "ISC",
+  "main": "dist/index.js",
+  "directories": {
+    "dist": "dist"
+  },
+  "files": [
+    "dist"
+  ],
+  "private": true,
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/equinor/fusion-react-components.git"
+  },
+  "scripts": {
+    "build": "tsc -b",
+    "watch": "tsc -w",
+    "lint": "eslint src/**/*.{js,ts,tsx}",
+    "lint:fix": "eslint src/**/*.{js,ts,tsx} --fix",
+    "prepack": "npm run build"
+  },
+  "bugs": {
+    "url": "https://github.com/equinor/fusion-react-components/issues"
+  },
+  "dependencies": {
+    "@equinor/fusion-react-button": "^0.3.7",
+    "@equinor/fusion-react-checkbox": "^0.3.4",
+    "@equinor/fusion-react-radio": "^0.3.4",
+    "@equinor/fusion-react-styles": "^0.3.4",
+    "@equinor/fusion-react-textinput": "^0.5.1",
+    "redux": "^4.0.5"
+  },
+  "peerDependencies": {
+    "@equinor/fusion-react-styles": "0.3.1"
+  }
+}

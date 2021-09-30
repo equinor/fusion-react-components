@@ -1,1 +1,3 @@
-export { Radio as default, RadioProps } from './Radio';
+export * from './RadioBase';
+export * from './Radio';
+export { default } from './Radio';

@@ -3,6 +3,85 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.6.6 (2021-09-27)
+
+**Note:** Version bump only for package @equinor/fusion-react-hanging-garden
+
+
+
+
+
+## [1.6.5](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-hanging-garden@1.6.4...@equinor/fusion-react-hanging-garden@1.6.5) (2021-09-27)
+
+**Note:** Version bump only for package @equinor/fusion-react-hanging-garden
+
+
+
+
+
+## [1.6.4](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-hanging-garden@1.6.3...@equinor/fusion-react-hanging-garden@1.6.4) (2021-09-23)
+
+**Note:** Version bump only for package @equinor/fusion-react-hanging-garden
+
+
+
+
+
+## 1.6.3 (2021-09-16)
+
+**Note:** Version bump only for package @equinor/fusion-react-hanging-garden
+
+
+
+
+
+## 1.6.2 (2021-09-08)
+
+**Note:** Version bump only for package @equinor/fusion-react-hanging-garden
+
+
+
+
+
+## [1.6.1](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-hanging-garden@1.6.0...@equinor/fusion-react-hanging-garden@1.6.1) (2021-09-07)
+
+
+### Bug Fixes
+
+* linting ([7cb89a8](https://github.com/equinor/fusion-react-components/commit/7cb89a8b2fdb3d78b4ff947b732c974cfe92f61a))
+* type cast error of error ([ca96c28](https://github.com/equinor/fusion-react-components/commit/ca96c2883c62066cb82e9853e8eec9540faafd0c))
+
+
+
+
+
+# 1.6.0 (2021-09-06)
+
+
+### Features
+
+* padding option and new dashed highlight border around packages ([68a9eaf](https://github.com/equinor/fusion-react-components/commit/68a9eaf672fc7f02729d9d39fa7790a591fbf229))
+
+
+
+
+
+# 1.5.0 (2021-08-23)
+
+
+### Bug Fixes
+
+* changed erroMessageProps with any types to unknown ([5ac75ab](https://github.com/equinor/fusion-react-components/commit/5ac75ab6361eae5603a038611684b069e45ecbff))
+
+
+### Features
+
+* added the group by multiple level functionaly that was build for the swcr garden app ([4878ab9](https://github.com/equinor/fusion-react-components/commit/4878ab9a2769cb1aea104cfe8962b7c1f64ceeee))
+
+
+
+
+
 ## 1.4.3 (2021-07-14)
 
 **Note:** Version bump only for package @equinor/fusion-react-hanging-garden
