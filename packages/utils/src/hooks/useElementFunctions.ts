@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useMemo, useRef } from 'react';
 import { shallowEqual } from '../shallow-equal';
 

@@ -1,4 +1,3 @@
-/* eslint-disable react/no-multi-comp */
 import { tag, TextAreaElement } from '@equinor/fusion-wc-textarea';
 import { TextAreaInvalidHandler } from './types';
 
