@@ -3,6 +3,7 @@ import {
   TableInstance,
   TableOptions,
   useFilters,
+  usePagination,
   useResizeColumns,
   useSortBy,
   useTable as useReactTable,
@@ -19,6 +20,7 @@ export const useTable = <TData extends TableData>(
   // TODO: check if sort is allready added?
   true && plugins.push(useFilters);
   true && plugins.push(useSortBy);
+  true && plugins.push(usePagination);
   true && plugins.push(useResizeColumns);
   true && plugins.push(useColumnMenu);
 

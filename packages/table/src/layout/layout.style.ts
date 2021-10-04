@@ -38,6 +38,11 @@ export const useStyles = makeStyles<FusionTheme, StyleProps>(
           background: theme.colors.interactive.table__cell__fill_hover.value.rgba,
         },
       },
+      pagination: {
+        display: 'flex',
+        justifyContent: 'end',
+        alignItems: 'center',
+      },
     }),
   { name: 'fusion-table-layout' }
 );

@@ -35,6 +35,7 @@
     "url": "https://github.com/equinor/fusion-react-components/issues"
   },
   "dependencies": {
+    "@equinor/fusion-react-button": "^0.3.7",
     "@equinor/fusion-react-styles": "^0.3.4",
     "@equinor/fusion-wc-icon": "^1.0.11",
     "@equinor/fusion-wc-popover": "^1.0.12",

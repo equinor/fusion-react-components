@@ -7,6 +7,7 @@ import {
   Renderer,
   UseFiltersColumnOptions,
   UseSortByColumnOptions,
+  UsePaginationInstanceProps,
 } from 'react-table';
 
 import { theme } from '@equinor/fusion-react-styles';
@@ -74,9 +75,13 @@ declare module 'react-table' {
   export type PluginHook<TData extends TableData> = PluginHookDefault<TData>;
 
   // @ts-ignore
-  export interface TableState {
+  export interface TableState<TData extends TableData = TableData> extends Partial<UsePaginationState<TData>> {
     menu: MenuState;
   }
+
+  // @ts-ignore
+  export interface TableInstance<D extends TableData> extends UsePaginationInstanceProps<D> {}
 }
 
+// @ts-ignore
 export { TableOptions, CellProps, SortByFn } from 'react-table';
