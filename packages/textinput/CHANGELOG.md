@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.6.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-textinput@0.5.2...@equinor/fusion-react-textinput@0.6.0) (2021-10-05)
+
+
+### Features
+
+* **textinput:** create wrapper for element ([34def5a](https://github.com/equinor/fusion-react-components/commit/34def5ae1f13883000412c9b8f971151779902af))
+
+
+
+
+
 ## 0.5.2 (2021-09-30)
 
 **Note:** Version bump only for package @equinor/fusion-react-textinput
