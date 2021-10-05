@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-button",
-  "version": "0.3.8",
+  "version": "0.4.0",
   "description": "React component for displaying a button",
   "keywords": [
     "button",
@@ -34,7 +34,7 @@
     "url": "https://github.com/equinor/fusion-react-components/issues"
   },
   "dependencies": {
-    "@equinor/fusion-wc-button": "^1.1.18",
-    "@equinor/fusion-react-utils": "^1.1.18"
+    "@equinor/fusion-react-utils": "^1.1.18",
+    "@equinor/fusion-wc-button": "^1.1.18"
   }
 }
