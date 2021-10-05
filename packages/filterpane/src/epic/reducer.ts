@@ -103,7 +103,7 @@ export class EpicReducer<S, A extends Action = any, R extends Reducer<S, A> = Re
    * dispatch action to process
    * @param action
    */
-  dispatch(action: A) {
+  dispatch(action: A): void {
     if (!this._action$.closed) {
       this._action$.next(action);
     }

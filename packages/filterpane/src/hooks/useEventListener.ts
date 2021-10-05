@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 
 // TODO @odinr - move to util lib
 
@@ -6,7 +6,7 @@ export default <T extends EventListenerOrEventListenerObject>(
   node: HTMLElement | Window | null,
   eventType: string,
   handler: T,
-  dependencies: any[],
+  dependencies: React.DependencyList,
   useCapture = false
 ): void => {
   useEffect(() => {

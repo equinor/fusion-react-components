@@ -20,7 +20,7 @@ const useFilterSelection = <TSelection,>(key: string): TSelection | null => {
       setFilterSelection(selection[key] || null);
     });
     return () => subscription.unsubscribe();
-  }, [key]);
+  }, [store, key]);
 
   return filterSelection;
 };
