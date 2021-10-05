@@ -85,7 +85,7 @@ export const PaginationLayoutTemplate = (props: LayoutProps): JSX.Element => {
 
         <div>
           {/*TODO: pageIndex should might not be undefined? See types.ts */}
-          {pageIndex && `Page ${pageIndex + 1} of ${pageOptions.length}`}
+          {pageIndex !== undefined && `Page ${pageIndex + 1} of ${pageOptions.length}`}
         </div>
 
         <Button
