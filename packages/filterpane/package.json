@@ -1,12 +1,12 @@
 {
-  "name": "@equinor/fusion-react-filterpane",
-  "version": "1.1.5",
+  "name": "@equinor/fusion-react-filter",
+  "version": "1.1.6",
   "description": "component for Filtering data",
   "author": "",
   "homepage": "https://github.com/equinor/fusion-react-components/tree/master/packages/filterpane#readme",
   "keywords": [
     "Filter",
-    "Filterpane",
+    "Filter panel",
     "react",
     "fusion",
     "equinor"
@@ -19,7 +19,7 @@
   "files": [
     "dist"
   ],
-  "private": true,
+  "private": false,
   "publishConfig": {
     "access": "public"
   },
@@ -38,11 +38,11 @@
     "url": "https://github.com/equinor/fusion-react-components/issues"
   },
   "dependencies": {
-    "@equinor/fusion-react-button": "^0.3.7",
-    "@equinor/fusion-react-checkbox": "^0.3.4",
-    "@equinor/fusion-react-radio": "^0.3.4",
-    "@equinor/fusion-react-styles": "^0.3.4",
-    "@equinor/fusion-react-textinput": "^0.5.1",
+    "@equinor/fusion-react-button": "^0.3.8",
+    "@equinor/fusion-react-checkbox": "^0.3.5",
+    "@equinor/fusion-react-radio": "^0.3.5",
+    "@equinor/fusion-react-styles": "^0.3.5",
+    "@equinor/fusion-react-textinput": "^0.5.2",
     "redux": "^4.0.5"
   },
   "peerDependencies": {

@@ -34,13 +34,13 @@ const useFilterStore = <TData,>(): FilterStoreHook<TData> => {
     const sub = store.data$.subscribe((d) => setFilteredData(d as TData));
 
     return () => sub.unsubscribe();
-  }, []);
+  }, [store]);
 
   useEffect(() => {
     const sub = store.selection$.subscribe((d) => setSelection(d));
 
     return () => sub.unsubscribe();
-  }, []);
+  }, [store]);
 
   return { filteredData, selection, store };
 };
