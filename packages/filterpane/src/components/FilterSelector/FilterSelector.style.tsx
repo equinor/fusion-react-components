@@ -1,6 +1,6 @@
 import { createStyles, makeStyles } from '@equinor/fusion-react-styles';
 
-const useStyles = makeStyles(
+export const useStyles = makeStyles(
   (theme) =>
     createStyles({
       FilterSelectorContainer: {

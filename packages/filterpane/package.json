@@ -1,12 +1,12 @@
 {
-  "name": "@equinor/fusion-react-filterpane",
+  "name": "@equinor/fusion-react-filter",
   "version": "1.1.5",
   "description": "component for Filtering data",
   "author": "",
   "homepage": "https://github.com/equinor/fusion-react-components/tree/master/packages/filterpane#readme",
   "keywords": [
     "Filter",
-    "Filterpane",
+    "Filter panel",
     "react",
     "fusion",
     "equinor"
@@ -19,7 +19,7 @@
   "files": [
     "dist"
   ],
-  "private": true,
+  "private": false,
   "publishConfig": {
     "access": "public"
   },
