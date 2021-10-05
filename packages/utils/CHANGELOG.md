@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.2.0 (2021-10-05)
+
+
+### Features
+
+* **utils:** create component from element ([37f87f8](https://github.com/equinor/fusion-react-components/commit/37f87f88d0c20dc10e644b3e75b5f6b8e3c4ddc1))
+
+
+
+
+
 ## 1.1.6 (2021-09-27)
 
 
