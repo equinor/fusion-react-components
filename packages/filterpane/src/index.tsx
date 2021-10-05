@@ -1,4 +1,4 @@
-export { default as FilterProvider } from './FilterProvider';
+export { FilterProvider } from './FilterProvider';
 
 //Hooks
 export { default as useFilterStore } from './hooks/useFilterStore';
@@ -9,10 +9,10 @@ export { default as useFilterSelection } from './hooks/useFilterSelection';
 export { default as useFilterContext } from './hooks/useFilterContext';
 
 // UI Components
-export { default as FilterPanel } from './components/HorizontalFilterPanel';
-export { default as FilterSection } from './components/FilterSection';
-export { default as CheckBoxFilter } from './components/CheckBoxFilter';
-export { default as RadioFilter } from './components/RadioFilter';
-export { default as FilterSelectionChips } from './components/FilterSelectionChips';
-export { default as GeneralBar } from './components/GeneralBar';
-export { default as HorizontalBar } from './components/HorizontalBar';
+export { HorizontalFilterPanel as FilterPanel } from './components/HorizontalFilterPanel/HorizontalFilterPanel';
+export { FilterSection } from './components/FilterSection';
+export { CheckBoxFilter } from './components/CheckBoxFilter';
+export { RadioFilter } from './components/RadioFilter/RadioFilter';
+export { FilterSelectionChips } from './components/FilterSelectionChips/FilterSelectionChips';
+export { GeneralBar } from './components/GeneralBar';
+export { HorizontalBar } from './components/HorizontalBar/HorizontalBar';

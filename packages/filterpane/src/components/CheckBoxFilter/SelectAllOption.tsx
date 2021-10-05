@@ -1,9 +1,9 @@
 import { useCallback, useMemo } from 'react';
 
-import useFilterChangeHandler from '../../../hooks/useFilterChangeHandler';
-import useFilterSelection from '../../../hooks/useFilterSelection';
-import FilterCounters from '../../../types/FilterCounters';
-import FilterOption from '../../../types/FilterOption';
+import useFilterChangeHandler from '../../hooks/useFilterChangeHandler';
+import useFilterSelection from '../../hooks/useFilterSelection';
+import FilterCounters from '../../types/FilterCounters';
+import FilterOption from '../../types/FilterOption';
 import CheckboxOption from './CheckBoxOption';
 
 type SelectAllOptionProps = {
@@ -17,7 +17,7 @@ type SelectAllOptionProps = {
 const selectionUpdate = (change: { allSelected: boolean; filterOptionsKeys: string[] }) =>
   change.allSelected ? [] : change.filterOptionsKeys;
 
-const SelectAllOption = ({
+export const SelectAllOption = ({
   filterOptions,
   filterKey,
   filterCounters,

@@ -21,7 +21,7 @@ const useFilterOptionsCounter = <TData,>(
   const { store } = useFilterContext();
   const [optionsCount, setOptionsCount] = useState<FilterCounters | null>(null);
 
-  const filteredSelectionData = useMemo(() => store.filterSelectionData(key), [store]);
+  const filteredSelectionData = useMemo(() => store.filterSelectionData(key), [store, key]);
 
   useEffect(() => {
     if (!counterFn) {
@@ -34,7 +34,7 @@ const useFilterOptionsCounter = <TData,>(
     });
 
     return () => subscription.unsubscribe();
-  }, [filteredSelectionData, counterFn]);
+  }, [setOptionsCount, filteredSelectionData, counterFn]);
 
   return optionsCount;
 };

@@ -31,7 +31,7 @@ type FilterProviderProps<TSelections extends Record<string, TSelection>, TData> 
  *    <MyApp> />
  * </FilterProvider>
  */
-const FilterProvider = <TSelections extends Record<string, unknown>, TData>(
+export const FilterProvider = <TSelections extends Record<string, unknown>, TData>(
   props: PropsWithChildren<FilterProviderProps<TSelections, TData>>
 ): JSX.Element => {
   const { initialData, initialFilters = {}, children } = props;
