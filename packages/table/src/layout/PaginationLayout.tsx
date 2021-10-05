@@ -3,6 +3,7 @@ import clsx from 'clsx';
 import { Layout, LayoutProps } from './types';
 import { useTableContext } from '../TableProvider';
 import useStyles, { StyleProps } from './layout.style';
+
 const defaultStyleProps: StyleProps = {
   spacing: 'small',
 };
@@ -50,12 +51,14 @@ export const PaginationLayoutTemplate = (props: LayoutProps): JSX.Element => {
           ))}
         </thead>
         <tbody {...getTableBodyProps()}>
-          {page.map((row, i) => {
+          {page.map((row) => {
             prepareRow(row);
             return (
-              <tr {...row.getRowProps()}>
+              //eslint-disable-next-line react/jsx-key
+              <tr {...row.getRowProps({ className: styles.row })}>
                 {row.cells.map((cell) => {
-                  return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>;
+                  //eslint-disable-next-line react/jsx-key
+                  return <td {...cell.getCellProps({ className: styles.cell })}>{cell.render('Cell')}</td>;
                 })}
               </tr>
             );
