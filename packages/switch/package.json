@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-switch",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "description": "component for displaying switch",
   "keywords": [
     "switch",
@@ -35,7 +35,7 @@
   },
   "dependencies": {
     "@equinor/fusion-react-utils": "^1.1.6",
-    "@equinor/fusion-wc-switch": "^0.2.8",
+    "@equinor/fusion-wc-switch": "^0.2.10",
     "@lit-labs/react": "^1.0.0"
   }
 }
