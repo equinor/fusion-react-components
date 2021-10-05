@@ -80,7 +80,7 @@ declare module 'react-table' {
   }
 
   // @ts-ignore
-  // eslint-disable-next-line no-empty-interface
+  // eslint-disable-next-line @typescript-eslint/no-empty-interface
   export interface TableInstance<D extends TableData> extends UsePaginationInstanceProps<D> {}
 }
 
