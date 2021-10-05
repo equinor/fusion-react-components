@@ -57,4 +57,11 @@ export const PaginationTable = ({ rows = 50 }: StoryProps): React.ReactElement =
 export default {
   title: 'Table/Examples/Pagination Table',
   component: PaginationTable,
+  parameters: {
+    viewMode: 'docs',
+    previewTabs: {
+      canvas: { hidden: true },
+    },
+    chromatic: { disableSnapshot: false },
+  },
 } as Meta;
