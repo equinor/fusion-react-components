@@ -5,7 +5,7 @@ import { StyleProps, useStyles } from './Paginator.style';
 const defaultStyleProps: StyleProps = {
   spacing: 'small',
 };
-type PaginatorProps = JSX.IntrinsicElements['div'] & {};
+type PaginatorProps = JSX.IntrinsicElements['div'];
 export const Paginator = (props: PaginatorProps) => {
   const { instance } = useTableContext();
   const {
