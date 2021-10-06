@@ -48,7 +48,7 @@ export const PaginationTable = ({ rows = 50 }: StoryProps): React.ReactElement =
     [rows]
   );
   return (
-    <Table options={options} style={{ minWidth: '100%' }} layout={PaginationLayout}>
+    <Table options={options} style={{ minWidth: '100%' }}>
       <Debugger />
     </Table>
   );

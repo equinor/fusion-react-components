@@ -7,7 +7,6 @@ import {
   Renderer,
   UseFiltersColumnOptions,
   UseSortByColumnOptions,
-  UsePaginationInstanceProps,
 } from 'react-table';
 
 import { theme } from '@equinor/fusion-react-styles';
@@ -51,6 +50,7 @@ declare module 'react-table' {
       // feature set, this is a safe default.
       TableData {
     disableMenu?: boolean;
+    disablePagination?: boolean;
     // readonly spacing?: SpacingType;
     // @ts-ignore
     // defaultColumn: Partial<FusionColumn<D>>;
@@ -77,6 +77,7 @@ declare module 'react-table' {
   // @ts-ignore
   export interface TableState<TData extends TableData = TableData> extends Partial<UsePaginationState<TData>> {
     menu: MenuState;
+    disablePagination?: boolean;
   }
 
   // @ts-ignore

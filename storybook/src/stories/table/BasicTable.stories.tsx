@@ -44,17 +44,19 @@ const columns: Column[] = [
 
 const Debugger = () => {
   const { instance } = useTableContext();
+
   return <pre>{JSON.stringify(instance.state, null, 2)}</pre>;
 };
 
 // TODO - generate data
-const Template = ({ rows }: { rows: number }) => {
+const Template = ({ rows, disablePagination }: { rows: number; disablePagination: boolean }) => {
   const options = useMemo(
     () => ({
       data: makeData(rows),
       columns,
+      disablePagination,
     }),
-    [rows]
+    [rows, disablePagination]
   );
   return (
     <Table options={options} style={{ minWidth: '100%' }}>
@@ -66,4 +68,5 @@ const Template = ({ rows }: { rows: number }) => {
 export const BasicTable = Template.bind({});
 BasicTable.args = {
   rows: 10,
+  disablePagination: true,
 };
