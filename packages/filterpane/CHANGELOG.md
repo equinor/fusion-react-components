@@ -3,6 +3,33 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.8](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-filter@1.1.7...@equinor/fusion-react-filter@1.1.8) (2021-10-05)
+
+**Note:** Version bump only for package @equinor/fusion-react-filter
+
+
+
+
+
+## 1.1.7 (2021-10-05)
+
+
+### Bug Fixes
+
+* update event listeners for textinput ([efa551e](https://github.com/equinor/fusion-react-components/commit/efa551e8e15dbdc3fb0144e459b68693f336e8a3))
+
+
+
+
+
+## [1.1.6](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-filterpane@1.1.5...@equinor/fusion-react-filterpane@1.1.6) (2021-09-30)
+
+**Note:** Version bump only for package @equinor/fusion-react-filterpane
+
+
+
+
+
 ## 1.1.5 (2021-09-27)
 
 **Note:** Version bump only for package @equinor/fusion-react-filterpane

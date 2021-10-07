@@ -1,22 +1,11 @@
-import { createStyles, makeStyles } from '@equinor/fusion-react-styles';
 import { useMemo, useEffect, useCallback } from 'react';
 import { Subject } from 'rxjs';
 import CheckBox from '@equinor/fusion-react-checkbox';
 
-import { FilterCategoryType } from '../..';
-import useFilterContext from '../../../../hooks/useFilterContext';
+import { FilterCategoryType } from './FilterSelector';
+import useFilterContext from '../../hooks/useFilterContext';
 
-const useStyles = makeStyles(() =>
-  createStyles({
-    FilterCategoryContainer: {
-      display: 'flex',
-      alignItems: 'center',
-    },
-    CategoryLabel: {
-      cursor: 'pointer',
-    },
-  })
-);
+import { useStyles } from './FilterCategory.style';
 
 const useChangeHandler = (key: string) => {
   const { store } = useFilterContext();
@@ -33,7 +22,7 @@ const useChangeHandler = (key: string) => {
 
 type FilterCategoryProps = FilterCategoryType & { compact?: boolean };
 
-const FilterCategory = ({
+export const FilterCategory = ({
   filterKey,
   title,
   selected,

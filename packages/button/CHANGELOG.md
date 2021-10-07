@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.4.0 (2021-10-05)
+
+
+### Features
+
+* add new element creator ([efd2a2a](https://github.com/equinor/fusion-react-components/commit/efd2a2a3bfcf53c8cc640cafb8351bc137ecc677))
+
+
+
+
+
+## 0.3.8 (2021-09-30)
+
+**Note:** Version bump only for package @equinor/fusion-react-button
+
+
+
+
+
 ## [0.3.7](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-button@0.3.6...@equinor/fusion-react-button@0.3.7) (2021-09-27)
 
 

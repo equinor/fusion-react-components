@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.5.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-textarea@0.4.2...@equinor/fusion-react-textarea@0.5.0) (2021-10-05)
+
+
+### Features
+
+* **textarea:** create wrapper for element ([0353d0b](https://github.com/equinor/fusion-react-components/commit/0353d0bf7aef2647698f819dd927350c3bd25848))
+
+
+
+
+
+## 0.4.2 (2021-09-30)
+
+**Note:** Version bump only for package @equinor/fusion-react-textarea
+
+
+
+
+
 ## [0.4.1](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-textarea@0.4.0...@equinor/fusion-react-textarea@0.4.1) (2021-09-27)
 
 

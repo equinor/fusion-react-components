@@ -29,3 +29,19 @@ export const Custom: Story = () => (
     <span slot="trailingIcon">🚀</span>
   </Button>
 );
+
+export const Variants: Story = () => (
+  <div style={{ display: 'inline-flex', gap: 10 }}>
+    <Button variant="contained" label="contained" />
+    <Button variant="outlined" label="outlined" />
+    <Button variant="ghost" label="ghost" />
+  </div>
+);
+
+export const Colors: Story = () => (
+  <div style={{ display: 'inline-flex', gap: 10 }}>
+    <Button color="primary" label="primary" />
+    <Button color="secondary" label="secondary" />
+    <Button color="danger" label="danger" />
+  </div>
+);
