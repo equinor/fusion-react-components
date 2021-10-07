@@ -7,16 +7,16 @@ export const reducer = <D extends TableData>(
   initial: TableState<D>
 ): ((state: TableState<D>, action: ActionType) => TableState<D> | undefined) =>
   createReducer<ReducerTableState<D>, ActionType>(initial)
-    .handleAction(actions.export.request, (state, {}) => {
+    .handleAction(actions.export.request, (state) => {
       return { ...state, export: { requesting: true } };
     })
-    .handleAction(actions.export.success, (state, {}) => {
+    .handleAction(actions.export.success, (state) => {
       return { ...state, export: { requesting: false } };
     })
     .handleAction(actions.export.failure, (state, { payload }) => {
       return { ...state, export: { fetching: false, error: payload } };
     })
-
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     .handleAction(tableActions.init, (state) => {
       return { ...state, export: {} };

@@ -83,13 +83,13 @@ declare module 'react-table' {
   export interface TableState {
     menu?: MenuState;
     export?: ExportState;
-    /*     export?: (data: { sheets: Sheet[] }) => Promise<void>; */
   }
 
   // @ts-ignore
-  export interface UseTableInstanceProps<D extends TableData> {
+  export interface UseTableInstanceProps {
     export: () => void;
   }
+  //eslint-disable-next-line @typescript-eslint/no-empty-interface
   //@ts-ignore
   export interface TableInstance<D extends TableData = TableData> extends UseExportToExcelOptions {}
 }

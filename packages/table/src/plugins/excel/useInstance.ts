@@ -43,7 +43,7 @@ export const getRowsAndColumns = <TData extends TableData>(instance: TableInstan
       type: excelTypeConverter(columnValue),
     };
   });
-
+  //TODO: If entry is not a primitive (e.g. Cell component), export will fail
   const rows = instance.rows.map((entry) => {
     return Object.values(entry.values);
   });
@@ -55,7 +55,7 @@ export const getRowsAndColumns = <TData extends TableData>(instance: TableInstan
  * @param url The url returned from exportFn
  * @param fileName The url returned from exportFn
  */
-export const addAnchorAndDownload = (url: string, fileName: string) => {
+export const addAnchorAndDownload = (url: string, fileName: string): void => {
   const a = document.createElement('a');
   a.style.display = 'none';
   a.href = url;
