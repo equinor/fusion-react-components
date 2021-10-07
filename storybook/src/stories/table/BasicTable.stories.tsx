@@ -1,4 +1,4 @@
-import { Column, Table, useTableContext, PaginationLayout } from '@equinor/fusion-react-table';
+import { Column, Table, useTableContext } from '@equinor/fusion-react-table';
 import { Meta } from '@storybook/react';
 import { useMemo } from 'react';
 import makeData from './makeData';
