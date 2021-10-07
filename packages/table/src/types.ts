@@ -77,12 +77,12 @@ declare module 'react-table' {
   // @ts-ignore
   export interface TableState<TData extends TableData = TableData> extends Partial<UsePaginationState<TData>> {
     menu: MenuState;
-    disablePagination?: boolean;
   }
 
   // @ts-ignore
-  // eslint-disable-next-line @typescript-eslint/no-empty-interface
-  export interface TableInstance<D extends TableData> extends UsePaginationInstanceProps<D> {}
+  export interface TableInstance<D extends TableData> extends UsePaginationInstanceProps<D> {
+    disablePagination?: boolean;
+  }
 }
 
 // @ts-ignore

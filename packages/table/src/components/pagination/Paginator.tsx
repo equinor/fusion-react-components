@@ -1,22 +1,29 @@
 import { useTableContext } from '../../TableProvider';
 import { PaginationBtnFirst, PaginationBtnPrev, PaginationBtnNext, PaginationBtnLast } from './Buttons';
-
 import { StyleProps, useStyles } from './Paginator.style';
+
 const defaultStyleProps: StyleProps = {
   spacing: 'small',
 };
 type PaginatorProps = JSX.IntrinsicElements['div'];
-export const Paginator = (props: PaginatorProps) => {
+/**
+ * Component for showing and controlling the pagination of the table component.
+ * Returns null if the Table instance objects contains `disablePagination`.
+ * @param props Styling props
+ */
+export const Paginator = (props: PaginatorProps): JSX.Element | null => {
   const { instance } = useTableContext();
   const {
     pageOptions,
     setPageSize,
-
-    state: { pageIndex, pageSize, disablePagination },
+    disablePagination,
+    state: { pageIndex, pageSize },
   } = instance;
   const styles = useStyles({ ...defaultStyleProps });
 
-  if (disablePagination) return null;
+  if (disablePagination) {
+    return null;
+  }
   return (
     <div {...props} className={styles.pagination}>
       <div>Items per page: </div>
