@@ -1,7 +1,7 @@
 import Button from '@equinor/fusion-react-button';
 import { useTableContext } from '../../../TableProvider';
 
-export const PaginationBtnLast = () => {
+export const PaginationBtnLast = (): JSX.Element => {
   const { instance } = useTableContext();
   const { gotoPage, pageCount, canNextPage } = instance;
 
