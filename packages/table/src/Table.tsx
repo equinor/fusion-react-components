@@ -1,9 +1,9 @@
 import { TableOptions, PluginHook } from 'react-table';
 import { Layout, LayoutProps, TableLayout } from './layout';
-
 import { TableData } from './types';
 import { TableProvider } from './TableProvider';
 import { PropsWithChildren } from 'react';
+import Paginator from './components/pagination/Paginator';
 
 export type TableProps<TData extends TableData> = LayoutProps & {
   options: TableOptions<TData>;
@@ -20,6 +20,7 @@ export const Table = <TData extends TableData>(props: PropsWithChildren<TablePro
   return (
     <TableProvider options={options} plugins={plugins}>
       <Template {...layoutProps} />
+      <Paginator />
       {children}
     </TableProvider>
   );
