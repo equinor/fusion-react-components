@@ -11,7 +11,7 @@ import {
 
 import { theme } from '@equinor/fusion-react-styles';
 
-export type ColumnType = 'text' | 'number' | 'datetime'; // person
+export type ColumnType = 'boolean' | 'datetime' | 'number' | 'text' | 'url'; // person
 
 // @ts-ignore
 export type TableData = Record<string | number, unknown>;
@@ -21,6 +21,8 @@ export type TableType = 'table' | 'flex';
 export type SpacingType = keyof typeof theme.spacing.comfortable;
 
 import { ColumnMenuOptions, ColumnMenuProps, MenuState } from './plugins/menu';
+import { Sheet } from '.';
+import { ExportState } from './plugins/excel/types';
 
 export type Column<TData extends TableData = TableData> = ColumnDefault<TData> &
   UseSortByColumnOptions<TData> &
@@ -32,7 +34,9 @@ export type Column<TData extends TableData = TableData> = ColumnDefault<TData> &
     dataType?: ColumnType;
     readonly spacing?: SpacingType;
   };
-
+interface UseExportToExcelOptions {
+  exportFn: (data: { sheets: Sheet[] }) => Promise<{ url: string; fileName: string }>;
+}
 declare module 'react-table' {
   // @ts-ignore
   export interface TableOptions<TData extends TableData = TableData>
@@ -45,11 +49,13 @@ declare module 'react-table' {
       UseRowSelectOptions<TData>,
       UseRowStateOptions<TData>,
       UseSortByOptions<TData>,
+      UseExportToExcelOptions,
       // note that having Record here allows you to add anything to the options, this matches the spirit of the
       // underlying js library, but might be cleaner if it's replaced by a more specific type that matches your
       // feature set, this is a safe default.
       TableData {
     disableMenu?: boolean;
+
     // readonly spacing?: SpacingType;
     // @ts-ignore
     // defaultColumn: Partial<FusionColumn<D>>;
@@ -75,8 +81,16 @@ declare module 'react-table' {
 
   // @ts-ignore
   export interface TableState {
-    menu: MenuState;
+    menu?: MenuState;
+    export?: ExportState;
   }
-}
 
+  // @ts-ignore
+  export interface UseTableInstanceProps {
+    export: () => void;
+  }
+  //eslint-disable-next-line @typescript-eslint/no-empty-interface
+  //@ts-ignore
+  export interface TableInstance<D extends TableData = TableData> extends UseExportToExcelOptions {}
+}
 export { TableOptions, CellProps, SortByFn } from 'react-table';

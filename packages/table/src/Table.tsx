@@ -1,26 +1,43 @@
 import { TableOptions, PluginHook } from 'react-table';
-import { Layout, LayoutProps, TableLayout } from './layout';
-
-import { TableData } from './types';
+import { Layout, TableLayout } from './layout';
+import { SpacingType, TableData } from './types';
 import { TableProvider } from './TableProvider';
-import { PropsWithChildren } from 'react';
+import { PropsWithChildren, ReactNode } from 'react';
+import { clsx, createStyles, makeStyles } from '@equinor/fusion-react-styles';
 
-export type TableProps<TData extends TableData> = LayoutProps & {
+export type TableProps<TData extends TableData> = JSX.IntrinsicElements['div'] & {
   options: TableOptions<TData>;
   layout?: Layout<TData>;
+  spacing?: SpacingType;
+  classes?: Partial<Record<'table' | 'toolbar', string>>;
   plugins?: Array<PluginHook<TData>>;
+  slots: Partial<Record<'Toolbar', ReactNode>>;
 };
+const useStyles = makeStyles(() =>
+  createStyles({
+    root: {
+      display: 'flex',
+      flexDirection: 'column',
+    },
+    toolbar: {},
+    table: {
+      minWidth: '100%',
+    },
+  })
+);
 
 export const Table = <TData extends TableData>(props: PropsWithChildren<TableProps<TData>>): JSX.Element => {
-  const { options, plugins: basePlugins = [], layout = TableLayout, children, ...layoutProps } = props;
+  const { options, plugins: basePlugins = [], layout = TableLayout, slots = {}, spacing, classes, ...args } = props;
   const { Template } = layout;
-
+  const { Toolbar } = slots;
   const plugins = basePlugins.concat((layout.plugins || []) as PluginHook<TData>[]);
-
+  const styles = useStyles();
   return (
     <TableProvider options={options} plugins={plugins}>
-      <Template {...layoutProps} />
-      {children}
+      <div className={styles.root} {...args}>
+        <div className={styles.toolbar}>{Toolbar}</div>
+        <Template className={clsx(styles.table, classes?.table)} spacing={spacing} />
+      </div>
     </TableProvider>
   );
 };

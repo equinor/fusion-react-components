@@ -9,6 +9,7 @@ import {
 } from 'react-table';
 import { useDefaultColumn } from './components';
 import { useColumnMenu } from './plugins';
+import { useExcel } from './plugins/excel';
 
 import { TableData } from './types';
 
@@ -21,7 +22,7 @@ export const useTable = <TData extends TableData>(
   true && plugins.push(useSortBy);
   true && plugins.push(useResizeColumns);
   true && plugins.push(useColumnMenu);
-
+  true && plugins.push(useExcel);
   const defaultColumn = useDefaultColumn<TData>(options);
   const instance = useReactTable({ ...options, defaultColumn }, ...plugins);
   return instance;

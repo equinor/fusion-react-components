@@ -10,6 +10,7 @@ import {
   TableState,
 } from 'react-table';
 import { useDefaultColumn } from './components';
+import { useExcel } from './plugins/excel';
 import { useColumnMenu } from './plugins/menu';
 import { TableData } from './types';
 
@@ -34,7 +35,10 @@ export const TableProvider = <TData extends TableData = TableData>(
   const { children, options } = props;
 
   const _plugins = props.plugins || [];
-  const plugins = useMemo(() => [useResizeColumns, useColumnMenu, useFilters, useSortBy, ..._plugins], [..._plugins]);
+  const plugins = useMemo(
+    () => [useResizeColumns, useColumnMenu, useFilters, useSortBy, useExcel, ..._plugins],
+    [..._plugins]
+  );
 
   const defaultColumn = useDefaultColumn(options);
 
