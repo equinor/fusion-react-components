@@ -43,9 +43,8 @@ export const getRowsAndColumns = <TData extends TableData>(instance: TableInstan
       type: excelTypeConverter(columnValue),
     };
   });
-  //TODO: If entry is not a primitive (e.g. Cell component), export will fail
   const rows = instance.rows.map((entry) => {
-    return Object.values(entry.values);
+    return Object.values(entry.original);
   });
 
   return [{ columns, rows }];
