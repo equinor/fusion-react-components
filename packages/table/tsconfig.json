@@ -13,7 +13,10 @@
   ],
   "references": [
     {
-      "path": "../styles"
+      "path": "../styles",
+
+    }, {
+      "path": "../button"
     }
   ]
 }

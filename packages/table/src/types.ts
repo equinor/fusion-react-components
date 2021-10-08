@@ -50,6 +50,7 @@ declare module 'react-table' {
       // feature set, this is a safe default.
       TableData {
     disableMenu?: boolean;
+    disablePagination?: boolean;
     // readonly spacing?: SpacingType;
     // @ts-ignore
     // defaultColumn: Partial<FusionColumn<D>>;
@@ -74,9 +75,15 @@ declare module 'react-table' {
   export type PluginHook<TData extends TableData> = PluginHookDefault<TData>;
 
   // @ts-ignore
-  export interface TableState {
+  export interface TableState<TData extends TableData = TableData> extends Partial<UsePaginationState<TData>> {
     menu: MenuState;
+  }
+
+  // @ts-ignore
+  export interface TableInstance<D extends TableData> extends UsePaginationInstanceProps<D> {
+    disablePagination?: boolean;
   }
 }
 
+// @ts-ignore
 export { TableOptions, CellProps, SortByFn } from 'react-table';
