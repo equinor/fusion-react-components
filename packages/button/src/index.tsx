@@ -1,10 +1,5 @@
-import * as ReactModule from 'react';
-import { createComponent } from '@lit-labs/react';
-import HTMLButtonCustomElement, { tag } from '@equinor/fusion-wc-button';
+export * from './Button';
 
-export { HTMLButtonCustomElement };
+export { ButtonElement as HTMLButtonCustomElement } from '@equinor/fusion-wc-button';
 
-export const Button = createComponent(ReactModule, tag, HTMLButtonCustomElement);
-export type ButtonProps = React.ComponentProps<typeof Button>;
-
-export default Button;
+export { Button as default } from './Button';
