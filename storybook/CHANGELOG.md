@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.23.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.22.0...@equinor/fusion-react-components-stories@1.23.0) (2021-10-05)
+
+
+### Features
+
+* add new element creator ([efd2a2a](https://github.com/equinor/fusion-react-components/commit/efd2a2a3bfcf53c8cc640cafb8351bc137ecc677))
+
+
+
+
+
 # [1.22.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.21.4...@equinor/fusion-react-components-stories@1.22.0) (2021-10-05)
 
 
