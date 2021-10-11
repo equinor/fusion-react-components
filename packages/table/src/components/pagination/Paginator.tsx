@@ -41,7 +41,7 @@ export const Paginator = (props: PaginatorProps): JSX.Element | null => {
       <div>Items per page: </div>
       {/*TODO: use fusion dropdown component */}
       <select
-        style={{ margin: '10px' }}
+        className={styles.select}
         value={pageSize}
         onChange={(e) => {
           setPageSize(Number(e.target.value));
