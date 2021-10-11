@@ -8,17 +8,29 @@ const defaultStyleProps: StyleProps = {
 type PaginatorProps = JSX.IntrinsicElements['div'];
 /**
  * Component for showing and controlling the pagination of the table component.
- * Returns null if the Table instance objects contains `disablePagination`.
- * @param props Styling props
+ * Returns null if `disablePagination` is set to `true`.
+ * Set the boolean in the `options` prop to the `Table` component to enable pagination.
+ * The `pageSize` is by default 10 (showing 10 records on each page), but can be changed.
+ * Same goes for `pageSizes`
+ * @param JSX.InstrinsicElements - HTML Attributes, e.g. styling.
+ * @example
+ * ```jsx
+ * const options = {
+ * data: data,
+ * columns: columns,
+ * disablePagination: false,
+ * pageSizes: [20,30,40],
+ * initialState: {
+ * pageSize: 20
+ *  },
+ * }
+ * return <Table options={options}/>
+ * ```
  */
 export const Paginator = (props: PaginatorProps): JSX.Element | null => {
-  const { instance } = useTableContext();
-  const {
-    pageOptions,
-    setPageSize,
-    disablePagination,
-    state: { pageIndex, pageSize },
-  } = instance;
+  const { instance, state } = useTableContext();
+  const { pageOptions, setPageSize, disablePagination = true, pageSizes = [10, 20, 30, 40, 50] } = instance;
+  const { pageIndex, pageSize } = state;
   const styles = useStyles({ ...defaultStyleProps });
 
   if (disablePagination) {
@@ -35,8 +47,7 @@ export const Paginator = (props: PaginatorProps): JSX.Element | null => {
           setPageSize(Number(e.target.value));
         }}
       >
-        {/*TODO: Make this array a prop, default to this? */}
-        {[10, 20, 30, 40, 50].map((pageSize) => (
+        {pageSizes.map((pageSize) => (
           <option key={pageSize} value={pageSize}>
             {pageSize}
           </option>
