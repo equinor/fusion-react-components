@@ -14,6 +14,12 @@ export const useStyles = makeStyles<FusionTheme, StyleProps>(
         justifyContent: 'end',
         alignItems: 'center',
       },
+      select: {
+        fontFamily: 'inherit',
+        margin: '0 1em 0 1em',
+        padding: '0 .5em 0 0',
+        fontSize: '14px',
+      },
     }),
   { name: 'fusion-table-pagination-layout' }
 );
