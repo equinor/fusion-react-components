@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 
+/*eslint-disable @typescript-eslint/no-empty-interface*/
 import {
   Column as ColumnDefault,
   PluginHook as PluginHookDefault,
@@ -89,8 +90,8 @@ declare module 'react-table' {
   export interface UseTableInstanceProps {
     export: () => void;
   }
-  //eslint-disable-next-line @typescript-eslint/no-empty-interface
   //@ts-ignore
+  //eslint-disable-next-line @typescript-eslint/no-unused-vars
   export interface TableInstance<D extends TableData = TableData> extends UseExportToExcelOptions {}
 }
 export { TableOptions, CellProps, SortByFn } from 'react-table';

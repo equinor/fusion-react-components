@@ -1,7 +1,7 @@
 import Button from '@equinor/fusion-react-button';
 import { useTableContext } from '../../TableProvider';
 
-export const ExportToExcelBtn = () => {
+export const ExportToExcelBtn = (): JSX.Element => {
   const { instance, state } = useTableContext();
 
   //TODO: handle failure exporting
