@@ -12,6 +12,7 @@ export const PaginationBtnLast = (): JSX.Element => {
       variant="ghost"
       disabled={!canNextPage}
       color={canNextPage ? 'primary' : 'secondary'}
+      dense
     />
   );
 };

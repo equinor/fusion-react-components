@@ -12,6 +12,7 @@ export const PaginationBtnFirst = (): JSX.Element => {
       variant="ghost"
       disabled={!canPreviousPage}
       color={canPreviousPage ? 'primary' : 'secondary'}
+      dense
     />
   );
 };
