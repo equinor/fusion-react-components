@@ -1,7 +1,5 @@
+import { Column, Table, Toolbar } from '@equinor/fusion-react-table';
 import { useMemo } from 'react';
-import { Toolbar } from 'table/src/components';
-import Table from 'table/src/Table';
-import { Column } from 'table/src/types';
 import makeData from './makeData';
 const columns: Column[] = [
   {
