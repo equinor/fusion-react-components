@@ -49,14 +49,13 @@ const Debugger = () => {
 };
 
 // TODO - generate data
-const Template = ({ rows, disablePagination }: { rows: number; disablePagination: boolean }) => {
+const Template = ({ rows }: { rows: number }) => {
   const options = useMemo(
     () => ({
       data: makeData(rows),
       columns,
-      disablePagination,
     }),
-    [rows, disablePagination]
+    [rows]
   );
   return (
     <Table options={options} style={{ minWidth: '100%' }}>
@@ -68,5 +67,4 @@ const Template = ({ rows, disablePagination }: { rows: number; disablePagination
 export const BasicTable = Template.bind({});
 BasicTable.args = {
   rows: 10,
-  disablePagination: true,
 };

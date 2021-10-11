@@ -1,4 +1,4 @@
-import { Column, Table, useTableContext, PaginationLayout } from '@equinor/fusion-react-table';
+import { Column, Table, useTableContext } from '@equinor/fusion-react-table';
 import { Meta } from '@storybook/react';
 import { useMemo } from 'react';
 import makeData from './makeData';
@@ -39,11 +39,16 @@ const Debugger = () => {
 };
 
 type StoryProps = { rows: number };
-export const PaginationTable = ({ rows = 50 }: StoryProps): React.ReactElement => {
+export const PaginationTable = ({ rows = 100 }: StoryProps): React.ReactElement => {
   const options = useMemo(
     () => ({
       data: makeData(rows),
       columns,
+      disablePagination: false,
+      pageSizes: [20, 30, 40],
+      initialState: {
+        pageSize: 20,
+      },
     }),
     [rows]
   );
