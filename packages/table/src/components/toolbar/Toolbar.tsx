@@ -17,6 +17,20 @@ const useStyles = makeStyles(() =>
   })
 );
 
+/**
+ * Component for the Table component. Pass this component as a prop to the `slot` prop in Table.
+ * @param JSX.IntrinsicElements - HTML attributes, e.g. styling.
+ * @param children - Any ReactNode that you want to be inside the toolbar.
+ * @param hideExportBtn - defaults to true, set to false if you want export functionality.
+ *  @example ```jsx
+ * <Table options={options}
+ * slots={{Toolbar: <Toolbar hideExportBtn={false}
+ * style={{justifyContent: "end"}}
+ * children={<SomeButton/>}/>
+ * }}
+ * />
+ * ```
+ */
 export const Toolbar = (props: ToolbarProps): JSX.Element => {
   const { hideExportBtn = true, children, ...rest } = props;
   const styles = useStyles();
