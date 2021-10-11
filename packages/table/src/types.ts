@@ -51,6 +51,7 @@ declare module 'react-table' {
       TableData {
     disableMenu?: boolean;
     disablePagination?: boolean;
+    pageSizes?: number[];
     // readonly spacing?: SpacingType;
     // @ts-ignore
     // defaultColumn: Partial<FusionColumn<D>>;
@@ -82,6 +83,7 @@ declare module 'react-table' {
   // @ts-ignore
   export interface TableInstance<D extends TableData> extends UsePaginationInstanceProps<D> {
     disablePagination?: boolean;
+    pageSizes?: number[];
   }
 }
 
