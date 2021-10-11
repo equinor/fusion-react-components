@@ -28,7 +28,7 @@ const columns: Column[] = [
   },
 ];
 type StoryProps = { rows: number };
-export const ToolbarTable = ({ rows }: StoryProps) => {
+export const ToolbarTable = ({ rows = 10 }: StoryProps) => {
   const options = useMemo(
     () => ({
       data: makeData(rows),
@@ -41,7 +41,12 @@ export const ToolbarTable = ({ rows }: StoryProps) => {
     [rows]
   );
 
-  return <Table options={options} slots={{ Toolbar: <Toolbar /> }}></Table>;
+  return (
+    <Table
+      options={options}
+      slots={{ Toolbar: <Toolbar hideExportBtn={false} style={{ justifyContent: 'end' }} /> }}
+    ></Table>
+  );
 };
 
 export default {
