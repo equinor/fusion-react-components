@@ -71,6 +71,7 @@ export const useInstance = <TData extends TableData = TableData>(instance: Table
 
   const handleExport = useCallback(async () => {
     try {
+      if (!exportFn) return;
       dispatch(actions.export.request());
       const sheets = getRowsAndColumns(instance);
       const { url, fileName } = await exportFn({ sheets });

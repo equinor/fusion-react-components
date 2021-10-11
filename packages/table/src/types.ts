@@ -36,7 +36,7 @@ export type Column<TData extends TableData = TableData> = ColumnDefault<TData> &
     readonly spacing?: SpacingType;
   };
 interface UseExportToExcelOptions {
-  exportFn: (data: { sheets: Sheet[] }) => Promise<{ url: string; fileName: string }>;
+  exportFn?: (data: { sheets: Sheet[] }) => Promise<{ url: string; fileName: string }>;
 }
 declare module 'react-table' {
   // @ts-ignore
