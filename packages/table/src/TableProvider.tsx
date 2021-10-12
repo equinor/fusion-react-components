@@ -8,6 +8,7 @@ import {
   useSortBy,
   useTable,
   TableState,
+  usePagination,
 } from 'react-table';
 import { useDefaultColumn } from './components';
 import { useColumnMenu } from './plugins/menu';
@@ -34,7 +35,10 @@ export const TableProvider = <TData extends TableData = TableData>(
   const { children, options } = props;
 
   const _plugins = props.plugins || [];
-  const plugins = useMemo(() => [useResizeColumns, useColumnMenu, useFilters, useSortBy, ..._plugins], [..._plugins]);
+  const plugins = useMemo(
+    () => [useResizeColumns, useColumnMenu, useFilters, useSortBy, usePagination, ..._plugins],
+    [..._plugins]
+  );
 
   const defaultColumn = useDefaultColumn(options);
 

@@ -2,19 +2,6 @@ import { Column, Table, useTableContext } from '@equinor/fusion-react-table';
 import { Meta } from '@storybook/react';
 import { useMemo } from 'react';
 import makeData from './makeData';
-
-export default {
-  title: 'Table/Examples',
-  component: Table,
-  parameters: {
-    viewMode: 'docs',
-    previewTabs: {
-      canvas: { hidden: true },
-    },
-    chromatic: { disableSnapshot: false },
-  },
-} as Meta;
-
 const columns: Column[] = [
   {
     Header: 'First Name',
@@ -41,19 +28,27 @@ const columns: Column[] = [
     accessor: 'progress',
   },
 ];
-
 const Debugger = () => {
   const { instance } = useTableContext();
-
-  return <pre>{JSON.stringify(instance.state, null, 2)}</pre>;
+  const foo = {
+    canNextPage: instance.canNextPage,
+    canPreviousPage: instance.canPreviousPage,
+    ...instance.state,
+  };
+  return <pre>{JSON.stringify(foo, null, 2)}</pre>;
 };
 
-// TODO - generate data
-const Template = ({ rows }: { rows: number }) => {
+type StoryProps = { rows: number };
+export const PaginationTable = ({ rows = 100 }: StoryProps): React.ReactElement => {
   const options = useMemo(
     () => ({
       data: makeData(rows),
       columns,
+      disablePagination: false,
+      pageSizes: [20, 30, 40],
+      initialState: {
+        pageSize: 20,
+      },
     }),
     [rows]
   );
@@ -64,7 +59,14 @@ const Template = ({ rows }: { rows: number }) => {
   );
 };
 
-export const BasicTable = Template.bind({});
-BasicTable.args = {
-  rows: 10,
-};
+export default {
+  title: 'Table/Examples/Pagination Table',
+  component: PaginationTable,
+  parameters: {
+    viewMode: 'docs',
+    previewTabs: {
+      canvas: { hidden: true },
+    },
+    chromatic: { disableSnapshot: false },
+  },
+} as Meta;
