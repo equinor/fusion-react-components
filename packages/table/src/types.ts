@@ -50,7 +50,9 @@ declare module 'react-table' {
       // feature set, this is a safe default.
       TableData {
     disableMenu?: boolean;
+    /* Set to false if the table will have pagination options. Defaults to true.*/
     disablePagination?: boolean;
+    /* The page size options the user can choose from when pagination is used. */
     pageSizes?: number[];
     // readonly spacing?: SpacingType;
     // @ts-ignore
