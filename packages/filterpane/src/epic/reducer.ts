@@ -18,9 +18,7 @@ export type ReducerAction<R extends Reducer<any, any>> = R extends Reducer<any, 
 /**
  * State machine
  */
-export class EpicReducer<S, A extends Action = any, R extends Reducer<S, A> = Reducer<S, A>, D = any>
-  implements Subscribable<S>, Unsubscribable
-{
+export class EpicReducer<S, A extends Action = any, R extends Reducer<S, A> = Reducer<S, A>, D = any> {
   private readonly _state$: BehaviorSubject<S>;
   private readonly _action$: Subject<A>;
   private readonly _subscription: Subscription;

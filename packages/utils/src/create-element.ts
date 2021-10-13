@@ -4,6 +4,18 @@ import { extractElementProps, useElementEvents, useElementProps, useForwardRef }
 type ComponentAttributes<T = HTMLHtmlElement> = Omit<React.HTMLAttributes<T>, 'children'>;
 type Ctor<T> = { new (): T };
 
+const translateReactAttribute = (k: string) => {
+  switch (k) {
+    /**
+     * React does *not* handle `className` for custom elements
+     * so coerce it to `class` so it's handled correctly.
+     */
+    case 'className':
+      return 'class';
+  }
+  return k;
+};
+
 /**
  * Wraps a custom element as a React Component
  *
@@ -45,7 +57,7 @@ export const createComponent = <E extends HTMLElement, P extends Record<string, 
     /** properties which React should handle */
     const reactProps = Object.entries(props || {})
       .filter(([k]) => !nativePropsName.has(k))
-      .reduce((c, [k, v]) => Object.assign(c, { [k]: v }), {});
+      .reduce((c, [k, v]) => Object.assign(c, { [translateReactAttribute(k)]: v }), {});
 
     return createElement(tag, { ...reactProps, ref });
   });

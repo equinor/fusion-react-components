@@ -10,7 +10,9 @@ export type ElementAttributes = Partial<
   Pick<
     TextInputElement,
     | 'autoValidate'
+    | 'charCounter'
     | 'disabled'
+    | 'dense'
     | 'errorMessage'
     | 'helper'
     | 'helperPersistent'
