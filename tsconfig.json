@@ -29,6 +29,9 @@
       "path": "packages/hanging-garden"
     },
     {
+      "path": "packages/observable"
+    },
+    {
       "path": "packages/radio"
     },
     {
@@ -45,9 +48,6 @@
     },
     {
       "path": "packages/textinput"
-    },
-    {
-      "path": "packages/filterpane"
     },
     { "path": "packages/utils" }
   ]
