@@ -9,7 +9,6 @@ import { useInstance } from 'table/src/plugins/excel/useInstance';
 export const ExportToExcelBtn = (): JSX.Element => {
   const { instance, state } = useTableContext();
 
-  //TODO: handle failure exporting
   return (
     <Button disabled={state.export?.requesting} onClick={instance.export}>
       {state.export?.requesting ? 'Exporting' : 'Export'}
