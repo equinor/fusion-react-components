@@ -1,7 +1,5 @@
 import { clsx } from '@equinor/fusion-react-styles';
-
 import useStyles, { StyleProps } from './layout.style';
-
 import { Layout, LayoutProps } from './types';
 import { useTableContext } from '../TableProvider';
 // import { useFlexLayout } from 'react-table';
@@ -13,7 +11,8 @@ const defaultStyleProps: StyleProps = {
 export const TableLayoutTemplate = (props: LayoutProps): JSX.Element => {
   const { spacing = 'small', style, className } = props;
   const { instance } = useTableContext();
-  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } = instance;
+  const { getTableProps, getTableBodyProps, headerGroups, prepareRow } = instance;
+  const rows = instance.disablePagination ? instance.rows : instance.page;
   const styles = useStyles({ ...defaultStyleProps, spacing });
   return (
     <table {...getTableProps({ className: clsx(styles.root, className) })} style={style}>
