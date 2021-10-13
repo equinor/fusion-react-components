@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.10](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-filter@1.1.9...@equinor/fusion-react-filter@1.1.10) (2021-10-13)
+
+
+### Bug Fixes
+
+* **filter:** typehint ([1afc7a8](https://github.com/equinor/fusion-react-components/commit/1afc7a809cec11e0e0d75e1277ae4cd28464ddaf))
+
+
+
+
+
+## [1.1.9](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-filter@1.1.7...@equinor/fusion-react-filter@1.1.9) (2021-10-13)
+
+**Note:** Version bump only for package @equinor/fusion-react-filter
+
+
+
+
+
 ## [1.1.8](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-filter@1.1.7...@equinor/fusion-react-filter@1.1.8) (2021-10-05)
 
 **Note:** Version bump only for package @equinor/fusion-react-filter

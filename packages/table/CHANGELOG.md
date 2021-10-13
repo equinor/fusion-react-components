@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.1](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-table@0.4.0...@equinor/fusion-react-table@0.4.1) (2021-10-13)
+
+**Note:** Version bump only for package @equinor/fusion-react-table
+
+
+
+
+
+# 0.4.0 (2021-10-12)
+
+
+### Bug Fixes
+
+* remove some comments ([51e4f93](https://github.com/equinor/fusion-react-components/commit/51e4f938ab36233fa4f5cd7a0291e66143db6600))
+
+
+### Features
+
+* make pagination disabled by default and add option for pagesizes ([9888099](https://github.com/equinor/fusion-react-components/commit/98880994753c89ff5ebbdbb64a78e8cda74f3094))
+* pagination for table ([f578745](https://github.com/equinor/fusion-react-components/commit/f578745abd916a36cdfb9bf618312f1563f18d66))
+
+
+
+
+
 ## [0.3.19](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-table@0.3.18...@equinor/fusion-react-table@0.3.19) (2021-09-30)
 
 **Note:** Version bump only for package @equinor/fusion-react-table

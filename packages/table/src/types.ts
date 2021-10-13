@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 
-/*eslint-disable @typescript-eslint/no-empty-interface*/
 import {
   Column as ColumnDefault,
   PluginHook as PluginHookDefault,
@@ -57,6 +56,10 @@ declare module 'react-table' {
       TableData {
     disableMenu?: boolean;
 
+    /* Set to false if the table will have pagination options. Defaults to true.*/
+    disablePagination?: boolean;
+    /* The page size options the user can choose from when pagination is used. */
+    pageSizes?: number[];
     // readonly spacing?: SpacingType;
     // @ts-ignore
     // defaultColumn: Partial<FusionColumn<D>>;
@@ -81,17 +84,22 @@ declare module 'react-table' {
   export type PluginHook<TData extends TableData> = PluginHookDefault<TData>;
 
   // @ts-ignore
-  export interface TableState {
+  export interface UseTableInstanceProps {
+    export: () => void;
+  }
+
+  //@ts-ignore
+  export interface TableState<TData extends TableData = TableData> extends Partial<UsePaginationState<TData>> {
     menu?: MenuState;
     export?: ExportState;
   }
 
   // @ts-ignore
-  export interface UseTableInstanceProps {
-    export: () => void;
+  export interface TableInstance<D extends TableData> extends UsePaginationInstanceProps<D>, UseExportToExcelOptions {
+    disablePagination?: boolean;
+    pageSizes?: number[];
   }
-  //@ts-ignore
-  //eslint-disable-next-line @typescript-eslint/no-unused-vars
-  export interface TableInstance<D extends TableData = TableData> extends UseExportToExcelOptions {}
 }
+
+// @ts-ignore
 export { TableOptions, CellProps, SortByFn } from 'react-table';

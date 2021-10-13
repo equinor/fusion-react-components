@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.1](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-button@0.5.0...@equinor/fusion-react-button@0.5.1) (2021-10-13)
+
+**Note:** Version bump only for package @equinor/fusion-react-button
+
+
+
+
+
+# 0.5.0 (2021-10-13)
+
+
+### Bug Fixes
+
+* **button:** expose expandContent ([6f17464](https://github.com/equinor/fusion-react-components/commit/6f1746429729c01c4ad6346949a79b5aa74cd28a))
+
+
+### Features
+
+* add new element creator ([efd2a2a](https://github.com/equinor/fusion-react-components/commit/efd2a2a3bfcf53c8cc640cafb8351bc137ecc677))
+
+
+
+
+
 # 0.4.0 (2021-10-05)
 
 

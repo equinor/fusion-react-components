@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.2.1 (2021-10-13)
+
+
+### Bug Fixes
+
+* **utils:** react attribute translation ([7a2e85a](https://github.com/equinor/fusion-react-components/commit/7a2e85a7c256a97b6e728e42187c86819c6b8931))
+
+
+
+
+
 # 1.2.0 (2021-10-05)
 
 

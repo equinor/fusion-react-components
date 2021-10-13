@@ -4,6 +4,7 @@ import { SpacingType, TableData } from './types';
 import { TableProvider } from './TableProvider';
 import { PropsWithChildren, ReactNode } from 'react';
 import { clsx, createStyles, makeStyles } from '@equinor/fusion-react-styles';
+import Paginator from './components/pagination/Paginator';
 
 export type TableProps<TData extends TableData> = JSX.IntrinsicElements['div'] & {
   options: TableOptions<TData>;
@@ -37,6 +38,7 @@ export const Table = <TData extends TableData>(props: PropsWithChildren<TablePro
       <div className={styles.root} {...args}>
         <div className={styles.toolbar}>{Toolbar}</div>
         <Template className={clsx(styles.table, classes?.table)} spacing={spacing} />
+        <Paginator />
       </div>
     </TableProvider>
   );

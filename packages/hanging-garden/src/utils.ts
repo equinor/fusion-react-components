@@ -21,7 +21,7 @@ export const DEFAULT_ITEM_TEXT_STYLE = new PIXI.TextStyle({
 export const createTextStyle = (style: PIXI.TextStyle): PIXI.TextStyle => new PIXI.TextStyle(style);
 
 export const getMaxRowCount = <T extends HangingGardenColumnIndex>(columns: HangingGardenColumn<T>[]): number => {
-  return Math.max(...columns.map((column) => column.data.length));
+  return Math.max(...columns.map((column) => flattenColumn(column).length));
 };
 
 export const getExpandedWith = (width: number, c: ExpandedColumn): number =>
@@ -146,7 +146,7 @@ const flattenGroup = <T extends HangingGardenColumnIndex>(
 /**
  *
  * @param column columns that might need to be flattened
- * @returns columns, flattened into one array per column, without grouping, in correct order for rendering. May containar both Items and ColumnGrouPheaders
+ * @returns columns, flattened into one array per column, without grouping, in correct order for rendering. May contain both Items and ColumnGroupHeaders
  *
  * checks if the columns data is grouped, is not returns the columns.
  * else reduces the Columns into a flat array of items and group by headers.

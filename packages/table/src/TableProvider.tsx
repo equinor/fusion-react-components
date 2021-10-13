@@ -8,6 +8,7 @@ import {
   useSortBy,
   useTable,
   TableState,
+  usePagination,
 } from 'react-table';
 import { useDefaultColumn } from './components';
 import { useExcel } from './plugins/excel';
@@ -36,7 +37,7 @@ export const TableProvider = <TData extends TableData = TableData>(
 
   const _plugins = props.plugins || [];
   const plugins = useMemo(
-    () => [useResizeColumns, useColumnMenu, useFilters, useSortBy, useExcel, ..._plugins],
+    () => [useResizeColumns, useColumnMenu, useFilters, useSortBy, usePagination, useExcel, ..._plugins],
     [..._plugins]
   );
 
