@@ -39,7 +39,7 @@ export const TableLayoutTemplate = (props: LayoutProps): JSX.Element => {
           prepareRow(row);
           return (
             // eslint-disable-next-line react/jsx-key
-            <tr {...row.getRowProps({ className: styles.row })}>
+            <tr {...row.getRowProps({ className: styles.row })} {...props.getTrProps(row)}>
               {row.cells.map((cell) => (
                 // eslint-disable-next-line react/jsx-key
                 <td {...cell.getCellProps({ className: styles.cell })}>{cell.render('Cell')}</td>
