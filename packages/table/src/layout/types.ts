@@ -7,7 +7,7 @@ export interface LayoutProps {
   spacing?: SpacingType;
   style?: CSSProperties;
   className?: string;
-  getTrProps: (props: Row<TableData>) => TableRowProps;
+  getTrProps?: (props: Row<TableData>) => TableRowProps;
 }
 
 export type LayoutTemplate<TProps extends LayoutProps = LayoutProps> = FunctionComponent<TProps>;
