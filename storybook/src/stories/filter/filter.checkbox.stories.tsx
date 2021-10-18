@@ -5,7 +5,7 @@ import { useMemo } from 'react';
 import { useObservableState } from '@equinor/fusion-react-observable';
 
 import { FilterProvider, useFilterContext } from '@equinor/fusion-react-filter/src';
-import { CheckboxFilter } from '@equinor/fusion-react-filter/src/components/filter';
+import { CheckboxFilter, SearchFilter } from '@equinor/fusion-react-filter/src/components/filter';
 
 import { generateData, DataType } from './generate-data';
 
@@ -45,12 +45,10 @@ export const Checkbox = () => {
   const data = useMemo(() => generateData(100, 10), []);
   return (
     <FilterProvider data={data}>
+      <SearchFilter filterKey="global" label="Search all" dense />
+      <hr style={{ margin: '1rem 0', display: 'block' }} />
       <div style={{ display: 'flex', gap: 32, maxHeight: 350, overflow: 'hidden' }}>
-        <CheckboxFilter
-          title="First name"
-          filterKey="firstName"
-          selector={(data: DataType) => ({ key: data.firstName, value: data.firstName, label: 'elg' })}
-        />
+        <CheckboxFilter title="First name" filterKey="firstName" />
         <CheckboxFilter title="Last name" filterKey="lastName" />
         <CheckboxFilter title="Company" filterKey="company" />
       </div>
