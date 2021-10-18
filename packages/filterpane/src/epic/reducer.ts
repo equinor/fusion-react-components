@@ -1,10 +1,4 @@
-import {
-  Subject,
-  Subscription,
-  BehaviorSubject,
-  PartialObserver,
-  Observable,
-} from 'rxjs';
+import { Subject, Subscription, BehaviorSubject, PartialObserver, Observable } from 'rxjs';
 import { map, distinctUntilChanged, pairwise } from 'rxjs/operators';
 
 import { Action } from './epic';
