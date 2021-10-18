@@ -1,9 +1,9 @@
 import { useEffect, useMemo } from 'react';
 
-import { combineLatest, Observable, of } from 'rxjs';
+import { combineLatest, of } from 'rxjs';
 import { switchMap, map } from 'rxjs/operators';
 
-import { useObservable, useSelector } from '@equinor/fusion-react-observable';
+import { useObservable } from '@equinor/fusion-react-observable';
 
 import { useFilter, useFilterContext, Filter } from '..';
 
@@ -13,6 +13,7 @@ import { createOptionReducer } from './reducer';
 import { FilterOption, FilterOptionBuilder, FilterOptionSelector } from './types';
 
 import { createOptionBuilder, propertySelector } from './create-options';
+import { useFilterSelection } from '../hooks';
 
 const optionReducer = createOptionReducer({} as Record<string, FilterOption>);
 
@@ -75,9 +76,7 @@ export const FilterOptionProvider = <
   const options$ = useObservable(optionReducer, {});
 
   const setSelection = useFilter(filter);
-  const selection$ = useSelector(context.selection$, filter.key) as Observable<TValue>;
-
-  // TODO clear
+  const selection$ = useFilterSelection<TValue>(filter.key);
 
   useEffect(() => {
     const data$ = context.makeFilterData({ exclude: [filter.key] });
@@ -97,7 +96,6 @@ export const FilterOptionProvider = <
     selection$,
     setSelection,
   };
-  // @ts-ignore
   return <Provider value={value}>{props.children}</Provider>;
 };
 
