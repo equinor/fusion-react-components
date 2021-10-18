@@ -1,5 +1,5 @@
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
-import { map, withLatestFrom } from 'rxjs/operators';
+import { distinctUntilChanged, map, withLatestFrom } from 'rxjs/operators';
 import { Action, Reducer } from './types';
 
 export class ReactiveSubject<S, A extends Action = Action> extends Observable<S> {
@@ -24,7 +24,8 @@ export class ReactiveSubject<S, A extends Action = Action> extends Observable<S>
     this.__action$
       .pipe(
         withLatestFrom(this.__state$),
-        map(([action, state]) => reducer(state, action))
+        map(([action, state]) => reducer(state, action)),
+        distinctUntilChanged()
       )
       .subscribe(this.__state$);
   }
