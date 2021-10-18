@@ -15,11 +15,11 @@ export const useStyles = makeStyles(
     createStyles({
       root: {
         display: 'flex',
-        justifyContent: 'space-between',
         alignItems: 'center',
       },
       header: {
         ...theme.typography.table.cell_header.style,
+        overflow: 'hidden',
         '&$showSearch': {
           display: 'none',
         },
@@ -36,11 +36,14 @@ export const useStyles = makeStyles(
       },
       iconBtn: {
         cursor: 'pointer',
+        marginLeft: 'auto',
       },
       searchField: {
         marginTop: '4px',
+        flex: '1 1 auto',
         '&:not($showSearch)': {
-          width: 0,
+          maxWidth: 0,
+          flex: 'none',
           overflow: 'hidden',
         },
       },
@@ -60,7 +63,8 @@ export const FilterOptionHeader = (props: FilterHeaderProps): JSX.Element => {
   const onIconClick = () => {
     if (showSearch) {
       setQuery('');
-      searchRef.current?.click();
+    } else {
+      searchRef.current?.focus();
     }
     setShowSearch(!showSearch);
   };
@@ -71,16 +75,6 @@ export const FilterOptionHeader = (props: FilterHeaderProps): JSX.Element => {
 
   return (
     <div className={styles.root}>
-      <header className={clsx(styles.header, showSearch && styles.showSearch)}>
-        <span>{title}</span>
-        <span className={clsx(styles.counter, !selectedCount && styles.noCount)}>
-          <span>(</span>
-          <span>{selectedCount}</span>
-          <span>/</span>
-          <span>{optionCount}</span>
-          <span>)</span>
-        </span>
-      </header>
       <TextInput
         ref={searchRef}
         className={clsx(styles.searchField, showSearch && styles.showSearch)}
@@ -91,7 +85,17 @@ export const FilterOptionHeader = (props: FilterHeaderProps): JSX.Element => {
         onInput={(e) => setQuery(e.currentTarget.value)}
         dense
       />
-      <Icon className={styles.iconBtn} icon={showSearch ? 'close' : 'search'} onClick={onIconClick} />
+      <header className={clsx(styles.header, showSearch && styles.showSearch)}>
+        <span>{title}</span>
+        <span className={clsx(styles.counter, !selectedCount && styles.noCount)}>
+          <span>(</span>
+          <span>{selectedCount}</span>
+          <span>/</span>
+          <span>{optionCount}</span>
+          <span>)</span>
+        </span>
+      </header>
+      <Icon className={styles.iconBtn} icon={showSearch ? 'chevron_right' : 'search'} onClick={onIconClick} />
     </div>
   );
 };
