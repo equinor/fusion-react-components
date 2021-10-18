@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-components-stories",
-  "version": "1.24.2",
+  "version": "1.24.3-filter.0",
   "description": "",
   "private": true,
   "scripts": {
@@ -18,7 +18,7 @@
     "@equinor/fusion-react-checkbox": "^0.4.0",
     "@equinor/fusion-react-date": "^0.3.8",
     "@equinor/fusion-react-datepicker": "^0.9.8",
-    "@equinor/fusion-react-filter": "^1.1.10",
+    "@equinor/fusion-react-filter": "^2.0.0",
     "@equinor/fusion-react-hanging-garden": "^1.6.9",
     "@equinor/fusion-react-icon": "^0.1.6",
     "@equinor/fusion-react-observable": "^0.2.0",
