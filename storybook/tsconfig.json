@@ -25,6 +25,9 @@
       "path": "../packages/icon"
     },
     {
+      "path": "../packages/observable"
+    },
+    {
       "path": "../packages/datepicker"
     },
     {
@@ -46,7 +49,7 @@
       "path": "../packages/textinput"
     },
     {
-      "path": "../packages/filterpane"
+      "path": "../packages/filter"
     },
     { "path": "../packages/utils" }
   ]
