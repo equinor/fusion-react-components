@@ -1,12 +1,13 @@
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
 import { useState } from 'react';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import { FilterProvider, CheckboxFilter, RadioFilter, GeneralBar, FilterSection } from '@equinor/fusion-react-filter';
+
 import Filterpane from './filterpane';
 import { firstNameCheck, lastNameCheck, ageCheck, statusRadio } from './filterDefinitions';
-import { FilterProvider, CheckBoxFilter, RadioFilter, GeneralBar, FilterSection } from '../../../packages/filterpane';
 import { makeData, Person } from './functions';
 
 <Meta
-  title="Filterpane/FilterPane"
+  title="Data/Filter/Filter Panel"
   parameters={{
     viewMode: 'docs',
   }}
@@ -21,7 +22,7 @@ export const Pane = (args) => <Filterpane {...args} />;
 
 export const CheckBox = (args) => (
   <FilterProvider initialData={args.data}>
-    <CheckBoxFilter filter={firstNameCheck} useSelectAll useSearch useSingleSelect />
+    <CheckboxFilter filter={firstNameCheck} useSelectAll useSearch useSingleSelect />
   </FilterProvider>
 );
 
@@ -44,14 +45,14 @@ export const Filtersection = (args) => {
   return (
     <FilterProvider initialData={args.data} initialFilters={{ firstName: [] }}>
       <FilterSection useFilterSelector>
-        <CheckBoxFilter filter={{ ...firstNameCheck }} />
-        <CheckBoxFilter filter={{ ...lastNameCheck }} />
+        <CheckboxFilter filter={{ ...firstNameCheck }} />
+        <CheckboxFilter filter={{ ...lastNameCheck }} />
       </FilterSection>
     </FilterProvider>
   );
 };
 
-<Story name="Filterpane" args={{ amount: 12 }}>
+<Story name="Filter Panel" args={{ amount: 12 }}>
   {Pane}
 </Story>
 
@@ -62,9 +63,9 @@ The above filterpane is structured in code like this :
   <FilterPanel>
     <GeneralBar onMinimize={() => setMinimized((s) => !s)} minimized={minimized} searchFilterFn={searchFilterFn} />
     <FilterSection isMinimized={minimized} useFilterSelector>
-      <CheckBoxFilter filter={{ ...firstNameCheck }} useSelectAll useSearch />
-      <CheckBoxFilter filter={{ ...lastNameCheck }} useSelectAll useSearch />
-      <CheckBoxFilter filter={{ ...ageCheck }} useSelectAll useSearch />
+      <CheckboxFilter filter={{ ...firstNameCheck }} useSelectAll useSearch />
+      <CheckboxFilter filter={{ ...lastNameCheck }} useSelectAll useSearch />
+      <CheckboxFilter filter={{ ...ageCheck }} useSelectAll useSearch />
       <RadioFilter filter={statusRadio} />
     </FilterSection>
   </FilterPanel>
@@ -212,7 +213,7 @@ This includes:
 
 you must have a unique key. The rest is not mandatory. But for the functionality these properties represent, you need to use these property name.
 
-#### CheckBoxFilter
+#### CheckboxFilter
 
 <Canvas>
   <Story name="CheckBox" args={{ data: makeData(12) }}>

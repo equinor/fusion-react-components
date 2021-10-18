@@ -1,5 +1,4 @@
-import { FilterFn } from '../../../packages/filterpane/src/types/Filter';
-import FilterOption, { FilterOptions } from '../../../packages/filterpane/src/types/FilterOption';
+import { FilterOption, FilterOptions, FilterFn } from '@equinor/fusion-react-filter';
 
 export type RelationshipStatus = 'relationship' | 'complicated' | 'single';
 const firstName = ['Olav', 'Helge', 'Marit', 'Kjersti'];

@@ -1,4 +1,4 @@
-import { Filter } from '../../../packages/filterpane/src/types/Filter';
+import { Filter } from '@equinor/fusion-react-filter';
 import {
   AgeBrackets,
   counter,

@@ -1,12 +1,12 @@
 import { useMemo, useState } from 'react';
 import {
   FilterProvider,
-  CheckBoxFilter,
+  CheckboxFilter,
   RadioFilter,
   FilterPanel,
   FilterSection,
   GeneralBar,
-} from '../../../packages/filterpane';
+} from '@equinor/fusion-react-filter';
 import { firstNameCheck, lastNameCheck, ageCheck, statusRadio } from './filterDefinitions';
 //import FilteredDataTable from './FilteredDataTable';
 import { makeData, Person } from './functions';
@@ -32,10 +32,10 @@ const Filterpane = ({ amount }: FilterpaneProps): JSX.Element => {
       <FilterPanel>
         <GeneralBar onMinimize={() => setMinimized((s) => !s)} minimized={minimized} searchFilterFn={searchFilterFn} />
         <FilterSection isMinimized={minimized} useFilterSelector useFilterSelectorSearch>
-          <CheckBoxFilter filter={{ ...firstNameCheck }} useSelectAll useSearch />
-          <CheckBoxFilter filter={{ ...lastNameCheck }} useSelectAll useSearch />
-          <CheckBoxFilter filter={{ ...ageCheck }} useSelectAll useSearch />
-          <RadioFilter filter={statusRadio} />
+          <CheckboxFilter filter={{ ...firstNameCheck }} showSelectAll showSearch compact/>
+          <CheckboxFilter filter={{ ...lastNameCheck }} showSelectAll showSearch compact/>
+          <CheckboxFilter filter={{ ...ageCheck }} showSelectAll showSearch  compact/>
+          <RadioFilter filter={statusRadio} compact/>
         </FilterSection>
       </FilterPanel>
     </FilterProvider>

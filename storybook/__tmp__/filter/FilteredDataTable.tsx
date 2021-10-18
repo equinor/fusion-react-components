@@ -1,6 +1,8 @@
-import { Column, Table, TableData, TableOptions } from '@equinor/fusion-react-table';
 import { useMemo } from 'react';
-import { useFilterStore } from '../../../packages/filterpane';
+
+import { Column, Table, TableData, TableOptions } from '@equinor/fusion-react-table';
+import { useFilterStore } from '@equinor/fusion-react-filter';
+
 import { Person } from './functions';
 
 const columns: Column[] = [

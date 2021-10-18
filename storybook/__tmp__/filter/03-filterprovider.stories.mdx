@@ -1,7 +1,7 @@
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
 
 <Meta
-  title="Filterpane/Filterprovider"
+  title="Data/Filter/Filter Provider"
   parameters={{
     viewMode: 'docs',
     previewTabs: {
@@ -31,7 +31,7 @@ const myApp = () => {
 
   return (
     <FilterProvider initialData={myData} />
-      <CheckBoxFilter filter={myFilterDefinition} />
+      <CheckboxFilter filter={myFilterDefinition} />
       <MyDataTable />
     </FilterProvider>
   );
@@ -45,8 +45,8 @@ const MyDataTable = () => {
 ```
 
 This is a bare minimum implementation for the FilterProvider, to get any use out of it.
-We have a CheckBoxFilter, that is a filter and MyDataTable that will access the filteredData.
-The CheckBoxFilter register its filterFn with the filterProvider.  
+We have a CheckboxFilter, that is a filter and MyDataTable that will access the filteredData.
+The CheckboxFilter register its filterFn with the filterProvider.  
 When a selection is made the Provider runs the filterFn, and MyDataTable can access the data from the useFilterStore hook.
 
 ## Registering Filters and filtering
