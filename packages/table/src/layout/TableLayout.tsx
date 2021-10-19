@@ -10,7 +10,7 @@ const defaultStyleProps: StyleProps = {
 };
 
 export const TableLayoutTemplate = (props: LayoutProps): JSX.Element => {
-  const { spacing = 'small', style, className, getTrProps } = props;
+  const { spacing = 'small', style, className, setTableRowProps } = props;
   const { instance } = useTableContext();
   const { getTableProps, getTableBodyProps, headerGroups, prepareRow } = instance;
   const rows = instance.disablePagination ? instance.rows : instance.page;
@@ -38,7 +38,7 @@ export const TableLayoutTemplate = (props: LayoutProps): JSX.Element => {
       <tbody {...getTableBodyProps()}>
         {rows.map((row) => {
           prepareRow(row);
-          const additionalProps = getTrProps ? getTrProps(row) : ({} as TableRowProps);
+          const additionalProps = setTableRowProps ? setTableRowProps(row) : ({} as TableRowProps);
           return (
             // eslint-disable-next-line react/jsx-key
             <tr {...row.getRowProps({ className: clsx(styles.row, additionalProps.className), ...additionalProps })}>
