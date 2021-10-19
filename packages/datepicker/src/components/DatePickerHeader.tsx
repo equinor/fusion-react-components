@@ -1,7 +1,7 @@
 import { FunctionComponent, forwardRef } from 'react';
 import { makeStyles, createStyles, theme, FusionTheme, clsx } from '@equinor/fusion-react-styles';
 import { format, lastDayOfMonth } from 'date-fns';
-import { FusionDatePickerType } from './types';
+import { FusionDatePickerType } from '../types';
 import DatePicker from 'react-datepicker';
 import Icon from './Icon';
 import { arrow_back, arrow_drop_down, arrow_forward } from '@equinor/eds-icons';
