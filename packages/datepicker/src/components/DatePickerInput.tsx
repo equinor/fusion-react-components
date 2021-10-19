@@ -73,7 +73,7 @@ const useStyles = makeStyles<FusionTheme, StyleProps>(
 
 export const FusionDatePickerInput = forwardRef<HTMLInputElement, InputHTMLAttributes<HTMLInputElement> & InputProps>(
   (props: InputHTMLAttributes<HTMLInputElement> & InputProps, ref: React.ForwardedRef<HTMLInputElement>) => {
-    const { dateFormat, isClearable, onClear, onBlur, placeholder, type, ...rest } = props;
+    const { dateFormat, isClearable, onClear, placeholder, type, ...rest } = props;
 
     const classes = useStyles({
       ...defaultStyleProps,
@@ -89,9 +89,6 @@ export const FusionDatePickerInput = forwardRef<HTMLInputElement, InputHTMLAttri
           onFocus={(e) => (e.target.placeholder = dateFormat)}
           onBlur={(e) => {
             e.target.placeholder = placeholder ?? '';
-            if (onBlur) {
-              onBlur(e);
-            }
           }}
           className={classes.input}
           ref={ref}
