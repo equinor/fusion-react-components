@@ -1,11 +1,11 @@
-import { FunctionComponent } from 'react';
+import { FunctionComponent, useMemo } from 'react';
 import DatePicker from 'react-datepicker';
 import { FusionDatePickerType, FusionDatePickerProps } from './types';
 import { enGB } from 'date-fns/locale';
 import { useStyles } from './style';
 
-import FusionDatePickerHeader from './DatePickerHeader';
-import FusionDatePickerInput from './DatePickerInput';
+import FusionDatePickerHeader from './components/DatePickerHeader';
+import FusionDatePickerInput from './components/DatePickerInput';
 import { clsx } from '@equinor/fusion-react-styles';
 
 const getDateFormat = (type: FusionDatePickerType): string => {
@@ -55,6 +55,7 @@ export const FusionDatePicker: FunctionComponent<FusionDatePickerProps> = (
     onChange,
     onClose,
     onOpen,
+    onBlur,
     onRangeChange,
     placeholder,
     shouldCloseOnSelect,
@@ -93,6 +94,10 @@ export const FusionDatePicker: FunctionComponent<FusionDatePickerProps> = (
   disableFuture && (args.maxDate = args.maxTime = new Date());
   disablePast && (args.minDate = args.minTime = new Date());
 
+  const selectedDate = useMemo(() => {
+    return isRange ? dateFrom : date;
+  }, [isRange, dateFrom, date]);
+
   return (
     <div className={clsx(styles.container, classes?.host)}>
       {label && <span className={styles.label}>{label}</span>}
@@ -111,12 +116,13 @@ export const FusionDatePicker: FunctionComponent<FusionDatePickerProps> = (
         onCalendarClose={onClose}
         onCalendarOpen={onOpen}
         onChange={dateOnChange}
+        onBlur={onBlur}
         placeholderText={placeholder}
         popperClassName={clsx(styles.popper, classes?.popper)}
         renderCustomHeader={(props) => (
           <FusionDatePickerHeader {...props} type={type} maxDate={args.maxDate} minDate={args.minDate} />
         )}
-        selected={isRange ? dateFrom : date}
+        selected={selectedDate}
         selectsRange={isRange}
         shouldCloseOnSelect={!isRange && shouldCloseOnSelect}
         showPopperArrow={false}
