@@ -15,12 +15,12 @@ export type CheckboxFilterProps<TData extends Record<string, any>> = {
 };
 
 export const CheckboxFilter = <TData extends Record<string, any>>(props: CheckboxFilterProps<TData>): JSX.Element => {
-  const { title, ...args } = props;
+  const { ...args } = props;
   const styles = useStyles({ layout: 'column' });
   return (
     <CheckboxFilterProvider {...args}>
       <div className={styles.root}>
-        <FilterOptionHeader title={title} />
+        <FilterOptionHeader title={args.title} />
         <div className={styles.items}>
           <CheckboxFilterOptionAll />
           <CheckboxFilterOptions />

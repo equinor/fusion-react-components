@@ -19,6 +19,7 @@ export type CheckboxFilterProviderProps<
   TValue extends CheckboxOptionValue = CheckboxOptionValue
 > = {
   filterKey: string;
+  title?: string;
   optionBuilder?: FilterOptionBuilder<TData, Record<string, TOptions>, TValue>;
   selector?: Extract<keyof TData, string> | string | FilterOptionSelector<TData>;
 };
@@ -30,7 +31,7 @@ export const CheckboxFilterProvider = <
 >(
   props: React.PropsWithChildren<CheckboxFilterProviderProps<TData, TOptions, TValue>>
 ): JSX.Element => {
-  const { filterKey, selector = filterKey, optionBuilder, children } = props;
+  const { filterKey, selector = filterKey, optionBuilder, title, children } = props;
   const selectorFn = useMemo(
     () =>
       typeof selector === 'function'
@@ -40,7 +41,11 @@ export const CheckboxFilterProvider = <
   );
   const filterFn = useMemo(() => createFilterFn(selectorFn), [selectorFn]);
   return (
-    <FilterOptionProvider selector={selectorFn} optionBuilder={optionBuilder} filter={{ key: filterKey, filterFn }}>
+    <FilterOptionProvider
+      selector={selectorFn}
+      optionBuilder={optionBuilder}
+      filter={{ key: filterKey, title, filterFn }}
+    >
       {children}
     </FilterOptionProvider>
   );

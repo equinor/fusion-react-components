@@ -36,6 +36,7 @@ export type FilterFn<TData, TSelection> = (data: TData[], selection: TSelection,
  */
 export type Filter<TData, TSelection> = {
   key: string;
+  title?: string;
   filterFn: FilterFn<TData, TSelection>;
 };
 
