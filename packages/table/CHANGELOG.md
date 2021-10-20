@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.4](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-table@0.4.3...@equinor/fusion-react-table@0.4.4) (2021-10-20)
+
+
+### Bug Fixes
+
+* set disablePagination to true as default ([d9c6a6f](https://github.com/equinor/fusion-react-components/commit/d9c6a6fbdaeb885f6f0e88c8d7e651312e3b24e5))
+
+
+
+
+
+## [0.4.3](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-table@0.4.2...@equinor/fusion-react-table@0.4.3) (2021-10-20)
+
+
+### Bug Fixes
+
+* Types for setTableRowProps ([cb017f5](https://github.com/equinor/fusion-react-components/commit/cb017f550f6848984b1c34323444e0594cc98a6c))
+
+
+
+
+
 ## 0.4.2 (2021-10-19)
 
 
