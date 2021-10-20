@@ -2,7 +2,7 @@ import { clsx } from '@equinor/fusion-react-styles';
 import useStyles, { StyleProps } from './layout.style';
 import { Layout, LayoutProps } from './types';
 import { useTableContext } from '../TableProvider';
-import { TableRowProps } from 'react-table';
+
 // import { useFlexLayout } from 'react-table';
 
 const defaultStyleProps: StyleProps = {
@@ -38,10 +38,10 @@ export const TableLayoutTemplate = (props: LayoutProps): JSX.Element => {
       <tbody {...getTableBodyProps()}>
         {rows.map((row) => {
           prepareRow(row);
-          const additionalProps = setTableRowProps ? setTableRowProps(row) : ({} as TableRowProps);
+          const additionalProps = setTableRowProps ? setTableRowProps(row) : {};
           return (
             // eslint-disable-next-line react/jsx-key
-            <tr {...row.getRowProps({ className: clsx(styles.row, additionalProps.className), ...additionalProps })}>
+            <tr {...row.getRowProps({ className: clsx(styles.row, additionalProps?.className), ...additionalProps })}>
               {row.cells.map((cell) => (
                 // eslint-disable-next-line react/jsx-key
                 <td {...cell.getCellProps({ className: styles.cell })}>{cell.render('Cell')}</td>
