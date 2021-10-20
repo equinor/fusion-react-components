@@ -1,11 +1,16 @@
-import { FunctionComponent } from 'react';
-import { PluginHook } from 'react-table';
+import { CSSProperties, FunctionComponent } from 'react';
+import { PluginHook, Row } from 'react-table';
 import { TableData } from '../plugins';
 import { SpacingType } from '../types';
 
-export type LayoutProps = JSX.IntrinsicElements['table'] & {
+export type BasicLayoutProps = JSX.IntrinsicElements['table'] & {
   spacing?: SpacingType;
+  style?: CSSProperties;
+  className?: string;
 };
+export interface LayoutProps extends BasicLayoutProps {
+  setTableRowProps?: (props: Row<TableData>) => BasicLayoutProps;
+}
 
 export type LayoutTemplate<TProps extends LayoutProps = LayoutProps> = FunctionComponent<TProps>;
 

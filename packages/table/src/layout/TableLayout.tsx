@@ -2,6 +2,7 @@ import { clsx } from '@equinor/fusion-react-styles';
 import useStyles, { StyleProps } from './layout.style';
 import { Layout, LayoutProps } from './types';
 import { useTableContext } from '../TableProvider';
+
 // import { useFlexLayout } from 'react-table';
 
 const defaultStyleProps: StyleProps = {
@@ -9,10 +10,10 @@ const defaultStyleProps: StyleProps = {
 };
 
 export const TableLayoutTemplate = (props: LayoutProps): JSX.Element => {
-  const { spacing = 'small', style, className } = props;
+  const { spacing = 'small', style, className, setTableRowProps } = props;
   const { instance } = useTableContext();
-  const { getTableProps, getTableBodyProps, headerGroups, prepareRow } = instance;
-  const rows = instance.disablePagination ? instance.rows : instance.page;
+  const { getTableProps, getTableBodyProps, headerGroups, prepareRow, disablePagination = true } = instance;
+  const rows = disablePagination ? instance.rows : instance.page;
   const styles = useStyles({ ...defaultStyleProps, spacing });
   return (
     <table {...getTableProps({ className: clsx(styles.root, className) })} style={style}>
@@ -37,9 +38,10 @@ export const TableLayoutTemplate = (props: LayoutProps): JSX.Element => {
       <tbody {...getTableBodyProps()}>
         {rows.map((row) => {
           prepareRow(row);
+          const additionalProps = setTableRowProps ? setTableRowProps(row) : {};
           return (
             // eslint-disable-next-line react/jsx-key
-            <tr {...row.getRowProps({ className: styles.row })}>
+            <tr {...row.getRowProps({ className: clsx(styles.row, additionalProps?.className), ...additionalProps })}>
               {row.cells.map((cell) => (
                 // eslint-disable-next-line react/jsx-key
                 <td {...cell.getCellProps({ className: styles.cell })}>{cell.render('Cell')}</td>
