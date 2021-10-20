@@ -1,11 +1,12 @@
 import Button from '@equinor/fusion-react-button';
 import { useTableContext } from '../../TableProvider';
-//eslint-disable-next-line no-unused-expressions
+// see https://github.com/microsoft/TypeScript/issues/43869
+//eslint-disable-next-line @typescript-eslint/no-unused-vars
 import { useInstance } from 'table/src/plugins/excel/useInstance';
 /**
  * Component for the `Toolbar` component.
  * Only shown if the `hideExportBtn` prop in `Toolbar` is set to `false`.
- * Uses {@link useInstance the excel plugin} to handle all exporting logic.
+ * Uses {@link useInstance} to handle all exporting logic.
  */
 export const ExportToExcelBtn = (): JSX.Element => {
   const { instance, state } = useTableContext();
