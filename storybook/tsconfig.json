@@ -2,7 +2,7 @@
   "extends": "../tsconfig.base.json",
   "compilerOptions": {
     "rootDir": "src",
-    "resolveJsonModule": true,
+    "resolveJsonModule": true
   },
   "exclude": ["node_modules"],
   "references": [
@@ -29,6 +29,9 @@
     },
     {
       "path": "../packages/hanging-garden"
+    },
+    {
+      "path": "../packages/list"
     },
     {
       "path": "../packages/radio"
