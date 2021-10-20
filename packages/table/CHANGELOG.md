@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.4.2 (2021-10-19)
+
+
+### Bug Fixes
+
+* fixed td row pros ([b07a083](https://github.com/equinor/fusion-react-components/commit/b07a083c7ca61ff7564be21fc1b57d28dcb68f4a))
+* Fixed ttypes ([17fe098](https://github.com/equinor/fusion-react-components/commit/17fe0988fa7b9b70456c865ddb6a667bc6f2921c))
+* Make table row props available ([ef2d94e](https://github.com/equinor/fusion-react-components/commit/ef2d94e646f3584cb3530e0a02f8b95bc905d166))
+* Name change ([0df77a0](https://github.com/equinor/fusion-react-components/commit/0df77a09eb35cbf7bdd1f8bc09b35e6ad2c41e0f))
+
+
+
+
+
 ## [0.4.1](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-table@0.4.0...@equinor/fusion-react-table@0.4.1) (2021-10-13)
 
 **Note:** Version bump only for package @equinor/fusion-react-table
