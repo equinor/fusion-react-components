@@ -3,7 +3,7 @@ import { PluginHook, Row } from 'react-table';
 import { TableData } from '../plugins';
 import { SpacingType } from '../types';
 
-export type BasicLayoutProps = JSX.IntrinsicElements['table'] & {
+export type BasicLayoutProps = {
   spacing?: SpacingType;
   style?: CSSProperties;
   className?: string;
