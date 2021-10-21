@@ -2,7 +2,7 @@ import { forwardRef, InputHTMLAttributes } from 'react';
 import { makeStyles, createStyles, theme, FusionTheme } from '@equinor/fusion-react-styles';
 import Icon from './Icon';
 import { calendar, clear, time } from '@equinor/eds-icons';
-import { FusionDatePickerType } from './types';
+import { FusionDatePickerType } from '../types';
 
 type SpacingType = keyof typeof theme.spacing.comfortable;
 
@@ -87,7 +87,9 @@ export const FusionDatePickerInput = forwardRef<HTMLInputElement, InputHTMLAttri
           {...rest}
           placeholder={placeholder}
           onFocus={(e) => (e.target.placeholder = dateFormat)}
-          onBlur={(e) => (e.target.placeholder = placeholder ?? '')}
+          onBlur={(e) => {
+            e.target.placeholder = placeholder ?? '';
+          }}
           className={classes.input}
           ref={ref}
         />

@@ -10,9 +10,10 @@ import Template from './DatePicker.template';
 
 ## Placement
 
-This component uses [PopperJs](https://popper.js.org/) for displayingthe calendar picker.
+This component uses [PopperJs](https://popper.js.org/) for displaying the calendar picker.
 
-__popperPlacement__
+**popperPlacement**
+
 ```ts
 export type Placement =
   | 'auto'
@@ -32,31 +33,31 @@ export type Placement =
   | 'left-end';
 ```
 
-__[popperModifiers](https://popper.js.org/docs/v2/modifiers/)__
+**[popperModifiers](https://popper.js.org/docs/v2/modifiers/)**
 
 ```tsx
 const Comp = () => {
   const popperModifiers: [
     {
-      name: 'offset',
-      options: { offset: [-20, -20] },
+      name: 'offset';
+      options: { offset: [-20, -20] };
     }
   ];
-  return <FusionDatePicker popperModifiers={popperModifiers} />
-}
+  return <FusionDatePicker popperModifiers={popperModifiers} />;
+};
 ```
 
 <Canvas>
-  <Story name="DatePicker">
-    {Template.bind({})}
-  </Story>
-  <div style={{height: 300, width: '100vw'}} />
+  <Story name="DatePicker">{Template.bind({})}</Story>
+  <div style={{ height: 300, width: '100vw' }} />
 </Canvas>
 
 <ArgsTable story="DatePicker" />
 
 # Changelog
 
-<ChangeLog changelogs={{
-  react: require('@equinor/fusion-react-datepicker/CHANGELOG.md'), 
-}}/>
+<ChangeLog
+  changelogs={{
+    react: require('@equinor/fusion-react-datepicker/CHANGELOG.md'),
+  }}
+/>
