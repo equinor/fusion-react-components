@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.6.10 (2021-10-21)
+
+
+### Bug Fixes
+
+* error types for fetching garden data ([7d57ef8](https://github.com/equinor/fusion-react-components/commit/7d57ef8a768b2c4fbbbacd4364e35acb4ba61b82))
+
+
+
+
+
 ## 1.6.9 (2021-10-13)
 
 **Note:** Version bump only for package @equinor/fusion-react-hanging-garden
