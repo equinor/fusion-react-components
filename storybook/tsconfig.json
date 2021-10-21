@@ -2,7 +2,7 @@
   "extends": "../tsconfig.base.json",
   "compilerOptions": {
     "rootDir": "src",
-    "resolveJsonModule": true,
+    "resolveJsonModule": true
   },
   "exclude": ["node_modules"],
   "references": [
@@ -17,6 +17,9 @@
     },
     {
       "path": "../packages/checkbox"
+    },
+    {
+      "path": "../packages/chip"
     },
     {
       "path": "../packages/date"
