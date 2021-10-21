@@ -47,7 +47,7 @@ export type DatePickerCustomProps = {
   height?: string;
   isClearable?: boolean;
   label?: string;
-  onBlur?(e: React.FocusEvent<HTMLInputElement, Element>): void;
+  onBlur?(e: React.FocusEvent<HTMLInputElement | Element>): void;
   onChange?(date: Date | null): void;
   onClose?(): void;
   onOpen?(): void;
