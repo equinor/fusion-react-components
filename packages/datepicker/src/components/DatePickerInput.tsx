@@ -1,4 +1,4 @@
-import { forwardRef, InputHTMLAttributes, useState } from 'react';
+import { forwardRef, InputHTMLAttributes } from 'react';
 import { makeStyles, createStyles, theme, FusionTheme } from '@equinor/fusion-react-styles';
 import Icon from './Icon';
 import { calendar, clear, time } from '@equinor/eds-icons';
