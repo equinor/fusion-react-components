@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react';
 
-import { GardenDataError } from '../models/GardenDataError';
+import { ApiErrorGardenResponse, GardenDataError } from '../models/GardenDataError';
 
 // TODO - @olerichard this should be removed from here, pass client as an provider
 import { HttpClientRequestFailedError, HttpResponse } from '@equinor/fusion/lib/http/HttpClient';
@@ -68,11 +68,10 @@ export const useHangingGardenGetData = <T,>(
           cacheDurationInMinutes: cacheDuration,
         };
       } catch (e) {
-        // TODO . @olerichard check if this typing is correct
-        const { response } = e as HttpClientRequestFailedError<GardenDataError>;
+        const { response } = e as HttpClientRequestFailedError<ApiErrorGardenResponse>;
         setError({
-          errorType: response.errorType || ' error',
-          errorResponse: response.errorResponse,
+          errorType: response.error.code || ' error',
+          errorResponse: response.error,
         });
         setIsFetching(false);
         return null;
