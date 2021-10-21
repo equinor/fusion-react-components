@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.9.9 (2021-10-21)
+
+
+### Bug Fixes
+
+* fixed onBlur and minor refactoring ([c0f13d7](https://github.com/equinor/fusion-react-components/commit/c0f13d725fb70d36345ffe8d6c467ad20b026a02))
+* fixed onBlur and minor refactoring ([eea3e06](https://github.com/equinor/fusion-react-components/commit/eea3e0612660157dc6c2606c8ef70b4550b3b89f))
+* typing of detapicker declaration ([25cdcbc](https://github.com/equinor/fusion-react-components/commit/25cdcbc71ea9ee56244de9992b0511dce7ad456d))
+
+
+
+
+
 ## [0.9.8](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-datepicker@0.9.7...@equinor/fusion-react-datepicker@0.9.8) (2021-09-30)
 
 **Note:** Version bump only for package @equinor/fusion-react-datepicker
