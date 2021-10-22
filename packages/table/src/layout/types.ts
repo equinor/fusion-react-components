@@ -3,11 +3,11 @@ import { PluginHook, Row } from 'react-table';
 import { TableData } from '../plugins';
 import { SpacingType } from '../types';
 
-export interface BasicLayoutProps {
+export type BasicLayoutProps = {
   spacing?: SpacingType;
   style?: CSSProperties;
   className?: string;
-}
+};
 export interface LayoutProps extends BasicLayoutProps {
   setTableRowProps?: (props: Row<TableData>) => BasicLayoutProps;
 }
