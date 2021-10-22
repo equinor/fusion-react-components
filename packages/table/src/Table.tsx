@@ -12,7 +12,7 @@ export type TableProps<TData extends TableData> = JSX.IntrinsicElements['div'] &
   spacing?: SpacingType;
   classes?: Partial<Record<'table' | 'toolbar', string>>;
   plugins?: Array<PluginHook<TData>>;
-  slots: Partial<Record<'Toolbar', ReactNode>>;
+  slots?: Partial<Record<'Toolbar', ReactNode>>;
 };
 const useStyles = makeStyles(() =>
   createStyles({
