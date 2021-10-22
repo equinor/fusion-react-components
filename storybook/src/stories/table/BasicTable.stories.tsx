@@ -58,7 +58,7 @@ const Template = ({ rows }: { rows: number }) => {
     [rows]
   );
   return (
-    <Table options={options} slots={{ Toolbar: null }} style={{ minWidth: '100%' }}>
+    <Table options={options} style={{ minWidth: '100%' }}>
       <Debugger />
     </Table>
   );
