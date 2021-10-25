@@ -20,3 +20,9 @@ export type GardenDataError = {
   errorType: GardenDataErrorTypes;
   errorResponse?: FusionApiErrorMessage | null;
 };
+
+export type ApiErrorGardenResponse = {
+  error: FusionApiErrorMessage & {
+    code: GardenDataErrorTypes;
+  };
+};

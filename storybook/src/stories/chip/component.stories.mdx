@@ -1,0 +1,26 @@
+import { Meta, Story, Canvas, ArgsTable, Description } from '@storybook/addon-docs';
+import ChangeLog from '../../components/ChangeLog';
+import { Chip } from '@equinor/fusion-react-chip/src';
+
+<Meta title="Data/Chip" />
+
+<Description markdown={require('@equinor/fusion-react-chip/README.md')} />
+
+<ArgsTable of={Chip} />
+
+## Component
+
+### Simple
+
+<Canvas withSource="open">
+  <Story id="examples-chip--simple" />
+</Canvas>
+
+## ChangeLog
+
+<ChangeLog
+  changelogs={{
+    react: require('@equinor/fusion-react-chip/CHANGELOG.md'),
+    webComponent: require('@equinor/fusion-wc-chip/CHANGELOG.md'),
+  }}
+/>

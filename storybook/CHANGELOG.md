@@ -3,6 +3,60 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.25.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.24.7...@equinor/fusion-react-components-stories@1.25.0) (2021-10-21)
+
+
+### Features
+
+* added react component ([424a23f](https://github.com/equinor/fusion-react-components/commit/424a23f0f9d5ad8139e1649e818b84893ceed4ee))
+
+
+
+
+
+## [1.24.7](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.24.6...@equinor/fusion-react-components-stories@1.24.7) (2021-10-21)
+
+**Note:** Version bump only for package @equinor/fusion-react-components-stories
+
+
+
+
+
+## [1.24.6](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.24.5...@equinor/fusion-react-components-stories@1.24.6) (2021-10-21)
+
+
+### Bug Fixes
+
+* fixed onBlur and minor refactoring ([eea3e06](https://github.com/equinor/fusion-react-components/commit/eea3e0612660157dc6c2606c8ef70b4550b3b89f))
+
+
+
+
+
+## [1.24.5](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.24.4...@equinor/fusion-react-components-stories@1.24.5) (2021-10-20)
+
+**Note:** Version bump only for package @equinor/fusion-react-components-stories
+
+
+
+
+
+## [1.24.4](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.24.3...@equinor/fusion-react-components-stories@1.24.4) (2021-10-20)
+
+**Note:** Version bump only for package @equinor/fusion-react-components-stories
+
+
+
+
+
+## [1.24.3](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.24.2...@equinor/fusion-react-components-stories@1.24.3) (2021-10-19)
+
+**Note:** Version bump only for package @equinor/fusion-react-components-stories
+
+
+
+
+
 ## [1.24.2](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.24.1...@equinor/fusion-react-components-stories@1.24.2) (2021-10-13)
 
 **Note:** Version bump only for package @equinor/fusion-react-components-stories

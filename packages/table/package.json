@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-table",
-  "version": "0.4.1",
+  "version": "0.4.4",
   "description": "component for displaying tables",
   "keywords": [
     "table",
@@ -29,7 +29,8 @@
     "build": "tsc -b",
     "lint": "eslint --ext .ts,.tsx,.js src/",
     "lint:fix": "eslint --ext .ts,.tsx,.js src/ --fix",
-    "prepack": "npm run build"
+    "prepack": "npm run build",
+    "start": "tsc -w"
   },
   "bugs": {
     "url": "https://github.com/equinor/fusion-react-components/issues"
