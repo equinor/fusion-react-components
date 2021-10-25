@@ -12,13 +12,10 @@ export type FilterOption = {
   hide?: boolean;
 };
 
-export type FilterOptionContext<
-  TOptions extends Record<string, FilterOption>,
-  TValue extends Partial<Record<keyof TOptions, any>> | undefined
-> = {
-  options$: ReactiveSubject<TOptions, Actions>;
-  selection$: Observable<TValue>;
-  setSelection: (selection: TValue) => void;
+export type FilterOptionContext<TOption extends FilterOption, TValue = string> = {
+  options$: ReactiveSubject<Record<string, TOption>, Actions>;
+  selection$: Observable<Set<TValue>>;
+  setSelection: (selection?: Set<TValue>) => void;
 };
 
 export type FilterOptionSelector<TData extends Record<string, any>> = (data: TData) => {
@@ -27,11 +24,11 @@ export type FilterOptionSelector<TData extends Record<string, any>> = (data: TDa
   value: string;
 };
 
-export type FilterOptionBuilder<
-  TData,
-  TOptions extends Record<string, FilterOption>,
-  TValue extends Partial<Record<keyof TOptions, any>> | undefined
-> = (source: TData[], selection: TValue, data: TData[]) => TOptions;
+export type FilterOptionBuilder<TData, TOption extends FilterOption, TValue = string> = (
+  source: TData[],
+  selection: Set<TValue>,
+  data: TData[]
+) => Record<string, TOption>;
 
 export type FilterOptionType<T extends unknown> = T extends (a: infer TData, b: infer TSelection) => infer C
   ? { data: TData; selection: TSelection; options: C }

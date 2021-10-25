@@ -7,8 +7,8 @@ const context = createContext<FilterOptionContext>({});
 export const { Provider, Consumer } = context;
 
 export const useFilterOptionContext = <
-  TOptions extends Record<string, FilterOption> = Record<string, FilterOption>,
-  TValue extends Partial<Record<keyof TOptions, any>> | undefined = undefined
->(): FilterOptionContext<TOptions, TValue> => useContext(context) as FilterOptionContext<TOptions, TValue>;
+  TOption extends FilterOption = FilterOption,
+  TValue = string
+>(): FilterOptionContext<TOption, TValue> => useContext(context) as FilterOptionContext<TOption, TValue>;
 
 export default useFilterOptionContext;

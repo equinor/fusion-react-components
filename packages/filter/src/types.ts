@@ -2,13 +2,14 @@ import { Observable, ReactiveSubject } from '@equinor/fusion-react-observable';
 
 export type FilterData<TValue = unknown> = Record<string, TValue>;
 
-export type FilterContext<TSelections extends Record<string, unknown> = Record<string, unknown>, TData = unknown> = {
+export type FilterContext<TSelection = unknown, TData extends Record<string, any> = Record<string, any>> = {
   source$: ReactiveSubject<TData[]>;
-  selection$: ReactiveSubject<TSelections>;
-  filter$: ReactiveSubject<Record<string, Filter<TData, TSelections>>>;
+  selection$: ReactiveSubject<Record<string, TSelection>>;
+  filter$: ReactiveSubject<Record<string, Filter<TData, TSelection>>>;
   data$: Observable<TData[]>;
-  makeFilterData: (args?: { exclude?: string[] }) => Observable<TData[]>;
 };
+
+export type FilterContextDataType<T extends FilterContext> = T extends FilterContext<any, infer D> ? D : never;
 
 /**
  * @param data The dataset to be filtered, this passes through the all the filter functions
@@ -34,10 +35,12 @@ export type FilterFn<TData, TSelection> = (data: TData[], selection: TSelection,
  * @param description(optional) description of the filter and how it work.
  * @param priority (optional) Control sort order
  */
-export type Filter<TData, TSelection> = {
+export type Filter<TData extends Record<string, any> = Record<string, any>, TSelection = any> = {
   key: string;
   title?: string;
   filterFn: FilterFn<TData, TSelection>;
+  initial?: TSelection;
+  hasChanged?: (selection?: TSelection, initial?: TSelection) => boolean;
 };
 
 /**

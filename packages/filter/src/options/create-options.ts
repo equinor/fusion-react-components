@@ -7,13 +7,22 @@ export const propertySelector = <TData extends Record<string, any>>(
 };
 
 export const createOptionBuilder =
-  <TData extends Record<string, any>, TType, TProp extends keyof TData = keyof TData>(
-    selector: FilterOptionSelector<TData>
-  ): FilterOptionBuilder<TData, any, any> =>
-  (source: TData[], selection?: Partial<Record<TProp, TType>>, data?: TData[]): Record<TProp, FilterOption> => {
-    const hasEntry = (value: any) => data && !!data.find((x) => selector(x).value === value);
-    const srcCount = (value: any) => source.filter((x) => selector(x).value === value).length;
-    const dataCount = (value: any) => (data || []).filter((x) => selector(x).value === value).length;
+  <
+    TData extends Record<string, unknown>,
+    TOption extends FilterOption,
+    TOptions extends Record<string, TOption> = Record<string, TOption>,
+    TValue = keyof TOptions | string
+  >(
+    selector: FilterOptionSelector<TData>,
+    isSelected: (key: keyof TOptions | string, selection: Set<TValue>, data?: TData) => boolean = (
+      key: keyof TOptions,
+      selection: Set<TValue>
+    ) => (selection as unknown as Set<keyof TOptions>).has(key)
+  ): FilterOptionBuilder<TData, TOption, TValue> =>
+  (source: TData[], selection?: Set<TValue>, data?: TData[]): TOptions => {
+    const hasEntry = (value: unknown) => data && !!data.find((x) => selector(x).value === value);
+    const srcCount = (value: unknown) => source.filter((x) => selector(x).value === value).length;
+    const dataCount = (value: unknown) => (data || []).filter((x) => selector(x).value === value).length;
     const options = source.reduce((acc, item) => {
       const { key, value, label } = selector(item);
       if (acc[key as keyof typeof acc]) {
@@ -22,12 +31,12 @@ export const createOptionBuilder =
       const option = {
         label: label || value,
         excluded: !hasEntry(value),
-        selected: selection && !!selection[key as keyof typeof acc],
+        selected: selection && isSelected(key, selection, item),
         count: dataCount(value),
         totalCount: srcCount(value),
       };
       return { ...acc, [key]: option };
-    }, {} as Record<TProp, FilterOption>);
+    }, {} as TOptions);
 
     return options;
   };

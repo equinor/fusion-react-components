@@ -13,83 +13,61 @@ import { createOptionReducer } from './reducer';
 import { FilterOption, FilterOptionBuilder, FilterOptionSelector } from './types';
 
 import { createOptionBuilder, propertySelector } from './create-options';
-import { useFilterSelection } from '../hooks';
+import { useFilterData, useFilterSelection } from '../hooks';
 
 const optionReducer = createOptionReducer({} as Record<string, FilterOption>);
 
-export type FilterComponentProviderProps<
-  TData,
-  TOptions extends Record<string, FilterOption>,
-  TValue extends Partial<Record<keyof TOptions, any>> | undefined
-> = {
-  filter: Filter<TData, TValue>;
-  optionBuilder?: FilterOptionBuilder<TData, TOptions, TValue>;
+export type FilterComponentProviderProps<TData, TOption extends FilterOption, TValue> = {
+  filter: Filter<TData, Set<TValue>>;
+  optionBuilder?: FilterOptionBuilder<TData, TOption, TValue>;
   selector?: Extract<keyof TData, string> | string | FilterOptionSelector<TData>;
+  initial?: Set<TValue>;
 };
 
-export interface FilterOptionProvider<
-  TData extends Record<string, any>,
-  TOptions extends Record<string, FilterOption>,
-  TValue extends Partial<Record<keyof TOptions, any>>
-> {
-  (
-    props: React.PropsWithChildren<{
-      filter: Filter<TData, TValue>;
-      selector: Extract<keyof TData, string> | string | FilterOptionSelector<TData>;
-    }>
-  ): JSX.Element;
-}
-
-export interface FilterOptionProvider<
-  TData extends Record<string, any>,
-  TOptions extends Record<string, FilterOption>,
-  TValue extends Partial<Record<keyof TOptions, any>>
-> {
-  (
-    props: React.PropsWithChildren<{
-      filter: Filter<TData, TValue>;
-      optionBuilder: FilterOptionBuilder<TData, TOptions, TValue>;
-    }>
-  ): JSX.Element;
-}
-
-export const FilterOptionProvider = <
-  TData extends Record<string, any>,
-  TOptions extends Record<string, FilterOption>,
-  TValue extends Partial<Record<keyof TOptions, any>>
->(
-  props: React.PropsWithChildren<FilterComponentProviderProps<TData, TOptions, TValue>>
+export const FilterOptionProvider = <TData extends Record<string, any>, TOption extends FilterOption, TValue>(
+  props: React.PropsWithChildren<FilterComponentProviderProps<TData, TOption, TValue>>
 ): JSX.Element => {
-  const { filter, optionBuilder, selector } = props;
-
-  const createOptions = useMemo<FilterOptionBuilder<TData, TOptions, TValue>>(() => {
-    if (optionBuilder) return optionBuilder;
-    if (selector) {
-      return createOptionBuilder(
-        typeof selector === 'string' ? propertySelector(selector as Extract<keyof TData, string>) : selector
-      );
-    }
-    throw Error('either provide a builder for option or a selector for option creation');
-  }, [optionBuilder, selector]);
-
-  const context = useFilterContext<TValue, TData>();
-  const options$ = useObservable(optionReducer, {});
+  /** append change method if not provided */
+  const filter = useMemo(() => {
+    props.filter.hasChanged ??= (a, b) => a !== b;
+    return props.filter;
+  }, [props.filter]);
 
   const setSelection = useFilter(filter);
   const selection$ = useFilterSelection<TValue>(filter.key);
 
+  const context = useFilterContext<Set<TValue>, TData>();
+  const options$ = useObservable(optionReducer, {});
+
+  /** memorize method for creating filter options */
+  const optionBuilder = useMemo<FilterOptionBuilder<TData, TOption, TValue>>(() => {
+    /** return provided builder if any */
+    if (props.optionBuilder) return props.optionBuilder;
+    if (props.selector) {
+      /** create a default option builder */
+      return createOptionBuilder(
+        /** if selector is not a key of object return the selector for creating option */
+        typeof props.selector === 'string'
+          ? propertySelector(props.selector as Extract<keyof TData, string>)
+          : props.selector
+      );
+    }
+    throw Error('either provide a builder for option or a selector for option creation');
+  }, [props.optionBuilder, props.selector]);
+
+  const data$ = useFilterData<TData>(useMemo(() => ({ exclude: [filter.key] }), [filter.key]));
+
   useEffect(() => {
-    const data$ = context.makeFilterData({ exclude: [filter.key] });
     const subscription = combineLatest([context.source$, data$, selection$])
       .pipe(
         switchMap(([source, data, selection]) => {
-          return of(createOptions(source, selection, data));
+          return of(optionBuilder(source, selection, data));
         }),
         map((x) => actions.set(x))
       )
-      .subscribe((x) => options$.dispatch(x));
+      .subscribe(options$);
     return () => subscription.unsubscribe();
-  }, [context, selection$, options$, createOptions, filter.key]);
+  }, [context, selection$, options$, data$, optionBuilder]);
 
   const value = {
     options$,
