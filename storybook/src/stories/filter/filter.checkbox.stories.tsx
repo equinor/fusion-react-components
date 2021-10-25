@@ -4,8 +4,9 @@ import { useMemo } from 'react';
 
 import { useObservableState } from '@equinor/fusion-react-observable';
 
-import { FilterProvider, useFilterContext } from '@equinor/fusion-react-filter/src';
-import { CheckboxFilter, SearchFilter } from '@equinor/fusion-react-filter/src/components/filter';
+import { FilterProvider, useFilterContext, useFunky } from '@equinor/fusion-react-filter/src';
+import { CheckboxFilter } from '@equinor/fusion-react-filter/src/components/filter';
+import { FilterPanel, FilterPanelBar } from '@equinor/fusion-react-filter/src/components/panel';
 
 import { generateData, DataType } from './generate-data';
 
@@ -37,24 +38,42 @@ const DataLogger = () => {
 
 const SelectionLogger = () => {
   const { selection$ } = useFilterContext<never, Record<string, DataType>>();
-  const data = useObservableState(selection$);
+  const data = Object.entries(useObservableState(selection$) || {}).reduce((acc, [key, value]) => {
+    acc[key] = [...(value || [])];
+    return acc;
+  }, {});
   return <pre>{JSON.stringify(data || {}, null, 2)}</pre>;
 };
 
-export const Checkbox = () => {
-  const data = useMemo(() => generateData(100, 10), []);
+const FilterLogger = () => {
+  const { filter$ } = useFilterContext<never, Record<string, DataType>>();
+  const funky$ = useFunky();
+
+  const filter = useObservableState(filter$);
+  const data = useObservableState(funky$);
   return (
-    <FilterProvider data={data}>
-      <SearchFilter filterKey="global" label="Search all" dense />
-      <hr style={{ margin: '1rem 0', display: 'block' }} />
-      <div style={{ display: 'flex', gap: 32, maxHeight: 350, overflow: 'hidden' }}>
-        <CheckboxFilter title="First name" filterKey="firstName" />
+    <>
+      <pre>{JSON.stringify(filter || {}, null, 2)}</pre>
+      <pre>{JSON.stringify(data || {}, null, 2)}</pre>
+    </>
+  );
+};
+
+export const Checkbox = () => {
+  const data = useMemo(() => generateData(1000, 10), []);
+  return (
+    <FilterProvider data={data} initialSelection={{ lastName: new Set([data[0].lastName, data[1].lastName]) }}>
+      <FilterPanel showBar showSelector showFilters>
+        <CheckboxFilter title="First name" filterKey="firstName" initial={new Set([data[0].firstName])} />
         <CheckboxFilter title="Last name" filterKey="lastName" />
         <CheckboxFilter title="Company" filterKey="company" />
-      </div>
+      </FilterPanel>
+      {/* </div> */}
       <hr />
-      <SelectionLogger />
       <DataLogger />
+      <hr />
+      <FilterLogger />
+      <SelectionLogger />
     </FilterProvider>
   );
 };
