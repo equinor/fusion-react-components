@@ -9,8 +9,6 @@ import { AllowedExcelTypes, Sheet } from '../../components/toolbar/types';
  * //TODO: Function will not be needed if ColumnTypes are equal to AllowedExcelTypes
  * @param value A value from each column (not the header)
  * @returns Either the same JavaScript type as the parameter, or a corresponding Excel service type
- * @todo The excel service accepts datetime and url types. Able to convert JS number/string to datetime/url?
- * @todo use dataType from react-table
  */
 export const excelTypeConverter = (value: ColumnType | undefined): AllowedExcelTypes => {
   switch (value) {
