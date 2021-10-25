@@ -5,4 +5,3 @@ export type CheckboxOption = FilterOption & {
   count: number;
   totalCount: number;
 };
-export type CheckboxOptionValue = { selected?: boolean };

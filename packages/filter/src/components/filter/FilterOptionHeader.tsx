@@ -1,7 +1,7 @@
-import { useObservableState } from '@equinor/fusion-react-observable';
+import { useObservableState, useSelector } from '@equinor/fusion-react-observable';
 import { Icon } from '@equinor/fusion-react-icon';
 import { HTMLTextInputCustomElement, TextInput } from '@equinor/fusion-react-textinput';
-import { useFilterOptionContext, useFilterOptionSearch } from '../../../options';
+import { useFilterOptionContext, useFilterOptionSearch } from '../../options';
 
 type FilterHeaderProps = {
   title: string;
@@ -58,7 +58,7 @@ export const FilterOptionHeader = (props: FilterHeaderProps): JSX.Element => {
   const searchRef = useRef<HTMLTextInputCustomElement>(null);
   const { options$, selection$ } = useFilterOptionContext();
   const optionCount = Object.keys(useObservableState(options$) || {}).length;
-  const selectedCount = Object.keys(useObservableState(selection$) || {}).length;
+  const selectedCount = useObservableState(useSelector(selection$, (x) => x && x.size));
   const styles = useStyles();
   const onIconClick = () => {
     if (showSearch) {

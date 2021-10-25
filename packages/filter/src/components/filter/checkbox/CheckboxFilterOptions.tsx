@@ -16,14 +16,14 @@ export const CheckboxFilterOptions = (): JSX.Element => {
 
   const onOptionChange = useCallback(
     (item: { name: string; selected?: boolean }) => {
+      const selection = new Set(selectionRef.current || []);
       const { name, selected } = item;
-      const selection = { ...(selectionRef.current || {}) };
       if (selected) {
-        selection[name] = {};
+        selection.add(name);
       } else {
-        delete selection[name];
+        selection.delete(name);
       }
-      context.setSelection(selection);
+      context.setSelection(selection.size ? selection : undefined);
     },
     [context, selectionRef]
   );

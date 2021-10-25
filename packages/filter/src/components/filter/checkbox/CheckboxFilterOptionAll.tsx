@@ -1,6 +1,6 @@
-import { useCallback, useRef } from 'react';
+import { useCallback } from 'react';
 
-import { useObservableState } from '@equinor/fusion-react-observable';
+import { useObservableRef, useObservableState, useSelector } from '@equinor/fusion-react-observable';
 
 import { useCheckboxFilterOptionContext } from './context';
 import CheckboxFilterOption from './CheckboxFilterOption';
@@ -8,11 +8,9 @@ import CheckboxFilterOption from './CheckboxFilterOption';
 export const CheckboxFilterOptionAll = (): JSX.Element => {
   const { options$, selection$, setSelection } = useCheckboxFilterOptionContext();
   const options = useObservableState(options$) || {};
+  const optionKeysRef = useObservableRef(useSelector(options$, (x) => Object.keys(x)));
 
-  const optionKeysRef = useRef<string[]>([]);
-  optionKeysRef.current = Object.keys(options);
-
-  const selectedKeys = Object.keys(useObservableState(selection$) || {});
+  const selectedKeys = useObservableState(selection$) || new Set([]);
 
   const { totalCount } = Object.values(options || {}).reduce(
     (acc, value) => {
@@ -23,11 +21,11 @@ export const CheckboxFilterOptionAll = (): JSX.Element => {
     { count: 0, totalCount: 0 }
   );
 
-  const checked = selectedKeys.length === optionKeysRef.current.length;
-  const indeterminate = Boolean(selectedKeys.length && !checked);
+  const checked = selectedKeys.size === optionKeysRef.current?.length;
+  const indeterminate = Boolean(selectedKeys.size && !checked);
   const onOptionChange = useCallback(
     ({ selected }: { name: string; selected?: boolean }) => {
-      setSelection(selected ? optionKeysRef.current.reduce((acc, key) => Object.assign(acc, { [key]: {} }), {}) : {});
+      setSelection(selected ? new Set(optionKeysRef.current) : new Set([]));
     },
     [setSelection, optionKeysRef]
   );

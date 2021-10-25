@@ -4,34 +4,32 @@ import { FilterOptionProvider } from '../../../options/FilterOptionProvider';
 import { propertySelector } from '../../../options/create-options';
 import { FilterOptionBuilder, FilterOptionSelector } from '../../../options/types';
 
-import { CheckboxOption, CheckboxOptionValue } from './types';
+import { CheckboxOption } from './types';
 
 const createFilterFn =
-  <TData extends Record<string, unknown>>(selector: FilterOptionSelector<TData>) =>
-  (data: TData[], selection: Record<string, unknown>) => {
-    const selected = Object.keys(selection || {});
-    return selected.length ? data.filter((x) => selected.includes(selector(x).key)) : data;
+  <TData extends Record<string, unknown>, TValue = string>(selector: FilterOptionSelector<TData>) =>
+  (data: TData[], selection: Set<TValue>) => {
+    return selection.size ? data.filter((x) => selection.has(selector(x).key as unknown as TValue)) : data;
   };
 
 export type CheckboxFilterProviderProps<
   TData extends Record<string, any>,
-  TOptions extends CheckboxOption = CheckboxOption,
-  TValue extends CheckboxOptionValue = CheckboxOptionValue
+  TOption extends CheckboxOption = CheckboxOption
 > = {
   filterKey: string;
   title?: string;
-  optionBuilder?: FilterOptionBuilder<TData, Record<string, TOptions>, TValue>;
+  optionBuilder?: FilterOptionBuilder<TData, TOption, string>;
   selector?: Extract<keyof TData, string> | string | FilterOptionSelector<TData>;
+  initial?: Set<string>;
 };
 
 export const CheckboxFilterProvider = <
   TData extends Record<string, any>,
-  TOptions extends CheckboxOption = CheckboxOption,
-  TValue extends CheckboxOptionValue = CheckboxOptionValue
+  TOptions extends CheckboxOption = CheckboxOption
 >(
-  props: React.PropsWithChildren<CheckboxFilterProviderProps<TData, TOptions, TValue>>
+  props: React.PropsWithChildren<CheckboxFilterProviderProps<TData, TOptions>>
 ): JSX.Element => {
-  const { filterKey, selector = filterKey, optionBuilder, title, children } = props;
+  const { filterKey, selector = filterKey, optionBuilder, title, initial, children } = props;
   const selectorFn = useMemo(
     () =>
       typeof selector === 'function'
@@ -44,7 +42,7 @@ export const CheckboxFilterProvider = <
     <FilterOptionProvider
       selector={selectorFn}
       optionBuilder={optionBuilder}
-      filter={{ key: filterKey, title, filterFn }}
+      filter={{ key: filterKey, title, initial, filterFn }}
     >
       {children}
     </FilterOptionProvider>
