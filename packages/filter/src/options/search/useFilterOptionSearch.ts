@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { combineLatest, Observable, of, Subject } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { switchMap, map } from 'rxjs/operators';
 import { actions } from '../actions';
 
 import { useFilterOptionContext } from '../context';
@@ -36,9 +36,10 @@ export const useFilterOptionSearch = <TOption extends FilterOption>(
       .pipe(
         switchMap(([options, query]) => {
           return of(search(options, query));
-        })
+        }),
+        map((x) => actions.set(x))
       )
-      .subscribe((x) => options$.dispatch(actions.set(x)));
+      .subscribe(options$);
     return () => sub.unsubscribe();
   }, [options$, query$, search]);
 
