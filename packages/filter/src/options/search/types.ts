@@ -1,4 +1,4 @@
-import { FilterOption } from '../types';
+import type { FilterOption } from '../types';
 
 export type FilterOptionSearchFn<TOptions extends Record<string, FilterOption>> = (
   options: TOptions,

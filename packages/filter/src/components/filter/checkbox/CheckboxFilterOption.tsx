@@ -4,7 +4,7 @@ import { CheckboxBase as Checkbox, HTMLCheckboxCustomElement } from '@equinor/fu
 
 import { clsx } from '@equinor/fusion-react-styles';
 import { useStyles } from './CheckboxFilterOption.style';
-import { CheckboxOption } from './types';
+import type { CheckboxOption } from './types';
 
 export type CheckboxFilterOptionProps = JSX.IntrinsicElements['div'] &
   Omit<CheckboxOption, 'totalCount'> & {

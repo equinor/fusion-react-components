@@ -3,7 +3,7 @@
 import { createReducer, ActionType } from 'typesafe-actions';
 
 import { actions } from './actions';
-import { Filter } from './types';
+import type { Filter } from './types';
 
 export const createFilterReducer = <T extends Record<string, Filter>>(initial: T) =>
   createReducer<T, ActionType<typeof actions.filter>>(initial)

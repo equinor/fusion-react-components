@@ -4,7 +4,7 @@ import { useForwardRef } from '@equinor/fusion-react-utils';
 import { useSubscription } from '@equinor/fusion-react-observable';
 import { Button, ButtonProps, HTMLButtonCustomElement } from '@equinor/fusion-react-button';
 
-import { useClearFilter } from '../../hooks';
+import { useClearFilter } from '../../hooks/useClearFilter';
 
 export type ClearFilterButtonProps = Omit<ButtonProps, 'onClick'>;
 

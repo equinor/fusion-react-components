@@ -1,5 +1,5 @@
 import { createAction, ActionType } from 'typesafe-actions';
-import { FilterOption } from './types';
+import type { FilterOption } from './types';
 
 export const actions = {
   set: createAction('@FILTER_OPTIONS/SELECTION_SET')<Record<string, FilterOption>>(),

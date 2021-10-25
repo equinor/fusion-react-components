@@ -2,7 +2,8 @@ import { useCallback, useLayoutEffect } from 'react';
 
 import { actions } from '../actions';
 import { useFilterContext } from '../context';
-import { Filter } from '../types';
+
+import type { Filter } from '../types';
 
 /**
  * Hook for attaching a filter to the current context

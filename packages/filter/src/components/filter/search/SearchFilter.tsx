@@ -1,9 +1,12 @@
-import { useCallback, useMemo, useRef, useState } from 'react';
-import { HTMLTextInputCustomElement, TextInput, TextInputProps } from '@equinor/fusion-react-textinput';
+import { useCallback, useMemo, useRef } from 'react';
+
 import { useSubscription } from '@equinor/fusion-react-observable';
 
+import { HTMLTextInputCustomElement, TextInput, TextInputProps } from '@equinor/fusion-react-textinput';
+
 import { useFilter, useFilterSelection } from '../../../hooks';
-import { Filter, FilterFn } from '../../../types';
+
+import type { Filter, FilterFn } from '../../../types';
 
 const defaultMatcher = <TData,>(data: TData[], query: string): TData[] => {
   /** early escape, no filter */

@@ -12,14 +12,6 @@
     "equinor"
   ],
   "license": "ISC",
-  "main": "dist/index.js",
-  "module": "dist/index.js",
-  "directories": {
-    "dist": "dist"
-  },
-  "files": [
-    "dist", "components", "options"
-  ],
   "private": false,
   "publishConfig": {
     "access": "public"
@@ -28,6 +20,15 @@
     "type": "git",
     "url": "git+https://github.com/equinor/fusion-react-components.git"
   },
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "directories": {
+    "dist": "dist"
+  },
+  "files": [
+    "dist", "components", "options"
+  ],
+ 
   "scripts": {
     "build": "tsc -b",
     "watch": "tsc -w",

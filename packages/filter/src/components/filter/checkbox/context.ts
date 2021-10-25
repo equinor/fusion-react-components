@@ -1,5 +1,5 @@
 import { useFilterOptionContext, FilterOptionContext } from '../../../options';
-import { CheckboxOption } from './types';
+import type { CheckboxOption } from './types';
 
 export const useCheckboxFilterOptionContext = <
   TOption extends CheckboxOption = CheckboxOption,

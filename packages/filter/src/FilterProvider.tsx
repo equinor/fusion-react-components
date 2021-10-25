@@ -7,9 +7,10 @@ import { useObservable, useSubscription } from '@equinor/fusion-react-observable
 import { createSelectionReducer, createDataReducer, createFilterReducer } from './reducers';
 
 import { Provider } from './context';
-import { Filter, FilterContext } from './types';
 import { actions } from './actions';
+// TODO
 import { filterData } from './hooks/useFilterData';
+import type { Filter, FilterContext } from './types';
 
 export type FilterProviderProps<TSelections extends Record<string, unknown>, TData> = {
   data: TData[];

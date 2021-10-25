@@ -4,7 +4,7 @@ import { combineLatest, from, Observable } from 'rxjs';
 import { distinctUntilChanged, map, switchMap, reduce } from 'rxjs/operators';
 import { useFilterContext } from '.';
 
-import { Filter } from '../types';
+import type { Filter } from '../types';
 
 type useFilterDataArgs = {
   /** array of filter keys of filters that will not be included in the data filtration */

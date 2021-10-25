@@ -1,13 +1,13 @@
-import { FilterOptionSelector } from '../../../options/types';
+import { FilterOptionSelector } from '../../../options';
+
+import type { FilterComponent } from '../types';
+import { FilterOptionHeader } from '../FilterOptionHeader';
 
 import { CheckboxFilterProvider } from './CheckboxFilterProvider';
 import CheckboxFilterOptions from './CheckboxFilterOptions';
 import CheckboxFilterOptionAll from './CheckboxFilterOptionAll';
 
-import { FilterOptionHeader } from '../FilterOptionHeader';
-
 import useStyles from './CheckboxFilter.style';
-import { FilterComponent } from '../types';
 
 export type CheckboxFilterProps<TData extends Record<string, any> = Record<string, any>> = FilterComponent & {
   /** either name of property of data type or a function that selects value */

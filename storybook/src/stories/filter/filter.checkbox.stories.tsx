@@ -4,9 +4,8 @@ import { useMemo } from 'react';
 
 import { useObservableState } from '@equinor/fusion-react-observable';
 
-import { FilterProvider, useFilterContext, useFunky } from '@equinor/fusion-react-filter/src';
-import { CheckboxFilter } from '@equinor/fusion-react-filter/src/components/filter';
-import { FilterPanel, FilterPanelBar } from '@equinor/fusion-react-filter/src/components/panel';
+import { FilterProvider, useFilterContext, useSelectionItems } from '@equinor/fusion-react-filter';
+import { CheckboxFilter, FilterPanel } from '@equinor/fusion-react-filter/components';
 
 import { generateData, DataType } from './generate-data';
 
@@ -47,7 +46,7 @@ const SelectionLogger = () => {
 
 const FilterLogger = () => {
   const { filter$ } = useFilterContext<never, Record<string, DataType>>();
-  const funky$ = useFunky();
+  const funky$ = useSelectionItems();
 
   const filter = useObservableState(filter$);
   const data = useObservableState(funky$);
@@ -60,7 +59,7 @@ const FilterLogger = () => {
 };
 
 export const Checkbox = () => {
-  const data = useMemo(() => generateData(1000, 10), []);
+  const data = useMemo(() => generateData(100, 10), []);
   return (
     <FilterProvider data={data} initialSelection={{ lastName: new Set([data[0].lastName, data[1].lastName]) }}>
       <FilterPanel showBar showSelector showFilters>
@@ -73,7 +72,7 @@ export const Checkbox = () => {
       <DataLogger />
       <hr />
       <FilterLogger />
-      <SelectionLogger />
+      {/* <SelectionLogger /> */}
     </FilterProvider>
   );
 };

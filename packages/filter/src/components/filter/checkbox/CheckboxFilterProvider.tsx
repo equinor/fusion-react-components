@@ -4,7 +4,7 @@ import { FilterOptionProvider } from '../../../options/FilterOptionProvider';
 import { propertySelector } from '../../../options/create-options';
 import { FilterOptionBuilder, FilterOptionSelector } from '../../../options/types';
 
-import { CheckboxOption } from './types';
+import type { CheckboxOption } from './types';
 
 const createFilterFn =
   <TData extends Record<string, unknown>, TValue = string>(selector: FilterOptionSelector<TData>) =>

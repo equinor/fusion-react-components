@@ -3,11 +3,6 @@
   "compilerOptions": {
     "outDir": "dist",
     "rootDir": "src",
-    "paths": {
-      "@equinor/fusion-react-filter":["src/*"],
-      "@equinor/fusion-react-filter/options":["src/options/*"],
-      "@equinor/fusion-react-filter/components":["src/components/*"]
-    }
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
   "exclude": ["node_modules"],

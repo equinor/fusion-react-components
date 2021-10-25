@@ -1,6 +1,6 @@
 import { createContext, useContext } from 'react';
 
-import { FilterOption, FilterOptionContext } from './types';
+import type { FilterOption, FilterOptionContext } from './types';
 
 // @ts-ignore
 const context = createContext<FilterOptionContext>({});

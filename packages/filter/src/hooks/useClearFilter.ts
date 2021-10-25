@@ -9,7 +9,8 @@ import { useObservableEffect } from '@equinor/fusion-react-observable';
 
 import { useFilterContext } from '../context';
 import { actions } from '../actions';
-import { Filter } from '../types';
+
+import type { Filter } from '../types';
 
 export const selectionChanges = <TSelection = any>(
   filter$: Observable<Record<string, Filter>>,
@@ -27,7 +28,7 @@ export const selectionChanges = <TSelection = any>(
   );
 };
 
-export const useClearFilter = () => {
+export const useClearFilter = (): { clear: VoidFunction; changed$: Observable<Record<string, any>> } => {
   const { selection$, filter$ } = useFilterContext();
   const clear = useCallback(() => {
     selection$.next(actions.selection.clear());

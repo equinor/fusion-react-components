@@ -5,15 +5,15 @@ import { switchMap, map } from 'rxjs/operators';
 
 import { useObservable } from '@equinor/fusion-react-observable';
 
-import { useFilter, useFilterContext, Filter } from '..';
+import { useFilterData, useFilterSelection, useFilter, useFilterContext } from '../hooks';
+import type { Filter } from '../types';
 
 import { Provider } from './context';
 import { actions } from './actions';
 import { createOptionReducer } from './reducer';
-import { FilterOption, FilterOptionBuilder, FilterOptionSelector } from './types';
-
 import { createOptionBuilder, propertySelector } from './create-options';
-import { useFilterData, useFilterSelection } from '../hooks';
+
+import type { FilterOption, FilterOptionBuilder, FilterOptionSelector } from './types';
 
 const optionReducer = createOptionReducer({} as Record<string, FilterOption>);
 

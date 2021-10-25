@@ -1,1 +1,1 @@
-export { CheckboxFilter, default } from './CheckboxFilter';
+export { CheckboxFilter, CheckboxFilterProps, default } from './CheckboxFilter';

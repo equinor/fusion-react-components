@@ -1,4 +1,4 @@
-import { FilterOption, FilterOptionBuilder, FilterOptionSelector } from './types';
+import type { FilterOption, FilterOptionBuilder, FilterOptionSelector } from './types';
 
 export const propertySelector = <TData extends Record<string, any>>(
   key: Extract<keyof TData, string>

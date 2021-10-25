@@ -4,12 +4,11 @@ import { switchMap, map } from 'rxjs/operators';
 import { actions } from '../actions';
 
 import { useFilterOptionContext } from '../context';
-
-import { FilterOption } from '../types';
+import type { FilterOption } from '../types';
 
 import filterOptionMatchFn from './filter-option-match';
 import filterOptionSearchFn from './filter-option-search';
-import { FilterOptionMatchFn, FilterOptionSearchFn } from './types';
+import type { FilterOptionMatchFn, FilterOptionSearchFn } from './types';
 
 export const useFilterOptionSearch = <TOption extends FilterOption>(
   searchFn?: FilterOptionSearchFn<Record<string, FilterOption>>,

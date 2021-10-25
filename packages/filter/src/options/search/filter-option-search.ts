@@ -1,5 +1,5 @@
-import { FilterOption } from '../types';
-import { FilterOptionMatchFn } from './types';
+import type { FilterOption } from '../types';
+import type { FilterOptionMatchFn } from './types';
 
 export const filterOptionSearch =
   <TOption extends FilterOption>(matcher: FilterOptionMatchFn<TOption>) =>
