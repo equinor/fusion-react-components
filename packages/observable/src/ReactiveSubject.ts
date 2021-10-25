@@ -30,7 +30,7 @@ export class ReactiveSubject<S, A extends Action = Action> extends Observable<S>
       .subscribe(this.__state$);
   }
 
-  dispatch(action: A): void {
+  next(action: A): void {
     if (!this.__action$.closed) {
       this.__action$.next(action);
     }
