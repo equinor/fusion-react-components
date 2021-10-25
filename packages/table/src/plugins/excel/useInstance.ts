@@ -83,7 +83,7 @@ export const useInstance = <TData extends TableData = TableData>(instance: Table
     } finally {
       //TODO: handle this?
     }
-  }, [dispatch, instance]);
+  }, [dispatch, instance, exportFn]);
 
   //TODO: instance.excel
   Object.assign(instance, {
