@@ -2,7 +2,7 @@ import { tag, ButtonElement } from '@equinor/fusion-wc-button';
 
 import { createComponent } from '@equinor/fusion-react-utils';
 
-export type ButtonProps = React.PropsWithChildren<
+type ButtonElementProps = React.PropsWithChildren<
   Partial<
     Pick<
       ButtonElement,
@@ -11,6 +11,7 @@ export type ButtonProps = React.PropsWithChildren<
   >
 >;
 
-export const Button = createComponent<ButtonElement, ButtonProps>(ButtonElement, tag);
+export const Button = createComponent<ButtonElement, ButtonElementProps>(ButtonElement, tag);
+export type ButtonProps = React.ComponentProps<typeof Button>;
 
 export default Button;
