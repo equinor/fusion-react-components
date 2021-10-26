@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
 
-import { combineLatest, from, Observable } from 'rxjs';
+import { combineLatest, from } from 'rxjs';
+import type { Observable } from 'rxjs';
 import { distinctUntilChanged, map, switchMap, reduce } from 'rxjs/operators';
 import { useFilterContext } from '.';
 

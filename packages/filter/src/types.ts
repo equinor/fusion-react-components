@@ -1,4 +1,4 @@
-import { Observable, ReactiveSubject } from '@equinor/fusion-react-observable';
+import type { Observable, ReactiveSubject } from '@equinor/fusion-react-observable';
 
 export type FilterData<TValue = unknown> = Record<string, TValue>;
 

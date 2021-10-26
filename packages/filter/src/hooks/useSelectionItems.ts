@@ -1,26 +1,33 @@
 import { useState } from 'react';
 import { combineLatest, of } from 'rxjs';
+import type { Observable } from 'rxjs';
 import { distinctUntilChanged, switchMap } from 'rxjs/operators';
 import { useFilterContext } from '.';
 
-export const useSelectionItems = () => {
+export type SelectionItem = {
+  key: string;
+  title?: string;
+  selection: Record<string, any>[];
+};
+
+export const useSelectionItems = (): Observable<SelectionItem[]> => {
   const context = useFilterContext();
-  const [gg] = useState(() =>
+  const [item$] = useState(() =>
     combineLatest([context.filter$, context.selection$]).pipe(
       distinctUntilChanged(),
       switchMap(([filters, selections]) => {
-        const gg = Object.values(filters)
+        const items = Object.values(filters)
           .map((filter) => {
             const { title, key } = filter;
             const selection = selections[key] || [];
-            return { key, title, selection: [...selection] };
+            return { key, title, selection: [...selection] as Record<string, any>[] };
           })
           .filter((x) => !!x.title && !!x.selection);
-        return of(gg);
+        return of(items);
       })
     )
   );
-  return gg;
+  return item$;
 };
 
 export default useSelectionItems;

@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { combineLatest, Observable, of, Subject } from 'rxjs';
+import { combineLatest, of, Subject } from 'rxjs';
+import type { Observable } from 'rxjs';
 import { switchMap, map } from 'rxjs/operators';
 import { actions } from '../actions';
 

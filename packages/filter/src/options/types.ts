@@ -1,4 +1,4 @@
-import { Observable, ReactiveSubject } from '@equinor/fusion-react-observable';
+import type { Observable, ReactiveSubject } from '@equinor/fusion-react-observable';
 import { Actions } from './actions';
 
 export type FilterOption = {

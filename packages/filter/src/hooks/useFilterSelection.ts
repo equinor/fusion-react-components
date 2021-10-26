@@ -1,4 +1,5 @@
-import { useSelector, Observable } from '@equinor/fusion-react-observable';
+import { useSelector } from '@equinor/fusion-react-observable';
+import type { Observable } from '@equinor/fusion-react-observable';
 
 import { useFilterContext } from '../context';
 

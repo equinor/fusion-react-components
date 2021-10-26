@@ -1,7 +1,8 @@
 import { useCallback, useMemo } from 'react';
 
-import { withLatestFrom, filter, combineLatest, Observable } from 'rxjs';
-import { map, distinctUntilChanged } from 'rxjs/operators';
+import { combineLatest } from 'rxjs';
+import type { Observable } from 'rxjs';
+import { map, distinctUntilChanged, filter, withLatestFrom } from 'rxjs/operators';
 
 import { isActionOf } from 'typesafe-actions';
 
