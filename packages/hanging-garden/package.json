@@ -43,11 +43,11 @@
     "pixi.js-legacy": "^5.3.7"
   },
   "devDependencies": {
-    "@equinor/fusion": "^3.3.0",
+    "@equinor/fusion": "^3.3.1",
     "@types/node": "^16.9.1"
   },
   "peerDependencies": {
-    "@equinor/fusion": "3.3.x",
+    "@equinor/fusion": "^3.3.1",
     "@equinor/fusion-react-styles": "0.3.1",
     "@types/history": "4.x",
     "date-fns": "2.x",
