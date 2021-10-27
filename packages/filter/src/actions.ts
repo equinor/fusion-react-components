@@ -12,6 +12,7 @@ export const selection = {
   set: createAction('@FILTER/SELECTION_SET')<SelectionValues>(),
   initial: createAction('@FILTER/SELECTION_INITIAL')<SelectionValues>(),
   clear: createAction('@FILTER/SELECTION_CLEAR')<void>(),
+  remove: createAction('@FILTER/SELECTION_REMOVE')<string | string[]>(),
 };
 
 export const source = {

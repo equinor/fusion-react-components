@@ -15,15 +15,21 @@ export const createFilterReducer = <T extends Record<string, Filter>>(initial: T
 
 export const createSelectionReducer = <TSelections extends Record<string, unknown>>(initial: TSelections) =>
   createReducer<TSelections, ActionType<typeof actions.selection>>(initial)
-    .handleAction(actions.selection.set, (state, action) => ({
+    .handleAction(actions.selection.set, (state, { payload }) => ({
       ...state,
-      ...(action.payload as TSelections),
+      ...(payload as TSelections),
     }))
-    .handleAction(actions.selection.initial, (state, action) => {
+    .handleAction(actions.selection.initial, (state, { payload }) => {
       return {
         ...state,
-        ...(action.payload as TSelections),
+        ...(payload as TSelections),
       };
+    })
+    .handleAction(actions.selection.remove, (state, { payload }) => {
+      const keys = Array.isArray(payload) ? payload : [payload];
+      return Object.entries(state).reduce((acc, [key, value]) => {
+        return keys.includes(key) ? acc : Object.assign(acc, { [key]: value });
+      }, {}) as TSelections;
     })
     .handleAction(actions.selection.clear, () => initial);
 

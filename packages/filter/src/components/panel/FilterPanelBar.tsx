@@ -1,5 +1,5 @@
 import Button from '@equinor/fusion-react-button';
-import { createStyles, makeStyles } from '@equinor/fusion-react-styles';
+import { clsx, createStyles, makeStyles } from '@equinor/fusion-react-styles';
 import { SearchFilter } from '../filter';
 import { ClearFilterButton } from '../misc';
 import { useFilterPanelContext } from './FilterPanelProvider';
@@ -27,11 +27,14 @@ const useStyles = makeStyles(
   { name: 'fusion-filter-panel-bar' }
 );
 
-export const FilterPanelBar = (): JSX.Element => {
+type FilterPanelBarProps = JSX.IntrinsicElements['div'];
+
+export const FilterPanelBar = (props: FilterPanelBarProps): JSX.Element => {
+  const { className, ...args } = props;
   const { showFilters, setShowFilters } = useFilterPanelContext();
   const styles = useStyles();
   return (
-    <div className={styles.root}>
+    <div {...args} className={clsx(className, styles.root)}>
       <SearchFilter filterKey="global" label="Search all" dense />
       <div className={styles.actions}>
         <ClearFilterButton className={styles.resetBtn} label="Reset Filters" icon="refresh" variant="ghost" />
