@@ -1,10 +1,29 @@
-import * as ReactModule from 'react';
-import { createComponent } from '@lit-labs/react';
-import HTMLChipCustomElement, { tag } from '@equinor/fusion-wc-chip';
+import type { PropsWithChildren, PointerEventHandler, ComponentProps } from 'react';
+
+import { createComponent } from '@equinor/fusion-react-utils';
+import { ChipElement as HTMLChipCustomElement, tag } from '@equinor/fusion-wc-chip';
 
 export { HTMLChipCustomElement };
 
-export const Chip = createComponent(ReactModule, tag, HTMLChipCustomElement);
-export type ChipProps = React.ComponentProps<typeof Chip>;
+type ElementAttributes = Partial<
+  Pick<
+    HTMLChipCustomElement,
+    'active' | 'clickable' | 'disabled' | 'icon' | 'removable' | 'size' | 'tooltip' | 'value' | 'variant'
+  >
+>;
+
+type ElementEvents = {
+  onRemove?: PointerEventHandler;
+};
+
+type ElementProps = PropsWithChildren<ElementAttributes & ElementEvents>;
+
+export const Chip = createComponent<HTMLChipCustomElement, ElementProps>(HTMLChipCustomElement, tag, {
+  events: {
+    onRemove: 'remove',
+  },
+});
+
+export type ChipProps = ComponentProps<typeof Chip>;
 
 export default Chip;
