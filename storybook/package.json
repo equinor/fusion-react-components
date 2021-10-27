@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-components-stories",
-  "version": "1.25.0",
+  "version": "1.25.1",
   "description": "",
   "private": true,
   "scripts": {
@@ -16,7 +16,7 @@
     "@equinor/fusion-react-badge": "^0.2.5",
     "@equinor/fusion-react-button": "^0.5.1",
     "@equinor/fusion-react-checkbox": "^0.4.0",
-    "@equinor/fusion-react-chip": "^0.2.0",
+    "@equinor/fusion-react-chip": "^0.3.0",
     "@equinor/fusion-react-date": "^0.3.8",
     "@equinor/fusion-react-datepicker": "^0.9.9",
     "@equinor/fusion-react-hanging-garden": "^1.6.10",
