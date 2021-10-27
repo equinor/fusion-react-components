@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-components-stories",
-  "version": "1.25.1",
+  "version": "1.25.2",
   "description": "",
   "private": true,
   "scripts": {
@@ -19,10 +19,10 @@
     "@equinor/fusion-react-chip": "^0.3.0",
     "@equinor/fusion-react-date": "^0.3.8",
     "@equinor/fusion-react-datepicker": "^0.9.9",
-    "@equinor/fusion-react-hanging-garden": "^1.6.10",
+    "@equinor/fusion-react-hanging-garden": "^1.6.11",
     "@equinor/fusion-react-icon": "^0.1.6",
     "@equinor/fusion-react-radio": "^0.4.0",
-    "@equinor/fusion-react-skeleton": "^0.1.0",
+    "@equinor/fusion-react-skeleton": "^0.1.1",
     "@equinor/fusion-react-styles": "^0.3.5",
     "@equinor/fusion-react-switch": "^0.3.7",
     "@equinor/fusion-react-table": "^0.4.4",
