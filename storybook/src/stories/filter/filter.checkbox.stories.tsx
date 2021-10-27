@@ -35,43 +35,20 @@ const DataLogger = () => {
   );
 };
 
-const SelectionLogger = () => {
-  const { selection$ } = useFilterContext<never, Record<string, DataType>>();
-  const data = Object.entries(useObservableState(selection$) || {}).reduce((acc, [key, value]) => {
-    acc[key] = [...(value || [])];
-    return acc;
-  }, {});
-  return <pre>{JSON.stringify(data || {}, null, 2)}</pre>;
-};
-
-const FilterLogger = () => {
-  const { filter$ } = useFilterContext<never, Record<string, DataType>>();
-  const funky$ = useSelectionItems();
-
-  const filter = useObservableState(filter$);
-  const data = useObservableState(funky$);
-  return (
-    <>
-      <pre>{JSON.stringify(filter || {}, null, 2)}</pre>
-      <pre>{JSON.stringify(data || {}, null, 2)}</pre>
-    </>
-  );
-};
-
 export const Checkbox = () => {
   const data = useMemo(() => generateData(100, 10), []);
   return (
     <FilterProvider data={data} initialSelection={{ lastName: new Set([data[0].lastName, data[1].lastName]) }}>
-      <FilterPanel showBar showSelector showFilters>
+      <FilterPanel showBar>
         <CheckboxFilter title="First name" filterKey="firstName" initial={new Set([data[0].firstName])} />
         <CheckboxFilter title="Last name" filterKey="lastName" />
         <CheckboxFilter title="Company" filterKey="company" />
       </FilterPanel>
       {/* </div> */}
       <hr />
+      {/* <DataLogger /> */}
+      {/* <hr /> */}
       <DataLogger />
-      <hr />
-      <FilterLogger />
       {/* <SelectionLogger /> */}
     </FilterProvider>
   );
