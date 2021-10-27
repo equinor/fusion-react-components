@@ -1,0 +1,58 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import Skeleton from '@equinor/fusion-react-skeleton';
+
+export const Container = ({ title, children }) => (
+  <section>
+    <h4>{title}</h4>
+    <div style={{ display: 'flex', gap: '10px' }}>{children}</div>
+  </section>
+);
+
+export const SkeletonTemplate = (props) => (
+  <div>
+    <Container title="Sizes">
+      <Skeleton size="x-small" {...props} />
+      <Skeleton size="small" {...props} />
+      <Skeleton size="medium" {...props} />
+      <Skeleton size="large" {...props} />
+    </Container>
+    <Container title="Icon">
+      <Skeleton icon {...props} />
+    </Container>
+    <Container title="Icon">
+      <Skeleton icon="image" {...props} />
+    </Container>
+    <Container title="Fluid">
+      <Skeleton fluid {...props} />
+    </Container>
+    <Container title="Inactive">
+      <Skeleton inactive {...props} />
+    </Container>
+  </div>
+);
+
+<Meta title="Snapshots/Skeleton" parameters={{ chromatic: { disableSnapshot: false } }} />
+
+## Rectangle
+
+<Story name="Rectangle" args={{ name: 'filled', variant: 'rectangle' }}>
+  {SkeletonTemplate.bind({})}
+</Story>
+
+## Circle
+
+<Story name="Circle" args={{ name: 'outlined', variant: 'circle' }}>
+  {SkeletonTemplate.bind({})}
+</Story>
+
+## Text
+
+<Story name="Text" args={{ name: 'Text', variant: 'text' }}>
+  {SkeletonTemplate.bind({})}
+</Story>
+
+## Square
+
+<Story name="Square" args={{ name: 'Text', variant: 'square' }}>
+  {SkeletonTemplate.bind({})}
+</Story>
