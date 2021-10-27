@@ -5,12 +5,12 @@ import { useFilterPanelContext } from './FilterPanelProvider';
 import { map } from 'rxjs/operators';
 import { FilterContainer } from '../misc';
 
-type FilterPanelFiltersProps = {
+type FilterPanelFiltersProps = JSX.IntrinsicElements['div'] & {
   FilterSelector?: () => JSX.Element;
 };
 
 export const FilterPanelFilters = (props: FilterPanelFiltersProps): JSX.Element => {
-  const { FilterSelector } = props;
+  const { FilterSelector, ...args } = props;
   const { filters$, showFilters } = useFilterPanelContext();
 
   const filters = useObservableState(
@@ -23,9 +23,9 @@ export const FilterPanelFilters = (props: FilterPanelFiltersProps): JSX.Element 
     )
   );
   return (
-    <div style={{ display: showFilters ? '' : 'none' }}>
+    <div {...args} style={{ display: showFilters ? '' : 'none' }}>
       {FilterSelector && <FilterSelector />}
-      <FilterContainer>{filters}</FilterContainer>;
+      <FilterContainer>{filters}</FilterContainer>
     </div>
   );
 };

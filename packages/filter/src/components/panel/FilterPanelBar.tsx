@@ -9,8 +9,12 @@ const useStyles = makeStyles(
     createStyles({
       root: {
         display: 'flex',
+        flexWrap: 'wrap',
         alignItems: 'center',
         gap: theme.spacing.comfortable.medium.getVariable('padding'),
+      },
+      searchInput: {
+        '--textinput-dense-size': '36px',
       },
       actions: {
         marginLeft: 'auto',
@@ -35,7 +39,7 @@ export const FilterPanelBar = (props: FilterPanelBarProps): JSX.Element => {
   const styles = useStyles();
   return (
     <div {...args} className={clsx(className, styles.root)}>
-      <SearchFilter filterKey="global" label="Search all" dense />
+      <SearchFilter filterKey="global" label="Search all" className={styles.searchInput} dense />
       <div className={styles.actions}>
         <ClearFilterButton className={styles.resetBtn} label="Reset Filters" icon="refresh" variant="ghost" />
         <Button
