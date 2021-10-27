@@ -4,8 +4,9 @@ import { useMemo } from 'react';
 
 import { useObservableState } from '@equinor/fusion-react-observable';
 
-import { FilterProvider, useFilterContext, useSelectionItems } from '@equinor/fusion-react-filter';
+import { FilterProvider, useFilterContext } from '@equinor/fusion-react-filter';
 import { CheckboxFilter, FilterPanel } from '@equinor/fusion-react-filter/components';
+import { makeStyles, createStyles } from '@equinor/fusion-react-styles';
 
 import { generateData, DataType } from './generate-data';
 
@@ -35,11 +36,20 @@ const DataLogger = () => {
   );
 };
 
+const useStyles = makeStyles(
+  createStyles({
+    filters: {
+      maxHeight: '150px',
+    },
+  })
+);
+
 export const Checkbox = () => {
-  const data = useMemo(() => generateData(100, 10), []);
+  const data = useMemo(() => generateData(100, 20), []);
+  const styles = useStyles();
   return (
     <FilterProvider data={data} initialSelection={{ lastName: new Set([data[0].lastName, data[1].lastName]) }}>
-      <FilterPanel showBar>
+      <FilterPanel showBar showFilters classes={{ filters: styles.filters }}>
         <CheckboxFilter title="First name" filterKey="firstName" initial={new Set([data[0].firstName])} />
         <CheckboxFilter title="Last name" filterKey="lastName" />
         <CheckboxFilter title="Company" filterKey="company" />
