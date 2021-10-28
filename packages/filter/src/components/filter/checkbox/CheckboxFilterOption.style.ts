@@ -33,6 +33,7 @@ export const useStyles = makeStyles(
       },
       counter: {
         ...theme.typography.input.label.style,
+        whiteSpace: 'nowrap',
         margin: `0 ${theme.spacing.comfortable.small.getVariable('padding')}`,
       },
       hide: {
