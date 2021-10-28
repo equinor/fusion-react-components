@@ -1,0 +1,48 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import Picture from '@equinor/fusion-react-picture';
+
+export const PictureWrapper = ({ circular, children }) => (
+  <div
+    style={{
+      width: '5rem',
+      height: '5rem',
+      margin: '0.5rem',
+      display: 'flex',
+    }}
+  >
+    {children}
+  </div>
+);
+
+export const Container = ({ title, children }) => (
+  <section>
+    <h4>{title}</h4>
+    <div style={{ display: 'flex', gap: '10px' }}>{children}</div>
+  </section>
+);
+
+export const PictureTemplate = (props) => (
+  <div>
+    <Container title="Contain">
+      <PictureWrapper>
+        <Picture {...props} />
+      </PictureWrapper>
+    </Container>
+    <Container title="Cover">
+      <PictureWrapper>
+        <Picture cover {...props} />
+      </PictureWrapper>
+    </Container>
+    <Container title="Alignment">
+      <PictureWrapper>
+        <Picture position="center" {...props} />
+      </PictureWrapper>
+    </Container>
+  </div>
+);
+
+<Meta title="Snapshots/Picture" parameters={{ chromatic: { disableSnapshot: false } }} />
+
+<Story name="Rectangular" args={{ src: 'https://i.imgur.com/eW6LMB6.jpeg' }}>
+  {PictureTemplate.bind({})}
+</Story>

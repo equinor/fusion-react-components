@@ -1,0 +1,26 @@
+import { Meta, Story, Canvas, ArgsTable, Description } from '@storybook/addon-docs';
+import ChangeLog from '../../components/ChangeLog';
+import { Picture } from '@equinor/fusion-react-picture/src';
+
+<Meta title="Data/Picture" />
+
+<Description markdown={require('@equinor/fusion-react-picture/README.md')} />
+
+<ArgsTable of={Picture} />
+
+## Component
+
+### Simple
+
+<Canvas withSource="open">
+  <Story id="examples-picture--simple" />
+</Canvas>
+
+## ChangeLog
+
+<ChangeLog
+  changelogs={{
+    react: require('@equinor/fusion-react-picture/CHANGELOG.md'),
+    webComponent: require('@equinor/fusion-wc-picture/CHANGELOG.md'),
+  }}
+/>
