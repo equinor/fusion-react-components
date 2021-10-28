@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.3.0 (2021-10-28)
+
+
+### Features
+
+* **avatar:** use internal element buider ([bd46edf](https://github.com/equinor/fusion-react-components/commit/bd46edfe7ab1116b91ab000c7542c9ae8c5b8f24))
+
+
+
+
+
 ## 0.2.4 (2021-09-30)
 
 **Note:** Version bump only for package @equinor/fusion-react-avatar
