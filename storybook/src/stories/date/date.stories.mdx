@@ -1,9 +1,11 @@
 import { Meta, Story, Canvas, ArgsTable,Description } from '@storybook/addon-docs';
-import ChangeLog from '../../components/ChangeLog';
+import { ChangeLog, PackageInfo, StoryExample } from '../../components';
 import DateRange from '@equinor/fusion-react-date/src/DateRange';
 import DateTime from '@equinor/fusion-react-date/src/DateTime';
 
 <Meta title="Data/Date" />
+
+<PackageInfo pkg={require('@equinor/fusion-react-date/package.json')} />
 
 <Description markdown={require('@equinor/fusion-react-date/README.md')} />
 
@@ -11,17 +13,13 @@ import DateTime from '@equinor/fusion-react-date/src/DateTime';
 
 <ArgsTable of={DateTime} />
 
-<Canvas withSource='open'>
-  <Story id="examples-datetime--component" />
-</Canvas>
+<StoryExample storyId="examples-datetime--component" showSource/>
 
 ## DateRange
 
 <ArgsTable of={DateRange} />
 
-<Canvas withSource='open'>
-  <Story id="examples-daterange--component" />
-</Canvas>
+<StoryExample storyId="examples-daterange--component" showSource/>
 
 ## Changelog
 
