@@ -73,7 +73,6 @@ export const FilterPanel = (props: React.PropsWithChildren<FilterPanelProps>): J
   const filters = (Children.toArray(children) as ReactElement<FilterComponent>[]).filter((x) => !!x.props.filterKey);
   const initialSelectedFilters = props.selectedFilters || filters.map((x) => x.props.filterKey);
   const styles = useStyles();
-  console.log(classes);
   return (
     <FilterPanelProvider {...{ filters, initialSelectedFilters, showFilters }}>
       <div {...args} className={clsx(styles.root, classes?.root, className)}>
