@@ -11,14 +11,25 @@ const useStyles = makeStyles(
   (theme) =>
     createStyles({
       root: {
+        '--filter-panel-spacing': theme.spacing.comfortable.medium.getVariable('padding'),
         display: 'flex',
         flexFlow: 'column',
-        gap: theme.spacing.comfortable.small.getVariable('padding'),
+        gap: 'var(--filter-panel-spacing)',
+        padding: 'var(--filter-panel-spacing)',
+        border: `1px solid ${theme.colors.interactive.disabled__border.getVariable('color')}`,
+        borderRadius: `0.5rem`,
+        '&>*': {
+          padding: '0 var(--filter-panel-spacing)',
+          margin: '0 calc(var(--filter-panel-spacing) * -1)',
+        },
       },
       filters: {
-        overflowX: 'scroll',
+        overflowX: 'auto',
         overflowY: 'hidden',
         display: 'flex',
+        paddingBottom: 'calc(var(--filter-panel-spacing))',
+        marginBottom: 'calc(var(--filter-panel-spacing) * -1)',
+        backgroundColor: theme.colors.ui.background__light.getVariable('color'),
       },
     }),
   { name: 'fusion-filter-panel' }
@@ -41,6 +52,9 @@ export type FilterPanelProps = JSX.IntrinsicElements['div'] & {
   /** display filters initial */
   showFilters?: boolean;
 
+  /** show selection when filters are collapsed */
+  showSelection?: boolean;
+
   /**
    * Initial selected filters
    * @default all - `filterKey` of all child components provided
@@ -55,7 +69,7 @@ export type FilterPanelProps = JSX.IntrinsicElements['div'] & {
  * Base component for displaying filter components and controllers
  */
 export const FilterPanel = (props: React.PropsWithChildren<FilterPanelProps>): JSX.Element => {
-  const { showFilters, className, classes, children, ...args } = props;
+  const { showFilters, className, classes, children, showSelection, ...args } = props;
   const filters = (Children.toArray(children) as ReactElement<FilterComponent>[]).filter((x) => !!x.props.filterKey);
   const initialSelectedFilters = props.selectedFilters || filters.map((x) => x.props.filterKey);
   const styles = useStyles();
@@ -69,7 +83,7 @@ export const FilterPanel = (props: React.PropsWithChildren<FilterPanelProps>): J
           className={clsx(styles.filters, classes?.filters)}
         />
         <FilterPanelConsumer>
-          {(context) => !context?.showFilters && <SelectionChips chips={{ variant: 'outlined' }} />}
+          {(context) => showSelection && !context?.showFilters && <SelectionChips chips={{ variant: 'outlined' }} />}
         </FilterPanelConsumer>
       </div>
     </FilterPanelProvider>
