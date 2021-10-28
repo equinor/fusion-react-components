@@ -1,8 +1,10 @@
 import { Meta, Story, Canvas, ArgsTable,Description } from '@storybook/addon-docs';
-import ChangeLog from '../../components/ChangeLog';
+import {ChangeLog, PackageInfo} from '../../components';
 import { Avatar } from '@equinor/fusion-react-avatar/src';
 
 <Meta title="Data/Avatar" />
+
+<PackageInfo pkg={require('@equinor/fusion-react-avatar/package.json')} />
 
 <Description markdown={require('@equinor/fusion-react-avatar/README.md')} />
 

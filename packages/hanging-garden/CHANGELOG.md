@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.6.11 (2021-10-27)
+
+
+### Bug Fixes
+
+* added skeleton component ([cf9770c](https://github.com/equinor/fusion-react-components/commit/cf9770ccf9916944cd307c9571577b09e1b41fe4))
+
+
+
+
+
 ## 1.6.10 (2021-10-21)
 
 
