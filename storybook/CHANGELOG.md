@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.27.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.26.0...@equinor/fusion-react-components-stories@1.27.0) (2021-10-28)
+
+
+### Features
+
+* **avatar:** use internal element buider ([bd46edf](https://github.com/equinor/fusion-react-components/commit/bd46edfe7ab1116b91ab000c7542c9ae8c5b8f24))
+* **badge:** use internal element buider ([0ae7675](https://github.com/equinor/fusion-react-components/commit/0ae7675846bdb815a235bcf4061ee0de12bb2d94))
+
+
+
+
+
 # [1.26.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.25.2...@equinor/fusion-react-components-stories@1.26.0) (2021-10-28)
 
 
