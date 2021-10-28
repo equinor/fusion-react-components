@@ -7,12 +7,12 @@ export const useStyles = makeStyles(
         display: 'flex',
         flexFlow: 'column',
         // TODO - remove
-        minWidth: 250,
+        minWidth: 150,
       },
       items: (props: { layout: 'column' | 'row' }) => ({
         display: 'flex',
         flexFlow: props.layout,
-        overflowY: 'scroll',
+        overflowY: 'auto',
       }),
 
       title: {
