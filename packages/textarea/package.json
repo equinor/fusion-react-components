@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-textarea",
-  "version": "0.5.2-filter.5",
+  "version": "0.5.2-filter.6",
   "description": "component for displaying text area",
   "keywords": [
     "text area",
@@ -34,7 +34,7 @@
     "url": "https://github.com/equinor/fusion-react-components/issues"
   },
   "dependencies": {
-    "@equinor/fusion-react-utils": "^1.2.2-filter.5",
+    "@equinor/fusion-react-utils": "^1.2.2-filter.6",
     "@equinor/fusion-wc-textarea": "^0.4.1",
     "@lit-labs/react": "^1.0.0"
   }
