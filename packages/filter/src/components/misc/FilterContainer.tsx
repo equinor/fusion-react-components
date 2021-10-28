@@ -5,8 +5,12 @@ const useStyles = makeStyles(
   (theme) =>
     createStyles({
       root: ({ spacing }: StyleProps) => ({
-        display: 'flex',
+        display: 'inline-flex',
+        flex: 'auto',
         gap: theme.spacing.comfortable[spacing || 'medium'].getVariable('padding'),
+        '&>*': {
+          flex: 1,
+        },
       }),
     }),
   { name: 'fusion-filter-container' }
