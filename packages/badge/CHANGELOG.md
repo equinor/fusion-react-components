@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.3.0 (2021-10-28)
+
+
+### Features
+
+* **badge:** use internal element buider ([0ae7675](https://github.com/equinor/fusion-react-components/commit/0ae7675846bdb815a235bcf4061ee0de12bb2d94))
+
+
+
+
+
 ## 0.2.5 (2021-10-13)
 
 **Note:** Version bump only for package @equinor/fusion-react-badge
