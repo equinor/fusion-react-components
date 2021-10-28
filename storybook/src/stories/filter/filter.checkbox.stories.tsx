@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/react';
+import { Meta, Story } from '@storybook/react';
 
 import { useMemo } from 'react';
 
@@ -36,32 +36,36 @@ const DataLogger = () => {
   );
 };
 
-const useStyles = makeStyles(
-  createStyles({
-    filters: {
-      maxHeight: '150px',
-    },
-  })
-);
+type StoryProps = {
+  rows: number;
+  unique: number;
+  filterHeight: number;
+};
 
-export const Checkbox = () => {
-  const data = useMemo(() => generateData(100, 20), []);
-  const styles = useStyles();
+export const Checkbox: Story<StoryProps> = ({ filterHeight, rows, unique }: StoryProps) => {
+  const data = generateData(rows, unique);
+  const styles = makeStyles(
+    createStyles({
+      filters: {
+        maxHeight: filterHeight,
+      },
+    })
+  )();
   return (
     <FilterProvider data={data} initialSelection={{ lastName: new Set([data[0].lastName, data[1].lastName]) }}>
       <FilterPanel showBar showFilters classes={{ filters: styles.filters }}>
         <CheckboxFilter title="First name" filterKey="firstName" initial={new Set([data[0].firstName])} />
         <CheckboxFilter title="Last name" filterKey="lastName" />
-        <CheckboxFilter title="Company" filterKey="company" />
+        <CheckboxFilter title="Company" filterKey="company" enableAll />
       </FilterPanel>
-      {/* </div> */}
-      <hr />
-      {/* <DataLogger /> */}
-      {/* <hr /> */}
-      <DataLogger />
-      {/* <SelectionLogger /> */}
     </FilterProvider>
   );
+};
+
+Checkbox.args = {
+  rows: 100,
+  unique: 20,
+  filterHeight: 200,
 };
 
 export default {
