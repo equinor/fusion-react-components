@@ -1,127 +1,46 @@
-import * as PIXI from 'pixi.js-legacy';
-import useTextureCaches from './renderHooks/useTextureCaches';
-import { HangingGardenColumnIndex, HangingGardenProps } from './models/HangingGarden';
-import { DEFAULT_ITEM_HEIGHT, DEFAULT_HEADER_HEIGHT } from './utils';
-import Garden from './Garden';
-import HangingGardenContext from './renderHooks/useHangingGardenContext';
-import { ExpandedColumns } from './models/ExpandedColumn';
-import useScrolling from './renderHooks/useScrolling';
-import usePixiApp from './renderHooks/usePixiApp';
-import usePopover from './renderHooks/usePopover';
-import { useState, useRef, useEffect } from 'react';
-
-import { makeStyles, createStyles } from '@equinor/fusion-react-styles';
+import { useEffect, useState } from 'react';
+import { VirtualGarden } from './VirtualGarden/VirtualGarden';
+import { Col, GardenProps } from './models/VirtualGarden';
+import { ExpandProvider } from './providers/ExpandProvider';
 
 /**
- * The Hanging Garden component renders you a Garden based on supplied parameters.
- *
- * @param columns The data to be used by the Garden, sorted into Columns.
- * @param highlightedColumnKey The Header key of the column that should be highlighted.
- * @param highlightedItem The item object of the Item that should be highlighted.
- * @param itemKeyProp An key in the item object that should be used as an identifier. preferably unique.
- * @param itemHeight The height of items in the garden. All items will be same height. Defaults to 24
- * @param itemWidth  The width of items in the garden. All items will be same widht.
- * @param renderHeaderContext Instructions telling the garden how the headers should look.
- * @param renderItemContext Instructions telling the garden how the items should look.
- * @param getItemDescription Instruction telling the garden how to get what is shown in expanded columns
- * @param onItemClick click handler that will be attached to each item in the garden.
- * @param headerHeight The height of the column header. Defaults to 32,
- * @param provideController Returns a ref. this contains the renderGarden function. Used to trigger rerenders at will.
- * @param backgroundColor Backgroun color for the garden. Defaults to  white(0xffffff),
- * @param disableScrollToHighlightedItem Per default garden centers column of clicked item. This disables that interaction.
- * @param padding Used to add padding to the packages and will also enable a different highlighted item border if above padding above 0. Defaults to 0.
+ * Main Garden component used inside apps.
+ * Will render a garden based on the properties passed.
  */
+export const HangingGarden = <TPackage extends object, TFilter extends object, TColumn extends Col<TPackage>>(
+  props: GardenProps<TPackage, TFilter, TColumn>
+) => {
+  const [widths, setWidths] = useState<number[]>([]);
 
-const useStyles = makeStyles(() =>
-  createStyles({
-    root: {
-      display: 'flex',
-      flex: '1 1 auto',
-      height: '100%',
-      minWidth: 0,
-      minHeight: 0,
-      maxWidth: '100%',
-      maxHeight: '100%',
-    },
-  })
-);
+  const { filterTerms, gardenData, handlers, gardenPackage, gardenHeader } = props;
 
-const HangingGarden = <T extends HangingGardenColumnIndex>({
-  columns,
-  highlightedColumnKey,
-  highlightedItem,
-  itemKeyProp,
-  itemHeight = DEFAULT_ITEM_HEIGHT,
-  itemWidth,
-  renderHeaderContext,
-  renderItemContext,
-  getItemDescription,
-  onItemClick,
-  headerHeight = DEFAULT_HEADER_HEIGHT,
-  provideController,
-  backgroundColor = 0xffffff,
-  colorMode = 'Regular',
-  disableScrollToHighlightedItem = false,
-  groupLevels = 0,
-  padding = 0,
-}: HangingGardenProps<T>): JSX.Element => {
-  const [maxRowCount, setMaxRowCount] = useState(0);
-  const [expandedColumns, setExpandedColumns] = useState<ExpandedColumns>({});
-
-  const container = useRef<HTMLDivElement>(null);
-  const canvas = useRef<HTMLCanvasElement>(null);
-  const stage = useRef<PIXI.Container>(new PIXI.Container());
-
-  const scroll = useScrolling<T>(canvas, container, itemKeyProp, padding, disableScrollToHighlightedItem);
-  const textureCaches = useTextureCaches();
-  const popover = usePopover();
-
-  const { pixiApp } = usePixiApp(canvas, container, backgroundColor);
-
+  /** Dynamic widths */
   useEffect(() => {
-    textureCaches.clearItemTextureCaches();
-  }, [itemHeight, itemWidth]);
+    setWidths(new Array(gardenData.columnCount).fill(gardenData.itemWidth));
+  }, [gardenData.columnCount, gardenData.itemWidth]);
 
-  const styles = useStyles();
+  // Dont want to render if no columns..
+  //TODO: check if there are some issues in the useGardenData hooks in parent
+  if (widths.length !== gardenData.columnCount) {
+    console.log('widths length', widths.length, 'columnCOunt', gardenData.columnCount);
+    return <h1>widths and columncount not equal</h1>;
+  }
+
+  if (widths.length === 0) {
+    return <h1>widhts is 0</h1>;
+  }
 
   return (
-    <div className={styles.root}>
-      {columns.length && (
-        <HangingGardenContext.Provider
-          value={{
-            container,
-            canvas,
-            stage,
-            pixiApp,
-            scroll,
-            maxRowCount,
-            setMaxRowCount,
-            expandedColumns,
-            setExpandedColumns,
-            textureCaches,
-            backgroundColor,
-            columns,
-            itemKeyProp,
-            itemHeight,
-            itemWidth,
-            headerHeight,
-            highlightedItem,
-            highlightedColumnKey,
-            getItemDescription,
-            onItemClick,
-            renderItemContext,
-            renderHeaderContext,
-            popover,
-            colorMode,
-            groupLevels,
-            padding,
-          }}
-        >
-          <Garden<T> provideController={provideController} />
-        </HangingGardenContext.Provider>
-      )}
-    </div>
+    <ExpandProvider initialWidths={widths}>
+      <VirtualGarden<TPackage, TFilter, TColumn>
+        filterTerms={filterTerms}
+        gardenData={gardenData}
+        handlers={handlers}
+        gardenHeader={gardenHeader}
+        gardenPackage={gardenPackage}
+      />
+    </ExpandProvider>
   );
 };
 
-export { HangingGarden, PIXI };
+export default HangingGarden;
