@@ -1,14 +1,14 @@
 {
-  "name": "@equinor/fusion-react-icon",
-  "version": "0.2.3",
-  "description": "component for displaying icon",
+  "name": "@equinor/fusion-react-divider",
+  "version": "0.2.1",
+  "description": "React component for displaying a divider",
   "keywords": [
-    "icon",
+    "divider",
     "react",
     "fusion",
     "equinor"
   ],
-  "homepage": "https://github.com/equinor/fusion-react-components/tree/master/packages/radio#readme",
+  "homepage": "https://github.com/equinor/fusion-react-components/tree/master/packages/divider#readme",
   "license": "ISC",
   "main": "dist/index.js",
   "directories": {
@@ -35,6 +35,7 @@
   },
   "dependencies": {
     "@equinor/fusion-react-utils": "^1.2.3",
-    "@equinor/fusion-wc-icon": "^1.0.16"
+    "@equinor/fusion-wc-divider": "^0.2.9",
+    "@lit-labs/react": "^1.0.1"
   }
 }
