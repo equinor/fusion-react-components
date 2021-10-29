@@ -1,26 +1,21 @@
 <!--prettier-ignore-start-->
 
-# @equinor/fusion-react-skeleton
+# @equinor/fusion-react-divider
 
-[![Published on npm](https://img.shields.io/npm/v/@equinor/fusion-react-skeleton.svg)](https://www.npmjs.com/package/@equinor/fusion-react-skeleton)
+[![Published on npm](https://img.shields.io/npm/v/@equinor/fusion-react-divider.svg)](https://www.npmjs.com/package/@equinor/fusion-react-divider)
 
-[Storybook](https://equinor.github.io/fusion-react-components/?path=/docs/data-skeleton)
+[Storybook](https://equinor.github.io/fusion-react-components/?path=/docs/data-divider)
 
-[Fusion Web Component](https://github.com/equinor/fusion-web-components/tree/main/packages/skeleton)
+[Fusion Web Component](https://github.com/equinor/fusion-web-components/tree/main/packages/divider)
 
 ## Installation
 
 ```sh
-npm install @equinor/fusion-react-skeleton
+npm install @equinor/fusion-react-divider
 ```
 
 ### Description
 
-Display a placeholder preview of your content before the data gets loaded to reduce load-time frustration.
-
-### When To Use
-
-- When a resource needs a long time to load.
-- When content for a resource
+Display a divider component to visually segregate components such as list items.
 
 <!--prettier-ignore-end-->

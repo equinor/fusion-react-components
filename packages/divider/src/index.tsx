@@ -1,6 +1,6 @@
-import * as ReactModule from 'react';
-import { createComponent } from '@lit-labs/react';
-import HTMLSkeletonCustomElement, {
+import type { PropsWithChildren, ComponentProps } from 'react';
+import { createComponent } from '@equinor/fusion-react-utils';
+import HTMLDividerCustomElement, {
   tag,
   DividerColor,
   DividerSpacing,
@@ -8,9 +8,14 @@ import HTMLSkeletonCustomElement, {
   DividerOrientation,
 } from '@equinor/fusion-wc-divider';
 
-export { HTMLSkeletonCustomElement, DividerColor, DividerSpacing, DividerVariant, DividerOrientation };
+export { HTMLDividerCustomElement, DividerColor, DividerSpacing, DividerVariant, DividerOrientation };
 
-export const Skeleton = createComponent(ReactModule, tag, HTMLSkeletonCustomElement);
-export type SkeletonProps = React.ComponentProps<typeof Skeleton>;
+type ElementAttributes = Partial<Pick<HTMLDividerCustomElement, 'color' | 'spacing' | 'variant' | 'orientation'>>;
 
-export default Skeleton;
+type ElementProps = PropsWithChildren<ElementAttributes>;
+
+export const Divider = createComponent<HTMLDividerCustomElement, ElementProps>(HTMLDividerCustomElement, tag);
+
+export type DividerProps = ComponentProps<typeof Divider>;
+
+export default Divider;

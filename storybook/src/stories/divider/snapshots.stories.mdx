@@ -1,0 +1,52 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import Divider from '@equinor/fusion-react-divider';
+
+export const Container = ({ title, orientation, children }) => (
+  <section>
+    <h4>{title}</h4>
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: orientation === 'horizontal' ? 'column' : 'row',
+        height: orientation === 'vertical' ? '2rem' : 'auto',
+        gap: '10px',
+      }}
+    >
+      {children}
+    </div>
+  </section>
+);
+
+export const Template = (props) => (
+  <div>
+    <Container orientation={props.orientation} title="Color">
+      <Divider color="medium" {...props} />
+      <Divider color="light" {...props} />
+      <Divider color="lighter" {...props} />
+    </Container>
+    <Container orientation={props.orientation} title="Spacing">
+      <Divider spacing="small" {...props} />
+      <Divider spacing="medium" {...props} />
+      <Divider spacing="large" {...props} />
+    </Container>
+    <Container orientation={props.orientation} title="Variant">
+      <Divider variant="full" {...props} />
+      <Divider variant="middle" {...props} />
+      <Divider variant="list" {...props} />
+    </Container>
+  </div>
+);
+
+<Meta title="Snapshots/Divider" parameters={{ chromatic: { disableSnapshot: false } }} />
+
+### Horizontal
+
+<Story name="Horizontal" args={{ orientation: 'horizontal' }}>
+  {Template.bind({})}
+</Story>
+
+### Vertical
+
+<Story name="Vertical" args={{ orientation: 'vertical' }}>
+  {Template.bind({})}
+</Story>

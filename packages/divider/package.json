@@ -1,14 +1,14 @@
 {
-  "name": "@equinor/fusion-react-skeleton",
+  "name": "@equinor/fusion-react-divider",
   "version": "0.1.0",
-  "description": "React component for displaying a skeleton",
+  "description": "React component for displaying a divider",
   "keywords": [
-    "skeleton",
+    "divider",
     "react",
     "fusion",
     "equinor"
   ],
-  "homepage": "https://github.com/equinor/fusion-react-components/tree/master/packages/skeleton#readme",
+  "homepage": "https://github.com/equinor/fusion-react-components/tree/master/packages/divider#readme",
   "license": "ISC",
   "main": "dist/index.js",
   "directories": {
@@ -34,7 +34,8 @@
     "url": "https://github.com/equinor/fusion-react-components/issues"
   },
   "dependencies": {
-    "@equinor/fusion-wc-divider": "^0.2.7",
+    "@equinor/fusion-wc-divider": "^0.2.9",
+    "@equinor/fusion-react-utils": "^1.2.1",
     "@lit-labs/react": "^1.0.1"
   }
 }
