@@ -1,10 +1,26 @@
-import * as ReactModule from 'react';
-import { createComponent } from '@lit-labs/react';
-import { ListElement as HTMLListCustomElement, tag } from '@equinor/fusion-wc-list';
+import { createComponent } from '@equinor/fusion-react-utils';
+import HTMLListCustomElement, { tag } from '@equinor/fusion-wc-list';
 
 export { HTMLListCustomElement };
 
-export const List = createComponent(ReactModule, tag, HTMLListCustomElement);
+export type ListElementProps = React.PropsWithChildren<
+  Partial<
+    Pick<
+      HTMLListCustomElement,
+      | 'activatable'
+      | 'multi'
+      | 'emptyMessage'
+      | 'wrapFocus'
+      | 'itemRoles'
+      | 'innerRole'
+      | 'innerAriaLabel'
+      | 'rootTabbable'
+      | 'noninteractive'
+    >
+  >
+>;
+
+export const List = createComponent<HTMLListCustomElement, ListElementProps>(HTMLListCustomElement, tag);
 export type ListProps = React.ComponentProps<typeof List>;
 
 export default List;

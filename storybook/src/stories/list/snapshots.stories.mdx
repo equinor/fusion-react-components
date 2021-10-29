@@ -1,101 +1,191 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs';
-import Badge from '@equinor/fusion-react-badge';
-
-export const BadgeWrapper = ({ circular, children }) => (
-  <div
-    style={{
-      width: '3.5rem',
-      height: '3.5rem',
-      backgroundColor: 'lightgray',
-      position: 'relative',
-      borderRadius: circular ? '50%' : 0,
-      margin: '0.5rem',
-    }}
-  >
-    {children}
-  </div>
-);
+import List, { ListItem, CheckListItem, RadioListItem } from '@equinor/fusion-react-list';
 
 export const Container = ({ title, children }) => (
   <section>
     <h4>{title}</h4>
-    <div style={{ display: 'flex', gap: '10px' }}>{children}</div>
+    <div style={{ width: '20rem', border: '1px solid #d3d3d3' }}>{children}</div>
   </section>
 );
-
-export const BadgeTemplate = (props) => (
-  <div>
-    <Container title="Positions">
-      <BadgeWrapper circular={props.circular}>
-        <Badge position="top-left" {...props} />
-      </BadgeWrapper>
-      <BadgeWrapper circular={props.circular}>
-        <Badge position="top-right" {...props} />
-      </BadgeWrapper>
-      <BadgeWrapper circular={props.circular}>
-        <Badge position="bottom-left" {...props} />
-      </BadgeWrapper>
-      <BadgeWrapper circular={props.circular}>
-        <Badge position="bottom-right" {...props} />
-      </BadgeWrapper>
-    </Container>
-    <Container title="Sizes">
-      <BadgeWrapper circular={props.circular}>
-        <Badge size="small" {...props}>
-          S
-        </Badge>
-      </BadgeWrapper>
-      <BadgeWrapper circular={props.circular}>
-        <Badge size="medium" {...props}>
-          M
-        </Badge>
-      </BadgeWrapper>
-      <BadgeWrapper circular={props.circular}>
-        <Badge size="large" {...props}>
-          L
-        </Badge>
-      </BadgeWrapper>
-    </Container>
-    <Container title="Colors">
-      <BadgeWrapper circular={props.circular}>
-        <Badge size="medium" color="primary" {...props} />
-      </BadgeWrapper>
-      <BadgeWrapper circular={props.circular}>
-        <Badge size="medium" color="secondary" {...props} />
-      </BadgeWrapper>
-      <BadgeWrapper circular={props.circular}>
-        <Badge size="medium" color="success" {...props} />
-      </BadgeWrapper>
-      <BadgeWrapper circular={props.circular}>
-        <Badge size="medium" color="danger" {...props} />
-      </BadgeWrapper>
-      <BadgeWrapper circular={props.circular}>
-        <Badge size="medium" color="warning" {...props} />
-      </BadgeWrapper>
-      <BadgeWrapper circular={props.circular}>
-        <Badge size="medium" color="disabled" {...props} />
-      </BadgeWrapper>
-    </Container>
-    <Container title="Content">
-      <BadgeWrapper circular={props.circular}>
-        <Badge {...props} />
-      </BadgeWrapper>
-      <BadgeWrapper circular={props.circular}>
-        <Badge value="10" {...props} />
-      </BadgeWrapper>
-      <BadgeWrapper circular={props.circular}>
-        <Badge icon="settings" {...props} />
-      </BadgeWrapper>
-    </Container>
-  </div>
+export const DefaultTemplate = (props) => (
+  <Container>
+    <List {...props}>
+      <ListItem>Item 1</ListItem>
+      <ListItem>Item 2</ListItem>
+      <ListItem>Item 3</ListItem>
+      <ListItem>Item 4</ListItem>
+    </List>
+  </Container>
 );
 
-<Meta title="Snapshots/Badge" parameters={{ chromatic: { disableSnapshot: false } }} />
+export const ActivatableTemplate = (props) => (
+  <Container>
+    <List {...props}>
+      <ListItem>Item 1</ListItem>
+      <ListItem selected activated>
+        Item 2
+      </ListItem>
+      <ListItem>Item 3</ListItem>
+      <ListItem>Item 4</ListItem>
+    </List>
+  </Container>
+);
 
-<Story name="Rectangular" args={{ name: 'rectangular' }}>
-  {BadgeTemplate.bind({})}
+export const CheckListTemplate = (props) => (
+  <Container>
+    <List {...props}>
+      <CheckListItem selected>Item 1</CheckListItem>
+      <CheckListItem>Item 2</CheckListItem>
+      <CheckListItem disabled>Item 3</CheckListItem>
+      <fwc-divider variant="list"></fwc-divider>
+      <CheckListItem selected left>
+        Item 4
+      </CheckListItem>
+      <CheckListItem left>Item 5</CheckListItem>
+      <CheckListItem left disabled>
+        Item 6
+      </CheckListItem>
+    </List>
+  </Container>
+);
+
+export const RadioTemplate = (props) => (
+  <Container>
+    <List {...props}>
+      <RadioListItem group="a" selected>
+        Item 1
+      </RadioListItem>
+      <RadioListItem group="a">Item 2</RadioListItem>
+      <RadioListItem group="a" disabled>
+        Item 3
+      </RadioListItem>
+      <fwc-divider variant="list"></fwc-divider>
+      <RadioListItem group="b" selected left>
+        Item 4
+      </RadioListItem>
+      <RadioListItem group="b" left>
+        Item 5
+      </RadioListItem>
+      <RadioListItem group="b" left disabled>
+        Item 6
+      </RadioListItem>
+    </List>
+  </Container>
+);
+
+export const TwoLineTemplate = (props) => (
+  <Container>
+    <List {...props}>
+      <ListItem twoline>
+        <span>Item 1</span>
+        <span slot="secondary">Secondary line</span>
+      </ListItem>
+      <ListItem twoline>
+        <span>Item 2</span>
+        <span slot="secondary">Secondary line</span>
+      </ListItem>
+      <ListItem twoline>
+        <span>Item 3</span>
+        <span slot="secondary">Secondary line</span>
+      </ListItem>
+      <ListItem twoline>
+        <span>Item 4</span>
+        <span slot="secondary">Secondary line</span>
+      </ListItem>
+    </List>
+  </Container>
+);
+
+export const MetaIconTemplate = (props) => (
+  <Container>
+    <List {...props}>
+      <ListItem>
+        <fwc-icon icon="settings" slot="meta"></fwc-icon>
+        <span>Item 1</span>
+      </ListItem>
+      <ListItem>
+        <fwc-icon icon="more_horizontal" slot="meta"></fwc-icon>
+        <span>Item 2</span>
+      </ListItem>
+    </List>
+  </Container>
+);
+
+export const GraphicTemplate = (props) => (
+  <Container>
+    <List {...props}>
+      <ListItem graphic="icon">
+        <fwc-icon icon="settings" slot="graphic"></fwc-icon>
+        <span>Icon</span>
+      </ListItem>
+      <ListItem graphic="avatar">
+        <fwc-avatar slot="graphic" size="small" src="https://i.imgur.com/GcZeeXX.jpeg" {...props}></fwc-avatar>
+        <span>Avatar</span>
+      </ListItem>
+      <ListItem graphic="medium">
+        <fwc-picture slot="graphic" src="https://i.imgur.com/GcZeeXX.jpeg" cover></fwc-picture>
+        <span>Medium</span>
+      </ListItem>
+      <ListItem graphic="large">
+        <fwc-picture slot="graphic" src="https://i.imgur.com/GcZeeXX.jpeg" cover></fwc-picture>
+        <span>Large</span>
+      </ListItem>
+    </List>
+  </Container>
+);
+
+<Meta title="Snapshots/List" parameters={{ chromatic: { disableSnapshot: false } }} />
+
+### Default
+
+<Story name="Normal" args={{}}>
+  {DefaultTemplate.bind({})}
 </Story>
 
-<Story name="Circular" args={{ name: 'circular', circular: true }}>
-  {BadgeTemplate.bind({})}
+### Activatable
+
+<Story name="Activatable" args={{ activatable: true }}>
+  {ActivatableTemplate.bind({})}
+</Story>
+
+### Multi Activatable
+
+<Story name="Multi" args={{ multi: true, activatable: true }}>
+  {ActivatableTemplate.bind({})}
+</Story>
+
+### Non Interactive
+
+<Story name="NonInteractive" args={{ noninteractive: true }}>
+  {DefaultTemplate.bind({})}
+</Story>
+
+### Check list
+
+<Story name="CheckList" args={{ multi: true }}>
+  {CheckListTemplate.bind({})}
+</Story>
+
+### Radio list
+
+<Story name="RadioList" args={{}}>
+  {RadioTemplate.bind({})}
+</Story>
+
+### Two line
+
+<Story name="TwoLine" args={{}}>
+  {TwoLineTemplate.bind({})}
+</Story>
+
+### Meta Icon
+
+<Story name="MetaIcon" args={{}}>
+  {MetaIconTemplate.bind({})}
+</Story>
+
+### Graphic
+
+<Story name="Graphic" args={{}}>
+  {GraphicTemplate.bind({})}
 </Story>
