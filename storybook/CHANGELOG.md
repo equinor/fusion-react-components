@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.29.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.28.1...@equinor/fusion-react-components-stories@1.29.0) (2021-10-29)
+
+
+### Features
+
+* **skeleton:** add new builder ([c900967](https://github.com/equinor/fusion-react-components/commit/c90096718d477eeb3a6948d3fa34422ea0983e1d))
+
+
+
+
+
 ## [1.28.1](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.28.0...@equinor/fusion-react-components-stories@1.28.1) (2021-10-29)
 
 **Note:** Version bump only for package @equinor/fusion-react-components-stories

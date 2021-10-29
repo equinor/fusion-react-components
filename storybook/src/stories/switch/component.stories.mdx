@@ -1,18 +1,16 @@
 import { Meta, Story, Canvas, ArgsTable,Description } from '@storybook/addon-docs';
-import ChangeLog from '../../components/ChangeLog';
+import { ChangeLog, PackageInfo, StoryExample } from '../../components';
 import Switch from '@equinor/fusion-react-switch/src';
 
 <Meta title="Input/Switch" />
 
-<Description markdown={require('@equinor/fusion-react-switch/README.md')} />
+<PackageInfo pkg={require('@equinor/fusion-react-switch/package.json')} />
 
 ## Component
 
 <ArgsTable of={Switch} />
 
-<Canvas withSource='open'>
-  <Story id="examples-switch--component" />
-</Canvas>
+<StoryExample storyId="examples-switch--component" showSource/>
 
 ## Changelog
 
