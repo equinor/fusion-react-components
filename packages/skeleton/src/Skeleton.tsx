@@ -5,7 +5,7 @@ import HTMLSkeletonCustomElement, { tag, SkeletonVariant, SkeletonSize } from '@
 export { HTMLSkeletonCustomElement, SkeletonVariant, SkeletonSize };
 
 type ElementProps = React.PropsWithChildren<
-  Partial<Pick<HTMLSkeletonCustomElement, 'size' | 'variant' | 'inactive' | 'fluid'>>
+  Partial<Pick<HTMLSkeletonCustomElement, 'size' | 'variant' | 'inactive' | 'fluid' | 'icon'>>
 >;
 
 export const Skeleton = createComponent<HTMLSkeletonCustomElement, ElementProps>(HTMLSkeletonCustomElement, tag);
