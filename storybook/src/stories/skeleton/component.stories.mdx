@@ -1,0 +1,41 @@
+import { Meta, Story, Canvas, ArgsTable, Description } from '@storybook/addon-docs';
+import { ChangeLog, PackageInfo, StoryExample } from '../../components';
+import { Skeleton, SkeletonWrapper } from '@equinor/fusion-react-skeleton/src';
+
+<Meta title="Data/Skeleton" />
+
+<PackageInfo pkg={require('@equinor/fusion-react-skeleton/package.json')} />
+
+### Description
+
+Display a placeholder preview of your content before the data gets loaded to reduce load-time frustration.
+
+### When To Use
+
+- When a resource needs a long time to load.
+- When content for a resource
+
+## Skeleton
+
+<ArgsTable of={Skeleton} />
+
+## Wrapper
+
+<ArgsTable of={SkeletonWrapper} />
+
+## Component
+
+### Default
+
+<StoryExample storyId="examples-skeleton--default" showSource/>
+
+<StoryExample storyId="examples-skeleton--combination" showSource/>
+
+## ChangeLog
+
+<ChangeLog
+  changelogs={{
+    react: require('@equinor/fusion-react-skeleton/CHANGELOG.md'),
+    webComponent: require('@equinor/fusion-wc-skeleton/CHANGELOG.md'),
+  }}
+/>

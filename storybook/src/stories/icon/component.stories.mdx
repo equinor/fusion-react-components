@@ -1,10 +1,10 @@
 import { Meta, Story, Canvas, ArgsTable,Description } from '@storybook/addon-docs';
-import ChangeLog from '../../components/ChangeLog';
+import { ChangeLog, PackageInfo, StoryExample } from '../../components';
 import Icon from '@equinor/fusion-react-icon/src';
 
 <Meta title="Data/Icon" />
 
-<Description markdown={require('@equinor/fusion-react-icon/README.md')} />
+<PackageInfo pkg={require('@equinor/fusion-react-icon/package.json')} />
 
 ## Component
 

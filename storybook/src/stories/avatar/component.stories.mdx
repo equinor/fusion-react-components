@@ -1,8 +1,10 @@
 import { Meta, Story, Canvas, ArgsTable,Description } from '@storybook/addon-docs';
-import ChangeLog from '../../components/ChangeLog';
+import { ChangeLog, PackageInfo, StoryExample } from '../../components';
 import { Avatar } from '@equinor/fusion-react-avatar/src';
 
 <Meta title="Data/Avatar" />
+
+<PackageInfo pkg={require('@equinor/fusion-react-avatar/package.json')} />
 
 <Description markdown={require('@equinor/fusion-react-avatar/README.md')} />
 
@@ -10,21 +12,15 @@ import { Avatar } from '@equinor/fusion-react-avatar/src';
 
 ### Simple
 
-<Canvas withSource='open'>
-  <Story id="examples-avatar--simple" />
-</Canvas>
+<StoryExample storyId="examples-avatar--simple" showSource/>
 
 ### Size
 
-<Canvas withSource='open'>
-  <Story id="examples-avatar--size" />
-</Canvas>
+<StoryExample storyId="examples-avatar--size" showSource/>
 
 ### Photo
 
-<Canvas withSource='open'>
-  <Story id="examples-avatar--photo" />
-</Canvas>
+<StoryExample storyId="examples-avatar--photo" showSource/>
 
 # Changelog
 

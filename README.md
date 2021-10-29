@@ -58,5 +58,6 @@ design rules from EDS.
 | [`<Chip>`](https://github.com/equinor/fusion-react-components/tree/main/packages/chip) | `@equinor/fusion-react-chip` | TBD
 | [`<Icon>`](https://github.com/equinor/fusion-react-components/tree/main/packages/icon) | `@equinor/fusion-react-icon` | [![Published on npm](https://img.shields.io/npm/v/@equinor/fusion-react-icon.svg)](https://www.npmjs.com/package/@equinor/fusion-react-icon)
 | [`<Picture>`](https://github.com/equinor/fusion-react-components/tree/main/packages/picture) | `@equinor/fusion-react-picture` | TBD
+| [`<Skeleton>`](https://github.com/equinor/fusion-react-components/tree/main/packages/skeleton) | `@equinor/fusion-react-skeleton` | [![Published on npm](https://img.shields.io/npm/v/@equinor/fusion-react-skeleton.svg)](https://www.npmjs.com/package/@equinor/fusion-react-skeleton)
 | [`<Table>`](https://github.com/equinor/fusion-react-components/tree/main/packages/table) | `@equinor/fusion-react-table` | [![Published on npm](https://img.shields.io/npm/v/@equinor/fusion-react-table.svg)](https://www.npmjs.com/package/@equinor/fusion-react-table)
 <!--prettier-ignore-end-->

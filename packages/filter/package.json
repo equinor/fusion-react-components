@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-filter",
-  "version": "2.1.0-filter.7",
+  "version": "1.1.14",
   "description": "component for Filtering data",
   "author": "",
   "homepage": "https://github.com/equinor/fusion-react-components/tree/master/packages/filter#readme",
@@ -41,14 +41,14 @@
     "url": "https://github.com/equinor/fusion-react-components/issues"
   },
   "dependencies": {
-    "@equinor/fusion-react-button": "^0.5.2-filter.6",
-    "@equinor/fusion-react-checkbox": "^0.4.1-filter.6",
-    "@equinor/fusion-react-chip": "^0.3.0-filter.1",
-    "@equinor/fusion-react-icon": "^0.1.7-filter.6",
-    "@equinor/fusion-react-observable": "^1.0.0-filter.6",
-    "@equinor/fusion-react-radio": "^0.4.1-filter.6",
-    "@equinor/fusion-react-styles": "^0.3.5",
-    "@equinor/fusion-react-textinput": "^0.6.2-filter.6",
-    "@equinor/fusion-react-utils": "^1.2.2-filter.6"
+    "@equinor/fusion-react-button": "^0.5.2",
+    "@equinor/fusion-react-checkbox": "^0.5.2",
+    "@equinor/fusion-react-radio": "^0.4.1",
+    "@equinor/fusion-react-styles": "^0.3.6",
+    "@equinor/fusion-react-textinput": "^0.6.2",
+    "redux": "^4.0.5"
+  },
+  "peerDependencies": {
+    "@equinor/fusion-react-styles": "0.3.1"
   }
 }

@@ -1,8 +1,10 @@
 import { Meta, Story, Canvas, ArgsTable, Description } from '@storybook/addon-docs';
-import ChangeLog from '../../components/ChangeLog';
-import {Badge} from '@equinor/fusion-react-badge/src';
+import { ChangeLog, PackageInfo, StoryExample } from '../../components';
+import { Badge } from '@equinor/fusion-react-badge/src';
 
 <Meta title="Data/Badge" />
+
+<PackageInfo pkg={require('@equinor/fusion-react-badge/package.json')} />
 
 <Description markdown={require('@equinor/fusion-react-badge/README.md')} />
 
@@ -12,9 +14,7 @@ import {Badge} from '@equinor/fusion-react-badge/src';
 
 ### Simple
 
-<Canvas withSource='open'>
-  <Story id="examples-badge--simple" />
-</Canvas>
+<StoryExample storyId="examples-badge--simple" showSource/>
 
 ## ChangeLog
 

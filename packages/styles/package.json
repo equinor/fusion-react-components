@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-styles",
-  "version": "0.3.5",
+  "version": "0.3.6",
   "description": "style lib inspired by @material-ui/styles",
   "keywords": [
     "styling",
@@ -43,7 +43,6 @@
   "dependencies": {
     "@equinor/fusion-wc-theme": "^0.2.15",
     "@equinor/fusion-web-theme": "^0.1.6",
-    "@lit-labs/react": "^1.0.0",
     "@material-ui/styles": "^4.11.4",
     "clsx": "^1.1.1"
   }

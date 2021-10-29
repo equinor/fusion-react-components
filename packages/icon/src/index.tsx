@@ -1,10 +1,12 @@
-import * as ReactModule from 'react';
-import { createComponent } from '@lit-labs/react';
-import { iconNames, IconElement as HTMLIconCustomElement, tag } from '@equinor/fusion-wc-icon';
+import { createComponent } from '@equinor/fusion-react-utils';
+import { IconElement as HTMLIconCustomElement, iconNames, tag } from '@equinor/fusion-wc-icon';
 
-export { iconNames, HTMLIconCustomElement };
+export { HTMLIconCustomElement, iconNames };
 
-export const Icon = createComponent(ReactModule, tag, HTMLIconCustomElement);
-export type IconProps = React.ComponentProps<typeof Icon>;
+type ElementProps = React.PropsWithChildren<Partial<Pick<HTMLIconCustomElement, 'icon' | 'type'>>>;
+
+export const Icon = createComponent<HTMLIconCustomElement, ElementProps>(HTMLIconCustomElement, tag);
+
+export type DateRangeProps = React.ComponentProps<typeof Icon>;
 
 export default Icon;
