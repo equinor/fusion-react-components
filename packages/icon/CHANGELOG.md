@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.2.2 (2021-10-29)
+
+
+### Bug Fixes
+
+* **icon:** reexport icon names ([2b9c391](https://github.com/equinor/fusion-react-components/commit/2b9c391829e957d905a781c2e46c7ae724cfb4ba))
+
+
+
+
+
 ## [0.2.1](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-icon@0.2.0...@equinor/fusion-react-icon@0.2.1) (2021-10-29)
 
 **Note:** Version bump only for package @equinor/fusion-react-icon
