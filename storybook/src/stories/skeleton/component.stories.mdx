@@ -1,10 +1,19 @@
 import { Meta, Story, Canvas, ArgsTable, Description } from '@storybook/addon-docs';
-import ChangeLog from '../../components/ChangeLog';
+import { ChangeLog, PackageInfo, StoryExample } from '../../components';
 import { Skeleton, SkeletonWrapper } from '@equinor/fusion-react-skeleton/src';
 
 <Meta title="Data/Skeleton" />
 
-<Description markdown={require('@equinor/fusion-react-skeleton/README.md')} />
+<PackageInfo pkg={require('@equinor/fusion-react-skeleton/package.json')} />
+
+### Description
+
+Display a placeholder preview of your content before the data gets loaded to reduce load-time frustration.
+
+### When To Use
+
+- When a resource needs a long time to load.
+- When content for a resource
 
 ## Skeleton
 
@@ -18,9 +27,9 @@ import { Skeleton, SkeletonWrapper } from '@equinor/fusion-react-skeleton/src';
 
 ### Default
 
-<Canvas withSource="open">
-  <Story id="examples-skeleton--default" />
-</Canvas>
+<StoryExample storyId="examples-skeleton--default" showSource/>
+
+<StoryExample storyId="examples-skeleton--combination" showSource/>
 
 ## ChangeLog
 
