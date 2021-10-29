@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.28.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.27.0...@equinor/fusion-react-components-stories@1.28.0) (2021-10-28)
+
+
+### Features
+
+* **date:** use internal element builder ([e0a3ac7](https://github.com/equinor/fusion-react-components/commit/e0a3ac790b143c658e697af8e010be7c417308a5))
+
+
+
+
+
 # [1.27.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.26.0...@equinor/fusion-react-components-stories@1.27.0) (2021-10-28)
 
 

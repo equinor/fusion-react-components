@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.4.0 (2021-10-28)
+
+
+### Features
+
+* **date:** use internal element builder ([e0a3ac7](https://github.com/equinor/fusion-react-components/commit/e0a3ac790b143c658e697af8e010be7c417308a5))
+
+
+
+
+
 ## 0.3.8 (2021-10-13)
 
 **Note:** Version bump only for package @equinor/fusion-react-date
