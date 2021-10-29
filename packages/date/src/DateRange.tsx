@@ -1,7 +1,22 @@
-import * as React from 'react';
-import { createComponent } from '@lit-labs/react';
+import { createComponent } from '@equinor/fusion-react-utils';
 import { DateRangeElement as HTMLDateRangeCustomElement, dateRangeTag } from '@equinor/fusion-wc-date';
 
-export const DateRange = createComponent(React, dateRangeTag, HTMLDateRangeCustomElement);
 export { HTMLDateRangeCustomElement };
+
+type ElementProps = React.PropsWithChildren<
+  Partial<
+    Pick<
+      HTMLDateRangeCustomElement,
+      'from' | 'to' | 'format' | 'suffix' | 'variant' | 'locale' | 'seconds' | 'weekstart' | 'capitalize'
+    >
+  >
+>;
+
+export const DateRange = createComponent<HTMLDateRangeCustomElement, ElementProps>(
+  HTMLDateRangeCustomElement,
+  dateRangeTag
+);
+
+export type DateRangeProps = React.ComponentProps<typeof DateRange>;
+
 export default DateRange;
