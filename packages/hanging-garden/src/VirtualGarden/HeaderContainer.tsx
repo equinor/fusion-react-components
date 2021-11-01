@@ -6,7 +6,6 @@ import { ActionType } from '../providers/ExpandProvider';
 import { makeStyles, createStyles } from '@equinor/fusion-react-styles';
 import clsx from 'clsx';
 
-const isHighlight = (highlightIndex: number, columnIndex: number): boolean => highlightIndex === columnIndex;
 const useStyles = makeStyles(() =>
   createStyles({
     container: {
@@ -81,7 +80,7 @@ export const HeaderContainer = <TPackage extends object, TColumn extends Col<TPa
           <div
             key={virtualColumn.index}
             className={
-              isHighlight(highlightedColumnKeyIndex, virtualColumn.index)
+              highlightedColumnKeyIndex === virtualColumn.index
                 ? clsx(styles.header, styles.highlightedHeader)
                 : styles.header
             }
