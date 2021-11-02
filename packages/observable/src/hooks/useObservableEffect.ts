@@ -7,10 +7,7 @@ export const useObservableEffect = <S, A extends Action = Action>(
   effect: SideEffect<A, S>
 ): void => {
   useLayoutEffect(() => {
-    const subscription = effect(subject.action$, subject.state$).subscribe({
-      next: (x) => subject.dispatch(x),
-      error: (err) => console.error('unhandled error!', err),
-    });
+    const subscription = effect(subject.action$, subject.state$).subscribe(subject);
     return () => subscription.unsubscribe();
   }, [subject, effect]);
 };

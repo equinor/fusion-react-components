@@ -1,0 +1,35 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "rootDir": "src",
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  "exclude": ["node_modules"],
+  "references": [
+    {
+      "path": "../checkbox"
+    },
+    {
+      "path": "../chip"
+    },
+    {
+      "path": "../button"
+    },
+    {
+      "path": "../icon"
+    },
+    {
+      "path": "../observable"
+    },
+    {
+      "path": "../textinput"
+    },
+    {
+      "path": "../radio"
+    },
+    {
+      "path": "../styles"
+    }
+  ]
+}

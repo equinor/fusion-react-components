@@ -14,6 +14,10 @@
         "baseUrl": "./packages",
         "sourceMap": true,
         "rootDir": ".",
+        "lib": [
+            "esnext",
+            "dom"
+          ],
         "paths": {
             "@equinor/fusion-react-*": [
                 "*/src"

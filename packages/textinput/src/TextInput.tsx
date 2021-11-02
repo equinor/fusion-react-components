@@ -41,11 +41,13 @@ export type ElementEvents = {
   onInvalid?: TextInputInvalidHandler;
 };
 
-export type TextInputProps = ElementAttributes & ElementFunctions & ElementEvents;
+export type ElementProps = ElementAttributes & ElementFunctions & ElementEvents;
 
-export const TextInput = createComponent<TextInputElement, TextInputProps>(TextInputElement, tag, {
+export const TextInput = createComponent<TextInputElement, ElementProps>(TextInputElement, tag, {
   events: { onInvalid: 'invalid' },
   functions: new Set(['validityTransform']),
 });
+
+export type TextInputProps = React.ComponentProps<typeof TextInput>;
 
 export default TextInput;
