@@ -1,7 +1,5 @@
 import { Meta, Story } from '@storybook/react';
 
-import { useMemo } from 'react';
-
 import { useObservableState } from '@equinor/fusion-react-observable';
 
 import { FilterProvider, useFilterContext } from '@equinor/fusion-react-filter';
