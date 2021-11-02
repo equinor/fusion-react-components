@@ -3,6 +3,39 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-filter@1.1.15...@equinor/fusion-react-filter@1.2.0) (2021-11-02)
+
+
+### Bug Fixes
+
+* enhance checkbox filter ([3dc40a5](https://github.com/equinor/fusion-react-components/commit/3dc40a597f8a87879aa551d5d09b127fc683f21c))
+* **filter:** add title for filter ([25215ac](https://github.com/equinor/fusion-react-components/commit/25215ace8ce88e01b73395bc2bee862941e12b79))
+* **filter:** adjust styling of filter ([c59bac3](https://github.com/equinor/fusion-react-components/commit/c59bac30f8739cd4f6f57c9b8c24adc8856747b5))
+* **filter:** allow filter items to frow ([84dfd9d](https://github.com/equinor/fusion-react-components/commit/84dfd9d797217dcf1c461699cbde14cffafe96d2))
+* **filter:** change overflow to auto ([b7e5f95](https://github.com/equinor/fusion-react-components/commit/b7e5f9574c2b4e6f586dc5e683e6f66a9f15659d))
+* **filter:** expose style attributes ([f68cf16](https://github.com/equinor/fusion-react-components/commit/f68cf1694972cdadbf045d16ab81825a885e6f00))
+* **filter:** make checkbox counter no wrap ([a005e61](https://github.com/equinor/fusion-react-components/commit/a005e61671d9a559e536610cbed73d534072b7c6))
+
+
+### Features
+
+* **filter:** add basic checkbox filter ([e99331d](https://github.com/equinor/fusion-react-components/commit/e99331d6146cca5ad904d1ed18f296220b9fd00f))
+* **filter:** add button for resetting filters ([b2a81c3](https://github.com/equinor/fusion-react-components/commit/b2a81c3a2bc00896a23004bb14a204ed6648754d))
+* **filter:** add container for filter components ([9c9c5ef](https://github.com/equinor/fusion-react-components/commit/9c9c5ef11562c6b98da1e39177a73f154c14613c))
+* **filter:** add hook for attaching filter to context ([dfb853c](https://github.com/equinor/fusion-react-components/commit/dfb853c1d99edf1ceec7fcbd91e9731c65c44ef1))
+* **filter:** add hook for clearing selection in filter context ([f2e9996](https://github.com/equinor/fusion-react-components/commit/f2e9996411af0a8e3e26d9fd7457e70625f4c77f))
+* **filter:** add hook for extracting selection by filter key ([ac927f4](https://github.com/equinor/fusion-react-components/commit/ac927f4ecebfbfe4c1edffc545da29e62ffca26a))
+* **filter:** add hook for filtered data from context ([9431005](https://github.com/equinor/fusion-react-components/commit/943100539be2e97e373a11cbf6f588f1614b24ab))
+* **filter:** add panel for hosting filter components and controllers ([8c8374d](https://github.com/equinor/fusion-react-components/commit/8c8374df1c6ba1036a4c4424464b27adbca5e76c))
+* **filter:** add search filter ([6549647](https://github.com/equinor/fusion-react-components/commit/654964774bc6490a5973bfaead2ea671bf48f52b))
+* **filter:** add selection chips ([da9cf43](https://github.com/equinor/fusion-react-components/commit/da9cf43bb04c511ab52b6f5d4bb6e7b2a73b61fc))
+* **filter:** create provider for filter options ([734ea5b](https://github.com/equinor/fusion-react-components/commit/734ea5bc7b4a533852d2577fa8027985efbecbc5))
+* **filter:** recreate base state of filter ([a5924d3](https://github.com/equinor/fusion-react-components/commit/a5924d3a8a212e68e95548fd6c92301a8e7b44ce))
+
+
+
+
+
 ## [1.1.15](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-filter@1.1.14...@equinor/fusion-react-filter@1.1.15) (2021-10-29)
 
 
