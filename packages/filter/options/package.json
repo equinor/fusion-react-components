@@ -1,0 +1,8 @@
+{
+  "name": "@equinor/fusion-react-filter/options",
+  "private": true,
+  "types": "../dist/options/index.d.ts",
+  "main": "../dist/options/index.js",
+  "module": "../dist/options/index.js",
+  "sideEffects": false
+}

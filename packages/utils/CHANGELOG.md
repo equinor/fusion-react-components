@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.3](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-utils@1.2.2...@equinor/fusion-react-utils@1.2.3) (2021-10-29)
+
+
+### Bug Fixes
+
+* updated packages ([4298c77](https://github.com/equinor/fusion-react-components/commit/4298c778c4c5385398a92d8b71feee3b17ba64c0))
+
+
+
+
+
 ## 1.2.2 (2021-10-29)
 
 **Note:** Version bump only for package @equinor/fusion-react-utils

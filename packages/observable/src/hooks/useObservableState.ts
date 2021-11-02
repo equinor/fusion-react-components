@@ -1,5 +1,6 @@
-import { useLayoutEffect, useState } from 'react';
+import { useState } from 'react';
 import { Observable } from '../types';
+import { useLayoutSubscription } from './useSubscription';
 
 /**
  * Hook for extracting state of observable.
@@ -10,10 +11,7 @@ import { Observable } from '../types';
  */
 export const useObservableState = <S>(subject: Observable<S>, initial?: S): S | undefined => {
   const [state, setState] = useState<S | undefined>(initial);
-  useLayoutEffect(() => {
-    const subscription = subject.subscribe(setState);
-    return () => subscription.unsubscribe();
-  }, [setState, subject]);
+  useLayoutSubscription(subject, setState);
   return state;
 };
 

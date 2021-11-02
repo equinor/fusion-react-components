@@ -20,6 +20,9 @@
       "path": "packages/checkbox"
     },
     {
+      "path": "packages/chip"
+    },
+    {
       "path": "packages/date"
     },
     {
@@ -54,6 +57,9 @@
     },
     {
       "path": "packages/textinput"
+    },
+    {
+      "path": "packages/filter"
     },
     { "path": "packages/utils" }
   ]

@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-date",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "description": "component for formatting and displaying dates",
   "keywords": [
     "date",
@@ -35,7 +35,7 @@
     "url": "https://github.com/equinor/fusion-react-components/issues"
   },
   "dependencies": {
-    "@equinor/fusion-react-utils": "^1.2.2",
+    "@equinor/fusion-react-utils": "^1.2.3",
     "@equinor/fusion-wc-date": "^0.2.15"
   }
 }

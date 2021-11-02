@@ -1,0 +1,88 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import {
+  FilterProvider,
+  CheckboxFilter,
+  RadioFilter,
+  GeneralBar,
+  FilterSection,
+  Filter,
+} from '@equinor/fusion-react-filter';
+
+<Meta
+  title="Data/Filter/Getting Started"
+  parameters={{
+    viewMode: 'docs',
+    previewTabs: {
+      canvas: { hidden: true },
+    },
+  }}
+/>
+
+# Getting Started with Filter Panel
+
+This walk through serves as a quick reference on how to set up the filter provider , adding filters and interacting with the data
+
+## Setup the filter provider
+
+The main components of the filter panel is the Filter Provider. This is the only "mandatory" component you need to use for the filterpanel.
+The Filter Provider works as any `React context` works.
+It needs to be wrapped around all components that will need access to the Context. Both Filtering components and your apps components.
+
+```jsx
+import { FilterProvider } from '@equinor/fusion-react-components-filterpane';
+<FilterProvider initialData={yourData} initialFilters={yourInitialFilters}></FilterProvider>;
+```
+
+FilterProvider takes two props.
+`initialData`: Your data set to be used by the filters.
+`initialFilters (optional)` : Any predefined setup of your filters, a Record of filter keys and selection
+
+You can find more details about [Filter Provider here](?path=/docs/filterpane-filterprovider--page).
+
+#### Create a filter setting
+
+Filters needs to be defined using the FilterSettings type.
+
+```jsx
+ const filterSetting: Filter<dataType[], selectionType> = {
+  key: 'filterkey',
+  title: 'Filter',
+  description: 'filter desription',
+  filterFn: ((data,selection) => FiltereData ,
+  optionsBuilderFn: (data) => FilterOptions,
+  counterFn: (data) => FilterCounters,
+};
+```
+
+Each of the filters you define will need its own filter definition.
+You can find more details about [Filter Settings here](?path=/docs/filterpane-filterpane--filterpane#filter-settings).
+
+#### Add a filter component
+
+Then add your filter component as children to the FilterProvider.
+And a component that will consume the filter context.
+
+```jsx
+import { FilterProvider, CheckboxFilter } from '@equinor/fusion-react-components-filterpane';
+<FilterProvider initialData={yourData} initialFilters={yourInitialFilters}>
+  <CheckboxFilter filter={filterSetting} />
+  <MyFilterConsumer />
+</FilterProvider>;
+```
+
+You can find more details about the [Checkbox Filter here](?path=/docs/filterpane-filterpane--filterpane#checkboxfilter).
+
+#### Accessing the context
+
+Access the filter inside your component with the `useFilterStore` hook
+
+```jsx
+import { useFilterStore } from '@equinor/fusion-react-components-filterpane';
+ const MyFilterConsumer = () ==> {
+   const {filteredData} = useFilterStore();
+
+   return <div>{myFilteredData} </div>
+ }
+```
+
+You can find more details the [useFilterStore and context here](?path=/docs/filterpane-filterprovider--page#interacting-with-the-filterprovider-context).
