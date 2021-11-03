@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.4](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-button@0.5.3...@equinor/fusion-react-button@0.5.4) (2021-11-02)
+
+
+### Bug Fixes
+
+* **button:** export button props ([f9185dd](https://github.com/equinor/fusion-react-components/commit/f9185dde79c81e3cf0a3b297dd16bc7a787c187b))
+
+
+
+
+
 ## [0.5.3](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-button@0.5.2...@equinor/fusion-react-button@0.5.3) (2021-10-29)
 
 

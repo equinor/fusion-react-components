@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.4](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-textinput@0.6.3...@equinor/fusion-react-textinput@0.6.4) (2021-11-02)
+
+
+### Bug Fixes
+
+* **textinput:** expose real element props ([c95d99b](https://github.com/equinor/fusion-react-components/commit/c95d99b90b5c0f6c8504fbb9501646bab304339c))
+
+
+
+
+
 ## [0.6.3](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-textinput@0.6.2...@equinor/fusion-react-textinput@0.6.3) (2021-10-29)
 
 

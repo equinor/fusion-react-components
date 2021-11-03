@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.4](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-utils@1.2.3...@equinor/fusion-react-utils@1.2.4) (2021-11-02)
+
+
+### Bug Fixes
+
+* **util:** export shallow-equal ([518bbe4](https://github.com/equinor/fusion-react-components/commit/518bbe4617142dec2387da26e4b2cbb0a1ab8768))
+
+
+
+
+
 ## [1.2.3](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-utils@1.2.2...@equinor/fusion-react-utils@1.2.3) (2021-10-29)
 
 

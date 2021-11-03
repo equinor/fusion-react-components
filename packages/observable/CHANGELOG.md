@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-observable@0.2.2...@equinor/fusion-react-observable@1.0.0) (2021-11-02)
+
+
+* fix(observable)!: simplify subscriptions ([6e66025](https://github.com/equinor/fusion-react-components/commit/6e6602502b2cba8afa9e3bc04ec51c5901b292a6))
+
+
+### Features
+
+* **observable:** add hook for subscription ([5283526](https://github.com/equinor/fusion-react-components/commit/5283526f07166035f3f38ee7a080d269fbc1bd90))
+
+
+### BREAKING CHANGES
+
+* ReactiveSubject has change from dispatch to next
+
+
+
+
+
 ## [0.2.2](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-observable@0.2.1...@equinor/fusion-react-observable@0.2.2) (2021-10-29)
 
 **Note:** Version bump only for package @equinor/fusion-react-observable
