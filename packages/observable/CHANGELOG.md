@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.1.0 (2021-11-04)
+
+
+### Bug Fixes
+
+* remove duplicate declaration ([0f40800](https://github.com/equinor/fusion-react-components/commit/0f40800dee260625879194ac2cc362ec48c15536))
+
+
+### Features
+
+* **observable:** allow multiple effect ([df77c32](https://github.com/equinor/fusion-react-components/commit/df77c328b2b0555cb50ccaa21df41eca212f5cf8))
+
+
+
+
+
 # [1.0.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-observable@0.2.2...@equinor/fusion-react-observable@1.0.0) (2021-11-02)
 
 
