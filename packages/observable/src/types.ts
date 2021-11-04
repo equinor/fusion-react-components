@@ -14,9 +14,3 @@ export type SideEffect<Input extends Action, State = unknown, Dependencies = any
   state$: Observable<State>,
   dependencies?: Dependencies
 ) => Observable<Output>;
-
-export interface ReactiveSubject<S, A extends Action = Action> extends Observable<S> {
-  value: S;
-  state$: Observable<S>;
-  action$(): Observable<A>;
-}
