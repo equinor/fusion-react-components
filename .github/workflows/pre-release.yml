@@ -50,6 +50,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
 
       - name: Commit changes
+        continue-on-error: true
         run: |
             git add packages/*/package.json storybook/package.json 
             git commit -m'chore(prerelease): bumped version with tag ${{ github.event.inputs.tag }}'
