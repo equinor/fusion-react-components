@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.32.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.31.2...@equinor/fusion-react-components-stories@1.32.0) (2021-11-03)
+
+
+### Features
+
+* added list component ([59358f6](https://github.com/equinor/fusion-react-components/commit/59358f67a35d6919f5655c1fe0f646642ca302e1))
+* added list component ([7d192e3](https://github.com/equinor/fusion-react-components/commit/7d192e3fff4f28f0b2c1310d4480f20ffc60f458))
+* added list component ([0214bfd](https://github.com/equinor/fusion-react-components/commit/0214bfd98821c75d2f47d073d5c067392ccac5b6))
+* added react component ([aa4c933](https://github.com/equinor/fusion-react-components/commit/aa4c933a6c4fc68095f46f89cb3f4b7d15a127bd))
+* added react component ([b96ddeb](https://github.com/equinor/fusion-react-components/commit/b96ddeb846eb26bbff1edf8c336aa20d3cb1cbd2))
+
+
+
+
+
 ## [1.31.2](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.31.1...@equinor/fusion-react-components-stories@1.31.2) (2021-11-02)
 
 **Note:** Version bump only for package @equinor/fusion-react-components-stories
