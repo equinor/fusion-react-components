@@ -9,8 +9,14 @@ export type ReducerAction<R extends Reducer<unknown, unknown>> = R extends Reduc
 export type Action<T extends string = string> = { type: T };
 export type ActionType<T extends Action> = T extends Action<infer R> ? R : never;
 
-export type SideEffect<Input extends Action, State = unknown, Dependencies = unknown, Output extends Action = Input> = (
+export type SideEffect<Input extends Action, State = unknown, Dependencies = any, Output extends Action = Input> = (
   action$: Observable<Input>,
-  state$?: Observable<State>,
+  state$: Observable<State>,
   dependencies?: Dependencies
 ) => Observable<Output>;
+
+export interface ReactiveSubject<S, A extends Action = Action> extends Observable<S> {
+  value: S;
+  state$: Observable<S>;
+  action$(): Observable<A>;
+}
