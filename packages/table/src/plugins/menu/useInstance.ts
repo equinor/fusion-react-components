@@ -19,7 +19,7 @@ export const useInstance = <TData extends TableData>(instance: TableInstance<TDa
       toggleMenu,
       openMenu: () => toggleMenu(column.id, true),
       closeMenu: () => toggleMenu(column.id, false),
-      showMenu: menu.columnId === column.id && menu.show,
+      showMenu: menu?.columnId === column.id && menu.show,
     });
   });
 };

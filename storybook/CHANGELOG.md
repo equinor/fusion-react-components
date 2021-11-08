@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.33.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.32.0...@equinor/fusion-react-components-stories@1.33.0) (2021-11-04)
+
+
+### Features
+
+* **observable:** allow multiple effect ([df77c32](https://github.com/equinor/fusion-react-components/commit/df77c328b2b0555cb50ccaa21df41eca212f5cf8))
+
+
+
+
+
 # [1.32.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.31.2...@equinor/fusion-react-components-stories@1.32.0) (2021-11-03)
 
 
