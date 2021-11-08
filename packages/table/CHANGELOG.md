@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.5.0 (2021-11-08)
+
+
+### Bug Fixes
+
+* exhaustive deps ([e013d32](https://github.com/equinor/fusion-react-components/commit/e013d3244234df7128375e74d89d0493b361a68e))
+* make slots optional ([e97e413](https://github.com/equinor/fusion-react-components/commit/e97e413f4210f76d78a3f394c27feab37349ac2c))
+
+
+### Features
+
+* toolbar and export functionality for table ([840b87f](https://github.com/equinor/fusion-react-components/commit/840b87f790ebbca42d118486c186f0361e39e45f))
+
+
+
+
+
 ## [0.4.7](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-table@0.4.6...@equinor/fusion-react-table@0.4.7) (2021-11-02)
 
 **Note:** Version bump only for package @equinor/fusion-react-table

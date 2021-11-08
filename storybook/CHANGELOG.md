@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.34.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.33.0...@equinor/fusion-react-components-stories@1.34.0) (2021-11-08)
+
+
+### Features
+
+* toolbar and export functionality for table ([840b87f](https://github.com/equinor/fusion-react-components/commit/840b87f790ebbca42d118486c186f0361e39e45f))
+
+
+
+
+
 # [1.33.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.32.0...@equinor/fusion-react-components-stories@1.33.0) (2021-11-04)
 
 
