@@ -3,6 +3,8 @@
 
 > Mono-repo for React-components used in fusion
 
+> __IMPORTANT__ this library still uses node V14.
+
 ## [Storybook](https://equinor.github.io/fusion-react-components?path=/docs/intro--page/)
 
 ## [Styling](https://equinor.github.io/fusion-react-components/?path=/docs/styling--page)
