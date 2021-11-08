@@ -28,7 +28,7 @@ export const parameters = {
 
 export const decorators = [
   (Story) => (
-    <ThemeProvider seed="storybook">
+    <ThemeProvider>
       <Story />
     </ThemeProvider>
   ),
