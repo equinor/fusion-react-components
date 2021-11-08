@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.4.0 (2021-11-08)
+
+
+### Features
+
+* expose theme provider ([b5b664d](https://github.com/equinor/fusion-react-components/commit/b5b664dadfcd34bd3f9312bc44bfa21f328a6462))
+
+
+
+
+
 ## [0.3.7](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-styles@0.3.6...@equinor/fusion-react-styles@0.3.7) (2021-10-29)
 
 
