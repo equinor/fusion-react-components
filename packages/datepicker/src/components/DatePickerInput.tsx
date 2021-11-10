@@ -1,4 +1,4 @@
-import { forwardRef, InputHTMLAttributes } from 'react';
+import { forwardRef, InputHTMLAttributes, useCallback } from 'react';
 import { makeStyles, createStyles, theme, FusionTheme } from '@equinor/fusion-react-styles';
 import Icon from './Icon';
 import { calendar, clear, time } from '@equinor/eds-icons';
@@ -73,7 +73,7 @@ const useStyles = makeStyles<FusionTheme, StyleProps>(
 
 export const FusionDatePickerInput = forwardRef<HTMLInputElement, InputHTMLAttributes<HTMLInputElement> & InputProps>(
   (props: InputHTMLAttributes<HTMLInputElement> & InputProps, ref: React.ForwardedRef<HTMLInputElement>) => {
-    const { dateFormat, isClearable, onClear, placeholder, type, ...rest } = props;
+    const { dateFormat, isClearable, onClear, placeholder, type, onFocus, onBlur, ...rest } = props;
 
     const classes = useStyles({
       ...defaultStyleProps,
@@ -81,17 +81,29 @@ export const FusionDatePickerInput = forwardRef<HTMLInputElement, InputHTMLAttri
       hasValue: props.value ? true : false,
     });
 
+    const handleBlur = useCallback(
+      (e: React.FocusEvent<HTMLInputElement>) => {
+        onBlur && onBlur(e);
+        e.target.placeholder = placeholder ?? '';
+      },
+      [placeholder, onBlur]
+    );
+    const handleFocus = useCallback(
+      (e: React.FocusEvent<HTMLInputElement>) => {
+        onFocus && onFocus(e);
+        e.target.placeholder = dateFormat;
+      },
+      [dateFormat, onFocus]
+    );
     return (
       <div className={classes.container}>
         <input
           {...rest}
-          placeholder={placeholder}
-          onFocus={(e) => (e.target.placeholder = dateFormat)}
-          onBlur={(e) => {
-            e.target.placeholder = placeholder ?? '';
-          }}
-          className={classes.input}
           ref={ref}
+          placeholder={placeholder}
+          onBlur={handleBlur}
+          className={classes.input}
+          onFocus={handleFocus}
         />
         {isClearable && props.value ? (
           <Icon
