@@ -1,4 +1,4 @@
-import { FilterOption, FilterOptionBuilder, FilterOptionSelector } from '../../../options';
+import { FilterOptionBuilder, FilterOptionSelector } from '../../../options';
 
 import type { FilterComponent } from '../types';
 import { FilterOptionHeader } from '../FilterOptionHeader';
