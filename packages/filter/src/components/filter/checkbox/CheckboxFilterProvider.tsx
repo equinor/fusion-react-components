@@ -5,6 +5,7 @@ import { propertySelector } from '../../../options/create-options';
 import { FilterOptionBuilder, FilterOptionSelector } from '../../../options/types';
 
 import type { CheckboxOption } from './types';
+import type { FilterFn } from '../../../types';
 
 const createFilterFn =
   <TData extends Record<string, unknown>, TValue = string>(selector: FilterOptionSelector<TData>) =>
@@ -18,7 +19,10 @@ export type CheckboxFilterProviderProps<
 > = {
   filterKey: string;
   title?: string;
-  optionBuilder?: FilterOptionBuilder<TData, TOption, string>;
+  filter?: {
+    filterFn: FilterFn<TData, Set<string>>;
+    optionFn: FilterOptionBuilder<TData, TOption, string>;
+  };
   selector?: Extract<keyof TData, string> | string | FilterOptionSelector<TData>;
   initial?: Set<string>;
 };
@@ -29,7 +33,7 @@ export const CheckboxFilterProvider = <
 >(
   props: React.PropsWithChildren<CheckboxFilterProviderProps<TData, TOptions>>
 ): JSX.Element => {
-  const { filterKey, selector = filterKey, optionBuilder, title, initial, children } = props;
+  const { filterKey, selector = filterKey, title, initial, filter, children } = props;
   const selectorFn = useMemo(
     () =>
       typeof selector === 'function'
@@ -37,11 +41,15 @@ export const CheckboxFilterProvider = <
         : propertySelector(selector || (selector as Extract<keyof TData, string>)),
     [selector]
   );
-  const filterFn = useMemo(() => createFilterFn(selectorFn), [selectorFn]);
+  const filterFn = useMemo<FilterFn<TData, Set<string>>>(() => {
+    if (filter?.filterFn) return filter.filterFn;
+    if (!selectorFn) throw Error('Could not create filter. Please provide either filterFn or filterSelector.');
+    return createFilterFn(selectorFn);
+  }, [selectorFn, filter?.filterFn]);
   return (
     <FilterOptionProvider
       selector={selectorFn}
-      optionBuilder={optionBuilder}
+      optionBuilder={filter?.optionFn}
       filter={{ key: filterKey, title, initial, filterFn }}
     >
       {children}
