@@ -43,7 +43,12 @@ const useGarden = <T extends HangingGardenColumnIndex>(): UseGarden => {
     clearTextureCaches();
     setExpandedColumns({});
     setMaxRowCount(getMaxRowCount(columns as HangingGardenColumn<T>[]));
-    scrollToHighlightedColumn(columns as HangingGardenColumn<T>[], highlightedColumnKey as string, itemWidth);
+    scrollToHighlightedColumn(
+      columns as HangingGardenColumn<T>[],
+      highlightedColumnKey as string,
+      itemWidth,
+      expandedColumns
+    );
     renderGarden();
   }, [columns]);
 
@@ -53,7 +58,7 @@ const useGarden = <T extends HangingGardenColumnIndex>(): UseGarden => {
   }, [expandedColumns]);
 
   useEffect(() => {
-    if (scrollToHighlightedItem(columns as HangingGardenColumn<T>[], highlightedItem, itemWidth)) {
+    if (scrollToHighlightedItem(columns as HangingGardenColumn<T>[], highlightedItem, itemWidth, expandedColumns)) {
       clearTextureCaches();
       renderGarden();
     }
