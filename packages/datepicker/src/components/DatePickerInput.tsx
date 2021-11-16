@@ -1,4 +1,4 @@
-import { forwardRef, InputHTMLAttributes } from 'react';
+import { forwardRef, InputHTMLAttributes, useCallback } from 'react';
 import { makeStyles, createStyles, theme, FusionTheme } from '@equinor/fusion-react-styles';
 import Icon from './Icon';
 import { calendar, clear, time } from '@equinor/eds-icons';
@@ -21,7 +21,7 @@ type InputProps = {
 };
 
 const defaultStyleProps: StyleProps = {
-  spacing: 'small',
+  spacing: 'medium',
 };
 
 const useStyles = makeStyles<FusionTheme, StyleProps>(
@@ -29,15 +29,19 @@ const useStyles = makeStyles<FusionTheme, StyleProps>(
     createStyles({
       container: ({ spacing, disabled }) => ({
         ...theme.spacing.comfortable[spacing].style,
-        backgroundColor: theme.colors.ui.background__light.value.hex,
-        borderBottom: disabled ? 'none' : `1px solid ${theme.colors.text.static_icons__tertiary.value.hex}`,
-        '&:focus-within': {
-          outline: `2px solid ${theme.colors.interactive.focus.value.hex}`,
-          borderBottom: '1px solid transparent',
-        },
         display: 'flex',
+        backgroundColor: theme.colors.ui.background__light.value.hex,
+        boxShadow: disabled ? 'none' : `0px -1px 0px 0px inset ${theme.colors.text.static_icons__tertiary.value.hex}`,
+        '&:focus-within': {
+          boxShadow: `0px -2px 0px 0px inset ${theme.colors.interactive.focus.value.hex}`,
+        },
         justifyContent: 'center',
         alignItems: 'center',
+        borderRadius: '0.5em 0.5em 0 0',
+        '&:hover': {
+          backgroundColor: theme.colors.ui.background__medium.value.hex,
+        },
+        transition: 'box-shadow 0.5s ease-out',
       }),
       error: {
         color: 'red',
@@ -73,23 +77,34 @@ const useStyles = makeStyles<FusionTheme, StyleProps>(
 
 export const FusionDatePickerInput = forwardRef<HTMLInputElement, InputHTMLAttributes<HTMLInputElement> & InputProps>(
   (props: InputHTMLAttributes<HTMLInputElement> & InputProps, ref: React.ForwardedRef<HTMLInputElement>) => {
-    const { dateFormat, isClearable, onClear, placeholder, type, ...rest } = props;
-
+    const { dateFormat, isClearable, onClear, placeholder, type, onFocus, onBlur, ...rest } = props;
     const classes = useStyles({
       ...defaultStyleProps,
       disabled: props.disabled,
       hasValue: props.value ? true : false,
     });
+    const handleBlur = useCallback(
+      (e: React.FocusEvent<HTMLInputElement>) => {
+        onBlur && onBlur(e);
+        e.target.placeholder = placeholder ?? '';
+      },
+      [placeholder, onBlur]
+    );
+    const handleFocus = useCallback(
+      (e: React.FocusEvent<HTMLInputElement>) => {
+        onFocus && onFocus(e);
+        e.target.placeholder = dateFormat;
+      },
+      [dateFormat, onFocus]
+    );
 
     return (
       <div className={classes.container}>
         <input
           {...rest}
           placeholder={placeholder}
-          onFocus={(e) => (e.target.placeholder = dateFormat)}
-          onBlur={(e) => {
-            e.target.placeholder = placeholder ?? '';
-          }}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
           className={classes.input}
           ref={ref}
         />
