@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.4.1 (2021-11-22)
+
+
+### Bug Fixes
+
+* **styles:** re-export create style function ([4655862](https://github.com/equinor/fusion-react-components/commit/4655862aa2388675a02bbde8d9b89dcee7aa67cd))
+
+
+
+
+
 # 0.4.0 (2021-11-08)
 
 
