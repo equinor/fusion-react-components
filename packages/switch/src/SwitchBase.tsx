@@ -3,7 +3,9 @@ import { SwitchElement as HTMLSwitchCustomElement, tag } from '@equinor/fusion-w
 
 export { HTMLSwitchCustomElement };
 
-type ElementProps = React.PropsWithChildren<Partial<Pick<HTMLSwitchCustomElement, 'selected' | 'name' | 'value'>>>;
+type ElementProps = React.PropsWithChildren<
+  Partial<Pick<HTMLSwitchCustomElement, 'selected' | 'name' | 'value' | 'disabled'>>
+>;
 
 export const SwitchBase = createComponent<HTMLSwitchCustomElement, ElementProps>(HTMLSwitchCustomElement, tag);
 
