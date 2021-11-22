@@ -1,5 +1,5 @@
 import { FunctionComponent, MouseEventHandler } from 'react';
-import { FusionTheme, makeStyles, createStyles } from '@equinor/fusion-react-styles';
+import { makeStyles, createStyles } from '@equinor/fusion-react-styles';
 import { IconData } from '@equinor/eds-icons';
 
 type StyleProps = {
@@ -13,10 +13,10 @@ type IconProps = {
   onClick?: MouseEventHandler<HTMLElement>;
 };
 
-const useStyle = makeStyles<FusionTheme, StyleProps>(
+const useStyle = makeStyles(
   () =>
     createStyles({
-      root: ({ size }) => ({
+      root: ({ size }: StyleProps) => ({
         fill: 'currentColor',
         height: size ?? '1.375em',
         width: 'auto',
