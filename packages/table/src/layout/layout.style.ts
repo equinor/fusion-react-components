@@ -1,4 +1,4 @@
-import { makeStyles, FusionTheme, createStyles, theme } from '@equinor/fusion-react-styles';
+import { makeStyles, createStyles, theme } from '@equinor/fusion-react-styles';
 
 export type SpacingType = keyof typeof theme.spacing.comfortable;
 
@@ -6,7 +6,7 @@ export type StyleProps = {
   spacing: SpacingType;
 };
 
-export const useStyles = makeStyles<FusionTheme, StyleProps>(
+export const useStyles = makeStyles(
   (theme) =>
     createStyles({
       root: {
@@ -24,7 +24,7 @@ export const useStyles = makeStyles<FusionTheme, StyleProps>(
       groupHeader: {
         ...theme.typography.heading.h5.style,
       },
-      cell: ({ spacing }) => ({
+      cell: ({ spacing }: StyleProps) => ({
         ...theme.spacing.comfortable[spacing].style,
       }),
       row: {
