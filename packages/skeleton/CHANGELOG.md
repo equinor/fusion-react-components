@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.2.4 (2021-11-23)
+
+**Note:** Version bump only for package @equinor/fusion-react-skeleton
+
+
+
+
+
 ## [0.2.3](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-skeleton@0.2.2...@equinor/fusion-react-skeleton@0.2.3) (2021-11-02)
 
 **Note:** Version bump only for package @equinor/fusion-react-skeleton
