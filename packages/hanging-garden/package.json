@@ -44,11 +44,11 @@
   },
   "devDependencies": {
     "@equinor/fusion": "^3.3.1",
-    "@types/node": "^16.9.1"
+    "@types/node": "^16.11.9"
   },
   "peerDependencies": {
     "@equinor/fusion": "^3.3.1",
-    "@equinor/fusion-react-styles": "0.3.1",
+    "@equinor/fusion-react-styles": "0.4.0",
     "@types/history": "4.x",
     "date-fns": "2.x",
     "history": "4.x"
