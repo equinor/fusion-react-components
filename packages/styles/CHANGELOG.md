@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.3](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-styles@0.4.2...@equinor/fusion-react-styles@0.4.3) (2021-11-23)
+
+
+### Bug Fixes
+
+* **style:** fix create-style properties ([23d9c8a](https://github.com/equinor/fusion-react-components/commit/23d9c8a9d3831e5beca9b5ff58e951bd1ba1e809))
+
+
+
+
+
 ## [0.4.2](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-styles@0.4.1...@equinor/fusion-react-styles@0.4.2) (2021-11-22)
 
 **Note:** Version bump only for package @equinor/fusion-react-styles

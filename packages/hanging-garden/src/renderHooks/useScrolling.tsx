@@ -1,4 +1,5 @@
 import { MutableRefObject, RefObject, useRef, useCallback, UIEvent } from 'react';
+import { ExpandedColumns } from '../models/ExpandedColumn';
 import { ColumnGroupHeader, HangingGardenColumn, HangingGardenColumnIndex } from '../models/HangingGarden';
 import { flattenColumn } from '../utils';
 
@@ -10,9 +11,15 @@ export type Scroll<T extends HangingGardenColumnIndex> = {
   scrollToHighlightedColumn: (
     columns: HangingGardenColumn<T>[],
     highlightedColumnKey: string,
-    itemWidth: number
+    itemWidth: number,
+    expandedColumns?: ExpandedColumns
   ) => boolean;
-  scrollToHighlightedItem: (columns: HangingGardenColumn<T>[], highlightedItem: T, itemWidth: number) => boolean;
+  scrollToHighlightedItem: (
+    columns: HangingGardenColumn<T>[],
+    highlightedItem: T,
+    itemWidth: number,
+    expandedColumns?: ExpandedColumns
+  ) => boolean;
 };
 /**
  * Handles scrolling off the garden canvas. Also handles scroll to functionality.
@@ -49,7 +56,7 @@ const useScrolling = <T extends HangingGardenColumnIndex>(
   );
 
   const scrollTo = useCallback(
-    (highlightedColumnIndex: number, itemWidth: number): boolean => {
+    (highlightedColumnIndex: number, itemWidth: number, expandedColumns?: ExpandedColumns): boolean => {
       if (!container?.current) return false;
 
       if (container.current.scrollWidth <= container.current.offsetWidth) {
@@ -57,13 +64,26 @@ const useScrolling = <T extends HangingGardenColumnIndex>(
         return false;
       }
 
-      //Calculate how far from the left to scroll, while ensuring scroll is not below 0.
+      /**
+       * account for expandedColumns and offset their width.
+       * Only expanded column to the right off hightlightedColumn index needs to be calcultated.
+       */
+      const expandedColumnsOffset = expandedColumns
+        ? Object.keys(expandedColumns).reduce((offset, columnKey) => {
+            const { index, isExpanded, maxWidth } = expandedColumns[columnKey];
+            return isExpanded && index < highlightedColumnIndex ? offset + maxWidth + itemWidth + padding : offset;
+          }, 0)
+        : 0;
+
+      /**
+       *  Calculate how far from the left to scroll, while ensuring scroll is not below 0.
+       */
       const scrollWindowTo = Math.max(
         highlightedColumnIndex >= 0
-          ? (container.current.scrollLeft =
-              highlightedColumnIndex * (itemWidth + padding) -
+          ? highlightedColumnIndex * (itemWidth + padding) -
               container.current.offsetWidth / 2 +
-              (itemWidth + padding) / 2)
+              (itemWidth + padding) / 2 +
+              expandedColumnsOffset
           : 0,
         0
       );
@@ -79,16 +99,26 @@ const useScrolling = <T extends HangingGardenColumnIndex>(
   );
 
   const scrollToHighlightedColumn = useCallback(
-    (columns: HangingGardenColumn<T>[], highlightedColumnKey: string, itemWidth: number): boolean => {
+    (
+      columns: HangingGardenColumn<T>[],
+      highlightedColumnKey: string,
+      itemWidth: number,
+      expandedColumns?: ExpandedColumns
+    ): boolean => {
       const highlightedColumnIndex = columns.findIndex((column) => column.key === highlightedColumnKey);
 
-      return scrollTo(highlightedColumnIndex, itemWidth);
+      return scrollTo(highlightedColumnIndex, itemWidth, expandedColumns);
     },
     [scrollTo]
   );
 
   const scrollToHighlightedItem = useCallback(
-    (columns: HangingGardenColumn<T>[], highlightedItem: T | null, itemWidth: number): boolean => {
+    (
+      columns: HangingGardenColumn<T>[],
+      highlightedItem: T | null,
+      itemWidth: number,
+      expandedColumns?: ExpandedColumns
+    ): boolean => {
       if (disableScrollToHighlightedItem || !highlightedItem) return false;
       const highlightedIndex = columns.findIndex((column) =>
         (flattenColumn(column).filter((c) => (c as ColumnGroupHeader)?.type !== 'groupHeader') as T[]).some((item) => {
@@ -96,7 +126,7 @@ const useScrolling = <T extends HangingGardenColumnIndex>(
         })
       );
 
-      return scrollTo(highlightedIndex, itemWidth);
+      return scrollTo(highlightedIndex, itemWidth, expandedColumns);
     },
     [scrollTo, itemKeyProp, disableScrollToHighlightedItem]
   );
