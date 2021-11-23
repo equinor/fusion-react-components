@@ -11,7 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@babel/core": "^7.15.8",
+    "@babel/core": "^7.16.0",
     "@equinor/fusion-react-avatar": "^0.3.4",
     "@equinor/fusion-react-badge": "^0.3.3",
     "@equinor/fusion-react-button": "^0.5.4",
@@ -41,14 +41,14 @@
     "@storybook/builder-webpack5": "^6.3.12",
     "@storybook/manager-webpack5": "^6.3.12",
     "@storybook/react": "^6.3.12",
-    "@types/faker": "^5.5.8",
+    "@types/faker": "^5.5.9",
     "babel-loader": "^8.2.3",
     "faker": "^5.5.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-is": "^17.0.2",
     "storybook": "^6.3.12",
-    "webpack": "^5.60.0"
+    "webpack": "^5.64.2"
   },
   "devDependencies": {
     "namor": "^2.0.3"
