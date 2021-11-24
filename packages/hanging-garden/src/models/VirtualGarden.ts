@@ -6,17 +6,11 @@ export type Col<T> = {
 };
 /** All the data needed about a specific Garden for the Virtual Garden component */
 export type GardenData<TPackage extends object, TColumn extends Col<TPackage>> = {
-  /** How many columns are there */
-  columnCount: number;
-
   /** The columns object */
   columns: TColumn[];
 
   /** How wide you want the packages to be */
   itemWidth: number;
-
-  /** How many rows are there */
-  rowCount: number;
 
   /** Specific package when the user clicks on it */
   selectedPkg: TPackage | null;

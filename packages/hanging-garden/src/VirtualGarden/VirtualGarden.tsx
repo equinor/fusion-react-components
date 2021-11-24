@@ -1,4 +1,4 @@
-import { Fragment, useCallback, useRef, useLayoutEffect } from 'react';
+import { Fragment, useCallback, useRef, useLayoutEffect, useMemo } from 'react';
 import { useVirtual } from 'react-virtual';
 import { useVirtualScrolling } from '../hooks/useVirtualScrolling';
 import { Layout } from './Layout';
@@ -22,9 +22,13 @@ export const VirtualGarden = <TPackage extends object, TFilter extends object, T
   const { widths: contextWidths } = useExpand();
 
   const { gardenData, handlers, filterTerms, gardenHeader, gardenPackage } = props;
-  const { columnCount, columns, itemWidth, rowCount, selectedPkg } = gardenData;
+  const { columns, itemWidth, selectedPkg } = gardenData;
   const { component: packageComponent, customPackageProps } = gardenPackage;
   const { component: headerChild, customHeaderStyling, customHeaderProps } = gardenHeader;
+
+  const rowCount = useMemo(() => {
+    return Math.max(...columns.map((column) => column.data.length));
+  }, [columns]);
 
   /**
    * Virtualized row
@@ -48,7 +52,7 @@ export const VirtualGarden = <TPackage extends object, TFilter extends object, T
    */
   const columnVirtualizer = useVirtual({
     horizontal: true,
-    size: columnCount,
+    size: columns.length,
     parentRef,
     estimateSize: useCallback((index) => contextWidths[index], [contextWidths]),
     keyExtractor: useCallback((index) => index, [contextWidths]),

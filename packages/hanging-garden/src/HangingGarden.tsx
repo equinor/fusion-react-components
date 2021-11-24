@@ -16,13 +16,12 @@ export const HangingGarden = <TPackage extends object, TFilter extends object, T
 
   /** Dynamic widths */
   useEffect(() => {
-    setWidths(new Array(gardenData.columnCount).fill(gardenData.itemWidth));
-  }, [gardenData.columnCount, gardenData.itemWidth]);
+    setWidths(new Array(gardenData.columns.length).fill(gardenData.itemWidth));
+  }, [gardenData.columns, gardenData.itemWidth]);
 
   // Dont want to render if no columns..
   //TODO: check if there are some issues in the useGardenData hooks in parent
-  if (widths.length !== gardenData.columnCount) {
-    console.log('widths length', widths.length, 'columnCOunt', gardenData.columnCount);
+  if (widths.length !== gardenData.columns.length) {
     return <h1>widths and columncount not equal</h1>;
   }
 

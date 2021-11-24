@@ -1,4 +1,5 @@
 import { createStyles, makeStyles } from '@equinor/fusion-react-styles';
+import { useCallback } from 'react';
 import { VirtualItem, useVirtual } from 'react-virtual/types';
 import { Col, GardenPackage } from '../models/VirtualGarden';
 const useStyles = makeStyles(() =>
@@ -37,12 +38,15 @@ export const PackageContainer = <D extends object, T extends Col<D>>(props: Item
   const { component: Package, itemWidth, onPackageClick, selectedPkg, customPackageProps } = packageProps;
   const styles = useStyles();
 
-  const handlePackageClick = (selectedPkg: D, columnIndex: number) => {
-    onPackageClick(selectedPkg);
-    //TODO: If align center, then goes out of the view. Does not depend on sidesheet width.
+  const handlePackageClick = useCallback(
+    (selectedPkg: D, columnIndex: number) => {
+      onPackageClick(selectedPkg);
+      //TODO: If align center, then goes out of the view. Does not depend on sidesheet width.
 
-    columnVirtualizer.scrollToIndex(columnIndex, { align: 'center' });
-  };
+      columnVirtualizer.scrollToIndex(columnIndex, { align: 'center' });
+    },
+    [columnVirtualizer.scrollToIndex, onPackageClick]
+  );
   return (
     <>
       {columnVirtualizer.virtualItems.map((virtualColumn) => {

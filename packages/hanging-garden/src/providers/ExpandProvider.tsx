@@ -6,6 +6,7 @@ import { getDescriptionWidth } from '../utils';
 export type State = {
   /** Expanded saved in a dictionary */
   expandedColumns: ExpandedColumns;
+
   /** Widths of the packages in the garden */
   widths: number[];
 };
@@ -19,6 +20,7 @@ export enum ActionType {
 type ExpandAction = {
   /** Key is extracted from the column object */
   key: string;
+
   /** Index from the column array */
   index: number;
   descriptionData: any;
