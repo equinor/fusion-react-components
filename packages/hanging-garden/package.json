@@ -40,7 +40,8 @@
     "@types/history": "^4.7.9",
     "date-fns": "^2.23.0",
     "history": "^4.9.0",
-    "pixi.js-legacy": "^5.3.7"
+    "pixi.js-legacy": "^5.3.7",
+    "react-virtual": "^2.8.2"
   },
   "devDependencies": {
     "@equinor/fusion": "^3.3.0",
