@@ -4,7 +4,7 @@ import { getCalculatedWidth, getCalculatedHeight, GROUP_LEVEL_OFFSET } from './u
 import { useHangingGardenContext } from './renderHooks/useHangingGardenContext';
 import useGarden from './renderHooks/useGarden';
 import useRendererSize from './renderHooks/useRendererSize';
-import { createStyles, FusionTheme, makeStyles } from '@equinor/fusion-react-styles';
+import { createStyles, makeStyles } from '@equinor/fusion-react-styles';
 
 type StyleProps = {
   wrapper: {
@@ -12,7 +12,7 @@ type StyleProps = {
     width: number;
   };
 };
-const useStyles = makeStyles<FusionTheme, StyleProps>(() =>
+const useStyles = makeStyles(() =>
   createStyles({
     root: {
       width: '100%',
@@ -20,7 +20,7 @@ const useStyles = makeStyles<FusionTheme, StyleProps>(() =>
       overflow: 'auto',
       position: 'relative',
     },
-    wrapper: ({ wrapper }) => ({
+    wrapper: ({ wrapper }: StyleProps) => ({
       minWidth: '100%',
       minHeight: '100%',
       ...wrapper,

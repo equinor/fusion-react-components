@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.4.4 (2021-11-23)
+
+**Note:** Version bump only for package @equinor/fusion-react-radio
+
+
+
+
+
 ## [0.4.3](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-radio@0.4.2...@equinor/fusion-react-radio@0.4.3) (2021-11-02)
 
 **Note:** Version bump only for package @equinor/fusion-react-radio

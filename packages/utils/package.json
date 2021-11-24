@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-utils",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "description": "Helper and util functions for React",
   "keywords": [
     "utils",
@@ -35,6 +35,6 @@
     "url": "https://github.com/equinor/fusion-react-components/issues"
   },
   "dependencies": {
-    "date-fns": "^2.25.0"
+    "date-fns": "^2.26.0"
   }
 }

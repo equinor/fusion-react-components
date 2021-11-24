@@ -1,5 +1,5 @@
 import { forwardRef, InputHTMLAttributes, useCallback } from 'react';
-import { makeStyles, createStyles, theme, FusionTheme } from '@equinor/fusion-react-styles';
+import { makeStyles, createStyles, theme } from '@equinor/fusion-react-styles';
 import Icon from './Icon';
 import { calendar, clear, time } from '@equinor/eds-icons';
 import { FusionDatePickerType } from '../types';
@@ -24,10 +24,10 @@ const defaultStyleProps: StyleProps = {
   spacing: 'medium',
 };
 
-const useStyles = makeStyles<FusionTheme, StyleProps>(
+const useStyles = makeStyles(
   (theme) =>
     createStyles({
-      container: ({ spacing, disabled }) => ({
+      container: ({ spacing, disabled }: StyleProps) => ({
         ...theme.spacing.comfortable[spacing].style,
         display: 'flex',
         backgroundColor: theme.colors.ui.background__light.value.hex,
@@ -46,7 +46,7 @@ const useStyles = makeStyles<FusionTheme, StyleProps>(
       error: {
         color: 'red',
       },
-      input: ({ hasValue, isError }) => ({
+      input: ({ hasValue, isError }: StyleProps) => ({
         ...theme.typography.input.text.style,
         color: isError
           ? theme.colors.interactive.danger__text.value.hex
