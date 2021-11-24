@@ -1,5 +1,5 @@
 import { forwardRef, InputHTMLAttributes, useCallback } from 'react';
-import { makeStyles, createStyles, theme } from '@equinor/fusion-react-styles';
+import { makeStyles, createStyles, theme, clsx } from '@equinor/fusion-react-styles';
 import Icon from './Icon';
 import { calendar, clear, time } from '@equinor/eds-icons';
 import { FusionDatePickerType } from '../types';
@@ -27,24 +27,33 @@ const defaultStyleProps: StyleProps = {
 const useStyles = makeStyles(
   (theme) =>
     createStyles({
+      '@keyframes rippling': {
+        '0%': {
+          transform: 'scale(0)',
+        },
+        '100%': {
+          transform: 'scale(1)',
+        },
+      },
       container: ({ spacing, disabled }: StyleProps) => ({
         ...theme.spacing.comfortable[spacing].style,
         display: 'flex',
         backgroundColor: theme.colors.ui.background__light.value.hex,
         boxShadow: disabled ? 'none' : `0px -1px 0px 0px inset ${theme.colors.text.static_icons__tertiary.value.hex}`,
-        '&:focus-within': {
-          boxShadow: `0px -2px 0px 0px inset ${theme.colors.interactive.focus.value.hex}`,
-        },
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: '0.5em 0.5em 0 0',
         '&:hover': {
           backgroundColor: theme.colors.ui.background__medium.value.hex,
         },
-        transition: 'box-shadow 0.5s ease-out',
       }),
       error: {
         color: 'red',
+      },
+      ripple: {
+        width: '100%',
+        position: 'absolute',
+        bottom: 0,
       },
       input: ({ hasValue, isError }: StyleProps) => ({
         ...theme.typography.input.text.style,
@@ -56,13 +65,20 @@ const useStyles = makeStyles(
         border: 'none',
         background: 'none',
         width: '100%',
-        '&:focus': {
-          outline: `none`,
-        },
         '&:disabled': {
           color: theme.colors.interactive.disabled__text.value.hex,
         },
       }),
+      inputFocus: {
+        '&:focus': {
+          outline: 'none',
+          '& ~ $ripple': {
+            animation: '$rippling .3s',
+            backgroundColor: theme.colors.interactive.focus.value.hex,
+            height: '2px',
+          },
+        },
+      },
       icon: {
         ...theme.typography.navigation.menu_title.style,
         color: theme.colors.text.static_icons__tertiary.value.hex,
@@ -105,9 +121,10 @@ export const FusionDatePickerInput = forwardRef<HTMLInputElement, InputHTMLAttri
           placeholder={placeholder}
           onFocus={handleFocus}
           onBlur={handleBlur}
-          className={classes.input}
+          className={clsx(classes.input, classes.inputFocus)}
           ref={ref}
         />
+        <span className={classes.ripple} />
         {isClearable && props.value ? (
           <Icon
             icon={clear}
