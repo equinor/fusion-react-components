@@ -37,6 +37,7 @@ const useStyles = makeStyles(
       },
       container: ({ spacing, disabled }: StyleProps) => ({
         ...theme.spacing.comfortable[spacing].style,
+        height: '40px',
         display: 'flex',
         backgroundColor: theme.colors.ui.background__light.value.hex,
         boxShadow: disabled ? 'none' : `0px -1px 0px 0px inset ${theme.colors.text.static_icons__tertiary.value.hex}`,
