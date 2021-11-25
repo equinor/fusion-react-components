@@ -21,7 +21,7 @@ type InputProps = {
 };
 
 const defaultStyleProps: StyleProps = {
-  spacing: 'medium',
+  spacing: 'small',
 };
 
 const useStyles = makeStyles(
