@@ -3,7 +3,6 @@ import { makeStyles, createStyles, theme, clsx } from '@equinor/fusion-react-sty
 import Icon from './Icon';
 import { calendar, clear, time } from '@equinor/eds-icons';
 import { FusionDatePickerType } from '../types';
-
 type SpacingType = keyof typeof theme.spacing.comfortable;
 
 type StyleProps = {
@@ -40,10 +39,10 @@ const useStyles = makeStyles(
         height: '40px',
         display: 'flex',
         backgroundColor: theme.colors.ui.background__light.value.hex,
-        boxShadow: disabled ? 'none' : `0px -1px 0px 0px inset ${theme.colors.text.static_icons__tertiary.value.hex}`,
+        boxShadow: disabled ? 'none' : `0px -0.5px 0px 0px inset ${theme.colors.text.static_icons__tertiary.value.hex}`,
         justifyContent: 'center',
         alignItems: 'center',
-        borderRadius: '0.5em 0.5em 0 0',
+        borderRadius: '4px 4px 0 0',
         '&:hover': {
           backgroundColor: theme.colors.ui.background__medium.value.hex,
         },
