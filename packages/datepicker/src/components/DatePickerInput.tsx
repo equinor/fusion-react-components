@@ -1,9 +1,8 @@
-import { forwardRef, InputHTMLAttributes } from 'react';
-import { makeStyles, createStyles, theme } from '@equinor/fusion-react-styles';
+import { forwardRef, InputHTMLAttributes, useCallback } from 'react';
+import { makeStyles, createStyles, theme, clsx } from '@equinor/fusion-react-styles';
 import Icon from './Icon';
 import { calendar, clear, time } from '@equinor/eds-icons';
 import { FusionDatePickerType } from '../types';
-
 type SpacingType = keyof typeof theme.spacing.comfortable;
 
 type StyleProps = {
@@ -27,20 +26,34 @@ const defaultStyleProps: StyleProps = {
 const useStyles = makeStyles(
   (theme) =>
     createStyles({
+      '@keyframes rippling': {
+        '0%': {
+          transform: 'scale(0)',
+        },
+        '100%': {
+          transform: 'scale(1)',
+        },
+      },
       container: ({ spacing, disabled }: StyleProps) => ({
         ...theme.spacing.comfortable[spacing].style,
-        backgroundColor: theme.colors.ui.background__light.value.hex,
-        borderBottom: disabled ? 'none' : `1px solid ${theme.colors.text.static_icons__tertiary.value.hex}`,
-        '&:focus-within': {
-          outline: `2px solid ${theme.colors.interactive.focus.value.hex}`,
-          borderBottom: '1px solid transparent',
-        },
+        height: '40px',
         display: 'flex',
+        backgroundColor: theme.colors.ui.background__light.value.hex,
+        boxShadow: disabled ? 'none' : `0px -0.5px 0px 0px inset ${theme.colors.text.static_icons__tertiary.value.hex}`,
         justifyContent: 'center',
         alignItems: 'center',
+        borderRadius: '4px 4px 0 0',
+        '&:hover': {
+          backgroundColor: theme.colors.ui.background__medium.value.hex,
+        },
       }),
       error: {
         color: 'red',
+      },
+      ripple: {
+        width: '100%',
+        position: 'absolute',
+        bottom: 0,
       },
       input: ({ hasValue, isError }: StyleProps) => ({
         ...theme.typography.input.text.style,
@@ -52,13 +65,20 @@ const useStyles = makeStyles(
         border: 'none',
         background: 'none',
         width: '100%',
-        '&:focus': {
-          outline: `none`,
-        },
         '&:disabled': {
           color: theme.colors.interactive.disabled__text.value.hex,
         },
       }),
+      inputFocus: {
+        '&:focus': {
+          outline: 'none',
+          '& ~ $ripple': {
+            animation: '$rippling .3s',
+            backgroundColor: theme.colors.interactive.focus.value.hex,
+            height: '2px',
+          },
+        },
+      },
       icon: {
         ...theme.typography.navigation.menu_title.style,
         color: theme.colors.text.static_icons__tertiary.value.hex,
@@ -73,26 +93,38 @@ const useStyles = makeStyles(
 
 export const FusionDatePickerInput = forwardRef<HTMLInputElement, InputHTMLAttributes<HTMLInputElement> & InputProps>(
   (props: InputHTMLAttributes<HTMLInputElement> & InputProps, ref: React.ForwardedRef<HTMLInputElement>) => {
-    const { dateFormat, isClearable, onClear, placeholder, type, ...rest } = props;
-
+    const { dateFormat, isClearable, onClear, placeholder, type, onFocus, onBlur, ...rest } = props;
     const classes = useStyles({
       ...defaultStyleProps,
       disabled: props.disabled,
       hasValue: props.value ? true : false,
     });
+    const handleBlur = useCallback(
+      (e: React.FocusEvent<HTMLInputElement>) => {
+        onBlur && onBlur(e);
+        e.target.placeholder = placeholder ?? '';
+      },
+      [placeholder, onBlur]
+    );
+    const handleFocus = useCallback(
+      (e: React.FocusEvent<HTMLInputElement>) => {
+        onFocus && onFocus(e);
+        e.target.placeholder = dateFormat;
+      },
+      [dateFormat, onFocus]
+    );
 
     return (
       <div className={classes.container}>
         <input
           {...rest}
           placeholder={placeholder}
-          onFocus={(e) => (e.target.placeholder = dateFormat)}
-          onBlur={(e) => {
-            e.target.placeholder = placeholder ?? '';
-          }}
-          className={classes.input}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
+          className={clsx(classes.input, classes.inputFocus)}
           ref={ref}
         />
+        <span className={classes.ripple} />
         {isClearable && props.value ? (
           <Icon
             icon={clear}
