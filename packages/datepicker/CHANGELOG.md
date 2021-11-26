@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.10.0 (2021-11-26)
+
+
+### Bug Fixes
+
+* border radius aand box shadow ([f4db215](https://github.com/equinor/fusion-react-components/commit/f4db215ce52e9b73cebc5339c939b92ce0b50cde))
+* height of input element same as textinput ([2c6d854](https://github.com/equinor/fusion-react-components/commit/2c6d8547e67e0eaf17193e2913e3b039ab9db301))
+* make spacing small again ([361c554](https://github.com/equinor/fusion-react-components/commit/361c55430e13b9669be0d3ba6d9941de03b43527))
+
+
+### Features
+
+* rippling effect when focus input ([9fe2575](https://github.com/equinor/fusion-react-components/commit/9fe2575e823527496ad360cb8addfa04a6edf336))
+* update styling for datepicker input ([bac878a](https://github.com/equinor/fusion-react-components/commit/bac878a5d37249253f5f71c74405ff14e0c1953b))
+
+
+
+
+
 ## [0.9.15](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-datepicker@0.9.14...@equinor/fusion-react-datepicker@0.9.15) (2021-11-23)
 
 **Note:** Version bump only for package @equinor/fusion-react-datepicker
