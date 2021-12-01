@@ -1,0 +1,32 @@
+import { Meta, Story, Canvas, ArgsTable,Description } from '@storybook/addon-docs';
+import { ChangeLog, PackageInfo, StoryExample } from '../../components';
+import Tooltip from '@equinor/fusion-react-tooltip/src/';
+
+<Meta title="Input/Tooltip" component={Tooltip} />
+
+<PackageInfo pkg={require('@equinor/fusion-react-tooltip/package.json')} />
+
+## Component
+
+<ArgsTable of={Tooltip} />
+
+<!-- ## Validation 
+
+### Static
+
+<StoryExample storyId="examples-textinput-validation--static" showSource/>
+
+### Simple
+
+<StoryExample storyId="examples-textinput-validation--simple" showSource/>
+
+### prefered
+
+<StoryExample storyId="examples-textinput-validation--preferred" showSource/>
+
+## Changelog -->
+
+<ChangeLog changelogs={{
+  react: require('@equinor/fusion-react-tooltip/CHANGELOG.md'), 
+}}/>
+
