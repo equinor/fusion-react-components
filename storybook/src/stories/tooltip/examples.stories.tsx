@@ -1,6 +1,5 @@
 import { Meta, Story } from '@storybook/react';
 import Tooltip, { TooltipProps } from '@equinor/fusion-react-tooltip/src';
-import 'tippy.js/dist/tippy.css';
 import { createStyles, makeStyles } from '@equinor/fusion-react-styles';
 import Button from '@equinor/fusion-react-button';
 
