@@ -17,7 +17,7 @@ export const Component: Story = (props: Props) => (
   </Tooltip>
 );
 Component.args = {
-  content: 'Tooltip',
+  content: 'Tooltip with default styling',
 };
 
 export const Custom: Story = (props: Props) => (
