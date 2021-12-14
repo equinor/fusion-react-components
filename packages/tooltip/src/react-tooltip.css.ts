@@ -10,9 +10,6 @@ export default {
       position: 'relative',
       backgroundColor: '#333',
       color: '#fff',
-      borderRadius: '4px',
-      fontSize: '14px',
-      lineHeight: '1.4',
       whiteSpace: 'normal',
       outline: 0,
       transitionProperty: 'transform,visibility,opacity',
@@ -71,7 +68,7 @@ export default {
     },
     '.tippy-content': {
       position: 'relative',
-      padding: '5px 9px',
+      padding: '9px',
       zIndex: '1',
     },
   },
