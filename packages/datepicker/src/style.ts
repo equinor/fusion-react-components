@@ -17,11 +17,6 @@ export const useStyles = makeStyles(
         flexDirection: 'column',
         justifyContent: 'center',
       }),
-      label: {
-        ...theme.typography.input.label.style,
-        color: theme.colors.text.static_icons__tertiary.getVariable('color'),
-        paddingLeft: 'calc(0.5em + 2px)',
-      },
       popper: {
         zIndex: 99,
         '& .react-datepicker__header': {

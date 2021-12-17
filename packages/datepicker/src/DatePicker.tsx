@@ -100,13 +100,13 @@ export const FusionDatePicker: FunctionComponent<FusionDatePickerProps> = (
 
   return (
     <div className={clsx(styles.container, classes?.host)}>
-      {label && <span className={styles.label}>{label}</span>}
       <DatePicker
         {...args}
         customInput={
           <FusionDatePickerInput
             dateFormat={getDisplayDateFormat(type)}
             isClearable={isClearable}
+            label={label}
             onClear={() => dateOnChange(null)}
             type={type}
           />
