@@ -14,6 +14,7 @@ type StyleProps = {
 
 type InputProps = {
   dateFormat: string;
+  label?: string;
   isClearable?: boolean;
   onClear(): void;
   type: FusionDatePickerType;
@@ -47,6 +48,9 @@ const useStyles = makeStyles(
           backgroundColor: theme.colors.ui.background__medium.value.hex,
         },
       }),
+      content: {
+        display: 'block',
+      },
       error: {
         color: 'red',
       },
@@ -69,6 +73,10 @@ const useStyles = makeStyles(
           color: theme.colors.interactive.disabled__text.value.hex,
         },
       }),
+      label: {
+        ...theme.typography.input.label.style,
+        color: theme.colors.text.static_icons__tertiary.getVariable('color'),
+      },
       inputFocus: {
         '&:focus': {
           outline: 'none',
@@ -93,7 +101,7 @@ const useStyles = makeStyles(
 
 export const FusionDatePickerInput = forwardRef<HTMLInputElement, InputHTMLAttributes<HTMLInputElement> & InputProps>(
   (props: InputHTMLAttributes<HTMLInputElement> & InputProps, ref: React.ForwardedRef<HTMLInputElement>) => {
-    const { dateFormat, isClearable, onClear, placeholder, type, onFocus, onBlur, ...rest } = props;
+    const { dateFormat, isClearable, onClear, placeholder, type, label, onFocus, onBlur, ...rest } = props;
     const classes = useStyles({
       ...defaultStyleProps,
       disabled: props.disabled,
@@ -116,14 +124,17 @@ export const FusionDatePickerInput = forwardRef<HTMLInputElement, InputHTMLAttri
 
     return (
       <div className={classes.container}>
-        <input
-          {...rest}
-          placeholder={placeholder}
-          onFocus={handleFocus}
-          onBlur={handleBlur}
-          className={clsx(classes.input, classes.inputFocus)}
-          ref={ref}
-        />
+        <div className={classes.content}>
+          {label && <span className={classes.label}>{label}</span>}
+          <input
+            {...rest}
+            placeholder={placeholder}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+            className={clsx(classes.input, classes.inputFocus)}
+            ref={ref}
+          />
+        </div>
         <span className={classes.ripple} />
         {isClearable && props.value ? (
           <Icon
