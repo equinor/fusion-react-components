@@ -22,6 +22,7 @@ export const DatePickerTemplate = (props: FusionDatePickerProps): React.ReactEle
       onRangeChange={onRangeChange}
       onChange={setDate}
       date={date}
+      label={'Label'}
       dateFrom={dateFrom}
       dateTo={dateTo}
     />
