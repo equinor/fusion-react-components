@@ -1,4 +1,4 @@
-import { Meta, Story, Canvas, ArgsTable,Description } from '@storybook/addon-docs';
+import { Meta, Story, Canvas, ArgsTable, Description } from '@storybook/addon-docs';
 import { ChangeLog, PackageInfo, StoryExample } from '../../components';
 import Tooltip from '@equinor/fusion-react-tooltip/src/';
 
@@ -9,8 +9,7 @@ import Tooltip from '@equinor/fusion-react-tooltip/src/';
 ### Description
 
 This tooltip component is re-exported [Tippy.js for React](https://github.com/atomiks/tippyjs-react) using the 
-"out of the box" behavior called Default Tippy, with the built-in DOM rendering and the default CSS. 
-(The style is modified sligthly to match existing fusion tooltip, with square corners and the same color.)
+headless Tippy behavior.
 >Tippy.js is the complete tooltip, popover, dropdown, and menu solution for the web, powered by Popper.
 
 All of the native Tippy.js props can be passed to the component. In addition, there are 3 more props added 
@@ -26,11 +25,13 @@ for detailed information on all the configurable Tippy.js properties.
 
 <ArgsTable of={Tooltip} />
 
-## Tooltip
+### Default
+
+<StoryExample storyId="examples-tooltip--default" showSource/>
 
 ### Interactive
 
-<StoryExample storyId="examples-tooltip--custom" showSource/>
+<StoryExample storyId="examples-tooltip--interactive" showSource/>
 
 ### Styled
 
@@ -41,4 +42,3 @@ for detailed information on all the configurable Tippy.js properties.
 <ChangeLog changelogs={{
   react: require('@equinor/fusion-react-tooltip/CHANGELOG.md'), 
 }}/>
-
