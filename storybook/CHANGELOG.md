@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.36.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.35.6...@equinor/fusion-react-components-stories@1.36.0) (2021-12-17)
+
+
+### Features
+
+* update styling for datepicker label ([c71c7be](https://github.com/equinor/fusion-react-components/commit/c71c7becd5876d4587aae3f777e3ae7618aaf8a2))
+
+
+
+
+
 ## [1.35.6](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.35.5...@equinor/fusion-react-components-stories@1.35.6) (2021-11-26)
 
 **Note:** Version bump only for package @equinor/fusion-react-components-stories
