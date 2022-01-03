@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-components-stories",
-  "version": "1.36.0",
+  "version": "1.36.1",
   "description": "",
   "private": true,
   "scripts": {
@@ -23,7 +23,7 @@
     "@equinor/fusion-react-filter": "^1.2.6",
     "@equinor/fusion-react-hanging-garden": "^1.6.18",
     "@equinor/fusion-react-icon": "^0.2.5",
-    "@equinor/fusion-react-list": "^0.2.1",
+    "@equinor/fusion-react-list": "^0.2.2",
     "@equinor/fusion-react-observable": "^1.1.1",
     "@equinor/fusion-react-radio": "^0.4.4",
     "@equinor/fusion-react-skeleton": "^0.2.4",
@@ -32,6 +32,7 @@
     "@equinor/fusion-react-table": "^0.5.4",
     "@equinor/fusion-react-textarea": "^0.5.5",
     "@equinor/fusion-react-textinput": "^0.6.5",
+    "@equinor/fusion-react-tooltip": "^1.0.0",
     "@equinor/fusion-wc-theme": "^0.2.19",
     "@storybook/addon-actions": "^6.3.12",
     "@storybook/addon-docs": "^6.3.12",
