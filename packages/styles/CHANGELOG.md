@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.5.0 (2022-01-03)
+
+
+### Features
+
+* **tooltip:** end of line in tsconfig file + desc ([6c7fb66](https://github.com/equinor/fusion-react-components/commit/6c7fb66983274868c455df32609b3baa68b832e0))
+
+
+
+
+
 ## [0.4.3](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-styles@0.4.2...@equinor/fusion-react-styles@0.4.3) (2021-11-23)
 
 

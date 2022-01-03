@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.37.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.36.1...@equinor/fusion-react-components-stories@1.37.0) (2022-01-03)
+
+
+### Features
+
+* **tooltip:** Added description ([5d6e09c](https://github.com/equinor/fusion-react-components/commit/5d6e09cf0af94625df15977586662b42605afb9d))
+* **tooltip:** create tooltip component ([ba690ec](https://github.com/equinor/fusion-react-components/commit/ba690ecf8e7f68d7970a2848502d2f16de051bfc))
+* **tooltip:** end of line in tsconfig file + desc ([6c7fb66](https://github.com/equinor/fusion-react-components/commit/6c7fb66983274868c455df32609b3baa68b832e0))
+* **tooltip:** importing tippy.css in index file ([5b9a081](https://github.com/equinor/fusion-react-components/commit/5b9a081cac6a8e752900d1eaea8a74ea9252c5ee))
+* **tooltip:** made tooltip headless ([710e532](https://github.com/equinor/fusion-react-components/commit/710e53237434a77e2448cce9f747c38502932b22))
+* **tooltip:** Stories for Custom + Styled Tooltip ([db22860](https://github.com/equinor/fusion-react-components/commit/db228600e0722aaa7ce02f11aab5fb9d7978e86e))
+* **tooltip:** stories to data ([8349678](https://github.com/equinor/fusion-react-components/commit/8349678c116a75e1f826f4de4e4ca8fa18f98075))
+* **tooltip:** tooltip version 1.0.0 used in storybook ([6da91ea](https://github.com/equinor/fusion-react-components/commit/6da91ea8afbf2443ae6d2c9dc509993352817b1d))
+
+
+
+
+
 ## [1.36.1](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.36.0...@equinor/fusion-react-components-stories@1.36.1) (2021-12-21)
 
 **Note:** Version bump only for package @equinor/fusion-react-components-stories
