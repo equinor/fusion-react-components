@@ -1,0 +1,38 @@
+{
+  "name": "@equinor/fusion-react-popover",
+  "version": "0.0.0",
+  "description": "React component for displaying popover",
+  "keywords": [
+    "popover",
+    "react",
+    "fusion",
+    "equinor"
+  ],
+  "homepage": "https://github.com/equinor/fusion-react-components/tree/master/packages/popover#readme",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "directories": {
+    "dist": "dist"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/equinor/fusion-react-components.git"
+  },
+  "scripts": {
+    "build": "tsc -b",
+    "watch": "tsc -w",
+    "lint": "eslint --ext .ts,.tsx,.js src/",
+    "lint:fix": "eslint --ext .ts,.tsx,.js src/ --fix",
+    "prepack": "npm run build"
+  },
+  "bugs": {
+    "url": "https://github.com/equinor/fusion-react-components/issues"
+  },
+  "dependencies": {}
+}

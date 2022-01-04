@@ -1,0 +1,27 @@
+import { Meta, Story, Canvas, ArgsTable, Description } from '@storybook/addon-docs';
+import { ChangeLog, PackageInfo, StoryExample } from '../../components';
+import Popover from '@equinor/fusion-react-popover/src';
+
+<Meta title="Input/Popover" component={Popover} />
+
+<PackageInfo pkg={require('@equinor/fusion-react-popover/package.json')} />
+
+## Component
+
+<ArgsTable of={Popover} />
+
+### Default
+
+<StoryExample storyId="examples-popover--component" showSource />
+
+### Title
+
+<StoryExample storyId="examples-popover--title" showSource />
+
+## Changelog
+
+<ChangeLog
+  changelogs={{
+    react: require('@equinor/fusion-react-popover/CHANGELOG.md'),
+  }}
+/>
