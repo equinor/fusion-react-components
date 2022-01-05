@@ -41,7 +41,7 @@ const useStyles = makeStyles(
         display: 'flex',
         backgroundColor: theme.colors.ui.background__light.value.hex,
         boxShadow: disabled ? 'none' : `0px -0.5px 0px 0px inset ${theme.colors.text.static_icons__tertiary.value.hex}`,
-        justifyContent: 'center',
+        justifyContent: 'space-between',
         alignItems: 'center',
         borderRadius: '4px 4px 0 0',
         '&:hover': {
