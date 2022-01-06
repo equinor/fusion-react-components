@@ -31,6 +31,7 @@ export const Component = Template.bind({});
 
 Component.args = {
   placement: 'top',
+  strategy: 'fixed',
 };
 const Content = (props?: ChildrenProps) => (
   <div {...props}>

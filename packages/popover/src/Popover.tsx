@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { usePopper, PopperProps, PopperChildrenProps } from 'react-popper';
+import { useStyles } from './style';
 
 export type ChildrenProps = PopperChildrenProps;
 export type PopoverProps = PopperProps<any>;
@@ -13,9 +14,17 @@ export const Popover = (props: PopoverProps): JSX.Element => {
     placement: props.placement,
     modifiers: [
       { name: 'arrow', options: { element: arrowElement } },
+      {
+        name: 'offset',
+        options: {
+          offset: [0, 10],
+        },
+      },
       //   { name: 'preventOverflow', enabled: false },
     ],
+    strategy: props.strategy,
   });
+  const fusionPopoverStyles = useStyles();
 
   const handleClick = () => {
     setVisibility(!visible);
@@ -27,11 +36,16 @@ export const Popover = (props: PopoverProps): JSX.Element => {
         Reference element
       </span>
       {visible && (
-        <div ref={setPopperElement} style={styles.popper} {...attributes.popper}>
+        <div
+          ref={setPopperElement}
+          style={styles.popper}
+          className={fusionPopoverStyles.content}
+          {...attributes.popper}
+        >
           Popper element
           {props.children}
           <span onClick={handleClick}>Close</span>
-          <div ref={setArrowElement} style={styles.arrow} />
+          <div ref={setArrowElement} style={styles.arrow} className={fusionPopoverStyles.arrow} data-popper-arrow />
         </div>
       )}
     </div>
