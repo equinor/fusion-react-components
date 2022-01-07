@@ -1,11 +1,22 @@
-import { makeStyles, createStyles } from '@equinor/fusion-react-styles';
+import { makeStyles, createStyles, FusionTheme } from '@equinor/fusion-react-styles';
 
-export const useStyles = makeStyles(
+type popoverStyleProps = {
+  width?: string;
+  height?: string;
+  backgroundColor?: string;
+  color?: string;
+};
+
+export const useStyles = makeStyles<FusionTheme, popoverStyleProps>(
   (theme) =>
     createStyles({
-      content: {
-        backgroundColor: theme.colors.ui.background__light.getVariable('color'),
-        zIndex: 1,
+      content: ({ width, height, color, backgroundColor }) => ({
+        maxWidth: 'calc(100vw - 40px)',
+        width: width || 'auto',
+        height: height || 'auto',
+        color: color || theme.colors.text.static_icons__default.getVariable('color'),
+        backgroundColor: backgroundColor || theme.colors.ui.background__light.getVariable('color'),
+        zIndex: 3,
         boxShadow: theme.elevation.raised.getVariable('shadow'),
         borderRadius: '5px',
         padding: '20px',
@@ -47,17 +58,24 @@ export const useStyles = makeStyles(
           borderRightColor: 'initial',
           transformOrigin: 'center right',
         },
-      },
-      arrow: {
+      }),
+      arrow: ({ backgroundColor }) => ({
         width: '16px',
         height: '16px',
-        color: theme.colors.ui.background__light.getVariable('color'),
+        color: backgroundColor || theme.colors.ui.background__light.getVariable('color'),
         '&:before': {
           content: '""',
           position: 'absolute',
           borderColor: 'transparent',
           borderStyle: 'solid',
         },
+      }),
+      titleContainer: {
+        display: 'flex',
+        gap: '10px',
+      },
+      close: {
+        marginLeft: 'auto',
       },
     }),
   { name: 'fusion-popover' }

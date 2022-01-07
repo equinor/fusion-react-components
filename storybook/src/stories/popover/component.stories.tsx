@@ -26,9 +26,7 @@ export default {
 } as Meta;
 
 const Template: Story<PopoverProps> = (args) => <Popover {...args}>{args.children}</Popover>;
-
 export const Component = Template.bind({});
-
 Component.args = {
   placement: 'top',
   strategy: 'fixed',
@@ -39,9 +37,13 @@ const Content = (props?: ChildrenProps) => (
     <button>button2</button>
   </div>
 );
+
 const Template2: Story<PopoverProps> = (args) => (
   <Popover {...args}>
     <Content />
   </Popover>
 );
 export const Simple = Template2.bind({});
+Simple.args = {
+  strategy: 'fixed',
+};
