@@ -19,7 +19,6 @@ export const useStyles = makeStyles<FusionTheme, popoverStyleProps>(
         zIndex: 3,
         boxShadow: theme.elevation.raised.getVariable('shadow'),
         borderRadius: '5px',
-        padding: '20px',
         '&[data-popper-placement^=top] > $arrow': {
           bottom: 0,
         },
@@ -73,9 +72,21 @@ export const useStyles = makeStyles<FusionTheme, popoverStyleProps>(
       titleContainer: {
         display: 'flex',
         gap: '10px',
+        alignItems: 'center',
+        padding: '12px 16px 8px 16px',
+      },
+      title: {
+        ...theme.typography.ui.accordion_header.style,
       },
       close: {
         marginLeft: 'auto',
+      },
+      divider: {
+        height: '1px',
+        backgroundColor: theme.colors.ui.background__medium.getVariable('color'),
+      },
+      contentContainer: {
+        padding: '16px',
       },
     }),
   { name: 'fusion-popover' }

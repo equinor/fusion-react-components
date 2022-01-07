@@ -1,5 +1,6 @@
 import { useCallback, useState } from 'react';
 import { usePopper, PopperProps, PopperChildrenProps } from 'react-popper';
+import { CloseIcon } from '.';
 import { useStyles } from './style';
 
 export type ChildrenProps = PopperChildrenProps;
@@ -29,7 +30,7 @@ export const Popover = (props: PopoverProps): JSX.Element => {
     ],
     strategy: props.strategy,
   });
-  const fusionPopoverStyles = useStyles({
+  const popoverStyles = useStyles({
     width: props.width,
     height: props.height,
     color: props.color,
@@ -46,21 +47,16 @@ export const Popover = (props: PopoverProps): JSX.Element => {
         Reference element
       </span>
       {visible && (
-        <div
-          ref={setPopperElement}
-          style={styles.popper}
-          className={fusionPopoverStyles.content}
-          {...attributes.popper}
-        >
-          <div className={fusionPopoverStyles.titleContainer}>
-            <div>Popper element (Title)</div>
-            <span onClick={handleClick} className={fusionPopoverStyles.close}>
-              Close
+        <div ref={setPopperElement} style={styles.popper} className={popoverStyles.content} {...attributes.popper}>
+          <div className={popoverStyles.titleContainer}>
+            <div className={popoverStyles.title}>Popper element (Title)</div>
+            <span onClick={handleClick} className={popoverStyles.close}>
+              <CloseIcon />
             </span>
           </div>
-
-          {props.children}
-          <div ref={setArrowElement} style={styles.arrow} className={fusionPopoverStyles.arrow} data-popper-arrow />
+          <div className={popoverStyles.divider}></div>
+          <div className={popoverStyles.contentContainer}>{props.children}</div>
+          <div ref={setArrowElement} style={styles.arrow} className={popoverStyles.arrow} data-popper-arrow />
         </div>
       )}
     </div>
