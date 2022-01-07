@@ -73,7 +73,7 @@ export const useStyles = makeStyles<FusionTheme, popoverStyleProps>(
         display: 'flex',
         gap: '10px',
         alignItems: 'center',
-        padding: '12px 16px 8px 16px',
+        padding: '12px 16px 0 16px',
       },
       title: {
         ...theme.typography.ui.accordion_header.style,
@@ -84,6 +84,7 @@ export const useStyles = makeStyles<FusionTheme, popoverStyleProps>(
       divider: {
         height: '1px',
         backgroundColor: theme.colors.ui.background__medium.getVariable('color'),
+        marginTop: '8px',
       },
       contentContainer: {
         padding: '16px',

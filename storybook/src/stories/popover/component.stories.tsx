@@ -30,6 +30,8 @@ export const Component = Template.bind({});
 Component.args = {
   placement: 'top',
   strategy: 'fixed',
+  baseElement: <span>Base Element</span>,
+  title: <div>Title Element</div>,
 };
 const Content = (props?: ChildrenProps) => (
   <div {...props}>
@@ -46,4 +48,5 @@ const Template2: Story<PopoverProps> = (args) => (
 export const Simple = Template2.bind({});
 Simple.args = {
   strategy: 'fixed',
+  baseElement: <span>Base Element</span>,
 };

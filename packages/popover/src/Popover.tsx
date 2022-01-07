@@ -9,6 +9,8 @@ export type PopoverProps = PopperProps<any> & {
   height?: string;
   color?: string;
   backgroundColor?: string;
+  title?: React.ReactNode;
+  baseElement?: React.ReactNode;
 };
 
 export const Popover = (props: PopoverProps): JSX.Element => {
@@ -44,17 +46,17 @@ export const Popover = (props: PopoverProps): JSX.Element => {
   return (
     <div>
       <span ref={setReferenceElement} onClick={handleClick}>
-        Reference element
+        {props.baseElement}
       </span>
       {visible && (
         <div ref={setPopperElement} style={styles.popper} className={popoverStyles.content} {...attributes.popper}>
           <div className={popoverStyles.titleContainer}>
-            <div className={popoverStyles.title}>Popper element (Title)</div>
+            {props.title && <div className={popoverStyles.title}>{props.title}</div>}
             <span onClick={handleClick} className={popoverStyles.close}>
               <CloseIcon />
             </span>
           </div>
-          <div className={popoverStyles.divider}></div>
+          {props.title && <div className={popoverStyles.divider}></div>}
           <div className={popoverStyles.contentContainer}>{props.children}</div>
           <div ref={setArrowElement} style={styles.arrow} className={popoverStyles.arrow} data-popper-arrow />
         </div>
