@@ -7,8 +7,6 @@ export type ChildrenProps = PopperChildrenProps;
 export type PopoverProps = PopperProps<any> & {
   width?: string;
   height?: string;
-  color?: string;
-  backgroundColor?: string;
   title?: React.ReactNode;
   baseElement?: React.ReactNode;
 };
@@ -28,15 +26,12 @@ export const Popover = (props: PopoverProps): JSX.Element => {
           offset: [0, 10],
         },
       },
-      //   { name: 'preventOverflow', enabled: false },
     ],
     strategy: props.strategy,
   });
   const popoverStyles = useStyles({
     width: props.width,
     height: props.height,
-    color: props.color,
-    backgroundColor: props.backgroundColor,
   });
 
   const handleClick = useCallback(() => {
