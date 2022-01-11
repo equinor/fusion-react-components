@@ -2,6 +2,7 @@ import { useCallback, useState } from 'react';
 import { usePopper, PopperProps, PopperChildrenProps } from 'react-popper';
 import { CloseIcon } from '.';
 import { useStyles } from './style';
+import useHandleClickOutside from './useHandleClickOutside';
 
 export type ChildrenProps = PopperChildrenProps;
 export type PopoverProps = PopperProps<any> & {
@@ -38,8 +39,10 @@ export const Popover = (props: PopoverProps): JSX.Element => {
     setVisibility(!visible);
   }, [setVisibility, visible]);
 
+  const { ref: PopoverRef } = useHandleClickOutside(setVisibility);
+
   return (
-    <div>
+    <span ref={PopoverRef}>
       <span ref={setReferenceElement} onClick={handleClick} className={popoverStyles.baseElement}>
         {props.baseElement}
       </span>
@@ -56,7 +59,7 @@ export const Popover = (props: PopoverProps): JSX.Element => {
           <div ref={setArrowElement} style={styles.arrow} className={popoverStyles.arrow} data-popper-arrow />
         </div>
       )}
-    </div>
+    </span>
   );
 };
 
