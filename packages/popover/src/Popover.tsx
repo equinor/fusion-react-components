@@ -40,7 +40,7 @@ export const Popover = (props: PopoverProps): JSX.Element => {
 
   return (
     <div>
-      <span ref={setReferenceElement} onClick={handleClick}>
+      <span ref={setReferenceElement} onClick={handleClick} className={popoverStyles.baseElement}>
         {props.baseElement}
       </span>
       {visible && (

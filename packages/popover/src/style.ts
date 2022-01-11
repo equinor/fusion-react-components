@@ -10,6 +10,9 @@ type popoverStyleProps = {
 export const useStyles = makeStyles<FusionTheme, popoverStyleProps>(
   (theme) =>
     createStyles({
+      baseElement: {
+        cursor: 'pointer',
+      },
       content: ({ width, height, color, backgroundColor }) => ({
         maxWidth: 'calc(100vw - 40px)',
         width: width || 'auto',
