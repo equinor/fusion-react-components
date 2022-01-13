@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.11.2 (2022-01-05)
+
+
+### Bug Fixes
+
+* **style:** fix space-between icons ([dacab63](https://github.com/equinor/fusion-react-components/commit/dacab6389843f1ad4d10844dba4907770dbb1dfb))
+
+
+
+
+
 ## 0.11.1 (2022-01-03)
 
 **Note:** Version bump only for package @equinor/fusion-react-datepicker

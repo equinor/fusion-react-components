@@ -1,4 +1,4 @@
-import { useLayoutEffect, useState } from 'react';
+import { useLayoutEffect, useMemo, useState } from 'react';
 
 import { BehaviorSubject } from 'rxjs';
 
@@ -34,16 +34,23 @@ export const FilterProvider = <
   const selection$ = useObservable(createSelectionReducer(initialSelection), initialSelection);
   const filter$ = useObservable(createFilterReducer({}), initialFilters);
 
-  const [data$] = useState(new BehaviorSubject<TData[]>(data));
-  useSubscription(filterData(source$, filter$, selection$), data$);
+  const filterData$ = useMemo(() => filterData(source$, filter$, selection$), [source$, filter$, selection$]);
 
-  const context = {
-    source$,
-    filter$,
-    selection$,
-    data$,
-    /** type issues, might fix later */
-  } as unknown as FilterContext;
+  const [data$] = useState(new BehaviorSubject<TData[]>(data));
+
+  useSubscription(filterData$, data$);
+
+  const context = useMemo(
+    () =>
+      ({
+        source$,
+        filter$,
+        selection$,
+        data$,
+        /** type issues, might fix later */
+      } as unknown as FilterContext),
+    [source$, filter$, selection$, data$]
+  );
 
   useLayoutEffect(() => {
     source$.next(actions.source.update(data));
