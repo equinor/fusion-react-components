@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.2.9 (2022-01-13)
+
+
+### Bug Fixes
+
+* **fikter:** optimize filter provider ([6605bb0](https://github.com/equinor/fusion-react-components/commit/6605bb08878f41f6957d2f4b4711ecafdee888d3))
+
+
+
+
+
 ## 1.2.8 (2022-01-04)
 
 **Note:** Version bump only for package @equinor/fusion-react-filter
