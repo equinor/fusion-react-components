@@ -1,15 +1,23 @@
-import { useCallback, useState } from 'react';
-import { usePopper, PopperProps, PopperChildrenProps } from 'react-popper';
+import { ReactNode, useCallback, useState } from 'react';
+import { usePopper, PopperChildrenProps, Modifier, StrictModifierNames } from 'react-popper';
 import { CloseIcon } from '.';
 import { useStyles } from './style';
 import useHandleClickOutside from './useHandleClickOutside';
+import { Placement, PositioningStrategy, VirtualElement, State } from '@popperjs/core';
 
-export type ChildrenProps = PopperChildrenProps;
-export type PopoverProps = PopperProps<any> & {
+export type PopoverProps = {
+  children: (props: PopperChildrenProps) => ReactNode;
+  innerRef?: React.Ref<any>;
+  modifiers?: ReadonlyArray<Modifier<StrictModifierNames>> | undefined;
+  placement?: Placement;
+  strategy?: PositioningStrategy;
+  referenceElement?: HTMLElement | VirtualElement;
+  onFirstUpdate?: (state: Partial<State>) => void;
+
   width?: string;
   height?: string;
-  title?: React.ReactNode;
-  baseElement?: React.ReactNode;
+  title?: ReactNode;
+  baseElement?: ReactNode;
 };
 
 export const Popover = (props: PopoverProps): JSX.Element => {
