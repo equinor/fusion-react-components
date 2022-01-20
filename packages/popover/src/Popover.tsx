@@ -1,32 +1,40 @@
-import { ReactNode, useCallback, useState } from 'react';
-import { usePopper, PopperChildrenProps, Modifier, StrictModifierNames } from 'react-popper';
+import { ReactNode, useCallback, useState, FC } from 'react';
+import { usePopper } from 'react-popper';
 import { CloseIcon } from '.';
 import { useStyles } from './style';
 import useHandleClickOutside from './useHandleClickOutside';
-import { Placement, PositioningStrategy, VirtualElement, State } from '@popperjs/core';
+import { Placement, PositioningStrategy } from '@popperjs/core';
 
 export type PopoverProps = {
-  children: (props: PopperChildrenProps) => ReactNode;
-  innerRef?: React.Ref<any>;
-  modifiers?: ReadonlyArray<Modifier<StrictModifierNames>> | undefined;
   placement?: Placement;
   strategy?: PositioningStrategy;
-  referenceElement?: HTMLElement | VirtualElement;
-  onFirstUpdate?: (state: Partial<State>) => void;
-
   width?: string;
   height?: string;
-  title?: ReactNode;
   baseElement?: ReactNode;
+  title?: ReactNode;
+  showCloseIcon?: boolean;
+  setVisibility: (isVisible: boolean) => void;
+  visible: boolean;
 };
 
-export const Popover = (props: PopoverProps): JSX.Element => {
-  const [visible, setVisibility] = useState(false);
+export const Popover: FC<PopoverProps> = ({
+  children,
+  placement,
+  strategy,
+  width,
+  height,
+  baseElement,
+  title,
+  showCloseIcon = true,
+  setVisibility,
+  visible,
+}): JSX.Element => {
   const [referenceElement, setReferenceElement] = useState<HTMLSpanElement | null>(null);
   const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(null);
   const [arrowElement, setArrowElement] = useState<HTMLDivElement | null>(null);
   const { styles, attributes } = usePopper(referenceElement, popperElement, {
-    placement: props.placement,
+    placement: placement,
+    strategy: strategy,
     modifiers: [
       { name: 'arrow', options: { element: arrowElement } },
       {
@@ -36,11 +44,10 @@ export const Popover = (props: PopoverProps): JSX.Element => {
         },
       },
     ],
-    strategy: props.strategy,
   });
   const popoverStyles = useStyles({
-    width: props.width,
-    height: props.height,
+    width: width,
+    height: height,
   });
 
   const handleClick = useCallback(() => {
@@ -52,18 +59,24 @@ export const Popover = (props: PopoverProps): JSX.Element => {
   return (
     <span ref={PopoverRef}>
       <span ref={setReferenceElement} onClick={handleClick} className={popoverStyles.baseElement}>
-        {props.baseElement}
+        {baseElement}
       </span>
       {visible && (
         <div ref={setPopperElement} style={styles.popper} className={popoverStyles.content} {...attributes.popper}>
-          <div className={popoverStyles.titleContainer}>
-            {props.title && <div className={popoverStyles.title}>{props.title}</div>}
-            <span onClick={handleClick} className={popoverStyles.close}>
-              <CloseIcon />
-            </span>
-          </div>
-          {props.title && <div className={popoverStyles.divider}></div>}
-          <div className={popoverStyles.contentContainer}>{props.children}</div>
+          {(title || showCloseIcon) && (
+            <>
+              <div className={popoverStyles.titleContainer}>
+                {title && <div className={popoverStyles.title}>{title}</div>}
+                {showCloseIcon && (
+                  <span onClick={handleClick} className={popoverStyles.close}>
+                    <CloseIcon />
+                  </span>
+                )}
+              </div>
+              <div className={popoverStyles.divider}></div>
+            </>
+          )}
+          <div className={popoverStyles.contentContainer}>{children}</div>
           <div ref={setArrowElement} style={styles.arrow} className={popoverStyles.arrow} data-popper-arrow />
         </div>
       )}
