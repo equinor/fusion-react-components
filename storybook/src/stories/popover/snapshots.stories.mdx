@@ -1,0 +1,212 @@
+import { Meta, Story, Canvas, ArgsTable, Description, Source } from '@storybook/addon-docs';
+import { useState, FC } from 'react';
+import TextArea from '@equinor/fusion-react-textarea';
+import { Popover } from '@equinor/fusion-react-popover';
+
+export const Container = ({ title, orientation, children }) => (
+  <section>
+    <h3
+      style={{
+        marginTop: '3rem',
+      }}
+    >
+      {title}
+    </h3>
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: orientation === 'horizontal' ? 'column' : 'row',
+        height: 'auto',
+        gap: '10px',
+        flexWrap: 'wrap',
+      }}
+    >
+      {children}
+    </div>
+  </section>
+);
+
+export const Boundery = ({ width, height, alignItems, children }) => (
+  <div
+    style={{
+      border: '1px solid #d3d3d3',
+      borderRadius: '4px',
+      width: width || '650px',
+      height: height || '450px',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: alignItems ?? 'center',
+      padding: '1rem',
+    }}
+  >
+    {children}
+  </div>
+);
+
+export const SizeBoundery = ({ children }) => (
+  <div
+    style={{
+      border: '1px solid #d3d3d3',
+      borderRadius: '4px',
+      width: '650px',
+      height: '700px',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+    }}
+  >
+    {children}
+  </div>
+);
+
+export const Snap = (props) => (
+  <Popover
+    visible={true}
+    baseElement={
+      <span
+        style={{
+          color: 'salmon',
+        }}
+      >
+        Base Element
+      </span>
+    }
+    {...props}
+  >
+    <div>
+      <p>Content should be multiple lines.</p>
+      <p>For a single short line of text,</p>
+      <p>use a tooltip instead.</p>
+    </div>
+  </Popover>
+);
+
+export const DefaultTemplate = (props) => (
+  <div>
+    <Container orientation={props.orientation}>
+      <div style={{ display: 'flex', flexDirection: 'column' }}>
+        <h5>Standard</h5>
+        <Boundery width="300px" height="250px" alignItems="top">
+          <Snap {...props} />
+        </Boundery>
+      </div>
+      <div style={{ display: 'flex', flexDirection: 'column' }}>
+        <h5>With Title</h5>
+        <Boundery width="300px" height="250px" alignItems="top">
+          <Snap {...props} title="Title" />
+        </Boundery>
+      </div>
+      <div style={{ display: 'flex', flexDirection: 'column' }}>
+        <h5>Without Close Icon</h5>
+        <Boundery width="300px" height="250px" alignItems="top">
+          <Snap {...props} title="Title" showCloseIcon={false} />
+        </Boundery>
+      </div>
+      <div style={{ display: 'flex', flexDirection: 'column' }}>
+        <h5>Without Header (No title, close icon or divider)</h5>
+        <Boundery width="300px" height="250px" alignItems="top">
+          <Snap {...props} showCloseIcon={false} />
+        </Boundery>
+      </div>
+    </Container>
+  </div>
+);
+
+export const SizeTemplate = (props) => (
+  <div>
+    <Container orientation={props.orientation} title="Size">
+      <div style={{ display: 'flex', flexDirection: 'column' }}>
+        <Boundery width="650px" height="700px">
+          <Snap {...props} width="400px" height="300px" placement="bottom" />
+        </Boundery>
+      </div>
+    </Container>
+  </div>
+);
+
+export const PlacementTemplate = (props) => (
+  <div>
+    <Container orientation={props.orientation} title="Placement">
+      <h5>Auto</h5>
+      <Boundery>
+        <Snap placement="auto" title="Auto" {...props} />
+      </Boundery>
+      <h5>Top</h5>
+      <Boundery>
+        <Snap placement="top" title="Top" {...props} />
+      </Boundery>
+      <h5>Right</h5>
+      <Boundery>
+        <Snap placement="right" title="Right" {...props} />
+      </Boundery>
+      <h5>Bottom</h5>
+      <Boundery>
+        <Snap placement="bottom" title="Bottom" {...props} />
+      </Boundery>
+      <h5>Left</h5>
+      <Boundery>
+        <Snap placement="left" title="Left" {...props} />
+      </Boundery>
+    </Container>
+    <Container orientation={props.orientation} title="Placement Start">
+      <h5>Auto Start</h5>
+      <Boundery>
+        <Snap placement="auto-start" title="Auto Start" {...props} />
+      </Boundery>
+      <h5>Top Start</h5>
+      <Boundery>
+        <Snap placement="top-start" title="Top Start" {...props} />
+      </Boundery>
+      <h5>Right Start</h5>
+      <Boundery>
+        <Snap placement="right-start" title="Right Start" {...props} />
+      </Boundery>
+      <h5>Bottom Start</h5>
+      <Boundery>
+        <Snap placement="bottom-start" title="Bottom Start" {...props} />
+      </Boundery>
+      <h5>Left Start</h5>
+      <Boundery>
+        <Snap placement="left-start" title="Left Start" {...props} />
+      </Boundery>
+    </Container>
+    <Container orientation={props.orientation} title="Placement End">
+      <h5>Auto End</h5>
+      <Boundery>
+        <Snap placement="auto-end" title="Auto End" {...props} />
+      </Boundery>
+      <h5>Top End</h5>
+      <Boundery>
+        <Snap placement="top-end" title="Top End" {...props} />
+      </Boundery>
+      <h5>Right End</h5>
+      <Boundery>
+        <Snap placement="right-end" title="Right End" {...props} />
+      </Boundery>
+      <h5>Bottom End</h5>
+      <Boundery>
+        <Snap placement="bottom-end" title="Bottom End" {...props} />
+      </Boundery>
+      <h5>Left End</h5>
+      <Boundery>
+        <Snap placement="left-end" title="Left End" {...props} />
+      </Boundery>
+    </Container>
+  </div>
+);
+
+<Meta title="Snapshots/Popover" parameters={{ chromatic: { disableSnapshot: false } }} />
+
+### Default
+
+<Story name="Default" args={{ orientation: 'vertical' }}>
+  {DefaultTemplate.bind({})}
+</Story>
+
+<Story name="Size" args={{ orientation: 'vertical' }}>
+  {SizeTemplate.bind({})}
+</Story>
+
+<Story name="Placement" args={{ orientation: 'horizontal' }}>
+  {PlacementTemplate.bind({})}
+</Story>
