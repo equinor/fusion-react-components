@@ -1,6 +1,4 @@
-import { Meta, Story, Canvas, ArgsTable, Description, Source } from '@storybook/addon-docs';
-import { useState, FC } from 'react';
-import TextArea from '@equinor/fusion-react-textarea';
+import { Meta, Story } from '@storybook/addon-docs';
 import { Popover } from '@equinor/fusion-react-popover';
 
 export const Container = ({ title, orientation, children }) => (
@@ -26,7 +24,7 @@ export const Container = ({ title, orientation, children }) => (
   </section>
 );
 
-export const Boundery = ({ width, height, alignItems, children }) => (
+export const Boundary = ({ width, height, alignItems, children }) => (
   <div
     style={{
       border: '1px solid #d3d3d3',
@@ -37,22 +35,6 @@ export const Boundery = ({ width, height, alignItems, children }) => (
       justifyContent: 'center',
       alignItems: alignItems ?? 'center',
       padding: '1rem',
-    }}
-  >
-    {children}
-  </div>
-);
-
-export const SizeBoundery = ({ children }) => (
-  <div
-    style={{
-      border: '1px solid #d3d3d3',
-      borderRadius: '4px',
-      width: '650px',
-      height: '700px',
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center',
     }}
   >
     {children}
@@ -86,27 +68,27 @@ export const DefaultTemplate = (props) => (
     <Container orientation={props.orientation}>
       <div style={{ display: 'flex', flexDirection: 'column' }}>
         <h5>Standard</h5>
-        <Boundery width="300px" height="250px" alignItems="top">
+        <Boundary width="300px" height="250px" alignItems="top">
           <Snap {...props} />
-        </Boundery>
+        </Boundary>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column' }}>
         <h5>With Title</h5>
-        <Boundery width="300px" height="250px" alignItems="top">
+        <Boundary width="300px" height="250px" alignItems="top">
           <Snap {...props} title="Title" />
-        </Boundery>
+        </Boundary>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column' }}>
         <h5>Without Close Icon</h5>
-        <Boundery width="300px" height="250px" alignItems="top">
+        <Boundary width="300px" height="250px" alignItems="top">
           <Snap {...props} title="Title" showCloseIcon={false} />
-        </Boundery>
+        </Boundary>
       </div>
       <div style={{ display: 'flex', flexDirection: 'column' }}>
         <h5>Without Header (No title, close icon or divider)</h5>
-        <Boundery width="300px" height="250px" alignItems="top">
+        <Boundary width="300px" height="250px" alignItems="top">
           <Snap {...props} showCloseIcon={false} />
-        </Boundery>
+        </Boundary>
       </div>
     </Container>
   </div>
@@ -116,9 +98,9 @@ export const SizeTemplate = (props) => (
   <div>
     <Container orientation={props.orientation} title="Size">
       <div style={{ display: 'flex', flexDirection: 'column' }}>
-        <Boundery width="650px" height="700px">
+        <Boundary width="650px" height="700px">
           <Snap {...props} width="400px" height="300px" placement="bottom" />
-        </Boundery>
+        </Boundary>
       </div>
     </Container>
   </div>
@@ -128,69 +110,69 @@ export const PlacementTemplate = (props) => (
   <div>
     <Container orientation={props.orientation} title="Placement">
       <h5>Auto</h5>
-      <Boundery>
+      <Boundary>
         <Snap placement="auto" title="Auto" {...props} />
-      </Boundery>
+      </Boundary>
       <h5>Top</h5>
-      <Boundery>
+      <Boundary>
         <Snap placement="top" title="Top" {...props} />
-      </Boundery>
+      </Boundary>
       <h5>Right</h5>
-      <Boundery>
+      <Boundary>
         <Snap placement="right" title="Right" {...props} />
-      </Boundery>
+      </Boundary>
       <h5>Bottom</h5>
-      <Boundery>
+      <Boundary>
         <Snap placement="bottom" title="Bottom" {...props} />
-      </Boundery>
+      </Boundary>
       <h5>Left</h5>
-      <Boundery>
+      <Boundary>
         <Snap placement="left" title="Left" {...props} />
-      </Boundery>
+      </Boundary>
     </Container>
     <Container orientation={props.orientation} title="Placement Start">
       <h5>Auto Start</h5>
-      <Boundery>
+      <Boundary>
         <Snap placement="auto-start" title="Auto Start" {...props} />
-      </Boundery>
+      </Boundary>
       <h5>Top Start</h5>
-      <Boundery>
+      <Boundary>
         <Snap placement="top-start" title="Top Start" {...props} />
-      </Boundery>
+      </Boundary>
       <h5>Right Start</h5>
-      <Boundery>
+      <Boundary>
         <Snap placement="right-start" title="Right Start" {...props} />
-      </Boundery>
+      </Boundary>
       <h5>Bottom Start</h5>
-      <Boundery>
+      <Boundary>
         <Snap placement="bottom-start" title="Bottom Start" {...props} />
-      </Boundery>
+      </Boundary>
       <h5>Left Start</h5>
-      <Boundery>
+      <Boundary>
         <Snap placement="left-start" title="Left Start" {...props} />
-      </Boundery>
+      </Boundary>
     </Container>
     <Container orientation={props.orientation} title="Placement End">
       <h5>Auto End</h5>
-      <Boundery>
+      <Boundary>
         <Snap placement="auto-end" title="Auto End" {...props} />
-      </Boundery>
+      </Boundary>
       <h5>Top End</h5>
-      <Boundery>
+      <Boundary>
         <Snap placement="top-end" title="Top End" {...props} />
-      </Boundery>
+      </Boundary>
       <h5>Right End</h5>
-      <Boundery>
+      <Boundary>
         <Snap placement="right-end" title="Right End" {...props} />
-      </Boundery>
+      </Boundary>
       <h5>Bottom End</h5>
-      <Boundery>
+      <Boundary>
         <Snap placement="bottom-end" title="Bottom End" {...props} />
-      </Boundery>
+      </Boundary>
       <h5>Left End</h5>
-      <Boundery>
+      <Boundary>
         <Snap placement="left-end" title="Left End" {...props} />
-      </Boundery>
+      </Boundary>
     </Container>
   </div>
 );
