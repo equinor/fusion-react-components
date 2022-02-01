@@ -36,11 +36,16 @@ export const Popover: FC<PopoverProps> = ({
     placement: placement,
     strategy: strategy,
     modifiers: [
-      { name: 'arrow', options: { element: arrowElement } },
+      {
+        name: 'arrow',
+        options: {
+          element: arrowElement,
+        },
+      },
       {
         name: 'offset',
         options: {
-          offset: [0, 15],
+          offset: [0, 8],
         },
       },
     ],
