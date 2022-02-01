@@ -21,12 +21,12 @@ export const useStyles = makeStyles<FusionTheme, popoverStyleProps>(
         backgroundColor: backgroundColor || theme.colors.ui.background__light.getVariable('color'),
         zIndex: 3,
         boxShadow: theme.elevation.raised.getVariable('shadow'),
-        borderRadius: '5px',
+        borderRadius: '4px',
         '&[data-popper-placement^=top] > $arrow': {
           bottom: 0,
         },
         '&[data-popper-placement^=top] > $arrow::before': {
-          bottom: '-9px',
+          bottom: '-4px',
           left: 0,
           transform: 'rotate(45deg)',
           transformOrigin: 'center right',
@@ -37,7 +37,7 @@ export const useStyles = makeStyles<FusionTheme, popoverStyleProps>(
           left: 0,
         },
         '&[data-popper-placement^=right] > $arrow::before': {
-          left: '-9px',
+          left: '-4px',
           transform: 'rotate(45deg)',
           transformOrigin: 'center bottom',
           boxShadow: '-2px 2px 3px rgba(0, 0, 0, 0.2)',
@@ -47,7 +47,7 @@ export const useStyles = makeStyles<FusionTheme, popoverStyleProps>(
           top: 0,
         },
         '&[data-popper-placement^=bottom] > $arrow::before': {
-          top: '-9px',
+          top: '-4px',
           left: 0,
           transform: 'rotate(-45deg)',
           transformOrigin: 'center right',
@@ -58,7 +58,7 @@ export const useStyles = makeStyles<FusionTheme, popoverStyleProps>(
           right: 0,
         },
         '&[data-popper-placement^=left] > $arrow::before': {
-          right: '-9px',
+          right: '-4px',
           transform: 'rotate(-45deg)',
           transformOrigin: 'center bottom',
           boxShadow: '2px 2px 3px rgba(0, 0, 0, 0.12)',
@@ -66,15 +66,15 @@ export const useStyles = makeStyles<FusionTheme, popoverStyleProps>(
         },
       }),
       arrow: ({ backgroundColor }) => ({
-        width: '16px',
-        height: '16px',
+        width: '8px',
+        height: '8px',
         zIndex: '-1',
         color: backgroundColor || theme.colors.ui.background__light.getVariable('color'),
         '&:before': {
           content: '""',
           position: 'absolute',
           borderStyle: 'solid',
-          borderWidth: '8px 8px 4px 4px',
+          borderWidth: '4px 4px 2px 2px',
         },
       }),
       titleContainer: {
