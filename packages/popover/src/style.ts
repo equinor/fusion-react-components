@@ -18,7 +18,7 @@ export const useStyles = makeStyles<FusionTheme, popoverStyleProps>(
         width: width || 'auto',
         height: height || 'auto',
         color: color || theme.colors.text.static_icons__default.getVariable('color'),
-        backgroundColor: backgroundColor || theme.colors.ui.background__light.getVariable('color'),
+        backgroundColor: backgroundColor || theme.colors.ui.background__default.getVariable('color'),
         zIndex: 3,
         boxShadow: theme.elevation.raised.getVariable('shadow'),
         borderRadius: '4px',
@@ -26,7 +26,7 @@ export const useStyles = makeStyles<FusionTheme, popoverStyleProps>(
           bottom: 0,
         },
         '&[data-popper-placement^=top] > $arrow::before': {
-          bottom: '-4px',
+          bottom: '-9px',
           left: 0,
           transform: 'rotate(45deg)',
           transformOrigin: 'center right',
@@ -37,7 +37,7 @@ export const useStyles = makeStyles<FusionTheme, popoverStyleProps>(
           left: 0,
         },
         '&[data-popper-placement^=right] > $arrow::before': {
-          left: '-4px',
+          left: '-9px',
           transform: 'rotate(45deg)',
           transformOrigin: 'center bottom',
           boxShadow: '-2px 2px 3px rgba(0, 0, 0, 0.2)',
@@ -47,7 +47,7 @@ export const useStyles = makeStyles<FusionTheme, popoverStyleProps>(
           top: 0,
         },
         '&[data-popper-placement^=bottom] > $arrow::before': {
-          top: '-4px',
+          top: '-9px',
           left: 0,
           transform: 'rotate(-45deg)',
           transformOrigin: 'center right',
@@ -58,7 +58,7 @@ export const useStyles = makeStyles<FusionTheme, popoverStyleProps>(
           right: 0,
         },
         '&[data-popper-placement^=left] > $arrow::before': {
-          right: '-4px',
+          right: '-9px',
           transform: 'rotate(-45deg)',
           transformOrigin: 'center bottom',
           boxShadow: '2px 2px 3px rgba(0, 0, 0, 0.12)',
@@ -66,15 +66,15 @@ export const useStyles = makeStyles<FusionTheme, popoverStyleProps>(
         },
       }),
       arrow: ({ backgroundColor }) => ({
-        width: '8px',
-        height: '8px',
+        width: '16px',
+        height: '16px',
         zIndex: '-1',
-        color: backgroundColor || theme.colors.ui.background__light.getVariable('color'),
+        color: backgroundColor || theme.colors.ui.background__default.getVariable('color'),
         '&:before': {
           content: '""',
           position: 'absolute',
           borderStyle: 'solid',
-          borderWidth: '4px 4px 2px 2px',
+          borderWidth: '8px 8px 4px 4px',
         },
       }),
       titleContainer: {
