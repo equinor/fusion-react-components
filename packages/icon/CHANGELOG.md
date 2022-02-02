@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.2.6 (2022-01-19)
+
+
+### Bug Fixes
+
+* **icon:** update web element ([5fb19fc](https://github.com/equinor/fusion-react-components/commit/5fb19fca9d3bce04f4ba8c166c195966b4c5b14c))
+
+
+
+
+
 ## 0.2.5 (2021-11-23)
 
 **Note:** Version bump only for package @equinor/fusion-react-icon
