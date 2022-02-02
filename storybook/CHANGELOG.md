@@ -3,6 +3,31 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.38.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.37.5...@equinor/fusion-react-components-stories@1.38.0) (2022-02-02)
+
+
+### Bug Fixes
+
+* **popover:** arrow size and background color ([4eab9cc](https://github.com/equinor/fusion-react-components/commit/4eab9cc5e430d6248aa4f5651c808d89b7dc759a))
+
+
+### Features
+
+* **popover:** added basic style ([4c90fd2](https://github.com/equinor/fusion-react-components/commit/4c90fd25dd736c02d65417434e08143b4c2c486c))
+* **popover:** added props for styling ([88cee1e](https://github.com/equinor/fusion-react-components/commit/88cee1e89156e09b1220c88ebe7d6cca06979bc7))
+* **popover:** baseElement and title props ([c7a287f](https://github.com/equinor/fusion-react-components/commit/c7a287f44e008b50a09b5bb11c9ea537c1fd280c))
+* **popover:** cleaned snapshot file ([9c4bede](https://github.com/equinor/fusion-react-components/commit/9c4bede787fc398a01c2fd982ea47af649d9f39b))
+* **popover:** created popover package ([b59c92d](https://github.com/equinor/fusion-react-components/commit/b59c92d20c0d7f5dd7c4bcfcb95025b8a96d3cf6))
+* **popover:** created snaphots ([6d156a6](https://github.com/equinor/fusion-react-components/commit/6d156a631634322ce84053d88cac276cdcce3d83))
+* **popover:** default popper popover ([ca556f9](https://github.com/equinor/fusion-react-components/commit/ca556f9fd419024052371dd02a8dff6df8ebe073))
+* **popover:** Description and link  react-popper ([054cbfb](https://github.com/equinor/fusion-react-components/commit/054cbfbd4c55cf40a22dd42d6fb7e257183fc4f6))
+* **popover:** PopoverProps type ([fda7683](https://github.com/equinor/fusion-react-components/commit/fda76830fbce6d5a86a5eca7d5fd0f0e66bdafb6))
+* **popover:** visibility controlled from outside ([bfe2234](https://github.com/equinor/fusion-react-components/commit/bfe223433f3e6b82e95c8e1518ff57e87389212b))
+
+
+
+
+
 ## [1.37.5](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.37.4...@equinor/fusion-react-components-stories@1.37.5) (2022-01-19)
 
 **Note:** Version bump only for package @equinor/fusion-react-components-stories
