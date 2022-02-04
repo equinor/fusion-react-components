@@ -88,6 +88,11 @@ export const useStyles = makeStyles<FusionTheme, popoverStyleProps>(
       },
       close: {
         marginLeft: 'auto',
+        cursor: 'pointer',
+        color: theme.colors.interactive.primary__resting.getVariable('color'),
+        '&:hover': {
+          color: theme.colors.interactive.primary__hover.getVariable('color'),
+        },
       },
       divider: {
         height: '1px',
