@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.38.1](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.38.0...@equinor/fusion-react-components-stories@1.38.1) (2022-02-07)
+
+**Note:** Version bump only for package @equinor/fusion-react-components-stories
+
+
+
+
+
 # [1.38.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.37.5...@equinor/fusion-react-components-stories@1.38.0) (2022-02-02)
 
 
