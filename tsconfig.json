@@ -70,6 +70,7 @@
     {
       "path": "packages/filter"
     },
-    { "path": "packages/utils" }
+    { "path": "packages/utils" },
+    { "path": "packages/loader" }
   ]
 }
