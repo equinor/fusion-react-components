@@ -17,7 +17,8 @@
     "npm:clean": "rm -rf node_modules && lerna exec 'rm -rf node_modules'",
     "lerna:update": "lernaupdate",
     "lerna:dedupe": "lernaupdate --dedupe",
-    "ncu": "lerna exec 'npx ncu \"/fusion-wc.*/\" -u' && npm run bootstrap"
+    "ncu": "lerna exec 'npx npm-check-updates \"/fusion-wc.*/\" -u'",
+    "postncu": "npm run bootstrap"
   },
   "repository": {
     "type": "git",
