@@ -30,10 +30,10 @@ export type FilterOptionBuilder<TData, TOption extends FilterOption, TValue = st
   data: TData[]
 ) => Record<string, TOption>;
 
-export type FilterOptionType<T extends unknown> = T extends (a: infer TData, b: infer TSelection) => infer C
+export type FilterOptionType<T> = T extends (a: infer TData, b: infer TSelection) => infer C
   ? { data: TData; selection: TSelection; options: C }
   : never;
 
-export type FilterOptionDataType<T extends unknown> = FilterOptionType<T>['data'];
-export type FilterOptionsType<T extends unknown> = FilterOptionType<T>['options'];
-export type FilterOptionSelectionType<T extends unknown> = FilterOptionType<T>['selection'];
+export type FilterOptionDataType<T> = FilterOptionType<T>['data'];
+export type FilterOptionsType<T> = FilterOptionType<T>['options'];
+export type FilterOptionSelectionType<T> = FilterOptionType<T>['selection'];
