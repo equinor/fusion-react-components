@@ -1,4 +1,4 @@
-import { forwardRef, InputHTMLAttributes, MouseEventHandler, useCallback } from 'react';
+import React, { forwardRef, MouseEventHandler, useCallback } from 'react';
 import { makeStyles, createStyles, theme, clsx } from '@equinor/fusion-react-styles';
 import { Icon } from '@equinor/fusion-react-icon';
 import { FusionDatePickerType } from '../types';
@@ -9,15 +9,6 @@ type StyleProps = {
   hasValue?: boolean;
   isError?: boolean;
   spacing: SpacingType;
-};
-
-type InputProps = {
-  dateFormat: string;
-  label?: string;
-  isClearable?: boolean;
-  onClear(): void;
-  type: FusionDatePickerType;
-  onClick?: MouseEventHandler;
 };
 
 const defaultStyleProps: StyleProps = {
@@ -99,59 +90,68 @@ const useStyles = makeStyles(
   { name: 'fusion-datepicker-input' }
 );
 
-export const FusionDatePickerInput = forwardRef<HTMLInputElement, InputHTMLAttributes<HTMLInputElement> & InputProps>(
-  (props: InputHTMLAttributes<HTMLInputElement> & InputProps, ref: React.ForwardedRef<HTMLInputElement>) => {
-    const { dateFormat, isClearable, onClear, placeholder, type, label, onFocus, onBlur, ...rest } = props;
-    const classes = useStyles({
-      ...defaultStyleProps,
-      disabled: props.disabled,
-      hasValue: props.value ? true : false,
-    });
-    const handleBlur = useCallback(
-      (e: React.FocusEvent<HTMLInputElement>) => {
-        onBlur && onBlur(e);
-        e.target.placeholder = placeholder ?? '';
-      },
-      [placeholder, onBlur]
-    );
-    const handleFocus = useCallback(
-      (e: React.FocusEvent<HTMLInputElement>) => {
-        onFocus && onFocus(e);
-        e.target.placeholder = dateFormat;
-      },
-      [dateFormat, onFocus]
-    );
+type FusionDatePickerInputProps = React.InputHTMLAttributes<HTMLInputElement> & {
+  dateFormat: string;
+  label?: string;
+  isClearable?: boolean;
+  onClear(): void;
+  type: FusionDatePickerType;
+  onClick?: MouseEventHandler;
+};
 
-    return (
-      <div className={classes.container}>
-        <div className={classes.content}>
-          {label && <span className={classes.label}>{label}</span>}
-          <input
-            {...rest}
-            placeholder={placeholder}
-            onFocus={handleFocus}
-            onBlur={handleBlur}
-            className={clsx(classes.input, classes.inputFocus)}
-            ref={ref}
-          />
-        </div>
-        <span className={classes.ripple} />
-        {isClearable && props.value ? (
-          <Icon
-            icon={'clear'}
-            className={classes.icon}
-            onClick={() => {
-              onClear();
-            }}
-          />
-        ) : type === 'time' ? (
-          <Icon icon={'time'} className={classes.icon} onClick={props.onClick} />
-        ) : (
-          <Icon icon={'calendar'} className={classes.icon} onClick={props.onClick} />
-        )}
+export const FusionDatePickerInput = forwardRef<HTMLInputElement, FusionDatePickerInputProps>((properties, ref) => {
+  const { dateFormat, isClearable, onClear, placeholder, type, label, onFocus, onBlur, ...rest } = properties;
+  const classes = useStyles({
+    ...defaultStyleProps,
+    disabled: properties.disabled,
+    hasValue: properties.value ? true : false,
+  });
+  const handleBlur = useCallback(
+    (e: React.FocusEvent<HTMLInputElement>) => {
+      onBlur && onBlur(e);
+      e.target.placeholder = placeholder ?? '';
+    },
+    [placeholder, onBlur]
+  );
+  const handleFocus = useCallback(
+    (e: React.FocusEvent<HTMLInputElement>) => {
+      onFocus && onFocus(e);
+      e.target.placeholder = dateFormat;
+    },
+    [dateFormat, onFocus]
+  );
+
+  return (
+    <div className={classes.container}>
+      <div className={classes.content}>
+        {label && <span className={classes.label}>{label}</span>}
+        <input
+          {...rest}
+          placeholder={placeholder}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
+          className={clsx(classes.input, classes.inputFocus)}
+          ref={ref}
+        />
       </div>
-    );
-  }
-);
+      <span className={classes.ripple} />
+      {isClearable && properties.value ? (
+        <Icon
+          icon={'clear'}
+          className={classes.icon}
+          onClick={() => {
+            onClear();
+          }}
+        />
+      ) : type === 'time' ? (
+        <Icon icon={'time'} className={classes.icon} onClick={properties.onClick} />
+      ) : (
+        <Icon icon={'calendar'} className={classes.icon} onClick={properties.onClick} />
+      )}
+    </div>
+  );
+});
+
+FusionDatePickerInput.displayName = 'FusionDatePickerInput';
 
 export default FusionDatePickerInput;

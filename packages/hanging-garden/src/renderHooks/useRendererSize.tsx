@@ -30,7 +30,7 @@ const useRendererSize = (): void => {
     (containerWidth: number, containerHeight: number, pixiApp: PIXI.Application | null) => {
       if (!pixiApp) return;
 
-      const { width, height } = pixiApp?.renderer;
+      const { width, height } = pixiApp?.renderer || {};
 
       if (width !== containerWidth || height !== containerHeight) {
         pixiApp.renderer.resize(containerWidth, containerHeight);
