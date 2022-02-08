@@ -3,6 +3,38 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.39.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.38.2...@equinor/fusion-react-components-stories@1.39.0) (2022-02-08)
+
+
+### Bug Fixes
+
+* rename component ([8633723](https://github.com/equinor/fusion-react-components/commit/8633723df3d3a6d12acfa1d3a2da1cb1a5d6de71))
+
+
+### Features
+
+* **loader:** add loader component ([3d7d933](https://github.com/equinor/fusion-react-components/commit/3d7d933c8d3d63f30c75264b6c8ba3829edbbebe))
+
+
+
+
+
+## [1.38.2](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.38.1...@equinor/fusion-react-components-stories@1.38.2) (2022-02-08)
+
+**Note:** Version bump only for package @equinor/fusion-react-components-stories
+
+
+
+
+
+## [1.38.1](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.38.0...@equinor/fusion-react-components-stories@1.38.1) (2022-02-07)
+
+**Note:** Version bump only for package @equinor/fusion-react-components-stories
+
+
+
+
+
 # [1.38.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.37.5...@equinor/fusion-react-components-stories@1.38.0) (2022-02-02)
 
 
