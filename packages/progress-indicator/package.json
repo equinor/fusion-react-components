@@ -1,14 +1,15 @@
 {
-  "name": "@equinor/fusion-react-icon",
-  "version": "0.2.7",
-  "description": "component for displaying icon",
+  "name": "@equinor/fusion-react-progress-indicator",
+  "version": "0.0.0",
+  "description": "React components for displaying loader",
   "keywords": [
-    "icon",
+    "loader",
+    "spinner",
     "react",
     "fusion",
     "equinor"
   ],
-  "homepage": "https://github.com/equinor/fusion-react-components/tree/master/packages/radio#readme",
+  "homepage": "https://github.com/equinor/fusion-react-components/tree/master/packages/loader#readme",
   "license": "ISC",
   "main": "dist/index.js",
   "directories": {
@@ -35,6 +36,6 @@
   },
   "dependencies": {
     "@equinor/fusion-react-utils": "^1.2.5",
-    "@equinor/fusion-wc-icon": "^1.0.18"
+    "@equinor/fusion-wc-progress-indicator": "^0.2.1"
   }
 }
