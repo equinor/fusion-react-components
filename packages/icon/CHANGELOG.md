@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.2.7 (2022-02-08)
+
+
+### Bug Fixes
+
+* **Icon:** Update web element ([1db1443](https://github.com/equinor/fusion-react-components/commit/1db1443960c00e90335f747506d14df8860f3bd0))
+
+
+
+
+
 ## 0.2.6 (2022-01-19)
 
 

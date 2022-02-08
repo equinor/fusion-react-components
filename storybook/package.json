@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-components-stories",
-  "version": "1.38.1",
+  "version": "1.38.2",
   "description": "",
   "private": true,
   "scripts": {
@@ -20,9 +20,9 @@
     "@equinor/fusion-react-date": "^0.4.6",
     "@equinor/fusion-react-datepicker": "^0.11.3",
     "@equinor/fusion-react-divider": "^0.2.3",
-    "@equinor/fusion-react-filter": "^1.2.10",
+    "@equinor/fusion-react-filter": "^1.2.11",
     "@equinor/fusion-react-hanging-garden": "^1.6.20",
-    "@equinor/fusion-react-icon": "^0.2.6",
+    "@equinor/fusion-react-icon": "^0.2.7",
     "@equinor/fusion-react-list": "^0.2.2",
     "@equinor/fusion-react-observable": "^1.1.1",
     "@equinor/fusion-react-popover": "^0.1.0",
