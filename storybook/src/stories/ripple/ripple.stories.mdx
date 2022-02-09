@@ -1,0 +1,23 @@
+import { Meta, ArgsTable } from '@storybook/addon-docs';
+import { ChangeLog, PackageInfo, StoryExample } from '../../components';
+import { Ripple } from '@equinor/fusion-react-ripple/src';
+import { Component } from './ripple.examples.stories';
+
+<Meta title="Data/Ripple" Component={Ripple}/>
+
+<PackageInfo pkg={require('@equinor/fusion-react-ripple/package.json')}/>
+
+<ArgsTable of={Ripple} />
+
+## Component
+
+<StoryExample storyId="examples-ripple--component" showSource/>
+
+## ChangeLog
+
+<ChangeLog
+  changelogs={{
+    react: require('@equinor/fusion-react-ripple/CHANGELOG.md'),
+    webComponent: require('@equinor/fusion-wc-ripple/CHANGELOG.md'),
+  }}
+/>

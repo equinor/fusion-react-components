@@ -32,6 +32,9 @@
       "path": "packages/divider"
     },
     {
+      "path": "packages/filter"
+    },
+    {
       "path": "packages/hanging-garden"
     },
     {
@@ -44,7 +47,13 @@
       "path": "packages/popover"
     },
     {
+      "path": "packages/progress-indicator"
+    },
+    {
       "path": "packages/radio"
+    },
+    {
+      "path": "packages/ripple"
     },
     {
       "path": "packages/skeleton"
@@ -67,10 +76,8 @@
     {
       "path": "packages/tooltip"
     },
-    {
-      "path": "packages/filter"
-    },
-    { "path": "packages/utils" },
-    { "path": "packages/progress-indicator" }
+    { 
+      "path": "packages/utils" 
+    }
   ]
 }
