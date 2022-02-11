@@ -1,7 +1,6 @@
-import React, { forwardRef, useCallback } from 'react';
+import React, { forwardRef, MouseEventHandler, useCallback } from 'react';
 import { makeStyles, createStyles, theme, clsx } from '@equinor/fusion-react-styles';
-import Icon from './Icon';
-import { calendar, clear, time } from '@equinor/eds-icons';
+import { Icon } from '@equinor/fusion-react-icon';
 import { FusionDatePickerType } from '../types';
 type SpacingType = keyof typeof theme.spacing.comfortable;
 
@@ -97,6 +96,7 @@ type FusionDatePickerInputProps = React.InputHTMLAttributes<HTMLInputElement> & 
   isClearable?: boolean;
   onClear(): void;
   type: FusionDatePickerType;
+  onClick?: MouseEventHandler;
 };
 
 export const FusionDatePickerInput = forwardRef<HTMLInputElement, FusionDatePickerInputProps>((properties, ref) => {
@@ -137,16 +137,16 @@ export const FusionDatePickerInput = forwardRef<HTMLInputElement, FusionDatePick
       <span className={classes.ripple} />
       {isClearable && properties.value ? (
         <Icon
-          icon={clear}
+          icon={'clear'}
           className={classes.icon}
           onClick={() => {
             onClear();
           }}
         />
       ) : type === 'time' ? (
-        <Icon icon={time} className={classes.icon} onClick={properties.onClick} />
+        <Icon icon={'time'} className={classes.icon} onClick={properties.onClick} />
       ) : (
-        <Icon icon={calendar} className={classes.icon} onClick={properties.onClick} />
+        <Icon icon={'calendar'} className={classes.icon} onClick={properties.onClick} />
       )}
     </div>
   );

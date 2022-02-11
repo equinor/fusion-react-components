@@ -3,8 +3,7 @@ import { makeStyles, createStyles, theme, FusionTheme, clsx } from '@equinor/fus
 import { format, lastDayOfMonth } from 'date-fns';
 import { FusionDatePickerType } from '../types';
 import DatePicker from 'react-datepicker';
-import Icon from './Icon';
-import { arrow_back, arrow_drop_down, arrow_forward } from '@equinor/eds-icons';
+import { Icon } from '@equinor/fusion-react-icon';
 
 type SpacingType = keyof typeof theme.spacing.comfortable;
 
@@ -96,7 +95,7 @@ const MonthHeaderInput = forwardRef<HTMLInputElement, InputProps>(
         <span className={classes.monthHeaderInputText} ref={ref}>
           {value}
         </span>
-        <Icon className={classes.arrow} icon={arrow_drop_down} />
+        <Icon className={classes.arrow} icon={'arrow_drop_down'} />
       </div>
     );
   }
@@ -129,7 +128,7 @@ export const FusionDatePickerHeader: FunctionComponent<HeaderProps> = (props: He
   return (
     <div className={classes.container}>
       <Icon
-        icon={arrow_back}
+        icon={'arrow_back'}
         onClick={
           showYearPicker
             ? prevYearButtonDisabled
@@ -169,7 +168,7 @@ export const FusionDatePickerHeader: FunctionComponent<HeaderProps> = (props: He
       )}
 
       <Icon
-        icon={arrow_forward}
+        icon={'arrow_forward'}
         onClick={
           showYearPicker
             ? nextYearButtonDisabled
