@@ -25,6 +25,7 @@ export type CheckboxFilterProps<TData extends Record<string, any> = Record<strin
     filterFn: FilterFn<TData, Set<string>>;
     optionFn: FilterOptionBuilder<TData, CheckboxOption, string>;
   };
+  sortFn?: <T extends { label: string }>(a: T, b: T) => number;
 };
 
 /**
@@ -33,7 +34,7 @@ export type CheckboxFilterProps<TData extends Record<string, any> = Record<strin
 export const CheckboxFilter = <TData extends Record<string, any> = Record<string, any>>(
   props: CheckboxFilterProps<TData>
 ): JSX.Element => {
-  const { enableAll, ...args } = props;
+  const { enableAll, sortFn, ...args } = props;
   const styles = useStyles({ layout: 'column' });
   return (
     <CheckboxFilterProvider {...args}>
@@ -41,7 +42,7 @@ export const CheckboxFilter = <TData extends Record<string, any> = Record<string
         <FilterOptionHeader title={args.title} />
         <div className={styles.items}>
           {enableAll && <CheckboxFilterOptionAll />}
-          <CheckboxFilterOptions />
+          <CheckboxFilterOptions sortFn={sortFn} />
         </div>
       </div>
     </CheckboxFilterProvider>

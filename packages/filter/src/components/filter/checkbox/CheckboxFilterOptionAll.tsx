@@ -33,7 +33,7 @@ export const CheckboxFilterOptionAll = (): JSX.Element => {
   return (
     <CheckboxFilterOption
       name="all"
-      label="all"
+      label="All"
       indeterminate={indeterminate}
       checked={checked}
       count={totalCount}
