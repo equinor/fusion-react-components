@@ -1,14 +1,14 @@
 {
-  "name": "@equinor/fusion-react-popover",
-  "version": "0.1.2",
-  "description": "React component for displaying popover",
+  "name": "@equinor/fusion-react-ripple",
+  "version": "0.2.5",
+  "description": "React component for displaying a ripple effect",
   "keywords": [
-    "popover",
+    "ripple",
     "react",
     "fusion",
     "equinor"
   ],
-  "homepage": "https://github.com/equinor/fusion-react-components/tree/master/packages/popover#readme",
+  "homepage": "https://github.com/equinor/fusion-react-components/tree/master/packages/ripple#readme",
   "license": "ISC",
   "main": "dist/index.js",
   "directories": {
@@ -26,7 +26,6 @@
   },
   "scripts": {
     "build": "tsc -b",
-    "watch": "tsc -w",
     "lint": "eslint --ext .ts,.tsx,.js src/",
     "lint:fix": "eslint --ext .ts,.tsx,.js src/ --fix",
     "prepack": "npm run build"
@@ -35,9 +34,7 @@
     "url": "https://github.com/equinor/fusion-react-components/issues"
   },
   "dependencies": {
-    "@equinor/fusion-react-icon": "^0.2.7",
-    "@equinor/fusion-react-styles": "^0.5.1",
-    "@popperjs/core": "^2.11.0",
-    "react-popper": "^2.2.5"
+    "@equinor/fusion-react-utils": "^1.2.6",
+    "@equinor/fusion-wc-ripple": "^0.2.10"
   }
 }

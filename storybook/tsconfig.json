@@ -28,6 +28,9 @@
       "path": "../packages/divider"
     },
     {
+      "path": "../packages/filter"
+    },
+    {
       "path": "../packages/icon"
     },
     {
@@ -44,6 +47,9 @@
     },
     {
       "path": "../packages/popover"
+    },
+    {
+      "path": "../packages/progress-indicator"
     },
     {
       "path": "../packages/radio"
@@ -67,9 +73,7 @@
       "path": "../packages/tooltip"
     },
     {
-      "path": "../packages/filter"
-    },
-    { "path": "../packages/utils" },
-    { "path": "../packages/progress-indicator" }
+      "path": "../packages/utils" 
+    }
   ]
 }

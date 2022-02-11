@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.11.6](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-datepicker@0.11.5...@equinor/fusion-react-datepicker@0.11.6) (2022-02-11)
+
+
+### Bug Fixes
+
+* **Datepicker:** use fusion-react-icons ([d8db85a](https://github.com/equinor/fusion-react-components/commit/d8db85a37487de54b3dc15a7ada3a28df693ea8d))
+
+
+
+
+
 ## [0.11.5](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-datepicker@0.11.4...@equinor/fusion-react-datepicker@0.11.5) (2022-02-11)
 
 **Note:** Version bump only for package @equinor/fusion-react-datepicker
