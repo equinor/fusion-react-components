@@ -1,6 +1,6 @@
 import { ReactNode, useCallback, useState, FC } from 'react';
 import { usePopper } from 'react-popper';
-import { CloseIcon } from '.';
+import { Icon } from '@equinor/fusion-react-icon';
 import { useStyles } from './style';
 import useHandleClickOutside from './useHandleClickOutside';
 import { Placement, PositioningStrategy } from '@popperjs/core';
@@ -72,11 +72,7 @@ export const Popover: FC<PopoverProps> = ({
             <>
               <div className={popoverStyles.titleContainer}>
                 {title && <div className={popoverStyles.title}>{title}</div>}
-                {showCloseIcon && (
-                  <span onClick={handleClick} className={popoverStyles.close}>
-                    <CloseIcon />
-                  </span>
-                )}
+                {showCloseIcon && <Icon icon={'close'} className={popoverStyles.close} onClick={handleClick} />}
               </div>
               <div className={popoverStyles.divider}></div>
             </>
