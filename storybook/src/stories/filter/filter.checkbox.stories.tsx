@@ -40,6 +40,16 @@ type StoryProps = {
   filterHeight: number;
 };
 
+const customSortFn = <T extends { label: string }>(a: T, b: T) => b.label.localeCompare(a.label);
+const customOptions = (item: DataType) => {
+  const firstLetter = item.jobType.charAt(1);
+  return {
+    key: firstLetter,
+    value: firstLetter,
+    label: `Starting with ${firstLetter.toUpperCase()}`,
+  };
+};
+
 export const Checkbox: Story<StoryProps> = ({ filterHeight, rows, unique }: StoryProps) => {
   const data = generateData(rows, unique);
   const styles = makeStyles(
@@ -55,6 +65,7 @@ export const Checkbox: Story<StoryProps> = ({ filterHeight, rows, unique }: Stor
         <CheckboxFilter title="First name" filterKey="firstName" initial={new Set([data[0].firstName])} />
         <CheckboxFilter title="Last name" filterKey="lastName" />
         <CheckboxFilter title="Company" filterKey="company" enableAll />
+        <CheckboxFilter title="Job title" filterKey="jobType" sortFn={customSortFn} selector={customOptions} />
       </FilterPanel>
     </FilterProvider>
   );
