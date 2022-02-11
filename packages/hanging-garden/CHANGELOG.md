@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.6.21 (2022-02-08)
+
+**Note:** Version bump only for package @equinor/fusion-react-hanging-garden
+
+
+
+
+
 ## [1.6.20](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-hanging-garden@1.6.19...@equinor/fusion-react-hanging-garden@1.6.20) (2022-01-03)
 
 **Note:** Version bump only for package @equinor/fusion-react-hanging-garden
