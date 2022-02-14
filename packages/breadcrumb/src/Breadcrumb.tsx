@@ -40,7 +40,7 @@ export const Breadcrumb: FC<Props> = ({ breadcrumbs, isFetching, currentLevel })
           return (
             <div className={style.breadcrumb} key={`${crumb.name}-${index.toString()}`}>
               {isFetching ? (
-                <Skeleton variant={SkeletonVariant.Text} size={SkeletonSize.small} />
+                <Skeleton variant={SkeletonVariant.Text} size={SkeletonSize.XSmall} />
               ) : (
                 <BreadcrumbItem link={crumb.link} name={crumb.name} isActive={crumb.isActive || lastCrumb} />
               )}

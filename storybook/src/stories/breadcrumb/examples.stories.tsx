@@ -2,6 +2,7 @@ import { Meta, Story } from '@storybook/react';
 import { Breadcrumb, BreadcrumbProps } from '@equinor/fusion-react-breadcrumb/src';
 import { BreadcrumbItemProps } from 'breadcrumb/src/types';
 import { MemoryRouter } from 'react-router-dom';
+import { theme } from '@equinor/fusion-react-styles';
 
 export default {
   title: 'Examples/Breadcrumb',
@@ -29,7 +30,13 @@ export const Component: Story<BreadcrumbProps> = (props: BreadcrumbProps) => (
 export const Simple: Story = () => <Breadcrumb currentLevel={3} isFetching={false} breadcrumbs={breadcrumbs} />;
 
 export const Colored: Story = () => (
-  <div style={{ color: 'salmon' }}>
+  <div
+    style={{
+      color: theme.colors.text.static_icons__primary_white.getVariable('color'),
+      backgroundColor: theme.colors.infographic.primary__moss_green_100.getVariable('color'),
+      padding: '.5rem 1rem',
+    }}
+  >
     <Breadcrumb isFetching={false} currentLevel={3} breadcrumbs={breadcrumbs} />
   </div>
 );
