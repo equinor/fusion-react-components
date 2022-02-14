@@ -14,6 +14,9 @@ export default {
       </MemoryRouter>
     ),
   ],
+  parameters: {
+    chromatic: { disableSnapshot: false },
+  },
 } as Meta;
 
 const breadcrumbs: BreadcrumbItemProps[] = [
