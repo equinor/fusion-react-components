@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.40.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.39.3...@equinor/fusion-react-components-stories@1.40.0) (2022-02-11)
+
+
+### Features
+
+* **ripple:** added ripple react component ([9589a43](https://github.com/equinor/fusion-react-components/commit/9589a43be4c5d2ddc0467f3079d6f40f53aa95e6))
+
+
+
+
+
 ## [1.39.3](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.39.2...@equinor/fusion-react-components-stories@1.39.3) (2022-02-11)
 
 **Note:** Version bump only for package @equinor/fusion-react-components-stories
