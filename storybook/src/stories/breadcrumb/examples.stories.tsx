@@ -35,17 +35,40 @@ export const Simple: Story = () => <Breadcrumb currentLevel={3} isFetching={fals
 export const Colored: Story = () => (
   <div
     style={{
-      color: theme.colors.text.static_icons__primary_white.getVariable('color'),
-      backgroundColor: theme.colors.infographic.primary__moss_green_100.getVariable('color'),
-      padding: '.5rem 1rem',
+      color: theme.colors.text.static_icons__tertiary.getVariable('color'),
     }}
   >
     <Breadcrumb isFetching={false} currentLevel={3} breadcrumbs={breadcrumbs} />
   </div>
 );
+Colored.parameters = {
+  docs: {
+    storyDescription: `Controlled by parent color. Color should preferably not be black, use EDS Color Tokens for text.`,
+  },
+};
+
+export const NoHoverColor: Story = () => (
+  <div
+    style={{
+      color: theme.colors.text.static_icons__default.getVariable('color'),
+    }}
+  >
+    <Breadcrumb isFetching={false} currentLevel={3} breadcrumbs={breadcrumbs} hasHoverColor={false} />
+  </div>
+);
+NoHoverColor.parameters = {
+  docs: {
+    storyDescription: `Hover color is inherited if hasHoverColor is false.`,
+  },
+};
 
 export const Fetching: Story = () => (
   <div>
     <Breadcrumb isFetching={true} currentLevel={3} breadcrumbs={breadcrumbs} />
   </div>
 );
+Fetching.parameters = {
+  docs: {
+    storyDescription: `Displaying XSmall text skeletons when isFetching is true.`,
+  },
+};

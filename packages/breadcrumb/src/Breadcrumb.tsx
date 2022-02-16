@@ -22,14 +22,22 @@ export const useStyles = makeStyles(
         display: 'flex',
         '& > a': {
           color: 'inherit !important',
+          textDecoration: 'none !important',
+        },
+        '& > a:hover': {
+          textDecoration: 'underline !important',
+          color: (props: { hasHoverColor: boolean }) =>
+            props.hasHoverColor
+              ? `${theme.colors.interactive.primary__resting.getVariable('color')} !important`
+              : 'inherit !important',
         },
       },
     }),
   { name: 'fusion-breadcrumb' }
 );
 
-export const Breadcrumb: FC<Props> = ({ breadcrumbs, isFetching, currentLevel }): JSX.Element => {
-  const style = useStyles();
+export const Breadcrumb: FC<Props> = ({ breadcrumbs, isFetching, currentLevel, hasHoverColor = true }): JSX.Element => {
+  const style = useStyles({ hasHoverColor });
   const levelArray = generateLevelBasedArray(currentLevel);
 
   return (
