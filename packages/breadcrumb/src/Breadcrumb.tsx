@@ -18,26 +18,15 @@ export const useStyles = makeStyles(
         color: 'inherit',
         display: 'flex',
       },
-      breadcrumb: {
+      crumb: {
         display: 'flex',
-        '& > a': {
-          color: 'inherit !important',
-          textDecoration: 'none !important',
-        },
-        '& > a:hover': {
-          textDecoration: 'underline !important',
-          color: (props: { hasHoverColor: boolean }) =>
-            props.hasHoverColor
-              ? `${theme.colors.interactive.primary__resting.getVariable('color')} !important`
-              : 'inherit !important',
-        },
       },
     }),
   { name: 'fusion-breadcrumb' }
 );
 
 export const Breadcrumb: FC<Props> = ({ breadcrumbs, isFetching, currentLevel, hasHoverColor = true }): JSX.Element => {
-  const style = useStyles({ hasHoverColor });
+  const style = useStyles();
   const levelArray = generateLevelBasedArray(currentLevel);
 
   return (
@@ -46,11 +35,16 @@ export const Breadcrumb: FC<Props> = ({ breadcrumbs, isFetching, currentLevel, h
         (crumb: BreadcrumbItemProps, index: number, array: BreadcrumbItemProps[]) => {
           const lastCrumb = array.length - 1 === index;
           return (
-            <div className={style.breadcrumb} key={`${crumb.name}-${index.toString()}`}>
+            <div className={style.crumb} key={`${crumb.name}-${index.toString()}`}>
               {isFetching ? (
                 <Skeleton variant={SkeletonVariant.Text} size={SkeletonSize.XSmall} />
               ) : (
-                <BreadcrumbItem link={crumb.link} name={crumb.name} isActive={crumb.isActive || lastCrumb} />
+                <BreadcrumbItem
+                  onClick={crumb.onClick}
+                  name={crumb.name}
+                  isActive={crumb.isActive || lastCrumb}
+                  hasHoverColor={hasHoverColor}
+                />
               )}
               {!lastCrumb && <Divider />}
             </div>

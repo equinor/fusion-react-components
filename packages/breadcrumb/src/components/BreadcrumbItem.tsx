@@ -1,26 +1,31 @@
 import { FC } from 'react';
-import { Link } from 'react-router-dom';
 import { BreadcrumbItemProps } from '../types';
 import { createStyles, makeStyles } from '@equinor/fusion-react-styles';
 
 export const useStyles = makeStyles(
-  () =>
+  (theme) =>
     createStyles({
       breadcrumbLink: {
         color: 'inherit',
+        '&:hover': {
+          cursor: 'pointer',
+          textDecoration: 'underline',
+          color: (props: { hasHoverColor: boolean }) =>
+            props.hasHoverColor ? theme.colors.interactive.primary__resting.getVariable('color') : 'inherit',
+        },
       },
     }),
   { name: 'fusion-breadcrumb-item' }
 );
 
-const BreadcrumbItem: FC<BreadcrumbItemProps> = ({ link, name, isActive }): JSX.Element => {
-  const style = useStyles();
+const BreadcrumbItem: FC<BreadcrumbItemProps> = ({ onClick, name, isActive, hasHoverColor }): JSX.Element => {
+  const style = useStyles({ hasHoverColor });
 
-  if (!link || isActive) return <div className={style.breadcrumbLink}>{name}</div>;
+  if (isActive) return <div>{name}</div>;
   return (
-    <Link to={link} className={style.breadcrumbLink}>
+    <div onClick={onClick} className={style.breadcrumbLink}>
       {name}
-    </Link>
+    </div>
   );
 };
 

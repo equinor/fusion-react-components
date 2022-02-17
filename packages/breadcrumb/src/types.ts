@@ -6,7 +6,8 @@ export type BreadcrumbProps = {
 };
 
 export type BreadcrumbItemProps = {
-  link?: string;
+  onClick?: () => void;
   name?: string;
   isActive?: boolean;
+  hasHoverColor?: boolean;
 };
