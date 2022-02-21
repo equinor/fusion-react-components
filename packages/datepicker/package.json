@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-datepicker",
-  "version": "0.11.6",
+  "version": "0.11.7",
   "description": "component for displaying a date picker",
   "keywords": [
     "date",
@@ -37,8 +37,8 @@
     "url": "https://github.com/equinor/fusion-react-components/issues"
   },
   "dependencies": {
-    "@equinor/fusion-react-icon": "^0.2.7",
-    "@equinor/fusion-react-styles": "^0.5.1",
+    "@equinor/fusion-react-icon": "^0.2.9",
+    "@equinor/fusion-react-styles": "^0.5.2",
     "react-datepicker": "^4.3.0"
   },
   "devDependencies": {
