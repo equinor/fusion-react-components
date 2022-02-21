@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.41.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.40.0...@equinor/fusion-react-components-stories@1.41.0) (2022-02-15)
+
+
+### Features
+
+* **filter:** add sortfn as a prop and capitalized  all label ([c364ab3](https://github.com/equinor/fusion-react-components/commit/c364ab39b6b625cf00b973f1eacb52c5b795ae27))
+
+
+
+
+
 # [1.40.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.39.3...@equinor/fusion-react-components-stories@1.40.0) (2022-02-11)
 
 
