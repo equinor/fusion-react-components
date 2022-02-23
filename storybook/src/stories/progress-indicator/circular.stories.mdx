@@ -1,22 +1,20 @@
 import { Meta, Story, Canvas, ArgsTable, Description } from '@storybook/addon-docs';
 import ChangeLog from '../../components/ChangeLog';
-import { StarProgress } from '@equinor/fusion-react-progress-indicator/src';
+import { CircularProgress } from '@equinor/fusion-react-progress-indicator/src';
 
-<Meta title="Progress Indicator/Star" Component={StarProgress}/>
+<Meta title="Progress Indicator/Circular" Component={CircularProgress} />
 
-<PackageInfo pkg={require('@equinor/fusion-react-progress-indicator/package.json')}/>
+<PackageInfo pkg={require('@equinor/fusion-react-progress-indicator/package.json')} />
 
 <Description markdown={require('@equinor/fusion-react-progress-indicator/README.md')} />
 
-<ArgsTable of={StarProgress} />
+<ArgsTable of={CircularProgress} />
 
+## Circular Progress Indicator
 
-## Star Progress Indicator
-
-<Canvas withSource='open'>
-  <Story id="examples-progress-indicator--star" />
+<Canvas withSource="open">
+  <Story id="examples-progress-indicator--circular" />
 </Canvas>
-
 
 ## ChangeLog
 
