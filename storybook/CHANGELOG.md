@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.42.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.41.1...@equinor/fusion-react-components-stories@1.42.0) (2022-02-23)
+
+
+### Bug Fixes
+
+* **circular:** changed story header ([19e824b](https://github.com/equinor/fusion-react-components/commit/19e824b6f3920b78af7542c9b5708bb9d9920851))
+* **dots:** changed story header ([0a7bd1e](https://github.com/equinor/fusion-react-components/commit/0a7bd1e4ea49321ee34a2e70ed8f23e2d73c752a))
+* **star:** changed story header ([aa1ae3e](https://github.com/equinor/fusion-react-components/commit/aa1ae3ef41746213c75a2e5c41c14feac719d506))
+
+
+### Features
+
+* **circular:** added circular progress indicator ([10f77b6](https://github.com/equinor/fusion-react-components/commit/10f77b6d4e2b60a9ca04dc9d3393f79975b67cc3))
+* **circular:** snapshots for circular and dots ([1d43e11](https://github.com/equinor/fusion-react-components/commit/1d43e116583c588e3cf57bdcc164ee3b42208992))
+* **dots:** added dots progress indicator ([93b2a74](https://github.com/equinor/fusion-react-components/commit/93b2a740d7517003276b85d60f0c76939fc51e54))
+
+
+
+
+
 ## [1.41.1](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.41.0...@equinor/fusion-react-components-stories@1.41.1) (2022-02-21)
 
 **Note:** Version bump only for package @equinor/fusion-react-components-stories
