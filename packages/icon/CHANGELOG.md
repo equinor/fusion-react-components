@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.2.9 (2022-02-21)
+
+**Note:** Version bump only for package @equinor/fusion-react-icon
+
+
+
+
+
 ## 0.2.8 (2022-02-08)
 
 **Note:** Version bump only for package @equinor/fusion-react-icon
