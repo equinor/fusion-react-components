@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.43.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.42.0...@equinor/fusion-react-components-stories@1.43.0) (2022-02-24)
+
+
+### Bug Fixes
+
+* **breadcrumb:**  changed colored story ([b519ea1](https://github.com/equinor/fusion-react-components/commit/b519ea10ba01076212106d6bd110ad63917c2a71))
+* **breadcrumb:** enable chromatic snapshot ([3169177](https://github.com/equinor/fusion-react-components/commit/31691771e24ae014eddd6bf42526a4ec10e1c8b3))
+* **breadcrumb:** fixed fetching story ([c92d632](https://github.com/equinor/fusion-react-components/commit/c92d632b54abca5898f4cf6df478f66b8c27c3cb))
+
+
+### Features
+
+* **breadcrumb:** added breadcrumb component ([98bb2c5](https://github.com/equinor/fusion-react-components/commit/98bb2c5ad2d7a1fc33044dd625ffaa7915d7c395))
+* **breadcrumb:** hover color ([9ae50ab](https://github.com/equinor/fusion-react-components/commit/9ae50abb026d5dea72d0b4182e411561089e1a68))
+
+
+
+
+
 # [1.42.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.41.1...@equinor/fusion-react-components-stories@1.42.0) (2022-02-23)
 
 
