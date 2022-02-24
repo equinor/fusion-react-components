@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-button",
-  "version": "0.5.8",
+  "version": "0.5.9",
   "description": "React component for displaying a button",
   "keywords": [
     "button",
@@ -35,6 +35,6 @@
   },
   "dependencies": {
     "@equinor/fusion-react-utils": "^1.2.6",
-    "@equinor/fusion-wc-button": "^1.1.28"
+    "@equinor/fusion-wc-button": "^1.1.29"
   }
 }

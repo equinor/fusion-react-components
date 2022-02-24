@@ -6,10 +6,13 @@ import { useCheckboxFilterOptionContext } from './context';
 
 import { CheckboxFilterOption, CheckboxFilterOptionProps } from './CheckboxFilterOption';
 
-// TODO - make arg!
-const sortFn = <T extends { label: string }>(a: T, b: T) => a.label.localeCompare(b.label);
+const defaultSortFn = <T extends { label: string }>(a: T, b: T) => a.label.localeCompare(b.label);
 
-export const CheckboxFilterOptions = (): JSX.Element => {
+type CheckboxFilterOptionsProps = {
+  sortFn?: <T extends { label: string }>(a: T, b: T) => number;
+};
+
+export const CheckboxFilterOptions = ({ sortFn }: CheckboxFilterOptionsProps): JSX.Element => {
   const context = useCheckboxFilterOptionContext();
   const data = useObservableState(context.options$);
   const selectionRef = useObservableRef(context.selection$);
@@ -41,7 +44,7 @@ export const CheckboxFilterOptions = (): JSX.Element => {
           hide: value.hide,
         } as CheckboxFilterOptionProps)
     )
-    .sort(sortFn);
+    .sort(sortFn ?? defaultSortFn);
   return (
     <>
       {itemProps.map((props) => (

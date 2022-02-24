@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.1](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-filter@1.3.0...@equinor/fusion-react-filter@1.3.1) (2022-02-21)
+
+**Note:** Version bump only for package @equinor/fusion-react-filter
+
+
+
+
+
+# 1.3.0 (2022-02-15)
+
+
+### Features
+
+* **filter:** add sortfn as a prop and capitalized  all label ([c364ab3](https://github.com/equinor/fusion-react-components/commit/c364ab39b6b625cf00b973f1eacb52c5b795ae27))
+
+
+
+
+
 ## [1.2.13](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-filter@1.2.12...@equinor/fusion-react-filter@1.2.13) (2022-02-11)
 
 **Note:** Version bump only for package @equinor/fusion-react-filter
