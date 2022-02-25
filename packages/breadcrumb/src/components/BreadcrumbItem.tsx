@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { BreadcrumbItemProps } from '../types';
 import { createStyles, makeStyles } from '@equinor/fusion-react-styles';
 
-export const useStyles = makeStyles(
+const useStyles = makeStyles(
   (theme) =>
     createStyles({
       breadcrumbLink: {
