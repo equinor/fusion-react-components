@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-components-stories",
-  "version": "1.42.0",
+  "version": "1.43.0",
   "description": "",
   "private": true,
   "scripts": {
@@ -14,7 +14,7 @@
     "@babel/core": "^7.16.0",
     "@equinor/fusion-react-avatar": "^0.3.8",
     "@equinor/fusion-react-badge": "^0.3.7",
-    "@equinor/fusion-react-breadcrumb": "^0.0.0",
+    "@equinor/fusion-react-breadcrumb": "^0.1.0",
     "@equinor/fusion-react-button": "^0.5.9",
     "@equinor/fusion-react-checkbox": "^0.5.8",
     "@equinor/fusion-react-chip": "^0.3.7",
