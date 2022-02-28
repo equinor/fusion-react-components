@@ -55,6 +55,4 @@ export const Breadcrumb: FC<Props> = ({ breadcrumbs, isFetching, currentLevel, h
   );
 };
 
-export type BreadcrumbProps = React.ComponentProps<typeof Breadcrumb>;
-
 export default Breadcrumb;

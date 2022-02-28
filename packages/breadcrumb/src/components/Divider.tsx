@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { createStyles, makeStyles } from '@equinor/fusion-react-styles';
 
-export const useStyles = makeStyles(
+const useStyles = makeStyles(
   (theme) =>
     createStyles({
       divider: {
