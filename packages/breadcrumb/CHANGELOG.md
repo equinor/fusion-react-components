@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.1](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-breadcrumb@0.1.0...@equinor/fusion-react-breadcrumb@0.1.1) (2022-02-28)
+
+
+### Bug Fixes
+
+* **breadcrumb:** export breadcrumb item props ([9f71669](https://github.com/equinor/fusion-react-components/commit/9f71669b4c4ddd3e7b2f714b0e5b1b8026fb5164))
+* **breadcrumb:** export types ([035a9e0](https://github.com/equinor/fusion-react-components/commit/035a9e024bd773988c3c275675db86a2dcfd2166))
+
+
+
+
+
 # 0.1.0 (2022-02-24)
 
 
