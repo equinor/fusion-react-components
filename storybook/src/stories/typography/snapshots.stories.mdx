@@ -1,0 +1,55 @@
+import { Meta, Story } from '@storybook/addon-docs';
+import { theme } from '@equinor/fusion-react-styles';
+
+import Typography from '@equinor/fusion-react-typography';
+
+<Meta title="Snapshots/Typography" parameters={{ chromatic: { disableSnapshot: false } }} />
+
+export const Container = ({ title, children }) => (
+  <section>
+    {/* <h4>{title}</h4> */}
+    <div
+      style={{
+        display: 'flex',
+        gap: '2rem',
+        padding: '1rem',
+        backgroundColor: '#F7F7F7',
+        borderRadius: '4px',
+      }}
+    >
+      {children}
+    </div>
+  </section>
+);
+
+### Heading
+
+<Story name="Heading">
+  {(args) => (
+    <Container>
+      <Typography variant={'heading'} type={'h1'}>Heading/H1 Bold</Typography>
+      <Typography variant={'heading'}>Heading/H1</Typography>
+      <Typography variant={'heading'}>Heading/H2</Typography>
+    </Container>
+  )}
+</Story>
+
+### Navigation
+
+<Story name="Navigation">
+  {(args) => (
+    <>
+      <Typography variant={'navigation'}>Navigation</Typography>
+    </>
+  )}
+</Story>
+
+### Paragraph
+
+<Story name="Paragraph">
+  {(args) => (
+    <>
+      <Typography>Paragraph</Typography>
+    </>
+  )}
+</Story>
