@@ -11,7 +11,7 @@ export const Container = ({ title, children }) => (
       style={{
         display: 'flex',
         flexDirection: 'column',
-        gap: '1rem',
+        gap: '2rem',
         padding: '1rem',
         backgroundColor: '#F7F7F7',
         borderRadius: '4px',
@@ -47,6 +47,39 @@ export const Container = ({ title, children }) => (
       </Typography>
       <Typography variant="heading" type="h6">
         Heading/H6
+      </Typography>
+    </Container>
+  )}
+</Story>
+
+### Navigation
+
+<Story name="Navigation">
+  {(args) => (
+    <Container>
+      <Typography variant="navigation" type="menu_title">
+        Navigation/Menu Title
+      </Typography>
+      <Typography variant="navigation" type="menu_tabs">
+        Navigation/Menu Tabs
+      </Typography>
+      <Typography variant="navigation" type="label">
+        Navigation/Label
+      </Typography>
+      <Typography variant="navigation" type="drawer_active">
+        Navigation/Drawer Active
+      </Typography>
+      <Typography variant="navigation" type="drawer_inactive">
+        Navigation/Drawer Inactive
+      </Typography>
+      <Typography variant="navigation" type="button">
+        Navigation/Button
+      </Typography>
+      <Typography variant="navigation" type="breadcrumb">
+        Navigation/Breadcrumb
+      </Typography>
+      <Typography variant="navigation" type="breadcrumb_hover">
+        Navigation/Breadcrumb
       </Typography>
     </Container>
   )}
