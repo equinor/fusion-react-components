@@ -12,7 +12,6 @@ export const useStyles = <T extends TypographyType, K extends keyof T>(variant: 
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
             ...styleProperty.style,
-            color: 'red',
           };
         },
       }),

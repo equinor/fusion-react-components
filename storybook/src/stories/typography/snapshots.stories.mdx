@@ -1,17 +1,17 @@
 import { Meta, Story } from '@storybook/addon-docs';
 import { theme } from '@equinor/fusion-react-styles';
 
-import Typography from '@equinor/fusion-react-typography';
+import { Typography } from '@equinor/fusion-react-typography';
 
 <Meta title="Snapshots/Typography" parameters={{ chromatic: { disableSnapshot: false } }} />
 
 export const Container = ({ title, children }) => (
   <section>
-    {/* <h4>{title}</h4> */}
     <div
       style={{
         display: 'flex',
-        gap: '2rem',
+        flexDirection: 'column',
+        gap: '1rem',
         padding: '1rem',
         backgroundColor: '#F7F7F7',
         borderRadius: '4px',
@@ -27,29 +27,27 @@ export const Container = ({ title, children }) => (
 <Story name="Heading">
   {(args) => (
     <Container>
-      <Typography variant={'heading'} type={'h1'}>Heading/H1 Bold</Typography>
-      <Typography variant={'heading'}>Heading/H1</Typography>
-      <Typography variant={'heading'}>Heading/H2</Typography>
+      <Typography variant="heading" type="h1_bold">
+        Heading/H1 Bold
+      </Typography>
+      <Typography variant="heading" type="h1">
+        Heading/H1
+      </Typography>
+      <Typography variant="heading" type="h2">
+        Heading/H2
+      </Typography>
+      <Typography variant="heading" type="h3">
+        Heading/H3
+      </Typography>
+      <Typography variant="heading" type="h4">
+        Heading/H4
+      </Typography>
+      <Typography variant="heading" type="h5">
+        Heading/H5
+      </Typography>
+      <Typography variant="heading" type="h6">
+        Heading/H6
+      </Typography>
     </Container>
-  )}
-</Story>
-
-### Navigation
-
-<Story name="Navigation">
-  {(args) => (
-    <>
-      <Typography variant={'navigation'}>Navigation</Typography>
-    </>
-  )}
-</Story>
-
-### Paragraph
-
-<Story name="Paragraph">
-  {(args) => (
-    <>
-      <Typography>Paragraph</Typography>
-    </>
   )}
 </Story>
