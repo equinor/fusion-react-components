@@ -13,7 +13,8 @@ export const Typography = <K extends keyof T, T extends TypographyType>(
 ) => {
   const { variant, type, component, children } = props;
   const styles = useStyles(variant, type)();
-  const el = createElement(component || String(variant as keyof T), { className: styles.root }, children);
+  const tag = component ? `typography-${component}` : `typography-${String(variant as keyof T)}`;
+  const el = createElement(tag, { className: styles.root }, children);
   return el;
 };
 
