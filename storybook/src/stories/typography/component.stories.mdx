@@ -1,10 +1,11 @@
 import { Meta, Story, Canvas, ArgsTable, Description } from '@storybook/addon-docs';
-import { ChangeLog, PackageInfo, StoryExample } from '../../components';
+import { ChangeLog, StoryExample } from '../../components';
 import { Typography } from '@equinor/fusion-react-typography/src';
 
-<Meta title="Data/Typography" />
+<Meta title="Data/Typography" Component={Typography} />
 
-<PackageInfo pkg={require('@equinor/fusion-react-typography/package.json')} />
+<Description markdown={require('@equinor/fusion-react-typography/README.md')} />
+
 
 ## Component
 
