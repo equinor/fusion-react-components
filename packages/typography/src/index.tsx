@@ -9,8 +9,17 @@ export type TypographyProps<
   K extends keyof T,
   T extends TypographyType = TypographyType
 > = JSX.IntrinsicElements['div'] & {
+  /**
+   * Variant represents the typography hierarchy variants.
+   */
   variant: K;
+  /**
+   * Type is the grouped options based on the chosen variant.
+   */
   type: keyof T[K];
+  /**
+   * The underlying element being rendered. The style of a typography component is independent from the semantic underlying element.
+   */
   component?: keyof TypographyType;
 };
 
