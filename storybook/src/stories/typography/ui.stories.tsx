@@ -10,9 +10,7 @@ export default {
       control: 'select',
       options: Object.keys(theme.typography['ui']),
     },
-    variant: {
-      disabled: true,
-    },
+    variant: { control: { disable: true } },
   },
 } as Meta;
 
