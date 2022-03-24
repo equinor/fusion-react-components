@@ -19,7 +19,7 @@ export default {
 type Props = Omit<TypographyProps<'paragraph'>, 'ref'>;
 
 export const Component: Story<Props> = (props) => {
-  return <Typography {...props}>Typograpgy</Typography>;
+  return <Typography {...props}>Typography</Typography>;
 };
 Component.args = {
   variant: 'paragraph',
