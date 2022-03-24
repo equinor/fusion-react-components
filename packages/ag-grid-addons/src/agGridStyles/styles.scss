@@ -1,0 +1,17 @@
+@import '~ag-grid-community/src/styles/ag-grid.scss';
+@import "~ag-grid-community/src/styles/webfont/agGridAlpineFont.scss";
+@import '~ag-grid-community/src/styles/ag-theme-alpine/sass/ag-theme-alpine-mixin';
+
+.ag-theme-alpine {
+  @include ag-theme-alpine(
+    (
+           // use theme parameters where pos
+      alpine-active-color: deeppink
+    )
+  );
+
+  .ag-header {
+    // or write CSS selectors to make customisations beyond what the parameters support
+    text-style: italic;
+  }
+}

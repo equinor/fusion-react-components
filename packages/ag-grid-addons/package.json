@@ -1,0 +1,61 @@
+{
+  "name": "@equinor/fusion-react-ag-grid-addons",
+  "version": "0.0.0",
+  "description": "React addons for ag-grid",
+  "keywords": [
+    "ag-grid",
+    "react",
+    "fusion",
+    "equinor"
+  ],
+  "homepage": "https://github.com/equinor/fusion-react-components/tree/master/packages/ag-grid#readme",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "directories": {
+    "dist": "dist"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/equinor/fusion-react-components.git"
+  },
+  "scripts": {
+    "build": "tsc -b",
+    "lint": "eslint --ext .ts,.tsx,.js src/",
+    "lint:fix": "eslint --ext .ts,.tsx,.js src/ --fix",
+    "prepack": "npm run build",
+    "build-css": "npx gulp -f src/agGridStyles/gulpfile.js scss-to-css"
+  },
+  "bugs": {
+    "url": "https://github.com/equinor/fusion-react-components/issues"
+  },
+  "dependencies": {
+    "ag-grid-community": "^27.1.0",
+    "webpack": "^5.70.0"
+  },
+  "devDependencies": {
+    "@types/gulp": "^4.0.9",
+    "@types/webpack-stream": "^3.2.12",
+    "autoprefixer": "^9.8.8",
+    "cache-loader": "^4.1.0",
+    "css-loader": "^6.7.1",
+    "extract-text-webpack-plugin": "^3.0.2",
+    "gulp": "^4.0.2",
+    "image-webpack-loader": "^8.1.0",
+    "mini-css-extract-plugin": "^2.6.0",
+    "postcss-loader": "^3.0.0",
+    "postcss-scss": "^4.0.3",
+    "sass": "^1.49.9",
+    "sass-loader": "^12.6.0",
+    "through2": "^4.0.2",
+    "url-loader": "^4.1.1",
+    "vinyl-named": "^1.1.0",
+    "webpack-remove-empty-scripts": "^0.7.3",
+    "webpack-stream": "^7.0.0"
+  }
+}
