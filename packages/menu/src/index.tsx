@@ -21,6 +21,7 @@ type ElementProps = React.PropsWithChildren<
       | 'activatable'
       | 'fixed'
       | 'forceGroupSelection'
+      | 'defaultFocus'
       | 'fullwidth'
       | 'menuCorner'
       | 'stayOpenOnBodyClick'
