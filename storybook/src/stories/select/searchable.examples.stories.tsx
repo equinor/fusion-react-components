@@ -13,3 +13,6 @@ export const Component: Story = (props: Omit<SearchableSelectProps, 'ref'>) => (
     </div>
   </div>
 );
+Component.args = {
+  data: [{ text: 'texttest' }],
+};
