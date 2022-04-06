@@ -1,6 +1,6 @@
 import { Meta, Story } from '@storybook/react';
 import { Select, SelectProps } from '@equinor/fusion-react-select/src';
-import { ListItem } from '@equinor/fusion-react-list';
+import { ListItem } from '@equinor/fusion-react-list/src';
 
 export default {
   title: 'Examples/Select',
