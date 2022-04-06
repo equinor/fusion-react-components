@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.44.0 (2022-04-06)
+
+
+### Bug Fixes
+
+* **menu:** removed unfinished snapshots ([10e2f9a](https://github.com/equinor/fusion-react-components/commit/10e2f9ad681b931f44f4c1782dc3f0b3233092c5))
+
+
+### Features
+
+* **menu:** create snapshots ([db3bb13](https://github.com/equinor/fusion-react-components/commit/db3bb1387fc5a974c71598f7112a637d937ca9f1))
+* **menu:** initial menu component creation ([b0af597](https://github.com/equinor/fusion-react-components/commit/b0af597068ca5e9466618e85ce9382c8407e0f30))
+
+
+
+
+
 ## [1.43.1](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.43.0...@equinor/fusion-react-components-stories@1.43.1) (2022-02-28)
 
 **Note:** Version bump only for package @equinor/fusion-react-components-stories
