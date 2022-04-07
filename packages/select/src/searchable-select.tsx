@@ -4,7 +4,7 @@ import { HTMLMenuCustomElement, Menu } from '@equinor/fusion-react-menu';
 import { ListItem, ListItemProps } from '@equinor/fusion-react-list';
 
 export type SearchableSelectProps = {
-  data: Array<Pick<ListItemProps, 'text'>>;
+  data: Array<Pick<ListItemProps, 'text' | 'selected'>>;
 };
 export const SearchableSelect = (props: SearchableSelectProps): JSX.Element => {
   const menuRef = useRef<HTMLMenuCustomElement>(null);
@@ -20,7 +20,12 @@ export const SearchableSelect = (props: SearchableSelectProps): JSX.Element => {
   }, [menuRef, inputRef]);
   return (
     <div onClick={onClick}>
-      <TextInput ref={inputRef}></TextInput>
+      <TextInput
+        ref={inputRef}
+        type="search"
+        iconTrailing={menuRef.current?.open ? 'arrow_drop_down' : 'arrow_drop_up'}
+        value={data.selected}
+      ></TextInput>
       <Menu ref={menuRef} corner="BOTTOM_LEFT">
         {data.map((menuItem, index) => (
           <ListItem {...menuItem} key={index}>
