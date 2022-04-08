@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.45.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.44.0...@equinor/fusion-react-components-stories@1.45.0) (2022-04-08)
+
+
+### Features
+
+* **typography:** className option + color example ([910289f](https://github.com/equinor/fusion-react-components/commit/910289fd4853b9072d36e568524eb48f8279c327))
+* **typography:** create typography component ([492b959](https://github.com/equinor/fusion-react-components/commit/492b9593546870ec7392f5453dcad28ac4206627))
+* **typography:** description ([338ccc0](https://github.com/equinor/fusion-react-components/commit/338ccc0298dba29f7be9083344f660af1fbf0f7a))
+* **typography:** disable variant control on stories ([f73e12e](https://github.com/equinor/fusion-react-components/commit/f73e12e644110ab390992412b3fc5be07dda3be3))
+* **typography:** heading stories and shapshot ([feaf122](https://github.com/equinor/fusion-react-components/commit/feaf1222da0c6e02fc2b8b5a36d2c0293c3c1373))
+* **typography:** input stories and snapshot ([6b223ce](https://github.com/equinor/fusion-react-components/commit/6b223cef4d96adf8bf28fea6f969e586ffe9ff0e))
+* **typography:** navigation stories and snapshot ([e6498de](https://github.com/equinor/fusion-react-components/commit/e6498deb424c323e7435644b1dce1c3816a5ec8a))
+* **typography:** Paragraph stories and snapshot ([e2a1618](https://github.com/equinor/fusion-react-components/commit/e2a1618600514785a52bc9f1be58559258df8601))
+* **typography:** prop types and apply styling ([3790fa8](https://github.com/equinor/fusion-react-components/commit/3790fa891daca8acf6663fe3a326369c1758fe4b))
+* **typography:** table stories and snapshot ([691b556](https://github.com/equinor/fusion-react-components/commit/691b556e2e7a20645f6014283f78356deb688ab7))
+* **typography:** UI stories and snapshot ([4c99101](https://github.com/equinor/fusion-react-components/commit/4c991018ba529f1224cca7e61e6f382231892592))
+
+
+
+
+
 # 1.44.0 (2022-04-06)
 
 
