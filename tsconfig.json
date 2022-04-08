@@ -82,8 +82,11 @@
     {
       "path": "packages/tooltip"
     },
-    { 
-      "path": "packages/utils" 
+    {
+      "path": "packages/typography"
+    },
+    {
+      "path": "packages/utils"
     }
   ]
 }
