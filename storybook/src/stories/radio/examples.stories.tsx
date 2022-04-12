@@ -6,4 +6,18 @@ export default {
   component: Radio,
 } as Meta;
 
-export const Component: Story = (props: Omit<RadioProps, 'ref'>) => <Radio {...props} />;
+export const Component: Story = (props: Omit<RadioProps, 'ref'>) => {
+  const label = props.label ?? props.name;
+  return (
+    <div style={{ display: 'flex', flexFlow: 'column' }}>
+      <Radio {...props} label={`${label}-1`} />
+      <Radio {...props} label={`${label}-2`} />
+      <Radio {...props} label={`${label}-3`} />
+    </div>
+  );
+};
+
+Component.args = {
+  name: 'test',
+  label: 'radio',
+};
