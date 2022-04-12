@@ -6,6 +6,12 @@ export default {
   component: SearchableSelect,
 } as Meta;
 
+const filterData = [
+  { text: 'Sed ut perspiciatis', value: '1' },
+  { text: 'beatae vitae', value: '2' },
+  { text: 'laborious physical', value: '2' },
+];
+
 export const Component: Story = (props: Omit<SearchableSelectProps, 'ref'>) => (
   <div style={{ display: 'flex', justifyContent: 'center', height: '200px' }}>
     <div style={{ position: 'relative' }}>
@@ -14,5 +20,5 @@ export const Component: Story = (props: Omit<SearchableSelectProps, 'ref'>) => (
   </div>
 );
 Component.args = {
-  data: [{ text: 'data 1' }, { text: 'data 2' }],
+  data: filterData,
 };
