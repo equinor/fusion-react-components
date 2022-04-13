@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.0.0 (2022-04-13)
+
+
+### Bug Fixes
+
+* add display name ([f7b5174](https://github.com/equinor/fusion-react-components/commit/f7b51740982a3c905c728208f206f8e4ed751107))
+
+
+### BREAKING CHANGES
+
+* change of mapping when creating elements
+
+
+
+
+
 ## 1.2.6 (2022-02-08)
 
 **Note:** Version bump only for package @equinor/fusion-react-utils
