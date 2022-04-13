@@ -10,7 +10,9 @@ type NativeRequiredProps = Partial<Pick<NativeProps, 'name'>>;
 
 export type RadioBaseProps = NativeRequiredProps & Partial<NativeProps>;
 
-export const RadioBase = createComponent<HTMLRadioCustomElement, RadioBaseProps>(HTMLRadioCustomElement, tag);
+export const RadioBase = createComponent<HTMLRadioCustomElement, RadioBaseProps>(HTMLRadioCustomElement, tag, {
+  functions: new Set(['checked', 'disabled', 'name', 'reducedTouchTarget', 'value', 'global']),
+});
 
 export { HTMLRadioCustomElement };
 
