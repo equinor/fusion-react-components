@@ -48,6 +48,7 @@ export const createComponent = <E extends HTMLElement, P extends Record<string, 
   /** element native props which should be handled programmatically */
   const nativePropsName = new Set([...elementPropsNames, ...Object.keys(events)]);
 
+  /** create reference component */
   const component = forwardRef((props?: ComponentProps, __ref?: React.Ref<E>) => {
     const ref = useForwardRef<E>(__ref);
 
@@ -84,6 +85,7 @@ export const createComponent = <E extends HTMLElement, P extends Record<string, 
     return createElement(tag, reactProps);
   });
 
+  /** component display name */
   component.displayName = displayName;
 
   return component as React.ForwardRefExoticComponent<
