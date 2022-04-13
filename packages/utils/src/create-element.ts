@@ -1,4 +1,4 @@
-import { createElement, forwardRef } from 'react';
+import { createElement, forwardRef, useMemo } from 'react';
 import { extractElementProps, useElementEvents, useElementProps, useForwardRef } from './hooks';
 
 type ComponentAttributes<T = HTMLHtmlElement> = Omit<React.HTMLAttributes<T>, 'children'>;
@@ -15,6 +15,9 @@ const translateReactAttribute = (k: string) => {
   }
   return k;
 };
+
+/** @see @link [Data Types](https://www.programiz.com/javascript/data-types) */
+const SUPPORTED_REACT_PROP_TYPES = ['string', 'number', 'boolean', 'bigint'];
 
 /**
  * Wraps a custom element as a React Component
@@ -45,6 +48,7 @@ export const createComponent = <E extends HTMLElement, P extends Record<string, 
   /** element native props which should be handled programmatically */
   const nativePropsName = new Set([...elementPropsNames, ...Object.keys(events)]);
 
+  /** create reference component */
   const component = forwardRef((props?: ComponentProps, __ref?: React.Ref<E>) => {
     const ref = useForwardRef<E>(__ref);
 
@@ -55,13 +59,33 @@ export const createComponent = <E extends HTMLElement, P extends Record<string, 
     useElementEvents(ref, props as EventProps, events);
 
     /** properties which React should handle */
-    const reactProps = Object.entries(props || {})
-      .filter(([k]) => !nativePropsName.has(k))
-      .reduce((c, [k, v]) => Object.assign(c, { [translateReactAttribute(k)]: v }), {});
+    const reactProps = useMemo(() => {
+      const entries = Object.entries(props || {});
+      const reactEntries = entries.filter(([k]) => !nativePropsName.has(k));
+      const nativeEntries = ref.current
+        ? []
+        : entries
+            /**  filter out native property entries */
+            .filter(([k]) => nativePropsName.has(k))
+            /** filter supported properties  */
+            .filter(([_, v]) => SUPPORTED_REACT_PROP_TYPES.includes(typeof v))
+            /** filter out empty properties */
+            .filter(([_, v]) => !!v);
 
-    return createElement(tag, { ...reactProps, ref });
+      return (
+        /** combine properties */
+        [...reactEntries, ...nativeEntries]
+          /** translate property name to reactName */
+          .map(([k, v]) => [translateReactAttribute(k), v] as [string, unknown])
+          /** build property object */
+          .reduce((c, [k, v]) => Object.assign(c, { [k]: v }), { ref })
+      );
+    }, [ref, props]);
+
+    return createElement(tag, reactProps);
   });
 
+  /** component display name */
   component.displayName = displayName;
 
   return component as React.ForwardRefExoticComponent<
