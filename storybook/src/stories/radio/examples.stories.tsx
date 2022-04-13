@@ -8,11 +8,12 @@ export default {
 
 export const Component: Story = (props: Omit<RadioProps, 'ref'>) => {
   const label = props.label ?? props.name;
+
   return (
     <div style={{ display: 'flex', flexFlow: 'column' }}>
-      <Radio {...props} label={`${label}-1`} />
-      <Radio {...props} label={`${label}-2`} />
-      <Radio {...props} label={`${label}-3`} />
+      {[...Array(10)].map((_, i) => (
+        <Radio {...props} key={i} label={`${label}-${i}`} checked={i === 5} />
+      ))}
     </div>
   );
 };

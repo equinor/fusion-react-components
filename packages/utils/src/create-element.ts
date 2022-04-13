@@ -57,8 +57,6 @@ export const createComponent = <E extends HTMLElement, P extends Record<string, 
     /** bind custom events */
     useElementEvents(ref, props as EventProps, events);
 
-    typeof props === 'bigint'
-
     /** properties which React should handle */
     const reactProps = useMemo(() => {
       const entries = Object.entries(props || {});
