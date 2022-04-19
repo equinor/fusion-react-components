@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.6.9 (2022-04-13)
+
+**Note:** Version bump only for package @equinor/fusion-react-textinput
+
+
+
+
+
 ## 0.6.8 (2022-02-21)
 
 **Note:** Version bump only for package @equinor/fusion-react-textinput
