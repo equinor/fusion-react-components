@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.10](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-avatar@0.3.9...@equinor/fusion-react-avatar@0.3.10) (2022-04-19)
+
+**Note:** Version bump only for package @equinor/fusion-react-avatar
+
+
+
+
+
 ## 0.3.9 (2022-04-13)
 
 **Note:** Version bump only for package @equinor/fusion-react-avatar

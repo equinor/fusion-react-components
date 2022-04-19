@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-typography",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "React component for displaying typography",
   "keywords": [
     "typography",
@@ -35,6 +35,6 @@
     "url": "https://github.com/equinor/fusion-react-components/issues"
   },
   "dependencies": {
-    "@equinor/fusion-react-styles": "^0.5.3"
+    "@equinor/fusion-react-styles": "^0.5.4"
   }
 }
