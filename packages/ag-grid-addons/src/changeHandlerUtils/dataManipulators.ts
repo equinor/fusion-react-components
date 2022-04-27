@@ -1,4 +1,5 @@
-import { AGGridData, AGGridDataStatus, RowCompareFunc } from '.';
+import { AGGridDataStatus } from './constants';
+import { AGGridData, RowCompareFunc } from './types';
 
 const defaultCompareFunc: RowCompareFunc = (value1, value2) => value1 !== value2;
 
@@ -15,7 +16,7 @@ const checkForChanges = (dataRow: AGGridData, rowCompareFunc?: RowCompareFunc) =
  * @field current will hold the most "up to date" data,
  * @field hasChanges compares the initial and current field
  * @param dataRow The row to be manipulated
- * 
+ *
  * @param status The status of the row, default FETCHED
  *
  * @returns Data wrapped in AGGridData type

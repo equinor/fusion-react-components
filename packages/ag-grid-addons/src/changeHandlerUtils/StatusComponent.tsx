@@ -3,8 +3,7 @@ import { clsx, createStyles, makeStyles, theme } from '@equinor/fusion-react-sty
 import Tooltip from '@equinor/fusion-react-tooltip';
 import { ICellRendererParams } from 'ag-grid-community';
 import { FC } from 'react';
-import { AGGridDataStatus } from '.';
-
+import { AGGridDataStatus } from './constants';
 
 const useStyles = makeStyles(
   createStyles({

@@ -6,7 +6,7 @@ import StatusComponent from './StatusComponent';
  * @param params  Getter params provided by Ag grid
  * @returns Value from the getter
  */
-export const defaultValueGetter = (params: ValueGetterParams): any => {
+export const defaultValueGetter = (params: ValueGetterParams): unknown => {
   const field = params.colDef.field;
   if (!field) {
     throw new Error('Missing field in column def');
@@ -36,7 +36,7 @@ export const defaultValueSetter = (params: ValueSetterParams): boolean => {
  */
 export const getDefaultId =
   (idProp: string) =>
-  (param: GetRowIdParams): any =>
+  (param: GetRowIdParams): unknown =>
     param.data.current[idProp];
 
 /**
