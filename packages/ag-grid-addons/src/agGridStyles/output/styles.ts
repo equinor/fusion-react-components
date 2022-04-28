@@ -622,6 +622,10 @@ ag-grid, ag-grid-angular, ag-grid-ng2, ag-grid-polymer, ag-grid-aurelia {
   height: 100%;
 }
 
+.ag-cell-value {
+  flex: 1 1 auto;
+}
+
 .ag-cell-value, .ag-group-value {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -1508,7 +1512,7 @@ ag-grid, ag-grid-angular, ag-grid-ng2, ag-grid-polymer, ag-grid-aurelia {
 }
 
 .ag-spectrum-alpha-background {
-  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), black);
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgb(0, 0, 0));
   width: 100%;
   height: 100%;
 }
@@ -3856,7 +3860,7 @@ ag-grid, ag-grid-angular, ag-grid-ng2, ag-grid-polymer, ag-grid-aurelia {
 }
 
 .ag-theme-alpine .ag-cell-wrapper > *:not(.ag-cell-value):not(.ag-group-value) {
-  height: min(var(--ag-row-height, 40px), 40px);
+  height: min(var(--ag-line-height, 40px), 40px);
   display: flex;
   align-items: center;
   flex: none;
@@ -3961,7 +3965,7 @@ ag-grid, ag-grid-angular, ag-grid-ng2, ag-grid-polymer, ag-grid-aurelia {
   padding: 6px;
 }
 .ag-theme-alpine .ag-spectrum-color {
-  background-color: red;
+  background-color: rgb(255, 0, 0);
   border-radius: 2px;
 }
 .ag-theme-alpine .ag-spectrum-tools {
@@ -3997,7 +4001,7 @@ ag-grid, ag-grid-angular, ag-grid-ng2, ag-grid-polymer, ag-grid-aurelia {
   width: 13px;
   height: 13px;
   border-radius: 13px;
-  background-color: #f8f8f8;
+  background-color: rgb(248, 248, 248);
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37);
 }
 .ag-theme-alpine .ag-recent-color {
@@ -6730,7 +6734,7 @@ ag-grid, ag-grid-angular, ag-grid-ng2, ag-grid-polymer, ag-grid-aurelia {
 
 .ag-theme-alpine .ag-cell, .ag-theme-alpine .ag-full-width-row .ag-cell-wrapper.ag-row-group {
   border: 1px solid transparent;
-  line-height: min(var(--ag-row-height, 40px), 40px);
+  line-height: min(var(--ag-line-height, 40px), 40px);
   padding-left: 17px;
   padding-right: 17px;
   -webkit-font-smoothing: subpixel-antialiased;
