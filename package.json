@@ -53,5 +53,10 @@
     "./packages/**/src/**/*.{ts,tsx}": [
       "eslint --quiet --fix"
     ]
+  },
+  "dependencies": {
+    "@equinor/fusion-react-icon": "^0.2.11",
+    "@equinor/fusion-react-styles": "^0.5.4",
+    "@equinor/fusion-react-tooltip": "^1.1.4"
   }
 }
