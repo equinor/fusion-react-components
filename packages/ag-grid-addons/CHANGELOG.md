@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.1](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-ag-grid-addons@0.2.0...@equinor/fusion-react-ag-grid-addons@0.2.1) (2022-04-28)
+
+
+### Bug Fixes
+
+* Ag grid - Added defaultOption export in index ([cde6110](https://github.com/equinor/fusion-react-components/commit/cde611021db0cfd21ca6f631abf2a4765cc844c3))
+
+
+
+
+
 # 0.2.0 (2022-04-28)
 
 
