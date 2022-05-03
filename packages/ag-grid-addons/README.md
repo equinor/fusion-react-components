@@ -1,8 +1,53 @@
-# `@equinor/fusion-react-ag-grid-addons`
+# AG Grid
 
-> WIP - more docs comming
+## @equinor/fusion-react-ag-grid-addons
+
+[![Published on npm](https://img.shields.io/npm/v/@equinor/fusion-react-ag-grid-addons.svg)](https://www.npmjs.com/package/@equinor/fusion-react-ag-grid-addons)
+
+[Storybook](https://equinor.github.io/fusion-react-components/?path=/docs/table-aggrid--page)
+
+## Dependencies
+
+```tsx 
+npm install ag-grid-community
+```
+```tsx
+npm install ag-grid-react
+```
+
+## About
+
+AG Grid is a fully-featured and highly customizable JavaScript data grid.
+
+In addition to the standard set of features you'd expect from any grid:
+
+* Column Interactions (resize, reorder, and pin columns)
+* Pagination
+* Sorting
+* Row Selection
+
+Here are some of the features that make AG Grid stand out:
+
+* Custom Filtering
+* In-place Cell Editing
+* Live Stream Updates
+* Customizable Appearance
+* Customizable Cell Contents
+* State Persistence
+* Keyboard Navigation
+* Data Export to CSV
+* Row Reordering
+* Copy / Paste
+* Column Spanning
+* Pinned Rows
+* Full Width Rows
+
+Check out the [developer documentation](https://www.ag-grid.com/react-data-grid/) for a complete list of features or visit [official docs](https://www.ag-grid.com/react-data-grid/grid-features/) for tutorials and feature demos.
+
+To get started in React, check out [the documentation](https://www.ag-grid.com/react-data-grid/getting-started/).
 
 ## Simple usage
+
 ```tsx
 const agTableData = {
   rowData: [
