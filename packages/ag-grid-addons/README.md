@@ -1,12 +1,8 @@
 # AG Grid
 
-## @equinor/fusion-react-ag-grid-addons
-
-[![Published on npm](https://img.shields.io/npm/v/@equinor/fusion-react-ag-grid-addons.svg)](https://www.npmjs.com/package/@equinor/fusion-react-ag-grid-addons)
-
 [Storybook](https://equinor.github.io/fusion-react-components/?path=/docs/table-aggrid--page)
 
-## Dependencies
+### Install
 
 ```tsx 
 npm install ag-grid-community
