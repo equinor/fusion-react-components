@@ -68,7 +68,7 @@ This is achieved by increasing the specificity.
 ```tsx
 const styles = makeStyles(createStyles({
   root: {
-    '&$disabled': {
+    '& $disabled': {
       color: 'white',
     },
   },
