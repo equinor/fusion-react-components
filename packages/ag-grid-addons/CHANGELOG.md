@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-ag-grid-addons@0.2.1...@equinor/fusion-react-ag-grid-addons@0.3.0) (2022-05-11)
+
+
+### Features
+
+* added custom background color for ag grid selected row ([06345c0](https://github.com/equinor/fusion-react-components/commit/06345c02569292c08b0e6c494061506582e5f357))
+
+
+
+
+
 ## [0.2.1](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-ag-grid-addons@0.2.0...@equinor/fusion-react-ag-grid-addons@0.2.1) (2022-04-28)
 
 
