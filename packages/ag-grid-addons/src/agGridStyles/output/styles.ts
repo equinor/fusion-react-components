@@ -8672,4 +8672,8 @@ ag-grid, ag-grid-angular, ag-grid-ng2, ag-grid-polymer, ag-grid-aurelia {
   background-color: #2196f3;
   background-color: var(--ag-alpine-active-color, #2196f3);
 }
+
+.ag-theme-alpine .ag-row-selected {
+  background-color: #e6faec;
+}
 `;
