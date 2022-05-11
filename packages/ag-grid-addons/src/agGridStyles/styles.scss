@@ -5,3 +5,7 @@
 .ag-theme-alpine {
   @include ag-theme-alpine();
 }
+
+.ag-theme-alpine .ag-row-selected {
+  background-color: #e6faec;
+}
