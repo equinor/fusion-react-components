@@ -1,6 +1,5 @@
 import { clsx } from '@equinor/fusion-react-styles';
 import { createElement } from 'react';
-import { PropsWithChildren } from 'styles/node_modules/@types/react';
 import { useStyle, useStyles } from './style';
 import { TypographyPropertiesType, TypographyType } from './types';
 
@@ -9,7 +8,7 @@ export const Typography = <
   T extends keyof TypographyPropertiesType<K>,
   C extends keyof JSX.IntrinsicElements = 'div'
 >(
-  props: PropsWithChildren<
+  props: React.PropsWithChildren<
     JSX.IntrinsicElements[C] & {
       variant: K;
       type: Extract<T, string>;
