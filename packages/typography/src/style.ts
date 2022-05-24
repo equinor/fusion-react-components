@@ -1,14 +1,35 @@
 import { createStyles, makeStyles } from '@equinor/fusion-react-styles';
-import { TypographyType } from './types';
+import { TypographyPropertiesType, TypographyType } from './types';
+import { useMemo } from 'react';
+
+export const useStyle = <K extends keyof TypographyType, T extends keyof TypographyPropertiesType<K>>(
+  variant: K,
+  type: T
+) => {
+  return useMemo(
+    () =>
+      makeStyles((theme) => {
+        const typography = theme.typography[variant];
+        const gg = typography[type];
+        return createStyles({
+          root: gg,
+        });
+      })(),
+    [variant, type]
+  ).root;
+};
 
 export const useStyles = makeStyles((theme) => {
-  return createStyles({
-    root: <T extends TypographyType, K extends keyof T>(args: { variant: keyof T; type: keyof T[K] }) => {
-      const typography = theme.typography[args.variant as keyof typeof theme.typography];
-      const styleProperty = typography[args.type as keyof typeof typography] || { style: {} };
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      return styleProperty.style;
-    },
-  });
+  const ff = Object.entries(theme.typography).reduce(
+    (cur, [key, value]) =>
+      Object.assign(
+        cur,
+        Object.entries(value).reduce(
+          (child, [childKey, childValue]) => Object.assign(child, { [`${key}__${childKey}`]: childValue.style }),
+          {}
+        )
+      ),
+    {}
+  );
+  return createStyles(ff);
 });
