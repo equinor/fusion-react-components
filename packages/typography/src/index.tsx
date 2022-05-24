@@ -1,38 +1,36 @@
 import { clsx } from '@equinor/fusion-react-styles';
 import { createElement } from 'react';
-import { useStyles } from './style';
-import { TypographyType } from './types';
+import { useStyle, useStyles } from './style';
+import { TypographyPropertiesType, TypographyType } from './types';
 
-export type divProps = JSX.IntrinsicElements['div'];
-
-export type TypographyProps<
-  K extends keyof T,
-  T extends TypographyType = TypographyType
-> = JSX.IntrinsicElements['div'] & {
-  /**
-   * Variant represents the typography hierarchy variants.
-   */
-  variant: K;
-  /**
-   * Type is the grouped options based on the chosen variant.
-   */
-  type: keyof T[K];
-  /**
-   * The underlying element being rendered. The style of a typography component is independent from the semantic underlying element.
-   */
-  component?: keyof TypographyType;
-};
-
-export const Typography = <K extends keyof T, T extends TypographyType>(
-  props: React.PropsWithChildren<TypographyProps<K, T>>
+export const Typography = <
+  K extends keyof TypographyType,
+  T extends keyof TypographyPropertiesType<K>,
+  C extends keyof JSX.IntrinsicElements = 'div'
+>(
+  props: React.PropsWithChildren<
+    JSX.IntrinsicElements[C] & {
+      variant: K;
+      type: Extract<T, string>;
+      tag?: C;
+    }
+  >
 ) => {
-  const { variant, type, component, className, children } = props;
+  const { variant, type, tag = 'div', children, className, ...attr } = props;
+  const ff = useStyles();
+  // const style = useStyle(variant, type);
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
-  const styles = useStyles({ variant, type });
-  const tag = component ? `typography.${component}` : `typography.${String(variant as keyof T)}`;
-  const el = createElement(tag, { className: clsx(styles.root, className) }, children);
+  const el = createElement(tag, { ...attr, className: clsx(ff[`${variant}__${type}`], className) }, children);
   return el;
 };
+
+// const test = () => <Typography variant="heading" type="h2" />
+// const Test2 = () => {
+//   const className = useStyle('heading', 'h3');
+//   return <div className={className} />;
+// };
+
+export { useStyle as useTypographyStyle };
 
 export default Typography;
