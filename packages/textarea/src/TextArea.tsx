@@ -32,6 +32,7 @@ export type ElementAttributes = Partial<
     | 'suffix'
     | 'value'
     | 'validationMessage'
+    | 'charCounter'
   >
 >;
 

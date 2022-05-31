@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.1.3 (2022-05-24)
+
+
+### Bug Fixes
+
+* **typography:** component tag type ([b410ce2](https://github.com/equinor/fusion-react-components/commit/b410ce28e1c638478290fd6712d1b396a06c8353))
+* **typography:** import path ([300b9bf](https://github.com/equinor/fusion-react-components/commit/300b9bf3fa2cc42fb47b69476b6b12e2e7508adf))
+
+
+
+
+
 ## [0.1.2](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-typography@0.1.1...@equinor/fusion-react-typography@0.1.2) (2022-04-19)
 
 **Note:** Version bump only for package @equinor/fusion-react-typography
