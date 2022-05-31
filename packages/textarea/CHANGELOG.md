@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.5.11 (2022-05-31)
+
+
+### Bug Fixes
+
+* **textarea:** add charCounter prop ([dbf76de](https://github.com/equinor/fusion-react-components/commit/dbf76dea811b1a5ddbc71b91d0ec17a0700e6e82))
+
+
+
+
+
 ## [0.5.10](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-textarea@0.5.9...@equinor/fusion-react-textarea@0.5.10) (2022-04-19)
 
 **Note:** Version bump only for package @equinor/fusion-react-textarea
