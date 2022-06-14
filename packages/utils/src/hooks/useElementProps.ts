@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect } from 'react';
+import type { RefObject } from 'react';
 
 type Constructor<T> = { new (): T };
 
@@ -32,7 +33,7 @@ export const extractElementProps = <E extends HTMLElement>(elementClass: Constru
  * This hook will set the property/function to the referenced element programmatically.
  */
 export const useElementProps = <E extends HTMLElement>(
-  ref: React.RefObject<E | null>,
+  ref: RefObject<E | null>,
   props?: Partial<Record<string, any>>,
   propMap?: Set<keyof E>
 ): void => {
