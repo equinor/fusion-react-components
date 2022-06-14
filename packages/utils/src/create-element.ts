@@ -1,7 +1,16 @@
 import { createElement, forwardRef, useMemo } from 'react';
+import type {
+  EventHandler,
+  ForwardRefExoticComponent,
+  PropsWithoutRef,
+  Ref,
+  RefAttributes,
+  SyntheticEvent,
+} from 'react';
+
 import { extractElementProps, useElementEvents, useElementProps, useForwardRef } from './hooks';
 
-type ComponentAttributes<T = HTMLHtmlElement> = Omit<React.HTMLAttributes<T>, 'children'>;
+export type ComponentAttributes<T = HTMLHtmlElement> = Omit<React.HTMLAttributes<T>, 'children'>;
 type Ctor<T> = { new (): T };
 
 const translateReactAttribute = (k: string) => {
@@ -33,9 +42,9 @@ export const createComponent = <E extends HTMLElement, P extends Record<string, 
     functions?: Set<keyof E>;
     displayName?: string;
   } = {}
-): React.ForwardRefExoticComponent<React.PropsWithoutRef<ComponentAttributes<E> & P> & React.RefAttributes<E>> => {
-  type ComponentProps = React.PropsWithoutRef<ComponentAttributes<E> & P>;
-  type EventProps = Partial<Record<keyof E, React.EventHandler<React.SyntheticEvent<E, Event>>>>;
+): ForwardRefExoticComponent<PropsWithoutRef<ComponentAttributes<E> & P> & RefAttributes<E>> => {
+  type ComponentProps = PropsWithoutRef<ComponentAttributes<E> & P>;
+  type EventProps = Partial<Record<keyof E, EventHandler<SyntheticEvent<E, Event>>>>;
 
   const { events = {}, functions = new Set(), displayName = elementClass.name } = options;
 
@@ -49,7 +58,7 @@ export const createComponent = <E extends HTMLElement, P extends Record<string, 
   const nativePropsName = new Set([...elementPropsNames, ...Object.keys(events)]);
 
   /** create reference component */
-  const component = forwardRef((props?: ComponentProps, __ref?: React.Ref<E>) => {
+  const component = forwardRef((props?: ComponentProps, __ref?: Ref<E>) => {
     const ref = useForwardRef<E>(__ref);
 
     /** bind native properties and function */
@@ -88,9 +97,7 @@ export const createComponent = <E extends HTMLElement, P extends Record<string, 
   /** component display name */
   component.displayName = displayName;
 
-  return component as React.ForwardRefExoticComponent<
-    React.PropsWithoutRef<ComponentAttributes<E> & P> & React.RefAttributes<E>
-  >;
+  return component as ForwardRefExoticComponent<PropsWithoutRef<ComponentAttributes<E> & P> & RefAttributes<E>>;
 };
 
 export default createComponent;

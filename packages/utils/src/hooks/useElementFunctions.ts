@@ -1,5 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useMemo, useRef } from 'react';
+import type { RefObject } from 'react';
+
 import { shallowEqual } from '../shallow-equal';
 
 const noFns = {};
@@ -11,7 +13,7 @@ const noFns = {};
  * @param functionMap
  */
 export const useElementFunctions = <E extends HTMLElement, EKey extends string = Extract<keyof E, string>>(
-  ref: React.RefObject<E | null>,
+  ref: RefObject<E | null>,
   functions?: Partial<Record<EKey, any>>,
   functionMap?: Set<keyof E>
 ): void => {

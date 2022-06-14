@@ -36,5 +36,18 @@
   },
   "dependencies": {
     "date-fns": "^2.28.0"
+  },
+  "devDependencies": {
+    "react": "^18.1.0"
+  },
+  "peerDependencies": {
+    "react": "^17.0.0 || ^18.0.0"
+  },
+  "typesVersions": {
+    ">=4.2": {
+      "*": [
+        "dist/types/*"
+      ]
+    }
   }
 }

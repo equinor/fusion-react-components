@@ -1,4 +1,6 @@
-import { ReactEventHandler, useEffect, useMemo, useRef } from 'react';
+import { useEffect, useMemo, useRef } from 'react';
+import type { EventHandler, ReactEventHandler, RefObject, SyntheticEvent } from 'react';
+
 import { createSyntheticEvent } from '../create-synthetic-event';
 import { shallowEqual } from '../shallow-equal';
 
@@ -13,9 +15,9 @@ const noEvents = {};
 export const useElementEvents = <
   E extends HTMLElement,
   K extends string,
-  P extends Partial<Record<K, React.EventHandler<React.SyntheticEvent<E, Event>>>>
+  P extends Partial<Record<K, EventHandler<SyntheticEvent<E, Event>>>>
 >(
-  ref: React.RefObject<E>,
+  ref: RefObject<E>,
   eventHandlers?: P,
   eventMap: Record<K, string> = {} as Record<K, string>
 ): void => {

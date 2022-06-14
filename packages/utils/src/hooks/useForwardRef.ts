@@ -1,12 +1,14 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
+
+import type { ForwardedRef, RefObject } from 'react';
 
 /**
  * Simple wrapper for sharing a ref when creating element with `React.forwardRef`
  */
 export const useForwardRef = <E extends HTMLElement>(
-  forwardRef?: React.ForwardedRef<E>,
+  forwardRef?: ForwardedRef<E>,
   initial: E | null = null
-): React.RefObject<E> => {
+): RefObject<E> => {
   const ref = useRef<E>(initial);
   useEffect(() => {
     if (typeof forwardRef === 'function') {
