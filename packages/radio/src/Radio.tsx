@@ -1,8 +1,8 @@
 import { forwardRef } from 'react';
-import { RadioBase, HTMLRadioCustomElement } from './RadioBase';
+import { RadioBase, HTMLRadioCustomElement, RadioBaseProps } from './RadioBase';
 import { FormField, FormFieldProps } from './FormField';
 
-export type RadioProps = React.ComponentProps<typeof RadioBase> &
+export type RadioProps = RadioBaseProps &
   FormFieldProps & {
     /** Size of the radio */
     size?: number;
