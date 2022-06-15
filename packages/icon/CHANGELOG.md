@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.2.12 (2022-06-14)
+
+
+### Bug Fixes
+
+* **icon:** change typo in prop interface ([f5dd8ec](https://github.com/equinor/fusion-react-components/commit/f5dd8ec8e02096cdfea0cb74f6b2a84107ec3ff6))
+
+
+
+
+
 ## [0.2.11](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-icon@0.2.10...@equinor/fusion-react-icon@0.2.11) (2022-04-19)
 
 **Note:** Version bump only for package @equinor/fusion-react-icon
