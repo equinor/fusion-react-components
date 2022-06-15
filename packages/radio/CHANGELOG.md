@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.11](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-radio@0.4.10...@equinor/fusion-react-radio@0.4.11) (2022-06-15)
+
+
+### Bug Fixes
+
+* **radio:** refactor typing ([6fe735a](https://github.com/equinor/fusion-react-components/commit/6fe735ab3033b2516acc23a35026dd89564075ec))
+
+
+
+
+
 ## 0.4.10 (2022-06-14)
 
 **Note:** Version bump only for package @equinor/fusion-react-radio
