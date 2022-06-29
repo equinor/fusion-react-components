@@ -1,9 +1,7 @@
-import { createComponent } from '@equinor/fusion-react-utils';
+import { ComponentProps, createComponent } from '@equinor/fusion-react-utils';
 import HTMLListItemCustomElement, { tag } from '@equinor/fusion-wc-list/lib/list-item';
 
-export { HTMLListItemCustomElement };
-
-export type ListItemElementProps = React.PropsWithChildren<
+export type ElementProps = React.PropsWithChildren<
   Partial<
     Pick<
       HTMLListItemCustomElement,
@@ -22,10 +20,9 @@ export type ListItemElementProps = React.PropsWithChildren<
   >
 >;
 
-export const ListItem = createComponent<HTMLListItemCustomElement, ListItemElementProps>(
-  HTMLListItemCustomElement,
-  tag
-);
-export type ListItemProps = React.ComponentProps<typeof ListItem>;
+export const ListItem = createComponent<HTMLListItemCustomElement, ElementProps>(HTMLListItemCustomElement, tag);
+export type ListItemProps = ComponentProps<HTMLListItemCustomElement, ElementProps>;
+
+export { HTMLListItemCustomElement };
 
 export default ListItem;

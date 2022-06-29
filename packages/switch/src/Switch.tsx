@@ -1,11 +1,12 @@
 import { forwardRef } from 'react';
 
-import { SwitchBase, HTMLSwitchCustomElement } from './SwitchBase';
-import { FormField, FormFieldProps } from './FormField';
+import { SwitchBase, HTMLSwitchCustomElement, SwitchBaseProps } from './SwitchBase';
+import { FormField, ElementProps as FormFieldProps } from './FormField';
+import { ComponentProps } from '@equinor/fusion-react-utils';
 
 // TODO import from @equinor/fusion-react-form when created
 
-export type SwitchProps = React.ComponentProps<typeof SwitchBase> &
+type ElementProps = SwitchBaseProps &
   FormFieldProps & {
     /** Size of the checkbox */
     // size?: number;
@@ -14,7 +15,7 @@ export type SwitchProps = React.ComponentProps<typeof SwitchBase> &
 // TODO - fix sizing of switch element
 // TODO - Emit change on switch
 
-export const Switch = forwardRef((props: SwitchProps, ref: React.ForwardedRef<HTMLSwitchCustomElement>) => {
+export const Switch = forwardRef((props: ElementProps, ref: React.ForwardedRef<HTMLSwitchCustomElement>) => {
   const { label, alignEnd, spaceBetween, nowrap, className, slot, ...switchProps } = props;
   const formfieldProps = {
     label,
@@ -34,6 +35,9 @@ export const Switch = forwardRef((props: SwitchProps, ref: React.ForwardedRef<HT
   );
 });
 
+export type SwitchProps = ComponentProps<HTMLSwitchCustomElement, ElementProps>;
+
 Switch.displayName = 'Switch';
+
 
 export default Switch;

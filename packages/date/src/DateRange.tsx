@@ -1,7 +1,5 @@
-import { createComponent } from '@equinor/fusion-react-utils';
+import { ComponentProps, createComponent } from '@equinor/fusion-react-utils';
 import { DateRangeElement as HTMLDateRangeCustomElement, dateRangeTag } from '@equinor/fusion-wc-date';
-
-export { HTMLDateRangeCustomElement };
 
 type ElementProps = React.PropsWithChildren<
   Partial<
@@ -17,6 +15,8 @@ export const DateRange = createComponent<HTMLDateRangeCustomElement, ElementProp
   dateRangeTag
 );
 
-export type DateRangeProps = React.ComponentProps<typeof DateRange>;
+export type DateRangeProps = ComponentProps<HTMLDateRangeCustomElement, ElementProps>;
+
+export { HTMLDateRangeCustomElement };
 
 export default DateRange;

@@ -1,6 +1,6 @@
-import type { PropsWithChildren, PointerEventHandler, ComponentProps } from 'react';
+import type { PropsWithChildren, PointerEventHandler } from 'react';
 
-import { createComponent } from '@equinor/fusion-react-utils';
+import { ComponentProps, createComponent } from '@equinor/fusion-react-utils';
 import { ChipElement as HTMLChipCustomElement, tag } from '@equinor/fusion-wc-chip';
 
 export { HTMLChipCustomElement };
@@ -24,6 +24,6 @@ export const Chip = createComponent<HTMLChipCustomElement, ElementProps>(HTMLChi
   },
 });
 
-export type ChipProps = ComponentProps<typeof Chip>;
+export type ChipProps = ComponentProps<HTMLChipCustomElement, ElementProps>;
 
 export default Chip;

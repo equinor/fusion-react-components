@@ -1,11 +1,11 @@
 import { tag, TextAreaElement } from '@equinor/fusion-wc-textarea';
 import { TextAreaInvalidHandler } from './types';
 
-import { createComponent } from '@equinor/fusion-react-utils';
+import { ComponentProps, createComponent } from '@equinor/fusion-react-utils';
 
-export type ElementFunctions = Partial<Pick<TextAreaElement, 'validityTransform'>>;
+type ElementFunctions = Partial<Pick<TextAreaElement, 'validityTransform'>>;
 
-export type ElementAttributes = Partial<
+type ElementAttributes = Partial<
   Pick<
     TextAreaElement,
     | 'cols'
@@ -36,15 +36,17 @@ export type ElementAttributes = Partial<
   >
 >;
 
-export type ElementEvents = {
+type ElementEvents = {
   onInvalid?: TextAreaInvalidHandler;
 };
 
-export type TextInputProps = ElementAttributes & ElementFunctions & ElementEvents;
+type ElementProps = ElementAttributes & ElementFunctions & ElementEvents;
 
-export const TextInput = createComponent<TextAreaElement, TextInputProps>(TextAreaElement, tag, {
+export const TextInput = createComponent<TextAreaElement, ElementProps>(TextAreaElement, tag, {
   events: { onInvalid: 'invalid' },
   functions: new Set(['validityTransform']),
 });
+
+export type TextInputProps = ComponentProps<TextAreaElement, ElementProps>;
 
 export default TextInput;

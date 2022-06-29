@@ -1,16 +1,19 @@
-import type { PropsWithChildren, ComponentProps } from 'react';
-import { createComponent } from '@equinor/fusion-react-utils';
+import type { PropsWithChildren } from 'react';
+import { ComponentProps, createComponent } from '@equinor/fusion-react-utils';
 
-import { tagDots, DotsProgressElement, DotsProgressElementProps } from '@equinor/fusion-wc-progress-indicator';
+import { DotsProgressElement as HTMLDotsIndicatorCustomElement, tagDots } from '@equinor/fusion-wc-progress-indicator';
 
-export { DotsProgressElement as HTMLDotsIndicatorCustomElement, DotsProgressElement, DotsProgressElementProps };
-
-type ElementAttributes = Partial<Pick<DotsProgressElement, 'size' | 'color'>>;
+type ElementAttributes = Partial<Pick<HTMLDotsIndicatorCustomElement, 'size' | 'color'>>;
 
 type ElementProps = PropsWithChildren<ElementAttributes>;
 
-export const DotsProgress = createComponent<DotsProgressElement, ElementProps>(DotsProgressElement, tagDots);
+export const DotsProgress = createComponent<HTMLDotsIndicatorCustomElement, ElementProps>(
+  HTMLDotsIndicatorCustomElement,
+  tagDots
+);
 
-export type DotsProgressProps = ComponentProps<typeof DotsProgress>;
+export type DotsProgressProps = ComponentProps<HTMLDotsIndicatorCustomElement, ElementProps>;
+
+export { HTMLDotsIndicatorCustomElement };
 
 export default DotsProgress;

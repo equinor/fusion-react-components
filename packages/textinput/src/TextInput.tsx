@@ -2,11 +2,11 @@
 import { tag, TextInputElement } from '@equinor/fusion-wc-textinput';
 import { TextInputInvalidHandler } from './types';
 
-import { createComponent } from '@equinor/fusion-react-utils';
+import { ComponentProps, createComponent } from '@equinor/fusion-react-utils';
 
-export type ElementFunctions = Partial<Pick<TextInputElement, 'validityTransform'>>;
+type ElementFunctions = Partial<Pick<TextInputElement, 'validityTransform'>>;
 
-export type ElementAttributes = Partial<
+type ElementAttributes = Partial<
   Pick<
     TextInputElement,
     | 'autoValidate'
@@ -37,17 +37,17 @@ export type ElementAttributes = Partial<
   >
 >;
 
-export type ElementEvents = {
+type ElementEvents = {
   onInvalid?: TextInputInvalidHandler;
 };
 
-export type ElementProps = ElementAttributes & ElementFunctions & ElementEvents;
+type ElementProps = ElementAttributes & ElementFunctions & ElementEvents;
 
 export const TextInput = createComponent<TextInputElement, ElementProps>(TextInputElement, tag, {
   events: { onInvalid: 'invalid' },
   functions: new Set(['validityTransform']),
 });
 
-export type TextInputProps = React.ComponentProps<typeof TextInput>;
+export type TextInputProps = ComponentProps<TextInputElement, ElementProps>;
 
 export default TextInput;
