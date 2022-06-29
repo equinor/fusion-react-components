@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.6](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-observable@1.1.5...@equinor/fusion-react-observable@1.1.6) (2022-06-29)
+
+**Note:** Version bump only for package @equinor/fusion-react-observable
+
+
+
+
+
 ## [1.1.5](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-observable@1.1.4...@equinor/fusion-react-observable@1.1.5) (2022-06-15)
 
 **Note:** Version bump only for package @equinor/fusion-react-observable
