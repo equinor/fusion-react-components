@@ -1,14 +1,14 @@
 import React, { useState, useCallback, useRef, ReactElement } from 'react';
 import { Meta, Story } from '@storybook/react';
 import { Button } from '@storybook/components';
-import { Checkbox, CheckboxProps, CheckboxBase, HTMLCheckboxCustomElement } from '@equinor/fusion-react-checkbox/src';
+import { Checkbox, CheckboxElementProps, CheckboxBase, HTMLCheckboxCustomElement } from '@equinor/fusion-react-checkbox/src';
 
 export default {
   title: 'Examples/Checkbox',
   component: Checkbox,
 } as Meta;
 
-export const Component: Story = (props: Omit<CheckboxProps, 'ref'>): ReactElement => <Checkbox {...props} />;
+export const Component: Story = (props: Omit<CheckboxElementProps, 'ref'>): ReactElement => <Checkbox {...props} />;
 
 export const Basic: Story = () => {
   const [checked, setChecked] = useState<boolean | undefined>(undefined);

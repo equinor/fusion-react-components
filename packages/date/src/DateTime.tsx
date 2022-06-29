@@ -1,7 +1,5 @@
-import { createComponent } from '@equinor/fusion-react-utils';
+import { ComponentProps, createComponent } from '@equinor/fusion-react-utils';
 import { DateTimeElement as HTMLDateTimeCustomElement, dateTimeTag } from '@equinor/fusion-wc-date';
-
-export { HTMLDateTimeCustomElement };
 
 type ElementProps = React.PropsWithChildren<Partial<Pick<HTMLDateTimeCustomElement, 'date' | 'format' | 'locale'>>>;
 
@@ -10,6 +8,8 @@ export const DateTime = createComponent<HTMLDateTimeCustomElement, ElementProps>
   dateTimeTag
 );
 
-export type DateTimeProps = React.ComponentProps<typeof DateTime>;
+export type DateTimeProps = ComponentProps<HTMLDateTimeCustomElement, ElementProps>;
+
+export { HTMLDateTimeCustomElement };
 
 export default DateTime;

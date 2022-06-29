@@ -1,16 +1,17 @@
-import type { PropsWithChildren, ComponentProps } from 'react';
-import { createComponent } from '@equinor/fusion-react-utils';
+import type { PropsWithChildren } from 'react';
+import { ComponentProps, createComponent } from '@equinor/fusion-react-utils';
 
-import { tag, StarProgressElement, StarProgressElementProps } from '@equinor/fusion-wc-progress-indicator';
+import { StarProgressElement as HTMLStarIndicatorCustomElement, tag } from '@equinor/fusion-wc-progress-indicator';
 
-export { StarProgressElement as HTMLStarIndicatorCustomElement, StarProgressElement, StarProgressElementProps };
-
-type ElementAttributes = Partial<Pick<StarProgressElement, 'text' | 'size'>>;
+type ElementAttributes = Partial<Pick<HTMLStarIndicatorCustomElement, 'text' | 'size'>>;
 
 type ElementProps = PropsWithChildren<ElementAttributes>;
 
-export const StarProgress = createComponent<StarProgressElement, ElementProps>(StarProgressElement, tag);
+export const StarProgress = createComponent<HTMLStarIndicatorCustomElement, ElementProps>(
+  HTMLStarIndicatorCustomElement,
+  tag
+);
 
-export type StarProgressProps = ComponentProps<typeof StarProgress>;
+export type StarProgressProps = ComponentProps<HTMLStarIndicatorCustomElement, ElementProps>;
 
 export default StarProgress;

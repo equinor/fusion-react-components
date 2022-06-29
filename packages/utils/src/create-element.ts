@@ -2,6 +2,7 @@ import { createElement, forwardRef, useMemo } from 'react';
 import type {
   EventHandler,
   ForwardRefExoticComponent,
+  HTMLAttributes,
   PropsWithoutRef,
   Ref,
   RefAttributes,
@@ -11,6 +12,10 @@ import type {
 import { extractElementProps, useElementEvents, useElementProps, useForwardRef } from './hooks';
 
 export type ComponentAttributes<T = HTMLHtmlElement> = Omit<React.HTMLAttributes<T>, 'children'>;
+
+// eslint-disable-next-line @typescript-eslint/ban-types
+export type ComponentProps<E extends HTMLElement, P = {}> = HTMLAttributes<E> & P & { ref?: Ref<E> };
+
 type Ctor<T> = { new (): T };
 
 const translateReactAttribute = (k: string) => {

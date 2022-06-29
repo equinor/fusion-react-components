@@ -1,9 +1,7 @@
-import { createComponent } from '@equinor/fusion-react-utils';
+import { ComponentProps, createComponent } from '@equinor/fusion-react-utils';
 import HTMLCheckListItemCustomElement, { tag } from '@equinor/fusion-wc-list/lib/check-list-item';
 
-export { HTMLCheckListItemCustomElement };
-
-export type CheckListItemElementProps = React.PropsWithChildren<
+type ElementProps = React.PropsWithChildren<
   Partial<
     Pick<
       HTMLCheckListItemCustomElement,
@@ -23,10 +21,13 @@ export type CheckListItemElementProps = React.PropsWithChildren<
   >
 >;
 
-export const CheckListItem = createComponent<HTMLCheckListItemCustomElement, CheckListItemElementProps>(
+export const CheckListItem = createComponent<HTMLCheckListItemCustomElement, ElementProps>(
   HTMLCheckListItemCustomElement,
   tag
 );
-export type CheckListItemProps = React.ComponentProps<typeof CheckListItem>;
+
+export type CheckListItemProps = ComponentProps<HTMLCheckListItemCustomElement, ElementProps>;
+
+export { HTMLCheckListItemCustomElement };
 
 export default CheckListItem;

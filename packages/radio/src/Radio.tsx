@@ -1,14 +1,15 @@
-import { forwardRef } from 'react';
-import { RadioBase, HTMLRadioCustomElement, RadioBaseProps } from './RadioBase';
-import { FormField, FormFieldProps } from './FormField';
+import { ForwardedRef, forwardRef } from 'react';
+import { RadioBase, RadioBaseProps, HTMLRadioCustomElement } from './RadioBase';
+import { FormField, FormFieldElementProps } from './FormField';
+import { ComponentProps } from '@equinor/fusion-react-utils';
 
-export type RadioProps = RadioBaseProps &
-  FormFieldProps & {
-    /** Size of the radio */
+export type RadioElementProps = RadioBaseProps &
+  FormFieldElementProps & {
+    /** Size of the radios */
     size?: number;
   };
 
-export const Radio = forwardRef((props: RadioProps, ref: React.ForwardedRef<HTMLRadioCustomElement>) => {
+export const Radio = forwardRef((props: RadioElementProps, ref: ForwardedRef<HTMLRadioCustomElement>) => {
   const { label, alignEnd, spaceBetween, nowrap, className, size, slot, ...radioProps } = props;
   const formfieldProps = {
     label,
@@ -27,6 +28,8 @@ export const Radio = forwardRef((props: RadioProps, ref: React.ForwardedRef<HTML
     </FormField>
   );
 });
+
+export type RadioProps = ComponentProps<HTMLRadioCustomElement, RadioElementProps>;
 
 Radio.displayName = 'Radio';
 

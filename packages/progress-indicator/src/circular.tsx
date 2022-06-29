@@ -1,27 +1,22 @@
-import type { PropsWithChildren, ComponentProps } from 'react';
-import { createComponent } from '@equinor/fusion-react-utils';
+import type { PropsWithChildren } from 'react';
+import { ComponentProps, createComponent } from '@equinor/fusion-react-utils';
 
 import {
+  CircularProgressElement as HTMLCircularIndicatorCustomElement,
   tagCircular,
-  CircularProgressElement,
-  CircularProgressElementProps,
 } from '@equinor/fusion-wc-progress-indicator';
 
-export {
-  CircularProgressElement as HTMLCircularIndicatorCustomElement,
-  CircularProgressElement,
-  CircularProgressElementProps,
-};
-
-type ElementAttributes = Partial<Pick<CircularProgressElement, 'size' | 'color'>>;
+type ElementAttributes = Partial<Pick<HTMLCircularIndicatorCustomElement, 'size' | 'color'>>;
 
 type ElementProps = PropsWithChildren<ElementAttributes>;
 
-export const CircularProgress = createComponent<CircularProgressElement, ElementProps>(
-  CircularProgressElement,
+export const CircularProgress = createComponent<HTMLCircularIndicatorCustomElement, ElementProps>(
+  HTMLCircularIndicatorCustomElement,
   tagCircular
 );
 
-export type CircularProgressProps = ComponentProps<typeof CircularProgress>;
+export type CircularProgressProps = ComponentProps<HTMLCircularIndicatorCustomElement, ElementProps>;
+
+export { HTMLCircularIndicatorCustomElement };
 
 export default CircularProgress;

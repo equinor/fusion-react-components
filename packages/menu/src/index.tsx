@@ -1,7 +1,5 @@
-import { createComponent } from '@equinor/fusion-react-utils';
+import { ComponentProps, createComponent } from '@equinor/fusion-react-utils';
 import { MenuElement as HTMLMenuCustomElement, tag } from '@equinor/fusion-wc-menu';
-
-export { HTMLMenuCustomElement };
 
 type ElementProps = React.PropsWithChildren<
   Partial<
@@ -33,6 +31,8 @@ export const Menu = createComponent<HTMLMenuCustomElement, ElementProps>(HTMLMen
   events: { onOpened: 'opened', onClosed: 'closed' },
 });
 
-export type MenuProps = React.ComponentProps<typeof Menu>;
+export type MenuProps = ComponentProps<HTMLMenuCustomElement, ElementProps>;
+
+export { HTMLMenuCustomElement };
 
 export default Menu;
