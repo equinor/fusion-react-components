@@ -18,18 +18,11 @@ export const Typography = <
 ) => {
   const { variant, type, tag = 'div', children, className, ...attr } = props;
   const ff = useStyles();
-  // const style = useStyle(variant, type);
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   const el = createElement(tag, { ...attr, className: clsx(ff[`${variant}__${type}`], className) }, children);
   return el;
 };
-
-// const test = () => <Typography variant="heading" type="h2" />
-// const Test2 = () => {
-//   const className = useStyle('heading', 'h3');
-//   return <div className={className} />;
-// };
 
 export { useStyle as useTypographyStyle };
 

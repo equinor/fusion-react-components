@@ -1,3 +1,3 @@
-export * from './SwitchBase';
-export * from './Switch';
-export { Switch as default } from './Switch';
+export { SwitchBase, SwitchBaseProps, HTMLSwitchCustomElement } from './SwitchBase';
+export { Switch, SwitchProps } from './Switch';
+export { default } from './Switch';

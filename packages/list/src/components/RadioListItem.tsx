@@ -1,9 +1,7 @@
-import { createComponent } from '@equinor/fusion-react-utils';
+import { ComponentProps, createComponent } from '@equinor/fusion-react-utils';
 import HTMLRadioListItemCustomElement, { tag } from '@equinor/fusion-wc-list/lib/radio-list-item';
 
-export { HTMLRadioListItemCustomElement };
-
-export type RadioListItemElementProps = React.PropsWithChildren<
+type ElementProps = React.PropsWithChildren<
   Partial<
     Pick<
       HTMLRadioListItemCustomElement,
@@ -23,10 +21,12 @@ export type RadioListItemElementProps = React.PropsWithChildren<
   >
 >;
 
-export const RadioListItem = createComponent<HTMLRadioListItemCustomElement, RadioListItemElementProps>(
+export const RadioListItem = createComponent<HTMLRadioListItemCustomElement, ElementProps>(
   HTMLRadioListItemCustomElement,
   tag
 );
-export type RadioListItemProps = React.ComponentProps<typeof RadioListItem>;
+export type RadioListItemProps = ComponentProps<HTMLRadioListItemCustomElement, ElementProps>;
+
+export { HTMLRadioListItemCustomElement };
 
 export default RadioListItem;

@@ -1,3 +1,4 @@
-export * from './RadioBase';
-export * from './Radio';
+export { HTMLRadioCustomElement, RadioBase, RadioBaseProps } from './RadioBase';
+export { Radio, RadioProps } from './Radio';
+
 export { default } from './Radio';
