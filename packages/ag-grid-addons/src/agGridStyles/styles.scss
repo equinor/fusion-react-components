@@ -6,6 +6,16 @@
   @include ag-theme-alpine();
 }
 
-.ag-theme-alpine .ag-row-selected {
+.ag-theme-alpine-fusion {
+  @include ag-theme-alpine();
+}
+
+.ag-theme-alpine-fusion .ag-row-selected {
   background-color: #e6faec;
+}
+
+.ag-theme-alpine-fusion .ag-cell {
+  line-height: 1.2;
+  display: 'flex';
+  align-items: 'center';
 }
