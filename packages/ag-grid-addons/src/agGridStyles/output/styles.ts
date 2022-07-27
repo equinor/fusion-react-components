@@ -13890,7 +13890,7 @@ ag-grid, ag-grid-angular, ag-grid-ng2, ag-grid-polymer, ag-grid-aurelia {
 
 .ag-theme-alpine-fusion .ag-cell {
   line-height: 1.2;
-  display: "flex";
-  align-items: "center";
+  display: flex;
+  align-items: center;
 }
 `;
