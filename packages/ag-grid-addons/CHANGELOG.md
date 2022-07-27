@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.2](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-ag-grid-addons@0.3.1...@equinor/fusion-react-ag-grid-addons@0.3.2) (2022-07-27)
+
+
+### Bug Fixes
+
+* fixed wrong styling on previous pr for ag grid styling ([300dad0](https://github.com/equinor/fusion-react-components/commit/300dad078a08381de4f18370eee3197a9a426e52))
+
+
+
+
+
 ## 0.3.1 (2022-07-27)
 
 **Note:** Version bump only for package @equinor/fusion-react-ag-grid-addons
