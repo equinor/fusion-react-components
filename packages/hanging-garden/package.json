@@ -38,7 +38,7 @@
   "dependencies": {
     "@equinor/fusion-react-styles": "^0.5.4",
     "@types/history": "4.x",
-    "date-fns": "2.28.0",
+    "date-fns": "2.29.2",
     "history": "4.x",
     "pixi.js-legacy": "^5.3.7"
   },
@@ -50,7 +50,7 @@
     "@equinor/fusion": "^3.3.1",
     "@equinor/fusion-react-styles": "0.5.0",
     "@types/history": "4.x",
-    "date-fns": "2.28.0",
+    "date-fns": "2.29.2",
     "history": "4.x"
   },
   "peerDependenciesMeta": {
