@@ -1,4 +1,4 @@
-import { createStyles, makeStyles } from '@equinor/fusion-react-styles';
+import { createStyles, makeStyles, StyleCSSProperties } from '@equinor/fusion-react-styles';
 import { TypographyPropertiesType, TypographyType } from './types';
 import { useMemo } from 'react';
 
@@ -9,10 +9,10 @@ export const useStyle = <K extends keyof TypographyType, T extends keyof Typogra
   return useMemo(
     () =>
       makeStyles((theme) => {
-        const typography = theme.typography[variant];
-        const gg = typography[type];
+        const typography = theme.typography[variant] as TypographyPropertiesType<K>;
+        const root = typography[type] as StyleCSSProperties;
         return createStyles({
-          root: gg,
+          root,
         });
       })(),
     [variant, type]

@@ -12,7 +12,7 @@ const defaultMatcher = <TData,>(data: TData[], query: string): TData[] => {
   /** early escape, no filter */
   if (!query) return data;
   const matcher = new RegExp(query, 'i');
-  return data.filter((x) => !!JSON.stringify(Object.values(x)).match(matcher));
+  return data.filter((x) => !!JSON.stringify(Object.values(x ?? {})).match(matcher));
 };
 
 export type SearchFilterProps<TData> = Omit<TextInputProps, 'onInput' | 'ref'> & {
