@@ -18,7 +18,7 @@ export type FilterOptionContext<TOption extends FilterOption, TValue = string> =
   setSelection: (selection?: Set<TValue>) => void;
 };
 
-export type FilterOptionSelector<TData extends Record<string, any>> = (data: TData) => {
+export type FilterOptionSelector<TData> = (data: TData) => {
   key: string;
   label?: string;
   value: string;

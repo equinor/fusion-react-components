@@ -35,7 +35,7 @@ export type FilterFn<TData, TSelection> = (data: TData[], selection: TSelection,
  * @param description(optional) description of the filter and how it work.
  * @param priority (optional) Control sort order
  */
-export type Filter<TData extends Record<string, any> = Record<string, any>, TSelection = any> = {
+export type Filter<TData = any, TSelection = any> = {
   key: string;
   title?: string;
   filterFn: FilterFn<TData, TSelection>;
