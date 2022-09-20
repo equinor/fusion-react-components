@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.4.0 (2022-09-20)
+
+
+### Bug Fixes
+
+* fixed wrong styling on previous pr for ag grid styling ([300dad0](https://github.com/equinor/fusion-react-components/commit/300dad078a08381de4f18370eee3197a9a426e52))
+
+
+### Features
+
+* added centering on exandable ag grid cells ([7434cdf](https://github.com/equinor/fusion-react-components/commit/7434cdf4e543dc200b3bf4d7a7d5696d64ed1518))
+
+
+
+
+
 ## [0.3.2](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-ag-grid-addons@0.3.1...@equinor/fusion-react-ag-grid-addons@0.3.2) (2022-07-27)
 
 
