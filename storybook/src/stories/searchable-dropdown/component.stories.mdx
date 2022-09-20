@@ -3,6 +3,11 @@ import { ChangeLog, PackageInfo, StoryExample } from '../../components';
 import SearchableDropdown from '@equinor/fusion-react-searchable-dropdown';
 import { _handleAction, _exampleResolver } from './component.helpers';
 
+<Meta
+  title="Data/Searchable-Dropdown"
+  component={SearchableDropdown}
+/>
+
 export const Template = ({ children, ...props }) => {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', height: '250px' }}>
@@ -10,11 +15,6 @@ export const Template = ({ children, ...props }) => {
     </div>
   );
 };
-
-<Meta
-  title="Data/Searchable-Dropdown"
-  component={SearchableDropdown}
-/>
 
 <PackageInfo pkg={require('@equinor/fusion-react-searchable-dropdown/package.json')} />
 

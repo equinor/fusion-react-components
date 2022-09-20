@@ -1,17 +1,22 @@
 import { SearchableDropdownResultItem, SearchableDropdownResult } from '@equinor/fusion-wc-searchable-dropdown';
 
-/* generate single SearchableDropdownResult item */
+/* generates a single SearchableDropdownResult item with required propterties  */
 const singleItem = (props: unknown): SearchableDropdownResultItem => {
   return Object.assign({ id: '0', title: 'Dummy title' }, props);
 };
 
-/* Fake api */
+/**
+ * Example api handler
+ * Takes the query string to search for and return matching example projects.
+ * Query string min length to start "http request" is 3 chars.
+ * uses singleItem() to create a single result with errors or other information
+ */
 const fakeApi = (query: string): SearchableDropdownResult => {
   /* min length */
   const min = 3;
   const items = [];
   if (!query || query.length < min) {
-    items.push(singleItem({ title: `Need ${min - query.length} more chars`, isDisabled: true }));
+    items.push(singleItem({ title: `Add ${min - query.length} chars to search`, isDisabled: true }));
     return items;
   }
   const allResults = [
