@@ -34,9 +34,6 @@
   "bugs": {
     "url": "https://github.com/equinor/fusion-react-components/issues"
   },
-  "dependencies": {
-    "webpack": "^5.70.0"
-  },
   "devDependencies": {
     "@types/gulp": "^4.0.9",
     "@types/webpack-stream": "^3.2.12",
@@ -58,7 +55,8 @@
     "url-loader": "^4.1.1",
     "vinyl-named": "^1.1.0",
     "webpack-remove-empty-scripts": "^0.7.3",
-    "webpack-stream": "^7.0.0"
+    "webpack-stream": "^7.0.0",
+    "webpack": "^5.70.0"
   },
   "peerDependencies": {
     "ag-grid-community": "^27.1.0"
