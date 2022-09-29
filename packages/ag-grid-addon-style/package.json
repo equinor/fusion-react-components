@@ -35,7 +35,6 @@
     "url": "https://github.com/equinor/fusion-react-components/issues"
   },
   "dependencies": {
-    "ag-grid-community": "^27.1.0",
     "webpack": "^5.70.0"
   },
   "devDependencies": {
@@ -58,5 +57,8 @@
     "vinyl-named": "^1.1.0",
     "webpack-remove-empty-scripts": "^0.7.3",
     "webpack-stream": "^7.0.0"
+  },
+  "peerDependencies": {
+    "ag-grid-community": "^27.1.0"
   }
 }
