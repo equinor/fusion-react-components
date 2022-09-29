@@ -7,10 +7,7 @@ const autoprefixer = require('autoprefixer');
 const named = require('vinyl-named');
 const through2 = require('through2');
 const RemoveEmptyScriptsPlugin = require('webpack-remove-empty-scripts');
-
-const test = (string) => {
-  return `export const agStyles = ` + 'String.raw`' + string + '`;\n';
-};
+const jssCli = require('jss-cli');
 
 // Start of scss/css related tasks
 const scssTask = () => {
@@ -85,7 +82,13 @@ const scssTask = () => {
     .pipe(
       through2.obj(function (file, _, cb) {
         if (file.isBuffer()) {
-          file.contents = Buffer.from(test(file.contents.toString()));
+          file.contents = Buffer.from(
+            `export const agGridStyles = ${JSON.stringify(
+              jssCli.cssToJss({ code: file.contents.toString() }),
+              null,
+              2
+            )};`
+          );
         }
 
         cb(null, file);
