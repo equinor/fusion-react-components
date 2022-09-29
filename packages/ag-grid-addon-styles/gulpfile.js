@@ -83,7 +83,7 @@ const scssTask = () => {
       through2.obj(function (file, _, cb) {
         if (file.isBuffer()) {
           file.contents = Buffer.from(
-            `export const agGridStyles = ${JSON.stringify(
+            `/* eslint-disable */\nexport const agGridStyles = ${JSON.stringify(
               jssCli.cssToJss({ code: file.contents.toString() }),
               null,
               2

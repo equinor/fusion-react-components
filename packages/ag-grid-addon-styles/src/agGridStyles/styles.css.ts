@@ -1,3 +1,4 @@
+/* eslint-disable */
 export const agGridStyles = {
   "@global": {
     "ag-grid, ag-grid-angular, ag-grid-ng2, ag-grid-polymer, ag-grid-aurelia": {
