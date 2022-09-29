@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { agStyles } from './output/styles';
+import { agStyles } from './styles.css';
 
 export const useAgGridStyles = () => {
   useEffect(() => {

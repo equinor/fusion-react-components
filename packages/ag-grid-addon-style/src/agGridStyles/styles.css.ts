@@ -16,7 +16,6 @@ ag-grid, ag-grid-angular, ag-grid-ng2, ag-grid-polymer, ag-grid-aurelia {
 }
 
 .ag-drag-handle {
-  cursor: -webkit-grab;
   cursor: grab;
 }
 
@@ -32,14 +31,12 @@ ag-grid, ag-grid-angular, ag-grid-ng2, ag-grid-polymer, ag-grid-aurelia {
 .ag-unselectable {
   -moz-user-select: none;
   -webkit-user-select: none;
-  -ms-user-select: none;
   user-select: none;
 }
 
 .ag-selectable {
   -moz-user-select: text;
   -webkit-user-select: text;
-  -ms-user-select: text;
   user-select: text;
 }
 
@@ -67,25 +64,10 @@ ag-grid, ag-grid-angular, ag-grid-ng2, ag-grid-polymer, ag-grid-aurelia {
 }
 
 .ag-shake-left-to-right {
-  -webkit-animation-direction: alternate;
-          animation-direction: alternate;
-  -webkit-animation-duration: 0.2s;
-          animation-duration: 0.2s;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
-  -webkit-animation-name: ag-shake-left-to-right;
-          animation-name: ag-shake-left-to-right;
-}
-
-@-webkit-keyframes ag-shake-left-to-right {
-  from {
-    padding-left: 6px;
-    padding-right: 2px;
-  }
-  to {
-    padding-left: 2px;
-    padding-right: 6px;
-  }
+  animation-direction: alternate;
+  animation-duration: 0.2s;
+  animation-iteration-count: infinite;
+  animation-name: ag-shake-left-to-right;
 }
 
 @keyframes ag-shake-left-to-right {
@@ -811,7 +793,6 @@ ag-grid, ag-grid-angular, ag-grid-ng2, ag-grid-polymer, ag-grid-aurelia {
   position: absolute;
   -webkit-user-select: none;
      -moz-user-select: none;
-      -ms-user-select: none;
           user-select: none;
   z-index: 1;
 }
@@ -926,7 +907,6 @@ ag-grid, ag-grid-angular, ag-grid-ng2, ag-grid-polymer, ag-grid-aurelia {
   pointer-events: none;
   -webkit-user-select: none;
      -moz-user-select: none;
-      -ms-user-select: none;
           user-select: none;
   z-index: 1;
 }
@@ -1036,7 +1016,6 @@ ag-grid, ag-grid-angular, ag-grid-ng2, ag-grid-polymer, ag-grid-aurelia {
   position: absolute;
   -webkit-user-select: none;
      -moz-user-select: none;
-      -ms-user-select: none;
           user-select: none;
 }
 
@@ -1154,7 +1133,6 @@ ag-grid, ag-grid-angular, ag-grid-ng2, ag-grid-polymer, ag-grid-aurelia {
   cursor: default;
   -webkit-user-select: none;
      -moz-user-select: none;
-      -ms-user-select: none;
           user-select: none;
 }
 
@@ -1268,8 +1246,7 @@ ag-grid, ag-grid-angular, ag-grid-ng2, ag-grid-polymer, ag-grid-aurelia {
 }
 
 .ag-side-button-label {
-  -ms-writing-mode: tb-lr;
-      writing-mode: vertical-lr;
+  writing-mode: vertical-lr;
 }
 
 /**
@@ -3053,7 +3030,6 @@ ag-grid, ag-grid-angular, ag-grid-ng2, ag-grid-polymer, ag-grid-aurelia {
   flex: none;
   -webkit-user-select: none;
      -moz-user-select: none;
-      -ms-user-select: none;
           user-select: none;
   cursor: default;
 }
@@ -3092,7 +3068,6 @@ ag-grid, ag-grid-angular, ag-grid-ng2, ag-grid-polymer, ag-grid-aurelia {
   padding: 0 10px;
   -webkit-user-select: none;
      -moz-user-select: none;
-      -ms-user-select: none;
           user-select: none;
 }
 
@@ -3182,7 +3157,6 @@ ag-grid, ag-grid-angular, ag-grid-ng2, ag-grid-polymer, ag-grid-aurelia {
   position: relative;
   -webkit-user-select: none;
      -moz-user-select: none;
-      -ms-user-select: none;
           user-select: none;
 }
 
@@ -3780,7 +3754,6 @@ ag-grid, ag-grid-angular, ag-grid-ng2, ag-grid-polymer, ag-grid-aurelia {
   cursor: default;
   -moz-user-select: none;
   -webkit-user-select: none;
-  -ms-user-select: none;
   user-select: none;
 }
 .ag-theme-alpine .ag-select-list-item span {
@@ -6813,22 +6786,10 @@ ag-grid, ag-grid-angular, ag-grid-ng2, ag-grid-polymer, ag-grid-aurelia {
   padding-right: 12px;
 }
 .ag-theme-alpine .ag-icon-loading {
-  -webkit-animation-name: spin;
-          animation-name: spin;
-  -webkit-animation-duration: 1000ms;
-          animation-duration: 1000ms;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
-  -webkit-animation-timing-function: linear;
-          animation-timing-function: linear;
-}
-@-webkit-keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  animation-name: spin;
+  animation-duration: 1000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
 }
 @keyframes spin {
   from {
@@ -8998,7 +8959,6 @@ ag-grid, ag-grid-angular, ag-grid-ng2, ag-grid-polymer, ag-grid-aurelia {
   cursor: default;
   -moz-user-select: none;
   -webkit-user-select: none;
-  -ms-user-select: none;
   user-select: none;
 }
 .ag-theme-alpine-fusion .ag-select-list-item span {
@@ -12031,14 +11991,10 @@ ag-grid, ag-grid-angular, ag-grid-ng2, ag-grid-polymer, ag-grid-aurelia {
   padding-right: 12px;
 }
 .ag-theme-alpine-fusion .ag-icon-loading {
-  -webkit-animation-name: spin;
-          animation-name: spin;
-  -webkit-animation-duration: 1000ms;
-          animation-duration: 1000ms;
-  -webkit-animation-iteration-count: infinite;
-          animation-iteration-count: infinite;
-  -webkit-animation-timing-function: linear;
-          animation-timing-function: linear;
+  animation-name: spin;
+  animation-duration: 1000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
 }
 @keyframes spin {
   from {

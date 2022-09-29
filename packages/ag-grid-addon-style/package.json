@@ -29,7 +29,7 @@
     "lint": "eslint --ext .ts,.tsx,.js src/",
     "lint:fix": "eslint --ext .ts,.tsx,.js src/ --fix",
     "prepack": "npm run build",
-    "build-css": "npx gulp -f src/agGridStyles/gulpfile.js scss-to-css"
+    "build-css": "gulp scss-to-css"
   },
   "bugs": {
     "url": "https://github.com/equinor/fusion-react-components/issues"

@@ -15,7 +15,7 @@ const test = (string) => {
 // Start of scss/css related tasks
 const scssTask = () => {
   return gulp
-    .src('./styles.scss')
+    .src('./src/agGridStyles/*.scss')
     .pipe(named())
     .pipe(
       webpackStream({
@@ -79,7 +79,7 @@ const scssTask = () => {
             },
           ],
         },
-        plugins: [new RemoveEmptyScriptsPlugin(), new MiniCssExtractPlugin({ filename: '[name].ts' })],
+        plugins: [new RemoveEmptyScriptsPlugin(), new MiniCssExtractPlugin({ filename: '[name].css.ts' })],
       })
     )
     .pipe(
@@ -91,7 +91,7 @@ const scssTask = () => {
         cb(null, file);
       })
     )
-    .pipe(gulp.dest('output/'));
+    .pipe(gulp.dest('./src/agGridStyles/'));
 };
 
 // default/release task
