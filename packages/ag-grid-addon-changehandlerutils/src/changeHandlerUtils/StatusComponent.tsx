@@ -1,6 +1,5 @@
 import Icon from '@equinor/fusion-react-icon';
 import { clsx, createStyles, makeStyles, theme } from '@equinor/fusion-react-styles';
-import Tooltip from '@equinor/fusion-react-tooltip';
 import { ICellRendererParams } from 'ag-grid-community';
 import { FC } from 'react';
 import { AGGridDataStatus } from './constants';
@@ -32,20 +31,14 @@ const useStyles = makeStyles(
 const StatusComponent: FC<ICellRendererParams> = (props) => {
   const styles = useStyles();
 
-  const hasChanges = props.data.hasChanged || props.data.status === AGGridDataStatus.NEW;
-
-  return hasChanges ? (
-    <Tooltip content="Unsaved changes">
-      <div className={styles.statusContainer}>
-        <div className={styles.pendingChanges} />
-      </div>
-    </Tooltip>
+  return props.data.hasChanged || props.data.status === AGGridDataStatus.NEW ? (
+    <div className={styles.statusContainer}>
+      <div className={styles.pendingChanges} />
+    </div>
   ) : (
-    <Tooltip content="No changes">
-      <div className={clsx(styles.checkIcon, styles.statusContainer)}>
-        <Icon icon="check" />
-      </div>
-    </Tooltip>
+    <div className={clsx(styles.checkIcon, styles.statusContainer)}>
+      <Icon icon="check" />
+    </div>
   );
 };
 export default StatusComponent;
