@@ -1,5 +1,5 @@
 {
-  "name": "@equinor/fusion-react-ag-grid-addon-styles",
+  "name": "@equinor/fusion-react-ag-grid-styles",
   "version": "0.4.0",
   "description": "React addons for ag-grid styles",
   "keywords": [
@@ -8,7 +8,7 @@
     "fusion",
     "equinor"
   ],
-  "homepage": "https://github.com/equinor/fusion-react-components/tree/master/packages/ag-grid-addon-style#readme",
+  "homepage": "https://github.com/equinor/fusion-react-components/tree/master/packages/ag-grid-styles#readme",
   "license": "ISC",
   "main": "dist/index.js",
   "directories": {
