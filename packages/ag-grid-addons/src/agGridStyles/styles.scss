@@ -15,12 +15,21 @@
 }
 
 .ag-theme-alpine-fusion .ag-cell {
-  line-height: 1.2;
-  display: flex;
   align-items: center;
+  display: flex;
+  line-height: 1.2;
 }
 
 .ag-theme-alpine-fusion .ag-cell-expandable {
-  display: flex;
   align-items: center;
+  display: flex;
+}
+
+.ag-theme-alpine-fusion .ag-rich-select-list {
+  height: 100% !important; 
+}
+
+.ag-theme-alpine-fusion .ag-rich-select-row-selected {
+  background-color: rgba(222, 237, 238, 1);
+  background-color: var(--ag-selected-row-background-color, rgba(222, 237, 238, 1));
 }
