@@ -4,16 +4,7 @@ import { tag, SelectElement } from '@equinor/fusion-wc-select';
 import { ComponentProps, createComponent } from '@equinor/fusion-react-utils';
 
 type ElementAttributes = Partial<
-  Pick<
-    SelectElement,
-    | 'value'
-    | 'name'
-    | 'label'
-    | 'icon'
-    | 'disabled'
-    | 'outlined'
-    | 'required'
-  >
+  Pick<SelectElement, 'value' | 'name' | 'label' | 'icon' | 'disabled' | 'outlined' | 'required'>
 >;
 
 type ElementProps = ElementAttributes;
