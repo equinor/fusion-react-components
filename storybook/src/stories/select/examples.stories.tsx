@@ -9,27 +9,26 @@ export default {
 } as Meta;
 
 export const Component: Story<SelectProps> = ({ ...props }) => {
-  const [selected, setSelected] = useState();
+  const [selected, setSelected] = useState(0);
   const selectEvent = useCallback(
     (d) => {
-      setSelected(d);
+      setSelected(d.nativeEvent.detail.index);
     },
     [setSelected]
   );
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', height: '400px' }}>
+    <div style={{ display: 'flex', justifyContent: 'center', height: '200px' }}>
       <div style={{ position: 'relative' }}>
-        <Select {...props} onSelected={(e: CustomEvent) => selectEvent(e)}>
+        <Select {...props} onSelected={selectEvent}>
           <ListItem>Item 1</ListItem>
           <ListItem>Item 2</ListItem>
           <ListItem>Item 3</ListItem>
         </Select>
-        <p>Selected index: ${selected}</p>
+        <p>Selected index: {selected}</p>
       </div>
     </div>
   );
 };
 
 Component.args = {
-  label: 'Something',
 };
