@@ -17,18 +17,19 @@ export const Component: Story<SelectProps> = ({ ...props }) => {
     [setSelected]
   );
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', height: '200px' }}>
+    <div style={{ display: 'flex', justifyContent: 'center', height: '400px' }}>
       <div style={{ position: 'relative' }}>
         <Select {...props} onSelected={(e: CustomEvent) => selectEvent(e)}>
           <ListItem>Item 1</ListItem>
           <ListItem>Item 2</ListItem>
           <ListItem>Item 3</ListItem>
         </Select>
+        <p>Selected index: ${selected}</p>
       </div>
     </div>
   );
 };
+
 Component.args = {
-  corner: 'BOTTOM_LEFT',
-  menuCorner: 'START',
+  label: 'Something',
 };
