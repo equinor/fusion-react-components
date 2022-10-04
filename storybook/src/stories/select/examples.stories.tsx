@@ -17,7 +17,7 @@ export const Component: Story<SelectProps> = ({ ...props }) => {
     [setSelected]
   );
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', height: '200px' }}>
+    <div style={{ display: 'flex', justifyContent: 'center', height: '300px' }}>
       <div style={{ position: 'relative' }}>
         <Select {...props} onSelected={selectEvent}>
           <ListItem>Item 1</ListItem>
