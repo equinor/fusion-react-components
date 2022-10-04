@@ -1105,6 +1105,7 @@ ag-grid, ag-grid-angular, ag-grid-ng2, ag-grid-polymer, ag-grid-aurelia {
 
 .ag-rich-select-list {
   position: relative;
+  height: 100% !important;
 }
 
 .ag-rich-select-virtual-list-item {
@@ -9059,8 +9060,8 @@ ag-grid, ag-grid-angular, ag-grid-ng2, ag-grid-polymer, ag-grid-aurelia {
   padding-left: 18px;
 }
 .ag-theme-alpine-fusion .ag-rich-select-row-selected {
-  background-color: rgba(33, 150, 243, 0.3);
-  background-color: var(--ag-selected-row-background-color, rgba(33, 150, 243, 0.3));
+  background-color: rgba(222, 237, 238, 1);
+  background-color: var(--ag-selected-row-background-color, rgba(222, 237, 238, 1));
 }
 .ag-theme-alpine-fusion .ag-row-drag,
 .ag-theme-alpine-fusion .ag-selection-checkbox,
