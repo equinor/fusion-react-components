@@ -20,15 +20,24 @@ export const Component: Story<SelectProps> = ({ ...props }) => {
     <div style={{ display: 'flex', justifyContent: 'center', height: '300px' }}>
       <div style={{ position: 'relative' }}>
         <Select {...props} onSelected={selectEvent}>
+          <ListItem>Select item</ListItem>
           <ListItem>Item 1</ListItem>
           <ListItem>Item 2</ListItem>
           <ListItem>Item 3</ListItem>
         </Select>
-        <p>Selected index: {selected}</p>
+        <p>Selected index = {selected}</p>
       </div>
     </div>
   );
 };
 
 Component.args = {
+  // value: 'item-2', // Setting fixed value should be combined with state
+  // helper: 'Heelp, not just anybody',
+  // outlined: true,
+  // value: 'value',
+  // name: 'name',
+  // label: 'label',
+  // disabled: true,
+  // required: true,
 };
