@@ -8333,7 +8333,12 @@ export const agGridStyles = {
     ".ag-theme-alpine-fusion .ag-rich-select-list": {
       "width": "100%",
       "minWidth": "200px",
-      "height": "273px"
+      "height": "100%",
+      "fallbacks": [
+        {
+          "height": "273px"
+        }
+      ]
     },
     ".ag-theme-alpine-fusion .ag-rich-select-value": {
       "padding": "0 6px 0 18px",
@@ -8362,8 +8367,11 @@ export const agGridStyles = {
       "paddingLeft": "18px"
     },
     ".ag-theme-alpine-fusion .ag-rich-select-row-selected": {
-      "backgroundColor": "var(--ag-selected-row-background-color, rgba(33, 150, 243, 0.3))",
+      "backgroundColor": "var(--ag-selected-row-background-color, rgb(222, 237, 238))",
       "fallbacks": [
+        {
+          "backgroundColor": "var(--ag-selected-row-background-color, rgba(33, 150, 243, 0.3))"
+        },
         {
           "backgroundColor": "rgba(33, 150, 243, 0.3)"
         }
@@ -13113,9 +13121,9 @@ export const agGridStyles = {
       ]
     },
     ".ag-theme-alpine-fusion .ag-cell": {
-      "lineHeight": "1.2",
       "display": "flex",
-      "alignItems": "center"
+      "alignItems": "center",
+      "lineHeight": "1.2"
     },
     ".ag-theme-alpine-fusion .ag-cell-expandable": {
       "display": "flex",

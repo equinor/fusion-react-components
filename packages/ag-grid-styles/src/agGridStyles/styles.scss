@@ -8,19 +8,27 @@
 
 .ag-theme-alpine-fusion {
   @include ag-theme-alpine();
-}
-
-.ag-theme-alpine-fusion .ag-row-selected {
-  background-color: #e6faec;
-}
-
-.ag-theme-alpine-fusion .ag-cell {
-  line-height: 1.2;
-  display: flex;
-  align-items: center;
-}
-
-.ag-theme-alpine-fusion .ag-cell-expandable {
-  display: flex;
-  align-items: center;
+  
+  .ag-row-selected {
+    background-color: #e6faec;
+  }
+  
+  .ag-cell {
+    display: flex;
+    align-items: center;
+    line-height: 1.2;
+  }
+  
+  .ag-cell-expandable {
+    display: flex;
+    align-items: center;
+  }
+  
+  .ag-rich-select-list {
+    height: 100%;
+  }
+  
+  .ag-rich-select-row-selected {
+    background-color: var(--ag-selected-row-background-color, rgba(222, 237, 238, 1));
+  }
 }
