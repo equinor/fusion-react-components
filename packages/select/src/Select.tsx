@@ -4,13 +4,16 @@ import { tag, SelectElement as HTMLSelectCustomElement } from '@equinor/fusion-w
 import { ComponentProps, createComponent } from '@equinor/fusion-react-utils';
 
 type ElementAttributes = React.PropsWithChildren<
-  Partial<Pick<HTMLSelectCustomElement, 'value' | 'name' | 'label' | 'icon' | 'disabled' | 'outlined' | 'required'>>
+  Partial<Pick<HTMLSelectCustomElement, 'value' | 'name' | 'label' | 'disabled' | 'outlined' | 'required' | 'helper'>>
 >;
 
 type ElementProps = ElementAttributes;
 
 export const Select = createComponent<HTMLSelectCustomElement, ElementProps>(HTMLSelectCustomElement, tag, {
-  events: { onSelected: 'selected' },
+  events: {
+    onSelected: 'selected',
+    onChange: 'change',
+  },
 });
 
 export type SelectProps = ComponentProps<HTMLSelectCustomElement, ElementProps>;
