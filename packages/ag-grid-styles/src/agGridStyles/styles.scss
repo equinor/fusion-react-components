@@ -1,0 +1,34 @@
+@import '~ag-grid-community/src/styles/ag-grid.scss';
+@import '~ag-grid-community/src/styles/webfont/agGridAlpineFont.scss';
+@import '~ag-grid-community/src/styles/ag-theme-alpine/sass/ag-theme-alpine-mixin';
+
+.ag-theme-alpine {
+  @include ag-theme-alpine();
+}
+
+.ag-theme-alpine-fusion {
+  @include ag-theme-alpine();
+  
+  .ag-row-selected {
+    background-color: var(--ag-row-selected, #e6faec);
+  }
+  
+  .ag-cell {
+    display: flex;
+    align-items: center;
+    line-height: 1.2;
+  }
+  
+  .ag-cell-expandable {
+    display: flex;
+    align-items: center;
+  }
+  
+  .ag-rich-select-list {
+    height: 100%;
+  }
+  
+  .ag-rich-select-row-selected {
+    background-color: var(--ag-selected-row-background-color, #deedee);
+  }
+}
