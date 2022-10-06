@@ -10,7 +10,7 @@
   @include ag-theme-alpine();
   
   .ag-row-selected {
-    background-color: #e6faec;
+    background-color: var(--ag-row-selected, #e6faec);
   }
   
   .ag-cell {
@@ -29,6 +29,6 @@
   }
   
   .ag-rich-select-row-selected {
-    background-color: var(--ag-selected-row-background-color, rgba(222, 237, 238, 1));
+    background-color: var(--ag-selected-row-background-color, #deedee);
   }
 }
