@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "npm run storybook",
-    "install": "npx husky-init && npm run bootstrap",
+    "install": "npm run bootstrap",
     "bootstrap": "lerna bootstrap -- --legacy-peer-deps",
     "test": "lerna run test",
     "test:build": "docker build -t test -f build.Dockerfile .",
