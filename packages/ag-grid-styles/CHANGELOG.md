@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.4.1 (2022-10-06)
+
+
+### Bug Fixes
+
+* **ag-grid-styles:** styles for ag-rich-select-list from pr [#404](https://github.com/equinor/fusion-react-components/issues/404) ([ad0fdb2](https://github.com/equinor/fusion-react-components/commit/ad0fdb225b4bc8d8b3adbd38b6323f45e433820b))
+* **ag-grid-styles:** update variable ([5fdf8d0](https://github.com/equinor/fusion-react-components/commit/5fdf8d04d9d7ae989302cd7882f304ff297169fc))
+
+
+
+
+
 # 0.4.0 (2022-09-20)
 
 
