@@ -1,6 +1,6 @@
 import Icon from '@equinor/fusion-react-icon';
 import { clsx, createStyles, makeStyles, theme } from '@equinor/fusion-react-styles';
-import { ICellRendererParams } from 'ag-grid-community';
+import { ICellRendererParams } from '@ag-grid-community/core';
 import { FC } from 'react';
 import { AGGridDataStatus } from './constants';
 

@@ -34,6 +34,6 @@
     "url": "https://github.com/equinor/fusion-react-components/issues"
   },
   "peerDependencies": {
-    "ag-grid-community": "^27.1.0"
+    "@ag-grid-community/core": "^28.2.0"
   }
 }
