@@ -47,7 +47,6 @@ const scssTask = () => {
             {
               test: /\.(svg)$/,
               use: [
-                'cache-loader',
                 {
                   loader: 'url-loader',
                   options: {
