@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.2](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-ag-grid-styles@0.4.1...@equinor/fusion-react-ag-grid-styles@0.4.2) (2022-10-10)
+
+
+### Bug Fixes
+
+* **@ag-grid-community:** adds [@ag-grid-community](https://github.com/ag-grid-community) as dev & peer dependency ([dfaa3c6](https://github.com/equinor/fusion-react-components/commit/dfaa3c685e8cefa8dde2cbee60f3c1f3e08dfa25))
+* **ag-grid-styles:** change ag-grid-community to @ag-grid-community/core ([add2966](https://github.com/equinor/fusion-react-components/commit/add29669326ed5184f263eda52dc00b3b12a86b1))
+* **ag-grid-styles:** removed outdated webpack4 modules ([ada8add](https://github.com/equinor/fusion-react-components/commit/ada8addd68f1fc83f7711ae648b0ad57704a23f0))
+
+
+
+
+
 ## 0.4.1 (2022-10-06)
 
 

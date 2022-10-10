@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.2](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-ag-grid-utils@0.4.1...@equinor/fusion-react-ag-grid-utils@0.4.2) (2022-10-10)
+
+
+### Bug Fixes
+
+* **@ag-grid-community:** adds [@ag-grid-community](https://github.com/ag-grid-community) as dev & peer dependency ([dfaa3c6](https://github.com/equinor/fusion-react-components/commit/dfaa3c685e8cefa8dde2cbee60f3c1f3e08dfa25))
+* **ag-grid-utils:** change ag-grid-community to @ag-grid-community/core ([f02db41](https://github.com/equinor/fusion-react-components/commit/f02db4105ac22a9891bd6163af9706fec0c7f601))
+
+
+
+
+
 ## 0.4.1 (2022-10-06)
 
 **Note:** Version bump only for package @equinor/fusion-react-ag-grid-utils
