@@ -4,10 +4,6 @@
 .ag-theme-alpine-fusion {
 
   @include ag-theme-alpine();
-
-  .ag-row-selected {
-    background-color: var(--ag-row-selected, #e6faec);
-  }
   
   .ag-cell {
     display: flex;

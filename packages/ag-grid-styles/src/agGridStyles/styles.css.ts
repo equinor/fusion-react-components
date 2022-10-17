@@ -12106,9 +12106,6 @@ export const agGridStyles = {
         }
       ]
     },
-    ".ag-theme-alpine-fusion .ag-row-selected": {
-      "backgroundColor": "var(--ag-row-selected, #e6faec)"
-    },
     ".ag-theme-alpine-fusion .ag-cell": {
       "display": "flex",
       "alignItems": "center",
