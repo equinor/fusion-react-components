@@ -47,6 +47,7 @@ const scssTask = () => {
             {
               test: /\.(svg)$/,
               use: [
+                'cache-loader',
                 {
                   loader: 'url-loader',
                   options: {
@@ -81,13 +82,19 @@ const scssTask = () => {
     .pipe(
       through2.obj(function (file, _, cb) {
         if (file.isBuffer()) {
-          file.contents = Buffer.from(
-            `/* eslint-disable */\nexport const agGridStyles = ${JSON.stringify(
-              jssCli.cssToJss({ code: file.contents.toString() }),
-              null,
-              2
-            )};`
+          // convert css to jss and stringify object
+          const styleStr = JSON.stringify(
+            jssCli.cssToJss({ code: file.contents.toString() }),
+            null,
+            2
           );
+          
+          /* removes 4 backslash created by jssCli/stringify from the content propertie */
+          let styleStrPrepped = styleStr.replace(/\\"/g, '');
+          styleStrPrepped = styleStrPrepped.replace(/(\\){3}/g, '');
+
+          /* Save to js file */
+          file.contents = Buffer.from(`/* eslint-disable */\nexport const agGridStyles = ${styleStrPrepped};`);
         }
 
         cb(null, file);

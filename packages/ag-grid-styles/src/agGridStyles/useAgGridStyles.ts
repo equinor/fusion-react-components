@@ -7,13 +7,13 @@ type agGridProps = {
   indicateEditMode?: boolean;
 };
 
-const useStyles = makeStyles(
+export const useStyles = makeStyles(
   // pass theme as param if needed
   () =>
     createStyles({
       ...agGridStyles,
-      root: ({ indicateEditMode }: agGridProps) =>
-        indicateEditMode
+      root: (props?: agGridProps) =>
+        props?.indicateEditMode
           ? {
               '& :not(.inline-edit-mode)': {
                 opacity: 0.8,
@@ -23,5 +23,3 @@ const useStyles = makeStyles(
     }),
   { name: 'fusion-ag-grid-styles' }
 );
-
-export default useStyles;
