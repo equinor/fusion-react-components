@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-ag-grid-styles",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "description": "React addons for ag-grid styles",
   "keywords": [
     "ag-grid",
@@ -25,7 +25,7 @@
     "url": "git+https://github.com/equinor/fusion-react-components.git"
   },
   "scripts": {
-    "build": "tsc -b",
+    "build": "npm run build-css && tsc -b",
     "lint": "eslint --ext .ts,.tsx,.js src/",
     "lint:fix": "eslint --ext .ts,.tsx,.js src/ --fix",
     "prepack": "npm run build",
@@ -58,6 +58,6 @@
     "webpack-stream": "^7.0.0"
   },
   "peerDependencies": {
-    "@ag-grid-community/core": ">= 28.2.0 < 29"
+    "@ag-grid-community/core": "^28.2.0"
   }
 }

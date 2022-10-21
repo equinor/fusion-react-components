@@ -1,2 +1,5 @@
-export * from './agGridStyles/useAgGridStyles';
-export * from './agGridStyles/styles.css';
+import { useStyles } from './agGridStyles/useAgGridStyles';
+
+export { agGridStyles } from './agGridStyles/styles.css';
+
+export default useStyles;
