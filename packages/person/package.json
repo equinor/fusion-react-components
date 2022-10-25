@@ -1,6 +1,6 @@
 {
-  "name": "@equinor/fusion-react-person-card",
-  "version": "0.1.0",
+  "name": "@equinor/fusion-react-person",
+  "version": "0.0.0",
   "description": "React component for displaying an person information",
   "keywords": [
     "person",
@@ -37,6 +37,6 @@
     "url": "https://github.com/equinor/fusion-react-components/issues"
   },
   "dependencies": {
-    "@equinor/fusion-wc-person": "file:.yalc/@equinor/fusion-wc-person"
+    "@equinor/fusion-wc-person": "^0.3.3"
   }
 }
