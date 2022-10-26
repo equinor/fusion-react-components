@@ -41,4 +41,5 @@ const StatusComponent: FC<ICellRendererParams> = (props) => {
     </div>
   );
 };
+
 export default StatusComponent;
