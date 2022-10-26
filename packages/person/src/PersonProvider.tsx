@@ -4,13 +4,7 @@ import { PersonAvailability, PersonDetails } from '@equinor/fusion-wc-person';
 
 HTMLPersonProviderCustomElement;
 
-// export const PersonProvider = createComponent(PersonProviderElement, 'fwc-person-provider');
-
 export type PersonProviderProps = {
-  /**
-   * this callback need to be memorized
-   * TODO - add more description + example😎
-   */
   resolve: PersonResolver;
 };
 
