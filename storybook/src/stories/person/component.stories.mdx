@@ -1,30 +1,38 @@
 import { Meta, Story, Canvas, ArgsTable, Description } from '@storybook/addon-docs';
 import { ChangeLog, PackageInfo, StoryExample } from '../../components';
-import { PersonCard, PersonAvatar, Component } from '@equinor/fusion-react-person/src';
+import { PersonCard, PersonAvatar } from '@equinor/fusion-react-person/src';
 
 <Meta title="Data/Person" component={PersonAvatar} />
 
 <PackageInfo pkg={require('@equinor/fusion-react-person/package.json')} />
 
-## Component
+# Components
 
-<ArgsTable of={PersonCard} />
+## PersonAvatar
 
-<ArgsTable of={PersonAvatar} />
+### Customizing
 
-## Customizing
+The avatar component has properties:
 
-The avatar component exposes the native custom element slots:
+- `azureId` required unique Auzere ID of the person as `string`
+- `size` size of the avatar as `AvatarSize` from `fwc-avatar`
+- `clickable` enables ripple effect when avatar is clicked
+- `disabled` disables the avatar
 
-- `default` slot for custom label
-- `icon` slot custom icon inside this placeholder
-- `trailingIcon` slot custom trailing icon inside this placeholder
-
-### Avatar
+### Example
 
 <StoryExample storyId="examples-person-person-avatar--component" showSource />
 
-### Card
+## PersonCard
+
+### Customizing
+
+The card component has properties:
+
+- `azureId` required unique Auzere ID of the person as `string`
+- `size` size of the avatar as `AvatarSize` from `fwc-avatar`
+
+### Example
 
 <StoryExample storyId="examples-person-person-card--component" showSource />
 
