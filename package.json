@@ -18,7 +18,8 @@
     "lerna:update": "lernaupdate",
     "lerna:dedupe": "lernaupdate --dedupe",
     "ncu": "lerna exec 'npx npm-check-updates \"/fusion-wc.*/\" -u'",
-    "postncu": "npm run bootstrap"
+    "postncu": "npm run bootstrap",
+    "prepare": "husky install"
   },
   "repository": {
     "type": "git",
@@ -41,7 +42,7 @@
     "@equinor/eslint-config-fusion": "^1.0.0",
     "@types/react": "^17.0.33",
     "eslint": "^8.8.0",
-    "husky": "^8.0.1",
+    "husky": "^8.0.0",
     "lerna": "^4.0.0",
     "lerna-update-wizard": "^1.1.0",
     "lint-staged": "^12.1.5",
