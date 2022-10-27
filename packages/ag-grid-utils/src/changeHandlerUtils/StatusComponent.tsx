@@ -31,7 +31,7 @@ const useStyles = makeStyles(
 const StatusComponent: FC<ICellRendererParams> = (props) => {
   const styles = useStyles();
 
-  return props.data.hasChanged || props.data.status === AGGridDataStatus.NEW ? (
+  return props.data?.hasChanged || props.data?.status === AGGridDataStatus.NEW ? (
     <div className={styles.statusContainer}>
       <div className={styles.pendingChanges} />
     </div>
@@ -41,4 +41,5 @@ const StatusComponent: FC<ICellRendererParams> = (props) => {
     </div>
   );
 };
+
 export default StatusComponent;
