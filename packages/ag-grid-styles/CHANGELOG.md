@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.4](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-ag-grid-styles@0.4.3...@equinor/fusion-react-ag-grid-styles@0.4.4) (2022-10-21)
+
+
+### Bug Fixes
+
+* **ag-grid-styles:** added variables from EDS. Resolves [#419](https://github.com/equinor/fusion-react-components/issues/419) ([4598757](https://github.com/equinor/fusion-react-components/commit/45987572a675eb140b074a1159f68db40fa47bb8))
+
+
+
+
+
 ## [0.4.3](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-ag-grid-styles@0.4.2...@equinor/fusion-react-ag-grid-styles@0.4.3) (2022-10-17)
 
 
