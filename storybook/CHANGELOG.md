@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.45.11 (2022-10-27)
+
+
+### Bug Fixes
+
+* **searchabledropdown:** fixing wrong version number in storybook import ([fb41d40](https://github.com/equinor/fusion-react-components/commit/fb41d40014118b6d0e44127a0978875cee984dca))
+* **storybook:** fixing merge conflict in package.json ([0a3f43a](https://github.com/equinor/fusion-react-components/commit/0a3f43ab1e3af2383926382fe3be89b583e1f6ca))
+* **storybook:** fixing merge conflict in storybook tsconfig ([6bc1694](https://github.com/equinor/fusion-react-components/commit/6bc16945799fe5e2b29b3004c851a3a8a46a3659))
+
+
+
+
+
 ## 1.45.10 (2022-10-17)
 
 **Note:** Version bump only for package @equinor/fusion-react-components-stories

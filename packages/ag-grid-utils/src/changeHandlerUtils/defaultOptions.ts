@@ -50,7 +50,7 @@ export const createStatusField = (customDefs?: ColDef): ColDef => ({
   editable: false,
   maxWidth: 100,
   cellRenderer: StatusComponent,
-  valueGetter: (params: ValueGetterParams) => params.data.current + params.data?.current?.name,
+  valueGetter: (params: ValueGetterParams) => params.data?.current + params.data?.current?.name,
   suppressCellFlash: true,
   ...customDefs,
 });
