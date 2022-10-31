@@ -1,0 +1,100 @@
+import { Meta, Story, Canvas, ArgsTable, Description } from '@storybook/addon-docs';
+import { ChangeLog, PackageInfo, StoryExample } from '../../components';
+import { PersonCard, PersonAvatar } from '@equinor/fusion-react-person/src';
+
+<Meta title="Data/Person/Card" component={PersonCard} />
+
+<PackageInfo pkg={require('@equinor/fusion-react-person/package.json')} />
+
+# PersonCard
+
+## Properties/Attributes
+
+Name                      | Type                            | Default                         | Description
+------------------------- | -----------------------------   | -----------------------------   | -----------
+`azureId`                 | `string`                        | `/`                             | Unique Azure ID for every person `required`
+`size`                    | `AvatarSize*`                   | `medium`                        | Size of elements of the card. See [`fusion-wc-avatar`](https://github.com/equinor/fusion-web-components/tree/main/packages/avatar).
+
+
+---
+
+
+\*  `AvatarSize` is exported by `fwc-avatar`.
+```ts
+type AvatarSize = 'xsmall' | 'small' | 'medium' | 'large';
+```
+
+## Example Usage
+
+```tsx
+import { PersonCard } from '@equinor/fusion-react-person';
+
+<PersonCard azureId="8a5f03ff-1875-4bf3-a3f4-aef1264e3bcc" />
+```
+
+## Example
+
+<StoryExample storyId="examples-person-person-card--component" showSource />
+
+## Person Provider
+
+In order to use components such as PersonAvatar or PersonCard you need to have **PersonProvider** wrapper.
+
+### Properties/Attributes
+
+Name                      | Type                            | Description
+------------------------- | -----------------------------   | -----------
+`resolve`                 | `PersonResolver*`               | Person resolver for a provider. See [`fwc-person-provider`](https://github.com/equinor/fusion-web-components/tree/main/packages/person/src/person-provider) 
+
+### Methods
+
+| Name                          | Return Type                     | Description
+| ----------------------------- | -----------------------------   | -----------------------------
+| `getPresence(azureId)`        | `PersonPresence**`              | Returns `PersonPresence` for unique AuzureId.
+| `getDetails(azureId)`         | `PersonDetails***`              | Returns `PersonDetails` for unique AuzureId.
+
+### Example Usage
+
+```tsx
+import { PersonProvider, PersonCard } from '@equinor/fusion-react-person';
+
+  <PersonProvider resolve={resolver}>
+    <PersonCard azureId {...props} />
+  </PersonProvider>
+```
+
+\*  `PersonResolver` is exported by `fwc-person-provider`.
+```ts
+interface PersonResolver {
+    getPresence: (azureId: string) => Promise<PersonPresence> | PersonPresence;
+    getDetails: (azureId: string) => Promise<PersonDetails> | PersonDetails;
+}
+```
+
+\*\* `PersonPresence` is exported by `fwc-person-provider`.
+```ts
+type PersonPresence = {
+    azureId: string;
+    availability: PersonAvailability;
+};
+
+```
+\*\*\*  `PersonDetails` is exported by `fwc-person-provider`.
+```ts
+type PersonDetails = {
+    azureId: string;
+    name?: string;
+    pictureSrc?: string;
+    jobTitle?: string;
+    department?: string;
+    mail?: string;
+    company?: string;
+    mobilePhone?: string;
+    accountType?: PersonAccountType;
+    officeLocation?: string;
+}
+```
+
+## Changelog
+
+<ChangeLog changelogs={require('@equinor/fusion-react-person/CHANGELOG.md')} />
