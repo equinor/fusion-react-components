@@ -5,6 +5,7 @@ import {
   PersonAvailability,
   AvatarSize,
   PersonAvatarProps,
+  PersonAccountType,
 } from '@equinor/fusion-react-person/src';
 
 export default {
@@ -49,14 +50,23 @@ export default {
         type: { summary: 'PersonAvailability' },
       },
     },
+    accountType: {
+      description: 'Employment type of the person',
+      control: 'select',
+      options: PersonAccountType,
+      table: {
+        type: { summary: 'PersonAccountType' },
+      },
+    },
   },
 } as Meta;
 
 export type AvatarProps = PersonAvatarProps & {
   availability?: PersonAvailability;
+  accountType: PersonAccountType;
 };
 
-const createResolve = (availability?: PersonAvailability) => ({
+const createResolve = (accountType: PersonAccountType, availability?: PersonAvailability) => ({
   getPresence: async (azureId: string) => {
     await new Promise((resolve) => setTimeout(resolve, 2000));
     return {
@@ -68,13 +78,14 @@ const createResolve = (availability?: PersonAvailability) => ({
     await new Promise((resolve) => setTimeout(resolve, 1000));
     return {
       azureId,
+      accountType,
       pictureSrc: 'https://prod-images.tcm.com/Master-Profile-Images/BurtReynolds.jpg',
     };
   },
 });
 
-export const Component: Story<AvatarProps> = ({ availability, ...props }: AvatarProps) => (
-  <PersonProvider resolve={createResolve(availability)}>
+export const Component: Story<AvatarProps> = ({ accountType, availability, ...props }: AvatarProps) => (
+  <PersonProvider resolve={createResolve(accountType, availability)}>
     <PersonAvatar {...props} />
   </PersonProvider>
 );
@@ -84,10 +95,11 @@ Component.args = {
   clickable: false,
   disabled: false,
   availability: PersonAvailability.Available,
+  accountType: PersonAccountType.Employee,
 };
 
 export const Size: Story<{ sizes: Array<AvatarProps['size']> }> = (props: { sizes: Array<AvatarProps['size']> }) => (
-  <PersonProvider resolve={createResolve(PersonAvailability.DoNotDisturb)}>
+  <PersonProvider resolve={createResolve(PersonAccountType.Employee, PersonAvailability.DoNotDisturb)}>
     <div style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
       {props.sizes.map((size) => (
         <PersonAvatar key={size} size={size} azureId="8a5f03ff-1875-4bf3-a3f4-aef1264e3bcc" />
@@ -98,7 +110,7 @@ export const Size: Story<{ sizes: Array<AvatarProps['size']> }> = (props: { size
 Size.args = { sizes: [AvatarSize.Large, AvatarSize.Medium, AvatarSize.Small, AvatarSize.XSmall] };
 
 export const Clickable: Story<AvatarProps> = ({ availability, ...props }: AvatarProps) => (
-  <PersonProvider resolve={createResolve(availability)}>
+  <PersonProvider resolve={createResolve(PersonAccountType.Employee, availability)}>
     <PersonAvatar {...props} />
   </PersonProvider>
 );
@@ -109,7 +121,7 @@ Clickable.args = {
 };
 
 export const Disabled: Story<AvatarProps> = ({ availability, ...props }: AvatarProps) => (
-  <PersonProvider resolve={createResolve(availability)}>
+  <PersonProvider resolve={createResolve(PersonAccountType.XExternal, availability)}>
     <PersonAvatar {...props} />
   </PersonProvider>
 );
