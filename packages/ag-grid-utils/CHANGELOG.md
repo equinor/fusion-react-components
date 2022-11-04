@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.4.3 (2022-10-27)
+
+
+### Bug Fixes
+
+* **ag-grid-utils:** Added optional chaining operators to props.data in StatusComponent ([fbdc55f](https://github.com/equinor/fusion-react-components/commit/fbdc55fbb553ea2ac02add20c0142eac43ad079f))
+
+
+
+
+
 ## [0.4.2](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-ag-grid-utils@0.4.1...@equinor/fusion-react-ag-grid-utils@0.4.2) (2022-10-10)
 
 

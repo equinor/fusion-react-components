@@ -1,16 +1,19 @@
 {
-  "name": "@equinor/fusion-react-ag-grid-utils",
-  "version": "0.4.3",
-  "description": "React addons for ag-grid utilities",
+  "name": "@equinor/fusion-react-person",
+  "version": "0.0.0",
+  "description": "React component for displaying an person information",
   "keywords": [
-    "ag-grid",
+    "person",
+    "card",
     "react",
     "fusion",
     "equinor"
   ],
-  "homepage": "https://github.com/equinor/fusion-react-components/tree/master/packages/ag-grid-utils#readme",
+  "homepage": "https://github.com/equinor/fusion-react-components/edit/feat/person-card/packages/person#readme",
   "license": "ISC",
   "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
   "directories": {
     "dist": "dist"
   },
@@ -33,10 +36,7 @@
   "bugs": {
     "url": "https://github.com/equinor/fusion-react-components/issues"
   },
-  "devDependencies": {
-    "@ag-grid-community/core": "^28.2.0"
-  },
-  "peerDependencies": {
-    "@ag-grid-community/core": ">= 28.2.0 < 29"
+  "dependencies": {
+    "@equinor/fusion-wc-person": "^0.3.3"
   }
 }
