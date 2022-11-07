@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.4.0 (2022-11-07)
+
+
+### Features
+
+* the filterpanel component now takes in a search function prop to use in seachbar ([09d05b9](https://github.com/equinor/fusion-react-components/commit/09d05b9e822ecccdbefc986fb9ebe93d8df7fa12))
+
+
+
+
+
 ## [1.3.8](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-filter@1.3.7...@equinor/fusion-react-filter@1.3.8) (2022-09-16)
 
 
