@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.46.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.45.11...@equinor/fusion-react-components-stories@1.46.0) (2022-11-04)
+
+
+### Bug Fixes
+
+* **person-card:** avatar border ([e85e3ab](https://github.com/equinor/fusion-react-components/commit/e85e3ab31e9aac1de4cfc7fcb241270d2b3f4306))
+* **person-card:** component story content ([37e0aa8](https://github.com/equinor/fusion-react-components/commit/37e0aa83cbfb0481684f0979ebb69286731a1ac1))
+* **person-card:** remove comment ([10e9dc3](https://github.com/equinor/fusion-react-components/commit/10e9dc354952f2f10153c5b078696bc024341b25))
+
+
+### Features
+
+* create wrapper for person card ([6df4b41](https://github.com/equinor/fusion-react-components/commit/6df4b415ba52f32234b1674f3b72805d56f6ffb6))
+* **person-card:** storybook ([6f6f348](https://github.com/equinor/fusion-react-components/commit/6f6f3488cc5454cee204561bf08341c72332f1d4))
+* **person-card:** wrap of the web component ([3c053c9](https://github.com/equinor/fusion-react-components/commit/3c053c9cb6d643ed99538ac16a08fd588b045820))
+
+
+
+
+
 ## 1.45.11 (2022-10-27)
 
 
