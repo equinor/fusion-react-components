@@ -6,6 +6,7 @@ import { FilterPanelBar } from './FilterPanelBar';
 import { SelectionChips } from '../misc';
 import FilterPanelSelector from './FilterPanelSelector';
 import { clsx, createStyles, makeStyles } from '@equinor/fusion-react-styles';
+import { FilterFn } from '../../types';
 
 const useStyles = makeStyles(
   (theme) =>
@@ -42,7 +43,7 @@ type StyleClasses = {
   filters: string;
 };
 
-export type FilterPanelProps = JSX.IntrinsicElements['div'] & {
+export type FilterPanelProps<TData> = JSX.IntrinsicElements['div'] & {
   /** Show filter bar */
   showBar?: boolean;
 
@@ -63,20 +64,23 @@ export type FilterPanelProps = JSX.IntrinsicElements['div'] & {
 
   /** style classes */
   classes?: Partial<StyleClasses>;
+
+  /** method to use for search bar */
+  searchFn?: FilterFn<TData, string>;
 };
 
 /**
  * Base component for displaying filter components and controllers
  */
-export const FilterPanel = (props: React.PropsWithChildren<FilterPanelProps>): JSX.Element => {
-  const { showFilters, className, classes, children, showSelection, ...args } = props;
+export const FilterPanel = <TData,>(props: React.PropsWithChildren<FilterPanelProps<TData>>): JSX.Element => {
+  const { showFilters, className, classes, children, showSelection, searchFn, ...args } = props;
   const filters = (Children.toArray(children) as ReactElement<FilterComponent>[]).filter((x) => !!x.props.filterKey);
   const initialSelectedFilters = props.selectedFilters || filters.map((x) => x.props.filterKey);
   const styles = useStyles();
   return (
     <FilterPanelProvider {...{ filters, initialSelectedFilters, showFilters }}>
       <div {...args} className={clsx(styles.root, classes?.root, className)}>
-        {props.showBar && <FilterPanelBar />}
+        {props.showBar && <FilterPanelBar searchFn={searchFn} />}
         <FilterPanelFilters
           FilterSelector={props.showSelector ? FilterPanelSelector : undefined}
           className={clsx(styles.filters, classes?.filters)}
