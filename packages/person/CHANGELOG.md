@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.1.1 (2022-11-08)
+
+
+### Bug Fixes
+
+* **person:** import latest person version from web components ([d769de6](https://github.com/equinor/fusion-react-components/commit/d769de6ab8cbe4c18449cc11031a3e8d79a154ce))
+
+
+
+
+
 # 0.1.0 (2022-11-04)
 
 
