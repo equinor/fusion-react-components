@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.1.1 (2022-11-09)
+
+
+### Bug Fixes
+
+* **searchable-dropdown:** exporting types and simplifying ([38a208d](https://github.com/equinor/fusion-react-components/commit/38a208dc73ed0a4695b1bf77fa24eec2400766d0))
+
+
+
+
+
 # 0.1.0 (2022-10-27)
 
 
