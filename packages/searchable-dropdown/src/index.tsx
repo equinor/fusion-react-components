@@ -1,6 +1,5 @@
 export * from './Dropdown';
 export * from './DropdownProvider';
-export * from './SearchableDropdown';
 export * from './useDropdownProviderRef';
 
 export {
@@ -8,4 +7,4 @@ export {
   SearchableDropdownProviderElement as HTMLSearchableDropdownProviderCustomElement,
 } from '@equinor/fusion-wc-searchable-dropdown';
 
-export { SearchableDropdown as default } from './SearchableDropdown';
+export { Dropdown as default } from './Dropdown';

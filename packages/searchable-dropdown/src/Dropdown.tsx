@@ -1,6 +1,12 @@
 /* eslint-disable react/no-multi-comp */
-import { SearchableDropdownElement } from '@equinor/fusion-wc-searchable-dropdown';
 import { ComponentProps, createComponent } from '@equinor/fusion-react-utils';
+
+import { SearchableDropdownElement } from '@equinor/fusion-wc-searchable-dropdown';
+export {
+  SearchableDropdownResult,
+  SearchableDropdownResultItem,
+  SearchableDropdownResolver,
+} from '@equinor/fusion-wc-searchable-dropdown';
 
 type ElementAttributes = Partial<
   Pick<
@@ -10,7 +16,7 @@ type ElementAttributes = Partial<
 >;
 
 type ElementEvents = {
-  onAction?: (e: Event) => void;
+  onSelect?: (e: Event) => void;
 };
 
 type ElementProps = ElementAttributes & ElementEvents;
@@ -20,7 +26,7 @@ export type DropdownProps = ComponentProps<SearchableDropdownElement, ElementPro
 export const Dropdown = createComponent<SearchableDropdownElement, ElementProps>(
   SearchableDropdownElement,
   'fwc-searchable-dropdown',
-  { events: { onAction: 'action' } }
+  { events: { onSelect: 'select' } }
 );
 
 export default Dropdown;
