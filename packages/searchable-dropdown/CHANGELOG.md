@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.2](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-searchable-dropdown@0.1.1...@equinor/fusion-react-searchable-dropdown@0.1.2) (2022-11-09)
+
+
+### Bug Fixes
+
+* updating webcomponent renaming contextsel type ([5c7bf8d](https://github.com/equinor/fusion-react-components/commit/5c7bf8d19535b4448f5cfc57c8317bc3715699df))
+
+
+
+
+
 ## 0.1.1 (2022-11-09)
 
 
