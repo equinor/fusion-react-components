@@ -1,0 +1,46 @@
+import { Meta, Story, Canvas, ArgsTable, Description } from '@storybook/addon-docs';
+import ChangeLog from '../../components/ChangeLog';
+
+import { ContextSelector, ContextSelectorProps } from '@equinor/fusion-react-context-selector';
+import { _handleSelect, _ContextQeuryResolver } from './contextResolver';
+
+<Meta title="Data/ContextSelector" />
+
+<Description markdown={require('@equinor/fusion-react-context-selector/README.md')} />
+
+<ArgsTable of={ContextSelector} />
+
+<PackageInfo pkg={require('@equinor/fusion-react-context-selector/package.json')} />
+
+## Component
+
+export const Template = ({ children, ...props }) => {
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '80%', height: '250px', margin: '0 auto' }}>
+      <ContextSelector {...props}>{children}</ContextSelector>
+    </div>
+  );
+};
+
+## Component
+<Canvas withSource="closed">
+  <Story name="Component" args={
+    {
+      label: 'Context Selector',
+      placeholder: 'Search here..',
+      initialText: 'Type to search...',
+      onSelect: _handleSelect,
+      resolver:  _ContextQeuryResolver
+    }}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+## ChangeLog
+
+<ChangeLog
+  changelogs={{
+    react: require('@equinor/fusion-react-context-selector/CHANGELOG.md'),
+    webComponent: require('@equinor/fusion-wc-searchable-dropdown/CHANGELOG.md'),
+  }}
+/>

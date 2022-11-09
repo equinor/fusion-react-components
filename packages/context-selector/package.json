@@ -1,16 +1,17 @@
 {
-  "name": "@equinor/fusion-react-searchable-dropdown",
-  "version": "0.1.0",
-  "description": "component for displaying searchable dropdown",
+  "name": "@equinor/fusion-react-context-selector",
+  "version": "0.0.1",
+  "description": "React component for context selector",
   "keywords": [
-    "searchable dropdown",
-    "text input",
+    "contextselector",
+    "searchabledropdown",
+    "textinput",
     "list",
     "react",
     "fusion",
     "equinor"
   ],
-  "homepage": "https://github.com/equinor/fusion-react-components/tree/master/packages/searchable-dropdown#readme",
+  "homepage": "https://github.com/equinor/fusion-react-components/tree/master/packages/context-selector#readme",
   "license": "ISC",
   "main": "dist/index.js",
   "directories": {
@@ -36,7 +37,7 @@
     "url": "https://github.com/equinor/fusion-react-components/issues"
   },
   "dependencies": {
-    "@equinor/fusion-react-utils": "^2.0.3",
-    "@equinor/fusion-wc-searchable-dropdown": "^0.3.0"
+    "@equinor/fusion-react-searchable-dropdown": "^0.1.0",
+    "@equinor/fusion-react-utils": "^2.0.3"
   }
 }
