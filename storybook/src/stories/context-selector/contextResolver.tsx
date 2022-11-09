@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import { SearchableDropdownResultItem, SearchableDropdownResult } from '@equinor/fusion-wc-searchable-dropdown';
+import { SearchableDropdownResultItem, SearchableDropdownResult } from '@equinor/fusion-react-context-selector';
 
 const allItems: SearchableDropdownResult = [
 	{"id":"section-001","title":"Apps prod","type":"section","children":[

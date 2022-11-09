@@ -7,6 +7,7 @@
   "include": ["src/**/*.ts", "src/**/*.tsx"],
   "exclude": ["node_modules"],
   "references": [
-    { "path": "../utils" }
+    { "path": "../utils" },
+    { "path": "../searchable-dropdown" }
   ]
 }
