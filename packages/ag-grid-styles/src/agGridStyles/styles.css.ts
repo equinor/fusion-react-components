@@ -269,6 +269,11 @@ export const agGridStyles = {
       "overflow": "hidden",
       "textOverflow": "ellipsis"
     },
+    ".ag-header-cell:not(.ag-header-cell-auto-height) .ag-header-cell-comp-wrapper": {
+      "height": "100%",
+      "display": "flex",
+      "alignItems": "center"
+    },
     ".ag-header-cell-comp-wrapper": {
       "width": "100%",
       "overflow": "hidden"
@@ -933,9 +938,10 @@ export const agGridStyles = {
       "justifyContent": "space-between",
       "flexDirection": "row-reverse",
       "alignItems": "center",
+      "height": "100%",
       "width": "100%",
       "overflow": "hidden",
-      "padding": "5px 0px 5px 0px"
+      "padding": "5px 0px"
     },
     ".ag-right-aligned-header .ag-cell-label-container": {
       "flexDirection": "row"
@@ -1305,13 +1311,17 @@ export const agGridStyles = {
       "overflowY": "visible !important"
     },
     "@media print": {
-      ".ag-root-wrapper.ag-layout-print, .ag-root-wrapper.ag-layout-print .ag-root-wrapper-body, .ag-root-wrapper.ag-layout-print .ag-root, .ag-root-wrapper.ag-layout-print .ag-body-viewport, .ag-root-wrapper.ag-layout-print .ag-center-cols-container, .ag-root-wrapper.ag-layout-print .ag-center-cols-viewport, .ag-root-wrapper.ag-layout-print .ag-center-cols-clipper, .ag-root-wrapper.ag-layout-print .ag-body-horizontal-scroll-viewport, .ag-root-wrapper.ag-layout-print .ag-virtual-list-viewport": {
+      ".ag-root-wrapper.ag-layout-print": {
+        "display": "table"
+      },
+      ".ag-root-wrapper.ag-layout-print .ag-root-wrapper-body, .ag-root-wrapper.ag-layout-print .ag-root, .ag-root-wrapper.ag-layout-print .ag-body-viewport, .ag-root-wrapper.ag-layout-print .ag-center-cols-container, .ag-root-wrapper.ag-layout-print .ag-center-cols-viewport, .ag-root-wrapper.ag-layout-print .ag-center-cols-clipper, .ag-root-wrapper.ag-layout-print .ag-body-horizontal-scroll-viewport, .ag-root-wrapper.ag-layout-print .ag-virtual-list-viewport": {
         "height": "auto !important",
         "overflow": "hidden !important",
         "display": "block !important"
       },
-      ".ag-root-wrapper.ag-layout-print .ag-row": {
-        "pageBreakInside": "avoid"
+      ".ag-root-wrapper.ag-layout-print .ag-row, .ag-root-wrapper.ag-layout-print .ag-cell": {
+        "mozColumnBreakInside": "avoid",
+        "breakInside": "avoid"
       }
     },
     ".ag-body .ag-body-viewport": {
@@ -2027,8 +2037,8 @@ export const agGridStyles = {
       "marginLeft": "12px"
     },
     ".ag-theme-alpine .ag-cell-wrapper > *:not(.ag-cell-value):not(.ag-group-value)": {
-      "agInternalCalculatedLineHeight": "var(--ag-line-height, ag-param(row-height) - 2px)",
-      "agInternalPaddedRowHeight": "ag-param(row-height) - 2px",
+      "agInternalCalculatedLineHeight": "var(--ag-line-height, 40px)",
+      "agInternalPaddedRowHeight": "40px",
       "height": "min(var(--ag-internal-calculated-line-height), var(--ag-internal-padded-row-height))",
       "display": "flex",
       "alignItems": "center",
@@ -4469,8 +4479,8 @@ export const agGridStyles = {
       "marginRight": "auto"
     },
     ".ag-theme-alpine .ag-cell, .ag-theme-alpine .ag-full-width-row .ag-cell-wrapper.ag-row-group": {
-      "agInternalCalculatedLineHeight": "var(--ag-line-height, ag-param(row-height) - 2px)",
-      "agInternalPaddedRowHeight": "ag-param(row-height) - 2px",
+      "agInternalCalculatedLineHeight": "var(--ag-line-height, 40px)",
+      "agInternalPaddedRowHeight": "40px",
       "border": "1px solid transparent",
       "lineHeight": "min(var(--ag-internal-calculated-line-height), var(--ag-internal-padded-row-height))",
       "paddingLeft": "17px",
@@ -4592,13 +4602,21 @@ export const agGridStyles = {
       ]
     },
     ".ag-theme-alpine .ag-loading": {
-      "paddingLeft": "18px",
       "display": "flex",
       "height": "100%",
       "alignItems": "center"
     },
-    ".ag-theme-alpine .ag-loading-icon": {
+    ".ag-theme-alpine .ag-ltr .ag-loading": {
+      "paddingLeft": "18px"
+    },
+    ".ag-theme-alpine .ag-rtl .ag-loading": {
+      "paddingRight": "18px"
+    },
+    ".ag-theme-alpine .ag-ltr .ag-loading-icon": {
       "paddingRight": "12px"
+    },
+    ".ag-theme-alpine .ag-rtl .ag-loading-icon": {
+      "paddingLeft": "12px"
     },
     ".ag-theme-alpine .ag-icon-loading": {
       "animationName": "spin",
@@ -7298,8 +7316,8 @@ export const agGridStyles = {
       "marginLeft": "12px"
     },
     ".ag-theme-alpine-fusion .ag-cell-wrapper > *:not(.ag-cell-value):not(.ag-group-value)": {
-      "agInternalCalculatedLineHeight": "var(--ag-line-height, ag-param(row-height) - 2px)",
-      "agInternalPaddedRowHeight": "ag-param(row-height) - 2px",
+      "agInternalCalculatedLineHeight": "var(--ag-line-height, 40px)",
+      "agInternalPaddedRowHeight": "40px",
       "height": "min(var(--ag-internal-calculated-line-height), var(--ag-internal-padded-row-height))",
       "display": "flex",
       "alignItems": "center",
@@ -9740,8 +9758,8 @@ export const agGridStyles = {
       "marginRight": "auto"
     },
     ".ag-theme-alpine-fusion .ag-cell, .ag-theme-alpine-fusion .ag-full-width-row .ag-cell-wrapper.ag-row-group": {
-      "agInternalCalculatedLineHeight": "var(--ag-line-height, ag-param(row-height) - 2px)",
-      "agInternalPaddedRowHeight": "ag-param(row-height) - 2px",
+      "agInternalCalculatedLineHeight": "var(--ag-line-height, 40px)",
+      "agInternalPaddedRowHeight": "40px",
       "border": "1px solid transparent",
       "lineHeight": "min(var(--ag-internal-calculated-line-height), var(--ag-internal-padded-row-height))",
       "paddingLeft": "17px",
@@ -9863,13 +9881,21 @@ export const agGridStyles = {
       ]
     },
     ".ag-theme-alpine-fusion .ag-loading": {
-      "paddingLeft": "18px",
       "display": "flex",
       "height": "100%",
       "alignItems": "center"
     },
-    ".ag-theme-alpine-fusion .ag-loading-icon": {
+    ".ag-theme-alpine-fusion .ag-ltr .ag-loading": {
+      "paddingLeft": "18px"
+    },
+    ".ag-theme-alpine-fusion .ag-rtl .ag-loading": {
+      "paddingRight": "18px"
+    },
+    ".ag-theme-alpine-fusion .ag-ltr .ag-loading-icon": {
       "paddingRight": "12px"
+    },
+    ".ag-theme-alpine-fusion .ag-rtl .ag-loading-icon": {
+      "paddingLeft": "12px"
     },
     ".ag-theme-alpine-fusion .ag-icon-loading": {
       "animationName": "spin",
