@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.4.5 (2022-11-09)
+
+
+### Bug Fixes
+
+* **context-selector:** exporting types and using parts from dropdown ([45add70](https://github.com/equinor/fusion-react-components/commit/45add70b6f35e42c625b004de171b08b0eb3bbbc))
+
+
+
+
+
 ## [0.4.4](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-ag-grid-styles@0.4.3...@equinor/fusion-react-ag-grid-styles@0.4.4) (2022-10-21)
 
 

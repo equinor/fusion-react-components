@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
-import { SearchableDropdownResultItem, SearchableDropdownResult } from '@equinor/fusion-react-context-selector';
+import { ContextResultItem, ContextResult } from '@equinor/fusion-react-context-selector';
 
-const allItems: SearchableDropdownResult = [
+const allItems: ContextResult = [
 	{"id":"section-001","title":"Apps prod","type":"section","children":[
 		{"id":"8aa0d62f-21d4-4933-a1e1-823a8de7c13c","title":"Johan prod","subTitle":"An App from Fusion","graphic":"settings"},
 		{"id":"8aa0d62f-21d4-4933-a1e1-823a8de7c13d","title":"Johan2 prod","subTitle":"An App from Fusion","graphic":"settings"},
@@ -20,8 +20,8 @@ const allItems: SearchableDropdownResult = [
 	{"id":"8aa0d62f-21d4-4933-a1e1-823a8de7c15d","title":"Unsectioned4 prod","subTitle":"Some random item"}
 ];
 
-/* generates a single SearchableDropdownResult item with required propeterties  */
-const singleItem = (props: unknown): SearchableDropdownResultItem => {
+/* generates a single ContextResult item with required propeterties  */
+const singleItem = (props: unknown): ContextResultItem => {
   return Object.assign({ id: '0', title: 'Dummy title' }, props);
 };
 
@@ -30,7 +30,7 @@ const singleItem = (props: unknown): SearchableDropdownResultItem => {
  * Takes the query string to search for and returns a promise with matching projects by title.
  */
 export const _ContextQeuryResolver = {
-  searchQuery: async (query: string): Promise<SearchableDropdownResult> => {
+  searchQuery: async (query: string): Promise<ContextResult> => {
     try {
       /* min length of query string */
       const min = 3;

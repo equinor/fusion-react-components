@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.47.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.46.2...@equinor/fusion-react-components-stories@1.47.0) (2022-11-09)
+
+
+### Bug Fixes
+
+* **context-selector:** exporting types and using parts from dropdown ([45add70](https://github.com/equinor/fusion-react-components/commit/45add70b6f35e42c625b004de171b08b0eb3bbbc))
+
+
+### Features
+
+* **context-selector:** adding package to storybook ([b0d65c9](https://github.com/equinor/fusion-react-components/commit/b0d65c969d0b0b97f3b7085a9b90638150a0ea5c))
+* **context-selector:** extending component from web-components ([b03b3ee](https://github.com/equinor/fusion-react-components/commit/b03b3eebacf337840c76f5b10718ae263f551afe))
+
+
+
+
+
 ## [1.46.2](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.46.1...@equinor/fusion-react-components-stories@1.46.2) (2022-11-08)
 
 **Note:** Version bump only for package @equinor/fusion-react-components-stories
