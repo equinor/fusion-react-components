@@ -58,6 +58,8 @@
     "webpack-stream": "^7.0.0"
   },
   "peerDependencies": {
-    "@ag-grid-community/core": "^28.2.0"
+    "@ag-grid-community/core": "^28.2.0",
+    "@material-ui/styles": "^4.11.5",
+    "@equinor/fusion-react-styles": "^0.5.5"
   }
 }
