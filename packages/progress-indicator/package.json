@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-progress-indicator",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "React components for displaying loader",
   "keywords": [
     "loader",
@@ -35,7 +35,7 @@
     "url": "https://github.com/equinor/fusion-react-components/issues"
   },
   "dependencies": {
-    "@equinor/fusion-react-utils": "^2.0.3",
+    "@equinor/fusion-react-utils": "^2.0.4",
     "@equinor/fusion-wc-progress-indicator": "^0.4.3"
   }
 }
