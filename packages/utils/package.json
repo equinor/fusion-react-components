@@ -10,7 +10,11 @@
   ],
   "homepage": "https://github.com/equinor/fusion-react-components/tree/master/packages/switch#readme",
   "license": "ISC",
-  "main": "dist/index.js",
+  "main": "dist/esm/index.js",
+  "exports": {
+    ".": "./dist/esm/index.js"
+  },
+  "types": "./dist/types/index.d.ts",
   "directories": {
     "dist": "dist"
   },
@@ -42,12 +46,5 @@
   },
   "peerDependencies": {
     "react": "^17.0.0 || ^18.0.0"
-  },
-  "typesVersions": {
-    ">=4.2": {
-      "*": [
-        "dist/types/*"
-      ]
-    }
   }
 }
