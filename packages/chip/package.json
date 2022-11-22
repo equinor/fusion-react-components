@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-chip",
-  "version": "0.3.12",
+  "version": "0.3.13",
   "description": "React component for displaying a chip",
   "keywords": [
     "chip",
@@ -34,7 +34,7 @@
     "url": "https://github.com/equinor/fusion-react-components/issues"
   },
   "dependencies": {
-    "@equinor/fusion-react-utils": "^2.0.3",
+    "@equinor/fusion-react-utils": "^2.0.4",
     "@equinor/fusion-wc-chip": "^0.2.16"
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-searchable-dropdown",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "component for displaying searchable dropdown",
   "keywords": [
     "searchable dropdown",
@@ -36,7 +36,7 @@
     "url": "https://github.com/equinor/fusion-react-components/issues"
   },
   "dependencies": {
-    "@equinor/fusion-react-utils": "^2.0.3",
+    "@equinor/fusion-react-utils": "^2.0.4",
     "@equinor/fusion-wc-searchable-dropdown": "^0.3.2"
   }
 }

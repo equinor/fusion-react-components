@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.3.13 (2022-11-21)
+
+**Note:** Version bump only for package @equinor/fusion-react-chip
+
+
+
+
+
 ## [0.3.12](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-chip@0.3.11...@equinor/fusion-react-chip@0.3.12) (2022-06-29)
 
 **Note:** Version bump only for package @equinor/fusion-react-chip

@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-observable",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "description": "WIP",
   "private": false,
   "keywords": [
@@ -35,7 +35,7 @@
     "url": "https://github.com/equinor/fusion-react-components/issues"
   },
   "dependencies": {
-    "@equinor/fusion-react-utils": "^2.0.3",
+    "@equinor/fusion-react-utils": "^2.0.4",
     "rxjs": "^7.4.0"
   }
 }
