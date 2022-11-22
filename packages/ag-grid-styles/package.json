@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-ag-grid-styles",
-  "version": "0.4.5",
+  "version": "0.4.6",
   "description": "React addons for ag-grid styles",
   "keywords": [
     "ag-grid",
@@ -59,7 +59,7 @@
   },
   "peerDependencies": {
     "@ag-grid-community/core": "^28.2.0",
-    "@material-ui/styles": "^4.11.5",
-    "@equinor/fusion-react-styles": "^0.5.5"
+    "@equinor/fusion-react-styles": "^0.5.5",
+    "@material-ui/styles": "^4.11.5"
   }
 }
