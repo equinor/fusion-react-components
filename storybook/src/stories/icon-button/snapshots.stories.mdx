@@ -1,0 +1,80 @@
+import { Meta, Story, Canvas, ArgsTable, Description } from '@storybook/addon-docs';
+import readme from '@equinor/fusion-react-icon/README.md';
+import { IconButton, iconNames } from '@equinor/fusion-react-icon-button';
+
+export const Template = ({ children, ...props }) => {
+  return (
+    <IconButton {...props}>{children}</IconButton>
+  );
+};
+
+export const Container = ({ title, children }) => (
+  <section>
+    <h4>{title}</h4>
+    <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }}>{children}</div>
+  </section>
+);
+
+<Meta
+  title="Snapshots/IconButton"
+  parameters={{ chromatic: { disableSnapshot: false } }}
+/>
+
+## Size
+<Story name="Size" args={{ 
+      icon: 'power', 
+      color: 'primary',
+  }}>
+  {(args) => {
+    const sizes = ['x-large', 'large', 'medium', 'small', 'x-small'];
+    return (
+      <>
+      <Container title="rounded">
+        {sizes.map((size)=>{
+          return <Template key={size} size={size} {...args} rounded></Template>
+        })}
+      </Container>
+      <Container title="squared">
+        {sizes.map((size)=>{
+          return <Template key={size} size={size} {...args}></Template>
+        })}
+      </Container>
+      </>
+    );
+  }}
+</Story>
+
+## Color
+<Story name="Color" args={{ 
+      icon: 'power', 
+      size: 'medium',
+  }}>
+  {(args) => {
+    const colors = ['primary', 'secondary', 'success', 'danger', 'warning', 'disabled'];
+    return (
+      <>
+        <Container title="rounded">
+          {colors.map((color)=>{
+            return <Template key={color} color={color} {...args} rounded></Template>
+          })}
+        </Container>
+        <Container title="squared">
+          {colors.map((color)=>{
+            return <Template key={color} color={color} {...args}></Template>
+          })}
+        </Container>
+      </>
+    );
+  }}
+</Story>
+
+## Disabled
+<Story
+  name="Disabled"
+  args={{
+      icon: "power",
+      disabled: true
+    }}
+  >
+  {Template.bind({})}
+</Story>

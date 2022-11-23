@@ -4,7 +4,9 @@
     "rootDir": "src",
     "resolveJsonModule": true
   },
-  "exclude": ["node_modules"],
+  "exclude": [
+    "node_modules"
+  ],
   "references": [
     {
       "path": "../packages/avatar"
@@ -35,6 +37,9 @@
     },
     {
       "path": "../packages/icon"
+    },
+    {
+      "path": "../packages/icon-button"
     },
     {
       "path": "../packages/observable"
@@ -91,7 +96,7 @@
       "path": "../packages/typography"
     },
     {
-      "path": "../packages/utils" 
+      "path": "../packages/utils"
     }
   ]
 }
