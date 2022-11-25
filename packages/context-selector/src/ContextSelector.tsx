@@ -5,17 +5,17 @@ import {
   useDropdownProviderRef,
   DropdownProps,
   SearchableDropdownResolver,
+  SearchableDropdownResult,
+  SearchableDropdownResultItem
 } from '@equinor/fusion-react-searchable-dropdown';
 
 type ElementResolver = {
   resolver?: SearchableDropdownResolver;
 };
 
-export {
-  SearchableDropdownResult as ContextResult,
-  SearchableDropdownResultItem as ContextResultItem,
-} from '@equinor/fusion-react-searchable-dropdown';
-
+export type ContextResult = SearchableDropdownResult;
+export type ContextResultItem = SearchableDropdownResultItem;
+export type ContextResolver = SearchableDropdownResolver;
 export type ContextSelectorProps = DropdownProps & ElementResolver;
 
 export const ContextSelector = ({ children, ...props }: React.PropsWithChildren<ContextSelectorProps>): JSX.Element => {
