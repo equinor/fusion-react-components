@@ -1,17 +1,20 @@
 import { Meta, Story, Canvas, ArgsTable, Description } from '@storybook/addon-docs';
 import { ChangeLog, PackageInfo, StoryExample } from '../../components';
-import SearchableDropdown from '@equinor/fusion-react-searchable-dropdown';
+import { Dropdown, DropdownProvider, useDropdownProviderRef } from '@equinor/fusion-react-searchable-dropdown';
 import { _handleAction, _exampleResolver } from './component.helpers';
 
 <Meta
   title="Data/Searchable-Dropdown"
-  component={SearchableDropdown}
+  component={Dropdown}
 />
 
 export const Template = ({ children, ...props }) => {
+  const providerRef = useDropdownProviderRef(_exampleResolver);
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', height: '250px' }}>
-      <SearchableDropdown {...props}>{children}</SearchableDropdown>
+    <div style={{ width: '98%', maxWidth: '420px', height: '350px', margin: '0 auto' }}>
+      <DropdownProvider ref={providerRef}>
+        <Dropdown {...props} />
+      </DropdownProvider>
     </div>
   );
 };
@@ -21,14 +24,53 @@ export const Template = ({ children, ...props }) => {
 ## Component
 
 <Canvas withSource="closed">
-  <Story name="Component" args={
-    {
-      label: 'SearchableDropdown',
-      placeholder: 'Your search term..',
-      initialText: 'Type to search...',
-      onAction: _handleAction,
-      resolver:  _exampleResolver
-    }}>
+  <Story name="Component" args={{
+      placeholder: 'Start to type to search...',
+      initialText: 'The initial text result',
+      id: 'sdd-test',
+      variant: 'page',
+      dropdownHeight: '300px'
+    }}
+    argTypes={{
+      id: {
+        type: 'string',
+        description: 'HTML ID for component',
+      },
+      placeholder: {
+        description: 'TextInput placeholder string',
+      },
+      initialText: {
+        type: 'string',
+        description: 'First item in dropdown before any search is done',
+      },
+      variant: {
+        type: 'string',
+        description: 'The type of Searchabledropdown to render, multiple variants for header or page usage',
+        control: 'select',
+        options: [
+          'page', 'page-outlined', 'page-dense', 'header', 'header-filled'
+        ]
+      },
+      dropdownHeight: {
+        description: 'The scroll height for dropdown result list'
+      },
+      label: {
+        description: 'Textinput label'
+      },
+      value: {
+        description: 'The selected value do display in TextInput'
+      },
+      meta: {
+        description: 'A fwc-icon name to show AFTER each list item. may also be set per result item.'
+      },
+      graphic: {
+        description: 'A fwc-icon name to show BEFORE each list item. may also be set per result item.'
+      },
+      multiple: {
+        description: 'Flag for selecting multiple items.'
+      }
+    }}
+    >
     {Template.bind({})}
   </Story>
 </Canvas>
@@ -36,6 +78,35 @@ export const Template = ({ children, ...props }) => {
 ## Args
 
 <ArgsTable story="Component" />
+
+## How to use
+
+The ``searchable-dropdown`` component is built up of 2 elements, ``dropdown`` and ``dropdownProvider``.
+
+Wrap the dropdown component in the provider and add a ref to the provider element by using the hook ``useDropdownProviderRef`` with the resolver as parameter.
+The resolver must be of type ``SearchableDropdownResolver``.
+
+The resolver has the method ``searchQuery`` which is called on every keyup event with 250ms debounce from the textinput element. So place your API call on the resolvers searchQuery method.
+Your API call should return an array of type ``SearchabledropdownResult`` where each item is of type ``SearchableDropdownResultItem`` with the following properties.
+
+```typescript
+interface SearchableDropdownResultItem {
+id: string;
+  title?: string;
+  subTitle?: string;
+  isDisabled?: boolean;
+  isSelected?: boolean;
+  isError?: boolean;
+  meta?: string;
+  graphic?: string;
+  type?: 'section' | 'divider' | null;
+  children?: SearchableDropdownResult;
+}
+```
+
+When the user selects and item from the result list the ``onSelect`` event gets triggered. The ``onSelect`` events detail object contains the selected item, or items if multiple flag is set. 
+
+Listen for the ``onSelect`` event and save the selected item in your context/state handler.
 
 ## Composition
 
