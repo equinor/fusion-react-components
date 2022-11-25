@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.1.6 (2022-11-25)
+
+
+### Bug Fixes
+
+* **searchable-dropown:** bumping fwc-searchable-dropdown ([1893ebd](https://github.com/equinor/fusion-react-components/commit/1893ebdec7915d13db5a37b4f75d2919ee8b37a4))
+
+
+
+
+
 ## 0.1.5 (2022-11-25)
 
 
