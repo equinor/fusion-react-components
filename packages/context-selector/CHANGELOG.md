@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.5](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-context-selector@0.1.4...@equinor/fusion-react-context-selector@0.1.5) (2022-11-25)
+
+
+### Bug Fixes
+
+* **contextselector:** exporting types properly ([6b839fe](https://github.com/equinor/fusion-react-components/commit/6b839fe1070145c41a1e52f3bfd97c11f8a0d344))
+
+
+
+
+
 ## 0.1.4 (2022-11-25)
 
 
