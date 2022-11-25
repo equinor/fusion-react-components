@@ -2,7 +2,7 @@ import { Meta, Story, Canvas, ArgsTable, Description } from '@storybook/addon-do
 import ChangeLog from '../../components/ChangeLog';
 
 import { ContextSelector, ContextSelectorProps } from '@equinor/fusion-react-context-selector';
-import { _handleSelect, _ContextQeuryResolver } from './contextResolver';
+import { _handleSelect, _exampleResolver } from '../searchable-dropdown/component.helpers.tsx';
 
 <Meta title="Data/ContextSelector" />
 
@@ -12,35 +12,79 @@ import { _handleSelect, _ContextQeuryResolver } from './contextResolver';
 
 <PackageInfo pkg={require('@equinor/fusion-react-context-selector/package.json')} />
 
-## Component
-
 export const Template = ({ children, ...props }) => {
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', width: '80%', height: '250px', margin: '0 auto' }}>
+    <div style={{ width: '98%', maxWidth: '420px', height: '350px', margin: '0 auto' }}>
       <ContextSelector {...props}>{children}</ContextSelector>
     </div>
   );
 };
 
-## Component
+## ContextSelector Component 
 <Canvas withSource="closed">
-  <Story name="Component" args={
-    {
-      label: 'Context Selector',
-      placeholder: 'Search here..',
-      initialText: 'Type to search...',
-      onSelect: _handleSelect,
-      resolver:  _ContextQeuryResolver
-    }}>
+  <Story name="Component" args={{
+      label: 'Context selector',
+      placeholder: 'Start to type to search...',
+      initialText: 'The initial text result',
+      id: 'sdd-test',
+      variant: 'page',
+      dropdownHeight: '300px',
+      resolver: _exampleResolver
+    }}
+    argTypes={{
+      id: {
+        type: 'string',
+        description: 'HTML ID for component',
+      },
+      placeholder: {
+        description: 'TextInput placeholder string',
+      },
+      initialText: {
+        type: 'string',
+        description: 'First item in dropdown before any search is done',
+      },
+      variant: {
+        type: 'string',
+        description: 'The type of Searchabledropdown to render, multiple variants for header or page usage',
+        control: 'select',
+        options: [
+          'page', 'page-outlined', 'page-dense', 'header', 'header-filled'
+        ]
+      },
+      dropdownHeight: {
+        description: 'The scroll height for dropdown result list'
+      },
+      label: {
+        description: 'Textinput label'
+      },
+      value: {
+        description: 'The selected value do display in TextInput'
+      },
+      meta: {
+        description: 'A fwc-icon name to show AFTER each list item. may also be set per result item.'
+      },
+      graphic: {
+        description: 'A fwc-icon name to show BEFORE each list item. may also be set per result item.'
+      },
+      multiple: {
+        description: 'Flag for selecting multiple items.'
+      }
+    }}
+    >
     {Template.bind({})}
   </Story>
 </Canvas>
+
+<ArgsTable story="Component" />
+
+## Extending component
+
+<Description markdown={require('@equinor/fusion-react-searchable-dropdown/README.md')} />
 
 ## ChangeLog
 
 <ChangeLog
   changelogs={{
     react: require('@equinor/fusion-react-context-selector/CHANGELOG.md'),
-    webComponent: require('@equinor/fusion-wc-searchable-dropdown/CHANGELOG.md'),
   }}
 />

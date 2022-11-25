@@ -11,7 +11,17 @@ export {
 type ElementAttributes = Partial<
   Pick<
     SearchableDropdownElement,
-    'label' | 'placeholder' | 'variant' | 'meta' | 'selected' | 'initialText' | 'trailingIcon'
+    | 'id'
+    | 'label'
+    | 'placeholder'
+    | 'variant'
+    | 'meta'
+    | 'value'
+    | 'initialText'
+    | 'leadingIcon'
+    | 'dropdownHeight'
+    | 'multiple'
+    | 'graphic'
   >
 >;
 

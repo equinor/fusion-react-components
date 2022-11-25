@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.4.6 (2022-11-22)
+
+
+### Bug Fixes
+
+* :bug: fix missing deps in ag-grid-styles ([0e43f68](https://github.com/equinor/fusion-react-components/commit/0e43f685c98eb00adea8ab3c706c8226350f31c6))
+
+
+
+
+
 ## 0.4.5 (2022-11-09)
 
 
