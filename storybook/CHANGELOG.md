@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.0.0 (2022-11-25)
+
+
+### Bug Fixes
+
+* updated contextselector and sdd to match webcomponent and storybook ([24ae5f4](https://github.com/equinor/fusion-react-components/commit/24ae5f4e7ff6468f9a046a9e3d5ea955a2258c1d))
+
+
+### Features
+
+* bumping to major release ([07a7861](https://github.com/equinor/fusion-react-components/commit/07a7861296027df897ceb491e36243e188f229cb))
+
+
+### BREAKING CHANGES
+
+* new resolver and types
+
+
+
+
+
 ## [1.47.3](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.47.2...@equinor/fusion-react-components-stories@1.47.3) (2022-11-21)
 
 **Note:** Version bump only for package @equinor/fusion-react-components-stories

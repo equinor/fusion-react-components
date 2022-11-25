@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.1.5 (2022-11-25)
+
+
+### Bug Fixes
+
+* **searchabledropdown:** bumping version from webcomponents ([4c95065](https://github.com/equinor/fusion-react-components/commit/4c9506576b02151feedd2d794e9d75c861da7a7a))
+* updated contextselector and sdd to match webcomponent and storybook ([24ae5f4](https://github.com/equinor/fusion-react-components/commit/24ae5f4e7ff6468f9a046a9e3d5ea955a2258c1d))
+
+
+
+
+
 ## [0.1.4](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-searchable-dropdown@0.1.3...@equinor/fusion-react-searchable-dropdown@0.1.4) (2022-11-21)
 
 **Note:** Version bump only for package @equinor/fusion-react-searchable-dropdown
