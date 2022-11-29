@@ -1,7 +1,12 @@
 /* eslint-disable react/no-multi-comp */
+import { BaseSyntheticEvent } from 'react';
 import { ComponentProps, createComponent } from '@equinor/fusion-react-utils';
 
-import { SearchableDropdownElement } from '@equinor/fusion-wc-searchable-dropdown';
+import {
+  SearchableDropdownElement,
+  SearchableDropdownSelectEvent as HTMLSearchableDropdownSelectEvent,
+} from '@equinor/fusion-wc-searchable-dropdown';
+
 export {
   SearchableDropdownResult,
   SearchableDropdownResultItem,
@@ -25,8 +30,10 @@ type ElementAttributes = Partial<
   >
 >;
 
+export type SearchableDropdownSelectEvent = BaseSyntheticEvent<HTMLSearchableDropdownSelectEvent>;
+
 type ElementEvents = {
-  onSelect?: (e: Event) => void;
+  onSelect?: (e: SearchableDropdownSelectEvent) => void;
 };
 
 type ElementProps = ElementAttributes & ElementEvents;
