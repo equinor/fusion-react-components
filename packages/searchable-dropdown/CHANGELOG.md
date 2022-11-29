@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.7](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-searchable-dropdown@0.1.6...@equinor/fusion-react-searchable-dropdown@0.1.7) (2022-11-29)
+
+
+### Bug Fixes
+
+* **searchabledropdown:** typehinting for SelectEvent in react ([7b13d22](https://github.com/equinor/fusion-react-components/commit/7b13d22a752c43d54036fc5ac74d5c8a3fbfef52))
+
+
+
+
+
 ## 0.1.6 (2022-11-25)
 
 
