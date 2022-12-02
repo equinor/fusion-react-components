@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.8](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-searchable-dropdown@0.1.7...@equinor/fusion-react-searchable-dropdown@0.1.8) (2022-12-02)
+
+
+### Bug Fixes
+
+* **searchabledropdown:** bumping extended webcomponent ([f14e386](https://github.com/equinor/fusion-react-components/commit/f14e38673a1ee48996d6e705a9ab666a0796828f))
+
+
+
+
+
 ## [0.1.7](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-searchable-dropdown@0.1.6...@equinor/fusion-react-searchable-dropdown@0.1.7) (2022-11-29)
 
 
