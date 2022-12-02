@@ -1,4 +1,4 @@
-import { SearchableDropdownResultItem, SearchableDropdownResult } from '@equinor/fusion-react-searchable-dropdown';
+import { SearchableDropdownResultItem, SearchableDropdownResult, SearchableDropdownResolver } from '@equinor/fusion-react-searchable-dropdown';
 
 /* generates a single SearchableDropdownResult item with required propterties  */
 const singleItem = (props: Partial<SearchableDropdownResultItem>): SearchableDropdownResultItem => {
@@ -62,7 +62,7 @@ const apiItems = (query: string): SearchableDropdownResult => {
 };
 
 /* Example resolver for lit controller task */
-export const _exampleResolver = {
+export const _exampleResolver: SearchableDropdownResolver = {
   searchQuery: async (query: string) => {
     try {
       return apiItems(query);
@@ -83,6 +83,9 @@ export const _exampleResolver = {
       ],
     }),
   ],
+  closeHandler: (e) => {
+    console.log('UI closed dropdown list.', e);
+  },
 };
 
 /* Listen to action event */

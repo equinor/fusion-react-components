@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.1.7](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-context-selector@0.1.6...@equinor/fusion-react-context-selector@0.1.7) (2022-11-29)
+
+
+### Bug Fixes
+
+* **context-selector:** typehinting for select event ([ecf08a7](https://github.com/equinor/fusion-react-components/commit/ecf08a7f4969b3a9047d857f09e44a9acdcb7e06))
+
+
+
+
+
 ## [0.1.6](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-context-selector@0.1.5...@equinor/fusion-react-context-selector@0.1.6) (2022-11-25)
 
 **Note:** Version bump only for package @equinor/fusion-react-context-selector
