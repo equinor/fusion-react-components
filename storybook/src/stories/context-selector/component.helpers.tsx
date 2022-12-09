@@ -1,7 +1,7 @@
-import { SearchableDropdownResultItem, SearchableDropdownResult, SearchableDropdownResolver } from '@equinor/fusion-react-searchable-dropdown';
+import { ContextResultItem, ContextResult, ContextResolver } from '@equinor/fusion-react-context-selector';
 
-/* generates a single SearchableDropdownResult item with required propterties  */
-const singleItem = (props: Partial<SearchableDropdownResultItem>): SearchableDropdownResultItem => {
+/* generates a single ContextResult item with required propterties  */
+const singleItem = (props: Partial<ContextResultItem>): ContextResultItem => {
   return Object.assign({ id: '0', title: 'Dummy title' }, props);
 };
 
@@ -31,7 +31,7 @@ const allItems = [
 ];
 
 /* Dummy api handler */
-const apiItems = (query: string): SearchableDropdownResult => {
+const apiItems = (query: string): ContextResult => {
   /* min length of query string */
   const min = 2;
   const matched = [];
@@ -41,7 +41,7 @@ const apiItems = (query: string): SearchableDropdownResult => {
   }
 
   /* Recursive func for matching in children  */
-  for (const item of allItems as SearchableDropdownResult) {
+  for (const item of allItems as ContextResult) {
     const entry = { ...item };
     // Match against children in sections
     if (entry.type === 'section' && entry.children?.length) {
@@ -62,7 +62,7 @@ const apiItems = (query: string): SearchableDropdownResult => {
 };
 
 /* Example resolver for lit controller task */
-export const _exampleResolver: SearchableDropdownResolver = {
+export const _exampleResolver: ContextResolver = {
   searchQuery: async (query: string) => {
     try {
       return apiItems(query);
@@ -83,7 +83,7 @@ export const _exampleResolver: SearchableDropdownResolver = {
       ],
     }),
   ],
-  closeHandler: (e) => {
+  closeHandler: (e: MouseEvent) => {
     console.log('UI closed dropdown list.', e);
   },
 };
