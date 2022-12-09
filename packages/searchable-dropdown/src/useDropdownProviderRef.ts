@@ -8,7 +8,6 @@ export const useDropdownProviderRef = (
   useEffect(() => {
     const current = providerRef?.current;
     if (current && resolver) {
-      window.addEventListener('action', (e) => console.log('Event', e));
       providerRef.current.connectResolver(resolver);
       return () => {
         current.removeResolver();
