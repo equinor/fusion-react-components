@@ -1,15 +1,7 @@
 /* eslint-disable react/no-multi-comp */
-import {
-  DropdownProvider,
-  useDropdownProviderRef,
-  SearchableDropdownResolver,
-} from '@equinor/fusion-react-searchable-dropdown';
+import { DropdownProvider, useDropdownProviderRef } from '@equinor/fusion-react-searchable-dropdown';
 
-export type ContextResolver = SearchableDropdownResolver;
-
-export type ContextProviderProps = {
-  resolver?: ContextResolver;
-};
+import { ContextProviderProps } from './types';
 
 export const ContextProvider = ({ children, ...props }: React.PropsWithChildren<ContextProviderProps>): JSX.Element => {
   const providerRef = useDropdownProviderRef(props.resolver);
