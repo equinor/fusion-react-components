@@ -12,11 +12,3 @@
 ```sh
 npm install @equinor/fusion-react-context-selector
 ```
-
-### Methods
-
-| Name     | Description
-| -------- | -------------
-| `onSelect() => ContextResult`   | Returns `ContextResult` of selected items in event details.
-
-<!--prettier-ignore-end-->
