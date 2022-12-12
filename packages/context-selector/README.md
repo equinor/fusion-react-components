@@ -5,7 +5,9 @@
 
 [Storybook](https://equinor.github.io/fusion-react-components/?path=/docs/data-contextselector)
 
-[Fusion Web Component](https://github.com/equinor/fusion-web-components/tree/main/packages/searchable-dropdown)
+Extending [fusion-react-searchable-dropdown](https://equinor.github.io/fusion-react-components/?path=/docs/data-searchable-dropdown)
+
+Built on Web-Component [Fusion Web Component](https://github.com/equinor/fusion-web-components/tree/main/packages/searchable-dropdown)
 
 ### Installation
 
