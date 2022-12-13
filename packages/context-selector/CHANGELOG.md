@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-context-selector@0.1.8...@equinor/fusion-react-context-selector@0.2.0) (2022-12-13)
+
+
+### chore
+
+* **contextselector:** readme ([8e98782](https://github.com/equinor/fusion-react-components/commit/8e987825a9890013e0d1b482b7b0ff82cdc2b182))
+
+
+### Features
+
+* **contextselector:** better typing for context selector ([941863a](https://github.com/equinor/fusion-react-components/commit/941863ad6259439e90dcd341ff406e782ce3121d))
+* **contextselector:** splitting comp to provider an element ([ef5eeca](https://github.com/equinor/fusion-react-components/commit/ef5eeca2dc5fb76c670e1d1fd089c56d36466e82))
+
+
+### BREAKING CHANGES
+
+* **contextselector:** components is now split in 2 parts, provider and selector
+
+
+
+
+
 ## [0.1.8](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-context-selector@0.1.7...@equinor/fusion-react-context-selector@0.1.8) (2022-12-02)
 
 **Note:** Version bump only for package @equinor/fusion-react-context-selector
