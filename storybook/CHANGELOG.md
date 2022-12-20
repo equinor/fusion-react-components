@@ -3,6 +3,71 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@2.0.4...@equinor/fusion-react-components-stories@2.1.0) (2022-12-13)
+
+
+### Features
+
+* **contextselector:** better typing for context selector ([941863a](https://github.com/equinor/fusion-react-components/commit/941863ad6259439e90dcd341ff406e782ce3121d))
+* **contextselector:** splitting comp to provider an element ([ef5eeca](https://github.com/equinor/fusion-react-components/commit/ef5eeca2dc5fb76c670e1d1fd089c56d36466e82))
+
+
+
+
+
+## [2.0.4](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@2.0.3...@equinor/fusion-react-components-stories@2.0.4) (2022-12-02)
+
+**Note:** Version bump only for package @equinor/fusion-react-components-stories
+
+
+
+
+
+## [2.0.3](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@2.0.2...@equinor/fusion-react-components-stories@2.0.3) (2022-11-29)
+
+**Note:** Version bump only for package @equinor/fusion-react-components-stories
+
+
+
+
+
+## [2.0.2](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@2.0.1...@equinor/fusion-react-components-stories@2.0.2) (2022-11-25)
+
+**Note:** Version bump only for package @equinor/fusion-react-components-stories
+
+
+
+
+
+## [2.0.1](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@2.0.0...@equinor/fusion-react-components-stories@2.0.1) (2022-11-25)
+
+**Note:** Version bump only for package @equinor/fusion-react-components-stories
+
+
+
+
+
+# 2.0.0 (2022-11-25)
+
+
+### Bug Fixes
+
+* updated contextselector and sdd to match webcomponent and storybook ([24ae5f4](https://github.com/equinor/fusion-react-components/commit/24ae5f4e7ff6468f9a046a9e3d5ea955a2258c1d))
+
+
+### Features
+
+* bumping to major release ([07a7861](https://github.com/equinor/fusion-react-components/commit/07a7861296027df897ceb491e36243e188f229cb))
+
+
+### BREAKING CHANGES
+
+* new resolver and types
+
+
+
+
+
 ## [1.47.3](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@1.47.2...@equinor/fusion-react-components-stories@1.47.3) (2022-11-21)
 
 **Note:** Version bump only for package @equinor/fusion-react-components-stories
