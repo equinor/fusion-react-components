@@ -3,6 +3,62 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-searchable-dropdown@0.1.8...@equinor/fusion-react-searchable-dropdown@0.2.0) (2022-12-13)
+
+
+### Features
+
+* **contextselector:** splitting comp to provider an element ([ef5eeca](https://github.com/equinor/fusion-react-components/commit/ef5eeca2dc5fb76c670e1d1fd089c56d36466e82))
+
+
+
+
+
+## [0.1.8](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-searchable-dropdown@0.1.7...@equinor/fusion-react-searchable-dropdown@0.1.8) (2022-12-02)
+
+
+### Bug Fixes
+
+* **searchabledropdown:** bumping extended webcomponent ([f14e386](https://github.com/equinor/fusion-react-components/commit/f14e38673a1ee48996d6e705a9ab666a0796828f))
+
+
+
+
+
+## [0.1.7](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-searchable-dropdown@0.1.6...@equinor/fusion-react-searchable-dropdown@0.1.7) (2022-11-29)
+
+
+### Bug Fixes
+
+* **searchabledropdown:** typehinting for SelectEvent in react ([7b13d22](https://github.com/equinor/fusion-react-components/commit/7b13d22a752c43d54036fc5ac74d5c8a3fbfef52))
+
+
+
+
+
+## 0.1.6 (2022-11-25)
+
+
+### Bug Fixes
+
+* **searchable-dropown:** bumping fwc-searchable-dropdown ([1893ebd](https://github.com/equinor/fusion-react-components/commit/1893ebdec7915d13db5a37b4f75d2919ee8b37a4))
+
+
+
+
+
+## 0.1.5 (2022-11-25)
+
+
+### Bug Fixes
+
+* **searchabledropdown:** bumping version from webcomponents ([4c95065](https://github.com/equinor/fusion-react-components/commit/4c9506576b02151feedd2d794e9d75c861da7a7a))
+* updated contextselector and sdd to match webcomponent and storybook ([24ae5f4](https://github.com/equinor/fusion-react-components/commit/24ae5f4e7ff6468f9a046a9e3d5ea955a2258c1d))
+
+
+
+
+
 ## [0.1.4](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-searchable-dropdown@0.1.3...@equinor/fusion-react-searchable-dropdown@0.1.4) (2022-11-21)
 
 **Note:** Version bump only for package @equinor/fusion-react-searchable-dropdown

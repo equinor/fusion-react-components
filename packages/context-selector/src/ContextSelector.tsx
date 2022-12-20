@@ -1,30 +1,9 @@
 /* eslint-disable react/no-multi-comp */
-import {
-  DropdownProvider,
-  Dropdown,
-  useDropdownProviderRef,
-  DropdownProps,
-  SearchableDropdownResolver,
-} from '@equinor/fusion-react-searchable-dropdown';
-
-type ElementResolver = {
-  resolver?: SearchableDropdownResolver;
-};
-
-export {
-  SearchableDropdownResult as ContextResult,
-  SearchableDropdownResultItem as ContextResultItem,
-} from '@equinor/fusion-react-searchable-dropdown';
-
-export type ContextSelectorProps = DropdownProps & ElementResolver;
+import { Dropdown } from '@equinor/fusion-react-searchable-dropdown';
+import { ContextSelectorProps } from './types';
 
 export const ContextSelector = ({ children, ...props }: React.PropsWithChildren<ContextSelectorProps>): JSX.Element => {
-  const providerRef = useDropdownProviderRef(props.resolver);
-  return (
-    <DropdownProvider ref={providerRef}>
-      <Dropdown {...props}>{children}</Dropdown>
-    </DropdownProvider>
-  );
+  return <Dropdown {...props}>{children}</Dropdown>;
 };
 
 export default ContextSelector;

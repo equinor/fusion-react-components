@@ -2,7 +2,7 @@ import SearchableDropdown, {
   DropdownProvider,
   Dropdown,
   useDropdownProviderRef,
-  SearchableDropdownProps,
+  DropdownProps,
 } from '@equinor/fusion-react-searchable-dropdown';
 import { _handleAction, _exampleResolver } from './component.helpers';
 
@@ -30,7 +30,7 @@ Component.args = {
   resolver: _exampleResolver,
 };
 
-export const SeperatedComponents = (props: SearchableDropdownProps) => {
+export const SeperatedComponents = (props: DropdownProps) => {
   const providerRef = useDropdownProviderRef(_exampleResolver);
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', height: '250px' }}>
