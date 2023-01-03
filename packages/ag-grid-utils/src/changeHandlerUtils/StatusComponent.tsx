@@ -31,6 +31,10 @@ const useStyles = makeStyles(
 const StatusComponent: FC<ICellRendererParams> = (props) => {
   const styles = useStyles();
 
+  const isGroupRow = props.node.group;
+
+  if (isGroupRow) return null;
+
   return props.data?.hasChanged || props.data?.status === AGGridDataStatus.NEW ? (
     <div className={styles.statusContainer}>
       <div className={styles.pendingChanges} />
