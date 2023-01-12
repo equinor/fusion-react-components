@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.2](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@2.1.1...@equinor/fusion-react-components-stories@2.1.2) (2023-01-12)
+
+**Note:** Version bump only for package @equinor/fusion-react-components-stories
+
+
+
+
+
+## 2.1.1 (2023-01-12)
+
+
+### Bug Fixes
+
+* **button:** fwc-button dependency version ([e6fac6e](https://github.com/equinor/fusion-react-components/commit/e6fac6e5d93699c82c5ad1144bb3bedb1f6d736b))
+
+
+
+
+
 # [2.1.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@2.0.4...@equinor/fusion-react-components-stories@2.1.0) (2022-12-13)
 
 
