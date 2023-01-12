@@ -81,14 +81,25 @@ export const _exampleResolver: ContextResolver = {
   },
   initialResult: [
     singleItem({
-      id: '123',
-      title: 'Initial Items',
+      id: 'ctx-123',
+      title: 'Context',
       type: 'section',
       children: [
-        singleItem({ id: '456', title: 'Initial Item 1', graphic: 'list' }),
-        singleItem({ id: '654', title: 'Initial Item 2', graphic: 'list' }),
-        singleItem({ id: '789', title: 'Initial Item 3', graphic: 'list' }),
-        singleItem({ id: '321', title: 'Initial Item 4', graphic: 'list' }),
+        singleItem({ id: '456', title: 'Context 1', subTitle: 'ContextType', graphic: 'list' }),
+        singleItem({ id: '654', title: 'Context 2', subTitle: 'ContextType', graphic: 'list' }),
+        singleItem({ id: '789', title: 'Context 3', subTitle: 'ContextType', graphic: 'list' }),
+        singleItem({ id: '321', title: 'Context 4', subTitle: 'ContextType', graphic: 'list' }),
+      ],
+    }),
+    singleItem({
+      id: 'fav-123',
+      title: 'Favourites',
+      type: 'section',
+      children: [
+        singleItem({ id: '456456', title: 'Favourite 1', subTitle: 'Favourite', meta: 'check' }),
+        singleItem({ id: '654654', title: 'Favourite 2', subTitle: 'Favourite', meta: 'check' }),
+        singleItem({ id: '789789', title: 'Favourite 3', subTitle: 'Favourite', meta: 'check' }),
+        singleItem({ id: '321321', title: 'Favourite 4', subTitle: 'Favourite', meta: 'check' }),
       ],
     }),
   ],
