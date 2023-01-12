@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-filter",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "component for Filtering data",
   "author": "",
   "homepage": "https://github.com/equinor/fusion-react-components/tree/master/packages/filter#readme",
@@ -41,7 +41,7 @@
     "url": "https://github.com/equinor/fusion-react-components/issues"
   },
   "dependencies": {
-    "@equinor/fusion-react-button": "^0.5.15",
+    "@equinor/fusion-react-button": "^0.5.16",
     "@equinor/fusion-react-checkbox": "^0.5.14",
     "@equinor/fusion-react-chip": "^0.3.13",
     "@equinor/fusion-react-icon": "^0.2.15",

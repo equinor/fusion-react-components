@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.5.16 (2023-01-12)
+
+
+### Bug Fixes
+
+* **button:** fixes import of tag to buttonTag from fusion-wc-button ([726803f](https://github.com/equinor/fusion-react-components/commit/726803f9da809e9c2bbe5b52eb50b9329aba8dbe))
+* **button:** fwc-button dependency version ([e6fac6e](https://github.com/equinor/fusion-react-components/commit/e6fac6e5d93699c82c5ad1144bb3bedb1f6d736b))
+* **button:** updating fwc-button version ([d2ecb2d](https://github.com/equinor/fusion-react-components/commit/d2ecb2d675d11b173aa41bb76e8ea2e1f0f2b00b))
+
+
+
+
+
 ## 0.5.15 (2022-11-21)
 
 **Note:** Version bump only for package @equinor/fusion-react-button
