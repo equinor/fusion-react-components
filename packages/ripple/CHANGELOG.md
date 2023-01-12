@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.3.8 (2023-01-12)
+
+
+### Bug Fixes
+
+* **ripple:** exporting RippleHandlers ([6e38f03](https://github.com/equinor/fusion-react-components/commit/6e38f036f78d567cdac74190b639409e1c0cbef7))
+
+
+
+
+
 ## 0.3.7 (2022-11-21)
 
 **Note:** Version bump only for package @equinor/fusion-react-ripple
