@@ -1,6 +1,6 @@
 import { ComponentProps, createComponent } from '@equinor/fusion-react-utils';
 
-import HTMLRippleCustomElement, { tag } from '@equinor/fusion-wc-ripple';
+import HTMLRippleCustomElement, { tag, RippleElement, RippleHandlers } from '@equinor/fusion-wc-ripple';
 
 type ElementProps = React.PropsWithChildren<
   Partial<Pick<HTMLRippleCustomElement, 'primary' | 'accent' | 'unbounded' | 'activated' | 'selected' | 'disabled'>>
@@ -10,6 +10,6 @@ export const Ripple = createComponent<HTMLRippleCustomElement, ElementProps>(HTM
 
 export type RippleProps = ComponentProps<HTMLRippleCustomElement, ElementProps>;
 
-export { HTMLRippleCustomElement };
+export { HTMLRippleCustomElement, RippleElement, RippleHandlers };
 
 export default Ripple;
