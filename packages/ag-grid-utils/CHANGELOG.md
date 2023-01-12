@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.4.4 (2023-01-03)
+
+
+### Bug Fixes
+
+* ag-grid-utils, not show status for row group ([a51bd58](https://github.com/equinor/fusion-react-components/commit/a51bd5842aacfc1968983cfa35d308a4da2efec9))
+
+
+
+
+
 ## 0.4.3 (2022-10-27)
 
 

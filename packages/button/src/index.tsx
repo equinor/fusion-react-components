@@ -1,4 +1,4 @@
-import { ButtonElement as HTMLButtonCustomElement, tag } from '@equinor/fusion-wc-button';
+import { ButtonElement as HTMLButtonCustomElement, buttonTag } from '@equinor/fusion-wc-button';
 
 import { ComponentProps, createComponent } from '@equinor/fusion-react-utils';
 
@@ -11,7 +11,7 @@ type ButtonElementProps = React.PropsWithChildren<
   >
 >;
 
-export const Button = createComponent<HTMLButtonCustomElement, ButtonElementProps>(HTMLButtonCustomElement, tag);
+export const Button = createComponent<HTMLButtonCustomElement, ButtonElementProps>(HTMLButtonCustomElement, buttonTag);
 export type ButtonProps = ComponentProps<HTMLButtonCustomElement, ButtonElementProps>;
 
 export { HTMLButtonCustomElement };
