@@ -4,7 +4,7 @@ import SearchableDropdown, {
   useDropdownProviderRef,
   DropdownProps,
 } from '@equinor/fusion-react-searchable-dropdown';
-import { _handleAction, _exampleResolver } from './component.helpers';
+import { _handleSelect, _exampleResolver } from './component.helpers';
 
 export default {
   title: 'Examples/Searchable-Dropdown',
@@ -26,7 +26,7 @@ Component.args = {
   initialText: 'See results by searching',
   trailingIcon: 'car_wash',
   meta: 'car',
-  onAction: _handleAction,
+  onSelect: _handleSelect,
   resolver: _exampleResolver,
 };
 
@@ -45,5 +45,5 @@ SeperatedComponents.args = {
   placeholder: 'Search...',
   initialText: 'Resolver results',
   trailingIcon: 'build_wrench',
-  onAction: _handleAction,
+  onSelect: _handleSelect,
 };
