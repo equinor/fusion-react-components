@@ -1,4 +1,4 @@
-import { createRef } from 'react';
+import React, { createRef } from 'react';
 import { Meta, Story } from '@storybook/react';
 import { Ripple, RippleProps, RippleHandlers, RippleElement } from '@equinor/fusion-react-ripple/src';
 
@@ -75,10 +75,10 @@ export const Component: Story<RippleProps> = ({ children, ...props }: RippleProp
   );
 };
 
-const Container = ({ title, children }) => (
+const Container = (props: React.PropsWithChildren<{ title: string }>) => (
   <section>
-    <h4>{title}</h4>
-    <div>{children}</div>
+    <h4>{props.title}</h4>
+    <div>{props.children}</div>
   </section>
 );
 
@@ -88,10 +88,10 @@ const Template = (props: RippleProps) => (
       <Component {...props} />
     </Container>
     <Container title="activated">
-      <Component activated="true" {...props} />
+      <Component activated={true} {...props} />
     </Container>
     <Container title="selected">
-      <Component selected="true" {...props} />
+      <Component selected={true} {...props} />
     </Container>
   </div>
 );
