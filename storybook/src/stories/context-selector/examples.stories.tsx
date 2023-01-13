@@ -58,7 +58,7 @@ export const ContextHeader: Story<ContextHeaderProps> = ({
   children,
   ...props
 }: React.PropsWithChildren<ContextHeaderProps>) => {
-  const initialItem = {
+  const initialItem: ContextResultItem = {
     id: Date.now() + '',
     title: 'Select a Context',
     subTitle: 'Context',
