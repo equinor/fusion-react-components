@@ -19,17 +19,19 @@ export default {
 } as Meta;
 
 const useStyles = makeStyles(
-  () =>
+  (theme) =>
     createStyles({
       root: {
-        fontFamily: 'Equinor',
+        fontFamily: 'var(--fwc-typography-font-family)',
         width: '98%',
         maxWidth: '420px',
         height: '350px',
         margin: '0 auto',
+        color: theme.colors.text.static_icons__default.getVariable('color'),
       },
       icon: {
         width: '10%',
+        fontWeight: 400,
       },
       context: {
         display: 'flex',
@@ -43,7 +45,7 @@ const useStyles = makeStyles(
         alignItems: 'flex-start',
       },
       title: {
-        fontSize: '16px',
+        fontSize: '14px',
         fontWeight: 'bold',
       },
       subTitle: {
@@ -81,14 +83,22 @@ export const ContextHeader: Story<ContextHeaderProps> = ({
     [setCtx]
   );
 
-  useEffect(() => {
-    window.addEventListener('keyup', (e: KeyboardEvent) => {
-      console.log('KEY PRESSED', e.key);
+  // extending the fwc-searchable-dropdown escape handler
+  const handleKeyup = useCallback(
+    (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         setGettingCtx(false);
       }
-    });
-  }, [setGettingCtx]);
+    },
+    [setGettingCtx]
+  );
+
+  useEffect(() => {
+    window.addEventListener('keyup', handleKeyup);
+    return () => {
+      window.removeEventListener('keyup', handleKeyup);
+    };
+  });
 
   return (
     <div>
@@ -101,16 +111,19 @@ export const ContextHeader: Story<ContextHeaderProps> = ({
               <span className={styles.subTitle}>{ctx.subTitle}</span>
             </div>
             <div className={styles.icon}>
-              <Button
-                className={styles.icon}
-                variant="ghost"
-                dense={true}
-                icon="close"
-                onClick={() => {
-                  setCtx(undefined);
-                  setGettingCtx(true);
-                }}
-              />
+              {ctx && !ctx.isDisabled && (
+                <Button
+                  className={styles.icon}
+                  variant="ghost"
+                  dense={true}
+                  color="secondary"
+                  icon="close"
+                  onClick={() => {
+                    setCtx(undefined);
+                    setGettingCtx(true);
+                  }}
+                />
+              )}
             </div>
           </div>
         ) : (
