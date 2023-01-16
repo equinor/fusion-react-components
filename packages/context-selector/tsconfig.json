@@ -8,6 +8,8 @@
   "exclude": ["node_modules"],
   "references": [
     { "path": "../utils" },
-    { "path": "../searchable-dropdown" }
+    { "path": "../searchable-dropdown" },
+    { "path": "../icon" },
+    { "path": "../styles" }
   ]
 }

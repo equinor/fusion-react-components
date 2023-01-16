@@ -1,4 +1,9 @@
-import { ContextResultItem, ContextResult, ContextResolver } from '@equinor/fusion-react-context-selector';
+import {
+  ContextResultItem,
+  ContextResult,
+  ContextResolver,
+  ContextSelectEvent,
+} from '@equinor/fusion-react-context-selector';
 
 /**
  * Helper for generating a single ContextResultItem
@@ -10,22 +15,37 @@ const singleItem = (props: Partial<ContextResultItem>): ContextResultItem => {
 /**
  * Example contextResult with sections
  */
+/*  */
 const contextResultSectioned = [
+  // eslint-disable-next-line prettier/prettier
 	{"id":"section-001","title":"Apps prod","type":"section","children":[
+      // eslint-disable-next-line prettier/prettier
 		{"id":"8aa0d62f-21d4-4933-a1e1-823a8de7c13c","title":"Johan prod","subTitle":"An App from Fusion","graphic":"settings"},
+      // eslint-disable-next-line prettier/prettier
 		{"id":"8aa0d62f-21d4-4933-a1e1-823a8de7c13d","title":"Johan2 prod","subTitle":"An App from Fusion","graphic":"settings"},
+      // eslint-disable-next-line prettier/prettier
 		{"id":"8aa0d62f-21d4-4933-a1e1-823a8de7c13e","title":"Johan3 prod","subTitle":"An App from Fusion","graphic":"settings"},
+      // eslint-disable-next-line prettier/prettier
 		{"id":"8aa0d62f-21d4-4933-a1e1-823a8de7c13f","title":"Johan4 prod","subTitle":"An App from Fusion","graphic":"settings"}]
-	},
+  },
+  // eslint-disable-next-line prettier/prettier
 	{"id":"section-002","title":"Projects prod","type":"section","children":[
+      // eslint-disable-next-line prettier/prettier
 		{"id":"8aa0d62f-21d4-4933-a1e1-823a8de7c14a","title":"Project1 prod","subTitle":"A Fusion context","graphic":"settings"},
+      // eslint-disable-next-line prettier/prettier
 		{"id":"8aa0d62f-21d4-4933-a1e1-823a8de7c14b","title":"Project2 prod","subTitle":"A Fusion context","graphic":"settings"},
+      // eslint-disable-next-line prettier/prettier
 		{"id":"8aa0d62f-21d4-4933-a1e1-823a8de7c14c","title":"Project3 prod","subTitle":"A Fusion context","graphic":"settings"},
+      // eslint-disable-next-line prettier/prettier
 		{"id":"8aa0d62f-21d4-4933-a1e1-823a8de7c14d","title":"Project4 prod","subTitle":"A Fusion context","graphic":"settings"}]
-	},
+  },
+  // eslint-disable-next-line prettier/prettier
 	{"id":"8aa0d62f-21d4-4933-a1e1-823a8de7c15a","title":"Unsectioned prod","subTitle":"Some random item"},
+  // eslint-disable-next-line prettier/prettier
 	{"id":"8aa0d62f-21d4-4933-a1e1-823a8de7c15b","title":"Unsectioned2 prod","subTitle":"Some random item"},
+  // eslint-disable-next-line prettier/prettier
 	{"id":"8aa0d62f-21d4-4933-a1e1-823a8de7c15c","title":"Unsectioned3 prod","subTitle":"Some random item"},
+  // eslint-disable-next-line prettier/prettier
 	{"id":"8aa0d62f-21d4-4933-a1e1-823a8de7c15d","title":"Unsectioned4 prod","subTitle":"Some random item"}
 ];
 
@@ -109,7 +129,7 @@ export const _exampleResolver: ContextResolver = {
 };
 
 /* Listen to Select events on list items */
-export const _handleSelect = (e: Event) => {
+export const _handleSelect = (e: ContextSelectEvent) => {
   /* no need to bubble further up the dom */
   e.stopPropagation();
   console.log('Event', e.type, 'fired. Object:', e);
