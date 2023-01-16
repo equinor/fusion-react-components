@@ -69,6 +69,7 @@ export const ContextSelectorHeader = ({
   children,
   resolver,
   onSelect,
+  onClearContext,
   ...props
 }: React.PropsWithChildren<ContextHeaderProps>): JSX.Element => {
   const initialItem: ContextResultItem = {
@@ -101,50 +102,41 @@ export const ContextSelectorHeader = ({
   /* Clear context button handler */
   const handleClearContext = useCallback(
     (event) => {
-      console.log('EVENT', event);
-      setCtx(null);
-      if (props.onClearContext) {
-        props.onClearContext(event);
+      setCtx(initialItem);
+      /* Trigger props.onClearContext */
+      if (onClearContext) {
+        onClearContext(event);
       }
     },
-    [setCtx, props]
+    [initialItem, onClearContext]
   );
 
   /* extending the fwc-searchable-dropdown escape handler */
   const handleKeyup = useCallback(
     (e: KeyboardEvent) => {
-      console.log('Keyup event =>', e);
       if (e.key === 'Escape') {
         setGettingCtx(false);
       }
 
-      if (
-        (e.target as HTMLDivElement)?.className.indexOf('titleBlock') > 0 ||
-        (e.target as HTMLDivElement)?.className.indexOf('closeBtn') > 0
-      ) {
-        if (e.key === ' ' || e.key === 'Enter') {
+      if (e.key === ' ' || e.key === 'Enter') {
+        if ((e.target as HTMLDivElement)?.className.indexOf('titleBlock') > 0) {
           setGettingCtx(true);
-          e.stopPropagation();
-          e.preventDefault();
-          if ((e.target as HTMLDivElement)?.className.indexOf('closeBtn') > 0) {
-            handleClearContext(e);
-          }
+        } else if ((e.target as HTMLButtonElement)?.className.indexOf('closeBtn') > 0) {
+          handleClearContext(e);
         }
+        e.stopPropagation();
+        e.preventDefault();
       }
     },
     [handleClearContext]
   );
 
   useEffect(() => {
-    if (gettingCtx) {
-      window.addEventListener('keyup', handleKeyup);
-    }
+    window.addEventListener('keyup', handleKeyup);
     return () => {
-      if (gettingCtx) {
-        window.removeEventListener('keyup', handleKeyup);
-      }
+      window.removeEventListener('keyup', handleKeyup);
     };
-  }, [gettingCtx, handleKeyup]);
+  }, [handleKeyup]);
 
   return (
     <div>

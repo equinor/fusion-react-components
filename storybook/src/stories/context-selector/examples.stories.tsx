@@ -21,5 +21,5 @@ ContextHeader.args = {
   dropdownHeight: '300px',
   onSelect: _handleSelect,
   resolver: _exampleResolver,
-  onClearContext: () => console.log('Fuck off context'),
+  onClearContext: () => console.log('Context Clearing'),
 };
