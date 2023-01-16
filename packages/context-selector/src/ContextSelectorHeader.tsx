@@ -5,7 +5,7 @@ import { ContextProviderProps, ContextSelectorProps, ContextResultItem, ContextS
 import { Icon } from '@equinor/fusion-react-icon/src';
 import { createStyles, makeStyles, clsx } from '@equinor/fusion-react-styles';
 
-export type ContextHeaderProps = ContextProviderProps & ContextSelectorProps & { onClearContext: (e: Event) => void };
+export type ContextHeaderProps = ContextProviderProps & ContextSelectorProps & { onClearContext?: (e: Event) => void };
 
 const useStyles = makeStyles(
   (theme) =>
