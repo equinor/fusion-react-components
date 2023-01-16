@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from 'react';
 import { ContextProvider } from './ContextProvider';
 import { ContextSelector } from './ContextSelector';
 import { ContextProviderProps, ContextSelectorProps, ContextResultItem, ContextSelectEvent } from './types';
-import { Icon } from '@equinor/fusion-react-icon/src';
+import { Icon } from '@equinor/fusion-react-icon';
 import { createStyles, makeStyles, clsx } from '@equinor/fusion-react-styles';
 
 export type ContextHeaderProps = ContextProviderProps & ContextSelectorProps & { onClearContext?: (e: Event) => void };
