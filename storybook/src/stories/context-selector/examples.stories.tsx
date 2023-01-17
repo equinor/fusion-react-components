@@ -1,5 +1,10 @@
 import { Meta, Story } from '@storybook/react';
-import { ContextSelector, ContextSelectorHeader, ContextHeaderProps } from '@equinor/fusion-react-context-selector/src';
+import {
+  ContextProvider,
+  ContextSelector,
+  ContextSelectorHeader,
+  ContextHeaderProps,
+} from '@equinor/fusion-react-context-selector/src';
 import { _exampleResolver, _handleSelect } from './component.helpers';
 
 export default {
@@ -11,7 +16,20 @@ export const ContextHeader: Story<ContextHeaderProps> = ({
   children,
   ...props
 }: React.PropsWithChildren<ContextHeaderProps>) => {
-  return <ContextSelectorHeader {...props}>{children}</ContextSelectorHeader>;
+  return (
+    <div
+      style={{
+        width: '98%',
+        maxWidth: '480px',
+        height: '350px',
+        margin: '0 auto',
+      }}
+    >
+      <ContextProvider resolver={_exampleResolver}>
+        <ContextSelectorHeader {...props}>{children}</ContextSelectorHeader>
+      </ContextProvider>
+    </div>
+  );
 };
 ContextHeader.args = {
   placeholder: 'Start to type to search...',
@@ -20,6 +38,6 @@ ContextHeader.args = {
   variant: 'header',
   dropdownHeight: '300px',
   onSelect: _handleSelect,
-  resolver: _exampleResolver,
+  autofocus: true,
   onClearContext: () => console.log('Context Clearing'),
 };
