@@ -1,21 +1,17 @@
 import { useCallback, useEffect, useState } from 'react';
-import { ContextProvider } from './ContextProvider';
 import { ContextSelector } from './ContextSelector';
-import { ContextProviderProps, ContextSelectorProps, ContextResultItem, ContextSelectEvent } from './types';
+import { ContextSelectorProps, ContextResultItem, ContextSelectEvent } from './types';
 import { Icon } from '@equinor/fusion-react-icon';
 import { createStyles, makeStyles, clsx } from '@equinor/fusion-react-styles';
 
-export type ContextHeaderProps = ContextProviderProps & ContextSelectorProps & { onClearContext?: (e: Event) => void };
+export type ContextHeaderProps = ContextSelectorProps & { onClearContext?: (e: Event) => void };
 
 const useStyles = makeStyles(
   (theme) =>
     createStyles({
       root: {
-        fontFamily: 'var(--fwc-typography-font-family)',
-        width: '98%',
-        maxWidth: '420px',
-        height: '350px',
-        margin: '0 auto',
+        width: '100%',
+        margin: '0',
         color: theme.colors.text.static_icons__default.getVariable('color'),
       },
       icon: {
@@ -65,21 +61,20 @@ const useStyles = makeStyles(
   { name: 'fusion-header-context-selector' }
 );
 
+const initialItem: ContextResultItem = {
+  id: 'temp-dev-id',
+  title: 'Select a Context',
+  subTitle: 'Context',
+  graphic: 'list',
+  isDisabled: true,
+};
+
 export const ContextSelectorHeader = ({
   children,
-  resolver,
   onSelect,
   onClearContext,
   ...props
 }: React.PropsWithChildren<ContextHeaderProps>): JSX.Element => {
-  const initialItem: ContextResultItem = {
-    id: Date.now() + '',
-    title: 'Select a Context',
-    subTitle: 'Context',
-    graphic: 'list',
-    isDisabled: true,
-  };
-
   const [ctx, setCtx] = useState<ContextResultItem | null>(initialItem);
   const [gettingCtx, setGettingCtx] = useState<boolean>(false);
 
@@ -108,7 +103,7 @@ export const ContextSelectorHeader = ({
         onClearContext(event);
       }
     },
-    [initialItem, onClearContext]
+    [onClearContext]
   );
 
   /* extending the fwc-searchable-dropdown escape handler */
@@ -139,31 +134,27 @@ export const ContextSelectorHeader = ({
   }, [handleKeyup]);
 
   return (
-    <div>
-      <div className={styles.root}>
-        {ctx && !gettingCtx ? (
-          <div className={styles.context} onKeyUp={() => handleKeyup}>
-            <div className={styles.icon}>{ctx.graphic && <Icon icon={ctx.graphic} />}</div>
-            <div tabIndex={0} className={styles.titleBlock} onClick={() => setGettingCtx(true)}>
-              <span className={styles.title}>{ctx.title}</span>
-              <span className={styles.subTitle}>{ctx.subTitle}</span>
-            </div>
-            <div className={styles.icon}>
-              {ctx && !ctx.isDisabled && (
-                <button className={clsx(styles.closeBtn)} onClick={handleClearContext}>
-                  <Icon icon="close" />
-                </button>
-              )}
-            </div>
+    <div className={styles.root}>
+      {ctx && !gettingCtx ? (
+        <div className={styles.context} onKeyUp={() => handleKeyup}>
+          <div className={styles.icon}>{ctx.graphic && <Icon icon={ctx.graphic} />}</div>
+          <div tabIndex={0} className={styles.titleBlock} onClick={() => setGettingCtx(true)}>
+            <span className={styles.title}>{ctx.title}</span>
+            <span className={styles.subTitle}>{ctx.subTitle}</span>
           </div>
-        ) : (
-          <ContextProvider resolver={resolver}>
-            <ContextSelector {...props} onSelect={handleSelect}>
-              {children}
-            </ContextSelector>
-          </ContextProvider>
-        )}
-      </div>
+          <div className={styles.icon}>
+            {ctx && !ctx.isDisabled && (
+              <button className={clsx(styles.closeBtn)} onClick={handleClearContext}>
+                <Icon icon="close" />
+              </button>
+            )}
+          </div>
+        </div>
+      ) : (
+        <ContextSelector {...props} onSelect={handleSelect}>
+          {children}
+        </ContextSelector>
+      )}
     </div>
   );
 };
