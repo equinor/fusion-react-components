@@ -27,6 +27,7 @@ type ElementAttributes = Partial<
     | 'dropdownHeight'
     | 'multiple'
     | 'graphic'
+    | 'autofocus'
   >
 >;
 
