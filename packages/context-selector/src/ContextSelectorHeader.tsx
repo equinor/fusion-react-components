@@ -15,18 +15,20 @@ const useStyles = makeStyles(
         color: theme.colors.text.static_icons__default.getVariable('color'),
       },
       icon: {
-        width: '10%',
-        fontWeight: 400,
-      },
-      closeBtn: {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
+        width: '35px',
+        fontWeight: 400,
+      },
+      closeBtn: {
         width: '100%',
+        height: '100%',
         background: 'none',
         border: '1px solid transparent',
         borderRadius: 'var(--mdc-shape-small, 4px)',
         color: theme.colors.interactive.primary__resting.getVariable('color'),
+        padding: 0,
         '&:hover': {
           borderColor: theme.colors.interactive.primary__resting.getVariable('color'),
         },
@@ -34,7 +36,7 @@ const useStyles = makeStyles(
       context: {
         display: 'flex',
         justifyContent: 'space-between',
-        alignItems: 'center',
+        alignItems: 'stretch',
       },
       titleBlock: {
         flex: '1 1 auto',
