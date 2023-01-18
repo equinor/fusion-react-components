@@ -2,8 +2,8 @@ import { Meta, Story } from '@storybook/react';
 import {
   ContextProvider,
   ContextSelector,
-  ContextSelectorHeader,
-  ContextHeaderProps,
+  ContextSearch,
+  ContextSearchProps,
 } from '@equinor/fusion-react-context-selector/src';
 import { _exampleResolver, _handleSelect } from './component.helpers';
 
@@ -12,10 +12,10 @@ export default {
   component: ContextSelector,
 } as Meta;
 
-export const ContextHeader: Story<ContextHeaderProps> = ({
+export const ContextHeader: Story<ContextSearchProps> = ({
   children,
   ...props
-}: React.PropsWithChildren<ContextHeaderProps>) => {
+}: React.PropsWithChildren<ContextSearchProps>) => {
   return (
     <div
       style={{
@@ -26,7 +26,7 @@ export const ContextHeader: Story<ContextHeaderProps> = ({
       }}
     >
       <ContextProvider resolver={_exampleResolver}>
-        <ContextSelectorHeader {...props}>{children}</ContextSelectorHeader>
+        <ContextSearch {...props}>{children}</ContextSearch>
       </ContextProvider>
     </div>
   );
