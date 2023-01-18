@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.5.18 (2023-01-18)
+
+
+### Bug Fixes
+
+* :bug: button import fix ([b1e3e5c](https://github.com/equinor/fusion-react-components/commit/b1e3e5c65b558c5ed3303103f50c3e2610249474))
+
+
+
+
+
 ## 0.5.17 (2023-01-12)
 
 **Note:** Version bump only for package @equinor/fusion-react-table
