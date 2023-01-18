@@ -1,4 +1,4 @@
-import Button from '@equinor/fusion-react-button';
+import { Button } from '@equinor/fusion-react-button';
 import { useTableContext } from '../../TableProvider';
 // see https://github.com/microsoft/TypeScript/issues/43869
 //eslint-disable-next-line @typescript-eslint/no-unused-vars
