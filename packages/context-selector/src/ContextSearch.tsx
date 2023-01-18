@@ -4,7 +4,7 @@ import { ContextSelectorProps, ContextResultItem, ContextSelectEvent } from './t
 import { Icon } from '@equinor/fusion-react-icon';
 import { createStyles, makeStyles, clsx } from '@equinor/fusion-react-styles';
 
-export type ContextHeaderProps = ContextSelectorProps & { onClearContext?: (e: Event) => void };
+export type ContextSearchProps = ContextSelectorProps & { onClearContext?: (e: Event) => void };
 
 const useStyles = makeStyles(
   (theme) =>
@@ -71,12 +71,12 @@ const initialItem: ContextResultItem = {
   isDisabled: true,
 };
 
-export const ContextSelectorHeader = ({
+export const ContextSearch = ({
   children,
   onSelect,
   onClearContext,
   ...props
-}: React.PropsWithChildren<ContextHeaderProps>): JSX.Element => {
+}: React.PropsWithChildren<ContextSearchProps>): JSX.Element => {
   const [ctx, setCtx] = useState<ContextResultItem | null>(initialItem);
   const [gettingCtx, setGettingCtx] = useState<boolean>(false);
 
@@ -161,4 +161,4 @@ export const ContextSelectorHeader = ({
   );
 };
 
-export default ContextSelectorHeader;
+export default ContextSearch;
