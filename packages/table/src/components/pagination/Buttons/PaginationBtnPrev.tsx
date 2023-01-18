@@ -1,4 +1,4 @@
-import Button from '@equinor/fusion-react-button';
+import { Button } from '@equinor/fusion-react-button';
 import { useTableContext } from '../../../TableProvider';
 
 export const PaginationBtnPrev = (): JSX.Element => {
