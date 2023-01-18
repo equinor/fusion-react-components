@@ -1,8 +1,8 @@
 import { Meta, Story, Canvas, ArgsTable, Description } from '@storybook/addon-docs';
 import { ChangeLog, PackageInfo, StoryExample } from '../../components';
-import Button from '@equinor/fusion-react-button/src';
+import Button from '@equinor/fusion-react-button';
 
-<Meta title="Input/Button" component={Button}/> 
+<Meta title="Input/Button/Default" component={Button}/> 
 
 <PackageInfo pkg={require('@equinor/fusion-react-button/package.json')}/>
 
@@ -17,15 +17,15 @@ The button component exposes the native custom element slots:
 - `icon` slot custom icon inside this placeholder
 - `trailingIcon` slot custom trailing icon inside this placeholder
 
-<StoryExample storyId="examples-button--custom" showSource/>
+<StoryExample storyId="examples-button-default--custom" showSource/>
 
 ### Variants
 
-<StoryExample storyId="examples-button--variants" showSource/>
+<StoryExample storyId="examples-button-default--variants" showSource/>
 
 ### Colors
 
-<StoryExample storyId="examples-button--colors" showSource/>
+<StoryExample storyId="examples-button-default--colors" showSource/>
 
 ## Changelog
 
