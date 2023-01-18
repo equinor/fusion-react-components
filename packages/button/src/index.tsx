@@ -1,2 +1,2 @@
-export { LinkButton, LinkButtonProps } from './link-button';
-export { Button, ButtonProps } from './button';
+export { LinkButton, LinkButtonProps, HTMLLinkButtonCustomElement } from './link-button';
+export { Button, ButtonProps, HTMLButtonCustomElement } from './button';
