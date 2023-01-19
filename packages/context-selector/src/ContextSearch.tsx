@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { ContextSelector } from './ContextSelector';
 import { ContextSelectorProps, ContextResultItem, ContextSelectEvent } from './types';
 import { Icon } from '@equinor/fusion-react-icon';
@@ -26,7 +26,7 @@ export const ContextSearch = ({
   ...props
 }: React.PropsWithChildren<ContextSearchProps>): JSX.Element => {
   const initialItem = previewItem ? Object.assign(defaultInitialItem, previewItem) : defaultInitialItem;
-
+  const elementRef = useRef<HTMLDivElement | null>(null);
   const [ctx, setCtx] = useState<ContextResultItem | null>(initialItem);
   const [gettingCtx, setGettingCtx] = useState<boolean>(false);
 
@@ -85,8 +85,24 @@ export const ContextSearch = ({
     };
   }, [handleKeyup]);
 
+  useEffect(() => {
+    const ref = elementRef.current;
+    if (ref) {
+      console.log('Adding listener');
+      ref.addEventListener('dropdownClosed', () => {
+        setGettingCtx(false);
+      });
+    }
+    return () => {
+      if (ref) {
+        console.log('REMOVING listener');
+        ref.removeEventListener('dropdownClosed', () => null);
+      }
+    };
+  }, [elementRef]);
+
   return (
-    <div className={styles.root}>
+    <div ref={elementRef} className={styles.root}>
       {ctx && !gettingCtx ? (
         <div className={styles.context} onKeyUp={() => handleKeyup}>
           <div className={styles.icon}>{ctx.graphic && <Icon icon={ctx.graphic} />}</div>
