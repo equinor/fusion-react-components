@@ -88,14 +88,12 @@ export const ContextSearch = ({
   useEffect(() => {
     const ref = elementRef.current;
     if (ref) {
-      console.log('Adding listener');
       ref.addEventListener('dropdownClosed', () => {
         setGettingCtx(false);
       });
     }
     return () => {
       if (ref) {
-        console.log('REMOVING listener');
         ref.removeEventListener('dropdownClosed', () => null);
       }
     };
