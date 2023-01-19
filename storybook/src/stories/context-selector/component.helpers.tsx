@@ -52,7 +52,7 @@ const contextResultSectioned = [
 /**
  * Callback for resolvers searchQuery method.
  * Takes the query string to search for and return matching ContextResult.
- * @param query 
+ * @param query string to search for in api
  * @returns ContextResult
  */
 const apiItems = (query: string) => {
