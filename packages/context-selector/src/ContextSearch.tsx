@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { ContextSelector } from './ContextSelector';
 import { ContextSelectorProps, ContextResultItem, ContextSelectEvent } from './types';
 import { Icon } from '@equinor/fusion-react-icon';
-import { useStyles } from './ContextSearchStyles';
+import { useStyles } from './ContextSearch.styles';
 import { clsx } from '@equinor/fusion-react-styles';
 
 export type ContextSearchProps = ContextSelectorProps & {
