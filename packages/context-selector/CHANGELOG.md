@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.3.0 (2023-01-19)
+
+
+### Bug Fixes
+
+* changin ContextSelectorHeader to not include provider ([611ba3d](https://github.com/equinor/fusion-react-components/commit/611ba3d3f8cadd9d59b057229c8667a9fff83240))
+* **contextHeader:** styling for preview ([01b9679](https://github.com/equinor/fusion-react-components/commit/01b96797ad66d4b4baf074f4235d91b1265d3e4a))
+* **ContextSearch:** export ContextSearch from index ([f40e5e3](https://github.com/equinor/fusion-react-components/commit/f40e5e31e124551d621d0599b1cda6de6abda791))
+* **contextSelectorHeader:** event logic and no rude console logs ([f3874d7](https://github.com/equinor/fusion-react-components/commit/f3874d748767926beb15737d018e162ac3fcf83f))
+* **contextSelectorHeader:** importing icon component ([f316e7d](https://github.com/equinor/fusion-react-components/commit/f316e7d47df6ce688b1ebdb645c243414e93a1c2))
+* **contextSelector:** made onClearContext optional for ContextSelectorHeader ([2bdfc7b](https://github.com/equinor/fusion-react-components/commit/2bdfc7bb21d6dc895a25ce91ad15c8cd2aa22b59))
+
+
+### Features
+
+* **ContextSearch:** closing contextselector on close ([52a6639](https://github.com/equinor/fusion-react-components/commit/52a663982463e10b04dec56bc89ffdf7dd214652))
+* **contextSelector:** component for ContextSelectorHeader ([985dc50](https://github.com/equinor/fusion-react-components/commit/985dc5018f4caa53d05a4dc14f5717b335b8f9d6))
+
+
+
+
+
 # [0.2.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-context-selector@0.1.8...@equinor/fusion-react-context-selector@0.2.0) (2022-12-13)
 
 

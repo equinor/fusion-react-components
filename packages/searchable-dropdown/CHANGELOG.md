@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.3.0 (2023-01-19)
+
+
+### Features
+
+* **searchabledropdown:** extracting property autofocus from fwc ([72d75a2](https://github.com/equinor/fusion-react-components/commit/72d75a2738dd21ea4bd134ae8fc30b89336d7566))
+
+
+
+
+
 # [0.2.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-searchable-dropdown@0.1.8...@equinor/fusion-react-searchable-dropdown@0.2.0) (2022-12-13)
 
 
