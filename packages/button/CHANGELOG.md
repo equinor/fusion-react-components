@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.6.0 (2023-01-18)
+
+
+### Bug Fixes
+
+* :bug: button import fix ([b1e3e5c](https://github.com/equinor/fusion-react-components/commit/b1e3e5c65b558c5ed3303103f50c3e2610249474))
+
+
+### Features
+
+* :rocket: added LinkButton component ([7b994e0](https://github.com/equinor/fusion-react-components/commit/7b994e097b0679496544873ec2c2e711e6e6fc56))
+
+
+
+
+
 ## 0.5.16 (2023-01-12)
 
 

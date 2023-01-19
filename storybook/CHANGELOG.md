@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@2.1.2...@equinor/fusion-react-components-stories@2.2.0) (2023-01-18)
+
+
+### Bug Fixes
+
+* :bug: button import fix snapshots ([02926c5](https://github.com/equinor/fusion-react-components/commit/02926c5006ab0e98ff96505bb30763f6a96aa92d))
+
+
+### Features
+
+* :rocket: added LinkButton component ([7b994e0](https://github.com/equinor/fusion-react-components/commit/7b994e097b0679496544873ec2c2e711e6e6fc56))
+
+
+
+
+
 ## [2.1.2](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@2.1.1...@equinor/fusion-react-components-stories@2.1.2) (2023-01-12)
 
 **Note:** Version bump only for package @equinor/fusion-react-components-stories
