@@ -4,6 +4,7 @@ import { ComponentProps, createComponent } from '@equinor/fusion-react-utils';
 
 import {
   SearchableDropdownElement,
+  SearchableDropdownProps,
   SearchableDropdownSelectEvent as HTMLSearchableDropdownSelectEvent,
 } from '@equinor/fusion-wc-searchable-dropdown';
 
@@ -13,28 +14,14 @@ export {
   SearchableDropdownResolver,
 } from '@equinor/fusion-wc-searchable-dropdown';
 
-type ElementAttributes = Partial<
-  Pick<
-    SearchableDropdownElement,
-    | 'id'
-    | 'label'
-    | 'placeholder'
-    | 'variant'
-    | 'meta'
-    | 'value'
-    | 'initialText'
-    | 'leadingIcon'
-    | 'dropdownHeight'
-    | 'multiple'
-    | 'graphic'
-    | 'autofocus'
-  >
->;
+type ElementAttributes = Partial<Pick<SearchableDropdownElement, keyof SearchableDropdownProps>>;
 
+export type test = keyof SearchableDropdownProps;
 export type SearchableDropdownSelectEvent = BaseSyntheticEvent<HTMLSearchableDropdownSelectEvent>;
 
 type ElementEvents = {
   onSelect?: (e: SearchableDropdownSelectEvent) => void;
+  onDropdownClosed?: (e: CustomEvent) => void;
 };
 
 type ElementProps = ElementAttributes & ElementEvents;
@@ -44,7 +31,7 @@ export type DropdownProps = ComponentProps<SearchableDropdownElement, ElementPro
 export const Dropdown = createComponent<SearchableDropdownElement, ElementProps>(
   SearchableDropdownElement,
   'fwc-searchable-dropdown',
-  { events: { onSelect: 'select' } }
+  { events: { onSelect: 'select', onDropdownClosed: 'dropdownClosed' } }
 );
 
 export default Dropdown;
