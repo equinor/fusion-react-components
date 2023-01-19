@@ -2,70 +2,17 @@ import { useCallback, useEffect, useState } from 'react';
 import { ContextSelector } from './ContextSelector';
 import { ContextSelectorProps, ContextResultItem, ContextSelectEvent } from './types';
 import { Icon } from '@equinor/fusion-react-icon';
-import { createStyles, makeStyles, clsx } from '@equinor/fusion-react-styles';
+import { useStyles } from './ContextSearchStyles';
+import { clsx } from '@equinor/fusion-react-styles';
 
-export type ContextSearchProps = ContextSelectorProps & { onClearContext?: (e: Event) => void };
+export type ContextSearchProps = ContextSelectorProps & {
+  previewItem?: ContextResultItem;
+  onClearContext?: (e: Event) => void;
+};
 
-const useStyles = makeStyles(
-  (theme) =>
-    createStyles({
-      root: {
-        width: '100%',
-        margin: '0',
-        color: theme.colors.text.static_icons__default.getVariable('color'),
-      },
-      icon: {
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        width: '35px',
-        fontWeight: 400,
-      },
-      closeBtn: {
-        width: '100%',
-        height: '100%',
-        background: 'none',
-        border: '1px solid transparent',
-        borderRadius: 'var(--mdc-shape-small, 4px)',
-        color: theme.colors.interactive.primary__resting.getVariable('color'),
-        padding: 0,
-        '&:hover': {
-          borderColor: theme.colors.interactive.primary__resting.getVariable('color'),
-        },
-      },
-      context: {
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'stretch',
-      },
-      titleBlock: {
-        flex: '1 1 auto',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'flex-start',
-        fontSize: '0.9em',
-        border: '1px solid transparent',
-        borderRadius: 'var(--mdc-shape-small, 4px)',
-        padding: '0.25em',
-        '&:hover': {
-          borderColor: theme.colors.interactive.primary__resting.getVariable('color'),
-        },
-      },
-      title: {
-        fontSize: '1em',
-        fontWeight: 'bold',
-      },
-      subTitle: {
-        fontSize: '0.8em',
-        fontStyle: 'italic',
-      },
-    }),
-  { name: 'fusion-header-context-selector' }
-);
-
-const initialItem: ContextResultItem = {
+const defaultInitialItem: ContextResultItem = {
   id: 'temp-dev-id',
-  title: 'Select a Context',
+  title: 'Select Context',
   subTitle: 'Context',
   graphic: 'list',
   isDisabled: true,
@@ -74,9 +21,12 @@ const initialItem: ContextResultItem = {
 export const ContextSearch = ({
   children,
   onSelect,
+  previewItem,
   onClearContext,
   ...props
 }: React.PropsWithChildren<ContextSearchProps>): JSX.Element => {
+  const initialItem = previewItem ? Object.assign(defaultInitialItem, previewItem) : defaultInitialItem;
+
   const [ctx, setCtx] = useState<ContextResultItem | null>(initialItem);
   const [gettingCtx, setGettingCtx] = useState<boolean>(false);
 
@@ -105,7 +55,7 @@ export const ContextSearch = ({
         onClearContext(event);
       }
     },
-    [onClearContext]
+    [initialItem, onClearContext]
   );
 
   /* extending the fwc-searchable-dropdown escape handler */
