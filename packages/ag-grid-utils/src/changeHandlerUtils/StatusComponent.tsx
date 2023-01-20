@@ -19,6 +19,9 @@ const useStyles = makeStyles(
     closeIcon: {
       color: theme.colors.infographic.primary__energy_red_100.getVariable('color'),
     },
+    patchedIcon: {
+      color: theme.colors.interactive.warning__text.getVariable('color'),
+    },
     pendingChanges: {
       width: '.5rem',
       height: '.5rem',
@@ -37,6 +40,10 @@ const StatusComponent: FC<ICellRendererParams> = (props) => {
   return props.data?.hasChanged || props.data?.status === AGGridDataStatus.NEW ? (
     <div className={styles.statusContainer}>
       <div className={styles.pendingChanges} />
+    </div>
+  ) : props.data?.status === AGGridDataStatus.PATCHED ? (
+    <div className={clsx(styles.patchedIcon, styles.statusContainer)}>
+      <Icon icon="check_circle_outlined" />
     </div>
   ) : (
     <div className={clsx(styles.checkIcon, styles.statusContainer)}>
