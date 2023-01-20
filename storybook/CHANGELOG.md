@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@2.2.0...@equinor/fusion-react-components-stories@2.3.0) (2023-01-19)
+
+
+### Bug Fixes
+
+* **context-wip:** font styling ([2a26d8a](https://github.com/equinor/fusion-react-components/commit/2a26d8ac4bc4083f692d4c132f61887724df5e9f))
+* **contextSelectorHeader:** event logic and no rude console logs ([f3874d7](https://github.com/equinor/fusion-react-components/commit/f3874d748767926beb15737d018e162ac3fcf83f))
+* **contextstory:** types in example ([d40eb5e](https://github.com/equinor/fusion-react-components/commit/d40eb5ef97009d68e83a2f9c59197111acc6ede3))
+
+
+### Features
+
+* **contextSelector:** component for ContextSelectorHeader ([985dc50](https://github.com/equinor/fusion-react-components/commit/985dc5018f4caa53d05a4dc14f5717b335b8f9d6))
+
+
+
+
+
 # [2.2.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@2.1.2...@equinor/fusion-react-components-stories@2.2.0) (2023-01-18)
 
 
