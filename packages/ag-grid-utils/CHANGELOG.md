@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.5.0 (2023-01-20)
+
+
+### Features
+
+* added extra status column in ag grid statuc column ([4604d8a](https://github.com/equinor/fusion-react-components/commit/4604d8a8feba5a107b42c3094c55f490b8f52bed))
+
+
+
+
+
 ## 0.4.4 (2023-01-03)
 
 
