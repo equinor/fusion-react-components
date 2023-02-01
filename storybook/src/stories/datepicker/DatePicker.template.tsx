@@ -2,7 +2,9 @@ import { useState, useCallback } from 'react';
 
 import { FusionDatePicker, FusionDatePickerProps } from '@equinor/fusion-react-datepicker';
 
-export const DatePickerTemplate = (props: FusionDatePickerProps): React.ReactElement => {
+type DatePickerTemplateProps = { divHeight: number } & FusionDatePickerProps;
+
+export const DatePickerTemplate = (props: DatePickerTemplateProps): React.ReactElement => {
   const [date, setDate] = useState<Date | null>();
   const [dateTo, setDateTo] = useState<Date | null>();
   const [dateFrom, setDateFrom] = useState<Date | null>();
@@ -17,7 +19,7 @@ export const DatePickerTemplate = (props: FusionDatePickerProps): React.ReactEle
   );
 
   return (
-    <div style={{ height: 400 }}>
+    <div style={{ height: props.divHeight }}>
       <FusionDatePicker
         {...props}
         onRangeChange={onRangeChange}
