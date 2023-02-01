@@ -2,7 +2,233 @@ import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
 import ChangeLog from '../../components/ChangeLog';
 import Template from './DatePicker.template';
 
-<Meta title="Data/DatePicker" component={Template} />
+<Meta title="Data/DatePicker" component={Template} argTypes={{
+  //DatePickerBaseProps
+  allowSameDay: {
+    control: 'boolean',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: false },
+    },
+  },
+  dateFormat: {
+    description: 'Sets the format of the date',
+    control: 'text',
+    table: {
+      type: { summary: 'string|array' },
+      defaultValue: { summary: 'MM/dd/yyyy' },
+    },
+  },
+  disabled: {
+    description: 'Disables datepicker',
+    control: 'boolean',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: false },
+    },
+  },
+  excludeDates: {
+    description: 'Disable array of date(s) from calendar',
+    control: 'object',
+    table: {
+      type: { summary: 'Date[]' },
+    },
+  },
+  excludeTimes: {
+    description: 'Disable array of time(s) from calendar',
+    control: 'object',
+    table: {
+      type: { summary: 'Date[]' },
+    },
+  },
+  filterDate: {
+    table: {
+      type: { summary: '(date: Date) => boolean' },
+    },
+  },
+  includeDates: {
+    description: 'Include array of date(s) from calendar',
+    control: 'object',
+    table: {
+      type: { summary: 'Date[]' },
+    },
+  },
+  includeTimes: {
+    description: 'Include array of time(s) from calendar',
+    control: 'object',
+    table: {
+      type: { summary: 'Date[]' },
+    },
+  },
+  injectTimes: {
+    description: 'Inject array of time(s) from calendar',
+    control: 'object',
+    table: {
+      type: { summary: 'Date[]' },
+    },
+  },
+  inline: {
+    control: 'boolean',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: false },
+    },
+  },
+  locale: {
+    control: 'text',
+    table: {
+      type: { summary: 'string | Locale' },
+    },
+  },
+  maxDate: {
+    description: 'Set maximum selectable date',
+    control: 'date',
+    table: {
+      type: { summary: 'Date' },
+    },
+  },
+  maxTime: {
+    description: 'Set maximum selectable time',
+    control: 'date',
+    table: {
+      type: { summary: 'Date' },
+    },
+  },
+  minDate: {
+    description: 'Set minimum selectable date',
+    control: 'date',
+    table: {
+      type: { summary: 'Date' },
+    },
+  },
+  minTime: {
+    description: 'Set minimum selectable time',
+    control: 'date',
+    table: {
+      type: { summary: 'Date' },
+    },
+  },
+  onFocus: {
+    table: {
+      type: { summary: '(e: React.FocusEvent<HTMLInputElement>) => void' },
+    },
+  },
+  onMonthChange: {
+    table: {
+      type: { summary: '(date: Date) => void' },
+    },
+  },
+  onYearChange: {
+    table: {
+      type: { summary: '(date: Date) => void' },
+    },
+  },
+  openToDate: {
+    description: 'Open calendar to specific date',
+    control: 'date',
+    table: {
+      type: { summary: 'Date' },
+    },
+  },
+  readOnly: {
+    description: 'Set datepicker only as readable',
+    control: 'boolean',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: false },
+    },
+  },
+  startOpen: {
+    description: 'Run datepicker with open calendar',
+    control: 'boolean',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: false },
+    },
+  },
+  showWeekNumbers: {
+    description: 'Show numbers of the weeks in calendar',
+    control: 'boolean',
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: false },
+    },
+  },
+  tabIndex: {
+    control: 'number',
+    table: {
+      type: { summary: 'number' },
+    },
+  },
+  //DatePickerCustomProps
+  allowKeyboardControl: {
+    description: 'Allows control of calendar with keyboard',
+    table: {
+      defaultValue: { summary: false },
+    },
+  },
+  date: {
+    description: 'Sets the default selected date',
+    control: 'date',
+  },
+  dateFrom: {
+    description: 'Sets the starting date of date-range',
+    control: 'date',
+  },
+  dateTo: {
+    description: 'Sets the end date of date-range',
+    control: 'date',
+  },
+  disableFuture: {
+    description: 'Disable all days after today',
+    table: {
+      defaultValue: { summary: false },
+    },
+  },
+  disablePast: {
+    description: 'Disable all days before today',
+    table: {
+      defaultValue: { summary: false },
+    },
+  },
+  fluid: {
+    table: {
+      defaultValue: { summary: false },
+    },
+  },
+  height: {
+    description: 'Container height',
+    table: {
+      defaultValue: { summary: '3.5em' },
+    },
+  },
+  isClearable: {
+    description: 'Button for clearing selected date(s)',
+    table: {
+      defaultValue: { summary: false },
+    },
+  },
+  label: {
+    description: 'Label name',
+    defaultValue: 'Label',
+  },
+  shouldCloseOnSelect: {
+    description: 'Close calendar when the date is selected',
+  },
+  showTodayButton: {
+    description: 'Display today button on the bottom of calendar',
+  },
+  type: {
+    description: 'Different selection types',
+  },
+  width: {
+    description: 'Container width',
+    defaultValue: '250px',
+  },
+  classes: {
+    description: 'Add additional classes',
+  }
+}} />
 
 <Description markdown={require('@equinor/fusion-react-datepicker/README.md')} />
 
@@ -47,9 +273,14 @@ const Comp = () => {
 };
 ```
 
+
+<StoryExample storyId="examples-button-link--custom" showSource/>
+
 <Canvas>
-  <Story name="DatePicker">{Template.bind({})}</Story>
-  <div style={{ height: 300, width: '100vw' }} />
+  <Story name="DatePicker">
+      {Template.bind({})}
+  </Story>
+  
 </Canvas>
 
 <ArgsTable story="DatePicker" />

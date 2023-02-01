@@ -17,15 +17,16 @@ export const DatePickerTemplate = (props: FusionDatePickerProps): React.ReactEle
   );
 
   return (
-    <FusionDatePicker
-      {...props}
-      onRangeChange={onRangeChange}
-      onChange={setDate}
-      date={date}
-      label={'Label'}
-      dateFrom={dateFrom}
-      dateTo={dateTo}
-    />
+    <div style={{ height: 400 }}>
+      <FusionDatePicker
+        {...props}
+        onRangeChange={onRangeChange}
+        onChange={setDate}
+        date={date || props.date}
+        dateFrom={dateFrom || props.dateFrom}
+        dateTo={dateTo || props.dateTo}
+      />
+    </div>
   );
 };
 
