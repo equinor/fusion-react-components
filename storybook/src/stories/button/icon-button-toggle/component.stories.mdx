@@ -1,0 +1,68 @@
+import { Meta, Story, Canvas, ArgsTable,Description } from '@storybook/addon-docs';
+import { ChangeLog, PackageInfo, StoryExample } from '../../../components';
+import Icon from '@equinor/fusion-react-icon/src';
+import IconButtonToggle from '@equinor/fusion-react-button/src/icon-button-toggle';
+
+<Meta title="Input/Button/Icon Toggle" />
+
+<PackageInfo pkg={require('@equinor/fusion-react-button/package.json')} />
+
+### Example Usage
+
+```tsx
+import { IconButtonToggle } from '@equinor/fusion-react-button';
+
+  // with Fusion icon
+  <IconButtonToggle offIcon="wifi_off" onIcon="wifi" props />
+
+  // with custom icons
+  <IconButtonToggle props >
+    <img slot="offIcon" src />
+    <img slot="onIcon" src />
+  </IconButtonToggle>
+
+  // with custom images
+  <IconButtonToggle props >
+    <svg slot="offIcon"> </svg>
+    <svg slot="onIcon"> </svg>
+  </IconButtonToggle>
+```
+
+## Properties/Attributes
+
+<ArgsTable of={IconButtonToggle} />
+
+## Examples
+
+### Component
+
+<Canvas>
+  <Story id="examples-button-icon-toggle--component" />
+</Canvas>
+
+### Custom Icon
+<Canvas>
+  <Story id="snapshots-button-icon-toggle--custom-icon" />
+</Canvas>
+
+### Custom Image
+<Canvas>
+  <Story id="snapshots-button-icon-toggle--custom-image" />
+</Canvas>
+
+## All Icons
+To see all available icons in the Fusion, visit [Icon](?path=/docs/data-icon--page) page
+
+## Size
+<Story id="snapshots-button-icon-toggle--size" />
+
+## Color
+<Story id="snapshots-button-icon-toggle--color" />
+
+## Changelog
+
+<ChangeLog changelogs={{
+  react: require('@equinor/fusion-react-button/CHANGELOG.md'), 
+  webComponent: require('@equinor/fusion-wc-button/CHANGELOG.md')
+}}/>
+

@@ -10,9 +10,12 @@
     "icon",
     "icon button",
     "link",
-    "link button"
+    "link button",
+    "toggle",
+    "icon toggle",
+    "icon toggle button"
   ],
-  "homepage": "https://github.com/equinor/fusion-react-components/tree/master/packages/button#readme",
+  "homepage": "https://github.com/equinor/fusion-react-components/blob/main/packages/button/README.button.md",
   "license": "ISC",
   "main": "dist/index.js",
   "directories": {
