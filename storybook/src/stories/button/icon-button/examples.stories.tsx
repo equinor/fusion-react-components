@@ -1,9 +1,14 @@
 import { Meta, Story } from '@storybook/react';
 import { iconNames } from '@equinor/fusion-react-icon/src';
-import { IconButton, IconButtonProps, IconButtonColor, IconButtonSize } from '@equinor/fusion-react-icon-button/src';
+import {
+  IconButton,
+  IconButtonProps,
+  IconButtonColor,
+  IconButtonSize,
+} from '@equinor/fusion-react-button/src/icon-button/';
 
 export default {
-  title: 'Examples/IconButton',
+  title: 'Examples/Button/IconButton',
   component: IconButton,
   argTypes: {
     icon: {
