@@ -6,7 +6,11 @@
     "button",
     "react",
     "fusion",
-    "equinor"
+    "equinor",
+    "icon",
+    "icon button",
+    "link",
+    "link button"
   ],
   "homepage": "https://github.com/equinor/fusion-react-components/tree/master/packages/button#readme",
   "license": "ISC",
@@ -35,7 +39,7 @@
   },
   "dependencies": {
     "@equinor/fusion-react-utils": "^2.0.4",
-    "@equinor/fusion-wc-button": "^1.1.36"
+    "@equinor/fusion-wc-button": "^1.3.0"
   },
   "peerDependencies": {
     "@types/react": "^17.0.0 || ^18.0.0",
