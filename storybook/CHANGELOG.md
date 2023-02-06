@@ -3,6 +3,32 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.4.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@2.3.1...@equinor/fusion-react-components-stories@2.4.0) (2023-02-03)
+
+
+### Bug Fixes
+
+* :bug: button import fix snapshots ([450fe7a](https://github.com/equinor/fusion-react-components/commit/450fe7af058be9ef179bcf018f6251f2f81da8b0))
+* :bug: div height ([d8b3c88](https://github.com/equinor/fusion-react-components/commit/d8b3c88744081c6df3d1f8893080ed46af534d2e))
+* **button:** fwc-button dependency version ([a1073fc](https://github.com/equinor/fusion-react-components/commit/a1073fc67c4a1bfb34d6e7eee6cc2ea3aa9a8034))
+* **context-wip:** font styling ([8ad13ac](https://github.com/equinor/fusion-react-components/commit/8ad13ac07175b5877a535ae03c056e7f98627042))
+* **contextSelectorHeader:** event logic and no rude console logs ([067297e](https://github.com/equinor/fusion-react-components/commit/067297e6322558d9c648bffd252b73da6953ad8d))
+* **contextstory:** types in example ([64838be](https://github.com/equinor/fusion-react-components/commit/64838be53bce5e9000e65090e5631e84dcd56406))
+* **icon-button:** content fix ([ac63c5b](https://github.com/equinor/fusion-react-components/commit/ac63c5b623eb6d6a55bcc7dfac85ba9133d196e9))
+* **react-components:** main story ([2fb6357](https://github.com/equinor/fusion-react-components/commit/2fb63574175a9782868234e137a71073d4700af0))
+
+
+### Features
+
+* :rocket: added LinkButton component ([5c84184](https://github.com/equinor/fusion-react-components/commit/5c8418455837e9150b76f98d17739694f603900a))
+* :sparkles: icon button ([7672b2a](https://github.com/equinor/fusion-react-components/commit/7672b2a56bd9afc382dd2ba90b162edff8607e89))
+* **contextSelector:** component for ContextSelectorHeader ([47a9309](https://github.com/equinor/fusion-react-components/commit/47a9309b37ec48259722e85b64104d108f3503b0))
+* **react-components:** icon-button ([df1374d](https://github.com/equinor/fusion-react-components/commit/df1374db022b00f3cb9c7fe688d1bc5368f34232))
+
+
+
+
+
 ## 2.3.1 (2023-01-30)
 
 **Note:** Version bump only for package @equinor/fusion-react-components-stories

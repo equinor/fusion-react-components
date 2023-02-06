@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.7.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-button@0.6.1...@equinor/fusion-react-button@0.7.0) (2023-02-03)
+
+
+### Bug Fixes
+
+* :bug: button import fix ([f43a8e2](https://github.com/equinor/fusion-react-components/commit/f43a8e2f1fd4dd81cf6d4cc9195c31e327947e54))
+* **button:** fixes import of tag to buttonTag from fusion-wc-button ([10ea3ac](https://github.com/equinor/fusion-react-components/commit/10ea3ac95cfdd967e11829aaa9c5ee42a08414b3))
+* **button:** fwc-button dependency version ([a1073fc](https://github.com/equinor/fusion-react-components/commit/a1073fc67c4a1bfb34d6e7eee6cc2ea3aa9a8034))
+* **button:** updating fwc-button version ([a29e281](https://github.com/equinor/fusion-react-components/commit/a29e281d51e414168cffea4940106b692276c621))
+
+
+### Features
+
+* :rocket: added LinkButton component ([5c84184](https://github.com/equinor/fusion-react-components/commit/5c8418455837e9150b76f98d17739694f603900a))
+* :sparkles: icon button ([7672b2a](https://github.com/equinor/fusion-react-components/commit/7672b2a56bd9afc382dd2ba90b162edff8607e89))
+
+
+
+
+
 ## 0.6.1 (2023-01-30)
 
 **Note:** Version bump only for package @equinor/fusion-react-button
