@@ -8,7 +8,7 @@ import {
 } from '@equinor/fusion-react-button/src/icon-button/';
 
 export default {
-  title: 'Examples/Button/IconButton',
+  title: 'Examples/Button/Icon',
   component: IconButton,
   argTypes: {
     icon: {
