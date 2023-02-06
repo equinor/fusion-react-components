@@ -124,7 +124,7 @@ export const _exampleResolver: ContextResolver = {
     }),
   ],
   closeHandler: (e: MouseEvent) => {
-    console.log('UI closed dropdown list.', e);
+    console.log('Resolver closeHandler event.', e);
   },
 };
 
