@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.8.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-button@0.7.0...@equinor/fusion-react-button@0.8.0) (2023-02-06)
+
+
+### Bug Fixes
+
+* :bug: package homepage ([538b801](https://github.com/equinor/fusion-react-components/commit/538b8010e0334557bc33103b4c3b1a24e87000ae))
+
+
+### Features
+
+* :sparkles: icon button toggle ([4acf856](https://github.com/equinor/fusion-react-components/commit/4acf8562c7b5b7a528ed9818527beb3674a8f370))
+
+
+
+
+
 # [0.7.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-button@0.6.1...@equinor/fusion-react-button@0.7.0) (2023-02-03)
 
 
