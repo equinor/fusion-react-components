@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.1.2 (2023-02-06)
+
+
+### Bug Fixes
+
+* :bug: additional type export ([b4c6e05](https://github.com/equinor/fusion-react-components/commit/b4c6e057885cef56029dc5537eaa96552637e064))
+* :bug: type export ([4699ec9](https://github.com/equinor/fusion-react-components/commit/4699ec99a0665c4d64fee3a84944d39cd84896f1))
+
+
+
+
+
 ## 0.1.1 (2022-11-08)
 
 
