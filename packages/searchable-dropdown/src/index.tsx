@@ -2,6 +2,8 @@ export * from './Dropdown';
 export * from './DropdownProvider';
 export * from './useDropdownProviderRef';
 
+export { SearchableDropdown, SearchableDropdownProps } from './SearchableDropdown';
+
 export {
   SearchableDropdownElement as HTMLSearchableDropdownCustomElement,
   SearchableDropdownProviderElement as HTMLSearchableDropdownProviderCustomElement,
