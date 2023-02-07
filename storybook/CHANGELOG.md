@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.5.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@2.4.1...@equinor/fusion-react-components-stories@2.5.0) (2023-02-06)
+
+
+### Features
+
+* :sparkles: icon button toggle ([4acf856](https://github.com/equinor/fusion-react-components/commit/4acf8562c7b5b7a528ed9818527beb3674a8f370))
+
+
+
+
+
 ## [2.4.1](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@2.4.0...@equinor/fusion-react-components-stories@2.4.1) (2023-02-06)
 
 **Note:** Version bump only for package @equinor/fusion-react-components-stories
