@@ -38,6 +38,7 @@ ContextHeader.args = {
   variant: 'header',
   dropdownHeight: '300px',
   onSelect: _handleSelect,
-  autofocus: true,
-  onClearContext: () => console.log('Context Clearing'),
+  onClearContext: () => {
+    console.log('Context Clearing');
+  },
 };

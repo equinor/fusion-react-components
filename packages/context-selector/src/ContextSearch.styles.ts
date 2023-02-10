@@ -4,6 +4,7 @@ export const useStyles = makeStyles(
   (theme) =>
     createStyles({
       root: {
+        position: 'relative',
         width: '100%',
         margin: '0',
         color: theme.colors.text.static_icons__default.getVariable('color'),
@@ -52,6 +53,20 @@ export const useStyles = makeStyles(
       subTitle: {
         fontSize: '0.8em',
         fontStyle: 'italic',
+      },
+      ctxSelector: {
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+        opacity: 1,
+        zIndex: -1,
+        '&.active': {
+          zIndex: 1,
+        },
+      },
+      hidden: {
+        opacity: 0,
       },
     }),
   { name: 'fusion-header-context-selector' }

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.3.1 (2023-02-07)
+
+
+### Bug Fixes
+
+* **searchable-dropdown:** expose SearchableDropdown ([a81fa87](https://github.com/equinor/fusion-react-components/commit/a81fa87afdffd0dcc76652743f87d7191d6a8eb0))
+
+
+
+
+
 # 0.3.0 (2023-01-19)
 
 

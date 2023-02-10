@@ -1,4 +1,3 @@
-/* eslint-disable react/no-multi-comp */
 import { BaseSyntheticEvent } from 'react';
 import { ComponentProps, createComponent } from '@equinor/fusion-react-utils';
 
@@ -16,7 +15,6 @@ export {
 
 type ElementAttributes = Partial<Pick<SearchableDropdownElement, keyof SearchableDropdownProps>>;
 
-export type test = keyof SearchableDropdownProps;
 export type SearchableDropdownSelectEvent = BaseSyntheticEvent<HTMLSearchableDropdownSelectEvent>;
 
 type ElementEvents = {

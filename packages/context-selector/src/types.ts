@@ -5,10 +5,7 @@ import {
   SearchableDropdownSelectEvent,
 } from '@equinor/fusion-react-searchable-dropdown';
 
-export type ContextResultItem = Pick<
-  SearchableDropdownResultItem,
-  'children' | 'graphic' | 'id' | 'isDisabled' | 'isError' | 'isSelected' | 'meta' | 'subTitle' | 'title' | 'type'
->;
+export type ContextResultItem = Pick<SearchableDropdownResultItem, keyof SearchableDropdownResultItem>;
 export type ContextResult = Array<ContextResultItem>;
 export type ContextSelectEvent = SearchableDropdownSelectEvent;
 export type ContextSelectorProps = DropdownProps;

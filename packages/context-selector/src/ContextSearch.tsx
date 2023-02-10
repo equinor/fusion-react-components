@@ -1,9 +1,10 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { Icon } from '@equinor/fusion-react-icon';
+import { clsx } from '@equinor/fusion-react-styles';
 import { ContextSelector } from './ContextSelector';
 import { ContextSelectorProps, ContextResultItem, ContextSelectEvent } from './types';
-import { Icon } from '@equinor/fusion-react-icon';
 import { useStyles } from './ContextSearch.styles';
-import { clsx } from '@equinor/fusion-react-styles';
+import { SearchableDropdownElement } from '@equinor/fusion-wc-searchable-dropdown';
 
 export type ContextSearchProps = ContextSelectorProps & {
   previewItem?: ContextResultItem;
@@ -29,8 +30,8 @@ export const ContextSearch = ({
   const elementRef = useRef<HTMLDivElement | null>(null);
   const [ctx, setCtx] = useState<ContextResultItem | null>(initialItem);
   const [gettingCtx, setGettingCtx] = useState<boolean>(false);
-
   const styles = useStyles();
+  const [sdd, setSdd] = useState<SearchableDropdownElement | null>(null);
 
   /* Extend onSelect and calls props.onSelect */
   const handleSelect = useCallback(
@@ -50,12 +51,18 @@ export const ContextSearch = ({
   const handleClearContext = useCallback(
     (event) => {
       setCtx(initialItem);
+
+      /* Clean SearchableDropdown */
+      if (sdd) {
+        sdd.controller.closeClick(new Event('click') as MouseEvent);
+      }
+
       /* Trigger props.onClearContext */
       if (onClearContext) {
         onClearContext(event);
       }
     },
-    [initialItem, onClearContext]
+    [initialItem, onClearContext, sdd]
   );
 
   /* extending the fwc-searchable-dropdown escape handler */
@@ -88,25 +95,41 @@ export const ContextSearch = ({
   useEffect(() => {
     const ref = elementRef.current;
     if (ref) {
+      // reference to web element
+      setSdd(ref.querySelector('fwc-searchable-dropdown'));
+
       ref.addEventListener('dropdownClosed', () => {
         setGettingCtx(false);
       });
+      /* close selector on click outside  */
+      document.documentElement.addEventListener('click', (e: MouseEvent) => {
+        if ((e.target as HTMLElement).contains(elementRef.current)) {
+          setGettingCtx(false);
+        }
+      });
     }
+
     return () => {
       if (ref) {
         ref.removeEventListener('dropdownClosed', () => null);
       }
     };
-  }, [elementRef]);
+  }, [elementRef, sdd]);
+
+  useEffect(() => {
+    if (sdd && gettingCtx) {
+      sdd.focus();
+    }
+  }, [gettingCtx, sdd]);
 
   return (
     <div ref={elementRef} className={styles.root}>
-      {ctx && !gettingCtx ? (
+      <div className={clsx(gettingCtx && styles.hidden)}>
         <div className={styles.context} onKeyUp={() => handleKeyup}>
-          <div className={styles.icon}>{ctx.graphic && <Icon icon={ctx.graphic} />}</div>
+          <div className={styles.icon}>{ctx?.graphic && <Icon icon={ctx.graphic} />}</div>
           <div tabIndex={0} className={styles.titleBlock} onClick={() => setGettingCtx(true)}>
-            <span className={styles.title}>{ctx.title}</span>
-            <span className={styles.subTitle}>{ctx.subTitle}</span>
+            <span className={styles.title}>{ctx?.title}</span>
+            <span className={styles.subTitle}>{ctx?.subTitle}</span>
           </div>
           <div className={styles.icon}>
             {ctx && !ctx.isDisabled && (
@@ -116,11 +139,12 @@ export const ContextSearch = ({
             )}
           </div>
         </div>
-      ) : (
+      </div>
+      <div className={clsx(styles.ctxSelector, !gettingCtx ? styles.hidden : 'active')}>
         <ContextSelector {...props} onSelect={handleSelect}>
           {children}
         </ContextSelector>
-      )}
+      </div>
     </div>
   );
 };
