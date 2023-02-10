@@ -1,4 +1,3 @@
-/* eslint-disable react/no-multi-comp */
 import { SearchableDropdownProviderElement } from '@equinor/fusion-wc-searchable-dropdown';
 import { createComponent } from '@equinor/fusion-react-utils';
 
