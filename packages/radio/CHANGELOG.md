@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.4.14 (2023-02-14)
+
+
+### Bug Fixes
+
+* exporting types as type in packages ([f298ce9](https://github.com/equinor/fusion-react-components/commit/f298ce9907894d603e9a401f2b7db6b4cad7814b))
+
+
+
+
+
 ## 0.4.13 (2022-11-21)
 
 **Note:** Version bump only for package @equinor/fusion-react-radio

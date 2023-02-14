@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-context-selector@0.3.2...@equinor/fusion-react-context-selector@0.4.0) (2023-02-14)
+
+
+### Bug Fixes
+
+* **ContextSearch:** updating when property previewItem changes ([ecb4ae4](https://github.com/equinor/fusion-react-components/commit/ecb4ae407f68c66e0b0fc14424d78fce3f13a497))
+
+
+### Features
+
+* **ContextSearch:** show initialItem as selected ([9a09393](https://github.com/equinor/fusion-react-components/commit/9a09393430f5ba717f308930d61cde6aa24eb527))
+
+
+
+
+
 ## [0.3.2](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-context-selector@0.3.1...@equinor/fusion-react-context-selector@0.3.2) (2023-02-10)
 
 

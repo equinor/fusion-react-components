@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.5.22 (2023-02-14)
+
+
+### Bug Fixes
+
+* exporting types as type in packages ([f298ce9](https://github.com/equinor/fusion-react-components/commit/f298ce9907894d603e9a401f2b7db6b4cad7814b))
+
+
+
+
+
 ## [0.5.21](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-table@0.5.20...@equinor/fusion-react-table@0.5.21) (2023-02-06)
 
 **Note:** Version bump only for package @equinor/fusion-react-table

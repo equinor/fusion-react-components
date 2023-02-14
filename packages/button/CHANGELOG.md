@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.8.1 (2023-02-14)
+
+
+### Bug Fixes
+
+* **button:** importing minumum version of fwc-button ([3eca82e](https://github.com/equinor/fusion-react-components/commit/3eca82e039931113820c949d0c0d1458de62cc80))
+* exporting types as type in packages ([f298ce9](https://github.com/equinor/fusion-react-components/commit/f298ce9907894d603e9a401f2b7db6b4cad7814b))
+
+
+
+
+
 # [0.8.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-button@0.7.0...@equinor/fusion-react-button@0.8.0) (2023-02-06)
 
 
