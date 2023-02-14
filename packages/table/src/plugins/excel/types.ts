@@ -5,4 +5,4 @@ export type ExportState = {
   error?: Error;
 };
 
-export { TableData };
+export type { TableData };

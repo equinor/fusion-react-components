@@ -1,8 +1,8 @@
 import { useRef, useState, useCallback } from 'react';
 import { Meta, Story } from '@storybook/react';
 import { Menu, MenuProps } from '@equinor/fusion-react-menu/src';
-import { ListItem } from '@equinor/fusion-react-list';
-import Button from '@equinor/fusion-react-button';
+import { ListItem } from '@equinor/fusion-react-list/src';
+import { Button } from '@equinor/fusion-react-button/src';
 
 export default {
   title: 'Examples/Menu',

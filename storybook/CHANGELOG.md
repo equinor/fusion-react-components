@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.5.2](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@2.5.1...@equinor/fusion-react-components-stories@2.5.2) (2023-02-10)
+
+
+### Bug Fixes
+
+* :bug: div height ([d8b3c88](https://github.com/equinor/fusion-react-components/commit/d8b3c88744081c6df3d1f8893080ed46af534d2e))
+* **ContextSearch:** remembers current context and minor ux fixes ([8afac6a](https://github.com/equinor/fusion-react-components/commit/8afac6ab9ace8f2367a7a16d71a5b24bd69de998))
+* **searchable-dropdown:** type exports and stories ([e0f2e92](https://github.com/equinor/fusion-react-components/commit/e0f2e92d4513cc542ce38f1b7ae0eb0f3bbb9636))
+
+
+
+
+
 ## [2.5.1](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@2.5.0...@equinor/fusion-react-components-stories@2.5.1) (2023-02-07)
 
 **Note:** Version bump only for package @equinor/fusion-react-components-stories
