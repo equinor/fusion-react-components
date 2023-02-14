@@ -19,4 +19,4 @@ export type Layout<TData extends TableData = TableData, TProps extends LayoutPro
   plugins?: Array<PluginHook<TData>>;
 };
 
-export { SpacingType } from './layout.style';
+export type { SpacingType } from './layout.style';

@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Icon } from '@equinor/fusion-react-icon';
 import { clsx } from '@equinor/fusion-react-styles';
 import { ContextSelector } from './ContextSelector';
@@ -26,12 +26,18 @@ export const ContextSearch = ({
   onClearContext,
   ...props
 }: React.PropsWithChildren<ContextSearchProps>): JSX.Element => {
-  const initialItem = previewItem ? Object.assign(defaultInitialItem, previewItem) : defaultInitialItem;
+  const initialItem = previewItem ?? defaultInitialItem;
   const elementRef = useRef<HTMLDivElement | null>(null);
   const [ctx, setCtx] = useState<ContextResultItem | null>(initialItem);
   const [gettingCtx, setGettingCtx] = useState<boolean>(false);
   const styles = useStyles();
   const [sdd, setSdd] = useState<SearchableDropdownElement | null>(null);
+
+  useMemo(() => {
+    if (previewItem) {
+      setCtx(previewItem);
+    }
+  }, [previewItem]);
 
   /* Extend onSelect and calls props.onSelect */
   const handleSelect = useCallback(
@@ -50,7 +56,7 @@ export const ContextSearch = ({
   /* Clear context button handler */
   const handleClearContext = useCallback(
     (event) => {
-      setCtx(initialItem);
+      setCtx(defaultInitialItem);
 
       /* Clean SearchableDropdown */
       if (sdd) {
@@ -62,7 +68,7 @@ export const ContextSearch = ({
         onClearContext(event);
       }
     },
-    [initialItem, onClearContext, sdd]
+    [onClearContext, sdd]
   );
 
   /* extending the fwc-searchable-dropdown escape handler */
@@ -101,6 +107,7 @@ export const ContextSearch = ({
       ref.addEventListener('dropdownClosed', () => {
         setGettingCtx(false);
       });
+
       /* close selector on click outside  */
       document.documentElement.addEventListener('click', (e: MouseEvent) => {
         if ((e.target as HTMLElement).contains(elementRef.current)) {

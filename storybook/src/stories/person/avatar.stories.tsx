@@ -2,11 +2,11 @@ import { Meta, Story } from '@storybook/react';
 import {
   PersonProvider,
   PersonAvatar,
-  PersonAvailability,
   AvatarSize,
-  PersonAvatarProps,
+  PersonAvailability,
   PersonAccountType,
 } from '@equinor/fusion-react-person/src';
+import type { PersonAvatarProps } from '@equinor/fusion-react-person/src';
 
 export default {
   title: 'Examples/Person/Person Avatar',

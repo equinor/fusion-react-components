@@ -22,4 +22,4 @@ export type MenuState = {
   show?: boolean;
 };
 
-export { TableData };
+export type { TableData };
