@@ -1,4 +1,3 @@
-/* eslint-disable react/no-multi-comp */
 import { Dropdown } from '@equinor/fusion-react-searchable-dropdown';
 import { ContextSelectorProps } from './types';
 

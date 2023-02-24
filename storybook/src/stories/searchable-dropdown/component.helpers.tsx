@@ -137,7 +137,7 @@ export const _exampleResolver: SearchableDropdownResolver = {
       ],
     }),
   ],
-  closeHandler: (e) => {
+  closeHandler: (e: Event) => {
     console.log('UI closed dropdown list.', e);
   },
 };
