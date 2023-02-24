@@ -123,7 +123,7 @@ export const _exampleResolver: ContextResolver = {
       ],
     }),
   ],
-  closeHandler: (e: MouseEvent) => {
+  closeHandler: (e: Event) => {
     console.log('Resolver closeHandler event.', e);
   },
 };
