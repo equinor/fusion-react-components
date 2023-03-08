@@ -39,6 +39,24 @@ export const ContextSearch = ({
     }
   }, [previewItem]);
 
+  const toggleGettingCtx = useCallback(() => {
+    if (sdd) {
+      requestAnimationFrame(() => {
+        sdd.textInputElement?.focus();
+      });
+    }
+    setGettingCtx(!gettingCtx);
+  }, [gettingCtx, sdd]);
+
+  const keyUpGettingCtx = useCallback(
+    (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        toggleGettingCtx();
+      }
+    },
+    [toggleGettingCtx]
+  );
+
   /* Extend onSelect and calls props.onSelect */
   const handleSelect = useCallback(
     (selected: ContextSelectEvent) => {
@@ -134,7 +152,7 @@ export const ContextSearch = ({
       <div className={clsx(gettingCtx && styles.hidden)}>
         <div className={styles.context} onKeyUp={() => handleKeyup}>
           <div className={styles.icon}>{ctx?.graphic && <Icon icon={ctx.graphic} />}</div>
-          <div tabIndex={0} className={styles.titleBlock} onClick={() => setGettingCtx(true)}>
+          <div tabIndex={0} className={styles.titleBlock} onClick={toggleGettingCtx} onKeyDown={keyUpGettingCtx}>
             <span className={styles.title}>{ctx?.title}</span>
             <span className={styles.subTitle}>{ctx?.subTitle}</span>
           </div>

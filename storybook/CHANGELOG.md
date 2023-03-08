@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.5.4](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@2.5.3...@equinor/fusion-react-components-stories@2.5.4) (2023-02-24)
+
+
+### Bug Fixes
+
+* **storybook:** type on searchable-dd resolver closeHandler ([fa67a2e](https://github.com/equinor/fusion-react-components/commit/fa67a2eb31c3a6c98bbe5d376c37ec923c43b90c))
+
+
+
+
+
 ## [2.5.3](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@2.5.2...@equinor/fusion-react-components-stories@2.5.3) (2023-02-14)
 
 

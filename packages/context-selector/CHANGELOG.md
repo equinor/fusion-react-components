@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.1](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-context-selector@0.4.0...@equinor/fusion-react-context-selector@0.4.1) (2023-02-24)
+
+
+### Bug Fixes
+
+* **context-selector:** type on provider ref ([eddeb34](https://github.com/equinor/fusion-react-components/commit/eddeb341ba1c8da237a0370d4fa7a34b53713ffc))
+
+
+
+
+
 # [0.4.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-context-selector@0.3.2...@equinor/fusion-react-context-selector@0.4.0) (2023-02-14)
 
 
