@@ -13,15 +13,15 @@ import { PersonCard, PersonAvatar } from '@equinor/fusion-react-person/src';
 Name                      | Type                            | Default                         | Description
 ------------------------- | -----------------------------   | -----------------------------   | -----------
 `azureId`                 | `string`                        | `/`                             | Unique Azure ID for every person `required`
-`size`                    | `AvatarSize*`                   | `medium`                        | Size of elements of the card. See [`fusion-wc-avatar`](https://github.com/equinor/fusion-web-components/tree/main/packages/avatar).
+`size`                    | `PersonItemSize*`                   | `medium`                        | Size of elements of the card.
 
 
 ---
 
 
-\*  `AvatarSize` is exported by `fwc-avatar`.
+\*  `PersonItemSize` is exported by `fwc-avatar`.
 ```ts
-type AvatarSize = 'xsmall' | 'small' | 'medium' | 'large';
+type PersonItemSize = 'small' | 'medium' | 'large';
 ```
 
 ## Example Usage
@@ -76,7 +76,7 @@ interface PersonResolver {
 type PersonPresence = {
     azureId: string;
     availability: PersonAvailability;
-};
+}
 
 ```
 \*\*\*  `PersonDetails` is exported by `fwc-person-provider`.
@@ -92,6 +92,25 @@ type PersonDetails = {
     mobilePhone?: string;
     accountType?: PersonAccountType;
     officeLocation?: string;
+    positions?: Position[];
+    manager?: Manager;
+}
+
+type Position = {
+    id: string;
+    name: string;
+    project: {
+        id: string;
+        name: string;
+    };
+}
+
+type Manager = {
+    azureId: string;
+    name?: string;
+    pictureSrc?: string;
+    department?: string;
+    accountType?: PersonAccountType;
 }
 ```
 
