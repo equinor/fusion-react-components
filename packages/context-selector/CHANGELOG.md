@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.2](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-context-selector@0.4.1...@equinor/fusion-react-context-selector@0.4.2) (2023-03-08)
+
+
+### Bug Fixes
+
+* **ContextSearch:** setting focus on input when clicking wrapper ([8dcbf63](https://github.com/equinor/fusion-react-components/commit/8dcbf636a24f81d10c087ffb550c9aa46a1ab0b6))
+
+
+
+
+
 ## [0.4.1](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-context-selector@0.4.0...@equinor/fusion-react-context-selector@0.4.1) (2023-02-24)
 
 
