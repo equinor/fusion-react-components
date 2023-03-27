@@ -1,4 +1,4 @@
-import { ReactNode, useCallback, useState, FC } from 'react';
+import { ReactNode, useCallback, useState, FC, PropsWithChildren } from 'react';
 import { usePopper } from 'react-popper';
 import { Icon } from '@equinor/fusion-react-icon';
 import { useStyles } from './style';
@@ -28,7 +28,7 @@ export const Popover: FC<PopoverProps> = ({
   showCloseIcon = true,
   setVisibility,
   visible,
-}): JSX.Element => {
+}: PropsWithChildren<PopoverProps>): JSX.Element => {
   const [referenceElement, setReferenceElement] = useState<HTMLSpanElement | null>(null);
   const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(null);
   const [arrowElement, setArrowElement] = useState<HTMLDivElement | null>(null);
