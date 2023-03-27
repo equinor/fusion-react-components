@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.2.0 (2023-03-24)
+
+
+### Bug Fixes
+
+* **person-card:** person item size ([f1bc43d](https://github.com/equinor/fusion-react-components/commit/f1bc43daa05ed56ceca7d063b5cc3118ed8d61bc))
+* **person-list-item:** package update ([15f1619](https://github.com/equinor/fusion-react-components/commit/15f1619b2be38e5e48655d3f002f0fad382cd1d7))
+
+
+### Features
+
+* **person:** person list item ([47482b8](https://github.com/equinor/fusion-react-components/commit/47482b819f15d92e43ca6a0160ae5682cfdacedb))
+
+
+
+
+
 ## 0.1.3 (2023-02-14)
 
 

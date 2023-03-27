@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.6.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@2.5.5...@equinor/fusion-react-components-stories@2.6.0) (2023-03-24)
+
+
+### Bug Fixes
+
+* **person-card:** additional to storybook ([d2c2cee](https://github.com/equinor/fusion-react-components/commit/d2c2cee8a1429ad28e931311c0215aa338f9b040))
+
+
+### Features
+
+* **person:** person list item ([47482b8](https://github.com/equinor/fusion-react-components/commit/47482b819f15d92e43ca6a0160ae5682cfdacedb))
+
+
+
+
+
 ## [2.5.5](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@2.5.4...@equinor/fusion-react-components-stories@2.5.5) (2023-03-08)
 
 **Note:** Version bump only for package @equinor/fusion-react-components-stories

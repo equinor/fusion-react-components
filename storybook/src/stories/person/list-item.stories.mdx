@@ -1,24 +1,26 @@
 import { Meta, Story, Canvas, ArgsTable, Description } from '@storybook/addon-docs';
 import { ChangeLog, PackageInfo, StoryExample } from '../../components';
-import { PersonCard, PersonAvatar } from '@equinor/fusion-react-person/src';
+import { PersonListItem } from '@equinor/fusion-react-person/src';
 
-<Meta title="Data/Person/Card" component={PersonCard} />
+<Meta title="Data/Person/List Item" component={PersonListItem} />
 
 <PackageInfo pkg={require('@equinor/fusion-react-person/package.json')} />
 
-# PersonCard
+# PersonListItem
 
 ## Properties/Attributes
 
 Name                      | Type                            | Default                         | Description
 ------------------------- | -----------------------------   | -----------------------------   | -----------
 `azureId`                 | `string`                        | `/`                             | Unique Azure ID for every person `required`
-`size`                    | `PersonItemSize*`                   | `medium`                        | Size of elements of the card.
-
+`size`                    | `PersonItemSize*`               | `medium`                    | Size of elements of the card.
+`clickable`               | `boolean`                       | `false`                         | Is component clickable?
 
 ---
 
+`slot` available for additional icons or button
 
+---
 \*  `PersonItemSize` is exported by `fwc-avatar`.
 ```ts
 type PersonItemSize = 'small' | 'medium' | 'large';
@@ -27,18 +29,18 @@ type PersonItemSize = 'small' | 'medium' | 'large';
 ## Example Usage
 
 ```tsx
-import { PersonCard } from '@equinor/fusion-react-person';
+import { PersonListItem } from '@equinor/fusion-react-person';
 
-<PersonCard azureId="8a5f03ff-1875-4bf3-a3f4-aef1264e3bcc" />
+<PersonListItem azureId="8a5f03ff-1875-4bf3-a3f4-aef1264e3bcc" />
 ```
 
 ## Example
 
-<StoryExample storyId="examples-person-person-card--component" showSource />
+<StoryExample storyId="examples-person-person-list-item--component" showSource />
 
 ## Person Provider
 
-In order to use components such as PersonAvatar or PersonCard you need to have **PersonProvider** wrapper.
+In order to use components such as PersonAvatar, PersonCard and PersonListItem you need to have **PersonProvider** wrapper.
 
 ### Properties/Attributes
 
@@ -56,10 +58,10 @@ Name                      | Type                            | Description
 ### Example Usage
 
 ```tsx
-import { PersonProvider, PersonCard } from '@equinor/fusion-react-person';
+import { PersonProvider, PersonListItem } from '@equinor/fusion-react-person';
 
   <PersonProvider resolve={resolver}>
-    <PersonCard azureId {...props} />
+    <PersonListItem azureId {...props} />
   </PersonProvider>
 ```
 
@@ -76,7 +78,7 @@ interface PersonResolver {
 type PersonPresence = {
     azureId: string;
     availability: PersonAvailability;
-}
+};
 
 ```
 \*\*\*  `PersonDetails` is exported by `fwc-person-provider`.
@@ -92,8 +94,6 @@ type PersonDetails = {
     mobilePhone?: string;
     accountType?: PersonAccountType;
     officeLocation?: string;
-    positions?: Position[];
-    manager?: Manager;
 }
 
 type Position = {

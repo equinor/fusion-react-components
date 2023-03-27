@@ -3,13 +3,15 @@ import {
   PersonProvider,
   PersonAvailability,
   PersonAccountType,
-  PersonCard,
-  PersonCardProps,
+  PersonListItem,
+  PersonListItemProps,
 } from '@equinor/fusion-react-person/src';
+import { IconButton, IconButtonColor } from '@equinor/fusion-react-button';
+import { IconButtonSize } from '@equinor/fusion-wc-button';
 
 export default {
-  title: 'Examples/Person/Person Card',
-  component: PersonCard,
+  title: 'Examples/Person/Person List Item',
+  component: PersonListItem,
   argTypes: {
     azureId: {
       description: 'Unique person Azure ID',
@@ -27,22 +29,12 @@ export default {
         defaultValue: { summary: 'medium' },
       },
     },
-    maxWidth: {
-      description: 'Maximum width of the component (px)',
-      type: { name: 'number' },
-      defaultValue: 300,
+    clickable: {
+      description: 'Make item clickable',
+      type: { name: 'boolean' },
       table: {
-        type: { summary: 'number' },
-        defaultValue: { summary: '300px' },
-      },
-    },
-    contentHeight: {
-      description: 'Height of content (px)',
-      type: { name: 'number' },
-      defaultValue: 150,
-      table: {
-        type: { summary: 'number' },
-        defaultValue: { summary: '150px' },
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
       },
     },
     availability: {
@@ -64,7 +56,7 @@ export default {
   },
 } as Meta;
 
-export type CardProps = PersonCardProps & {
+export type CardProps = PersonListItemProps & {
   availability?: PersonAvailability;
   accountType: PersonAccountType;
 };
@@ -120,7 +112,7 @@ const createResolve = (accountType: PersonAccountType, availability?: PersonAvai
 
 export const Component: Story<CardProps> = ({ accountType, availability, ...props }: CardProps) => (
   <PersonProvider resolve={createResolve(accountType, availability)}>
-    <PersonCard {...props} />
+    <PersonListItem {...props} />
   </PersonProvider>
 );
 Component.args = {
@@ -130,12 +122,32 @@ Component.args = {
   accountType: PersonAccountType.Employee,
 };
 
+export const Clickable: Story<CardProps> = () => (
+  <PersonProvider resolve={createResolve(PersonAccountType.Employee, PersonAvailability.Available)}>
+    <div style={{ display: 'flex', flexDirection: 'column', rowGap: 30 }}>
+      <PersonListItem clickable azureId="8a5f03ff-1875-4bf3-a3f4-aef1264e3bcc" />
+    </div>
+  </PersonProvider>
+);
+
+export const Toolbar: Story<CardProps> = () => (
+  <PersonProvider resolve={createResolve(PersonAccountType.XExternal, PersonAvailability.Available)}>
+    <div style={{ display: 'flex', flexDirection: 'column', rowGap: 30 }}>
+      <PersonListItem azureId="8a5f03ff-1875-4bf3-a3f4-aef1264e3bcc">
+        <IconButton color={IconButtonColor.Primary} icon="account_circle" rounded size={IconButtonSize.Small} />
+        <IconButton color={IconButtonColor.Secondary} icon="microsoft_outlook" rounded size={IconButtonSize.Small} />
+        <IconButton color={IconButtonColor.Success} icon="whats_app" rounded size={IconButtonSize.Small} />
+      </PersonListItem>
+    </div>
+  </PersonProvider>
+);
+
 export const Size: Story<{ sizes: Array<CardProps['size']> }> = (props: { sizes: Array<CardProps['size']> }) => (
   <PersonProvider resolve={createResolve(PersonAccountType.JointVentureAffiliate, PersonAvailability.Away)}>
-    <div style={{ display: 'flex', flexDirection: 'row', columnGap: 30 }}>
+    <div style={{ display: 'flex', flexDirection: 'column', rowGap: 30 }}>
       {props.sizes.map((size) => (
         <div key={size}>
-          <PersonCard size={size} azureId="8a5f03ff-1875-4bf3-a3f4-aef1264e3bcc" />
+          <PersonListItem size={size} azureId="8a5f03ff-1875-4bf3-a3f4-aef1264e3bcc" />
         </div>
       ))}
     </div>
