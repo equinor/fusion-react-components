@@ -1,4 +1,3 @@
-/* eslint-disable react/no-multi-comp */
 import { tag, SelectElement as HTMLSelectCustomElement } from '@equinor/fusion-wc-select';
 
 import { ComponentProps, createComponent } from '@equinor/fusion-react-utils';
