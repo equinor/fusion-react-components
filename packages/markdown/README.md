@@ -3,10 +3,9 @@
 
 [![Published on npm](https://img.shields.io/npm/v/@equinor/fusion-react-markdown.svg)](https://www.npmjs.com/package/@equinor/fusion-react-markdown)
 
-PROMENIIII!!!!
-[Storybook](https://equinor.github.io/fusion-react-components/?path=/docs/data-person)
+[Storybook](https://equinor.github.io/fusion-react-components/?path=/docs/input-markdown-editor--page)
 
-[Fusion Web Component](https://equinor.github.io/fusion-web-components/?path=/docs//input-markdown-editor--basic)
+[Fusion Web Component](https://equinor.github.io/fusion-web-components/?path=/docs/input-markdown-editor--basic)
 
 ### Installation
 ```sh
