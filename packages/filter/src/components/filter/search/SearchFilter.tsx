@@ -59,7 +59,7 @@ export const SearchFilter = <TData,>(props: SearchFilterProps<TData>): JSX.Eleme
     /** create an observable selection for filter  */
     useFilterSelection<string>(props.filterKey),
     /** update value of text input when selection changes */
-    useCallback((query) => {
+    useCallback((query: any) => {
       if (inputRef.current) {
         inputRef.current.value = query || '';
       }

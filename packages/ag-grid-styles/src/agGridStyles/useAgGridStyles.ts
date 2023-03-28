@@ -16,8 +16,10 @@ export const useStyles = makeStyles(
         '--ag-selected-row-background-color': theme.colors.interactive.table__cell__fill_activated.getVariable('color'),
         '--ag-background-color': theme.colors.interactive.table__cell__fill_resting.getVariable('color'),
         '--ag-header-background-color': theme.colors.interactive.table__header__fill_resting.getVariable('color'),
-        '--ag-header-cell-hover-background-color': theme.colors.interactive.table__header__fill_hover.getVariable('color'),
-        '--ag-header-cell-moving-background-color': theme.colors.interactive.table__header__fill_activated.getVariable('color'),
+        '--ag-header-cell-hover-background-color':
+          theme.colors.interactive.table__header__fill_hover.getVariable('color'),
+        '--ag-header-cell-moving-background-color':
+          theme.colors.interactive.table__header__fill_activated.getVariable('color'),
         '& :not(.inline-edit-mode)': {
           opacity: `${props?.indicateEditMode ? '0.8' : '1'}`,
         },

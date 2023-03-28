@@ -22,7 +22,7 @@ export const ClearFilterButton = (props: ClearFilterButtonProps): JSX.Element =>
   useSubscription(
     changed$,
     useCallback(
-      (changed) => {
+      (changed: any) => {
         ref.current && (ref.current.disabled = !Object.keys(changed).length);
       },
       [ref]

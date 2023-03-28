@@ -1,15 +1,15 @@
 {
-  "name": "@equinor/fusion-react-person",
-  "version": "0.2.0",
-  "description": "React component for displaying an person information",
+  "name": "@equinor/fusion-react-markdown",
+  "version": "0.0.0",
+  "description": "React component for editing morkdown language",
   "keywords": [
-    "person",
-    "card",
-    "react",
+    "markdown",
+    "editing",
+    "markdown editor",
     "fusion",
     "equinor"
   ],
-  "homepage": "https://github.com/equinor/fusion-react-components/edit/feat/person-card/packages/person#readme",
+  "homepage": "https://github.com/equinor/fusion-react-components/tree/main/packages/markdown#readme",
   "license": "ISC",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -37,8 +37,6 @@
     "url": "https://github.com/equinor/fusion-react-components/issues"
   },
   "dependencies": {
-    "@equinor/fusion-react-button": "^0.8.1",
-    "@equinor/fusion-react-popover": "^0.1.10",
-    "@equinor/fusion-wc-person": "^0.4.1"
+    "@equinor/fusion-wc-markdown": "^0.2.3"
   }
 }

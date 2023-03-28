@@ -27,7 +27,7 @@ export const ColumnMenu = <D extends TableData>(props: HeaderProps<D>): JSX.Elem
   const styles = useStyle();
 
   const renderMenuItems = useCallback(
-    (props) =>
+    (props: any) =>
       menuItems?.map((Component, i) => (
         <div key={i} className={clsx(styles.item, styles.interactive)}>
           <Component {...props}></Component>
