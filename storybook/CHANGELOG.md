@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.7.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@2.6.0...@equinor/fusion-react-components-stories@2.7.0) (2023-03-28)
+
+
+### Bug Fixes
+
+* **react-components:** lint fix ([acff5ae](https://github.com/equinor/fusion-react-components/commit/acff5aeedcff65238dca18197d32ee3b10c87fde))
+
+
+### Features
+
+* **markdown:** markdown-editor component ([7d700f8](https://github.com/equinor/fusion-react-components/commit/7d700f8f26b92a27e8c2da451f08591b63bb73e9))
+
+
+
+
+
 # [2.6.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@2.5.5...@equinor/fusion-react-components-stories@2.6.0) (2023-03-24)
 
 

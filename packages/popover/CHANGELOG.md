@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.1.11 (2023-03-28)
+
+
+### Bug Fixes
+
+* **react-components:** lint fix ([750ee07](https://github.com/equinor/fusion-react-components/commit/750ee07ffe87c40afe0a170e387eb4ae0f903bd5))
+* **react-components:** lint fix ([0e78912](https://github.com/equinor/fusion-react-components/commit/0e789123d59415d57d32472474de5543523400fe))
+
+
+
+
+
 ## 0.1.10 (2022-11-21)
 
 **Note:** Version bump only for package @equinor/fusion-react-popover

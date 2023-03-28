@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.6.15 (2023-03-28)
+
+
+### Bug Fixes
+
+* **text-input:** lint fix ([74c1cef](https://github.com/equinor/fusion-react-components/commit/74c1cefc8853a249900450adf4d6a3a16ee37379))
+
+
+
+
+
 ## 0.6.14 (2022-11-21)
 
 **Note:** Version bump only for package @equinor/fusion-react-textinput
