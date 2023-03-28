@@ -1,6 +1,6 @@
 import { useEffect, PropsWithChildren, FunctionComponent, useRef, useMemo, useState } from 'react';
 
-import { useCurrentContext, useTelemetryLogger } from '@equinor/fusion';
+// import { useCurrentContext, useTelemetryLogger } from '@equinor/fusion';
 
 import { context, PowerBIEmbedComponent, PowerBIEmbedEventEntry, PowerBIReportContext } from '../context';
 import { of, Subject, Subscription } from 'rxjs';
@@ -22,7 +22,7 @@ export const PowerBIReportProvider: FunctionComponent<Props> = ({
   children,
   id,
   hasContext,
-  reloadOnContextChange,
+  // reloadOnContextChange,
   apiClient,
 }: Props) => {
   const store = useMemo(() => createStore(id, apiClient), [id, apiClient]);
@@ -34,29 +34,34 @@ export const PowerBIReportProvider: FunctionComponent<Props> = ({
   /*Null default, as to not set contextAccess before embedInfo has been fetched */
   const [hasRls, setHasRls] = useState<boolean | null>(null);
   const component = useRef<PowerBIEmbedComponent | undefined>(undefined);
-  const logger = useTelemetryLogger();
-  const metrics = useMemo(() => new PowerBITelemetryObserver(store, logger), [store, logger]);
+
+  // TODO add metrics
+  // const metrics = useMemo(() => new PowerBITelemetryObserver(store, logger), [store, logger]);
   const event$ = useMemo(() => new Subject<PowerBIEmbedEventEntry>(), [store]);
   const value = useMemo<PowerBIReportContext>(
-    () => ({ store, event$, metrics, component }),
-    [store, event$, metrics, component]
+    // () => ({ store, event$, metrics, component }),
+    // [store, event$, metrics, component]
+    () => ({ store, event$, component }),
+    [store, event$, component]
   );
 
-  const currentContext = useCurrentContext();
-  const selectedContext = useMemo(() => {
-    if (currentContext?.externalId && currentContext?.type) {
-      return {
-        externalId: currentContext.externalId,
-        type: currentContext.type.id,
-      };
-    }
-  }, [currentContext?.externalId, currentContext?.type]);
+  // TODO import context!
+  const selectedContext = undefined;
+  // const currentContext = useCurrentContext();
+  // const selectedContext = useMemo(() => {
+  //   if (currentContext?.externalId && currentContext?.type) {
+  //     return {
+  //       externalId: currentContext.externalId,
+  //       type: currentContext.type.id,
+  //     };
+  //   }
+  // }, [currentContext?.externalId, currentContext?.type]);
 
-  useEffect(() => {
-    if (reloadOnContextChange && component.current) {
-      component.current.reload();
-    }
-  }, [selectedContext, component, reloadOnContextChange]);
+  // useEffect(() => {
+  //   if (reloadOnContextChange && component.current) {
+  //     component.current.reload();
+  //   }
+  // }, [selectedContext, component, reloadOnContextChange]);
 
   // configure store and teardown
   useEffect(() => {

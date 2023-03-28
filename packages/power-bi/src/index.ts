@@ -9,3 +9,5 @@ export {
   ITupleFilter,
   ReportLevelFilters,
 } from 'powerbi-models';
+
+export type { ApiClient } from './types';

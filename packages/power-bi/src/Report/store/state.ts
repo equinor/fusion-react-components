@@ -1,4 +1,4 @@
-import { AccessToken, EmbedInfo } from '@equinor/fusion/lib/http/apiClients/models/report/';
+import { EmbedInfo, AccessToken } from '../../types';
 import { Actions, ApiError } from './actions';
 
 export enum Status {
