@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.4.8 (2023-03-28)
+
+
+### Bug Fixes
+
+* **react-components:** lint fix ([750ee07](https://github.com/equinor/fusion-react-components/commit/750ee07ffe87c40afe0a170e387eb4ae0f903bd5))
+
+
+
+
+
 ## 1.4.7 (2023-02-14)
 
 **Note:** Version bump only for package @equinor/fusion-react-filter

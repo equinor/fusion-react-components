@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.4.7 (2023-03-28)
+
+
+### Bug Fixes
+
+* **react-components:** lint fix ([804431d](https://github.com/equinor/fusion-react-components/commit/804431d8451cb66546a82a4a5f7458df8509b078))
+
+
+
+
+
 ## 0.4.6 (2022-11-22)
 
 

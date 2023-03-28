@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.1](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-person@0.2.0...@equinor/fusion-react-person@0.2.1) (2023-03-28)
+
+
+### Bug Fixes
+
+* **react-components:** lint fix ([acff5ae](https://github.com/equinor/fusion-react-components/commit/acff5aeedcff65238dca18197d32ee3b10c87fde))
+* **react-components:** lint fix ([750ee07](https://github.com/equinor/fusion-react-components/commit/750ee07ffe87c40afe0a170e387eb4ae0f903bd5))
+
+
+
+
+
 # 0.2.0 (2023-03-24)
 
 

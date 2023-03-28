@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.1.2 (2023-03-28)
+
+
+### Bug Fixes
+
+* **react-components:** lint fix ([ddd65cf](https://github.com/equinor/fusion-react-components/commit/ddd65cf753205f72d70d3f7dd46d028f83799276))
+
+
+
+
+
 ## 0.1.1 (2022-11-21)
 
 **Note:** Version bump only for package @equinor/fusion-react-select

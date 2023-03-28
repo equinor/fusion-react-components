@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.1.8 (2023-03-28)
+
+
+### Bug Fixes
+
+* **react-components:** lint fix ([b51008d](https://github.com/equinor/fusion-react-components/commit/b51008dfa97a5d5a9eace9826c1870e7f76194bd))
+
+
+
+
+
 ## 1.1.7 (2022-11-21)
 
 **Note:** Version bump only for package @equinor/fusion-react-observable
