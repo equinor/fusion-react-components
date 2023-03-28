@@ -6,6 +6,7 @@ import useHandleClickOutside from './useHandleClickOutside';
 import { Placement, PositioningStrategy } from '@popperjs/core';
 
 export type PopoverProps = {
+  children?: ReactNode;
   placement?: Placement;
   strategy?: PositioningStrategy;
   width?: string;
@@ -28,7 +29,7 @@ export const Popover: FC<PopoverProps> = ({
   showCloseIcon = true,
   setVisibility,
   visible,
-}): JSX.Element => {
+}: PopoverProps): JSX.Element => {
   const [referenceElement, setReferenceElement] = useState<HTMLSpanElement | null>(null);
   const [popperElement, setPopperElement] = useState<HTMLDivElement | null>(null);
   const [arrowElement, setArrowElement] = useState<HTMLDivElement | null>(null);

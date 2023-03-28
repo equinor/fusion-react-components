@@ -49,7 +49,7 @@ export const ContextSearch = ({
   }, [gettingCtx, sdd]);
 
   const keyUpGettingCtx = useCallback(
-    (e) => {
+    (e: any) => {
       if (e.key === 'Enter' || e.key === ' ') {
         toggleGettingCtx();
       }
@@ -73,7 +73,7 @@ export const ContextSearch = ({
 
   /* Clear context button handler */
   const handleClearContext = useCallback(
-    (event) => {
+    (event: any) => {
       setCtx(defaultInitialItem);
 
       /* Clean SearchableDropdown */

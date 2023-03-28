@@ -52,7 +52,7 @@ export const useClearFilter = (): { clear: VoidFunction; changed$: Observable<Re
   useObservableEffect(
     selection$,
     useCallback(
-      (action$) =>
+      (action$: any) =>
         action$.pipe(
           filter(isActionOf(actions.selection.clear)),
           withLatestFrom(initial$),

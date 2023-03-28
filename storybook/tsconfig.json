@@ -4,7 +4,10 @@
     "rootDir": "./src",
     "resolveJsonModule": true
   },
-  "exclude": ["./node_modules", "./__tmp__"],
+  "exclude": [
+    "./node_modules",
+    "./__tmp__"
+  ],
   "references": [
     {
       "path": "../packages/avatar"
@@ -47,6 +50,9 @@
     },
     {
       "path": "../packages/list"
+    },
+    {
+      "path": "../packages/markdown"
     },
     {
       "path": "../packages/menu"
