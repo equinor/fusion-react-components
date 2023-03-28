@@ -33,7 +33,7 @@ design rules from EDS.
 | [`<Menu>`](https://github.com/equinor/fusion-react-components/tree/main/packages/menu) | `@equinor/fusion-react-menu` | [![Published on npm](https://img.shields.io/npm/v/@equinor/fusion-react-menu.svg)](https://www.npmjs.com/package/@equinor/fusion-react-menu)
 | [`<Popover>`](https://github.com/equinor/fusion-react-components/tree/main/packages/popover) | `@equinor/fusion-react-popover` | [![Published on npm](https://img.shields.io/npm/v/@equinor/fusion-react-popover.svg)](https://www.npmjs.com/package/@equinor/fusion-react-popover)
 | [`<Radio>`](https://github.com/equinor/fusion-react-components/tree/main/packages/radio) | `@equinor/fusion-react-radio` | [![Published on npm](https://img.shields.io/npm/v/@equinor/fusion-react-radio.svg)](https://www.npmjs.com/package/@equinor/fusion-react-radio)
-| [`<Select>`](https://github.com/equinor/fusion-react-components/tree/main/packages/select) | `@equinor/fusion-react-select` | TBD
+| [`<Select>`](https://github.com/equinor/fusion-react-components/tree/main/packages/select) | `@equinor/fusion-react-select` | [![Published on npm](https://img.shields.io/npm/v/@equinor/fusion-react-select.svg)](https://www.npmjs.com/package/@equinor/fusion-react-select)
 | [`<Switch>`](https://github.com/equinor/fusion-react-components/tree/main/packages/switch) | `@equinor/fusion-react-switch` | [![Published on npm](https://img.shields.io/npm/v/@equinor/fusion-react-switch.svg)](https://www.npmjs.com/package/@equinor/fusion-react-switch)
 | [`<TextArea>`](https://github.com/equinor/fusion-react-components/tree/main/packages/textarea) | `@equinor/fusion-react-textarea` | [![Published on npm](https://img.shields.io/npm/v/@equinor/fusion-react-textarea.svg)](https://www.npmjs.com/package/@equinor/fusion-react-textarea)
 | [`<TextInput>`](https://github.com/equinor/fusion-react-components/tree/main/packages/textinput) | `@equinor/fusion-react-textinput` | [![Published on npm](https://img.shields.io/npm/v/@equinor/fusion-react-textinput.svg)](https://www.npmjs.com/package/@equinor/fusion-react-textinput)
@@ -45,13 +45,6 @@ design rules from EDS.
 | [`<Pagination>`](https://github.com/equinor/fusion-react-components/tree/main/packages/pagination) | `@equinor/fusion-react-pagination` | TBD
 | [`<Stepper>`](https://github.com/equinor/fusion-react-components/tree/main/packages/stepper) | `@equinor/fusion-react-stepper` | TBD
 | [`<Tabs>`](https://github.com/equinor/fusion-react-components/tree/main/packages/tabs) | `@equinor/fusion-react-tabs` | TBD -->
-
-### Feedback
-| Component | Package | Status
-| --------- | ------- | ------
-| [`<Banner>`](https://github.com/equinor/fusion-react-components/tree/main/packages/banner) | `@equinor/fusion-react-banner` | TBD
-| [`<Dialog>`](https://github.com/equinor/fusion-react-components/tree/main/packages/dialog) | `@equinor/fusion-react-dialog` | TBD
-| [`<Progress>`](https://github.com/equinor/fusion-react-components/tree/main/packages/progress) | `@equinor/fusion-react-progress` | TBD
 
 ### Data Display
 | Component | Package | Status
