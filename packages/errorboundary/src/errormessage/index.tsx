@@ -1,24 +1,25 @@
-import { useMemo, FC, SyntheticEvent } from 'react';
+import { useMemo, SyntheticEvent } from 'react';
 import { Button } from '@equinor/fusion-react-button';
+import { clsx } from '@equinor/fusion-react-styles';
 import { Icon } from '@equinor/fusion-react-icon';
 
 import useErrorStyles from './styles';
+import React from 'react';
 
 export type ErrorTypes = 'error' | 'accessDenied' | 'notFound' | 'noData' | 'failedDependency' | 'throttle';
 
 export type ErrorMessageProps = {
   hasError?: boolean;
   errorType?: ErrorTypes;
-  message?: any;
+  message?: string;
   resourceName?: string;
   title?: string;
-  children?: any;
-  icon?: any;
+  icon?: JSX.Element;
   action?: string;
   onTakeAction?: (event?: SyntheticEvent<Element, Event>) => void;
 };
 
-export const ErrorMessage: FC<ErrorMessageProps> = ({
+export const ErrorMessage = ({
   hasError,
   errorType = 'error',
   message,
@@ -28,7 +29,7 @@ export const ErrorMessage: FC<ErrorMessageProps> = ({
   icon,
   action,
   onTakeAction,
-}) => {
+}: React.PropsWithChildren<ErrorMessageProps>): JSX.Element => {
   const styles = useErrorStyles();
   const getErrorMessageForType = (errorType: string) => {
     const iconProps = {
@@ -75,12 +76,12 @@ export const ErrorMessage: FC<ErrorMessageProps> = ({
   const error = useMemo(() => getErrorMessageForType(errorType), [errorType]);
 
   if (!hasError) {
-    return children;
+    return <>{children}</>;
   }
 
   return (
-    <div className={styles.root}>
-      <div className="messageContainer comfortable">
+    <div className={styles.container}>
+      <div className={clsx(styles.messageContainer, 'comfortable')}>
         {icon || error.icon}
         <div className="title">{title || error.title}</div>
         <div className="message">{message}</div>

@@ -1,4 +1,4 @@
-import { Component, ErrorInfo } from 'react';
+import React, { Component, ErrorInfo } from 'react';
 import { ErrorMessage, ErrorMessageProps } from './errormessage';
 
 interface State {
@@ -7,7 +7,7 @@ interface State {
   errorInfo: ErrorInfo | null;
   errorMessage: string;
 }
-export class ErrorBoundary extends Component<ErrorMessageProps, State> {
+export class ErrorBoundary extends Component<React.PropsWithChildren<ErrorMessageProps>, State> {
   constructor(props: ErrorMessageProps) {
     super(props);
     this.state = {
