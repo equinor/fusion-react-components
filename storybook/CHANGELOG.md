@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.8.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@2.7.0...@equinor/fusion-react-components-stories@2.8.0) (2023-04-18)
+
+
+### Features
+
+* **side-sheet:** fusion side sheet component ([f44bdaa](https://github.com/equinor/fusion-react-components/commit/f44bdaa5fa50b0352340624f79722e23b2fe51aa))
+
+
+
+
+
 # [2.7.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@2.6.0...@equinor/fusion-react-components-stories@2.7.0) (2023-03-28)
 
 
