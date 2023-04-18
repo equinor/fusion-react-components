@@ -63,6 +63,7 @@ design rules from EDS.
 | [`<SearchableDropdownElement>`](https://github.com/equinor/fusion-react-components/tree/main/packages/searchable-dropdown) | `@equinor/fusion-react-searchable-dropdown` | [![Published on npm](https://img.shields.io/npm/v/@equinor/fusion-react-searchable-dropdown.svg)](https://www.npmjs.com/package/@equinor/fusion-react-searchable-dropdown)
 | [`<Skeleton>`](https://github.com/equinor/fusion-react-components/tree/main/packages/skeleton) | `@equinor/fusion-react-skeleton` | [![Published on npm](https://img.shields.io/npm/v/@equinor/fusion-react-skeleton.svg)](https://www.npmjs.com/package/@equinor/fusion-react-skeleton)
 | [`<Table>`](https://github.com/equinor/fusion-react-components/tree/main/packages/table) | `@equinor/fusion-react-table` | [![Published on npm](https://img.shields.io/npm/v/@equinor/fusion-react-table.svg)](https://www.npmjs.com/package/@equinor/fusion-react-table)
+| [`<Side-Sheet>`](https://github.com/equinor/fusion-react-components/tree/main/packages/side-sheet) | `@equinor/fusion-react-side-sheet` | [![Published on npm](https://img.shields.io/npm/v/@equinor/fusion-react-side-sheet.svg)](https://www.npmjs.com/package/@equinor/fusion-react-side-sheet)
 
 ## Progress Indicator
 | Component | Package | Status

@@ -1,0 +1,70 @@
+{
+  "name": "@equinor/fusion-react-side-sheet",
+  "version": "0.0.1",
+  "description": "React component for displaying a side-sheet",
+  "keywords": [
+    "side-sheet",
+    "react",
+    "fusion",
+    "equinor"
+  ],
+  "homepage": "https://github.com/equinor/fusion-react-components/tree/master/packages/side-sheet#readme",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "directories": {
+    "dist": "dist"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/equinor/fusion-react-components.git"
+  },
+  "scripts": {
+    "build": "tsc -b",
+    "lint": "eslint --ext .ts,.tsx,.js src/",
+    "lint:fix": "eslint --ext .ts,.tsx,.js src/ --fix",
+    "prepack": "npm run build"
+  },
+  "bugs": {
+    "url": "https://github.com/equinor/fusion-react-components/issues"
+  },
+  "dependencies": {
+    "re-resizable": "^6.9.9"
+  },
+  "devDependencies": {
+    "@equinor/eds-core-react": "^0.30.0",
+    "@equinor/eds-tokens": "^0.9.0",
+    "@equinor/eds-icons": "^0.19.1",
+    "styled-components": "^5.3.9",
+    "@emotion/css": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@emotion/react": "^11.10.6",
+    "@types/react": "^17.0.11",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "typescript": "^4.9.3"
+  },
+  "peerDependencies": {
+    "@equinor/eds-core-react": "^0.30.0",
+    "@equinor/eds-tokens": "^0.9.0",
+    "@equinor/eds-icons": "^0.19.1",
+    "styled-components": "^5.3.9",
+    "@emotion/css": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@types/react": "^17.0.0 || ^18.0.0",
+    "react": "^17.0.0 || ^18.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@types/react": {
+      "optional": true
+    },
+    "react-dom": {
+      "optional": true
+    }
+  }
+}
