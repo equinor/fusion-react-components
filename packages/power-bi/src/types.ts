@@ -1,4 +1,4 @@
-import type { ObservableInput } from 'rxjs';
+import type { ObservableInput, Observable } from 'rxjs';
 
 export type RlsMappingType =
   | 'Unknown'
@@ -157,6 +157,8 @@ export type Report = {
   reportType: 'Incomplete' | 'Generic' | 'Shared' | 'Personal' | 'EmbedOnly' | null;
   isEditable?: boolean;
 };
+// TODO - add required props for using context
+type Context = unknown;
 
 export type ApiClient = {
   acquireAccessToken(reportId: string): ObservableInput<AccessToken>;
@@ -165,4 +167,7 @@ export type ApiClient = {
   getReport(reportId: string): ObservableInput<EmbedInfo>;
   getReportDescription(reportId: string): ObservableInput<EmbedInfo>;
   getReportAccessDescription(reportId: string): ObservableInput<string>;
+  context?: {
+    currentContext: Observable<Context>;
+  }
 };
