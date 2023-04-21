@@ -35,7 +35,7 @@
     "url": "https://github.com/equinor/fusion-react-components/issues"
   },
   "devDependencies": {
-    "@ag-grid-community/core": "^28.2.0",
+    "@ag-grid-community/core": "^29.3.2",
     "@types/gulp": "^4.0.9",
     "@types/webpack-stream": "^3.2.12",
     "autoprefixer": "^9.8.8",
@@ -58,7 +58,7 @@
     "webpack-stream": "^7.0.0"
   },
   "peerDependencies": {
-    "@ag-grid-community/core": "^28.2.0",
+    "@ag-grid-community/core": "^29.3.2",
     "@equinor/fusion-react-styles": "^0.5.5",
     "@material-ui/styles": "^4.11.5"
   }
