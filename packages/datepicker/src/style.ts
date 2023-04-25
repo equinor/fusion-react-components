@@ -40,9 +40,10 @@ export const useStyles = makeStyles(
         '& .react-datepicker__month-container': {
           width: '19.5rem',
           '& .react-datepicker__month': {
-            ...theme.spacing.comfortable.medium.style,
+            padding: `0 ${theme.spacing.comfortable.medium_small.getVariable('padding')}`,
             paddingTop: theme.spacing.comfortable.small.getVariable('padding'),
             margin: 0,
+            height: 'var(--react-datepicker-month-height, 241px)',
             '& .react-datepicker__week': {
               display: 'flex',
               '& .react-datepicker__day': {
