@@ -37,11 +37,15 @@
   },
   "dependencies": {
     "@equinor/fusion": "^3.4.9",
+    "@equinor/fusion-react-errorboundary": "^0.0.0",
     "@equinor/fusion-react-progress-indicator": "^0.1.6",
     "@equinor/fusion-react-styles": "^0.5.5",
     "clsx": "^1.2.1",
     "powerbi-client-react": "^1.3.5",
     "typesafe-actions": "^5.1.0",
     "typescript": "^5.0.2"
+  },
+  "peerDependencies": {
+    "@equinor/fusion-react-errorboundary": "^0.0.0"
   }
 }

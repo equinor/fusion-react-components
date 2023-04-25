@@ -14,7 +14,7 @@ type Props = PropsWithChildren<{
   hasContext: boolean;
   reloadOnContextChange?: boolean;
   apiClient: ApiClient;
-  context: { externalId?: string; type?: { id: string } };
+  context?: { externalId?: string; type?: { id: string } };
 }>;
 
 const { Provider } = context;

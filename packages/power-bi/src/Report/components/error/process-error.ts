@@ -1,8 +1,8 @@
 import { ApiError } from '../../store/actions';
 
-import { ErrrorProperties } from '.';
+import { ErrorProperties } from '.';
 
-export const processError = (error: ApiError['error']): ErrrorProperties => {
+export const processError = (error: ApiError['error']): ErrorProperties => {
   switch (Number(error.statusCode)) {
     case 401:
       return {

@@ -1,6 +1,6 @@
 export type ErrorTypes = 'error' | 'accessDenied' | 'notFound' | 'noData' | 'failedDependency' | 'throttle';
 
-export type ErrrorProperties = {
+export type ErrorProperties = {
   title?: string;
   message?: string;
   type?: ErrorTypes;

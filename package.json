@@ -57,8 +57,10 @@
     ]
   },
   "dependencies": {
+    "@equinor/fusion": "^3.4.9",
     "@equinor/fusion-react-icon": "^0.2.15",
     "@equinor/fusion-react-styles": "^0.5.5",
-    "@equinor/fusion-react-tooltip": "^1.1.5"
+    "@equinor/fusion-react-tooltip": "^1.1.5",
+    "powerbi-client": "^2.22.2"
   }
 }

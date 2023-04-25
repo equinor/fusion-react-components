@@ -1,6 +1,6 @@
 import { useContext, PropsWithChildren, FC } from 'react';
 
-// import { ErrorMessage } from '@equinor/fusion-components';
+import { ErrorBoundary } from '@equinor/fusion-react-errorboundary';
 
 import { useSelector } from '@equinor/fusion/lib/epic';
 
@@ -12,16 +12,16 @@ import PowerBIReportInfo from '../../../ReportInfo';
 import processReportInfoError from './process-reportInfo-error';
 
 // TODO fix me
-type ErrorMessageProps = { hasError: boolean; title?: string; message?: string; errorType?: string };
-const ErrorMessage = (props: ErrorMessageProps) => {
-  return (
-    <div>
-      <h1 style={{ color: 'red' }}>missing error message container</h1>
-      <h2>{props.title}</h2>
-      <p>{props.title}</p>
-    </div>
-  );
-};
+// type ErrorMessageProps = { hasError: boolean; title?: string; message?: string; errorType?: string };
+// const ErrorMessage = (props: ErrorMessageProps) => {
+//   return (
+//     <div>
+//       <h1 style={{ color: 'red' }}>missing error message container</h1>
+//       <h2>{props.title}</h2>
+//       <p>{props.title}</p>
+//     </div>
+//   );
+// };
 
 type PowerBIReportErrorBoundryProps = PropsWithChildren<unknown>;
 
@@ -42,7 +42,7 @@ export const PowerBIReportErrorBoundary: FC = (props: PowerBIReportErrorBoundryP
   }
   if (errors?.length) {
     const { title, message, type } = processActionError(errors[0]);
-    return <ErrorMessage hasError={true} title={title} message={message} errorType={type} />;
+    return <ErrorBoundary hasError={true} title={title} message={message} errorType={type} />;
   }
 
   return <>{props.children}</>;

@@ -2,10 +2,10 @@ import { getType } from 'typesafe-actions';
 
 import { ApiError, actions } from '../../store/actions';
 
-import { ErrrorProperties } from '.';
+import { ErrorProperties } from '.';
 import { processError } from './process-error';
 
-export const processActionError = ({ error, action }: ApiError): ErrrorProperties => {
+export const processActionError = ({ error, action }: ApiError): ErrorProperties => {
   const code = Number(error.statusCode);
   const options = processError(error);
   switch (action.type) {
