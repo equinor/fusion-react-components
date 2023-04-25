@@ -26,6 +26,10 @@ export class Store extends EpicReducer<State, Actions> {
     this.dispatch(actions.checkContextAccess.request({ reportId: this.value.id, ...args }));
     return () => this.dispatch(actions.checkContextAccess.cancel());
   }
+
+  reset(): void {
+    this.dispatch(actions.reset());
+  }
 }
 
 export default Store;

@@ -4,7 +4,7 @@ import { useEffect, PropsWithChildren, FunctionComponent, useRef, useMemo, useSt
 
 import { context, PowerBIEmbedComponent, PowerBIEmbedEventEntry, PowerBIReportContext } from '../context';
 import { of, Subject, Subscription } from 'rxjs';
-import PowerBITelemetryObserver from '../telemetry/observer';
+// import PowerBITelemetryObserver from '../telemetry/observer';
 import { createStore } from '../store';
 import { distinctUntilKeyChanged, filter, switchMap } from 'rxjs/operators';
 import { ApiClient } from '../../types';
@@ -14,6 +14,7 @@ type Props = PropsWithChildren<{
   hasContext: boolean;
   reloadOnContextChange?: boolean;
   apiClient: ApiClient;
+  context: { externalId?: string; type?: { id: string } };
 }>;
 
 const { Provider } = context;
@@ -24,6 +25,7 @@ export const PowerBIReportProvider: FunctionComponent<Props> = ({
   hasContext,
   // reloadOnContextChange,
   apiClient,
+  context,
 }: Props) => {
   const store = useMemo(() => createStore(id, apiClient), [id, apiClient]);
 
@@ -46,16 +48,16 @@ export const PowerBIReportProvider: FunctionComponent<Props> = ({
   );
 
   // TODO import context!
-  const selectedContext = undefined;
+  // const selectedContext = undefined;
   // const currentContext = useCurrentContext();
-  // const selectedContext = useMemo(() => {
-  //   if (currentContext?.externalId && currentContext?.type) {
-  //     return {
-  //       externalId: currentContext.externalId,
-  //       type: currentContext.type.id,
-  //     };
-  //   }
-  // }, [currentContext?.externalId, currentContext?.type]);
+  const selectedContext = useMemo(() => {
+    if (context?.externalId && context?.type) {
+      return {
+        externalId: context.externalId,
+        type: context.type.id,
+      };
+    }
+  }, [context?.externalId, context?.type]);
 
   // useEffect(() => {
   //   if (reloadOnContextChange && component.current) {
@@ -65,7 +67,10 @@ export const PowerBIReportProvider: FunctionComponent<Props> = ({
 
   // configure store and teardown
   useEffect(() => {
-    const subscription = new Subscription(() => store.unsubscribe());
+    const subscription = new Subscription(() => {
+      store.reset();
+    });
+
     store.requestEmbedInfo();
 
     subscription.add(
@@ -90,6 +95,10 @@ export const PowerBIReportProvider: FunctionComponent<Props> = ({
     );
 
     return () => subscription.unsubscribe();
+  }, [store, selectedContext]);
+
+  useEffect(() => {
+    return () => store.unsubscribe();
   }, [store]);
 
   useEffect(() => {
