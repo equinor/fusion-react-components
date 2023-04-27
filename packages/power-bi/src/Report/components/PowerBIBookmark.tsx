@@ -1,21 +1,10 @@
-import { useContext, FunctionComponent, useState, useEffect } from 'react';
+import { useContext, FunctionComponent, useState, useEffect, useCallback } from 'react';
 import { context, PowerBIEmbedEvents, PowerBIEmbedEventEntry } from '../context';
 import { Report } from 'powerbi-client';
 import { filter, first } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { useSelector } from '@equinor/fusion';
-// import { BookmarksManager } from '@equinor/fusion-components';
-
-const BookmarksManager = (_props: {
-  capturePayload: unknown;
-  applyBookmark?: unknown;
-  hasContext: unknown;
-  anchorId: unknown;
-  name: unknown;
-}) => {
-  console.error('no bookmark manager defined!');
-  return null;
-};
+import { useCurrentBookmark } from '@equinor/fusion-framework-react-module-bookmark';
 
 type Props = {
   hasContext: boolean;
@@ -44,7 +33,7 @@ export const PowerBIBookmark: FunctionComponent<Props> = ({ hasContext }: Props)
   const report = component?.current as Report;
 
   const captureBookmark = async () => {
-    if (!report) return '';
+    if (!report || !isLoaded) return '';
 
     try {
       const bookmark = await report.bookmarksManager.capture();
@@ -55,15 +44,15 @@ export const PowerBIBookmark: FunctionComponent<Props> = ({ hasContext }: Props)
     }
   };
 
-  /**
-   * @todo - test if this can be applied on next load
-   */
-  const applyBookmark = async (bookmark: string, awaitForContextSwitch: boolean) => {
-    awaitForContextSwitch
-      ? nextRender(event$).subscribe(() => report.bookmarksManager.applyState(bookmark))
-      : report.bookmarksManager.applyState(bookmark);
-  };
-  applyBookmark;
+  const applyBookmark = useCallback(
+    async (bookmark: string, awaitForContextSwitch: boolean) => {
+      awaitForContextSwitch
+        ? nextRender(event$).subscribe(() => report.bookmarksManager.applyState(bookmark))
+        : report.bookmarksManager.applyState(bookmark);
+    },
+    [report]
+  );
+
   useEffect(() => {
     const loaded$ = event$.pipe(
       filter((x) => x.type === PowerBIEmbedEvents.Loaded),
@@ -75,15 +64,16 @@ export const PowerBIBookmark: FunctionComponent<Props> = ({ hasContext }: Props)
       subscription.unsubscribe();
     };
   }, [event$]);
-  return isLoaded ? (
-    <BookmarksManager
-      capturePayload={captureBookmark}
-      // applyBookmark={(bookmark, awaitForContextSwitch) => applyBookmark(bookmark.payload, awaitForContextSwitch)}
-      hasContext={hasContext}
-      anchorId="pbi-bookmarks-btn"
-      name="Power BI bookmarks"
-    />
-  ) : null;
+
+  const { currentBookmark } = useCurrentBookmark<string>(captureBookmark as unknown as () => string);
+
+  useEffect(() => {
+    if (currentBookmark && isLoaded) {
+      applyBookmark(currentBookmark.payload, hasContext);
+    }
+  }, [currentBookmark, hasContext]);
+
+  return null;
 };
 
 export default PowerBIBookmark;
