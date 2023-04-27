@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import { Component, PropsWithChildren } from 'react';
 
 import ErrorMessage from './ErrorMessage';
 import useErrorStyles from './useErrorStyles';
@@ -6,8 +6,13 @@ import type { ErrorMessageProps } from './types';
 
 const styles = useErrorStyles();
 
-export class ErrorBoundary extends Component<ErrorMessageProps> {
+export class ErrorBoundary extends Component<PropsWithChildren<ErrorMessageProps>> {
   state = { didCatch: false };
+
+  componentDidCatch() {
+    this.setState({ didCatch: true });
+  }
+
   render() {
     if (this.state.didCatch) {
       return (
@@ -22,9 +27,6 @@ export class ErrorBoundary extends Component<ErrorMessageProps> {
       );
     }
     return <ErrorMessage {...this.props}>{this.props.children}</ErrorMessage>;
-  }
-  componentDidCatch() {
-    this.setState({ didCatch: true });
   }
 }
 

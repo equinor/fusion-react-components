@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useMemo, PropsWithChildren } from 'react';
 import { Button } from '@equinor/fusion-react-button';
 import { clsx } from '@equinor/fusion-react-styles';
 import { Icon } from '@equinor/fusion-react-icon';
@@ -18,7 +18,7 @@ export const ErrorMessage = ({
   icon,
   action,
   onTakeAction,
-}: React.PropsWithChildren<ErrorMessageProps>): JSX.Element => {
+}: PropsWithChildren<ErrorMessageProps>): JSX.Element => {
   const styles = useErrorStyles();
   const getErrorMessageForType = (errorType: string) => {
     const iconProps = {

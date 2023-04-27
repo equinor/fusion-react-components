@@ -7,7 +7,6 @@ export type ErrorMessageProps = {
   message?: string;
   resourceName?: string;
   title?: string;
-  children?: React.ReactChildren;
   icon?: string;
   action?: string;
   onTakeAction?: (event?: React.SyntheticEvent<Element, Event>) => void;
