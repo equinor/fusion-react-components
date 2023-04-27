@@ -6,7 +6,7 @@ import type { ErrorMessageProps } from './types';
 
 const styles = useErrorStyles();
 
-class ErrorBoundry extends Component<ErrorMessageProps> {
+export class ErrorBoundary extends Component<ErrorMessageProps> {
   state = { didCatch: false };
   render() {
     if (this.state.didCatch) {
@@ -28,4 +28,4 @@ class ErrorBoundry extends Component<ErrorMessageProps> {
   }
 }
 
-export default ErrorBoundry;
+export default ErrorBoundary;
