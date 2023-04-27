@@ -1,23 +1,12 @@
-import { useMemo, SyntheticEvent } from 'react';
+import { useMemo } from 'react';
 import { Button } from '@equinor/fusion-react-button';
 import { clsx } from '@equinor/fusion-react-styles';
 import { Icon } from '@equinor/fusion-react-icon';
 
-import useErrorStyles from './styles';
+import useErrorStyles from './useErrorStyles';
 import React from 'react';
 
-export type ErrorTypes = 'error' | 'accessDenied' | 'notFound' | 'noData' | 'failedDependency' | 'throttle';
-
-export type ErrorMessageProps = {
-  hasError?: boolean;
-  errorType?: ErrorTypes;
-  message?: string;
-  resourceName?: string;
-  title?: string;
-  icon?: JSX.Element;
-  action?: string;
-  onTakeAction?: (event?: SyntheticEvent<Element, Event>) => void;
-};
+import type { ErrorMessageProps } from './types';
 
 export const ErrorMessage = ({
   hasError,

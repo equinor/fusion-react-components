@@ -1,68 +1,31 @@
-import React, { Component, ErrorInfo } from 'react';
-import { ErrorMessage, ErrorMessageProps } from './errormessage';
+import { Component } from 'react';
 
-interface State {
-  hasError: boolean;
-  error: Error | null;
-  errorInfo: ErrorInfo | null;
-  errorMessage: string;
-}
-export class ErrorBoundary extends Component<React.PropsWithChildren<ErrorMessageProps>, State> {
-  constructor(props: ErrorMessageProps) {
-    super(props);
-    this.state = {
-      hasError: false,
-      error: null,
-      errorInfo: null,
-      errorMessage: '',
-    };
-  }
+import ErrorMessage from './ErrorMessage';
+import useErrorStyles from './useErrorStyles';
+import type { ErrorMessageProps } from './types';
 
-  componentDidCatch(error: Error, errorInfo: ErrorInfo) {
-    this.setState({
-      hasError: true,
-      error,
-      errorInfo,
-      errorMessage: error.message || '',
-    });
-  }
+const styles = useErrorStyles();
 
-  getErrorMessage() {
-    const { errorMessage } = this.state;
-    const { message } = this.props;
-
-    if (message) {
-      return message;
-    }
-    if (errorMessage !== '') {
-      return errorMessage;
-    }
-
-    return 'Unhandled error message';
-  }
-
-  takeAction() {
-    if (this.state.hasError && this.props.onTakeAction) {
-      return this.props.onTakeAction();
-    }
-    window.location.reload();
-  }
-
+class ErrorBoundry extends Component<ErrorMessageProps> {
+  state = { didCatch: false };
   render() {
-    const { hasError, errorType, children, action } = this.props;
-    return (
-      <ErrorMessage
-        hasError={this.state.hasError || hasError}
-        errorType={errorType || 'error'}
-        message={this.getErrorMessage()}
-        onTakeAction={this.takeAction}
-        action={action || 'Retry'}
-        {...this.props}
-      >
-        {children}
-      </ErrorMessage>
-    );
+    if (this.state.didCatch) {
+      return (
+        <div className={styles.container}>
+          <div className={styles.messageContainer}>
+            <div className={styles.title}>Something went wrong</div>
+            <div className={styles.message}>
+              Please try refresh browser, if problem persists, please contact support through service now
+            </div>
+          </div>
+        </div>
+      );
+    }
+    return <ErrorMessage {...this.props}>{this.props.children}</ErrorMessage>;
+  }
+  componentDidCatch() {
+    this.setState({ didCatch: true });
   }
 }
 
-export default ErrorBoundary;
+export default ErrorBoundry;
