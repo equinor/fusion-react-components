@@ -71,9 +71,9 @@ export const ErrorMessage = ({
   return (
     <div className={styles.container}>
       <div className={clsx(styles.messageContainer, 'comfortable')}>
-        {icon || error.icon}
-        <div className="title">{title || error.title}</div>
-        <div className="message">{message}</div>
+        <div className={styles.icon}>{icon || error.icon}</div>
+        <div className={styles.title}>{title || error.title}</div>
+        <div className={styles.message}>{message}</div>
         {action ? (
           <Button variant="outlined" onClick={onTakeAction}>
             {action}
