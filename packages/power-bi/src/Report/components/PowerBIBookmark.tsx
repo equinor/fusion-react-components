@@ -1,34 +1,16 @@
-import { useContext, FunctionComponent, useState, useEffect, useCallback } from 'react';
-import { context, PowerBIEmbedEvents, PowerBIEmbedEventEntry } from '../context';
+import { useContext, useState, useEffect, useCallback } from 'react';
+import { context, PowerBIEmbedEvents } from '../context';
 import { Report } from 'powerbi-client';
 import { filter, first } from 'rxjs/operators';
-import { Observable } from 'rxjs';
-import { useSelector } from '@equinor/fusion';
+
 import { useCurrentBookmark } from '@equinor/fusion-framework-react-module-bookmark';
 
-type Props = {
-  hasContext: boolean;
-};
-
-const nextRender = (event$: Observable<PowerBIEmbedEventEntry>) => {
-  return event$.pipe(
-    filter((x) => x.type === PowerBIEmbedEvents.rendered),
-    first()
-  );
-};
-
-export const PowerBIBookmark: FunctionComponent<Props> = ({ hasContext }: Props) => {
+export const PowerBIBookmark = () => {
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
   const pbiContext = useContext(context);
 
   if (!pbiContext) return null;
-  const { component, store, event$ } = pbiContext;
-
-  /**
-   * @eskil - seems like the bookmark sidesheet does not display if the AppSettingsManager is rendered to early
-   * this only triggers re-render when status of the store changes
-   */
-  useSelector(store, 'status');
+  const { component, event$ } = pbiContext;
 
   const report = component?.current as Report;
 
@@ -45,10 +27,8 @@ export const PowerBIBookmark: FunctionComponent<Props> = ({ hasContext }: Props)
   };
 
   const applyBookmark = useCallback(
-    async (bookmark: string, awaitForContextSwitch: boolean) => {
-      awaitForContextSwitch
-        ? nextRender(event$).subscribe(() => report.bookmarksManager.applyState(bookmark))
-        : report.bookmarksManager.applyState(bookmark);
+    async (bookmark: string) => {
+      report.bookmarksManager.applyState(bookmark);
     },
     [report]
   );
@@ -69,9 +49,9 @@ export const PowerBIBookmark: FunctionComponent<Props> = ({ hasContext }: Props)
 
   useEffect(() => {
     if (currentBookmark && isLoaded) {
-      applyBookmark(currentBookmark.payload, hasContext);
+      applyBookmark(currentBookmark.payload);
     }
-  }, [currentBookmark, hasContext]);
+  }, [currentBookmark]);
 
   return null;
 };

@@ -4,6 +4,7 @@ import { PowerBIReportProvider, PowerBIReportErrorBoundary, PowerBIBookmark, Pow
 import { PowerBIReportContext, context } from './context';
 import PowerBIReportView, { PowerBIComponentConfig } from './components/view/PowerBIReportView';
 import { ApiClient } from '../types';
+import { useBookmarkWithConfig } from './components/hooks/useBookmarkWithConfig';
 
 export type PowerBIProps = {
   reportId: string;
@@ -21,27 +22,30 @@ export const PowerBI: FunctionComponent<PowerBIProps> = ({
   config,
   contextRef,
   apiClient,
-}: PowerBIProps) => (
-  <PowerBIReportProvider
-    id={reportId}
-    hasContext={hasContext}
-    reloadOnContextChange={reloadOnContextChange}
-    apiClient={apiClient}
-  >
-    <PowerBIStatus />
-    <PowerBIReportErrorBoundary>
-      <PowerBIReportView config={config}></PowerBIReportView>
-    </PowerBIReportErrorBoundary>
-    <PowerBIBookmark hasContext={hasContext} />
-    <context.Consumer>
-      {(value) => {
-        if (contextRef && contextRef?.current !== value) {
-          contextRef.current = value || undefined;
-        }
-        return null;
-      }}
-    </context.Consumer>
-  </PowerBIReportProvider>
-);
+}: PowerBIProps) => {
+  const configWithBookmark = useBookmarkWithConfig(config);
+  return (
+    <PowerBIReportProvider
+      id={reportId}
+      hasContext={hasContext}
+      reloadOnContextChange={reloadOnContextChange}
+      apiClient={apiClient}
+    >
+      <PowerBIStatus />
+      <PowerBIReportErrorBoundary>
+        <PowerBIReportView config={configWithBookmark}></PowerBIReportView>
+      </PowerBIReportErrorBoundary>
+      <PowerBIBookmark />
+      <context.Consumer>
+        {(value) => {
+          if (contextRef && contextRef?.current !== value) {
+            contextRef.current = value || undefined;
+          }
+          return null;
+        }}
+      </context.Consumer>
+    </PowerBIReportProvider>
+  );
+};
 
 export default PowerBI;
