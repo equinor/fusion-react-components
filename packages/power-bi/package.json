@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-power-bi",
-  "version": "0.1.0-beta.3",
+  "version": "0.1.0-beta.4",
   "description": "React component for displaying an person information",
   "keywords": [
     "power-bi",
@@ -38,7 +38,7 @@
   "dependencies": {
     "@equinor/fusion": "^3.4.9",
     "@equinor/fusion-framework-react-module-bookmark": "1.0.5",
-    "@equinor/fusion-react-errorboundary": "^0.1.0-beta.3",
+    "@equinor/fusion-react-errorboundary": "^0.1.0-beta.4",
     "@equinor/fusion-react-progress-indicator": "^0.1.6",
     "@equinor/fusion-react-styles": "^0.5.5",
     "clsx": "^1.2.1",
