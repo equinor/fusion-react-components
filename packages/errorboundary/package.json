@@ -1,0 +1,42 @@
+{
+  "name": "@equinor/fusion-react-errorboundary",
+  "version": "0.0.0",
+  "description": "React component for errorboundary",
+  "keywords": [
+    "errorboundary",
+    "react",
+    "fusion",
+    "equinor"
+  ],
+  "homepage": "https://github.com/equinor/fusion-react-components/tree/master/packages/errorboundary#readme",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "directories": {
+    "dist": "dist"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/equinor/fusion-react-components.git"
+  },
+  "scripts": {
+    "build": "tsc -b",
+    "lint": "eslint --ext .ts,.tsx,.js src/",
+    "lint:fix": "eslint --ext .ts,.tsx,.js src/ --fix",
+    "prepack": "npm run build"
+  },
+  "bugs": {
+    "url": "https://github.com/equinor/fusion-react-components/issues"
+  },
+  "dependencies": {
+    "@equinor/fusion-react-button": "^0.8.1",
+    "@equinor/fusion-react-icon": "^0.2.15",
+    "@equinor/fusion-react-styles": "^0.5.5",
+    "@equinor/fusion-react-utils": "^2.0.4"
+  }
+}
