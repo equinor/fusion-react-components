@@ -1,5 +1,5 @@
-import { createStyles, makeStyles, theme } from '@equinor/fusion-react-styles';
-const useErrorStyles = makeStyles((theme) =>
+import { createStyles, makeStyles } from '@equinor/fusion-react-styles';
+const useErrorStyles = makeStyles(() =>
   createStyles({
     container: {
       display: 'flex',
