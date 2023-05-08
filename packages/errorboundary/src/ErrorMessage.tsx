@@ -6,7 +6,7 @@ import { Icon } from '@equinor/fusion-react-icon';
 import useErrorStyles from './useErrorStyles';
 import React from 'react';
 
-import type { ErrorMessageProps } from './types';
+import type { ErrorBoundaryProps } from './types';
 
 export const ErrorMessage = ({
   hasError,
@@ -18,8 +18,9 @@ export const ErrorMessage = ({
   icon,
   action,
   onTakeAction,
-}: PropsWithChildren<ErrorMessageProps>): JSX.Element => {
+}: PropsWithChildren<ErrorBoundaryProps>): JSX.Element => {
   const styles = useErrorStyles();
+  console.log('ERRORBOUNDARY::WTF');
   const getErrorMessageForType = (errorType: string) => {
     const iconProps = {
       width: 80,

@@ -1,13 +1,20 @@
 import { Component, PropsWithChildren } from 'react';
 
 import ErrorMessage from './ErrorMessage';
-import type { ErrorMessageProps } from './types';
+import type { ErrorBoundaryProps } from './types';
 
-export class ErrorBoundary extends Component<PropsWithChildren<ErrorMessageProps>> {
+export { ErrorBoundaryProps } from './types';
+
+export class ErrorBoundary extends Component<PropsWithChildren<ErrorBoundaryProps>> {
   state = { hasError: false };
 
   componentDidCatch() {
+    console.log('ERRORBOUNDARY::CATCHING SOME SHIT');
     this.setState({ hasError: true });
+  }
+
+  conmponentDidMount() {
+    console.log('ERRORBOUNDARY::WTAF', this.props.children);
   }
 
   render() {

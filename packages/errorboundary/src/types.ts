@@ -1,7 +1,7 @@
 /* Error types for creating messages */
 type ErrorTypes = 'error' | 'accessDenied' | 'notFound' | 'noData' | 'failedDependency' | 'throttle';
 
-export type ErrorMessageProps = {
+export type ErrorBoundaryProps = {
   hasError?: boolean;
   errorType?: ErrorTypes;
   message?: string;
