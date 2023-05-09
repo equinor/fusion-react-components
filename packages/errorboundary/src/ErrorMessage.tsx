@@ -20,7 +20,6 @@ export const ErrorMessage = ({
   onTakeAction,
 }: PropsWithChildren<ErrorBoundaryProps>): JSX.Element => {
   const styles = useErrorStyles();
-  console.log('ERRORBOUNDARY::WTF');
   const getErrorMessageForType = (errorType: string) => {
     const iconProps = {
       width: 80,

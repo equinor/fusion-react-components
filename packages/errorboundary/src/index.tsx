@@ -9,12 +9,7 @@ export class ErrorBoundary extends Component<PropsWithChildren<ErrorBoundaryProp
   state = { hasError: false };
 
   componentDidCatch() {
-    console.log('ERRORBOUNDARY::CATCHING SOME SHIT');
     this.setState({ hasError: true });
-  }
-
-  conmponentDidMount() {
-    console.log('ERRORBOUNDARY::WTAF', this.props.children);
   }
 
   render() {
