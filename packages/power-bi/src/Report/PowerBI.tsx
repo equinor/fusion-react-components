@@ -31,7 +31,6 @@ export const PowerBI: FunctionComponent<PowerBIProps> = ({
       reloadOnContextChange={reloadOnContextChange}
       apiClient={apiClient}
     >
-      <PowerBIStatus />
       <PowerBIReportErrorBoundary>
         <PowerBIReportView config={configWithBookmark}></PowerBIReportView>
       </PowerBIReportErrorBoundary>
