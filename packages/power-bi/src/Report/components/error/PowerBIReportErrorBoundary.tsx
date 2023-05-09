@@ -11,18 +11,6 @@ import { processActionError } from './process-action-error';
 import PowerBIReportInfo from '../../../ReportInfo';
 import processReportInfoError from './process-reportInfo-error';
 
-// TODO fix me
-// type ErrorMessageProps = { hasError: boolean; title?: string; message?: string; errorType?: string };
-// const ErrorMessage = (props: ErrorMessageProps) => {
-//   return (
-//     <div>
-//       <h1 style={{ color: 'red' }}>missing error message container</h1>
-//       <h2>{props.title}</h2>
-//       <p>{props.title}</p>
-//     </div>
-//   );
-// };
-
 type PowerBIReportErrorBoundryProps = PropsWithChildren<unknown>;
 
 // TODO: move me

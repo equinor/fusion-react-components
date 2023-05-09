@@ -4,7 +4,7 @@ import { ErrorProperties } from '.';
 
 export const processError = (error: ApiError['error']): ErrorProperties => {
   switch (Number(error.statusCode)) {
-    case 401:
+    case 401 || 403:
       return {
         type: 'accessDenied',
         title: 'Sorry, we could not authorize you.',
