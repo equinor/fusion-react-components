@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.11.15 (2023-05-09)
+
+
+### Bug Fixes
+
+* **datepicker:** updated styling for react datepicker month calendar ([bb2e029](https://github.com/equinor/fusion-react-components/commit/bb2e02934b9b5c776f92cbcff33de6da1faa9c69))
+
+
+
+
+
 ## 0.11.14 (2022-11-21)
 
 **Note:** Version bump only for package @equinor/fusion-react-datepicker
