@@ -60,18 +60,7 @@ Wrapper for catching errors from store. on 403 this will display the `PowerBIRep
 ### PowerBIBookmark
 Uses context to create and apply bookmark for reports
 
-### PowerBIStatus
-displays verbal which phase the store is in
-```ts
-enum Status {
-  LoadingEmbedInfo,
-  AcquiringAccessToken,
-  AccessCheck,
-}
-```
-
 ## Report Info
-
 displays information about an report, this is usally shown when an user is not authorized to see the report.
 ```tsx
 return (<PowerBIReportInfo id="xxxxx-xxx-xxx" />)

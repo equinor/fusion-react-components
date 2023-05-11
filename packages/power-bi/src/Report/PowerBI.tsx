@@ -1,6 +1,6 @@
 import { FunctionComponent, MutableRefObject } from 'react';
 
-import { PowerBIReportProvider, PowerBIReportErrorBoundary, PowerBIBookmark, PowerBIStatus } from './components';
+import { PowerBIReportProvider, PowerBIReportErrorBoundary, PowerBIBookmark } from './components';
 import { PowerBIReportContext, context } from './context';
 import PowerBIReportView, { PowerBIComponentConfig } from './components/view/PowerBIReportView';
 import { ApiClient } from '../types';
