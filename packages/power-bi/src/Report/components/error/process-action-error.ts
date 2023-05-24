@@ -12,7 +12,7 @@ export const processActionError = ({ error, action }: ApiError): ErrorProperties
     case getType(actions.fetchEmbedInfo.request): {
       const title = 'Sorry we could not load the Power BI embedding information for the report';
       switch (code) {
-        case 403 || 401:
+        case 403:
           return {
             ...options,
             title,
