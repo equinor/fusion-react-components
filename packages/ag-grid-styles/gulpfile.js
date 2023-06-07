@@ -76,7 +76,7 @@ const scssTask = () => {
             },
           ],
         },
-        plugins: [new RemoveEmptyScriptsPlugin(), new MiniCssExtractPlugin({ filename: '[name].json' })],
+        plugins: [new RemoveEmptyScriptsPlugin(), new MiniCssExtractPlugin({ filename: '[name].css.ts' })],
       })
     )
     .pipe(
@@ -87,11 +87,14 @@ const scssTask = () => {
           let styleStr = JSON.stringify(jssCli.cssToJss({ code: file.contents.toString() }), null, 2);
           /* removes 4 backslash created by jssCli/stringify from the content property */
           // styleStr = styleStr.replace(/\\"/g, '');
-          styleStr = styleStr.replace(/\\{3}/g, '');
-          styleStr = styleStr.replace(/"\\"\\""/g, '""');
 
+          /* styleStr = styleStr.replace(/\\{3}/g, '');
+          styleStr = styleStr.replace(/"\\"\\""/g, '""'); */
+
+          /* Save to json file */
+          // file.contents = Buffer.from(styleStr);
           /* Save to js file */
-          file.contents = Buffer.from(styleStr);
+          file.contents = Buffer.from(`/* eslint-disable */\nexport const styles = ${styleStr};`);
         }
 
         cb(null, file);

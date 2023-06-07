@@ -1,4 +1,5 @@
-{
+/* eslint-disable */
+export const styles = {
   "@global": {
     ".ag-icon": {
       "fontFamily": "var(--ag-icon-font-family)",
@@ -14,157 +15,157 @@
       "speak": "none"
     },
     ".ag-icon-aggregation::before": {
-      "content": "var(--ag-icon-font-code-aggregation, \"\f101\")"
+      "content": "var(--ag-icon-font-code-aggregation, \"\\\\f101\")"
     },
     ".ag-icon-arrows::before": {
-      "content": "var(--ag-icon-font-code-arrows, \"\f102\")"
+      "content": "var(--ag-icon-font-code-arrows, \"\\\\f102\")"
     },
     ".ag-icon-asc::before": {
-      "content": "var(--ag-icon-font-code-asc, \"\f103\")"
+      "content": "var(--ag-icon-font-code-asc, \"\\\\f103\")"
     },
     ".ag-icon-cancel::before": {
-      "content": "var(--ag-icon-font-code-cancel, \"\f104\")"
+      "content": "var(--ag-icon-font-code-cancel, \"\\\\f104\")"
     },
     ".ag-icon-chart::before": {
-      "content": "var(--ag-icon-font-code-chart, \"\f105\")"
+      "content": "var(--ag-icon-font-code-chart, \"\\\\f105\")"
     },
     ".ag-icon-checkbox-checked::before": {
-      "content": "var(--ag-icon-font-code-checkbox-checked, \"\f106\")"
+      "content": "var(--ag-icon-font-code-checkbox-checked, \"\\\\f106\")"
     },
     ".ag-icon-checkbox-indeterminate::before": {
-      "content": "var(--ag-icon-font-code-checkbox-indeterminate, \"\f107\")"
+      "content": "var(--ag-icon-font-code-checkbox-indeterminate, \"\\\\f107\")"
     },
     ".ag-icon-checkbox-unchecked::before": {
-      "content": "var(--ag-icon-font-code-checkbox-unchecked, \"\f108\")"
+      "content": "var(--ag-icon-font-code-checkbox-unchecked, \"\\\\f108\")"
     },
     ".ag-icon-color-picker::before": {
-      "content": "var(--ag-icon-font-code-color-picker, \"\f109\")"
+      "content": "var(--ag-icon-font-code-color-picker, \"\\\\f109\")"
     },
     ".ag-icon-columns::before": {
-      "content": "var(--ag-icon-font-code-columns, \"\f10a\")"
+      "content": "var(--ag-icon-font-code-columns, \"\\\\f10a\")"
     },
     ".ag-icon-contracted::before": {
-      "content": "var(--ag-icon-font-code-contracted, \"\f10b\")"
+      "content": "var(--ag-icon-font-code-contracted, \"\\\\f10b\")"
     },
     ".ag-icon-copy::before": {
-      "content": "var(--ag-icon-font-code-copy, \"\f10c\")"
+      "content": "var(--ag-icon-font-code-copy, \"\\\\f10c\")"
     },
     ".ag-icon-cross::before": {
-      "content": "var(--ag-icon-font-code-cross, \"\f10d\")"
+      "content": "var(--ag-icon-font-code-cross, \"\\\\f10d\")"
     },
     ".ag-icon-csv::before": {
-      "content": "var(--ag-icon-font-code-csv, \"\f10e\")"
+      "content": "var(--ag-icon-font-code-csv, \"\\\\f10e\")"
     },
     ".ag-icon-cut::before": {
-      "content": "var(--ag-icon-font-code-cut, \"\f10f\")"
+      "content": "var(--ag-icon-font-code-cut, \"\\\\f10f\")"
     },
     ".ag-icon-desc::before": {
-      "content": "var(--ag-icon-font-code-desc, \"\f110\")"
+      "content": "var(--ag-icon-font-code-desc, \"\\\\f110\")"
     },
     ".ag-icon-excel::before": {
-      "content": "var(--ag-icon-font-code-excel, \"\f111\")"
+      "content": "var(--ag-icon-font-code-excel, \"\\\\f111\")"
     },
     ".ag-icon-expanded::before": {
-      "content": "var(--ag-icon-font-code-expanded, \"\f112\")"
+      "content": "var(--ag-icon-font-code-expanded, \"\\\\f112\")"
     },
     ".ag-icon-eye-slash::before": {
-      "content": "var(--ag-icon-font-code-eye-slash, \"\f113\")"
+      "content": "var(--ag-icon-font-code-eye-slash, \"\\\\f113\")"
     },
     ".ag-icon-eye::before": {
-      "content": "var(--ag-icon-font-code-eye, \"\f114\")"
+      "content": "var(--ag-icon-font-code-eye, \"\\\\f114\")"
     },
     ".ag-icon-filter::before": {
-      "content": "var(--ag-icon-font-code-filter, \"\f115\")"
+      "content": "var(--ag-icon-font-code-filter, \"\\\\f115\")"
     },
     ".ag-icon-first::before": {
-      "content": "var(--ag-icon-font-code-first, \"\f116\")"
+      "content": "var(--ag-icon-font-code-first, \"\\\\f116\")"
     },
     ".ag-icon-grip::before": {
-      "content": "var(--ag-icon-font-code-grip, \"\f117\")"
+      "content": "var(--ag-icon-font-code-grip, \"\\\\f117\")"
     },
     ".ag-icon-group::before": {
-      "content": "var(--ag-icon-font-code-group, \"\f118\")"
+      "content": "var(--ag-icon-font-code-group, \"\\\\f118\")"
     },
     ".ag-icon-last::before": {
-      "content": "var(--ag-icon-font-code-last, \"\f119\")"
+      "content": "var(--ag-icon-font-code-last, \"\\\\f119\")"
     },
     ".ag-icon-left::before": {
-      "content": "var(--ag-icon-font-code-left, \"\f11a\")"
+      "content": "var(--ag-icon-font-code-left, \"\\\\f11a\")"
     },
     ".ag-icon-linked::before": {
-      "content": "var(--ag-icon-font-code-linked, \"\f11b\")"
+      "content": "var(--ag-icon-font-code-linked, \"\\\\f11b\")"
     },
     ".ag-icon-loading::before": {
-      "content": "var(--ag-icon-font-code-loading, \"\f11c\")"
+      "content": "var(--ag-icon-font-code-loading, \"\\\\f11c\")"
     },
     ".ag-icon-maximize::before": {
-      "content": "var(--ag-icon-font-code-maximize, \"\f11d\")"
+      "content": "var(--ag-icon-font-code-maximize, \"\\\\f11d\")"
     },
     ".ag-icon-menu::before": {
-      "content": "var(--ag-icon-font-code-menu, \"\f11e\")"
+      "content": "var(--ag-icon-font-code-menu, \"\\\\f11e\")"
     },
     ".ag-icon-minimize::before": {
-      "content": "var(--ag-icon-font-code-minimize, \"\f11f\")"
+      "content": "var(--ag-icon-font-code-minimize, \"\\\\f11f\")"
     },
     ".ag-icon-next::before": {
-      "content": "var(--ag-icon-font-code-next, \"\f120\")"
+      "content": "var(--ag-icon-font-code-next, \"\\\\f120\")"
     },
     ".ag-icon-none::before": {
-      "content": "var(--ag-icon-font-code-none, \"\f121\")"
+      "content": "var(--ag-icon-font-code-none, \"\\\\f121\")"
     },
     ".ag-icon-not-allowed::before": {
-      "content": "var(--ag-icon-font-code-not-allowed, \"\f122\")"
+      "content": "var(--ag-icon-font-code-not-allowed, \"\\\\f122\")"
     },
     ".ag-icon-paste::before": {
-      "content": "var(--ag-icon-font-code-paste, \"\f123\")"
+      "content": "var(--ag-icon-font-code-paste, \"\\\\f123\")"
     },
     ".ag-icon-pin::before": {
-      "content": "var(--ag-icon-font-code-pin, \"\f124\")"
+      "content": "var(--ag-icon-font-code-pin, \"\\\\f124\")"
     },
     ".ag-icon-pivot::before": {
-      "content": "var(--ag-icon-font-code-pivot, \"\f125\")"
+      "content": "var(--ag-icon-font-code-pivot, \"\\\\f125\")"
     },
     ".ag-icon-previous::before": {
-      "content": "var(--ag-icon-font-code-previous, \"\f126\")"
+      "content": "var(--ag-icon-font-code-previous, \"\\\\f126\")"
     },
     ".ag-icon-radio-button-off::before": {
-      "content": "var(--ag-icon-font-code-radio-button-off, \"\f127\")"
+      "content": "var(--ag-icon-font-code-radio-button-off, \"\\\\f127\")"
     },
     ".ag-icon-radio-button-on::before": {
-      "content": "var(--ag-icon-font-code-radio-button-on, \"\f128\")"
+      "content": "var(--ag-icon-font-code-radio-button-on, \"\\\\f128\")"
     },
     ".ag-icon-right::before": {
-      "content": "var(--ag-icon-font-code-right, \"\f129\")"
+      "content": "var(--ag-icon-font-code-right, \"\\\\f129\")"
     },
     ".ag-icon-save::before": {
-      "content": "var(--ag-icon-font-code-save, \"\f12a\")"
+      "content": "var(--ag-icon-font-code-save, \"\\\\f12a\")"
     },
     ".ag-icon-small-down::before": {
-      "content": "var(--ag-icon-font-code-small-down, \"\f12b\")"
+      "content": "var(--ag-icon-font-code-small-down, \"\\\\f12b\")"
     },
     ".ag-icon-small-left::before": {
-      "content": "var(--ag-icon-font-code-small-left, \"\f12c\")"
+      "content": "var(--ag-icon-font-code-small-left, \"\\\\f12c\")"
     },
     ".ag-icon-small-right::before": {
-      "content": "var(--ag-icon-font-code-small-right, \"\f12d\")"
+      "content": "var(--ag-icon-font-code-small-right, \"\\\\f12d\")"
     },
     ".ag-icon-small-up::before": {
-      "content": "var(--ag-icon-font-code-small-up, \"\f12e\")"
+      "content": "var(--ag-icon-font-code-small-up, \"\\\\f12e\")"
     },
     ".ag-icon-tick::before": {
-      "content": "var(--ag-icon-font-code-tick, \"\f12f\")"
+      "content": "var(--ag-icon-font-code-tick, \"\\\\f12f\")"
     },
     ".ag-icon-tree-closed::before": {
-      "content": "var(--ag-icon-font-code-tree-closed, \"\f130\")"
+      "content": "var(--ag-icon-font-code-tree-closed, \"\\\\f130\")"
     },
     ".ag-icon-tree-indeterminate::before": {
-      "content": "var(--ag-icon-font-code-tree-indeterminate, \"\f131\")"
+      "content": "var(--ag-icon-font-code-tree-indeterminate, \"\\\\f131\")"
     },
     ".ag-icon-tree-open::before": {
-      "content": "var(--ag-icon-font-code-tree-open, \"\f132\")"
+      "content": "var(--ag-icon-font-code-tree-open, \"\\\\f132\")"
     },
     ".ag-icon-unlinked::before": {
-      "content": "var(--ag-icon-font-code-unlinked, \"\f133\")"
+      "content": "var(--ag-icon-font-code-unlinked, \"\\\\f133\")"
     },
     ".ag-icon-row-drag::before": {
       "content": "var(--ag-icon-font-code-grip)"
@@ -400,7 +401,7 @@
       "transition": "opacity 1s ease-out 3s"
     },
     ".ag-watermark::before": {
-      "content": "",
+      "content": "\"\"",
       "backgroundImage": "url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+Cjxzdmcgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDIzNSA0MCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB4bWw6c3BhY2U9InByZXNlcnZlIiB4bWxuczpzZXJpZj0iaHR0cDovL3d3dy5zZXJpZi5jb20vIiBzdHlsZT0iZmlsbC1ydWxlOmV2ZW5vZGQ7Y2xpcC1ydWxlOmV2ZW5vZGQ7c3Ryb2tlLWxpbmVqb2luOnJvdW5kO3N0cm9rZS1taXRlcmxpbWl0OjI7Ij4KICAgIDxnIHRyYW5zZm9ybT0ibWF0cml4KDAuNjM1NzIzLDAsMCwwLjYzNTcyMywtNDkyLjkyMSwtMzIzLjYwOCkiPgogICAgICAgIDxwYXRoIGQ9Ik0xMDk5LjQsNTQ5LjRMMTA5OS40LDUzNi45TDEwNzguMSw1MzYuOUwxMDY1LjYsNTQ5LjRMMTA5OS40LDU0OS40WiIgc3R5bGU9ImZpbGw6cmdiKDI0LDI5LDMxKTtmaWxsLXJ1bGU6bm9uemVybzsiLz4KICAgICAgICA8cGF0aCBkPSJNMTEyMy40LDUxOC40TDEwOTYuNyw1MTguNEwxMDg0LjEsNTMwLjlMMTEyMy40LDUzMC45TDExMjMuNCw1MTguNFoiIHN0eWxlPSJmaWxsOnJnYigyNCwyOSwzMSk7ZmlsbC1ydWxlOm5vbnplcm87Ii8+CiAgICAgICAgPHBhdGggZD0iTTEwNTMuMiw1NjEuOUwxMDU5LjYsNTU1LjVMMTA4MS4yLDU1NS41TDEwODEuMiw1NjhMMTA1My4yLDU2OEwxMDUzLjIsNTYxLjlaIiBzdHlsZT0iZmlsbDpyZ2IoMjQsMjksMzEpO2ZpbGwtcnVsZTpub256ZXJvOyIvPgogICAgICAgIDxwYXRoIGQ9Ik0xMDU3LjksNTQzLjNMMTA3MS43LDU0My4zTDEwODQuMyw1MzAuOEwxMDU3LjksNTMwLjhMMTA1Ny45LDU0My4zWiIgc3R5bGU9ImZpbGw6cmdiKDI0LDI5LDMxKTtmaWxsLXJ1bGU6bm9uemVybzsiLz4KICAgICAgICA8cGF0aCBkPSJNMTA0Mi44LDU2MS45TDEwNTMuMiw1NjEuOUwxMDY1LjYsNTQ5LjRMMTA0Mi44LDU0OS40TDEwNDIuOCw1NjEuOVoiIHN0eWxlPSJmaWxsOnJnYigyNCwyOSwzMSk7ZmlsbC1ydWxlOm5vbnplcm87Ii8+CiAgICAgICAgPHBhdGggZD0iTTEwOTYuNyw1MTguNEwxMDkwLjMsNTI0LjhMMTA0OS41LDUyNC44TDEwNDkuNSw1MTIuM0wxMDk2LjcsNTEyLjNMMTA5Ni43LDUxOC40WiIgc3R5bGU9ImZpbGw6cmdiKDI0LDI5LDMxKTtmaWxsLXJ1bGU6bm9uemVybzsiLz4KICAgICAgICA8cGF0aCBkPSJNODI4LjYsNTU5LjdMODA5LDU1OS43TDgwNS42LDU2OC4xTDc5Nyw1NjguMUw4MTUuMSw1MjUuN0w4MjIuNiw1MjUuN0w4NDAuNyw1NjguMUw4MzIsNTY4LjFMODI4LjYsNTU5LjdaTTgyNS45LDU1M0w4MTguOCw1MzUuN0w4MTEuNyw1NTNMODI1LjksNTUzWiIgc3R5bGU9ImZpbGw6cmdiKDI0LDI5LDMxKTtmaWxsLXJ1bGU6bm9uemVybzsiLz4KICAgICAgICA8cGF0aCBkPSJNOTYwLjEsNTQxLjNDOTYyLjYsNTM3LjYgOTY4LjksNTM3LjIgOTcxLjUsNTM3LjJMOTcxLjUsNTQ0LjRDOTY4LjMsNTQ0LjQgOTY1LjEsNTQ0LjUgOTYzLjIsNTQ1LjlDOTYxLjMsNTQ3LjMgOTYwLjMsNTQ5LjIgOTYwLjMsNTUxLjVMOTYwLjMsNTY4LjFMOTUyLjUsNTY4LjFMOTUyLjUsNTM3LjJMOTYwLDUzNy4yTDk2MC4xLDU0MS4zWiIgc3R5bGU9ImZpbGw6cmdiKDI0LDI5LDMxKTtmaWxsLXJ1bGU6bm9uemVybzsiLz4KICAgICAgICA8cmVjdCB4PSI5NzUuOCIgeT0iNTM3LjIiIHdpZHRoPSI3LjgiIGhlaWdodD0iMzAuOSIgc3R5bGU9ImZpbGw6cmdiKDI0LDI5LDMxKTsiLz4KICAgICAgICA8cmVjdCB4PSI5NzUuOCIgeT0iNTIzLjQiIHdpZHRoPSI3LjgiIGhlaWdodD0iOS4yIiBzdHlsZT0iZmlsbDpyZ2IoMjQsMjksMzEpOyIvPgogICAgICAgIDxwYXRoIGQ9Ik0xMDIyLjMsNTIzLjRMMTAyMi4zLDU2OC4xTDEwMTQuOCw1NjguMUwxMDE0LjYsNTYzLjRDMTAxMy41LDU2NSAxMDEyLjEsNTY2LjMgMTAxMC40LDU2Ny4zQzEwMDguNyw1NjguMiAxMDA2LjYsNTY4LjcgMTAwNC4yLDU2OC43QzEwMDIuMSw1NjguNyAxMDAwLjEsNTY4LjMgOTk4LjQsNTY3LjZDOTk2LjYsNTY2LjggOTk1LDU2NS44IDk5My43LDU2NC40Qzk5Mi40LDU2MyA5OTEuMyw1NjEuMyA5OTAuNiw1NTkuNEM5ODkuOCw1NTcuNSA5ODkuNSw1NTUuMyA5ODkuNSw1NTIuOUM5ODkuNSw1NTAuNSA5ODkuOSw1NDguMyA5OTAuNiw1NDYuM0M5OTEuNCw1NDQuMyA5OTIuNCw1NDIuNiA5OTMuNyw1NDEuMkM5OTUsNTM5LjggOTk2LjYsNTM4LjcgOTk4LjQsNTM3LjlDMTAwMC4yLDUzNy4xIDEwMDIuMSw1MzYuNyAxMDA0LjIsNTM2LjdDMTAwNi42LDUzNi43IDEwMDguNiw1MzcuMSAxMDEwLjMsNTM4QzEwMTIsNTM4LjkgMTAxMy40LDU0MC4xIDEwMTQuNSw1NDEuOEwxMDE0LjUsNTIzLjVMMTAyMi4zLDUyMy41TDEwMjIuMyw1MjMuNFpNMTAwNS45LDU2MkMxMDA4LjUsNTYyIDEwMTAuNSw1NjEuMSAxMDEyLjEsNTU5LjRDMTAxMy43LDU1Ny43IDEwMTQuNSw1NTUuNCAxMDE0LjUsNTUyLjZDMTAxNC41LDU0OS44IDEwMTMuNyw1NDcuNiAxMDEyLjEsNTQ1LjhDMTAxMC41LDU0NC4xIDEwMDguNSw1NDMuMiAxMDA1LjksNTQzLjJDMTAwMy40LDU0My4yIDEwMDEuMyw1NDQuMSA5OTkuOCw1NDUuOEM5OTguMiw1NDcuNSA5OTcuNCw1NDkuOCA5OTcuNCw1NTIuNkM5OTcuNCw1NTUuNCA5OTguMiw1NTcuNiA5OTkuOCw1NTkuM0MxMDAxLjQsNTYxLjEgMTAwMy40LDU2MiAxMDA1LjksNTYyIiBzdHlsZT0iZmlsbDpyZ2IoMjQsMjksMzEpO2ZpbGwtcnVsZTpub256ZXJvOyIvPgogICAgICAgIDxwYXRoIGQ9Ik04ODUuOCw1NDQuMkw4NjYuNSw1NDQuMkw4NjYuNSw1NTAuOUw4NzcuNSw1NTAuOUM4NzcuMiw1NTQuMyA4NzUuOSw1NTYuOSA4NzMuNyw1NTlDODcxLjUsNTYxIDg2OC43LDU2MiA4NjUuMSw1NjJDODYzLjEsNTYyIDg2MS4yLDU2MS42IDg1OS42LDU2MC45Qzg1Ny45LDU2MC4yIDg1Ni41LDU1OS4yIDg1NS4zLDU1Ny44Qzg1NC4xLDU1Ni41IDg1My4yLDU1NC45IDg1Mi41LDU1M0M4NTEuOCw1NTEuMSA4NTEuNSw1NDkuMSA4NTEuNSw1NDYuOEM4NTEuNSw1NDQuNSA4NTEuOCw1NDIuNSA4NTIuNSw1NDAuNkM4NTMuMSw1MzguNyA4NTQuMSw1MzcuMiA4NTUuMyw1MzUuOEM4NTYuNSw1MzQuNSA4NTcuOSw1MzMuNSA4NTkuNiw1MzIuN0M4NjEuMyw1MzIgODYzLjEsNTMxLjYgODY1LjIsNTMxLjZDODY5LjQsNTMxLjYgODcyLjYsNTMyLjYgODc0LjgsNTM0LjZMODgwLDUyOS40Qzg3Ni4xLDUyNi40IDg3MS4xLDUyNC44IDg2NS4yLDUyNC44Qzg2MS45LDUyNC44IDg1OC45LDUyNS4zIDg1Ni4yLDUyNi40Qzg1My41LDUyNy41IDg1MS4yLDUyOC45IDg0OS4zLDUzMC44Qzg0Ny40LDUzMi43IDg0NS45LDUzNSA4NDQuOSw1MzcuN0M4NDMuOSw1NDAuNCA4NDMuNCw1NDMuNCA4NDMuNCw1NDYuNkM4NDMuNCw1NDkuOCA4NDMuOSw1NTIuOCA4NDUsNTU1LjVDODQ2LjEsNTU4LjIgODQ3LjUsNTYwLjUgODQ5LjQsNTYyLjRDODUxLjMsNTY0LjMgODUzLjYsNTY1LjggODU2LjMsNTY2LjhDODU5LDU2Ny45IDg2Miw1NjguNCA4NjUuMiw1NjguNEM4NjguNCw1NjguNCA4NzEuMyw1NjcuOSA4NzMuOSw1NjYuOEM4NzYuNSw1NjUuNyA4NzguNyw1NjQuMyA4ODAuNSw1NjIuNEM4ODIuMyw1NjAuNSA4ODMuNyw1NTguMiA4ODQuNyw1NTUuNUM4ODUuNyw1NTIuOCA4ODYuMiw1NDkuOCA4ODYuMiw1NDYuNkw4ODYuMiw1NDUuM0M4ODUuOSw1NDUuMSA4ODUuOCw1NDQuNiA4ODUuOCw1NDQuMiIgc3R5bGU9ImZpbGw6cmdiKDI0LDI5LDMxKTtmaWxsLXJ1bGU6bm9uemVybzsiLz4KICAgICAgICA8cGF0aCBkPSJNOTQ2LjgsNTQ0LjJMOTI3LjUsNTQ0LjJMOTI3LjUsNTUwLjlMOTM4LjUsNTUwLjlDOTM4LjIsNTU0LjMgOTM2LjksNTU2LjkgOTM0LjcsNTU5QzkzMi41LDU2MSA5MjkuNyw1NjIgOTI2LjEsNTYyQzkyNC4xLDU2MiA5MjIuMiw1NjEuNiA5MjAuNiw1NjAuOUM5MTguOSw1NjAuMiA5MTcuNSw1NTkuMiA5MTYuMyw1NTcuOEM5MTUuMSw1NTYuNSA5MTQuMiw1NTQuOSA5MTMuNSw1NTNDOTEyLjgsNTUxLjEgOTEyLjUsNTQ5LjEgOTEyLjUsNTQ2LjhDOTEyLjUsNTQ0LjUgOTEyLjgsNTQyLjUgOTEzLjUsNTQwLjZDOTE0LjEsNTM4LjcgOTE1LjEsNTM3LjIgOTE2LjMsNTM1LjhDOTE3LjUsNTM0LjUgOTE4LjksNTMzLjUgOTIwLjYsNTMyLjdDOTIyLjMsNTMyIDkyNC4xLDUzMS42IDkyNi4yLDUzMS42QzkzMC40LDUzMS42IDkzMy42LDUzMi42IDkzNS44LDUzNC42TDk0MSw1MjkuNEM5MzcuMSw1MjYuNCA5MzIuMSw1MjQuOCA5MjYuMiw1MjQuOEM5MjIuOSw1MjQuOCA5MTkuOSw1MjUuMyA5MTcuMiw1MjYuNEM5MTQuNSw1MjcuNSA5MTIuMiw1MjguOSA5MTAuMyw1MzAuOEM5MDguNCw1MzIuNyA5MDYuOSw1MzUgOTA1LjksNTM3LjdDOTA0LjksNTQwLjQgOTA0LjQsNTQzLjQgOTA0LjQsNTQ2LjZDOTA0LjQsNTQ5LjggOTA0LjksNTUyLjggOTA2LDU1NS41QzkwNy4xLDU1OC4yIDkwOC41LDU2MC41IDkxMC40LDU2Mi40QzkxMi4zLDU2NC4zIDkxNC42LDU2NS44IDkxNy4zLDU2Ni44QzkyMCw1NjcuOSA5MjMsNTY4LjQgOTI2LjIsNTY4LjRDOTI5LjQsNTY4LjQgOTMyLjMsNTY3LjkgOTM0LjksNTY2LjhDOTM3LjUsNTY1LjcgOTM5LjcsNTY0LjMgOTQxLjUsNTYyLjRDOTQzLjMsNTYwLjUgOTQ0LjcsNTU4LjIgOTQ1LjcsNTU1LjVDOTQ2LjcsNTUyLjggOTQ3LjIsNTQ5LjggOTQ3LjIsNTQ2LjZMOTQ3LjIsNTQ1LjNDOTQ2LjksNTQ1LjEgOTQ2LjgsNTQ0LjYgOTQ2LjgsNTQ0LjIiIHN0eWxlPSJmaWxsOnJnYigyNCwyOSwzMSk7ZmlsbC1ydWxlOm5vbnplcm87Ii8+CiAgICA8L2c+Cjwvc3ZnPgo=)",
       "backgroundRepeat": "no-repeat",
       "backgroundSize": "170px 40px",
@@ -2304,7 +2305,7 @@
       "outline": "none"
     },
     ".ag-keyboard-focus .ag-virtual-list-item:focus::after": {
-      "content": "",
+      "content": "\"\"",
       "position": "absolute",
       "backgroundColor": "transparent",
       "pointerEvents": "none",
@@ -2508,7 +2509,7 @@
       "outline": "none"
     },
     ".ag-keyboard-focus .ag-column-select-header-icon:focus::after": {
-      "content": "",
+      "content": "\"\"",
       "position": "absolute",
       "backgroundColor": "transparent",
       "pointerEvents": "none",
@@ -2530,7 +2531,7 @@
       "outline": "none"
     },
     ".ag-keyboard-focus .ag-column-select-virtual-list-item:focus::after": {
-      "content": "",
+      "content": "\"\"",
       "position": "absolute",
       "backgroundColor": "transparent",
       "pointerEvents": "none",
@@ -4325,7 +4326,7 @@
       "backgroundColor": "var(--ag-range-selection-highlight-color) !important"
     },
     ".ag-row-highlight-above::after, .ag-row-highlight-below::after": {
-      "content": "",
+      "content": "\"\"",
       "position": "absolute",
       "width": "calc(100% - 1px)",
       "height": "1px",
@@ -4351,7 +4352,7 @@
       "borderLeft": "var(--ag-borders-critical) var(--ag-border-color)"
     },
     ".ag-row-selected::before": {
-      "content": "",
+      "content": "\"\"",
       "backgroundColor": "var(--ag-selected-row-background-color)",
       "display": "block",
       "position": "absolute",
@@ -4361,7 +4362,7 @@
       "bottom": "0"
     },
     ".ag-row-hover:not(.ag-full-width-row)::before, .ag-row-hover.ag-full-width-row.ag-row-group::before": {
-      "content": "",
+      "content": "\"\"",
       "backgroundColor": "var(--ag-row-hover-color)",
       "display": "block",
       "position": "absolute",
@@ -4553,7 +4554,7 @@
       "height": "calc(var(--ag-grid-size) * 2 + 1px)"
     },
     ".ag-menu-separator-part::after": {
-      "content": "",
+      "content": "\"\"",
       "display": "block",
       "borderTop": "var(--ag-borders-critical) var(--ag-border-color)"
     },
@@ -4600,7 +4601,7 @@
       "outline": "none"
     },
     ".ag-keyboard-focus .ag-tab:focus::after": {
-      "content": "",
+      "content": "\"\"",
       "position": "absolute",
       "backgroundColor": "transparent",
       "pointerEvents": "none",
@@ -4710,7 +4711,7 @@
       "outline": "none"
     },
     ".ag-keyboard-focus .ag-multi-filter-group-title-bar:focus::after": {
-      "content": "",
+      "content": "\"\"",
       "position": "absolute",
       "backgroundColor": "transparent",
       "pointerEvents": "none",
@@ -4754,7 +4755,7 @@
       "outline": "none"
     },
     ".ag-keyboard-focus .ag-side-button-button:focus::after": {
-      "content": "",
+      "content": "\"\"",
       "position": "absolute",
       "backgroundColor": "transparent",
       "pointerEvents": "none",
@@ -4808,7 +4809,7 @@
       "outline": "none"
     },
     ".ag-keyboard-focus .ag-filter-toolpanel-header:focus::after": {
-      "content": "",
+      "content": "\"\"",
       "position": "absolute",
       "backgroundColor": "transparent",
       "pointerEvents": "none",
@@ -4830,7 +4831,7 @@
       "textTransform": "none",
       "webkitFontSmoothing": "antialiased",
       "mozOsxFontSmoothing": "grayscale",
-      "content": "var(--ag-icon-font-code-filter, \"\f115\")",
+      "content": "var(--ag-icon-font-code-filter, \"\\\\f115\")",
       "position": "absolute"
     },
     ".ag-ltr .ag-filter-toolpanel-group.ag-has-filter > .ag-group-title-bar .ag-group-title::after": {
@@ -4991,7 +4992,7 @@
       "outline": "none"
     },
     ".ag-keyboard-focus .ag-column-select-header:focus::after": {
-      "content": "",
+      "content": "\"\"",
       "position": "absolute",
       "backgroundColor": "transparent",
       "pointerEvents": "none",
@@ -5011,7 +5012,7 @@
       "color": "var(--ag-secondary-foreground-color)"
     },
     ".ag-column-select-list .ag-list-item-hovered::after": {
-      "content": "",
+      "content": "\"\"",
       "position": "absolute",
       "left": "0",
       "right": "0",
@@ -5065,7 +5066,7 @@
       "outline": "none"
     },
     ".ag-keyboard-focus .ag-header-cell:focus::after": {
-      "content": "",
+      "content": "\"\"",
       "position": "absolute",
       "backgroundColor": "transparent",
       "pointerEvents": "none",
@@ -5081,7 +5082,7 @@
       "outline": "none"
     },
     ".ag-keyboard-focus .ag-header-group-cell:focus::after": {
-      "content": "",
+      "content": "\"\"",
       "position": "absolute",
       "backgroundColor": "transparent",
       "pointerEvents": "none",
@@ -5112,7 +5113,7 @@
       "backgroundColor": "var(--ag-header-cell-hover-background-color)"
     },
     ".ag-header-cell::after, .ag-header-group-cell::after": {
-      "content": "",
+      "content": "\"\"",
       "position": "absolute",
       "zIndex": "1",
       "display": "var(--ag-header-column-separator-display)",
@@ -5128,7 +5129,7 @@
       "left": "0"
     },
     ".ag-header-cell-resize::after": {
-      "content": "",
+      "content": "\"\"",
       "position": "absolute",
       "zIndex": "1",
       "display": "var(--ag-header-column-resize-handle-display)",
@@ -5195,7 +5196,7 @@
       "outline": "none"
     },
     ".ag-keyboard-focus .ag-paging-button:focus::after": {
-      "content": "",
+      "content": "\"\"",
       "position": "absolute",
       "backgroundColor": "transparent",
       "pointerEvents": "none",
@@ -5217,7 +5218,7 @@
       "outline": "none"
     },
     ".ag-keyboard-focus .ag-column-drop-cell:focus::after": {
-      "content": "",
+      "content": "\"\"",
       "position": "absolute",
       "backgroundColor": "transparent",
       "pointerEvents": "none",
@@ -5287,7 +5288,7 @@
       "outline": "none"
     },
     ".ag-keyboard-focus .ag-select-agg-func-virtual-list-item:focus::after": {
-      "content": "",
+      "content": "\"\"",
       "position": "absolute",
       "backgroundColor": "transparent",
       "pointerEvents": "none",
@@ -5571,7 +5572,7 @@
       "padding": "14px 5px 14px 2px"
     },
     ".ag-chart-tool-panel-button-enable .ag-chart-menu-close:before": {
-      "content": "",
+      "content": "\"\"",
       "position": "absolute",
       "top": "-40px",
       "bottom": "-40px"
@@ -5659,7 +5660,7 @@
       "height": "var(--ag-list-item-height)"
     },
     ".ag-charts-data-group-container .ag-list-item-hovered::after": {
-      "content": "",
+      "content": "\"\"",
       "position": "absolute",
       "left": "0",
       "right": "0",
@@ -5751,7 +5752,7 @@
       "opacity": "0.5"
     },
     ".ag-checkbox-input-wrapper::after": {
-      "content": "var(--ag-icon-font-code-checkbox-unchecked, \"\f108\")",
+      "content": "var(--ag-icon-font-code-checkbox-unchecked, \"\\\\f108\")",
       "color": "var(--ag-checkbox-unchecked-color)",
       "position": "absolute",
       "top": "0",
@@ -5759,7 +5760,7 @@
       "pointerEvents": "none"
     },
     ".ag-checkbox-input-wrapper.ag-checked::after": {
-      "content": "var(--ag-icon-font-code-checkbox-checked, \"\f106\")",
+      "content": "var(--ag-icon-font-code-checkbox-checked, \"\\\\f106\")",
       "color": "var(--ag-checkbox-checked-color)",
       "position": "absolute",
       "top": "0",
@@ -5767,7 +5768,7 @@
       "pointerEvents": "none"
     },
     ".ag-checkbox-input-wrapper.ag-indeterminate::after": {
-      "content": "var(--ag-icon-font-code-checkbox-indeterminate, \"\f107\")",
+      "content": "var(--ag-icon-font-code-checkbox-indeterminate, \"\\\\f107\")",
       "color": "var(--ag-checkbox-indeterminate-color)",
       "position": "absolute",
       "top": "0",
@@ -5857,7 +5858,7 @@
       "opacity": "0.5"
     },
     ".ag-radio-button-input-wrapper::after": {
-      "content": "var(--ag-icon-font-code-radio-button-off, \"\f127\")",
+      "content": "var(--ag-icon-font-code-radio-button-off, \"\\\\f127\")",
       "color": "var(--ag-checkbox-unchecked-color)",
       "position": "absolute",
       "top": "0",
@@ -5865,7 +5866,7 @@
       "pointerEvents": "none"
     },
     ".ag-radio-button-input-wrapper.ag-checked::after": {
-      "content": "var(--ag-icon-font-code-radio-button-on, \"\f128\")",
+      "content": "var(--ag-icon-font-code-radio-button-on, \"\\\\f128\")",
       "color": "var(--ag-checkbox-checked-color)",
       "position": "absolute",
       "top": "0",
@@ -6295,6 +6296,11 @@
       "agHeaderColumnSeparatorColor": "rgba(24, 29, 31, 0.125)",
       "agHeaderColumnResizeHandleColor": "rgba(24, 29, 31, 0.125)"
     },
+    ".ag-theme-alpine-fusion .fushisushi": {
+      "background": "pink",
+      "padding": "1em",
+      "margin": "1em"
+    },
     ".ag-theme-alpine-fusion .ag-cell": {
       "display": "flex",
       "alignItems": "center",
@@ -6311,4 +6317,4 @@
       "backgroundColor": "var(--ag-selected-row-background-color, #deedee)"
     }
   }
-}
+};

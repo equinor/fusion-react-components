@@ -1,5 +1,6 @@
 import { makeStyles, createStyles } from '@equinor/fusion-react-styles';
-import alpineJss from './styles.json';
+import { styles } from './styles.css';
+
 /* typescript reference for makeStyles */
 import '@material-ui/styles';
 
@@ -10,7 +11,7 @@ type agGridProps = {
 export const useStyles = makeStyles(
   (theme) =>
     createStyles({
-      ...alpineJss,
+      ...styles,
       root: (props?: agGridProps) => ({
         '--ag-row-hover-color': theme.colors.interactive.table__cell__fill_hover.getVariable('color'),
         '--ag-selected-row-background-color': theme.colors.interactive.table__cell__fill_activated.getVariable('color'),
