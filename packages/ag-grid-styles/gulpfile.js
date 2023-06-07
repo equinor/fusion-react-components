@@ -76,25 +76,26 @@ const scssTask = () => {
             },
           ],
         },
-        plugins: [new RemoveEmptyScriptsPlugin(), new MiniCssExtractPlugin({ filename: '[name].css.ts' })],
+        plugins: [new RemoveEmptyScriptsPlugin(), new MiniCssExtractPlugin({ filename: '[name].jss.json' })],
       })
     )
     .pipe(
       through2.obj(function (file, _, cb) {
         if (file.isBuffer()) {
+          file.contents = Buffer.from(JSON.stringify(jssCli.cssToJss({ code: file.contents.toString() })));
           // file.contents = Buffer.from(JSON.stringify(jssCli.cssToJss({ code: file.contents.toString() })));
           // convert css to jss and stringify object
-          let styleStr = JSON.stringify(jssCli.cssToJss({ code: file.contents.toString() }), null, 2);
+          // let styleStr = JSON.stringify(jssCli.cssToJss({ code: file.contents.toString() }), null, 2);
           /* removes 4 backslash created by jssCli/stringify from the content property */
           // styleStr = styleStr.replace(/\\"/g, '');
 
-          /* styleStr = styleStr.replace(/\\{3}/g, '');
-          styleStr = styleStr.replace(/"\\"\\""/g, '""'); */
+          // styleStr = styleStr.replace(/(\\{3})\\/g, '\\');
+          /* styleStr = styleStr.replace(/"\\"\\""/g, '""'); */
 
           /* Save to json file */
           // file.contents = Buffer.from(styleStr);
           /* Save to js file */
-          file.contents = Buffer.from(`/* eslint-disable */\nexport const styles = ${styleStr};`);
+          // file.contents = Buffer.from(`/* eslint-disable */\nexport const styles = ${styleStr};`);
         }
 
         cb(null, file);

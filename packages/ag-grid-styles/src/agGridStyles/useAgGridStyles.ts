@@ -1,8 +1,5 @@
 import { makeStyles, createStyles } from '@equinor/fusion-react-styles';
-import { styles } from './styles.css';
-
-/* typescript reference for makeStyles */
-import '@material-ui/styles';
+import styles from './styles.jss.json';
 
 type agGridProps = {
   indicateEditMode?: boolean;
