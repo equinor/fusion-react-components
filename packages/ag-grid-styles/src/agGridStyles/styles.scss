@@ -1,15 +1,5 @@
 @use '~@ag-grid-community/styles' as ag;
 
-.fushisushi {
-  background: pink;
-  padding: 1em;
-  margin: 1em;
-
-  &::after {
-    content: '\0000E9cho';
-  }
-}
-
 @include ag.grid-styles((
   theme: alpine-fusion,
   extend-theme: alpine
