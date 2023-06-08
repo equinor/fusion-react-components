@@ -82,20 +82,14 @@ const scssTask = () => {
     .pipe(
       through2.obj(function (file, _, cb) {
         if (file.isBuffer()) {
-          file.contents = Buffer.from(JSON.stringify(jssCli.cssToJss({ code: file.contents.toString() })));
-          // file.contents = Buffer.from(JSON.stringify(jssCli.cssToJss({ code: file.contents.toString() })));
-          // convert css to jss and stringify object
-          // let styleStr = JSON.stringify(jssCli.cssToJss({ code: file.contents.toString() }), null, 2);
-          /* removes 4 backslash created by jssCli/stringify from the content property */
-          // styleStr = styleStr.replace(/\\"/g, '');
+          // store styleobject as json string
+          let styleStr = JSON.stringify(jssCli.cssToJss({ code: file.contents.toString(), dashes: true }), null, 2);
 
-          // styleStr = styleStr.replace(/(\\{3})\\/g, '\\');
-          /* styleStr = styleStr.replace(/"\\"\\""/g, '""'); */
+          /* convert 4 backslashes to 2, created by json stringify on the unicode content property */
+          styleStr = styleStr.replace(/(")\\{4}([a-f0-9])/g, '$1\\\\$2');
 
-          /* Save to json file */
-          // file.contents = Buffer.from(styleStr);
-          /* Save to js file */
-          // file.contents = Buffer.from(`/* eslint-disable */\nexport const styles = ${styleStr};`);
+          /* Save to json file as jss object */
+          file.contents = Buffer.from(styleStr);
         }
 
         cb(null, file);

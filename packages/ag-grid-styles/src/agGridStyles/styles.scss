@@ -4,6 +4,10 @@
   background: pink;
   padding: 1em;
   margin: 1em;
+
+  &::after {
+    content: '\0000E9cho';
+  }
 }
 
 @include ag.grid-styles((
