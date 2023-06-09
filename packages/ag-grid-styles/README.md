@@ -1,4 +1,4 @@
-# AG Grid
+# AG Grid Styles
 
 [Storybook](https://equinor.github.io/fusion-react-components/?path=/docs/table-ag-grid-styles--page)
 
