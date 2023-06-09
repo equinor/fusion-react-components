@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 29.3.4 (2023-06-09)
+
+
+### Bug Fixes
+
+* **ag-grid-styles:** fix jss camelcasing of variable names ([e1f98f0](https://github.com/equinor/fusion-react-components/commit/e1f98f0fce025bb289de6b9f7498ca58795596d4))
+
+
+
+
+
 ## 0.4.7 (2023-03-28)
 
 
