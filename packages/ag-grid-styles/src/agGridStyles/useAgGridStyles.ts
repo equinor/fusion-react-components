@@ -1,7 +1,5 @@
 import { makeStyles, createStyles } from '@equinor/fusion-react-styles';
-import { agGridStyles } from './styles.css';
-/* typescript reference for makeStyles */
-import '@material-ui/styles';
+import styles from './styles.jss.json';
 
 type agGridProps = {
   indicateEditMode?: boolean;
@@ -10,7 +8,7 @@ type agGridProps = {
 export const useStyles = makeStyles(
   (theme) =>
     createStyles({
-      ...agGridStyles,
+      ...styles,
       root: (props?: agGridProps) => ({
         '--ag-row-hover-color': theme.colors.interactive.table__cell__fill_hover.getVariable('color'),
         '--ag-selected-row-background-color': theme.colors.interactive.table__cell__fill_activated.getVariable('color'),
@@ -27,3 +25,5 @@ export const useStyles = makeStyles(
     }),
   { name: 'fusion-ag-grid-styles' }
 );
+
+export default useStyles;
