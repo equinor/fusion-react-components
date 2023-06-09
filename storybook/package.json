@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-components-stories",
-  "version": "2.8.1",
+  "version": "2.8.2",
   "description": "",
   "private": true,
   "scripts": {
@@ -18,6 +18,7 @@
     "@equinor/eds-core-react": "^0.30.0",
     "@equinor/eds-icons": "^0.19.1",
     "@equinor/eds-tokens": "^0.9.0",
+    "@equinor/fusion-react-ag-grid-styles": "^29.3.4-beta.2",
     "@equinor/fusion-react-avatar": "^0.3.14",
     "@equinor/fusion-react-badge": "^0.3.13",
     "@equinor/fusion-react-breadcrumb": "^0.1.8",
@@ -27,8 +28,8 @@
     "@equinor/fusion-react-context-selector": "^0.4.3",
     "@equinor/fusion-react-date": "^0.4.15",
     "@equinor/fusion-react-datepicker": "^0.11.15",
-    "@equinor/fusion-react-errorboundary": "^0.0.0",
     "@equinor/fusion-react-divider": "^0.2.12",
+    "@equinor/fusion-react-errorboundary": "^0.1.0",
     "@equinor/fusion-react-filter": "^1.4.8",
     "@equinor/fusion-react-hanging-garden": "^1.6.26",
     "@equinor/fusion-react-icon": "^0.2.15",
