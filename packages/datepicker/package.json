@@ -39,10 +39,13 @@
   "dependencies": {
     "@equinor/fusion-react-icon": "^0.2.15",
     "@equinor/fusion-react-styles": "^0.5.5",
-    "react-datepicker": "^4.3.0"
+    "react-datepicker": "^4.13.0"
   },
   "devDependencies": {
-    "@types/react-datepicker": "^4.3.2",
+    "@types/react-datepicker": "^4.11.2",
     "jss-cli": "^6.0.2"
+  },
+  "resolutions": {
+    "@types/react": "^18.0.0"
   }
 }
