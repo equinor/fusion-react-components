@@ -7,14 +7,14 @@ export default {
         borderWidth: '3px 3px 0 0',
         content: '""',
         display: 'block',
-        height: 9,
+        height: '9px',
         position: 'absolute',
-        top: 6,
-        width: 9,
+        top: '6px',
+        width: '9px',
       },
     '.react-datepicker-popper[data-placement^=top] .react-datepicker__triangle, .react-datepicker-popper[data-placement^=bottom] .react-datepicker__triangle':
       {
-        marginLeft: -4,
+        marginLeft: '-4px',
         position: 'absolute',
         width: '0',
       },
@@ -24,11 +24,11 @@ export default {
         position: 'absolute',
         border: '8px solid transparent',
         height: '0',
-        width: 1,
+        width: '1px',
         content: '""',
         zIndex: '-1',
-        borderWidth: 8,
-        left: -8,
+        borderWidth: '8px',
+        left: '-8px',
       },
     '.react-datepicker-popper[data-placement^=top] .react-datepicker__triangle::before, .react-datepicker-popper[data-placement^=bottom] .react-datepicker__triangle::before':
       {
@@ -36,7 +36,7 @@ export default {
       },
     '.react-datepicker-popper[data-placement^=bottom] .react-datepicker__triangle': {
       top: '0',
-      marginTop: -8,
+      marginTop: '-8px',
     },
     '.react-datepicker-popper[data-placement^=bottom] .react-datepicker__triangle::before, .react-datepicker-popper[data-placement^=bottom] .react-datepicker__triangle::after':
       {
@@ -47,12 +47,12 @@ export default {
       top: '0',
     },
     '.react-datepicker-popper[data-placement^=bottom] .react-datepicker__triangle::before': {
-      top: -1,
+      top: '-1px',
       borderBottomColor: '#aeaeae',
     },
     '.react-datepicker-popper[data-placement^=top] .react-datepicker__triangle': {
       bottom: '0',
-      marginBottom: -8,
+      marginBottom: '-8px',
     },
     '.react-datepicker-popper[data-placement^=top] .react-datepicker__triangle::before, .react-datepicker-popper[data-placement^=top] .react-datepicker__triangle::after':
       {
@@ -63,7 +63,7 @@ export default {
       bottom: '0',
     },
     '.react-datepicker-popper[data-placement^=top] .react-datepicker__triangle::before': {
-      bottom: -1,
+      bottom: '-1px',
       borderTopColor: '#aeaeae',
     },
     '.react-datepicker-wrapper': {
@@ -83,7 +83,7 @@ export default {
       position: 'relative',
     },
     '.react-datepicker--time-only .react-datepicker__triangle': {
-      left: 35,
+      left: '35px',
     },
     '.react-datepicker--time-only .react-datepicker__time-container': {
       borderLeft: '0',
@@ -94,34 +94,34 @@ export default {
     },
     '.react-datepicker__triangle': {
       position: 'absolute',
-      left: 50,
+      left: '50px',
     },
     '.react-datepicker-popper': {
       zIndex: '1',
     },
     '.react-datepicker-popper[data-placement^=bottom]': {
-      paddingTop: 10,
+      paddingTop: '10px',
     },
     '.react-datepicker-popper[data-placement=bottom-end] .react-datepicker__triangle, .react-datepicker-popper[data-placement=top-end] .react-datepicker__triangle':
       {
         left: 'auto',
-        right: 50,
+        right: '50px',
       },
     '.react-datepicker-popper[data-placement^=top]': {
-      paddingBottom: 10,
+      paddingBottom: '10px',
     },
     '.react-datepicker-popper[data-placement^=right]': {
-      paddingLeft: 8,
+      paddingLeft: '8px',
     },
     '.react-datepicker-popper[data-placement^=right] .react-datepicker__triangle': {
       left: 'auto',
-      right: 42,
+      right: '42px',
     },
     '.react-datepicker-popper[data-placement^=left]': {
-      paddingRight: 8,
+      paddingRight: '8px',
     },
     '.react-datepicker-popper[data-placement^=left] .react-datepicker__triangle': {
-      left: 42,
+      left: '42px',
       right: 'auto',
     },
     '.react-datepicker__header': {
@@ -133,9 +133,9 @@ export default {
       position: 'relative',
     },
     '.react-datepicker__header--time': {
-      paddingBottom: 8,
-      paddingLeft: 5,
-      paddingRight: 5,
+      paddingBottom: '8px',
+      paddingLeft: '5px',
+      paddingRight: '5px',
     },
     '.react-datepicker__header--time:not(.react-datepicker__header--time--only)': {
       borderTopLeftRadius: '0',
@@ -146,7 +146,7 @@ export default {
     '.react-datepicker__year-dropdown-container--select, .react-datepicker__month-dropdown-container--select, .react-datepicker__month-year-dropdown-container--select, .react-datepicker__year-dropdown-container--scroll, .react-datepicker__month-dropdown-container--scroll, .react-datepicker__month-year-dropdown-container--scroll':
       {
         display: 'inline-block',
-        margin: '0 2px',
+        margin: '0 15px',
       },
     '.react-datepicker__current-month, .react-datepicker-time__header, .react-datepicker-year-header': {
       marginTop: '0',
@@ -167,23 +167,23 @@ export default {
       textAlign: 'center',
       cursor: 'pointer',
       position: 'absolute',
-      top: 2,
+      top: '2px',
       padding: '0',
       border: 'none',
       zIndex: '1',
-      height: 32,
-      width: 32,
+      height: '32px',
+      width: '32px',
       textIndent: '-999em',
       overflow: 'hidden',
     },
     '.react-datepicker__navigation--previous': {
-      left: 2,
+      left: '2px',
     },
     '.react-datepicker__navigation--next': {
-      right: 2,
+      right: '2px',
     },
     '.react-datepicker__navigation--next--with-time:not(.react-datepicker__navigation--next--with-today-button)': {
-      right: 85,
+      right: '85px',
     },
     '.react-datepicker__navigation--years': {
       position: 'relative',
@@ -193,33 +193,33 @@ export default {
       marginRight: 'auto',
     },
     '.react-datepicker__navigation--years-previous': {
-      top: 4,
+      top: '4px',
     },
     '.react-datepicker__navigation--years-upcoming': {
-      top: -4,
+      top: '-4px',
     },
     '.react-datepicker__navigation:hover *::before': {
       borderColor: '#a6a6a6',
     },
     '.react-datepicker__navigation-icon': {
       position: 'relative',
-      top: -1,
-      fontSize: 20,
+      top: '-1px',
+      fontSize: '20px',
       width: '0',
     },
     '.react-datepicker__navigation-icon--next': {
-      left: -2,
+      left: '-2px',
     },
     '.react-datepicker__navigation-icon--next::before': {
       transform: 'rotate(45deg)',
-      left: -7,
+      left: '-7px',
     },
     '.react-datepicker__navigation-icon--previous': {
-      right: -2,
+      right: '-2px',
     },
     '.react-datepicker__navigation-icon--previous::before': {
       transform: 'rotate(225deg)',
-      right: -7,
+      right: '-7px',
     },
     '.react-datepicker__month-container': {
       float: 'left',
@@ -231,12 +231,12 @@ export default {
     '.react-datepicker__year-wrapper': {
       display: 'flex',
       flexWrap: 'wrap',
-      maxWidth: 180,
+      maxWidth: '180px',
     },
     '.react-datepicker__year .react-datepicker__year-text': {
       display: 'inline-block',
       width: '4rem',
-      margin: 2,
+      margin: '2px',
     },
     '.react-datepicker__month': {
       margin: '0.4rem',
@@ -246,7 +246,7 @@ export default {
       {
         display: 'inline-block',
         width: '4rem',
-        margin: 2,
+        margin: '2px',
       },
     '.react-datepicker__input-time-container': {
       clear: 'both',
@@ -263,7 +263,7 @@ export default {
     },
     '.react-datepicker__input-time-container .react-datepicker-time__input-container .react-datepicker-time__input': {
       display: 'inline-block',
-      marginLeft: 10,
+      marginLeft: '10px',
     },
     '.react-datepicker__input-time-container .react-datepicker-time__input-container .react-datepicker-time__input input':
       {
@@ -280,20 +280,20 @@ export default {
       },
     '.react-datepicker__input-time-container .react-datepicker-time__input-container .react-datepicker-time__delimiter':
       {
-        marginLeft: 5,
+        marginLeft: '5px',
         display: 'inline-block',
       },
     '.react-datepicker__time-container': {
       float: 'right',
       borderLeft: '1px solid #aeaeae',
-      width: 85,
+      width: '85px',
     },
     '.react-datepicker__time-container--with-today-button': {
       display: 'inline',
       border: '1px solid #aeaeae',
       borderRadius: '0.3rem',
       position: 'absolute',
-      right: -72,
+      right: '-87px',
       top: '0',
     },
     '.react-datepicker__time-container .react-datepicker__time': {
@@ -302,7 +302,7 @@ export default {
       borderBottomRightRadius: '0.3rem',
     },
     '.react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box': {
-      width: 85,
+      width: '85px',
       overflowX: 'hidden',
       margin: '0 auto',
       textAlign: 'center',
@@ -321,7 +321,7 @@ export default {
       },
     '.react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list li.react-datepicker__time-list-item':
       {
-        height: 30,
+        height: '30px',
         padding: '5px 10px',
         whiteSpace: 'nowrap',
       },
@@ -368,7 +368,7 @@ export default {
       whiteSpace: 'nowrap',
     },
     '.react-datepicker__day-names': {
-      marginBottom: -8,
+      marginBottom: '-8px',
     },
     '.react-datepicker__day-name, .react-datepicker__day, .react-datepicker__time-name': {
       color: '#000',
@@ -377,24 +377,6 @@ export default {
       lineHeight: '1.7rem',
       textAlign: 'center',
       margin: '0.166rem',
-    },
-    '.react-datepicker__month--selected, .react-datepicker__month--in-selecting-range, .react-datepicker__month--in-range, .react-datepicker__quarter--selected, .react-datepicker__quarter--in-selecting-range, .react-datepicker__quarter--in-range':
-      {
-        borderRadius: '0.3rem',
-        backgroundColor: '#216ba5',
-        color: '#fff',
-      },
-    '.react-datepicker__month--selected:hover, .react-datepicker__month--in-selecting-range:hover, .react-datepicker__month--in-range:hover, .react-datepicker__quarter--selected:hover, .react-datepicker__quarter--in-selecting-range:hover, .react-datepicker__quarter--in-range:hover':
-      {
-        backgroundColor: '#1d5d90',
-      },
-    '.react-datepicker__month--disabled, .react-datepicker__quarter--disabled': {
-      color: '#ccc',
-      pointerEvents: 'none',
-    },
-    '.react-datepicker__month--disabled:hover, .react-datepicker__quarter--disabled:hover': {
-      cursor: 'default',
-      backgroundColor: 'transparent',
     },
     '.react-datepicker__day, .react-datepicker__month-text, .react-datepicker__quarter-text, .react-datepicker__year-text':
       {
@@ -440,8 +422,8 @@ export default {
     '.react-datepicker__day--keyboard-selected, .react-datepicker__month-text--keyboard-selected, .react-datepicker__quarter-text--keyboard-selected, .react-datepicker__year-text--keyboard-selected':
       {
         borderRadius: '0.3rem',
-        backgroundColor: '#2a87d0',
-        color: '#fff',
+        backgroundColor: '#bad9f1',
+        color: 'rgb(0, 0, 0)',
       },
     '.react-datepicker__day--keyboard-selected:hover, .react-datepicker__month-text--keyboard-selected:hover, .react-datepicker__quarter-text--keyboard-selected:hover, .react-datepicker__year-text--keyboard-selected:hover':
       {
@@ -465,17 +447,17 @@ export default {
       {
         backgroundColor: 'transparent',
       },
-    '.react-datepicker__month-text.react-datepicker__month--selected:hover, .react-datepicker__month-text.react-datepicker__month--in-range:hover, .react-datepicker__month-text.react-datepicker__quarter--selected:hover, .react-datepicker__month-text.react-datepicker__quarter--in-range:hover, .react-datepicker__quarter-text.react-datepicker__month--selected:hover, .react-datepicker__quarter-text.react-datepicker__month--in-range:hover, .react-datepicker__quarter-text.react-datepicker__quarter--selected:hover, .react-datepicker__quarter-text.react-datepicker__quarter--in-range:hover':
-      {
-        backgroundColor: '#216ba5',
-      },
-    '.react-datepicker__month-text:hover, .react-datepicker__quarter-text:hover': {
-      backgroundColor: '#f0f0f0',
-    },
     '.react-datepicker__input-container': {
       position: 'relative',
       display: 'inline-block',
       width: '100%',
+    },
+    '.react-datepicker__input-container .react-datepicker__calendar-icon': {
+      position: 'absolute',
+      padding: '0.5rem',
+    },
+    '.react-datepicker__view-calendar-icon input': {
+      padding: '6px 10px 5px 25px',
     },
     '.react-datepicker__year-read-view, .react-datepicker__month-read-view, .react-datepicker__month-year-read-view': {
       border: '1px solid transparent',
@@ -493,7 +475,7 @@ export default {
     '.react-datepicker__year-read-view--down-arrow, .react-datepicker__month-read-view--down-arrow, .react-datepicker__month-year-read-view--down-arrow':
       {
         transform: 'rotate(135deg)',
-        right: -16,
+        right: '-16px',
         top: '0',
       },
     '.react-datepicker__year-dropdown, .react-datepicker__month-dropdown, .react-datepicker__month-year-dropdown': {
@@ -501,7 +483,7 @@ export default {
       position: 'absolute',
       width: '50%',
       left: '25%',
-      top: 30,
+      top: '30px',
       zIndex: '1',
       textAlign: 'center',
       borderRadius: '0.3rem',
@@ -513,11 +495,11 @@ export default {
       },
     '.react-datepicker__year-dropdown--scrollable, .react-datepicker__month-dropdown--scrollable, .react-datepicker__month-year-dropdown--scrollable':
       {
-        height: 150,
+        height: '150px',
         overflowY: 'scroll',
       },
     '.react-datepicker__year-option, .react-datepicker__month-option, .react-datepicker__month-year-option': {
-      lineHeight: 20,
+      lineHeight: '20px',
       width: '100%',
       display: 'block',
       marginLeft: 'auto',
@@ -552,7 +534,7 @@ export default {
     '.react-datepicker__year-option--selected, .react-datepicker__month-option--selected, .react-datepicker__month-year-option--selected':
       {
         position: 'absolute',
-        left: 15,
+        left: '15px',
       },
     '.react-datepicker__close-icon': {
       cursor: 'pointer',
@@ -572,10 +554,10 @@ export default {
       backgroundColor: '#216ba5',
       color: '#fff',
       borderRadius: '50%',
-      height: 16,
-      width: 16,
-      padding: 2,
-      fontSize: 12,
+      height: '16px',
+      width: '16px',
+      padding: '2px',
+      fontSize: '12px',
       lineHeight: '1',
       textAlign: 'center',
       display: 'table-cell',
@@ -619,5 +601,28 @@ export default {
       {
         fontSize: '1.44rem',
       },
+    '.react-datepicker__children-container': {
+      width: '13.8rem',
+      margin: '0.4rem',
+      paddingRight: '0.2rem',
+      paddingLeft: '0.2rem',
+      height: 'auto',
+    },
+    '.react-datepicker__aria-live': {
+      position: 'absolute',
+      clipPath: 'circle(0)',
+      border: '0',
+      height: '1px',
+      margin: '-1px',
+      overflow: 'hidden',
+      padding: '0',
+      width: '1px',
+      whiteSpace: 'nowrap',
+    },
+    '.react-datepicker__calendar-icon': {
+      width: '1em',
+      height: '1em',
+      verticalAlign: '-0.125em',
+    },
   },
 };
