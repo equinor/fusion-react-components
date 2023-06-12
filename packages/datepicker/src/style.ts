@@ -107,7 +107,7 @@ export const useStyles = makeStyles(
                 alignItems: 'center',
                 borderRadius: 0,
               },
-              '& .react-datepicker__month--selected, .react-datepicker__month--selected .react-datepicker__month-text--keyboard-selected':
+              '& .react-datepicker__month--selected, .react-datepicker__month--selected .react-datepicker__month-text--keyboard-selected, .react-datepicker__month-text--selected':
                 {
                   backgroundColor: `${theme.colors.interactive.primary__selected_highlight.getVariable(
                     'color'
