@@ -1,5 +1,5 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs';
-import Template from './DatePicker.template';
+import Template, { DatePickerSelectedTemplate } from './DatePicker.template';
 
 import { FusionDatePicker } from '@equinor/fusion-react-datepicker';
 
@@ -8,7 +8,6 @@ import { FusionDatePicker } from '@equinor/fusion-react-datepicker';
   component={Template}
   parameters={{ chromatic: { disableSnapshot: false } }}
 />
-
 
 <Canvas>
   <div style={{height: 300, width: '100vw'}} />
@@ -19,10 +18,27 @@ import { FusionDatePicker } from '@equinor/fusion-react-datepicker';
   }}>
     {Template.bind({})}
   </Story>
+  <Story name="SelectedDate" args={{
+    label: 'Date',
+    placeholder: 'Select date',
+    type: 'date',
+    date: new Date('Sun Sep 23 2018')
+  }}>
+    {Template.bind({})}
+  </Story>
   <Story name="DateRange" args={{
     label: 'Date range',
     placeholder: 'Select date range (from-to)',
     type: 'date-range',
+  }}>
+    {Template.bind({})}
+  </Story>
+  <Story name="SelectedRange" args={{
+    label: 'Date range',
+    placeholder: 'Select date range (from-to)',
+    type: 'date-range',
+    dateFrom: new Date('Sun Sep 23 2018'),
+    dateTo: new Date('Tue Sep 25 2018')
   }}>
     {Template.bind({})}
   </Story>
