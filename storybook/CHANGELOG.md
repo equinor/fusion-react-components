@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.8.4](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@2.8.3...@equinor/fusion-react-components-stories@2.8.4) (2023-06-12)
+
+
+### Bug Fixes
+
+* **datepicker:** selected date and range snapshots ([2daa94a](https://github.com/equinor/fusion-react-components/commit/2daa94a6ef12207c4a9f149274a07396b5f9d264))
+
+
+
+
+
 ## [2.8.3](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@2.8.2...@equinor/fusion-react-components-stories@2.8.3) (2023-06-09)
 
 **Note:** Version bump only for package @equinor/fusion-react-components-stories
