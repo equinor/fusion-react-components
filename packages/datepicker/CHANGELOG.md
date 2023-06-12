@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.11.16 (2023-06-12)
+
+
+### Bug Fixes
+
+* **datepicker:** selected month css ([9e5ecad](https://github.com/equinor/fusion-react-components/commit/9e5ecadade94f061f846cc0e430040b8a864823f))
+* **datepicker:** update css copied from react-datepicker package ([92beb45](https://github.com/equinor/fusion-react-components/commit/92beb454771c04834c877252e9993739e2730168))
+
+
+
+
+
 ## 0.11.15 (2023-05-09)
 
 
