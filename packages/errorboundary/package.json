@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-errorboundary",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "React component for errorboundary",
   "keywords": [
     "errorboundary",
@@ -36,7 +36,7 @@
   "dependencies": {
     "@equinor/fusion-react-button": "^0.8.1",
     "@equinor/fusion-react-icon": "^0.2.15",
-    "@equinor/fusion-react-styles": "^0.5.5",
+    "@equinor/fusion-react-styles": "^0.5.6",
     "@equinor/fusion-react-utils": "^2.0.4"
   }
 }
