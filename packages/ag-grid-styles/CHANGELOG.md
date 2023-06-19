@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 29.3.5 (2023-06-16)
+
+**Note:** Version bump only for package @equinor/fusion-react-ag-grid-styles
+
+
+
+
+
 ## 29.3.4 (2023-06-09)
 
 
