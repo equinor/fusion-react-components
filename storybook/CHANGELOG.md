@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.8.6](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@2.8.5...@equinor/fusion-react-components-stories@2.8.6) (2023-06-19)
+
+
+### Bug Fixes
+
+* **chip:** removable typo ([c513662](https://github.com/equinor/fusion-react-components/commit/c5136628df743784a52376f0aa32679456800b51))
+
+
+
+
+
 ## [2.8.5](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@2.8.4...@equinor/fusion-react-components-stories@2.8.5) (2023-06-16)
 
 **Note:** Version bump only for package @equinor/fusion-react-components-stories
