@@ -1,26 +1,18 @@
 @use '~@ag-grid-community/styles' as ag;
 
-@include ag.grid-styles((
-  theme: alpine-fusion,
-  extend-theme: alpine
-));
+@include ag.grid-styles((theme: alpine-fusion,
+    extend-theme: alpine));
 
-.ag-theme-alpine-fusion {  
-  .ag-cell {
-    display: flex;
-    align-items: center;
-    line-height: 1.2;
-  }
-  
+.ag-theme-alpine-fusion {
   .ag-cell-expandable {
     display: flex;
     align-items: center;
   }
-  
+
   .ag-rich-select-list {
     height: 100%;
   }
-  
+
   .ag-rich-select-row-selected {
     background-color: var(--ag-selected-row-background-color, #deedee);
   }
