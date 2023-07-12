@@ -1,11 +1,6 @@
 import { Meta, Story } from '@storybook/react';
 import { iconNames } from '@equinor/fusion-react-icon/src';
-import {
-  IconButton,
-  IconButtonProps,
-  IconButtonColor,
-  IconButtonSize,
-} from '@equinor/fusion-react-button/src/icon-button/';
+import { IconButton, IconButtonProps } from '@equinor/fusion-react-button/src/icon-button/';
 
 export default {
   title: 'Examples/Button/Icon',
@@ -22,13 +17,18 @@ export default {
     color: {
       description: 'Sets the color',
       control: 'select',
-      options: IconButtonColor,
+      options: ['primary', 'secondary', 'success', 'danger', 'warning', 'disabled'],
       table: {
         type: { summary: 'IconButtonColor' },
       },
     },
     size: {
       description: 'Sets the size',
+      control: 'select',
+      options: ['x-large', 'large', 'medium', 'small', 'x-small'],
+      table: {
+        type: { summary: 'IconButtonSize' },
+      },
     },
     rounded: {
       description: 'Sets the shape of ripple',
@@ -53,8 +53,8 @@ export default {
 export const Component: Story<IconButtonProps> = (props: IconButtonProps) => <IconButton {...props} />;
 Component.args = {
   icon: 'power',
-  color: IconButtonColor.Primary,
-  size: IconButtonSize.Medium,
+  color: 'primary',
+  size: 'medium',
   rounded: true,
 };
 
@@ -66,8 +66,8 @@ export const CustomIcon: Story<IconButtonProps> = (props: IconButtonProps) => (
   </IconButton>
 );
 CustomIcon.args = {
-  color: IconButtonColor.Secondary,
-  size: IconButtonSize.Large,
+  color: 'secondary',
+  size: 'large',
   rounded: true,
 };
 
@@ -77,7 +77,7 @@ export const CustomImage: Story<IconButtonProps> = (props: IconButtonProps) => (
   </IconButton>
 );
 CustomImage.args = {
-  color: IconButtonColor.Danger,
-  size: IconButtonSize.Large,
+  color: 'danger',
+  size: 'large',
   rounded: true,
 };
