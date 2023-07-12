@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.8.9](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@2.8.8...@equinor/fusion-react-components-stories@2.8.9) (2023-07-12)
+
+
+### Bug Fixes
+
+* **markdown-editor:** onInput event ([ca641a5](https://github.com/equinor/fusion-react-components/commit/ca641a5b6ddc62cf1b3a3119cfae9d9e7e50f200))
+
+
+
+
+
 ## [2.8.8](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@2.8.7...@equinor/fusion-react-components-stories@2.8.8) (2023-07-12)
 
 **Note:** Version bump only for package @equinor/fusion-react-components-stories

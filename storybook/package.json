@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-components-stories",
-  "version": "2.8.8",
+  "version": "2.8.9",
   "description": "",
   "private": true,
   "scripts": {
@@ -34,7 +34,7 @@
     "@equinor/fusion-react-hanging-garden": "^1.6.27",
     "@equinor/fusion-react-icon": "^0.2.15",
     "@equinor/fusion-react-list": "^0.2.11",
-    "@equinor/fusion-react-markdown": "^0.1.0",
+    "@equinor/fusion-react-markdown": "^0.1.1",
     "@equinor/fusion-react-menu": "^0.1.5",
     "@equinor/fusion-react-observable": "^1.1.8",
     "@equinor/fusion-react-person": "^0.2.3",
@@ -46,6 +46,7 @@
     "@equinor/fusion-react-select": "^0.1.2",
     "@equinor/fusion-react-side-sheet": "^0.1.0",
     "@equinor/fusion-react-skeleton": "^0.2.13",
+    "@equinor/fusion-react-stepper": "^0.0.0",
     "@equinor/fusion-react-styles": "^0.5.6",
     "@equinor/fusion-react-switch": "^0.4.15",
     "@equinor/fusion-react-table": "^0.5.25",

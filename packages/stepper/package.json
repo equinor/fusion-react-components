@@ -1,19 +1,17 @@
 {
-  "name": "@equinor/fusion-react-markdown",
-  "version": "0.1.1",
-  "description": "React component for editing morkdown language",
+  "name": "@equinor/fusion-react-stepper",
+  "version": "0.0.0",
+  "description": "Component for displaying and using stepps in stepper",
   "keywords": [
-    "markdown",
-    "editing",
-    "markdown editor",
+    "stepper",
+    "stepp",
+    "react",
     "fusion",
     "equinor"
   ],
-  "homepage": "https://github.com/equinor/fusion-react-components/tree/main/packages/markdown#readme",
+  "homepage": "https://github.com/equinor/fusion-react-components/tree/master/packages/stepper#readme",
   "license": "ISC",
   "main": "dist/index.js",
-  "module": "dist/index.js",
-  "types": "dist/index.d.ts",
   "directories": {
     "dist": "dist"
   },
@@ -37,6 +35,8 @@
     "url": "https://github.com/equinor/fusion-react-components/issues"
   },
   "dependencies": {
-    "@equinor/fusion-wc-markdown": "^0.3.3"
+    "@equinor/fusion-react-styles": "^0.5.6",
+    "@equinor/fusion-react-icon": "^0.2.15",
+    "@equinor/fusion-react-button": "^0.8.2"
   }
 }
