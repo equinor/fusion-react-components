@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 29.3.6 (2023-06-23)
+
+
+### Bug Fixes
+
+* **ag-grid-styles:** ag-cell css remove ([c446c87](https://github.com/equinor/fusion-react-components/commit/c446c87a2126d627cf217e68d828a10a4ca933e5))
+
+
+
+
+
 ## 29.3.5 (2023-06-16)
 
 **Note:** Version bump only for package @equinor/fusion-react-ag-grid-styles

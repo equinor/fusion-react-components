@@ -1,7 +1,6 @@
 import { Meta, Story } from '@storybook/react';
 import { iconNames } from '@equinor/fusion-react-icon/src';
 import { IconButtonToggle, IconButtonToggleProps } from '@equinor/fusion-react-button/src/icon-button-toggle';
-import { IconButtonColor, IconButtonSize } from '@equinor/fusion-react-button/src/icon-button';
 
 export default {
   title: 'Examples/Button/Icon Toggle',
@@ -29,7 +28,7 @@ export default {
     offColor: {
       description: 'Sets the color on "off" state',
       control: 'select',
-      options: IconButtonColor,
+      options: ['primary', 'secondary', 'success', 'danger', 'warning', 'disabled'],
       table: {
         type: { summary: 'IconButtonColor' },
       },
@@ -37,7 +36,7 @@ export default {
     onColor: {
       description: 'Sets the color on "on" state',
       control: 'select',
-      options: IconButtonColor,
+      options: ['primary', 'secondary', 'success', 'danger', 'warning', 'disabled'],
       table: {
         type: { summary: 'IconButtonColor' },
       },
@@ -45,7 +44,7 @@ export default {
     size: {
       description: 'Sets the size',
       control: 'radio',
-      options: IconButtonSize,
+      options: ['x-large', 'large', 'medium', 'small', 'x-small'],
       table: {
         type: { summary: 'IconButtonSize' },
       },
@@ -86,8 +85,8 @@ export const Component: Story<IconButtonToggleProps> = (props: IconButtonToggleP
 Component.args = {
   offIcon: 'wifi_off',
   onIcon: 'wifi',
-  offColor: IconButtonColor.Danger,
-  onColor: IconButtonColor.Success,
-  size: IconButtonSize.Medium,
+  offColor: 'danger',
+  onColor: 'success',
+  size: 'medium',
   rounded: true,
 };
