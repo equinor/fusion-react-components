@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.8.2 (2023-07-12)
+
+
+### Bug Fixes
+
+* **button:** keep type exports ([3c4e99c](https://github.com/equinor/fusion-react-components/commit/3c4e99c0dd1c23ce775b5efa00f7f009df3a7510))
+
+
+
+
+
 ## 0.8.1 (2023-02-14)
 
 
