@@ -5,7 +5,6 @@ import {
   IconButtonToggleElement as HTMLIconButtonToggleCustomElement,
   iconButtonToggleTag,
 } from '@equinor/fusion-wc-button';
-import { IconButtonColor, IconButtonSize } from '@equinor/fusion-wc-button';
 
 type ElementProps = PropsWithChildren<
   Partial<
@@ -33,6 +32,6 @@ export const IconButtonToggle = createComponent<HTMLIconButtonToggleCustomElemen
 
 export type IconButtonToggleProps = ComponentProps<HTMLIconButtonToggleCustomElement, ElementProps>;
 
-export { HTMLIconButtonToggleCustomElement, iconNames, IconButtonColor, IconButtonSize };
+export { HTMLIconButtonToggleCustomElement, iconNames };
 
 export default IconButtonToggle;
