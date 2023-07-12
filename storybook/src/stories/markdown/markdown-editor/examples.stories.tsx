@@ -39,18 +39,28 @@ export default {
   },
 } as Meta;
 
-
-
 export const Component: Story<MarkdownEditorProps> = (props: MarkdownEditorProps) => {
-  const MarkdownEditor = (props: MarkdownEditorProps) => (
-    <fwc-markdown-editor {...props} />
-  )
-  return <MarkdownEditor {...props} />
+  const MarkdownEditor = (props: MarkdownEditorProps) => <fwc-markdown-editor {...props} />;
+  return <MarkdownEditor {...props} />;
 };
 Component.args = {
   menuItems: ['strong', 'em', 'bullet_list', 'ordered_list', 'h1', 'h2'],
   menuSize: 'medium',
   minHeight: '150px',
+};
+
+export const onInputEvent: Story<MarkdownEditorProps> = (props: MarkdownEditorProps) => {
+  const initialMarkdown = `***Open console and start using editor***`;
+  return (
+    <MarkdownEditor
+      {...props}
+      onInput={(e) => {
+        console.log('Event', e);
+      }}
+    >
+      {initialMarkdown}
+    </MarkdownEditor>
+  );
 };
 
 export const InitialMarkdown: Story<MarkdownEditorProps> = (props: MarkdownEditorProps) => {
