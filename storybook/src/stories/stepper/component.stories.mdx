@@ -1,0 +1,57 @@
+import { Meta, Story, Canvas, ArgsTable, Description } from '@storybook/addon-docs';
+import { ChangeLog, PackageInfo, StoryExample } from '../../components';
+import { Stepper } from '@equinor/fusion-react-stepper/src';
+
+<Meta title="Data/Stepper" component={Stepper} />
+
+<PackageInfo pkg={require('@equinor/fusion-react-stepper/package.json')} />
+
+# Stepper
+
+## Properties/Attributes
+
+### for stepper
+
+Name                      | Type                            | Default                         | Description
+------------------------- | -----------------------------   | -----------------------------   | -----------
+`activeStepKey`           | `string`                        | `/`                             | Select/change active stepp, use *** stepKey ***. `required`
+`forceOrder`              | `boolean`                       | `false`                         | Can't skip steps. Steps will have specific order.
+`verticalSteps`           | `boolean`                       | `false`                         | Change stepper layout to vertical. Vertical positioning of steps.
+`hideNavButtons`          | `boolean`                       | `false`                         | Show/hide next and previous navigation buttons for stepper.
+`onChange`                | `(stepKey: string) => void`     |                                 | onChange event for active step.
+
+### for step
+
+Name                      | Type                            | Default                         | Description
+------------------------- | -----------------------------   | -----------------------------   | -----------
+`stepKey`                 | `string`                        | `/`                             | Step key of step. Used for *** activeStepKey ***. `required`
+`title`                   | `string`                        | `/`                             | Title of step
+`description`             | `string`                        | `/`                             | Description of step 
+`disabled`                | `boolean`                       | `false`                         | Disable step. Can't be clicked, but can manually navigate to it
+
+
+## Example Usage
+
+```tsx
+import { Stepper } from '@equinor/fusion-react-stepper';
+
+<Stepper activeStepKey="step1" onChange={(e) => console.log('active: ', e)} props>
+  <Step title="Title 1" stepKey="step1" props>
+    Step content 1
+  </Step>
+  <Step title="Title 2" stepKey="step2" props>
+    Step content 2
+  </Step>
+  <Step title="Title 3" stepKey="step3" props>
+    Step content 3
+  </Step>
+</Stepper>
+```
+
+## Example
+
+<StoryExample storyId="examples-stepper--component" showSource />
+
+## Changelog
+
+<ChangeLog changelogs={require('@equinor/fusion-react-stepper/CHANGELOG.md')} />
