@@ -1,13 +1,5 @@
 {
   "@global": {
-    ".fushisushi": {
-      "background": "pink",
-      "padding": "1em",
-      "margin": "1em"
-    },
-    ".fushisushi::after": {
-      "content": "\"écho\""
-    },
     ".ag-icon": {
       "font-family": "var(--ag-icon-font-family)",
       "font-size": "var(--ag-icon-size)",
@@ -6302,11 +6294,6 @@
       "--ag-border-color": "rgba(24, 29, 31, 0.25)",
       "--ag-header-column-separator-color": "rgba(24, 29, 31, 0.125)",
       "--ag-header-column-resize-handle-color": "rgba(24, 29, 31, 0.125)"
-    },
-    ".ag-theme-alpine-fusion .ag-cell": {
-      "display": "flex",
-      "align-items": "center",
-      "line-height": "1.2"
     },
     ".ag-theme-alpine-fusion .ag-cell-expandable": {
       "display": "flex",
