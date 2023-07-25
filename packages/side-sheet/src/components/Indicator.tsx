@@ -1,4 +1,4 @@
-import styled from '@emotion/styled';
+import styled from 'styled-components';
 
 const StyledIndicator = styled.span<{ color?: HEXString }>`
   background-color: ${({ color }) => color || 'red'};

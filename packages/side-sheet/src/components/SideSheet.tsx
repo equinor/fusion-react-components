@@ -1,65 +1,67 @@
-import { css } from '@emotion/css';
 import { Scrim } from '@equinor/eds-core-react';
 import { Resizable } from 're-resizable';
 import { PropsWithChildren, useState } from 'react';
+import styled from 'styled-components';
 
-const styles = {
-  scrim: css`
-    animation: ScrimAnimation ease 0.3s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
+export const StyledScrim = styled(Scrim)`
+  animation: ScrimAnimation ease 0.3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
 
-    overflow: hidden !important;
-    @keyframes ScrimAnimation {
-      0% {
-        opacity: 0;
-      }
-      100% {
-        opacity: 1;
-      }
+  overflow: hidden !important;
+  @keyframes ScrimAnimation {
+    0% {
+      opacity: 0;
     }
-  `,
-  contentWrapper: css`
-    height: 100%;
-    background: #fff; // TODO: token
-    width: 100%;
-  `,
-  sideSheet: css`
-    height: 100vh;
-    position: fixed;
-    top: 0;
-    transition: right 10s;
-    animation: Animation ease 0.3s;
-    right: 0px;
-
-    @keyframes Animation {
-      0% {
-        right: -500px;
-      }
-      100% {
-        right: 0px;
-      }
+    100% {
+      opacity: 1;
     }
-  `,
-};
+  }
+`;
+
+export const StyledSideSheet = styled.div`
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  transition: right 10s;
+  animation: Animation ease 0.3s;
+  right: 0px;
+
+  @keyframes Animation {
+    0% {
+      right: -500px;
+    }
+    100% {
+      right: 0px;
+    }
+  }
+`;
+
+export const StyledSideSheetContent = styled.div`
+  height: 100%;
+  background: #fff; // TODO: token
+  width: 100%;
+`;
 
 const MIN_WIDTH = 500;
-type PortalSideSheet = {
+export type SideSheetProps = {
   isOpen: boolean;
   isDismissable?: boolean;
+  minWidth?: number;
   onClose(): void;
 };
 
-export const SideSheet = ({ isOpen, onClose, isDismissable, children }: PropsWithChildren<PortalSideSheet>) => {
-  const [width, setWidth] = useState(MIN_WIDTH);
+export const SideSheet = (props: PropsWithChildren<SideSheetProps>) => {
+  const { isOpen, onClose, isDismissable, minWidth, children } = props;
+  const [width, setWidth] = useState(minWidth ?? MIN_WIDTH);
 
   return (
-    <Scrim className={styles.scrim} open={isOpen} onClose={onClose} isDismissable={isDismissable}>
-      <div className={styles.sideSheet}>
+    <StyledScrim open={isOpen} onClose={onClose} isDismissable={isDismissable}>
+      <StyledSideSheet>
         <Resizable
           size={{ width, height: '100%' }}
           maxWidth={'100vw'}
-          minWidth={MIN_WIDTH}
+          minWidth={minWidth ?? MIN_WIDTH}
           onResizeStop={(e, direction, ref, d) => {
             e.stopPropagation();
             e.stopImmediatePropagation();
@@ -95,10 +97,10 @@ export const SideSheet = ({ isOpen, onClose, isDismissable, children }: PropsWit
             },
           }}
         >
-          <div className={styles.contentWrapper}>{children}</div>
+          <StyledSideSheetContent>{children}</StyledSideSheetContent>
         </Resizable>
-      </div>
-    </Scrim>
+      </StyledSideSheet>
+    </StyledScrim>
   );
 };
 
