@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-components-stories",
-  "version": "2.9.1",
+  "version": "2.9.2",
   "description": "",
   "private": true,
   "scripts": {
@@ -44,7 +44,7 @@
     "@equinor/fusion-react-ripple": "^0.3.8",
     "@equinor/fusion-react-searchable-dropdown": "^0.3.4",
     "@equinor/fusion-react-select": "^0.1.2",
-    "@equinor/fusion-react-side-sheet": "^1.0.0-beta",
+    "@equinor/fusion-react-side-sheet": "^1.0.0",
     "@equinor/fusion-react-skeleton": "^0.2.13",
     "@equinor/fusion-react-stepper": "^0.1.1",
     "@equinor/fusion-react-styles": "^0.5.7",
