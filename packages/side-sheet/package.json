@@ -37,7 +37,7 @@
     "re-resizable": "^6.9.9"
   },
   "devDependencies": {
-    "@equinor/eds-core-react": "^0.30.0",
+    "@equinor/eds-core-react": "^0.32.3",
     "@equinor/eds-icons": "^0.19.1",
     "@equinor/eds-tokens": "^0.9.0",
     "@types/react": "^17.0.11",
@@ -48,7 +48,7 @@
     "typescript": "^4.9.3"
   },
   "peerDependencies": {
-    "@equinor/eds-core-react": "^0.30.0",
+    "@equinor/eds-core-react": "^0.32.3",
     "@equinor/eds-icons": "^0.19.1",
     "@equinor/eds-tokens": "^0.9.0",
     "@types/react": "^17.0.0 || ^18.0.0",
