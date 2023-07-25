@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.1](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-side-sheet@1.0.0...@equinor/fusion-react-side-sheet@1.0.1) (2023-07-25)
+
+
+### Bug Fixes
+
+* **side-sheet:** simplify-style ([d031068](https://github.com/equinor/fusion-react-components/commit/d031068d73aa3d44794ffe4537120557b31ff640))
+
+
+
+
+
 # 1.0.0 (2023-07-25)
 
 
