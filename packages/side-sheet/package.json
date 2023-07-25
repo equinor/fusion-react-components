@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-side-sheet",
-  "version": "0.1.0",
+  "version": "1.0.0-beta",
   "description": "React component for displaying a side-sheet",
   "keywords": [
     "side-sheet",
@@ -37,21 +37,17 @@
     "re-resizable": "^6.9.9"
   },
   "devDependencies": {
-    "@emotion/css": "^11.10.6",
-    "@emotion/react": "^11.10.6",
-    "@emotion/styled": "^11.10.6",
     "@equinor/eds-core-react": "^0.30.0",
     "@equinor/eds-icons": "^0.19.1",
     "@equinor/eds-tokens": "^0.9.0",
     "@types/react": "^17.0.11",
+    "@types/styled-components": "^5.1.26",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "styled-components": "^5.3.9",
     "typescript": "^4.9.3"
   },
   "peerDependencies": {
-    "@emotion/css": "^11.10.6",
-    "@emotion/styled": "^11.10.6",
     "@equinor/eds-core-react": "^0.30.0",
     "@equinor/eds-icons": "^0.19.1",
     "@equinor/eds-tokens": "^0.9.0",

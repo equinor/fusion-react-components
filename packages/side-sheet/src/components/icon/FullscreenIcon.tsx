@@ -11,9 +11,7 @@ export const FullscreenIcon = () => {
   const [isFullscreen, setIsFullscreen] = useState(false);
 
   useEffect(() => {
-    function handleSetIsFullScreen() {
-      setIsFullscreen(!!document.fullscreenElement);
-    }
+    const handleSetIsFullScreen = () => setIsFullscreen(!!document.fullscreenElement);
     document.addEventListener('fullscreenchange', handleSetIsFullScreen);
     return () => document.removeEventListener('fullscreenchange', handleSetIsFullScreen);
   }, []);
