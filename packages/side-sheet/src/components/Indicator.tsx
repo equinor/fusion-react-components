@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 const StyledIndicator = styled.span<{ color?: HEXString }>`
   background-color: ${({ color }) => color || 'red'};
-  height: 48px;
-  width: 16px;
+  height: 3rem;
+  width: 1rem;
   margin-right: 1rem;
 `;
 

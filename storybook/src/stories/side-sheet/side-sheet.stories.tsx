@@ -54,7 +54,7 @@ Component.args = {
   title: 'Side Sheet Title',
   subTitle: 'Some sub title',
   color: '#c8f649',
-  minWidth: 500,
+  minWidth: 480,
   content: '',
   fullScreen: true,
 };
