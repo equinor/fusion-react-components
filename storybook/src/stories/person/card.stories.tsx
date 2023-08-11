@@ -89,8 +89,9 @@ const createResolve = (accountType: PersonAccountType, availability?: PersonAvai
       mail: 'example@email.com',
       officeLocation: 'Stavanger',
       mobilePhone: '+47 999999999',
+      managerAzureUniqueId: '1234-1324-1235',
       manager: {
-        azureId: '1234-1324-1235',
+        azureUniqueId: '1234-1324-1235',
         name: 'Lagertha Kristensen',
         department: 'Leader Techn Mgmt',
         pictureSrc: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/814.jpg',
@@ -131,7 +132,7 @@ Component.args = {
 };
 
 export const Size: Story<{ sizes: Array<CardProps['size']> }> = (props: { sizes: Array<CardProps['size']> }) => (
-  <PersonProvider resolve={createResolve(PersonAccountType.JointVentureAffiliate, PersonAvailability.Away)}>
+  <PersonProvider resolve={createResolve(PersonAccountType.ExternalHire, PersonAvailability.Away)}>
     <div style={{ display: 'flex', flexDirection: 'row', columnGap: 30 }}>
       {props.sizes.map((size) => (
         <div key={size}>

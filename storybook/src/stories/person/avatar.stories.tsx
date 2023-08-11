@@ -121,7 +121,7 @@ Clickable.args = {
 };
 
 export const Disabled: Story<AvatarProps> = ({ availability, ...props }: AvatarProps) => (
-  <PersonProvider resolve={createResolve(PersonAccountType.XExternal, availability)}>
+  <PersonProvider resolve={createResolve(PersonAccountType.External, availability)}>
     <PersonAvatar {...props} />
   </PersonProvider>
 );
