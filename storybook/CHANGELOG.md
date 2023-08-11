@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.9.3](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@2.9.2...@equinor/fusion-react-components-stories@2.9.3) (2023-07-25)
+
+
+### Bug Fixes
+
+* **side-sheet:** simplify-style ([d031068](https://github.com/equinor/fusion-react-components/commit/d031068d73aa3d44794ffe4537120557b31ff640))
+
+
+
+
+
 ## [2.9.2](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@2.9.1...@equinor/fusion-react-components-stories@2.9.2) (2023-07-25)
 
 

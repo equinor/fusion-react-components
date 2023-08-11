@@ -3,7 +3,9 @@ import { ComponentProps, createComponent } from '@equinor/fusion-react-utils';
 import HTMLPersonCardCustomElement, { tag } from '@equinor/fusion-wc-person/person-card';
 import { PersonItemSize } from '@equinor/fusion-wc-person';
 
-type ElementProps = PropsWithChildren<Partial<Pick<HTMLPersonCardCustomElement, 'azureId' | 'size'>>>;
+type ElementProps = PropsWithChildren<
+  Partial<Pick<HTMLPersonCardCustomElement, 'azureId' | 'size' | 'maxWidth' | 'contentHeight'>>
+>;
 
 export type PersonCardProps = ComponentProps<HTMLPersonCardCustomElement, ElementProps>;
 export const PersonCard = createComponent<HTMLPersonCardCustomElement, ElementProps>(HTMLPersonCardCustomElement, tag);
