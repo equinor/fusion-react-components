@@ -6,8 +6,7 @@ import {
   PersonListItem,
   PersonListItemProps,
 } from '@equinor/fusion-react-person/src';
-import { IconButton, IconButtonColor } from '@equinor/fusion-react-button';
-import { IconButtonSize } from '@equinor/fusion-wc-button';
+import { IconButton } from '@equinor/fusion-react-button';
 
 export default {
   title: 'Examples/Person/Person List Item',
@@ -81,8 +80,9 @@ const createResolve = (accountType: PersonAccountType, availability?: PersonAvai
       mail: 'example@email.com',
       officeLocation: 'Stavanger',
       mobilePhone: '+47 999999999',
+      managerAzureUniqueId: '1234-1324-1235',
       manager: {
-        azureId: '1234-1324-1235',
+        azureUniqueId: '1234-1324-1235',
         name: 'Lagertha Kristensen',
         department: 'Leader Techn Mgmt',
         pictureSrc: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/814.jpg',
@@ -131,19 +131,19 @@ export const Clickable: Story<CardProps> = () => (
 );
 
 export const Toolbar: Story<CardProps> = () => (
-  <PersonProvider resolve={createResolve(PersonAccountType.XExternal, PersonAvailability.Available)}>
+  <PersonProvider resolve={createResolve(PersonAccountType.External, PersonAvailability.Available)}>
     <div style={{ display: 'flex', flexDirection: 'column', rowGap: 30 }}>
       <PersonListItem azureId="8a5f03ff-1875-4bf3-a3f4-aef1264e3bcc">
-        <IconButton color={IconButtonColor.Primary} icon="account_circle" rounded size={IconButtonSize.Small} />
-        <IconButton color={IconButtonColor.Secondary} icon="microsoft_outlook" rounded size={IconButtonSize.Small} />
-        <IconButton color={IconButtonColor.Success} icon="whats_app" rounded size={IconButtonSize.Small} />
+        <IconButton color="primary" icon="account_circle" rounded size="small" />
+        <IconButton color="secondary" icon="microsoft_outlook" rounded size="small" />
+        <IconButton color="success" icon="whats_app" rounded size="small" />
       </PersonListItem>
     </div>
   </PersonProvider>
 );
 
 export const Size: Story<{ sizes: Array<CardProps['size']> }> = (props: { sizes: Array<CardProps['size']> }) => (
-  <PersonProvider resolve={createResolve(PersonAccountType.JointVentureAffiliate, PersonAvailability.Away)}>
+  <PersonProvider resolve={createResolve(PersonAccountType.Enterprise, PersonAvailability.Away)}>
     <div style={{ display: 'flex', flexDirection: 'column', rowGap: 30 }}>
       {props.sizes.map((size) => (
         <div key={size}>

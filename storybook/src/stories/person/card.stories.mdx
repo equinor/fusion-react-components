@@ -13,7 +13,9 @@ import { PersonCard, PersonAvatar } from '@equinor/fusion-react-person/src';
 Name                      | Type                            | Default                         | Description
 ------------------------- | -----------------------------   | -----------------------------   | -----------
 `azureId`                 | `string`                        | `/`                             | Unique Azure ID for every person `required`
-`size`                    | `PersonItemSize*`                   | `medium`                        | Size of elements of the card.
+`size`                    | `PersonItemSize*`               | `medium`                        | Size of elements of the card.
+`maxWidth`                | `number`                        | `300`                        | Maximum width of the component (px)
+`contentHeight`           | `number`                        | `150`                        | Height of content (px)
 
 
 ---
@@ -94,6 +96,7 @@ type PersonDetails = {
     officeLocation?: string;
     positions?: Position[];
     manager?: Manager;
+    managerAzureUniqueId?: string;
 }
 
 type Position = {
@@ -106,7 +109,7 @@ type Position = {
 }
 
 type Manager = {
-    azureId: string;
+    azureUniqueId: string;
     name?: string;
     pictureSrc?: string;
     department?: string;
