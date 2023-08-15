@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.8](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-person@0.2.7...@equinor/fusion-react-person@0.2.8) (2023-08-15)
+
+**Note:** Version bump only for package @equinor/fusion-react-person
+
+
+
+
+
 ## [0.2.7](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-person@0.2.6...@equinor/fusion-react-person@0.2.7) (2023-08-15)
 
 
