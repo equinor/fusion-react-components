@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.9.5 (2023-08-15)
+
+
+### Bug Fixes
+
+* **react-components:** package fix ([1301f27](https://github.com/equinor/fusion-react-components/commit/1301f27dfef651e9bf53527b0c6bcacf2c26909f))
+
+
+
+
+
 ## [2.9.4](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@2.9.3...@equinor/fusion-react-components-stories@2.9.4) (2023-08-11)
 
 
