@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.28](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-table@0.5.27...@equinor/fusion-react-table@0.5.28) (2023-08-15)
+
+**Note:** Version bump only for package @equinor/fusion-react-table
+
+
+
+
+
 ## 0.5.27 (2023-08-15)
 
 **Note:** Version bump only for package @equinor/fusion-react-table
