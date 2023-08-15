@@ -8,8 +8,6 @@ export const ThemeProvider = (props: ThemeProviderProps): JSX.Element => {
   const { children, ...args } = props;
   return (
     <BaseThemeProvider {...args} theme={args.theme ?? defaultTheme}>
-      {/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */}
-      {/* @ts-ignore */}
       <fwc-theme>{children}</fwc-theme>
     </BaseThemeProvider>
   );
