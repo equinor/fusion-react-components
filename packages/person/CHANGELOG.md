@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.2.9](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-person@0.2.8...@equinor/fusion-react-person@0.2.9) (2023-08-15)
+
+
+### Bug Fixes
+
+* **person:** popover import ([195d41a](https://github.com/equinor/fusion-react-components/commit/195d41ab69a1c35a1bec215f32e0d686e63fb8bd))
+
+
+
+
+
 ## [0.2.8](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-person@0.2.7...@equinor/fusion-react-person@0.2.8) (2023-08-15)
 
 **Note:** Version bump only for package @equinor/fusion-react-person
