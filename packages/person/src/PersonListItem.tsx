@@ -1,7 +1,7 @@
 import { PropsWithChildren, useState } from 'react';
 import { ComponentProps, createComponent } from '@equinor/fusion-react-utils';
 import HTMLPersonListItemCustomElement, { tag } from '@equinor/fusion-wc-person/person-list-item';
-import { Popover } from '@equinor/fusion-react-popover/dist';
+import { Popover } from '@equinor/fusion-react-popover/src';
 import PersonCard from './PersonCard';
 
 type ElementProps = PropsWithChildren<Partial<Pick<HTMLPersonListItemCustomElement, 'azureId' | 'size' | 'clickable'>>>;
