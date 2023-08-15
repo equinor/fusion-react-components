@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-popover",
-  "version": "0.1.13",
+  "version": "0.1.14",
   "description": "React component for displaying popover",
   "keywords": [
     "popover",
@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "@equinor/fusion-react-icon": "^0.2.15",
-    "@equinor/fusion-react-styles": "^0.5.7",
+    "@equinor/fusion-react-styles": "^0.5.8",
     "@popperjs/core": "^2.11.0",
     "react-popper": "^2.2.5"
   }
