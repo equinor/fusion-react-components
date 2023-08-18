@@ -1,7 +1,8 @@
 import { useEffect, useRef, MutableRefObject, PropsWithChildren } from 'react';
 import { clsx } from '@equinor/fusion-react-styles';
 import { useStyles } from './style';
-import { Icon } from '@equinor/fusion-react-icon';
+import { Icon } from '@equinor/eds-core-react';
+import { done as doneStep } from '@equinor/eds-icons';
 
 export type StepProps = {
   title: string;
@@ -31,7 +32,7 @@ const Badge = ({ position, active, done }: BadgeProps): JSX.Element => {
     <div className={badgeClasses}>
       {!done && position}
       {/* {done && position} */}
-      {done && <Icon icon="done" color="primary" />}
+      {done && <Icon data={doneStep} />}
     </div>
   );
 };

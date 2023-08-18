@@ -1,7 +1,8 @@
 import { useState, useEffect, useCallback, Children, ReactElement, PropsWithChildren } from 'react';
 import { useStyles } from './style';
 import { clsx } from '@equinor/fusion-react-styles';
-import { IconButton } from '@equinor/fusion-react-button';
+import { Button, Icon } from '@equinor/eds-core-react';
+import { arrow_back, arrow_forward } from '@equinor/eds-icons';
 import StepPane from './StepPane';
 import StepContent from './StepContent';
 
@@ -120,26 +121,26 @@ export const Stepper = ({
         {!hideNavButtons && (
           <div className={styles.navigationArrows}>
             <div className={styles.navigationArrow}>
-              <IconButton
-                rounded
-                icon="arrow_back"
-                color={canPrev ? 'primary' : 'disabled'}
-                size="small"
+              <Button
+                color="primary"
+                variant="ghost_icon"
                 onClick={handleClickPrev}
                 disabled={!canPrev}
-                ariaLabel="Stepper navigation button - previous step"
-              />
+                aria-label="Stepper navigation button - previous step"
+              >
+                <Icon data={arrow_back} />
+              </Button>
             </div>
             <div className={styles.navigationArrow}>
-              <IconButton
-                rounded
-                icon="arrow_forward"
-                color={canNext ? 'primary' : 'disabled'}
-                size="small"
+              <Button
+                color="primary"
+                variant="ghost_icon"
                 onClick={handleClickNext}
                 disabled={!canNext}
-                ariaLabel="Stepper navigation button - next step"
-              />
+                aria-label="Stepper navigation button - next step"
+              >
+                <Icon data={arrow_forward} />
+              </Button>
             </div>
           </div>
         )}
