@@ -23,6 +23,7 @@ const StepPane = ({
   children,
   onChange,
   activeStepKey,
+  activeStepPosition,
   forceOrder,
   verticalSteps,
 }: PropsWithChildren<StepPaneProps>): JSX.Element => {
@@ -43,7 +44,7 @@ const StepPane = ({
         isCurrent: stepKey === activeStepKey,
         position,
         isClickable: !forceOrder,
-        done,
+        done: forceOrder ? position < activeStepPosition : done,
         disabled: disabled === true,
         stepCount: Children.count(children),
         verticalStep: verticalSteps,

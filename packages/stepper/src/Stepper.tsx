@@ -63,7 +63,7 @@ export const Stepper = ({
     if (current) {
       setActiveStepPosition(current.position);
 
-      const checkNext = findNextAvailable(current.position, stepKeys, forceOrder).next;
+      const checkNext = findNextAvailable(current.position, stepKeys).next;
       const checkPrevious = findPrevAvailable(current.position, stepKeys).previous;
 
       setCanNext(checkNext);
@@ -79,7 +79,7 @@ export const Stepper = ({
         return;
       }
 
-      const nextNewPosition = findNextAvailable(current.position, stepKeys, forceOrder).step?.position;
+      const nextNewPosition = findNextAvailable(current.position, stepKeys).step?.position;
       const nextPrevPosition = findPrevAvailable(current.position, stepKeys).step?.position;
 
       const newPosition = direction === 'next' ? nextNewPosition : nextPrevPosition;

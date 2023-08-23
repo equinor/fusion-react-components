@@ -116,18 +116,16 @@ Component.args = {
 
 export const ForceOrder: Story<StepperProps> = (props: StepperProps) => {
   const [activeStep, setActiveStepp] = useState<string>('contract');
-  const [completePersonnel, setCompletePersonnel] = useState<boolean>(false);
-  const [completeReview, setCompleteReview] = useState<boolean>(false);
   return (
     <Stepper {...props} activeStepKey={activeStep}>
-      <Step title="Select contract" description="Shows available contracts" stepKey="contract" done>
+      <Step title="Select contract" description="Shows available contracts" stepKey="contract">
         <Item>
           <h3>Choose Contract to import personnel from</h3>
           <p>Press the button to enable navigation to next step.</p>
           <Button onClick={() => setActiveStepp('personnel')}>Next</Button>
         </Item>
       </Step>
-      <Step title="Select personnel" description="Choose personnel" stepKey="personnel" done={completePersonnel}>
+      <Step title="Select personnel" description="Choose personnel" stepKey="personnel">
         <Item>
           <h3>Select personnel from contract</h3>
           <p>
@@ -137,16 +135,11 @@ export const ForceOrder: Story<StepperProps> = (props: StepperProps) => {
             <Button variant="outlined" onClick={() => setActiveStepp('contract')}>
               Back
             </Button>
-            <Button variant="outlined" disabled={completePersonnel} onClick={() => setCompletePersonnel(true)}>
-              Complete Personnel step
-            </Button>
-            <Button disabled={!completePersonnel} onClick={() => setActiveStepp('review')}>
-              Next
-            </Button>
+            <Button onClick={() => setActiveStepp('review')}>Next</Button>
           </Buttons>
         </Item>
       </Step>
-      <Step title="Review selection" description="Check for mistakes" stepKey="review" done={completeReview}>
+      <Step title="Review selection" description="Check for mistakes" stepKey="review">
         <Item>
           <h3>Review persons who will be added to contract and set dates</h3>
           <p>Are you sure? Or do you want to go back?</p>
@@ -154,12 +147,7 @@ export const ForceOrder: Story<StepperProps> = (props: StepperProps) => {
             <Button variant="outlined" onClick={() => setActiveStepp('personnel')}>
               Back
             </Button>
-            <Button variant="outlined" disabled={completeReview} onClick={() => setCompleteReview(true)}>
-              Confirm Review step
-            </Button>
-            <Button disabled={!completeReview} onClick={() => setActiveStepp('summary')}>
-              Next
-            </Button>
+            <Button onClick={() => setActiveStepp('summary')}>Next</Button>
           </Buttons>
         </Item>
       </Step>
@@ -181,7 +169,7 @@ export const ForceOrder: Story<StepperProps> = (props: StepperProps) => {
 
 ForceOrder.args = {
   forceOrder: true,
-  hideNavButtons: false,
+  hideNavButtons: true,
   verticalSteps: false,
 };
 

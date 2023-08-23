@@ -24,11 +24,7 @@ export const getSteps = (children: ReactNode): StepKey[] => {
 };
 
 // Check if there is next step that is available (not disabled) for "jump"
-export const findNextAvailable = (
-  currentPosition: number,
-  steps: StepKey[],
-  forceOrder?: boolean
-): NextAvailableStep => {
+export const findNextAvailable = (currentPosition: number, steps: StepKey[]): NextAvailableStep => {
   const current = steps.find((sk) => sk.position === currentPosition);
   if (current) {
     const nextAvailableStep = steps.find((sk) => sk.position > current.position && sk.disabled === false);
@@ -36,7 +32,7 @@ export const findNextAvailable = (
     return nextAvailableStep
       ? {
           step: nextAvailableStep,
-          next: forceOrder ? current.done : true,
+          next: true,
         }
       : {
           step: undefined,
