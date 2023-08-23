@@ -1,23 +1,26 @@
-import { useState, useEffect, useCallback, Children, ReactElement, PropsWithChildren } from 'react';
+import { useState, useEffect, useCallback, PropsWithChildren } from 'react';
 import { useStyles } from './style';
 import { clsx } from '@equinor/fusion-react-styles';
 import { Button, Icon } from '@equinor/eds-core-react';
 import { arrow_back, arrow_forward } from '@equinor/eds-icons';
 import StepPane from './StepPane';
 import StepContent from './StepContent';
+import { findNextAvailable, findPrevAvailable, getSteps } from './utils';
 
 export type StepperProps = {
-  onChange?: (stepKey: string) => void;
+  onChange?: (stepKey: string, allSteps: StepKey[]) => void;
   forceOrder?: boolean;
   activeStepKey: string;
   hideNavButtons?: boolean;
   verticalSteps?: boolean;
+  allSteps: StepKey[];
 };
 
-type StepKey = {
+export type StepKey = {
   key: string;
   position: number;
   disabled: boolean;
+  done: boolean;
 };
 
 type StepDirection = 'next' | 'prev';
@@ -46,12 +49,7 @@ export const Stepper = ({
   const stepperClasses = clsx(styles.stepper, verticalSteps && styles.verticalStepper);
 
   useEffect(() => {
-    const steps: StepKey[] = Children.toArray(children).map((c, i) => ({
-      key: (c as ReactElement).props.stepKey,
-      position: i + 1,
-      disabled: (c as ReactElement).props.disabled,
-    }));
-
+    const steps = getSteps(children);
     setStepKeys(steps);
   }, [children]);
 
@@ -65,11 +63,11 @@ export const Stepper = ({
     if (current) {
       setActiveStepPosition(current.position);
 
-      const next = stepKeys.find((sk) => sk.position === current.position + 1);
-      const prev = stepKeys.find((sk) => sk.position === current.position - 1);
+      const checkNext = findNextAvailable(current.position, stepKeys, forceOrder).next;
+      const checkPrevious = findPrevAvailable(current.position, stepKeys).previous;
 
-      setCanNext(next !== undefined && !next.disabled);
-      setCanPrev(prev !== undefined && !prev.disabled);
+      setCanNext(checkNext);
+      setCanPrev(checkPrevious);
     }
   }, [stepKeys, currentStepKey]);
 
@@ -81,7 +79,10 @@ export const Stepper = ({
         return;
       }
 
-      const newPosition = direction === 'next' ? current.position + 1 : current.position - 1;
+      const nextNewPosition = findNextAvailable(current.position, stepKeys, forceOrder).step?.position;
+      const nextPrevPosition = findPrevAvailable(current.position, stepKeys).step?.position;
+
+      const newPosition = direction === 'next' ? nextNewPosition : nextPrevPosition;
       const prevOrNext = stepKeys.find((sk) => sk.position === newPosition);
       return prevOrNext;
     },
@@ -89,9 +90,9 @@ export const Stepper = ({
   );
 
   const handleChange = useCallback(
-    (stepKey: string) => {
+    (stepKey: string, allSteps: StepKey[]) => {
       setCurrentStepKey(stepKey);
-      onChange && onChange(stepKey);
+      onChange && onChange(stepKey, allSteps);
     },
     [onChange]
   );
@@ -102,7 +103,7 @@ export const Stepper = ({
       return;
     }
 
-    handleChange(prevKey.key);
+    handleChange(prevKey.key, getSteps(children));
   }, [handleChange, findStepKey]);
 
   const handleClickNext = useCallback(() => {
@@ -111,8 +112,7 @@ export const Stepper = ({
     if (!nextKey) {
       return;
     }
-
-    handleChange(nextKey.key);
+    handleChange(nextKey.key, getSteps(children));
   }, [handleChange, findStepKey]);
 
   return (
