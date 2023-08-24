@@ -1,7 +1,7 @@
 {
   "@global": {
     ".ag-icon": {
-      "font-family": "var(--ag-icon-font-family)",
+      "font-family": "var(--ag-icon-font-family) !important",
       "font-size": "var(--ag-icon-size)",
       "line-height": "var(--ag-icon-size)",
       "font-style": "normal",
