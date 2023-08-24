@@ -39,7 +39,7 @@ export default {
     },
     onChange: {
       table: {
-        type: { summary: '(stepKey: string) => void' },
+        type: { summary: '(stepKey: string, allSteps: StepKey[]) => void' },
       },
     },
   },
