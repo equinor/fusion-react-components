@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [29.3.11](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-ag-grid-styles@29.3.10...@equinor/fusion-react-ag-grid-styles@29.3.11) (2023-08-24)
+
+
+### Bug Fixes
+
+* **agGrid-styles:** all button font-family fix ([021499f](https://github.com/equinor/fusion-react-components/commit/021499facf407400988503b2424e2bcc016c1fec))
+
+
+
+
+
 ## 29.3.10 (2023-08-24)
 
 
