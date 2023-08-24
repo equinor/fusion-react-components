@@ -6,10 +6,11 @@
 .ag-theme-alpine-fusion {
   font-family: "Equinor", sans-serif;
 
-  .ag-root {
-    .ag-icon {
-      font-family: var(--ag-icon-font-family);
-    }
+  .ag-icon,
+  .ag-checkbox-input-wrapper,
+  .ag-radio-button-input-wrapper,
+  .ag-filter-toolpanel-group.ag-has-filter>.ag-group-title-bar .ag-group-title::after {
+    font-family: var(--ag-icon-font-family);
   }
 
   .ag-cell-expandable {
