@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.4.1 (2023-08-24)
+
+
+### Bug Fixes
+
+* **agGrid-styles:** all button font-family fix ([021499f](https://github.com/equinor/fusion-react-components/commit/021499facf407400988503b2424e2bcc016c1fec))
+
+
+
+
+
 # 0.4.0 (2022-09-20)
 
 

@@ -3252,7 +3252,7 @@ ag-grid, ag-grid-angular, ag-grid-ng2, ag-grid-polymer, ag-grid-aurelia {
   font-style: normal;
 }
 .ag-icon {
-  font-family: "agGridAlpine" !important;
+  font-family: "agGridAlpine";
   font-size: 16px;
   line-height: 16px;
   font-style: normal;
@@ -3471,7 +3471,7 @@ ag-grid, ag-grid-angular, ag-grid-ng2, ag-grid-polymer, ag-grid-aurelia {
   font-style: normal;
 }
 .ag-theme-alpine .ag-icon {
-  font-family: "agGridAlpine" !important;
+  font-family: "agGridAlpine";
   font-size: 16px;
   line-height: 16px;
   font-style: normal;
@@ -8124,7 +8124,7 @@ ag-grid, ag-grid-angular, ag-grid-ng2, ag-grid-polymer, ag-grid-aurelia {
   text-align: center;
 }
 .ag-theme-alpine .ag-checkbox-input-wrapper {
-  font-family: "agGridAlpine" !important;
+  font-family: "agGridAlpine";
   font-size: 16px;
   line-height: 16px;
   font-style: normal;
@@ -8237,7 +8237,7 @@ ag-grid, ag-grid-angular, ag-grid-ng2, ag-grid-polymer, ag-grid-aurelia {
   border-color: var(--ag-toggle-button-on-border-color, var(--ag-checkbox-checked-color, var(--ag-alpine-active-color, #2196f3)));
 }
 .ag-theme-alpine .ag-radio-button-input-wrapper {
-  font-family: "agGridAlpine" !important;
+  font-family: "agGridAlpine";
   font-size: 16px;
   line-height: 16px;
   font-style: normal;
@@ -8689,7 +8689,7 @@ ag-grid, ag-grid-angular, ag-grid-ng2, ag-grid-polymer, ag-grid-aurelia {
   font-style: normal;
 }
 .ag-theme-alpine-fusion .ag-icon {
-  font-family: "agGridAlpine" !important;
+  font-family: "agGridAlpine";
   font-size: 16px;
   line-height: 16px;
   font-style: normal;
@@ -13334,7 +13334,7 @@ ag-grid, ag-grid-angular, ag-grid-ng2, ag-grid-polymer, ag-grid-aurelia {
   text-align: center;
 }
 .ag-theme-alpine-fusion .ag-checkbox-input-wrapper {
-  font-family: "agGridAlpine" !important;
+  font-family: "agGridAlpine";
   font-size: 16px;
   line-height: 16px;
   font-style: normal;
@@ -13447,7 +13447,7 @@ ag-grid, ag-grid-angular, ag-grid-ng2, ag-grid-polymer, ag-grid-aurelia {
   border-color: var(--ag-toggle-button-on-border-color, var(--ag-checkbox-checked-color, var(--ag-alpine-active-color, #2196f3)));
 }
 .ag-theme-alpine-fusion .ag-radio-button-input-wrapper {
-  font-family: "agGridAlpine" !important;
+  font-family: "agGridAlpine";
   font-size: 16px;
   line-height: 16px;
   font-style: normal;

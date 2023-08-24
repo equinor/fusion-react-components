@@ -1,7 +1,7 @@
 {
   "@global": {
     ".ag-icon": {
-      "font-family": "var(--ag-icon-font-family) !important",
+      "font-family": "var(--ag-icon-font-family)",
       "font-size": "var(--ag-icon-size)",
       "line-height": "var(--ag-icon-size)",
       "font-style": "normal",
@@ -4821,7 +4821,7 @@
       "border-color": "var(--ag-input-focus-border-color)"
     },
     ".ag-filter-toolpanel-group.ag-has-filter > .ag-group-title-bar .ag-group-title::after": {
-      "font-family": "var(--ag-icon-font-family) !important",
+      "font-family": "var(--ag-icon-font-family)",
       "font-size": "var(--ag-icon-size)",
       "line-height": "var(--ag-icon-size)",
       "font-style": "normal",
@@ -5720,7 +5720,7 @@
       "text-align": "center"
     },
     ".ag-checkbox-input-wrapper": {
-      "font-family": "var(--ag-icon-font-family) !important",
+      "font-family": "var(--ag-icon-font-family)",
       "font-size": "var(--ag-icon-size)",
       "line-height": "var(--ag-icon-size)",
       "font-style": "normal",
@@ -5821,7 +5821,7 @@
       "border-color": "var(--ag-toggle-button-on-border-color)"
     },
     ".ag-radio-button-input-wrapper": {
-      "font-family": "var(--ag-icon-font-family) !important",
+      "font-family": "var(--ag-icon-font-family)",
       "font-size": "var(--ag-icon-size)",
       "line-height": "var(--ag-icon-size)",
       "font-style": "normal",
