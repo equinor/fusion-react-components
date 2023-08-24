@@ -4,8 +4,10 @@
     extend-theme: alpine));
 
 .ag-theme-alpine-fusion {
-  .ag-icon {
-    font-family: var(--ag-icon-font-family);
+  .ag-root {
+    .ag-icon {
+      font-family: var(--ag-icon-font-family);
+    }
   }
 
   .ag-cell-expandable {
