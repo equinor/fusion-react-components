@@ -1,9 +1,11 @@
 import React, { cloneElement, useRef, Children, PropsWithChildren, ReactElement } from 'react';
 import { clsx } from '@equinor/fusion-react-styles';
 import { useStyles } from './style';
+import { StepKey } from './Stepper';
+import { getSteps } from './utils';
 
 type StepPaneProps = {
-  onChange: (stepKey: string) => void;
+  onChange: (stepKey: string, allSteps: StepKey[]) => void;
   activeStepKey: string | null;
   activeStepPosition: number;
   forceOrder: boolean;
@@ -14,6 +16,7 @@ type StepPaneChildProps = {
   title: string;
   stepKey: string;
   disabled: boolean;
+  done: boolean;
 };
 
 const StepPane = ({
@@ -29,19 +32,19 @@ const StepPane = ({
 
   const clonedChildren = Children.map(children, (child, index) => {
     if (React.isValidElement(child)) {
-      const { title, stepKey, disabled } = child.props as StepPaneChildProps;
+      const { title, stepKey, disabled, done } = child.props as StepPaneChildProps;
       if (!title || !stepKey) {
         return null;
       }
 
-      const position = index + 1;
+      const position: number = index + 1;
 
       return cloneElement(child as ReactElement, {
-        onChange: () => onChange(stepKey),
+        onChange: () => onChange(stepKey, getSteps(children)),
         isCurrent: stepKey === activeStepKey,
         position,
         isClickable: !forceOrder,
-        done: activeStepPosition > position,
+        done: forceOrder ? position < activeStepPosition : done,
         disabled: disabled === true,
         stepCount: Children.count(children),
         verticalStep: verticalSteps,

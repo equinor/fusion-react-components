@@ -1,7 +1,7 @@
-import { Meta, Story } from '@storybook/react';
-import { Stepper, Step, StepperProps } from '@equinor/fusion-react-stepper';
-import { useState } from 'react';
 import { Button } from '@equinor/fusion-react-button';
+import { Step, Stepper, StepperProps } from '@equinor/fusion-react-stepper';
+import { Meta, Story } from '@storybook/react';
+import { ReactNode, useState } from 'react';
 
 export default {
   title: 'Examples/Stepper',
@@ -39,13 +39,13 @@ export default {
     },
     onChange: {
       table: {
-        type: { summary: '(stepKey: string) => void' },
+        type: { summary: '(stepKey: string, allSteps: StepKey[]) => void' },
       },
     },
   },
 } as Meta;
 
-const Item = (props: any) => {
+const Item = (props: { children: ReactNode }) => {
   return (
     <div
       style={{
@@ -59,7 +59,7 @@ const Item = (props: any) => {
   );
 };
 
-const Buttons = (props: any) => {
+const Buttons = (props: { children: ReactNode }) => {
   return (
     <div
       style={{
@@ -74,16 +74,28 @@ const Buttons = (props: any) => {
 };
 
 export const Component: Story<StepperProps> = (props: StepperProps) => {
+  const [completeThree, setCompleteThree] = useState<boolean>(false);
   return (
-    <Stepper {...props}>
+    <Stepper {...props} onChange={(e, k) => console.log('active: ', e, ' keys: ', k)}>
       <Step title="Select workspace and other work" description="Description example text" stepKey="step1">
         <Item>Select workspace</Item>
       </Step>
-      <Step title="Select report/dashboard" description="Description" stepKey="step2">
+      <Step title="Select report/dashboard" description="Description" stepKey="step2" done>
         <Item>Select a report or dashboard</Item>
       </Step>
-      <Step title="Fill in details" stepKey="step3">
-        <Item>Specify details about refresh rate, data source etc.</Item>
+      <Step title="Fill in details" stepKey="step3" done={completeThree}>
+        <Item>
+          <p>Specify details about refresh rate, data source etc.</p>
+          <Button
+            variant="outlined"
+            disabled={completeThree}
+            onClick={() => {
+              setCompleteThree(true);
+            }}
+          >
+            Complete Step 3
+          </Button>
+        </Item>
       </Step>
       <Step title="Summary" stepKey="step4">
         <Item>Summary</Item>
@@ -170,7 +182,7 @@ export const Vertical: Story<StepperProps> = (props: StepperProps) => {
       <Step title="Select personnel" description="Choose personnel" stepKey="personnel">
         <Item>Select personnel from contract</Item>
       </Step>
-      <Step title="Review selection" description="Check for mistakes" stepKey="review">
+      <Step title="Review selection" description="Check for mistakes" stepKey="review" disabled>
         <Item>Review persons who will be added to contract and set dates.</Item>
       </Step>
       <Step title="Summary" stepKey="summary">

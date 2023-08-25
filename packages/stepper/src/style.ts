@@ -127,15 +127,15 @@ export const useStyles = makeStyles(
         borderColor: theme.colors.interactive.disabled__border.getVariable('color'),
         borderRadius: '50%',
       },
-      active: {
-        borderColor: theme.colors.interactive.primary__resting.getVariable('color'),
-        background: theme.colors.interactive.primary__resting.getVariable('color'),
-        color: theme.colors.text.static_icons__primary_white.getVariable('color'),
-      },
       done: {
         border: '1px solid',
         borderColor: theme.colors.interactive.primary__resting.getVariable('color'),
         color: theme.colors.interactive.primary__resting.getVariable('color'),
+      },
+      active: {
+        borderColor: theme.colors.interactive.primary__resting.getVariable('color'),
+        background: theme.colors.interactive.primary__resting.getVariable('color'),
+        color: theme.colors.text.static_icons__primary_white.getVariable('color'),
       },
       /** Single step - Title */
       title: {
