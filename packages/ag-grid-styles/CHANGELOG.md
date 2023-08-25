@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [29.3.13](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-ag-grid-styles@29.3.12...@equinor/fusion-react-ag-grid-styles@29.3.13) (2023-08-24)
+
+
+### Bug Fixes
+
+* **agGrid-styles:** added another class ([3b0df77](https://github.com/equinor/fusion-react-components/commit/3b0df77babf5cfa2f6b67592c973f682d2a019d7))
+* **agGrid-styles:** added Equinor font to AGgrid ([a9f5727](https://github.com/equinor/fusion-react-components/commit/a9f57274d973ad955e871862c5268df934eba017))
+* **agGrid-styles:** added font family for all icon classes ([88f90be](https://github.com/equinor/fusion-react-components/commit/88f90be73842b4043076ed15517670b90bed5b6e))
+* **agGrid-styles:** added new custom class ([894aa0d](https://github.com/equinor/fusion-react-components/commit/894aa0d10f5c0a40f2f273bd50e54ff78377c3da))
+* **agGrid-styles:** all button font-family fix ([021499f](https://github.com/equinor/fusion-react-components/commit/021499facf407400988503b2424e2bcc016c1fec))
+
+
+
+
+
 ## [29.3.12](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-ag-grid-styles@29.3.11...@equinor/fusion-react-ag-grid-styles@29.3.12) (2023-08-24)
 
 
