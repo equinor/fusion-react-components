@@ -37,7 +37,7 @@ jobs:
         uses: ataylorme/eslint-annotate-action@1.1.2
         with:
           repo-token: "${{ github.token }}"
-          report-json: "eslint-report.log.json"
+          report-json: "./eslint-report.log.json"
 
       - name: Upload ESLint report
         uses: actions/upload-artifact@v2
