@@ -4,7 +4,7 @@ import { PersonProviderElement, PersonResolver } from '@equinor/fusion-wc-person
 /** Person porvider properties for the resolver */
 export type PersonProviderProps = {
   /** Person resolver interface that contains getPresence and getDetails functions */
-  personResolver: PersonResolver;
+  resolve: PersonResolver;
 };
 
 /**
@@ -14,18 +14,18 @@ export type PersonProviderProps = {
  */
 
 export const PersonProvider = (props: PropsWithChildren<PersonProviderProps>) => {
-  const { personResolver, children } = props;
+  const { resolve, children } = props;
   const providerRef = useRef<PersonProviderElement>(null);
 
   useEffect(() => {
     if (providerRef.current) {
-      providerRef.current.setResolver(personResolver);
+      providerRef.current.setResolver(resolve);
 
       return () => {
         providerRef.current?.removeResolver();
       };
     }
-  }, [providerRef, personResolver]);
+  }, [providerRef, resolve]);
 
   return <fwc-person-provider ref={providerRef}>{children}</fwc-person-provider>;
 };

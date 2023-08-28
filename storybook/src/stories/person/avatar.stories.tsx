@@ -112,7 +112,7 @@ const createResolve = (accountType: PersonAccountType, availability?: PersonAvai
 });
 
 export const Component: Story<AvatarProps> = ({ accountType, availability, ...props }: AvatarProps) => (
-  <PersonProvider personResolver={createResolve(accountType, availability)}>
+  <PersonProvider resolve={createResolve(accountType, availability)}>
     <PersonAvatar {...props} />
   </PersonProvider>
 );
@@ -126,7 +126,7 @@ Component.args = {
 };
 
 export const DataSource: Story<AvatarProps> = ({ availability, ...props }: AvatarProps) => (
-  <PersonProvider personResolver={createResolve(PersonAccountType.External, availability)}>
+  <PersonProvider resolve={createResolve(PersonAccountType.External, availability)}>
     <PersonAvatar
       {...props}
       dataSource={{
@@ -138,7 +138,7 @@ export const DataSource: Story<AvatarProps> = ({ availability, ...props }: Avata
 );
 
 export const Size: Story<{ sizes: Array<AvatarProps['size']> }> = (props: { sizes: Array<AvatarProps['size']> }) => (
-  <PersonProvider personResolver={createResolve(PersonAccountType.Employee, PersonAvailability.DoNotDisturb)}>
+  <PersonProvider resolve={createResolve(PersonAccountType.Employee, PersonAvailability.DoNotDisturb)}>
     <div style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
       {props.sizes.map((size) => (
         <PersonAvatar key={size} size={size} upn="mail@mail.com" />
@@ -149,7 +149,7 @@ export const Size: Story<{ sizes: Array<AvatarProps['size']> }> = (props: { size
 Size.args = { sizes: [AvatarSize.Large, AvatarSize.Medium, AvatarSize.Small, AvatarSize.XSmall] };
 
 export const Clickable: Story<AvatarProps> = ({ availability, ...props }: AvatarProps) => (
-  <PersonProvider personResolver={createResolve(PersonAccountType.Employee, availability)}>
+  <PersonProvider resolve={createResolve(PersonAccountType.Employee, availability)}>
     <PersonAvatar {...props} />
   </PersonProvider>
 );
@@ -160,7 +160,7 @@ Clickable.args = {
 };
 
 export const Disabled: Story<AvatarProps> = ({ availability, ...props }: AvatarProps) => (
-  <PersonProvider personResolver={createResolve(PersonAccountType.External, availability)}>
+  <PersonProvider resolve={createResolve(PersonAccountType.External, availability)}>
     <PersonAvatar {...props} />
   </PersonProvider>
 );
