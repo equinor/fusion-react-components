@@ -14,10 +14,20 @@ export default {
   argTypes: {
     azureId: {
       description: 'Unique person Azure ID',
-      type: { name: 'string', required: true },
+      type: { name: 'string', required: false },
       table: {
         type: { summary: 'string' },
       },
+    },
+    upn: {
+      description: 'Unique person email address',
+      type: { name: 'string', required: false },
+      table: {
+        type: { summary: 'string' },
+      },
+    },
+    dataSource: {
+      description: 'Custom data for avatar',
     },
     size: {
       description: 'Size of avatar',
@@ -67,6 +77,23 @@ export type AvatarProps = PersonAvatarProps & {
 };
 
 const createResolve = (accountType: PersonAccountType, availability?: PersonAvailability) => ({
+  getImageByAzureId: async (azureId: string) => {
+    await new Promise((resovle) => setTimeout(resovle, 3000));
+    return await Promise.resolve({
+      azureId: azureId,
+      name: 'Albert Einstein',
+      pictureSrc: 'https://i.imgur.com/GcZeeXX.jpeg',
+      accountType: PersonAccountType.Employee,
+    });
+  },
+  getImageByUpn: async (_upn: string) => {
+    await new Promise((resovle) => setTimeout(resovle, 3000));
+    return await Promise.resolve({
+      name: 'Albert Einstein',
+      pictureSrc: 'https://i.imgur.com/GcZeeXX.jpeg',
+      accountType,
+    });
+  },
   getPresence: async (azureId: string) => {
     await new Promise((resolve) => setTimeout(resolve, 2000));
     return {
@@ -85,12 +112,12 @@ const createResolve = (accountType: PersonAccountType, availability?: PersonAvai
 });
 
 export const Component: Story<AvatarProps> = ({ accountType, availability, ...props }: AvatarProps) => (
-  <PersonProvider resolve={createResolve(accountType, availability)}>
+  <PersonProvider personResolver={createResolve(accountType, availability)}>
     <PersonAvatar {...props} />
   </PersonProvider>
 );
 Component.args = {
-  azureId: '8a5f03ff-1875-4bf3-a3f4-aef1264e3bcc',
+  azureId: '1234',
   size: AvatarSize.Medium,
   clickable: false,
   disabled: false,
@@ -98,11 +125,23 @@ Component.args = {
   accountType: PersonAccountType.Employee,
 };
 
+export const DataSource: Story<AvatarProps> = ({ availability, ...props }: AvatarProps) => (
+  <PersonProvider personResolver={createResolve(PersonAccountType.External, availability)}>
+    <PersonAvatar
+      {...props}
+      dataSource={{
+        pictureSrc: 'https://prod-images.tcm.com/Master-Profile-Images/BurtReynolds.jpg',
+        name: 'Tux Penguin',
+      }}
+    />
+  </PersonProvider>
+);
+
 export const Size: Story<{ sizes: Array<AvatarProps['size']> }> = (props: { sizes: Array<AvatarProps['size']> }) => (
-  <PersonProvider resolve={createResolve(PersonAccountType.Employee, PersonAvailability.DoNotDisturb)}>
+  <PersonProvider personResolver={createResolve(PersonAccountType.Employee, PersonAvailability.DoNotDisturb)}>
     <div style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
       {props.sizes.map((size) => (
-        <PersonAvatar key={size} size={size} azureId="8a5f03ff-1875-4bf3-a3f4-aef1264e3bcc" />
+        <PersonAvatar key={size} size={size} upn="mail@mail.com" />
       ))}
     </div>
   </PersonProvider>
@@ -110,23 +149,23 @@ export const Size: Story<{ sizes: Array<AvatarProps['size']> }> = (props: { size
 Size.args = { sizes: [AvatarSize.Large, AvatarSize.Medium, AvatarSize.Small, AvatarSize.XSmall] };
 
 export const Clickable: Story<AvatarProps> = ({ availability, ...props }: AvatarProps) => (
-  <PersonProvider resolve={createResolve(PersonAccountType.Employee, availability)}>
+  <PersonProvider personResolver={createResolve(PersonAccountType.Employee, availability)}>
     <PersonAvatar {...props} />
   </PersonProvider>
 );
 Clickable.args = {
-  azureId: '8a5f03ff-1875-4bf3-a3f4-aef1264e3bcc',
+  azureId: '1234',
   clickable: true,
   availability: PersonAvailability.Away,
 };
 
 export const Disabled: Story<AvatarProps> = ({ availability, ...props }: AvatarProps) => (
-  <PersonProvider resolve={createResolve(PersonAccountType.External, availability)}>
+  <PersonProvider personResolver={createResolve(PersonAccountType.External, availability)}>
     <PersonAvatar {...props} />
   </PersonProvider>
 );
 Disabled.args = {
-  azureId: '8a5f03ff-1875-4bf3-a3f4-aef1264e3bcc',
+  azureId: '1234',
   disabled: true,
   availability: PersonAvailability.DoNotDisturb,
 };
