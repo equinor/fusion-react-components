@@ -32,19 +32,19 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '16'
-          cache: 'npm'
+          cache: 'pnpm'
 
       - name: Install Node Dependencies
         if: steps.cache-node.outputs.cache-hit != 'true'
-        run: npm ci --legacy-peer-deps
+        run: pnpm ci --legacy-peer-deps
 
       - name: Build project
-        run: npm run build
+        run: pnpm run build
 
       - name: Build storybook
         run: |
           rm -rf docs
-          npm run storybook:build
+          pnpm run storybook:build
 
       - name: Config git user
         run: |

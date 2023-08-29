@@ -22,7 +22,7 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '16'
-          cache: 'npm'
+          cache: 'pnpm'
           registry-url: https://registry.npmjs.org
 
       - name: Config git user
@@ -40,7 +40,7 @@ jobs:
 
       - name: Install Node Dependencies
         if: steps.cache-node.outputs.cache-hit != 'true'
-        run: npm ci --legacy-peer-deps
+        run: pnpm ci --legacy-peer-deps
         env:
           CI: TRUE
 

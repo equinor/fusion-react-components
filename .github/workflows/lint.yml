@@ -18,19 +18,19 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '16'
-          cache: 'npm'
+          cache: 'pnpm'
 
       - name: Install Node Dependencies
         if: steps.cache-node.outputs.cache-hit != 'true'
         run: |
-          npm ci --legacy-peer-deps
-          npm run bootstrap
+          pnpm ci --legacy-peer-deps
+          pnpm run bootstrap
 
       - name: Build project
-        run: npm run build
+        run: pnpm run build
 
       - name: Save Code Linting Report JSON
-        run: npm run lint:report
+        run: pnpm run lint:report
         continue-on-error: true
 
       - name: Annotate Code Linting Results
