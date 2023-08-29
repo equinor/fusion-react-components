@@ -1,5 +1,6 @@
 {
   "version": "independent",
+  "npmClient": "pnpm",
   "command": {
     "version": {
       "conventionalCommits": true,
@@ -15,5 +16,6 @@
       "message": "chore(release): publish"
     }
   },
-  "packages": ["packages/*", "storybook"]
+  "packages": ["packages/*", "storybook"],
+  "$schema": "node_modules/lerna/schemas/lerna-schema.json"
 }
