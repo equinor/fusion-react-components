@@ -25,9 +25,10 @@ jobs:
         with:
           node-version: '16'
           cache: 'npm'
+      - name: Install pnpm
+        run: npm install -g pnpm
       - name: Install dependencies
-        run: pnpm ci --legacy-peer-deps
-        
+        run: pnpm i --legacy-peer-deps
       - name: Build libs
         run: pnpm run build
 
