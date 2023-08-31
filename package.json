@@ -3,20 +3,16 @@
   "version": "1.1.0",
   "description": "collection of fusion components",
   "main": "index.js",
-  "workspaces": [
-    "packages/*",
-    "storybook"
-  ],
   "scripts": {
-    "start": "npm run storybook",
     "test": "lerna run --no-bail test",
+    "start": "pnpm run storybook",
     "test:build": "docker build -t test -f build.Dockerfile .",
     "lint": "eslint ./packages/*/src/**",
     "build": "lerna run build --ignore '@equinor/fusion-react-components-stories'",
-    "lint:report": "eslint --output-file eslint-report.log.json --format json packages/*/src",
-    "storybook": "npm run start --prefix storybook",
-    "storybook:build": "npm run build --prefix storybook",
-    "npm:clean": "rm -rf node_modules && lerna clean -y",
+    "lint:report": "eslint --output-file eslint-report.log.json --format json ./packages/*/src/**",
+    "storybook": "pnpm run --dir ./storybook start",
+    "storybook:build": "pnpm run --dir ./storybook build",
+    "clean": "rm -rf node_modules && rm -rf pnpm-lock.yaml && lerna clean -y",
     "lerna:update": "lernaupdate",
     "lerna:dedupe": "lernaupdate --dedupe",
     "ncu": "lerna exec 'npx npm-check-updates \"/fusion-wc.*/\" -u'",
@@ -38,9 +34,9 @@
   },
   "homepage": "https://github.com/equinor/fusion-react-components#readme",
   "devDependencies": {
-    "@commitlint/cli": "^17.5.0",
-    "@commitlint/config-conventional": "^17.4.4",
-    "@equinor/eslint-config-fusion": "^2.0.0",
+    "@commitlint/cli": "^17.7.1",
+    "@commitlint/config-conventional": "^17.7.0",
+    "@equinor/eslint-config-fusion": "^2.1.4",
     "@types/react": "^17.0.2",
     "eslint": "^8.49.0",
     "eslint-plugin-prettier": "5.0.0",
@@ -60,7 +56,7 @@
   },
   "dependencies": {
     "@equinor/fusion-react-icon": "^0.2.15",
-    "@equinor/fusion-react-styles": "^0.5.5",
-    "@equinor/fusion-react-tooltip": "^1.1.5"
+    "@equinor/fusion-react-styles": "^0.5.9",
+    "@equinor/fusion-react-tooltip": "^1.1.9"
   }
 }
