@@ -3,10 +3,12 @@
   "version": "1.1.0",
   "description": "collection of fusion components",
   "main": "index.js",
+  "workspaces": [
+    "packages/*",
+    "storybook"
+  ],
   "scripts": {
     "start": "npm run storybook",
-    "install": "npm run bootstrap",
-    "bootstrap": "lerna bootstrap -- --legacy-peer-deps",
     "test": "lerna run --no-bail test",
     "test:build": "docker build -t test -f build.Dockerfile .",
     "lint": "eslint ./packages/*/src/**",
@@ -14,11 +16,10 @@
     "lint:report": "eslint --output-file eslint-report.log.json --format json packages/*/src",
     "storybook": "npm run start --prefix storybook",
     "storybook:build": "npm run build --prefix storybook",
-    "npm:clean": "rm -rf node_modules && lerna exec 'rm -rf node_modules'",
+    "npm:clean": "rm -rf node_modules && lerna clean -y",
     "lerna:update": "lernaupdate",
     "lerna:dedupe": "lernaupdate --dedupe",
     "ncu": "lerna exec 'npx npm-check-updates \"/fusion-wc.*/\" -u'",
-    "postncu": "npm run bootstrap",
     "prepare": "husky install"
   },
   "repository": {
@@ -44,7 +45,7 @@
     "eslint": "^8.49.0",
     "eslint-plugin-prettier": "5.0.0",
     "husky": "^8.0.3",
-    "lerna": "^6.6.1",
+    "lerna": "^7.2.0",
     "lerna-update-wizard": "^1.1.2",
     "lint-staged": "^14.0.1",
     "prettier": "^3.0.3",

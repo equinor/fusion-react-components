@@ -22,8 +22,7 @@ jobs:
       - name: Install Node Dependencies
         if: steps.cache-node.outputs.cache-hit != 'true'
         run: |
-          npm ci --legacy-peer-deps
-          npm run bootstrap
+          npm i --legacy-peer-deps
 
       - name: Build project
         run: npm run build
