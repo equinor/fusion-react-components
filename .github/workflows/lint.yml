@@ -20,17 +20,17 @@ jobs:
           node-version: '16'
 
       - name: Install pnpm
-        run: npm install -g pnpm
+        run: npm install pnpm -g
 
       - name: Install Node Dependencies
         if: steps.cache-node.outputs.cache-hit != 'true'
         run: pnpm install
 
       - name: Build project
-        run: pnpm run build
+        run: pnpm build
 
       - name: Save Code Linting Report JSON
-        run: npm run lint:report
+        run: pnpm lint:report
         continue-on-error: true
 
       - name: Annotate Code Linting Results

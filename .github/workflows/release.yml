@@ -21,8 +21,6 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '16'
-          cache: 'npm'
-          registry-url: https://registry.npmjs.org
 
       - name: Config git user
         run: |
@@ -35,10 +33,11 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
 
+      - name: Install pnpm
+        run: npm install pnpm -g -g
+
       - name: Install Node Dependencies
-        run: npm ci --legacy-peer-deps
-        env:
-          CI: TRUE
+        run: pnpm install
 
       - name: Release packages
         run: npx lerna publish from-package --yes --no-verify-access

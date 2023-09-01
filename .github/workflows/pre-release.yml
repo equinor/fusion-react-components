@@ -22,8 +22,6 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '16'
-          cache: 'npm'
-          registry-url: https://registry.npmjs.org
 
       - name: Config git user
         run: |
@@ -38,11 +36,12 @@ jobs:
           path: node_modules
           key: ${{ runner.OS }}-build-${{ hashFiles('**/package.json') }}
 
+      - name: Install pnpm
+        run: npm install pnpm -g
+
       - name: Install Node Dependencies
         if: steps.cache-node.outputs.cache-hit != 'true'
-        run: npm ci --legacy-peer-deps
-        env:
-          CI: TRUE
+        run: pnpm install
 
       - name: Bump versions (pre-release)
         run: npx lerna version --yes --conventional-prerelease --no-changelog --no-git-tag-version --preid ${{ github.event.inputs.tag }}
