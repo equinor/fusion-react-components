@@ -44,7 +44,9 @@ jobs:
         run: pnpm install
 
       - name: Bump versions (pre-release)
-        run: npx lerna version --yes --conventional-prerelease --no-changelog --no-git-tag-version --preid ${{ github.event.inputs.tag }}
+        run: |
+          pnpm changeset pre enter next
+          pnpm changeset version
         env:
           GH_TOKEN: ${{ github.token }}
 
@@ -52,12 +54,14 @@ jobs:
         continue-on-error: true
         run: |
             git add packages/*/package.json storybook/package.json 
-            git commit -m'chore(prerelease): bumped version with tag ${{ github.event.inputs.tag }}'
+            git commit -m'chore(prerelease): enter prerelease mode and version packages with tag ${{ github.event.inputs.tag }}'
             git push
         env:
           GH_TOKEN: ${{ github.token }}
 
-      - name: Release packages
-        run: npx lerna publish from-package --yes --no-verify-access --dist-tag ${{ github.event.inputs.tag }}
+      - name: Publish versions (pre-release)
+        run: |
+          pnpm changeset publish
+          git push --follow-tags
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+          GH_TOKEN: ${{ github.token }}

@@ -6,6 +6,7 @@
   "scripts": {
     "test": "lerna run --no-bail test",
     "start": "pnpm run storybook",
+    "clean": "rm -rf node_modules && rm -rf pnpm-lock.yaml && lerna clean -y",
     "build": "lerna run build --ignore '@equinor/fusion-react-components-stories'",
     "test:build": "docker build -t test -f build.Dockerfile .",
     "lint": "eslint packages/**/src/**/*.{ts,tsx}",
@@ -13,11 +14,11 @@
     "lint:report": "eslint --format json --output-file ./eslint-report.log.json --ext .js,.jsx,.ts,.tsx packages/**/src/**/*.{ts,tsx}",
     "storybook": "pnpm run --dir ./storybook start",
     "storybook:build": "pnpm run --dir ./storybook build",
-    "clean": "rm -rf node_modules && rm -rf pnpm-lock.yaml && lerna clean -y",
     "lerna:update": "lernaupdate",
     "lerna:dedupe": "lernaupdate --dedupe",
-    "ncu": "lerna exec 'npx npm-check-updates \"/fusion-wc.*/\" -u'",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "changeset:version": "changeset version && pnpm install --lockfile-only",
+    "changeset:publish": "pnpm changeset tag && pnpm publish -r"
   },
   "repository": {
     "type": "git",
@@ -56,6 +57,7 @@
     ]
   },
   "dependencies": {
+    "@changesets/cli": "^2.26.2",
     "@equinor/fusion-react-icon": "^0.2.15",
     "@equinor/fusion-react-styles": "^0.5.9",
     "@equinor/fusion-react-tooltip": "^1.1.9"
