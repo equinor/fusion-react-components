@@ -4,7 +4,7 @@ import HTMLPersonAvatarCustomElement, { tag, AvatarSize } from '@equinor/fusion-
 import extractProps from './extract-props';
 
 type ElementProps = PropsWithChildren<
-  Partial<Pick<HTMLPersonAvatarCustomElement, 'azureId' | 'upn' | 'dataSource' | 'size' | 'clickable' | 'disabled'>>
+  Partial<Pick<HTMLPersonAvatarCustomElement, 'azureId' | 'upn' | 'dataSource' | 'size' | 'clickable' | 'disabled' | 'showFloatingOn'>>
 >;
 
 export type PersonAvatarProps = ComponentProps<HTMLPersonAvatarCustomElement, ElementProps>;

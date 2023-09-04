@@ -45,6 +45,14 @@ export default {
         defaultValue: { summary: false },
       },
     },
+    showFloatingOn: {
+      description: 'Employment type of the person',
+      control: 'radio',
+      options: ["click", "hover"],
+      table: {
+        type: { summary: '"click","hover"' },
+      },
+    },
     disabled: {
       description: 'Is avatar disabled?',
       table: {
@@ -76,7 +84,7 @@ export type AvatarProps = PersonAvatarProps & {
   accountType: PersonAccountType;
 };
 
-const createResolve = (accountType: PersonAccountType, availability?: PersonAvailability) => ({
+export const createResolve = (accountType: PersonAccountType, availability?: PersonAvailability) => ({
   getImageByAzureId: async (azureId: string) => {
     await new Promise((resovle) => setTimeout(resovle, 3000));
     return await Promise.resolve({
@@ -159,9 +167,33 @@ Clickable.args = {
   availability: PersonAvailability.Away,
 };
 
-export const Disabled: Story<AvatarProps> = ({ availability, ...props }: AvatarProps) => (
+export const CardOnHover: Story<AvatarProps> = ({ availability, ...props }: AvatarProps) => (
   <PersonProvider resolve={createResolve(PersonAccountType.External, availability)}>
     <PersonAvatar {...props} />
+  </PersonProvider>
+);
+CardOnHover.args = {
+  azureId: '1234',
+  clickable: true,
+  showFloatingOn: "hover"
+};
+
+export const CardOnClick: Story<AvatarProps> = ({ availability, ...props }: AvatarProps) => (
+  <PersonProvider resolve={createResolve(PersonAccountType.External, availability)}>
+    <PersonAvatar {...props} />
+  </PersonProvider>
+);
+CardOnClick.args = {
+  azureId: '1234',
+  clickable: true,
+  showFloatingOn: "click"
+};
+
+export const Disabled: Story<AvatarProps> = ({ availability, ...props }: AvatarProps) => (
+  <PersonProvider resolve={createResolve(PersonAccountType.External, availability)}>
+    <div>
+      <PersonAvatar {...props} />
+    </div>
   </PersonProvider>
 );
 Disabled.args = {
