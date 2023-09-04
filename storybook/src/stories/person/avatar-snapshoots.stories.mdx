@@ -1,15 +1,11 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs';
-import { PersonProvider,
-  PersonAvatar,
-  AvatarSize,
-  PersonAvailability,
-  PersonAccountType } from '@equinor/fusion-react-person';
-import {createResolve} from './avatar-example.stories';
+import { PersonProvider, PersonAvatar } from '@equinor/fusion-react-person';
+import { createResolve } from './PersonResolve';
 
 <Meta title="Snapshots/Person/PersonAvatar" parameters={{ chromatic: { disableSnapshot: false } }} />
 
 export const Container = ({ title, children }) => (
-  <PersonProvider resolve={createResolve("Consultant", "Online")}>
+  <PersonProvider resolve={createResolve()}>
     <section>
       <h3>{title}</h3>
       <div style={{ display: 'flex', gap: '10px' }}>{children}</div>

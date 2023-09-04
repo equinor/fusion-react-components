@@ -84,7 +84,7 @@ export type AvatarProps = PersonAvatarProps & {
   accountType: PersonAccountType;
 };
 
-export const createResolve = (accountType: PersonAccountType, availability?: PersonAvailability) => ({
+const createResolve = (accountType: PersonAccountType, availability?: PersonAvailability) => ({
   getImageByAzureId: async (azureId: string) => {
     await new Promise((resovle) => setTimeout(resovle, 3000));
     return await Promise.resolve({
