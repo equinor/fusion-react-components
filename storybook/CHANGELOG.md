@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.11.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@2.10.0...@equinor/fusion-react-components-stories@2.11.0) (2023-09-07)
+
+
+### Bug Fixes
+
+* **person-avatar:** remove some provider info ([f8c4af5](https://github.com/equinor/fusion-react-components/commit/f8c4af584d44ab770cdb3ffc029845f54e0ae57c))
+* **person-avatar:** resolver for snapshots ([281bcc4](https://github.com/equinor/fusion-react-components/commit/281bcc48c2a5d8af87ddf79167ca41e52845091b))
+* **person-avatar:** resolver name ([8635bf4](https://github.com/equinor/fusion-react-components/commit/8635bf49dec181d0b330970d442cf2cdd475c03d))
+
+
+### Features
+
+* **person-avatar:** snapshots ([e056b90](https://github.com/equinor/fusion-react-components/commit/e056b9015d4e1a736ac5dcd3c1c5bf8ba121d1ce))
+* **person-avatar:** storybook rework ([b9b3d90](https://github.com/equinor/fusion-react-components/commit/b9b3d90d4e559400acf408967f82f44ac3a1edb4))
+* **person-avatar:** update show card on hover ([9405757](https://github.com/equinor/fusion-react-components/commit/9405757a0228bad48dea62ccc4ba27e6f6af377e))
+
+
+
+
+
 # [2.10.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@2.9.11...@equinor/fusion-react-components-stories@2.10.0) (2023-08-25)
 
 

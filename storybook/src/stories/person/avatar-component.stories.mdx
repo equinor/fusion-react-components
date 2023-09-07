@@ -19,7 +19,7 @@ Name                      | Type                            | Default           
 `dataSource`              | `AvatarData**`                  | `/`                             | Custom data for avatar.
 `size`                    | `AvatarSize*`                   | `medium`                        | Size of the avatar. See [`fusion-wc-avatar`](https://github.com/equinor/fusion-web-components/tree/main/packages/avatar).
 `clickable`               | `boolean`                       | `false`                         | Set to true to activate visual ripple effects to indicate that the avatar is clickable.
-`showFloatingOn`          | `'click' | 'hover'`             | `/`                             | Show person card on click or hover over the avatar.
+`showFloatingOn`          | `"click" or "hover"`            | `/`                             | Show person card on click or hover over the avatar.
 `disabled`                | `boolean`                       | `false`                         | Set to true to display the avatar as disabled. 
 
 
@@ -53,32 +53,25 @@ Name                      | Type                            | Description
 ------------------------- | -----------------------------   | -----------
 `resolve`                 | `PersonResolver*`               | Person resolver for a provider. See [`fwc-person-provider`](https://github.com/equinor/fusion-web-components/tree/main/packages/person/src/person-provider) 
 
-### Methods
+### Methods for PersonAvatar
 
-| Name                          | Return Type                     | Description
-| ----------------------------- | -----------------------------   | -----------------------------
-| `getImageByAzureId(azureId)`  | `AvatarData**`                  | Returns `AvatarData` for unique AuzureId.
-| `getImageByUpn(upn)`          | `AvatarData**`                  | Returns `AvatarData` for unique email address.
-| `getPresence(azureId)`        | `PersonPresence***`             | Returns `PersonPresence` for unique AuzureId.
-| `getDetails(azureId)`         | `PersonDetails****`             | Returns `PersonDetails` for unique AuzureId.
+Name                          | Return Type                     | Description
+----------------------------- | -----------------------------   | -----------------------------
+`getImageByAzureId(azureId)`  | `AvatarData**`                  | Returns `AvatarData` for unique AuzureId.
+`getImageByUpn(upn)`          | `AvatarData**`                  | Returns `AvatarData` for unique email address.
 
-### Example Usage
-
-```tsx
-import { PersonProvider, PersonAvatar } from '@equinor/fusion-react-person';
-
-  <PersonProvider resolve={resolver}>
-    <PersonAvatar azureId {...props} />
-  </PersonProvider>
-```
 
 \*  `PersonResolver` is exported by `fwc-person-provider`.
 ```ts
 interface PersonResolver {
-    getImageByAzureId: (azureId: string) => Promise<AvatarData> | AvatarData;
-    getImageByUpn: (upn: string) => Promise<AvatarData> | AvatarData;
     getPresence: (azureId: string) => Promise<PersonPresence> | PersonPresence;
     getDetails: (azureId: string) => Promise<PersonDetails> | PersonDetails;
+    getImageByAzureId: (azureId: string) => Promise<AvatarData> | AvatarData;
+    getImageByUpn: (upn: string) => Promise<AvatarData> | AvatarData;
+    getCardDetailsByAzureId: (azureId: string) => Promise<CardData> | CardData;
+    getCardDetailsByUpn: (upn: string) => Promise<CardData> | CardData;
+    getListItemDetailsByAzureId: (azureId: string) => Promise<ListItemData> | ListItemData;
+    getListItemDetailsByUpn: (upn: string) => Promise<ListItemData> | ListItemData;
 }
 ```
 
@@ -87,15 +80,15 @@ interface PersonResolver {
 type AvatarData = RequiredAndOptionalPick<PersonDetails, 'name' | 'pictureSrc', 'accountType'>
 ```
 
-\*\*\* `PersonPresence` is exported by `fwc-person-provider`.
+`PersonPresence` is exported by `fwc-person-provider`.
 ```ts
 type PersonPresence = {
     azureId: string;
     availability: PersonAvailability;
 };
-
 ```
-\*\*\*\*  `PersonDetails` is exported by `fwc-person-provider`.
+
+`PersonDetails` is exported by `fwc-person-provider`.
 ```ts
 type PersonDetails = {
     azureId: string;

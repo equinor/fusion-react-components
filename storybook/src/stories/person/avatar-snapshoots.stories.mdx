@@ -1,5 +1,5 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs';
-import { PersonProvider, PersonAvatar } from '@equinor/fusion-react-person';
+import { PersonProvider, PersonAvatar, PersonAccountType } from '@equinor/fusion-react-person';
 import { createResolve } from './PersonResolve';
 
 <Meta title="Snapshots/Person/PersonAvatar" parameters={{ chromatic: { disableSnapshot: false } }} />
@@ -49,8 +49,8 @@ export const Container = ({ title, children }) => (
     <Container title="With datasource">
       <PersonAvatar dataSource={{
          pictureSrc: 'https://i.imgur.com/Qq8jj5I.png',
-         name: 'Tux Penguin',
-         accountType: 'Employee',
+         name: 'Rick Sanchez',
+         accountType: PersonAccountType.Consultant,
      }} />
     </Container>
 </Story>

@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.3.0 (2023-09-07)
+
+
+### Bug Fixes
+
+* **person-avatar:** resolver name ([8635bf4](https://github.com/equinor/fusion-react-components/commit/8635bf49dec181d0b330970d442cf2cdd475c03d))
+
+
+### Features
+
+* **person-avatar:** person avatar component rework ([126f02d](https://github.com/equinor/fusion-react-components/commit/126f02dc91c12a289ca772be13e256fe4a117d3f))
+* **person-avatar:** update show card on hover ([9405757](https://github.com/equinor/fusion-react-components/commit/9405757a0228bad48dea62ccc4ba27e6f6af377e))
+
+
+
+
+
 ## [0.2.9](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-person@0.2.8...@equinor/fusion-react-person@0.2.9) (2023-08-15)
 
 
