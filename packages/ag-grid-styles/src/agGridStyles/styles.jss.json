@@ -6293,7 +6293,11 @@
       "--ag-range-selection-background-color-4": "rgba(33, 150, 243, 0.5904)",
       "--ag-border-color": "rgba(24, 29, 31, 0.25)",
       "--ag-header-column-separator-color": "rgba(24, 29, 31, 0.125)",
-      "--ag-header-column-resize-handle-color": "rgba(24, 29, 31, 0.125)"
+      "--ag-header-column-resize-handle-color": "rgba(24, 29, 31, 0.125)",
+      "font-family": "\"Equinor\", sans-serif"
+    },
+    ".ag-theme-alpine-fusion .ag-icon, .ag-theme-alpine-fusion .ag-checkbox-input-wrapper, .ag-theme-alpine-fusion .ag-radio-button-input-wrapper, .ag-theme-alpine-fusion .ag-filter-toolpanel-group.ag-has-filter > .ag-group-title-bar .ag-group-title::after": {
+      "font-family": "var(--ag-icon-font-family)"
     },
     ".ag-theme-alpine-fusion .ag-cell-expandable": {
       "display": "flex",

@@ -1,6 +1,6 @@
 import { PropsWithChildren, useEffect, useRef } from 'react';
 import { ComponentProps, createComponent } from '@equinor/fusion-react-utils';
-import HTMLPersonCardCustomElement, { tag, CardData } from '@equinor/fusion-wc-person/person-card';
+import HTMLPersonCardCustomElement, { tag, CardData } from '@equinor/fusion-wc-person/card';
 import { PersonItemSize } from '@equinor/fusion-wc-person';
 import extractProps from './extract-props';
 
