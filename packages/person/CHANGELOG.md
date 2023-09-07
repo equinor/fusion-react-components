@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.4.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-person@0.3.0...@equinor/fusion-react-person@0.4.0) (2023-09-07)
+
+
+### Features
+
+* **person-component:** person card and person list item upgrade ([c139cc4](https://github.com/equinor/fusion-react-components/commit/c139cc471689362d890534d1ba8fc1f00b948f4c))
+
+
+
+
+
 # 0.3.0 (2023-09-07)
 
 
