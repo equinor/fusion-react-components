@@ -1,26 +1,28 @@
 import { Meta, Story, Canvas, ArgsTable, Description } from '@storybook/addon-docs';
 import { ChangeLog, PackageInfo, StoryExample } from '../../components';
-import { PersonCard, PersonAvatar } from '@equinor/fusion-react-person/src';
+import { PersonListItem } from '@equinor/fusion-react-person/src';
 
-<Meta title="Data/Person/Card" component={PersonCard} />
+<Meta title="Data/Person/List Item" component={PersonListItem} />
 
 <PackageInfo pkg={require('@equinor/fusion-react-person/package.json')} />
 
-# PersonCard
+# PersonListItem
 
 ## Properties/Attributes
 
 Name                      | Type                            | Default                         | Description
 ------------------------- | -----------------------------   | -----------------------------   | -----------
 `azureId`                 | `string`                        | `/`                             | Unique Azure ID for every person `required`
+`upn`                     | `string`                        | `/`                             | Unique person email address.
+`dataSource`              | `CardData**`                    | `/`                             | Custom data for avatar.
 `size`                    | `PersonItemSize*`               | `medium`                        | Size of elements of the card.
-`maxWidth`                | `number`                        | `300`                        | Maximum width of the component (px)
-`contentHeight`           | `number`                        | `150`                        | Height of content (px)
-
+`clickable`               | `boolean`                       | `false`                         | Is component clickable?
 
 ---
 
+`slot` available for additional icons or button
 
+---
 \*  `PersonItemSize` is exported by `fwc-avatar`.
 ```ts
 type PersonItemSize = 'small' | 'medium' | 'large';
@@ -29,18 +31,31 @@ type PersonItemSize = 'small' | 'medium' | 'large';
 ## Example Usage
 
 ```tsx
-import { PersonCard } from '@equinor/fusion-react-person';
+import { PersonItemSize } from '@equinor/fusion-react-person';
 
-<PersonCard azureId="8a5f03ff-1875-4bf3-a3f4-aef1264e3bcc" />
+// azureId
+<PersonItemSize azureId="8a5f03ff-1875-4bf3-a3f4-aef1264e3bcc" />
+
+// upn
+<PersonItemSize upn="email@equinor.com" />
+
+// dataSource
+<PersonItemSize dataSource={{
+        name: 'First Last Name (Bouvet ASA)',
+        pictureSrc: 'https://i.imgur.com/GcZeeXX.jpeg',
+        accountType: "Consultant",
+        jobTitle: 'X-Bouvet ASA (PX)',
+        department: 'FOIT CON PDP',
+    }} />
 ```
 
 ## Example
 
-<StoryExample storyId="examples-person-person-card--component" showSource />
+<StoryExample storyId="examples-person-person-list-item--component" showSource />
 
 ## Person Provider
 
-In order to use components such as PersonAvatar or PersonCard you need to have **PersonProvider** wrapper.
+In order to use components such as PersonAvatar, PersonCard and PersonListItem you need to have **PersonProvider** wrapper.
 
 ### Properties/Attributes
 
@@ -50,35 +65,33 @@ Name                      | Type                            | Description
 
 ### Methods
 
-| Name                          | Return Type                     | Description
-| ----------------------------- | -----------------------------   | -----------------------------
-| `getPresence(azureId)`        | `PersonPresence**`              | Returns `PersonPresence` for unique AuzureId.
-| `getDetails(azureId)`         | `PersonDetails***`              | Returns `PersonDetails` for unique AuzureId.
+| Name                                   | Return Type                     | Description
+| -------------------------------------- | -----------------------------   | -----------------------------
+| `getListItemDetailsByAzureId(azureId)` | `ListItemData**`                | Returns `ListItemData` for unique AuzureId.
+| `getListItemDetailsByUpn(upn)`         | `ListItemData**`                | Returns `ListItemData` for unique AuzureId.
 
-### Example Usage
-
-```tsx
-import { PersonProvider, PersonCard } from '@equinor/fusion-react-person';
-
-  <PersonProvider resolve={resolver}>
-    <PersonCard azureId {...props} />
-  </PersonProvider>
-```
+---
 
 \*  `PersonResolver` is exported by `fwc-person-provider`.
 ```ts
 interface PersonResolver {
     getPresence: (azureId: string) => Promise<PersonPresence> | PersonPresence;
     getDetails: (azureId: string) => Promise<PersonDetails> | PersonDetails;
+    getImageByAzureId: (azureId: string) => Promise<AvatarData> | AvatarData;
+    getImageByUpn: (upn: string) => Promise<AvatarData> | AvatarData;
+    getCardDetailsByAzureId: (azureId: string) => Promise<CardData> | CardData;
+    getCardDetailsByUpn: (upn: string) => Promise<CardData> | CardData;
+    getListItemDetailsByAzureId: (azureId: string) => Promise<ListItemData> | ListItemData;
+    getListItemDetailsByUpn: (upn: string) => Promise<ListItemData> | ListItemData;
 }
 ```
 
-\*\* `PersonPresence` is exported by `fwc-person-provider`.
+`PersonPresence` is exported by `fwc-person-provider`.
 ```ts
 type PersonPresence = {
     azureId: string;
     availability: PersonAvailability;
-}
+};
 
 ```
 \*\*\*  `PersonDetails` is exported by `fwc-person-provider`.
@@ -94,9 +107,6 @@ type PersonDetails = {
     mobilePhone?: string;
     accountType?: PersonAccountType;
     officeLocation?: string;
-    positions?: Position[];
-    manager?: Manager;
-    managerAzureUniqueId?: string;
 }
 
 type Position = {

@@ -1,10 +1,9 @@
-import { PropsWithChildren, useState } from 'react';
+import { PropsWithChildren, useEffect, useRef, useState } from 'react';
 import { ComponentProps, createComponent } from '@equinor/fusion-react-utils';
-import HTMLPersonListItemCustomElement, { tag } from '@equinor/fusion-wc-person/person-list-item';
-import { Popover } from '@equinor/fusion-react-popover/dist';
-import PersonCard from './PersonCard';
+import HTMLPersonListItemCustomElement, { tag, ListItemData } from '@equinor/fusion-wc-person/person-list-item';
+import extractProps from './extract-props';
 
-type ElementProps = PropsWithChildren<Partial<Pick<HTMLPersonListItemCustomElement, 'azureId' | 'size' | 'clickable'>>>;
+type ElementProps = PropsWithChildren<Partial<Pick<HTMLPersonListItemCustomElement, 'azureId' | 'upn' | 'dataSource' | 'size' | 'clickable'>>>;
 
 export type PersonListItemProps = ComponentProps<HTMLPersonListItemCustomElement, ElementProps>;
 export const PersonListItemComponent = createComponent<HTMLPersonListItemCustomElement, ElementProps>(
@@ -13,22 +12,20 @@ export const PersonListItemComponent = createComponent<HTMLPersonListItemCustomE
 );
 
 export const PersonListItem = ({ children, ...props }: PropsWithChildren<PersonListItemProps>): JSX.Element => {
-  const [visible, setVisibility] = useState<boolean>(false);
+  const avatarRef = useRef<HTMLPersonListItemCustomElement>(null);
 
-  if (!props.clickable) return <PersonListItemComponent {...props}>{children}</PersonListItemComponent>;
+  useEffect(() => {
+    for (const [name, value] of Object.entries(extractProps<ElementProps>(props))) {
+      if (avatarRef.current) {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
+        avatarRef.current[name] = value;
+      }
+    }
+  }, []);
 
-  return (
-    <Popover
-      baseElement={<PersonListItemComponent {...props}>{children}</PersonListItemComponent>}
-      strategy="fixed"
-      placement="bottom-start"
-      visible={visible}
-      setVisibility={setVisibility}
-      showCloseIcon={false}
-    >
-      <PersonCard azureId={props.azureId} />
-    </Popover>
-  );
+  return <PersonListItemComponent ref={avatarRef}>{children}</PersonListItemComponent>;
 };
 
+export {ListItemData};
 export default PersonListItem;

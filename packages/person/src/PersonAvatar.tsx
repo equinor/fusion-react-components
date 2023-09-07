@@ -1,6 +1,6 @@
 import { PropsWithChildren, useEffect, useRef } from 'react';
 import { ComponentProps, createComponent } from '@equinor/fusion-react-utils';
-import HTMLPersonAvatarCustomElement, { tag, AvatarSize } from '@equinor/fusion-wc-person/person-avatar';
+import HTMLPersonAvatarCustomElement, { tag, AvatarSize, AvatarData } from '@equinor/fusion-wc-person/person-avatar';
 import extractProps from './extract-props';
 
 type ElementProps = PropsWithChildren<
@@ -30,5 +30,5 @@ export const PersonAvatar = ({ children, ...props }: PropsWithChildren<PersonAva
   return <PersonAvatarComponent ref={avatarRef}>{children}</PersonAvatarComponent>;
 };
 
-export { AvatarSize };
+export { AvatarSize, AvatarData };
 export default PersonAvatar;

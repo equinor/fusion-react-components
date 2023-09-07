@@ -5,8 +5,10 @@ import {
   PersonAccountType,
   PersonListItem,
   PersonListItemProps,
+  ListItemData,
 } from '@equinor/fusion-react-person/src';
 import { IconButton } from '@equinor/fusion-react-button';
+import { createResolve } from './PersonResolve';
 
 export default {
   title: 'Examples/Person/Person List Item',
@@ -55,83 +57,31 @@ export default {
   },
 } as Meta;
 
-export type CardProps = PersonListItemProps & {
-  availability?: PersonAvailability;
+export type ListItemProps = PersonListItemProps & {
   accountType: PersonAccountType;
 };
 
-const createResolve = (accountType: PersonAccountType, availability?: PersonAvailability) => ({
-  getPresence: async (azureId: string) => {
-    await new Promise((resolve) => setTimeout(resolve, 0));
-    return {
-      azureId,
-      availability: availability ?? PersonAvailability.Offline,
-    };
-  },
-  getDetails: async (azureId: string) => {
-    await new Promise((resolve) => setTimeout(resolve, 0));
-    return {
-      azureId: azureId,
-      name: 'Anders Emil Sommerfeldt (Bouvet ASA)',
-      pictureSrc: 'https://i.imgur.com/GcZeeXX.jpeg',
-      accountType,
-      jobTitle: 'X-Bouvet ASA (PX)',
-      department: 'FOIT CON PDP',
-      mail: 'example@email.com',
-      officeLocation: 'Stavanger',
-      mobilePhone: '+47 999999999',
-      managerAzureUniqueId: '1234-1324-1235',
-      manager: {
-        azureUniqueId: '1234-1324-1235',
-        name: 'Lagertha Kristensen',
-        department: 'Leader Techn Mgmt',
-        pictureSrc: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/814.jpg',
-        accountType: PersonAccountType.Employee,
-      },
-      positions: [
-        {
-          id: '123-123',
-          name: 'Developer Frontend',
-          project: {
-            id: '1234-1234',
-            name: 'Fusion',
-          },
-        },
-        {
-          id: '234-234',
-          name: 'Developer Frontend',
-          project: {
-            id: '2345-2345',
-            name: 'Fusion org v2',
-          },
-        },
-      ],
-    };
-  },
-});
-
-export const Component: Story<CardProps> = ({ accountType, availability, ...props }: CardProps) => (
-  <PersonProvider resolve={createResolve(accountType, availability)}>
+export const Component: Story<ListItemProps> = ({ accountType, ...props }: ListItemProps) => (
+  <PersonProvider resolve={createResolve(accountType)}>
     <PersonListItem {...props} />
   </PersonProvider>
 );
 Component.args = {
   azureId: '8a5f03ff-1875-4bf3-a3f4-aef1264e3bcc',
   size: 'medium',
-  availability: PersonAvailability.Available,
   accountType: PersonAccountType.Employee,
 };
 
-export const Clickable: Story<CardProps> = () => (
-  <PersonProvider resolve={createResolve(PersonAccountType.Employee, PersonAvailability.Available)}>
+export const Clickable: Story<ListItemProps> = () => (
+  <PersonProvider resolve={createResolve(PersonAccountType.Employee)}>
     <div style={{ display: 'flex', flexDirection: 'column', rowGap: 30 }}>
       <PersonListItem clickable azureId="8a5f03ff-1875-4bf3-a3f4-aef1264e3bcc" />
     </div>
   </PersonProvider>
 );
 
-export const Toolbar: Story<CardProps> = () => (
-  <PersonProvider resolve={createResolve(PersonAccountType.External, PersonAvailability.Available)}>
+export const Toolbar: Story<ListItemProps> = () => (
+  <PersonProvider resolve={createResolve(PersonAccountType.External)}>
     <div style={{ display: 'flex', flexDirection: 'column', rowGap: 30 }}>
       <PersonListItem azureId="8a5f03ff-1875-4bf3-a3f4-aef1264e3bcc">
         <IconButton color="primary" icon="account_circle" rounded size="small" />
@@ -142,8 +92,8 @@ export const Toolbar: Story<CardProps> = () => (
   </PersonProvider>
 );
 
-export const Size: Story<{ sizes: Array<CardProps['size']> }> = (props: { sizes: Array<CardProps['size']> }) => (
-  <PersonProvider resolve={createResolve(PersonAccountType.Enterprise, PersonAvailability.Away)}>
+export const Size: Story<{ sizes: Array<ListItemProps['size']> }> = (props: { sizes: Array<ListItemProps['size']> }) => (
+  <PersonProvider resolve={createResolve(PersonAccountType.Enterprise)}>
     <div style={{ display: 'flex', flexDirection: 'column', rowGap: 30 }}>
       {props.sizes.map((size) => (
         <div key={size}>
@@ -154,3 +104,20 @@ export const Size: Story<{ sizes: Array<CardProps['size']> }> = (props: { sizes:
   </PersonProvider>
 );
 Size.args = { sizes: ['small', 'medium', 'large'] };
+
+export const DataSource: Story<ListItemProps> = () => (
+  <PersonProvider resolve={createResolve(PersonAccountType.External)}>
+    <div style={{ display: 'flex', flexDirection: 'column', rowGap: 30 }}>
+      <PersonListItem dataSource={{
+              name: 'Rick Sanchez (C-132)',
+              pictureSrc: 'https://i.imgur.com/17Kw9my.jpg',
+              accountType: PersonAccountType.ExternalHire,
+              jobTitle: 'Scientist',
+              mail: 'rick.sanchez@email.com',
+              mobilePhone: '+47 123456789',
+          } as ListItemData}>
+        <IconButton color="primary" icon="account_circle" rounded size="small" />
+      </PersonListItem>
+    </div>
+  </PersonProvider>
+);
