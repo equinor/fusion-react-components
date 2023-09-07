@@ -13,7 +13,7 @@ export const StoryExample = ({ storyId, showSource }: StoryExampleProps): React.
       <Canvas withSource={showSource ? 'open' : undefined}>
         <Story name="Component" id={storyId} />
       </Canvas>
-      <a href={`/?path=/docs/${storyId}`}>Show story</a>
+      <a href={`?path=/docs/${storyId}`}>Show story</a>
     </div>
   );
 };
