@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 29.3.14 (2023-09-07)
+
+
+### Bug Fixes
+
+* **agGrid-style:** builded style ([3b08cb3](https://github.com/equinor/fusion-react-components/commit/3b08cb3d83bac8fdde8a09805473f95deff217c8))
+
+
+
+
+
 ## [29.3.13](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-ag-grid-styles@29.3.12...@equinor/fusion-react-ag-grid-styles@29.3.13) (2023-08-24)
 
 
