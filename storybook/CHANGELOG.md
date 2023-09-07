@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.10.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@2.9.11...@equinor/fusion-react-components-stories@2.10.0) (2023-08-25)
+
+
+### Bug Fixes
+
+* **stepper:** force order ([a12758a](https://github.com/equinor/fusion-react-components/commit/a12758a893d6e6e670f0f452866c9a68dcd968c2))
+* **stepper:** storybook ([de6e4f8](https://github.com/equinor/fusion-react-components/commit/de6e4f89bdc9940662fabe7b82bfd340121a099a))
+
+
+### Features
+
+* **stepper:** stepper update ([e2029cc](https://github.com/equinor/fusion-react-components/commit/e2029cc7248c712b98c7d9c6b5e8efc2aca9343d))
+
+
+
+
+
 ## [2.9.11](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@2.9.10...@equinor/fusion-react-components-stories@2.9.11) (2023-08-24)
 
 **Note:** Version bump only for package @equinor/fusion-react-components-stories
