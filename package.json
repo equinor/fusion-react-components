@@ -9,9 +9,9 @@
     "bootstrap": "lerna bootstrap -- --legacy-peer-deps",
     "test": "lerna run test",
     "test:build": "docker build -t test -f build.Dockerfile .",
-    "lint": "eslint packages/**/src/**/*.{ts,tsx}",
+    "lint": "eslint ./packages/*/src/**",
     "build": "lerna run build --ignore '@equinor/fusion-react-components-stories'",
-    "lint:report": "eslint --output-file eslint-report.log.json --format json ./packages/*/src/**",
+    "lint:report": "eslint --output-file eslint-report.log.json --format json packages/*/src",
     "storybook": "npm run start --prefix storybook",
     "storybook:build": "npm run build --prefix storybook",
     "npm:clean": "rm -rf node_modules && lerna exec 'rm -rf node_modules'",
@@ -41,15 +41,15 @@
     "@commitlint/config-conventional": "^17.4.4",
     "@equinor/eslint-config-fusion": "^2.0.0",
     "@types/react": "^17.0.2",
-    "eslint": "^8.8.0",
+    "eslint": "^8.48.0",
     "husky": "^8.0.3",
     "lerna": "^6.6.1",
     "lerna-update-wizard": "^1.1.2",
     "lint-staged": "^13.2.0",
-    "prettier": "^2.8.7",
+    "prettier": "^2.8.8",
     "react": "^17.0.2",
-    "typescript": "^4.4.4",
-    "rimraf": "^4.4.1"
+    "rimraf": "^4.4.1",
+    "typescript": "^4.4.4"
   },
   "lint-staged": {
     "./packages/**/src/**/*.{ts,tsx}": [

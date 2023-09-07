@@ -1,8 +1,5 @@
 import { PropsWithChildren, useEffect, useRef } from 'react';
-import HTMLPersonProviderCustomElement, { PersonResolver } from '@equinor/fusion-wc-person/person-provider';
-import { PersonAvailability, PersonDetails } from '@equinor/fusion-wc-person';
-
-HTMLPersonProviderCustomElement;
+import { PersonProviderElement, PersonResolver } from '@equinor/fusion-wc-person';
 
 /** Person porvider properties for the resolver */
 export type PersonProviderProps = {
@@ -15,50 +12,22 @@ export type PersonProviderProps = {
  * @param props resolver and children
  * @returns wrapped fusion web-components person provider with its reference around children
  */
-export const PersonProvider = (props: PropsWithChildren<PersonProviderProps>) => {
-  const { resolve } = props;
-  const ref = useRef<HTMLPersonProviderCustomElement>(null);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) {
-      return;
-    }
-    el.setResolver(resolve);
-    return () => {
-      el.removeResolver();
-    };
-  }, [ref, resolve]);
-  return <fwc-person-provider ref={ref}>{props.children}</fwc-person-provider>;
-};
 
-/**
- * @param details Person details as an object property or a single value
- * @param presence Person presence as an object property or a single value
- * @returns Checks if details and/or presence type and creates a resolver
- */
-export const createPersonResolver = (
-  details: PersonResolver['getDetails'] | PersonDetails,
-  presence?: PersonResolver['getPresence'] | PersonAvailability
-): PersonResolver => {
-  const getDetails = typeof details === 'function' ? details : () => details;
-  const getPresence =
-    typeof presence === 'function'
-      ? presence
-      : async () => {
-          if (typeof details === 'function') {
-            throw Error('unsupported arguments, when presences is static, details also need to be provided statically');
-          }
-          return {
-            azureId: details.azureId,
-            // TODO - should handle undefined
-            availability: presence ?? PersonAvailability.Offline,
-          };
-        };
-  const resolver: PersonResolver = {
-    getDetails,
-    getPresence,
-  };
-  return resolver;
+export const PersonProvider = (props: PropsWithChildren<PersonProviderProps>) => {
+  const { resolve, children } = props;
+  const providerRef = useRef<PersonProviderElement>(null);
+
+  useEffect(() => {
+    if (providerRef.current) {
+      providerRef.current.setResolver(resolve);
+
+      return () => {
+        providerRef.current?.removeResolver();
+      };
+    }
+  }, [providerRef, resolve]);
+
+  return <fwc-person-provider ref={providerRef}>{children}</fwc-person-provider>;
 };
 
 export default PersonProvider;
