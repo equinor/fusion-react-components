@@ -22,9 +22,7 @@ Name                      | Type                            | Default           
 `contentHeight`           | `number`                        | `150`                           | Height of content (px)
 
 ---
-
-
-\*  `PersonItemSize` is exported by `fwc-avatar`.
+\*  `PersonItemSize` is exported type element size.
 ```ts
 type PersonItemSize = 'small' | 'medium' | 'large';
 ```
@@ -60,13 +58,15 @@ import { PersonCard } from '@equinor/fusion-react-person';
 
 ## Person Provider
 
-In order to use components such as PersonAvatar or PersonCard you need to have **PersonProvider** wrapper.
+In order to use PersonCard component you need to have [**PersonProvider**](?path=/docs/data-person-provider--page) wrapper.
+
+You can create your own [`<PersonProvider>`](?path=/docs/data-person-provider--page) if it's not already implemented, like in [fusion-framework](https://github.com/equinor/fusion-framework)
 
 ### Properties/Attributes
 
 Name                      | Type                            | Description
 ------------------------- | -----------------------------   | -----------
-`resolve`                 | `PersonResolver*`               | Person resolver for a provider. See [`fwc-person-provider`](https://github.com/equinor/fusion-web-components/tree/main/packages/person/src/person-provider) 
+`resolve`                 | `PersonResolver`               | Person resolver for a provider. 
 
 ### Methods for PersonCard
 
@@ -75,22 +75,7 @@ Name                                    | Return Type                     | Desc
 `getCardDetailsByAzureId(azureId)`      | `CardData**`                    | Returns `CardData` for unique AuzureId.
 `getCardDetailsByUpn(upn)`              | `CardData**`                    | Returns `CardData` for unique email address.
 
-
-\*  `PersonResolver` is exported by `fwc-person-provider`.
-```ts
-interface PersonResolver {
-    getPresence: (azureId: string) => Promise<PersonPresence> | PersonPresence;
-    getDetails: (azureId: string) => Promise<PersonDetails> | PersonDetails;
-    getImageByAzureId: (azureId: string) => Promise<AvatarData> | AvatarData;
-    getImageByUpn: (upn: string) => Promise<AvatarData> | AvatarData;
-    getCardDetailsByAzureId: (azureId: string) => Promise<CardData> | CardData;
-    getCardDetailsByUpn: (upn: string) => Promise<CardData> | CardData;
-    getListItemDetailsByAzureId: (azureId: string) => Promise<ListItemData> | ListItemData;
-    getListItemDetailsByUpn: (upn: string) => Promise<ListItemData> | ListItemData;
-}
-```
-
-\*\* `CardData` is exported by person avatar task.
+\*\* `CardData` is exported type.
 ```ts
 type CardData = RequiredAndOptionalPick<
   PersonDetails,
@@ -99,50 +84,10 @@ type CardData = RequiredAndOptionalPick<
 >
 ```
 
-`PersonPresence` is exported by `fwc-person-provider`.
-```ts
-type PersonPresence = {
-    azureId: string;
-    availability: PersonAvailability;
-}
-
-```
-`PersonDetails` is exported by `fwc-person-provider`.
-```ts
-type PersonDetails = {
-    azureId: string;
-    name?: string;
-    pictureSrc?: string;
-    jobTitle?: string;
-    department?: string;
-    mail?: string;
-    company?: string;
-    mobilePhone?: string;
-    accountType?: PersonAccountType;
-    officeLocation?: string;
-    positions?: Position[];
-    manager?: Manager;
-    managerAzureUniqueId?: string;
-}
-
-type Position = {
-    id: string;
-    name: string;
-    project: {
-        id: string;
-        name: string;
-    };
-}
-
-type Manager = {
-    azureUniqueId: string;
-    name?: string;
-    pictureSrc?: string;
-    department?: string;
-    accountType?: PersonAccountType;
-}
-```
-
 ## Changelog
 
-<ChangeLog changelogs={require('@equinor/fusion-react-person/CHANGELOG.md')} />
+<ChangeLog
+  changelogs={{
+    react: require('@equinor/fusion-react-person/CHANGELOG.md'),
+  }}
+/>

@@ -2,7 +2,7 @@ import { AvatarData, CardData, ListItemData, PersonAccountType, PersonAvailabili
 
 export const createResolve = (accountType?: string) => {
     return {
-        getImageByAzureId: async (azureId: PersonAccountType) => {
+        getImageByAzureId: async (azureId: string) => {
           await new Promise((resovle) => setTimeout(resovle, 3000));
           return await Promise.resolve({
             azureId: azureId,
