@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.1](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-person@0.4.0...@equinor/fusion-react-person@0.4.1) (2023-09-07)
+
+
+### Bug Fixes
+
+* **person-components:** namespace fix ([5b5cddf](https://github.com/equinor/fusion-react-components/commit/5b5cddfe15dacc8a662961caa107009cf0490287))
+
+
+
+
+
 # [0.4.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-person@0.3.0...@equinor/fusion-react-person@0.4.0) (2023-09-07)
 
 

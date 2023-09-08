@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.13.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@2.12.0...@equinor/fusion-react-components-stories@2.13.0) (2023-09-07)
+
+
+### Bug Fixes
+
+* **storybook:** story pathing ([658d9a3](https://github.com/equinor/fusion-react-components/commit/658d9a34e31b3031e2642cefda0f43101465acd5))
+
+
+### Features
+
+* **storybook:** person provider page ([c1d205d](https://github.com/equinor/fusion-react-components/commit/c1d205dd687f707cd0551b53497fb503978a8a87))
+
+
+
+
+
 # [2.12.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@2.11.0...@equinor/fusion-react-components-stories@2.12.0) (2023-09-07)
 
 
