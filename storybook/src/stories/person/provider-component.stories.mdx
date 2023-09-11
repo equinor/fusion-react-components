@@ -101,10 +101,15 @@ type PersonDetails = {
     jobTitle?: string;
     department?: string;
     mail?: string;
-    company?: string;
+    companies?: Company[];
     mobilePhone?: string;
     accountType?: PersonAccountType;
     officeLocation?: string;
+}
+
+type Company = {
+    id: string;
+    name: string;
 }
 
 type Position = {
