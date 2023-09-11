@@ -36,6 +36,15 @@ jobs:
           path: node_modules
           key: ${{ runner.OS }}-build-${{ hashFiles('**/package.json') }}
 
+      - name: Cache pnpm Modules
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.pnpm-store
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-
+
       - name: Install pnpm
         run: npm install pnpm -g
 
