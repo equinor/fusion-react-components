@@ -6,7 +6,7 @@
   "scripts": {
     "test": "lerna run --no-bail test",
     "start": "pnpm run storybook",
-    "clean": "rm -rf node_modules && rm -rf pnpm-lock.yaml && lerna clean -y",
+    "clean": "pnpm -r exec rimraf node_modules && rm -rf pnpm-lock.yaml && pnpm exec rimraf node_modules",
     "build": "lerna run build --ignore '@equinor/fusion-react-components-stories'",
     "test:build": "docker build -t test -f build.Dockerfile .",
     "lint": "eslint packages/**/src/**/*.{ts,tsx}",
