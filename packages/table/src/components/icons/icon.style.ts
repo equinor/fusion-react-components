@@ -13,7 +13,7 @@ export const useStyle = makeStyles(
         color: theme.colors.interactive.primary__hover.getVariable('color'),
       },
     }),
-  { name: 'fusion-table-icon' }
+  { name: 'fusion-table-icon' },
 );
 
 export default useStyle;

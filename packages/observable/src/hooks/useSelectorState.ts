@@ -14,5 +14,5 @@ export const useSelectorState = <S, P extends keyof S, R = S[P]>(
   subject: Observable<S>,
   selector: P | ((state: S) => R),
   initial?: R,
-  compare?: (x: R, y: R) => boolean
+  compare?: (x: R, y: R) => boolean,
 ): R | undefined => useObservableState(useSelector(subject, selector, compare), initial);

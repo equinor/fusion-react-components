@@ -15,7 +15,7 @@ const noFns = {};
 export const useElementFunctions = <E extends HTMLElement, EKey extends string = Extract<keyof E, string>>(
   ref: RefObject<E | null>,
   functions?: Partial<Record<EKey, any>>,
-  functionMap?: Set<keyof E>
+  functionMap?: Set<keyof E>,
 ): void => {
   const fnsRef = useRef<Record<EKey, any>>({} as Record<EKey, any>);
 

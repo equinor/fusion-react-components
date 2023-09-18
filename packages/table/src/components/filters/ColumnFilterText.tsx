@@ -12,7 +12,7 @@ const useStyles = makeStyles(
         flexFlow: 'column',
       },
     }),
-  { name: 'fusion-table-menu-item-sort' }
+  { name: 'fusion-table-menu-item-sort' },
 );
 
 export const ColumnFilterText = <D extends TableData>(props: HeaderProps<D>): JSX.Element => {

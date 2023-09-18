@@ -24,7 +24,7 @@ const checkForChanges = (dataRow: AGGridData, rowCompareFunc?: RowCompareFunc) =
 export const addInitialProps = <T extends Record<string, unknown>>(
   dataRow: T,
   status: AGGridDataStatus = AGGridDataStatus.FETCHED,
-  rowCompareFunc?: RowCompareFunc
+  rowCompareFunc?: RowCompareFunc,
 ): AGGridData<T> => ({
   initial: dataRow,
   current: { ...dataRow },

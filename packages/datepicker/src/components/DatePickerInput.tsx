@@ -87,7 +87,7 @@ const useStyles = makeStyles(
         },
       },
     }),
-  { name: 'fusion-datepicker-input' }
+  { name: 'fusion-datepicker-input' },
 );
 
 type FusionDatePickerInputProps = React.InputHTMLAttributes<HTMLInputElement> & {
@@ -111,14 +111,14 @@ export const FusionDatePickerInput = forwardRef<HTMLInputElement, FusionDatePick
       onBlur && onBlur(e);
       e.target.placeholder = placeholder ?? '';
     },
-    [placeholder, onBlur]
+    [placeholder, onBlur],
   );
   const handleFocus = useCallback(
     (e: React.FocusEvent<HTMLInputElement>) => {
       onFocus && onFocus(e);
       e.target.placeholder = dateFormat;
     },
-    [dateFormat, onFocus]
+    [dateFormat, onFocus],
   );
 
   return (

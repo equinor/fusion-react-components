@@ -24,7 +24,7 @@ const useErrorStyles = makeStyles(() =>
     message: {
       fontSize: 20,
     },
-  })
+  }),
 );
 
 export default useErrorStyles;

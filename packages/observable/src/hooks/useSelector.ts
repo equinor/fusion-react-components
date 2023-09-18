@@ -6,7 +6,7 @@ import { OperatorFunction } from 'rxjs';
 const selectorFn = <S, P extends keyof S, R = S[P]>(
   subject: Observable<S>,
   selector: P | ((state: S) => R),
-  compare?: (x: R, y: R) => boolean
+  compare?: (x: R, y: R) => boolean,
 ): Observable<R> => {
   const selectorFn = typeof selector === 'function' ? map<S, R>(selector) : pluck<S, P>(selector);
   return subject.pipe(selectorFn as unknown as OperatorFunction<S, R>, distinctUntilChanged(compare));
@@ -21,5 +21,5 @@ const selectorFn = <S, P extends keyof S, R = S[P]>(
 export const useSelector = <S, P extends keyof S, R = S[P]>(
   subject: Observable<S>,
   selector: P | ((state: S) => R),
-  compare?: (x: R, y: R) => boolean
+  compare?: (x: R, y: R) => boolean,
 ): Observable<R> => useMemo(() => selectorFn(subject, selector, compare), [subject, selector, compare]);

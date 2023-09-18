@@ -8,7 +8,7 @@ const useStyles = makeStyles(
         margin: `0 ${theme.spacing.comfortable.medium.getVariable('padding')}`,
       },
     }),
-  { name: 'fusion-breadcrumb-divider' }
+  { name: 'fusion-breadcrumb-divider' },
 );
 
 const Divider: FC = (): JSX.Element => {

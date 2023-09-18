@@ -1,14 +1,16 @@
-import { PropsWithChildren, useEffect, useRef, useState } from 'react';
+import { PropsWithChildren, useEffect, useRef } from 'react';
 import { ComponentProps, createComponent } from '@equinor/fusion-react-utils';
 import HTMLPersonListItemCustomElement, { tag, ListItemData } from '@equinor/fusion-wc-person/list-item';
 import extractProps from './extract-props';
 
-type ElementProps = PropsWithChildren<Partial<Pick<HTMLPersonListItemCustomElement, 'azureId' | 'upn' | 'dataSource' | 'size' | 'clickable'>>>;
+type ElementProps = PropsWithChildren<
+  Partial<Pick<HTMLPersonListItemCustomElement, 'azureId' | 'upn' | 'dataSource' | 'size' | 'clickable'>>
+>;
 
 export type PersonListItemProps = ComponentProps<HTMLPersonListItemCustomElement, ElementProps>;
 export const PersonListItemComponent = createComponent<HTMLPersonListItemCustomElement, ElementProps>(
   HTMLPersonListItemCustomElement,
-  tag
+  tag,
 );
 
 export const PersonListItem = ({ children, ...props }: PropsWithChildren<PersonListItemProps>): JSX.Element => {
@@ -27,5 +29,5 @@ export const PersonListItem = ({ children, ...props }: PropsWithChildren<PersonL
   return <PersonListItemComponent ref={avatarRef}>{children}</PersonListItemComponent>;
 };
 
-export {ListItemData};
+export { ListItemData };
 export default PersonListItem;

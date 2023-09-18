@@ -27,7 +27,7 @@ export type FilterOptionSelector<TData> = (data: TData) => {
 export type FilterOptionBuilder<TData, TOption extends FilterOption, TValue = string> = (
   source: TData[],
   selection: Set<TValue>,
-  data: TData[]
+  data: TData[],
 ) => Record<string, TOption>;
 
 export type FilterOptionType<T> = T extends (a: infer TData, b: infer TSelection) => infer C

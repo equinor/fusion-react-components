@@ -13,7 +13,7 @@ const useStyles = makeStyles(
         },
       }),
     }),
-  { name: 'fusion-filter-container' }
+  { name: 'fusion-filter-container' },
 );
 
 type StyleProps = {

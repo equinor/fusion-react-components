@@ -58,7 +58,7 @@ const useGroupHeader = <T extends HangingGardenColumnIndex>(): UseGroupHeader =>
 
       return new PIXI.Sprite(cachedRect);
     },
-    [pixiApp, getTextureFromCache, addTextureToCache]
+    [pixiApp, getTextureFromCache, addTextureToCache],
   );
 
   const renderGroupHeaderContext = useCallback(
@@ -66,7 +66,7 @@ const useGroupHeader = <T extends HangingGardenColumnIndex>(): UseGroupHeader =>
       groupHeaderContext.createRect(
         { x: 0, y: 0 },
         { width: groupHeaderContext.width, height: groupHeaderContext.height },
-        0xffffff
+        0xffffff,
       );
 
       groupHeaderContext.enquedRender(key + level + expanded, (context) => {
@@ -76,7 +76,7 @@ const useGroupHeader = <T extends HangingGardenColumnIndex>(): UseGroupHeader =>
         textNode.y = (context.height - textNode.height) / 2;
       });
     },
-    []
+    [],
   );
 
   const renderGroupHeader = useCallback(
@@ -111,7 +111,7 @@ const useGroupHeader = <T extends HangingGardenColumnIndex>(): UseGroupHeader =>
             enqueueRenderer(
               '' + color + position.x + position.y + borderColor,
               (context) => addDot(context, color, position, borderColor),
-              groupHeaderContext
+              groupHeaderContext,
             ),
           addPopover: (hitArea, renderPopover) => addPopover(renderedGroupHeader, hitArea, renderPopover),
           createRect: (position, size, color) => graphicsContext.addChild(createRect(position, size, color)),
@@ -142,7 +142,7 @@ const useGroupHeader = <T extends HangingGardenColumnIndex>(): UseGroupHeader =>
       processRenderQueue,
       processRenderQueueAnimationFrame,
       groupLevels,
-    ]
+    ],
   );
 
   return { renderGroupHeader };

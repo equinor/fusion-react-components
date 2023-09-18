@@ -44,7 +44,7 @@ export const Stepper = ({
   const stepperContainerClasses = clsx(
     styles.root,
     styles.stepperContainer,
-    verticalSteps && styles.verticalStepperContainer
+    verticalSteps && styles.verticalStepperContainer,
   );
   const stepperClasses = clsx(styles.stepper, verticalSteps && styles.verticalStepper);
 
@@ -86,7 +86,7 @@ export const Stepper = ({
       const prevOrNext = stepKeys.find((sk) => sk.position === newPosition);
       return prevOrNext;
     },
-    [currentStepKey, stepKeys]
+    [currentStepKey, stepKeys],
   );
 
   const handleChange = useCallback(
@@ -94,7 +94,7 @@ export const Stepper = ({
       setCurrentStepKey(stepKey);
       onChange && onChange(stepKey, allSteps);
     },
-    [onChange]
+    [onChange],
   );
 
   const handleClickPrev = useCallback(() => {

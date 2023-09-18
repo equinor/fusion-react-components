@@ -31,7 +31,7 @@ export const getColumnX = (
   index: number,
   currentExpandedColumns: ExpandedColumns,
   defaultWidth: number,
-  groupLevels: number
+  groupLevels: number,
 ): number => {
   const expandedWidthBeforeIndex = Object.values(currentExpandedColumns)
     .filter((c) => c.index < index && c.isExpanded)
@@ -47,7 +47,7 @@ export const getHeaderWidth = (
   columnKey: string,
   expandedColumns: ExpandedColumns,
   defaultWidth: number,
-  groupLevels: number
+  groupLevels: number,
 ): number =>
   isHeaderExpanded(columnKey, expandedColumns)
     ? defaultWidth +
@@ -72,7 +72,7 @@ export const addDot = (context: ItemRenderContext, color: number, position: Posi
 export const getCalculatedWidth = (
   currentExpandedColumns: ExpandedColumns,
   columnsLength: number,
-  itemWidth: number
+  itemWidth: number,
 ): number => {
   const expandedWidth = Object.values(currentExpandedColumns)
     .filter((c) => c.isExpanded)
@@ -103,7 +103,7 @@ export const createRoundedRectMask = (width: number, height: number): PIXI.Graph
 };
 
 export const isMultiGrouped = <T extends HangingGardenColumnIndex>(
-  columns: T[] | HangingGardenColumn<T>[]
+  columns: T[] | HangingGardenColumn<T>[],
 ): columns is HangingGardenColumn<T>[] => {
   const columnType = columns[0] as HangingGardenColumn<T>;
 
@@ -125,7 +125,7 @@ export const isMultiGrouped = <T extends HangingGardenColumnIndex>(
 const flattenGroup = <T extends HangingGardenColumnIndex>(
   flattenedGroups: (T | ColumnGroupHeader)[],
   group: HangingGardenColumn<T>,
-  level: number
+  level: number,
 ): (T | ColumnGroupHeader)[] => {
   if (isMultiGrouped(group.data)) {
     return [
@@ -133,7 +133,7 @@ const flattenGroup = <T extends HangingGardenColumnIndex>(
       { key: group.key, type: 'groupHeader', level: level },
       ...group.data.reduce(
         (flattenedGroups: (T | ColumnGroupHeader)[], g) => flattenGroup(flattenedGroups, g, level + 1),
-        []
+        [],
       ),
     ];
   }
@@ -152,12 +152,12 @@ const flattenGroup = <T extends HangingGardenColumnIndex>(
  * else reduces the Columns into a flat array of items and group by headers.
  */
 export const flattenColumn = <T extends HangingGardenColumnIndex>(
-  column: HangingGardenColumn<T>
+  column: HangingGardenColumn<T>,
 ): (ColumnGroupHeader | T)[] =>
   isMultiGrouped(column.data)
     ? column.data.reduce(
         (flattenedGroups: (T | ColumnGroupHeader)[], group) => flattenGroup(flattenedGroups, group, 0),
-        []
+        [],
       )
     : column.data;
 

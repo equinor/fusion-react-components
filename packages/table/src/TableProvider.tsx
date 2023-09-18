@@ -31,14 +31,14 @@ export type TableProviderProps<TData extends TableData> = {
 };
 
 export const TableProvider = <TData extends TableData = TableData>(
-  props: PropsWithChildren<TableProviderProps<TData>>
+  props: PropsWithChildren<TableProviderProps<TData>>,
 ): JSX.Element => {
   const { children, options } = props;
 
   const _plugins = props.plugins || [];
   const plugins = useMemo(
     () => [useResizeColumns, useColumnMenu, useFilters, useSortBy, usePagination, useExcel, ..._plugins],
-    [..._plugins]
+    [..._plugins],
   );
 
   const defaultColumn = useDefaultColumn(options);

@@ -15,11 +15,11 @@ const noEvents = {};
 export const useElementEvents = <
   E extends HTMLElement,
   K extends string,
-  P extends Partial<Record<K, EventHandler<SyntheticEvent<E, Event>>>>
+  P extends Partial<Record<K, EventHandler<SyntheticEvent<E, Event>>>>,
 >(
   ref: RefObject<E>,
   eventHandlers?: P,
-  eventMap: Record<K, string> = {} as Record<K, string>
+  eventMap: Record<K, string> = {} as Record<K, string>,
 ): void => {
   /** keep a reference of all registered events */
   const listenersRef = useRef<Partial<Record<K, EventListener>>>({} as Record<K, EventListener>);

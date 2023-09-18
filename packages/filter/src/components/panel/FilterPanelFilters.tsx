@@ -17,10 +17,12 @@ export const FilterPanelFilters = (props: FilterPanelFiltersProps): JSX.Element 
     useMemo(
       () =>
         filters$.pipe(
-          map(({ filters, selectedFilters }) => filters.filter((filter) => selectedFilters.has(filter.props.filterKey)))
+          map(({ filters, selectedFilters }) =>
+            filters.filter((filter) => selectedFilters.has(filter.props.filterKey)),
+          ),
         ),
-      [filters$]
-    )
+      [filters$],
+    ),
   );
   return (
     <div {...args} style={{ display: showFilters ? '' : 'none' }}>

@@ -10,7 +10,7 @@ type ElementProps = React.PropsWithChildren<Partial<Pick<HTMLSkeletonWrapperCust
 
 export const SkeletonWrapper = createComponent<HTMLSkeletonWrapperCustomElement, ElementProps>(
   HTMLSkeletonWrapperCustomElement,
-  tag
+  tag,
 );
 
 export type SkeletonWrapperProps = ComponentProps<HTMLSkeletonWrapperCustomElement, ElementProps>;

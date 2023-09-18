@@ -14,7 +14,7 @@ const useStyles = makeStyles(() =>
       flexDirection: 'row',
       gap: '1em',
     },
-  })
+  }),
 );
 
 /**

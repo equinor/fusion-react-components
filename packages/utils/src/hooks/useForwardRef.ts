@@ -7,7 +7,7 @@ import type { ForwardedRef, RefObject } from 'react';
  */
 export const useForwardRef = <E extends HTMLElement>(
   forwardRef?: ForwardedRef<E>,
-  initial: E | null = null
+  initial: E | null = null,
 ): RefObject<E> => {
   const ref = useRef<E>(initial);
   useEffect(() => {

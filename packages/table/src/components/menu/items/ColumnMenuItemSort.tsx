@@ -22,7 +22,7 @@ const useStyles = makeStyles(
         justifyContent: 'space-between',
       },
     }),
-  { name: 'fusion-table-menu-item-sort' }
+  { name: 'fusion-table-menu-item-sort' },
 );
 
 export const ColumnMenuItemSort = <D extends TableData>(props: HeaderProps<D>): JSX.Element => {

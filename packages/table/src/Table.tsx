@@ -24,7 +24,7 @@ const useStyles = makeStyles(() =>
     table: {
       minWidth: '100%',
     },
-  })
+  }),
 );
 
 export const Table = <TData extends TableData>(props: PropsWithChildren<TableProps<TData>>): JSX.Element => {

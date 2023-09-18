@@ -43,7 +43,7 @@ const useStyles = makeStyles(() =>
       maxWidth: '100%',
       maxHeight: '100%',
     },
-  })
+  }),
 );
 
 const HangingGarden = <T extends HangingGardenColumnIndex>({

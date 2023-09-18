@@ -12,7 +12,7 @@ type ElementProps = React.PropsWithChildren<
 
 export const DateRange = createComponent<HTMLDateRangeCustomElement, ElementProps>(
   HTMLDateRangeCustomElement,
-  dateRangeTag
+  dateRangeTag,
 );
 
 export type DateRangeProps = ComponentProps<HTMLDateRangeCustomElement, ElementProps>;

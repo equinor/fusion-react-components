@@ -13,7 +13,7 @@ type ElementProps = PropsWithChildren<
 
 export const IconButton = createComponent<HTMLIconButtonCustomElement, ElementProps>(
   HTMLIconButtonCustomElement,
-  iconButtonTag
+  iconButtonTag,
 );
 
 export type IconButtonProps = ComponentProps<HTMLIconButtonCustomElement, ElementProps>;

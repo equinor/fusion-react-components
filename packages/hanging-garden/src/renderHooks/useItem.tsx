@@ -66,7 +66,7 @@ const useItem = <T extends HangingGardenColumnIndex>(): UseItem<T> => {
 
       return new PIXI.Sprite(cachedRect);
     },
-    [pixiApp, getTextureFromCache, addTextureToCache]
+    [pixiApp, getTextureFromCache, addTextureToCache],
   );
 
   const clickRef = useRef<boolean>();
@@ -111,7 +111,7 @@ const useItem = <T extends HangingGardenColumnIndex>(): UseItem<T> => {
             enqueueRenderer(
               '' + color + position.x + position.y + borderColor,
               (context) => addDot(context, color, position, borderColor),
-              itemRenderContext
+              itemRenderContext,
             ),
           addPopover: (hitArea, renderPopover) => addPopover(renderedItem, hitArea, renderPopover),
           enquedRender: (key, render) => enqueueRenderer(key, render, itemRenderContext),
@@ -173,7 +173,7 @@ const useItem = <T extends HangingGardenColumnIndex>(): UseItem<T> => {
       colorMode,
       groupLevels,
       padding,
-    ]
+    ],
   );
 
   return { renderItem };

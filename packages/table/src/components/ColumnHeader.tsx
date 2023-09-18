@@ -48,7 +48,7 @@ const useStyle = makeStyles(
         },
       },
     }),
-  { name: 'fusion-table-header' }
+  { name: 'fusion-table-header' },
 );
 
 export const ColumnHeader = <D extends TableData>(props: HeaderProps<D>): JSX.Element => {

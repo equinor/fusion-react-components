@@ -9,7 +9,8 @@ export const useObservableRef = <S>(subject: Observable<S>, initial?: S): React.
   const ref = useRef<S | undefined>(initial);
   useLayoutSubscription(
     subject,
-    useCallback((x: any) => (ref.current = x), [])
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    useCallback((x: any) => (ref.current = x), []),
   );
   return ref;
 };

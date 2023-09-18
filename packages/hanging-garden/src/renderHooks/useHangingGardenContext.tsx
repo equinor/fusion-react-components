@@ -12,6 +12,7 @@ export interface IHangingGardenContext {
   canvas: MutableRefObject<HTMLCanvasElement | null>;
   stage: MutableRefObject<PIXI.Container>;
   pixiApp: MutableRefObject<PIXI.Application | null>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   scroll: Scroll<any>;
   maxRowCount: number;
   setMaxRowCount: Dispatch<React.SetStateAction<number>>;
@@ -26,8 +27,11 @@ export interface IHangingGardenContext {
   headerHeight: number;
   highlightedItem: unknown;
   highlightedColumnKey: string | null;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   getItemDescription: (item: any) => string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onItemClick: (item: any) => void;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   renderItemContext: (item: any, context: ItemRenderContext) => void;
   renderHeaderContext: (key: string, context: HeaderRenderContext) => void;
   popover: UsePopover;

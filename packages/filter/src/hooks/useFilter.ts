@@ -29,6 +29,6 @@ export const useFilter = <TData, TSelection>(filter: Filter<TData, TSelection>):
     (selection: TSelection) => {
       context.selection$.next(actions.selection.set({ [key]: selection }));
     },
-    [context, key]
+    [context, key],
   );
 };

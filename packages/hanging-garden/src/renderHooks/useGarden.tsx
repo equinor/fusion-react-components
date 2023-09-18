@@ -47,7 +47,7 @@ const useGarden = <T extends HangingGardenColumnIndex>(): UseGarden => {
       columns as HangingGardenColumn<T>[],
       highlightedColumnKey as string,
       itemWidth,
-      expandedColumns
+      expandedColumns,
     );
     renderGarden();
   }, [columns]);

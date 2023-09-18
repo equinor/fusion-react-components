@@ -15,7 +15,7 @@ import type { Filter } from '../types';
 
 export const selectionChanges = <TSelection = any>(
   filter$: Observable<Record<string, Filter>>,
-  selection$: Observable<Record<string, TSelection>>
+  selection$: Observable<Record<string, TSelection>>,
 ): Observable<Record<string, TSelection>> => {
   return combineLatest([selection$, filter$]).pipe(
     map(([selections, filters]) => {
@@ -25,7 +25,7 @@ export const selectionChanges = <TSelection = any>(
         return changed ? Object.assign(acc, { [filter.key]: selection }) : acc;
       }, {});
     }),
-    distinctUntilChanged()
+    distinctUntilChanged(),
   );
 };
 
@@ -41,10 +41,10 @@ export const useClearFilter = (): { clear: VoidFunction; changed$: Observable<Re
         map((x) =>
           Object.values(x).reduce((acc, filter) => {
             return Object.assign(acc, { [filter.key]: filter.initial });
-          }, {})
-        )
+          }, {}),
+        ),
       ),
-    [filter$]
+    [filter$],
   );
 
   const changed$ = useMemo(() => selectionChanges(filter$, selection$), [filter$, selection$]);
@@ -56,10 +56,10 @@ export const useClearFilter = (): { clear: VoidFunction; changed$: Observable<Re
         action$.pipe(
           filter(isActionOf(actions.selection.clear)),
           withLatestFrom(initial$),
-          map(([_, initial]) => actions.selection.set(initial))
+          map(([_, initial]) => actions.selection.set(initial)),
         ),
-      [initial$]
-    )
+      [initial$],
+    ),
   );
 
   return { clear, changed$ };

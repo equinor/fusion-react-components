@@ -15,7 +15,7 @@ const createFilterFn =
 
 export type CheckboxFilterProviderProps<
   TData extends Record<string, any>,
-  TOption extends CheckboxOption = CheckboxOption
+  TOption extends CheckboxOption = CheckboxOption,
 > = {
   filterKey: string;
   title?: string;
@@ -29,9 +29,9 @@ export type CheckboxFilterProviderProps<
 
 export const CheckboxFilterProvider = <
   TData extends Record<string, any>,
-  TOptions extends CheckboxOption = CheckboxOption
+  TOptions extends CheckboxOption = CheckboxOption,
 >(
-  props: React.PropsWithChildren<CheckboxFilterProviderProps<TData, TOptions>>
+  props: React.PropsWithChildren<CheckboxFilterProviderProps<TData, TOptions>>,
 ): JSX.Element => {
   const { filterKey, selector = filterKey, title, initial, filter, children } = props;
   const selectorFn = useMemo(
@@ -39,7 +39,7 @@ export const CheckboxFilterProvider = <
       typeof selector === 'function'
         ? selector
         : propertySelector(selector || (selector as Extract<keyof TData, string>)),
-    [selector]
+    [selector],
   );
   const filterFn = useMemo<FilterFn<TData, Set<string>>>(() => {
     if (filter?.filterFn) return filter.filterFn;

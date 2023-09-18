@@ -15,7 +15,7 @@ const useStyles = makeStyles(
         },
       },
     }),
-  { name: 'fusion-breadcrumb-item' }
+  { name: 'fusion-breadcrumb-item' },
 );
 
 const BreadcrumbItem: FC<BreadcrumbItemProps> = ({ onClick, name, isActive, hasHoverColor }): JSX.Element => {

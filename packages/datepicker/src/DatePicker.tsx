@@ -37,7 +37,7 @@ const getDisplayDateFormat = (type: FusionDatePickerType): string => {
 };
 
 export const FusionDatePicker: FunctionComponent<FusionDatePickerProps> = (
-  props: FusionDatePickerProps
+  props: FusionDatePickerProps,
 ): JSX.Element => {
   const {
     // custom props

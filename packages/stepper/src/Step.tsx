@@ -63,7 +63,7 @@ export const Step = ({
     isCurrent && styles.current,
     isClickable && styles.isClickable,
     disabled && styles.disabled,
-    done && styles.doneStep
+    done && styles.doneStep,
   );
 
   const titleClasses = clsx(styles.title);
