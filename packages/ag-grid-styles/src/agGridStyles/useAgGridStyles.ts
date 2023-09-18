@@ -23,7 +23,7 @@ export const useStyles = makeStyles(
         },
       }),
     }),
-  { name: 'fusion-ag-grid-styles' }
+  { name: 'fusion-ag-grid-styles' },
 );
 
 export default useStyles;

@@ -37,7 +37,7 @@ export const SearchFilter = <TData,>(props: SearchFilterProps<TData>): JSX.Eleme
       key: filterKey,
       filterFn: filterFn || defaultMatcher,
     }),
-    [filterKey, filterFn]
+    [filterKey, filterFn],
   );
 
   /** register filter in the filter context */
@@ -51,7 +51,7 @@ export const SearchFilter = <TData,>(props: SearchFilterProps<TData>): JSX.Eleme
     (e: React.FormEvent<HTMLTextInputCustomElement>) => {
       setSelection(e.currentTarget.value);
     },
-    [setSelection]
+    [setSelection],
   );
 
   /** subscribe to changes in the filter selection */
@@ -63,7 +63,7 @@ export const SearchFilter = <TData,>(props: SearchFilterProps<TData>): JSX.Eleme
       if (inputRef.current) {
         inputRef.current.value = query || '';
       }
-    }, [])
+    }, []),
   );
 
   return <TextInput ref={inputRef} onInput={onInput} type="search" variant="outlined" icon="search" {...args} />;

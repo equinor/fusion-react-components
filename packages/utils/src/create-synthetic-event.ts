@@ -3,7 +3,7 @@
  * @param event Event - native/custom event
  */
 export const createSyntheticEvent = <T extends Element = HTMLElement, E extends Event = Event>(
-  event: E
+  event: E,
 ): React.SyntheticEvent<T, E> => {
   let isPropagationStopped = false;
   return {

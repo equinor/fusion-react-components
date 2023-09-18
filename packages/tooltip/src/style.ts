@@ -77,5 +77,5 @@ export const useStyles = makeStyles(
         zIndex: '1',
       },
     }),
-  { name: 'fusion-tooltip' }
+  { name: 'fusion-tooltip' },
 );

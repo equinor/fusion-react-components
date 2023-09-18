@@ -22,7 +22,7 @@ export const useStyles = makeStyles(
         display: 'flex',
       },
     }),
-  { name: 'fusion-breadcrumb' }
+  { name: 'fusion-breadcrumb' },
 );
 
 export const Breadcrumb: FC<Props> = ({ breadcrumbs, isFetching, currentLevel, hasHoverColor = true }): JSX.Element => {
@@ -49,7 +49,7 @@ export const Breadcrumb: FC<Props> = ({ breadcrumbs, isFetching, currentLevel, h
               {!lastCrumb && <Divider />}
             </div>
           );
-        }
+        },
       )}
     </div>
   );

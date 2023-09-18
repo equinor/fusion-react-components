@@ -84,7 +84,7 @@ const useStyles = makeStyles<FusionTheme, StyleProps>(
         lineHeight: '1.25em',
       },
     }),
-  { name: 'fusion-datepicker-header' }
+  { name: 'fusion-datepicker-header' },
 );
 
 const MonthHeaderInput = forwardRef<HTMLInputElement, InputProps>(
@@ -98,7 +98,7 @@ const MonthHeaderInput = forwardRef<HTMLInputElement, InputProps>(
         <Icon className={classes.arrow} icon={'arrow_drop_down'} />
       </div>
     );
-  }
+  },
 );
 
 MonthHeaderInput.displayName = 'MonthHeaderInput';

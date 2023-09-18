@@ -10,7 +10,7 @@ const useStyles = makeStyles(() =>
       bottom: '100%',
       transform: 'translateX(-50%)',
     },
-  })
+  }),
 );
 
 const Arrow = (): JSX.Element => {

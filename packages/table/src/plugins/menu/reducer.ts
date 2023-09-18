@@ -6,7 +6,7 @@ import { actions } from './actions';
 import { TableData } from './types';
 
 export const reducer = <D extends TableData>(
-  initial: TableState<D>
+  initial: TableState<D>,
 ): ((state: TableState<D>, action: ActionType) => TableState<D> | undefined) =>
   createReducer<ReducerTableState<D>, ActionType>(initial)
     .handleAction(actions.toggle, (state, { payload }) => {

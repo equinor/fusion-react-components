@@ -32,7 +32,7 @@ export const Checkbox = forwardRef(
         <CheckboxBase ref={ref} {...checkboxProps} />
       </FormField>
     );
-  }
+  },
 );
 
 export type CheckboxProps = ComponentProps<HTMLCheckboxCustomElement, CheckboxElementProps>;

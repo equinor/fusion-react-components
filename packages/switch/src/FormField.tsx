@@ -7,7 +7,7 @@ export type ElementProps = Partial<Pick<FormfieldElement, 'label' | 'alignEnd' |
 
 export const FormField = createComponent<FormfieldElement, React.PropsWithChildren<ElementProps>>(
   FormfieldElement,
-  tag
+  tag,
 );
 
 export type FormFieldProps = ComponentProps<FormfieldElement, ElementProps>;

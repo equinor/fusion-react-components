@@ -20,9 +20,9 @@ export type FilterProviderProps<TSelections extends Record<string, unknown>, TDa
 
 export const FilterProvider = <
   TSelections extends Record<string, any>,
-  TData extends Record<string, any> = Record<string, any>
+  TData extends Record<string, any> = Record<string, any>,
 >(
-  props: React.PropsWithChildren<FilterProviderProps<TSelections, TData>>
+  props: React.PropsWithChildren<FilterProviderProps<TSelections, TData>>,
 ): JSX.Element => {
   const {
     data,
@@ -48,8 +48,8 @@ export const FilterProvider = <
         selection$,
         data$,
         /** type issues, might fix later */
-      } as unknown as FilterContext),
-    [source$, filter$, selection$, data$]
+      }) as unknown as FilterContext,
+    [source$, filter$, selection$, data$],
   );
 
   useLayoutEffect(() => {

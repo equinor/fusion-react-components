@@ -9,7 +9,7 @@ export type FormFieldElementProps = Partial<
 
 export const FormField = createComponent<HTMLFormFieldCustomElement, React.PropsWithChildren<FormFieldElementProps>>(
   HTMLFormFieldCustomElement,
-  tag
+  tag,
 );
 
 export type FormFieldProps = ComponentProps<HTMLFormFieldCustomElement, FormFieldElementProps>;

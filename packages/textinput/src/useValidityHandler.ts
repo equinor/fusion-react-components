@@ -9,5 +9,5 @@ export const useValidityHandler = (fn: TextInputInvalidFn): TextInputInvalidHand
         fn(e.target.validity, e.target);
       }
     },
-    [fn]
+    [fn],
   );

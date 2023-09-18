@@ -5,7 +5,7 @@ type ElementProps = React.PropsWithChildren<Partial<Pick<HTMLDateTimeCustomEleme
 
 export const DateTime = createComponent<HTMLDateTimeCustomElement, ElementProps>(
   HTMLDateTimeCustomElement,
-  dateTimeTag
+  dateTimeTag,
 );
 
 export type DateTimeProps = ComponentProps<HTMLDateTimeCustomElement, ElementProps>;

@@ -27,7 +27,7 @@ type UseHangingGardenGetData<T> = {
 };
 
 export const useHangingGardenGetData = <T,>(
-  getDataAsync: (invalidateCache: boolean) => Promise<HttpResponse<T[]>>
+  getDataAsync: (invalidateCache: boolean) => Promise<HttpResponse<T[]>>,
 ): UseHangingGardenGetData<T> => {
   const [error, setError] = useState<GardenDataError | null>(null);
   const [isFetching, setIsFetching] = useState(false);
@@ -77,7 +77,7 @@ export const useHangingGardenGetData = <T,>(
         return null;
       }
     },
-    [getDataAsync]
+    [getDataAsync],
   );
 
   const getData = useCallback(
@@ -86,7 +86,7 @@ export const useHangingGardenGetData = <T,>(
       setIsFetching(false);
       return fetchData(invalidateCache);
     },
-    [fetchData]
+    [fetchData],
   );
 
   return {

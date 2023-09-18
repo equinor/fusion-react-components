@@ -22,7 +22,7 @@ export const CheckboxFilterOption = (props: CheckboxFilterOptionProps): JSX.Elem
     ({ currentTarget: { name, checked } }: React.FormEvent<HTMLCheckboxCustomElement>) => {
       return onOptionChange({ name, selected: !checked });
     },
-    [onOptionChange]
+    [onOptionChange],
   );
   const onClick = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
     (e.currentTarget.firstChild as HTMLCheckboxCustomElement).click();

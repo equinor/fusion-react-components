@@ -25,8 +25,8 @@ export const ClearFilterButton = (props: ClearFilterButtonProps): JSX.Element =>
       (changed: any) => {
         ref.current && (ref.current.disabled = !Object.keys(changed).length);
       },
-      [ref]
-    )
+      [ref],
+    ),
   );
 
   /** Reset filters on click */

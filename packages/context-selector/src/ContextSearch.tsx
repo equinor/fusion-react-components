@@ -49,12 +49,13 @@ export const ContextSearch = ({
   }, [gettingCtx, sdd]);
 
   const keyUpGettingCtx = useCallback(
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (e: any) => {
       if (e.key === 'Enter' || e.key === ' ') {
         toggleGettingCtx();
       }
     },
-    [toggleGettingCtx]
+    [toggleGettingCtx],
   );
 
   /* Extend onSelect and calls props.onSelect */
@@ -68,11 +69,12 @@ export const ContextSearch = ({
         onSelect(selected);
       }
     },
-    [setCtx, onSelect]
+    [setCtx, onSelect],
   );
 
   /* Clear context button handler */
   const handleClearContext = useCallback(
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (event: any) => {
       setCtx(defaultInitialItem);
 
@@ -86,7 +88,7 @@ export const ContextSearch = ({
         onClearContext(event);
       }
     },
-    [onClearContext, sdd]
+    [onClearContext, sdd],
   );
 
   /* extending the fwc-searchable-dropdown escape handler */
@@ -106,7 +108,7 @@ export const ContextSearch = ({
         e.preventDefault();
       }
     },
-    [handleClearContext]
+    [handleClearContext],
   );
 
   useEffect(() => {

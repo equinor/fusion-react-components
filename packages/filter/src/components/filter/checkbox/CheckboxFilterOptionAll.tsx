@@ -18,7 +18,7 @@ export const CheckboxFilterOptionAll = (): JSX.Element => {
       acc.totalCount += value.totalCount;
       return acc;
     },
-    { count: 0, totalCount: 0 }
+    { count: 0, totalCount: 0 },
   );
 
   const checked = selectedKeys.size === optionKeysRef.current?.length;
@@ -27,7 +27,7 @@ export const CheckboxFilterOptionAll = (): JSX.Element => {
     ({ selected }: { name: string; selected?: boolean }) => {
       setSelection(selected ? new Set(optionKeysRef.current) : new Set([]));
     },
-    [setSelection, optionKeysRef]
+    [setSelection, optionKeysRef],
   );
 
   return (

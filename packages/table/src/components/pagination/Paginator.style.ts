@@ -21,7 +21,7 @@ export const useStyles = makeStyles<FusionTheme, StyleProps>(
         fontSize: '14px',
       },
     }),
-  { name: 'fusion-table-pagination-layout' }
+  { name: 'fusion-table-pagination-layout' },
 );
 
 export default useStyles;

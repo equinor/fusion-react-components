@@ -39,5 +39,4 @@ export type SwitchProps = ComponentProps<HTMLSwitchCustomElement, ElementProps>;
 
 Switch.displayName = 'Switch';
 
-
 export default Switch;

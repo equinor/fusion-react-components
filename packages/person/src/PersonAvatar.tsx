@@ -4,14 +4,19 @@ import HTMLPersonAvatarCustomElement, { tag, AvatarSize, AvatarData } from '@equ
 import extractProps from './extract-props';
 
 type ElementProps = PropsWithChildren<
-  Partial<Pick<HTMLPersonAvatarCustomElement, 'azureId' | 'upn' | 'dataSource' | 'size' | 'clickable' | 'disabled' | 'showFloatingOn'>>
+  Partial<
+    Pick<
+      HTMLPersonAvatarCustomElement,
+      'azureId' | 'upn' | 'dataSource' | 'size' | 'clickable' | 'disabled' | 'showFloatingOn'
+    >
+  >
 >;
 
 export type PersonAvatarProps = ComponentProps<HTMLPersonAvatarCustomElement, ElementProps>;
 
 const PersonAvatarComponent = createComponent<HTMLPersonAvatarCustomElement, ElementProps>(
   HTMLPersonAvatarCustomElement,
-  tag
+  tag,
 );
 
 export const PersonAvatar = ({ children, ...props }: PropsWithChildren<PersonAvatarProps>): JSX.Element => {

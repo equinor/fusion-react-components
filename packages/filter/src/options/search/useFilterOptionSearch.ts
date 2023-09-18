@@ -13,7 +13,7 @@ import type { FilterOptionMatchFn, FilterOptionSearchFn } from './types';
 
 export const useFilterOptionSearch = <TOption extends FilterOption>(
   searchFn?: FilterOptionSearchFn<Record<string, FilterOption>>,
-  matchFn?: FilterOptionMatchFn<TOption>
+  matchFn?: FilterOptionMatchFn<TOption>,
 ): {
   setQuery: (query: string) => void;
   query$: Observable<string>;
@@ -24,7 +24,7 @@ export const useFilterOptionSearch = <TOption extends FilterOption>(
     (q: string) => {
       query$.next(q);
     },
-    [query$]
+    [query$],
   );
 
   const search = useMemo(() => {
@@ -37,7 +37,7 @@ export const useFilterOptionSearch = <TOption extends FilterOption>(
         switchMap(([options, query]) => {
           return of(search(options, query));
         }),
-        map((x) => actions.set(x))
+        map((x) => actions.set(x)),
       )
       .subscribe(options$);
     return () => sub.unsubscribe();

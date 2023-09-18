@@ -46,7 +46,7 @@ export const createComponent = <E extends HTMLElement, P extends Record<string, 
     events?: Record<string, string>;
     functions?: Set<keyof E>;
     displayName?: string;
-  } = {}
+  } = {},
 ): ForwardRefExoticComponent<PropsWithoutRef<ComponentAttributes<E> & P> & RefAttributes<E>> => {
   type ComponentProps = PropsWithoutRef<ComponentAttributes<E> & P>;
   type EventProps = Partial<Record<keyof E, EventHandler<SyntheticEvent<E, Event>>>>;

@@ -4,7 +4,7 @@ import { useMemo } from 'react';
 
 export const useStyle = <K extends keyof TypographyType, T extends keyof TypographyPropertiesType<K>>(
   variant: K,
-  type: T
+  type: T,
 ) => {
   return useMemo(
     () =>
@@ -15,7 +15,7 @@ export const useStyle = <K extends keyof TypographyType, T extends keyof Typogra
           root,
         });
       })(),
-    [variant, type]
+    [variant, type],
   ).root;
 };
 
@@ -26,10 +26,10 @@ export const useStyles = makeStyles((theme) => {
         cur,
         Object.entries(value).reduce(
           (child, [childKey, childValue]) => Object.assign(child, { [`${key}__${childKey}`]: childValue.style }),
-          {}
-        )
+          {},
+        ),
       ),
-    {}
+    {},
   );
   return createStyles(ff);
 });

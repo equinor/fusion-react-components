@@ -6,7 +6,7 @@ import { TypographyPropertiesType, TypographyType } from './types';
 export const Typography = <
   K extends keyof TypographyType,
   T extends keyof TypographyPropertiesType<K>,
-  C extends keyof JSX.IntrinsicElements = 'div'
+  C extends keyof JSX.IntrinsicElements = 'div',
 >(
   props: React.PropsWithChildren<
     JSX.IntrinsicElements[C] & {
@@ -14,7 +14,7 @@ export const Typography = <
       type: Extract<T, string>;
       tag?: C;
     }
-  >
+  >,
 ) => {
   const { variant, type, tag = 'div', children, className, ...attr } = props;
   const ff = useStyles();

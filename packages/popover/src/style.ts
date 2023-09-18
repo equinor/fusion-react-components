@@ -103,5 +103,5 @@ export const useStyles = makeStyles<FusionTheme, popoverStyleProps>(
         padding: '16px',
       },
     }),
-  { name: 'fusion-popover' }
+  { name: 'fusion-popover' },
 );
