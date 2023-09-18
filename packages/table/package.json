@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-table",
-  "version": "0.5.28",
+  "version": "0.5.29",
   "description": "component for displaying tables",
   "keywords": [
     "table",
@@ -36,8 +36,8 @@
     "url": "https://github.com/equinor/fusion-react-components/issues"
   },
   "dependencies": {
-    "@equinor/fusion-react-button": "^0.8.2",
-    "@equinor/fusion-react-styles": "^0.5.9",
+    "@equinor/fusion-react-button": "^0.8.3",
+    "@equinor/fusion-react-styles": "^0.5.10",
     "@equinor/fusion-wc-icon": "^1.0.24",
     "@equinor/fusion-wc-popover": "^1.0.22",
     "@types/react-table": "^7.7.8",
