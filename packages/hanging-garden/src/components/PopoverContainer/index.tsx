@@ -15,7 +15,7 @@ const useStyles = makeStyles(() =>
       transform: 'translateX(-50%)',
       marginTop: '8px',
     },
-  })
+  }),
 );
 
 const PopoverContainer = forwardRef((props: { children: ReactNode }, ref: ForwardedRef<HTMLDivElement>) => {

@@ -54,7 +54,7 @@ export const ContextSearch = ({
         toggleGettingCtx();
       }
     },
-    [toggleGettingCtx]
+    [toggleGettingCtx],
   );
 
   /* Extend onSelect and calls props.onSelect */
@@ -68,7 +68,7 @@ export const ContextSearch = ({
         onSelect(selected);
       }
     },
-    [setCtx, onSelect]
+    [setCtx, onSelect],
   );
 
   /* Clear context button handler */
@@ -86,7 +86,7 @@ export const ContextSearch = ({
         onClearContext(event);
       }
     },
-    [onClearContext, sdd]
+    [onClearContext, sdd],
   );
 
   /* extending the fwc-searchable-dropdown escape handler */
@@ -106,7 +106,7 @@ export const ContextSearch = ({
         e.preventDefault();
       }
     },
-    [handleClearContext]
+    [handleClearContext],
   );
 
   useEffect(() => {

@@ -70,7 +70,7 @@ const useHeader = <T extends HangingGardenColumnIndex>(): UseHeader => {
         },
       }));
     },
-    [expandedColumns, columns, setExpandedColumns, getRenderedItemDescription]
+    [expandedColumns, columns, setExpandedColumns, getRenderedItemDescription],
   );
 
   const getHeaderMask = useCallback(
@@ -84,7 +84,7 @@ const useHeader = <T extends HangingGardenColumnIndex>(): UseHeader => {
 
       return mask as PIXI.Graphics;
     },
-    [headerHeight]
+    [headerHeight],
   );
 
   const renderHeader = useCallback(
@@ -96,7 +96,7 @@ const useHeader = <T extends HangingGardenColumnIndex>(): UseHeader => {
           (columns as HangingGardenColumn<T>[])[index]?.key,
           expandedColumns,
           itemWidth + padding,
-          groupLevels
+          groupLevels,
         );
         const isHighlighted = highlightedColumnKey === key;
         const isExpanded = isHeaderExpanded(key, expandedColumns);
@@ -158,7 +158,7 @@ const useHeader = <T extends HangingGardenColumnIndex>(): UseHeader => {
       createTextNode,
       scrollTop.current,
       groupLevels,
-    ]
+    ],
   );
 
   return { renderHeader };

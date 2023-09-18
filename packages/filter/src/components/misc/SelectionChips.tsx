@@ -41,7 +41,7 @@ const useStyles = makeStyles(
         marginRight: theme.spacing.comfortable.small.getVariable('padding'),
       },
     }),
-  { name: 'fusion-filter-selection-chips' }
+  { name: 'fusion-filter-selection-chips' },
 );
 
 export type SelectionChipsProps = JSX.IntrinsicElements['div'] & {
@@ -68,18 +68,18 @@ export const SelectionChips = (props: SelectionChipsProps): JSX.Element => {
               /** Exclude filters that does not have any selection */
               .filter((x) => !!x.title && !!x.selection.length);
             return of(items as SelectionItem[]);
-          })
+          }),
         ),
-      [filter$, selection$]
+      [filter$, selection$],
     ),
-    setItems
+    setItems,
   );
 
   const onRemove = useCallback(
     (e: PointerEvent<HTMLChipCustomElement>) => {
       selection$.next(actions.selection.remove(String(e.currentTarget.value)));
     },
-    [selection$]
+    [selection$],
   );
 
   const styles = useStyles();

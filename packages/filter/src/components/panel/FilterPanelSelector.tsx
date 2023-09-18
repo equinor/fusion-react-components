@@ -20,7 +20,7 @@ export const FilterPanelSelector = () => {
       const selected = e.currentTarget.checked;
       filters$.next(selected ? actions.remove(key) : actions.add(key));
     },
-    [filters$]
+    [filters$],
   );
 
   return (

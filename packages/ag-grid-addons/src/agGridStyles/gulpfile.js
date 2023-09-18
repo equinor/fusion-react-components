@@ -80,7 +80,7 @@ const scssTask = () => {
           ],
         },
         plugins: [new RemoveEmptyScriptsPlugin(), new MiniCssExtractPlugin({ filename: '[name].ts' })],
-      })
+      }),
     )
     .pipe(
       through2.obj(function (file, _, cb) {
@@ -89,7 +89,7 @@ const scssTask = () => {
         }
 
         cb(null, file);
-      })
+      }),
     )
     .pipe(gulp.dest('output/'));
 };

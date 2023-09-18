@@ -30,7 +30,7 @@ export const useStyle = makeStyles(
         },
       },
     }),
-  { name: 'fusion-table-menu' }
+  { name: 'fusion-table-menu' },
 );
 
 export default useStyle;

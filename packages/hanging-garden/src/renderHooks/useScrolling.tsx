@@ -12,13 +12,13 @@ export type Scroll<T extends HangingGardenColumnIndex> = {
     columns: HangingGardenColumn<T>[],
     highlightedColumnKey: string,
     itemWidth: number,
-    expandedColumns?: ExpandedColumns
+    expandedColumns?: ExpandedColumns,
   ) => boolean;
   scrollToHighlightedItem: (
     columns: HangingGardenColumn<T>[],
     highlightedItem: T,
     itemWidth: number,
-    expandedColumns?: ExpandedColumns
+    expandedColumns?: ExpandedColumns,
   ) => boolean;
 };
 /**
@@ -33,7 +33,7 @@ const useScrolling = <T extends HangingGardenColumnIndex>(
   container: RefObject<HTMLDivElement> | null,
   itemKeyProp: keyof T,
   padding: number,
-  disableScrollToHighlightedItem?: boolean
+  disableScrollToHighlightedItem?: boolean,
 ): Scroll<T> => {
   const isScrolling = useRef(false);
   const scrollTop = useRef(0);
@@ -52,7 +52,7 @@ const useScrolling = <T extends HangingGardenColumnIndex>(
         isScrolling.current = false;
       });
     },
-    [canvas?.current, isScrolling?.current]
+    [canvas?.current, isScrolling?.current],
   );
 
   const scrollTo = useCallback(
@@ -85,7 +85,7 @@ const useScrolling = <T extends HangingGardenColumnIndex>(
               (itemWidth + padding) / 2 +
               expandedColumnsOffset
           : 0,
-        0
+        0,
       );
 
       scrollLeft.current = container.current.scrollLeft = scrollWindowTo;
@@ -95,7 +95,7 @@ const useScrolling = <T extends HangingGardenColumnIndex>(
 
       return scrollLeft.current !== 0;
     },
-    [container?.current]
+    [container?.current],
   );
 
   const scrollToHighlightedColumn = useCallback(
@@ -103,13 +103,13 @@ const useScrolling = <T extends HangingGardenColumnIndex>(
       columns: HangingGardenColumn<T>[],
       highlightedColumnKey: string,
       itemWidth: number,
-      expandedColumns?: ExpandedColumns
+      expandedColumns?: ExpandedColumns,
     ): boolean => {
       const highlightedColumnIndex = columns.findIndex((column) => column.key === highlightedColumnKey);
 
       return scrollTo(highlightedColumnIndex, itemWidth, expandedColumns);
     },
-    [scrollTo]
+    [scrollTo],
   );
 
   const scrollToHighlightedItem = useCallback(
@@ -117,18 +117,18 @@ const useScrolling = <T extends HangingGardenColumnIndex>(
       columns: HangingGardenColumn<T>[],
       highlightedItem: T | null,
       itemWidth: number,
-      expandedColumns?: ExpandedColumns
+      expandedColumns?: ExpandedColumns,
     ): boolean => {
       if (disableScrollToHighlightedItem || !highlightedItem) return false;
       const highlightedIndex = columns.findIndex((column) =>
         (flattenColumn(column).filter((c) => (c as ColumnGroupHeader)?.type !== 'groupHeader') as T[]).some((item) => {
           return item[itemKeyProp] === highlightedItem[itemKeyProp];
-        })
+        }),
       );
 
       return scrollTo(highlightedIndex, itemWidth, expandedColumns);
     },
-    [scrollTo, itemKeyProp, disableScrollToHighlightedItem]
+    [scrollTo, itemKeyProp, disableScrollToHighlightedItem],
   );
 
   return {

@@ -33,7 +33,7 @@ export const ColumnMenu = <D extends TableData>(props: HeaderProps<D>): JSX.Elem
           <Component {...props}></Component>
         </div>
       )),
-    [menuItems, styles]
+    [menuItems, styles],
   );
 
   return (

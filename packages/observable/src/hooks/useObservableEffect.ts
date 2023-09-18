@@ -20,7 +20,7 @@ import { useLayoutSubscription } from './useSubscription';
 export const useObservableEffect = <S, A extends Action = Action, D = unknown>(
   subject: ReactiveSubject<S, A>,
   effect: SideEffect<A, S> | Array<SideEffect<A, S>>,
-  dependencies?: D
+  dependencies?: D,
 ): void => {
   const effect$ = useMemo(() => {
     const { action$, state$ } = subject;
@@ -32,11 +32,11 @@ export const useObservableEffect = <S, A extends Action = Action, D = unknown>(
           throw new TypeError(
             `useObservableEffect: one of the provided effects "${
               fn.name || '<anonymous>'
-            }" does not return a stream. Double check you're not missing a return statement!`
+            }" does not return a stream. Double check you're not missing a return statement!`,
           );
         }
         return output$;
-      })
+      }),
     );
   }, [subject, effect, dependencies]);
 
@@ -46,9 +46,9 @@ export const useObservableEffect = <S, A extends Action = Action, D = unknown>(
         console.error('Unhandled Exception!', err);
         return caught;
       }),
-      observeOn(asyncScheduler)
+      observeOn(asyncScheduler),
     ),
-    subject
+    subject,
   );
 };
 

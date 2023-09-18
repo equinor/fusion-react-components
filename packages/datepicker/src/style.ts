@@ -79,12 +79,12 @@ export const useStyles = makeStyles(
               '& .react-datepicker__day--selected, .react-datepicker__day--in-range, .react-datepicker__day--in-selecting-range, .react-datepicker__day--range-end':
                 {
                   backgroundColor: `${theme.colors.interactive.primary__selected_highlight.getVariable(
-                    'color'
+                    'color',
                   )} !important`,
                   color: theme.colors.interactive.primary__resting.getVariable('color'),
                   '&:hover': {
                     backgroundColor: `${theme.colors.interactive.primary__selected_hover.getVariable(
-                      'color'
+                      'color',
                     )} !important`,
                   },
                 },
@@ -110,11 +110,11 @@ export const useStyles = makeStyles(
               '& .react-datepicker__month--selected, .react-datepicker__month--selected .react-datepicker__month-text--keyboard-selected, .react-datepicker__month-text--selected':
                 {
                   backgroundColor: `${theme.colors.interactive.primary__selected_highlight.getVariable(
-                    'color'
+                    'color',
                   )} !important`,
                   '&:hover': {
                     backgroundColor: `${theme.colors.interactive.primary__selected_hover.getVariable(
-                      'color'
+                      'color',
                     )} !important`,
                   },
                 },
@@ -170,12 +170,12 @@ export const useStyles = makeStyles(
               '& .react-datepicker__year-text--selected, .react-datepicker__year-text--selected .react-datepicker__year-text--today':
                 {
                   backgroundColor: `${theme.colors.interactive.primary__selected_highlight.getVariable(
-                    'color'
+                    'color',
                   )} !important`,
                   color: theme.colors.interactive.primary__resting.getVariable('color'),
                   '&:hover': {
                     backgroundColor: `${theme.colors.interactive.primary__selected_hover.getVariable(
-                      'color'
+                      'color',
                     )} !important`,
                   },
                 },
@@ -213,7 +213,7 @@ export const useStyles = makeStyles(
             },
             '& .react-datepicker__time-list-item--selected': {
               backgroundColor: `${theme.colors.interactive.primary__selected_highlight.getVariable(
-                'color'
+                'color',
               )} !important`,
               color: `${theme.colors.interactive.primary__resting.getVariable('color')} !important`,
               '&:hover': {
@@ -228,5 +228,5 @@ export const useStyles = makeStyles(
       },
       wrapper: ({ width }: StyleProps) => ({ width }),
     }),
-  { name: 'fusion-datepicker' }
+  { name: 'fusion-datepicker' },
 );

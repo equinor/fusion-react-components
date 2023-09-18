@@ -28,7 +28,7 @@ export const CheckboxFilterOptions = ({ sortFn }: CheckboxFilterOptionsProps): J
       }
       context.setSelection(selection.size ? selection : undefined);
     },
-    [context, selectionRef]
+    [context, selectionRef],
   );
 
   const itemProps = Object.entries(data || {})
@@ -42,7 +42,7 @@ export const CheckboxFilterOptions = ({ sortFn }: CheckboxFilterOptionsProps): J
           count: value.count === value.totalCount ? value.count : `${value.count} / ${value.totalCount}`,
           inactive: !value.count,
           hide: value.hide,
-        } as CheckboxFilterOptionProps)
+        }) as CheckboxFilterOptionProps,
     )
     .sort(sortFn ?? defaultSortFn);
   return (

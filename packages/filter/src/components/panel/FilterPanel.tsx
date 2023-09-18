@@ -33,7 +33,7 @@ const useStyles = makeStyles(
         backgroundColor: theme.colors.ui.background__light.getVariable('color'),
       },
     }),
-  { name: 'fusion-filter-panel' }
+  { name: 'fusion-filter-panel' },
 );
 
 type StyleClasses = {

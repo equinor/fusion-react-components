@@ -37,7 +37,7 @@ const useRenderQueue = (): RenderQueue => {
       });
       processRenderQueue();
     },
-    [renderQueue.current]
+    [renderQueue.current],
   );
 
   const processRenderQueue = React.useCallback(async () => {
@@ -79,7 +79,7 @@ const useRenderQueue = (): RenderQueue => {
 
       renderer.context.container.addChild(new PIXI.Sprite(graphicsContainer));
     },
-    [getTextureFromCache, addTextureToCache, pixiApp, itemWidth]
+    [getTextureFromCache, addTextureToCache, pixiApp, itemWidth],
   );
 
   return { enqueueRenderer, processRenderQueue, processRenderQueueAnimationFrame };

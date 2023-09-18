@@ -29,7 +29,7 @@ const useStyles = makeStyles(
         },
       },
     }),
-  { name: 'fusion-filter-panel-bar' }
+  { name: 'fusion-filter-panel-bar' },
 );
 
 type FilterPanelBarProps<TData> = JSX.IntrinsicElements['div'] & {

@@ -7,6 +7,6 @@ export const mapAction =
   (source: Observable<Action>): Observable<TOut> => {
     return source.pipe(
       filterActionFn(action),
-      map((x) => fn(x as Action<T>))
+      map((x) => fn(x as Action<T>)),
     );
   };

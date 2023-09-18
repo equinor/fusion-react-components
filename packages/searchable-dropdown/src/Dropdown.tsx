@@ -29,7 +29,7 @@ export type DropdownProps = ComponentProps<SearchableDropdownElement, ElementPro
 export const Dropdown = createComponent<SearchableDropdownElement, ElementProps>(
   SearchableDropdownElement,
   'fwc-searchable-dropdown',
-  { events: { onSelect: 'select', onDropdownClosed: 'dropdownClosed' } }
+  { events: { onSelect: 'select', onDropdownClosed: 'dropdownClosed' } },
 );
 
 export default Dropdown;

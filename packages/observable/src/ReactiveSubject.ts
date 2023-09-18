@@ -25,7 +25,7 @@ export class ReactiveSubject<S, A extends Action = Action> extends Observable<S>
       .pipe(
         withLatestFrom(this.__state$),
         map(([action, state]) => reducer(state, action)),
-        distinctUntilChanged()
+        distinctUntilChanged(),
       )
       .subscribe(this.__state$);
   }

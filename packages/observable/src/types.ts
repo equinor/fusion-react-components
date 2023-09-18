@@ -12,5 +12,5 @@ export type ActionType<T extends Action> = T extends Action<infer R> ? R : never
 export type SideEffect<Input extends Action, State = unknown, Dependencies = any, Output extends Action = Input> = (
   action$: Observable<Input>,
   state$: Observable<State>,
-  dependencies?: Dependencies
+  dependencies?: Dependencies,
 ) => Observable<Output>;

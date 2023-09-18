@@ -45,11 +45,11 @@ export type Caches = {
   addTextureToCache: (
     cacheKey: keyof TextureCaches,
     key: string,
-    texture: PIXI.RenderTexture | PIXI.Texture | PIXI.Container | PIXI.Graphics
+    texture: PIXI.RenderTexture | PIXI.Texture | PIXI.Container | PIXI.Graphics,
   ) => void;
   getTextureFromCache: (
     cacheKey: keyof TextureCaches,
-    key: string
+    key: string,
   ) => PIXI.RenderTexture | PIXI.Texture | PIXI.Container | PIXI.Graphics;
 };
 /**
@@ -87,21 +87,21 @@ const useTextureCaches = (): Caches => {
     (
       cacheKey: keyof TextureCaches,
       key: string,
-      texture: PIXI.RenderTexture | PIXI.Texture | PIXI.Container | PIXI.Graphics
+      texture: PIXI.RenderTexture | PIXI.Texture | PIXI.Container | PIXI.Graphics,
     ) => {
       textureCaches.current[cacheKey][key] = texture;
     },
-    [textureCaches]
+    [textureCaches],
   );
 
   const getTextureFromCache = useCallback(
     (
       cacheKey: keyof TextureCaches,
-      key: string
+      key: string,
     ): PIXI.RenderTexture | PIXI.Texture | PIXI.Container | PIXI.Graphics => {
       return textureCaches.current[cacheKey][key];
     },
-    [textureCaches]
+    [textureCaches],
   );
 
   return {

@@ -32,7 +32,7 @@ export type CheckboxFilterProps<TData extends Record<string, any> = Record<strin
  * Component for displaying multi-select filter with checkboxes
  */
 export const CheckboxFilter = <TData extends Record<string, any> = Record<string, any>>(
-  props: CheckboxFilterProps<TData>
+  props: CheckboxFilterProps<TData>,
 ): JSX.Element => {
   const { enableAll, sortFn, ...args } = props;
   const styles = useStyles({ layout: 'column' });

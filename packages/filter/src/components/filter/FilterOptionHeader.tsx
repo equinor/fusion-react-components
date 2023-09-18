@@ -48,7 +48,7 @@ export const useStyles = makeStyles(
         },
       },
     }),
-  { name: 'fusion-filter-header' }
+  { name: 'fusion-filter-header' },
 );
 
 export const FilterOptionHeader = (props: FilterHeaderProps): JSX.Element => {

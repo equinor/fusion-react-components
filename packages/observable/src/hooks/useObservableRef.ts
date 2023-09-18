@@ -9,7 +9,7 @@ export const useObservableRef = <S>(subject: Observable<S>, initial?: S): React.
   const ref = useRef<S | undefined>(initial);
   useLayoutSubscription(
     subject,
-    useCallback((x: any) => (ref.current = x), [])
+    useCallback((x: any) => (ref.current = x), []),
   );
   return ref;
 };

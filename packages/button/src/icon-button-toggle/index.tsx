@@ -28,7 +28,7 @@ type ElementProps = PropsWithChildren<
 
 export const IconButtonToggle = createComponent<HTMLIconButtonToggleCustomElement, ElementProps>(
   HTMLIconButtonToggleCustomElement,
-  iconButtonToggleTag
+  iconButtonToggleTag,
 );
 
 export type IconButtonToggleProps = ComponentProps<HTMLIconButtonToggleCustomElement, ElementProps>;

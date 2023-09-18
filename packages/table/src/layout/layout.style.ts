@@ -39,7 +39,7 @@ export const useStyles = makeStyles(
         },
       },
     }),
-  { name: 'fusion-table-layout' }
+  { name: 'fusion-table-layout' },
 );
 
 export default useStyles;

@@ -9,7 +9,10 @@ type ElementProps = PropsWithChildren<
 >;
 
 export type PersonCardProps = ComponentProps<HTMLPersonCardCustomElement, ElementProps>;
-export const PersonCardComponent = createComponent<HTMLPersonCardCustomElement, ElementProps>(HTMLPersonCardCustomElement, tag);
+export const PersonCardComponent = createComponent<HTMLPersonCardCustomElement, ElementProps>(
+  HTMLPersonCardCustomElement,
+  tag,
+);
 
 export const PersonCard = ({ children, ...props }: PropsWithChildren<PersonCardProps>): JSX.Element => {
   const cardRef = useRef<HTMLPersonCardCustomElement>(null);

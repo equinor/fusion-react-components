@@ -26,7 +26,7 @@ const useStyles = makeStyles(
       background: theme.colors.interactive.warning__text.getVariable('color'),
       borderRadius: '50%',
     },
-  })
+  }),
 );
 
 const StatusComponent: FC<ICellRendererParams> = (props) => {

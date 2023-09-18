@@ -69,7 +69,7 @@ export const useStyles = makeStyles(
         opacity: 0,
       },
     }),
-  { name: 'fusion-header-context-selector' }
+  { name: 'fusion-header-context-selector' },
 );
 
 export default useStyles;

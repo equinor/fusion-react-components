@@ -198,7 +198,7 @@ export const useStyles = makeStyles(
         },
       },
     }),
-  { name: 'fusion-react-stepper' }
+  { name: 'fusion-react-stepper' },
 );
 
 export default useStyles;

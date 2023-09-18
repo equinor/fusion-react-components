@@ -4,7 +4,7 @@ import { createReducer } from 'typesafe-actions';
 import { actions } from './actions';
 
 export const reducer = <D extends TableData>(
-  initial: TableState<D>
+  initial: TableState<D>,
 ): ((state: TableState<D>, action: ActionType) => TableState<D> | undefined) =>
   createReducer<ReducerTableState<D>, ActionType>(initial)
     .handleAction(actions.export.request, (state) => {

@@ -6,7 +6,7 @@ type StepContentProps = {
 
 const StepContent = ({ children, activeStepKey }: PropsWithChildren<StepContentProps>): JSX.Element => {
   const active = Children.toArray(children).find(
-    (child) => (child as ReactElement).props.stepKey === activeStepKey
+    (child) => (child as ReactElement).props.stepKey === activeStepKey,
   ) as ReactElement;
 
   if (!active) {
