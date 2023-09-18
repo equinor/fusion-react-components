@@ -9,6 +9,7 @@ export type ReducerAction<R extends Reducer<unknown, unknown>> = R extends Reduc
 export type Action<T extends string = string> = { type: T };
 export type ActionType<T extends Action> = T extends Action<infer R> ? R : never;
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type SideEffect<Input extends Action, State = unknown, Dependencies = any, Output extends Action = Input> = (
   action$: Observable<Input>,
   state$: Observable<State>,

@@ -81,6 +81,7 @@ export const SideSheet = (props: PropsWithChildren<PortalSideSheet>) => {
     } else if (child.type === Content) {
       components.content = child;
     } else if (child.type === Actions) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       components.actions = React.cloneElement(child as React.ReactElement<any>, {
         sideSheetRef: ref,
       });

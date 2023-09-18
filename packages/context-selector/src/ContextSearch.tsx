@@ -49,6 +49,7 @@ export const ContextSearch = ({
   }, [gettingCtx, sdd]);
 
   const keyUpGettingCtx = useCallback(
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (e: any) => {
       if (e.key === 'Enter' || e.key === ' ') {
         toggleGettingCtx();
@@ -73,6 +74,7 @@ export const ContextSearch = ({
 
   /* Clear context button handler */
   const handleClearContext = useCallback(
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (event: any) => {
       setCtx(defaultInitialItem);
 
