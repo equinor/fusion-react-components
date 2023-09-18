@@ -23,16 +23,8 @@ jobs:
           git config --global user.email "${{ github.actor }}@users.noreply.github.com"
           git fetch --depth=1 origin +refs/tags/*:refs/tags/*
 
-      - name: Setup node
-        uses: actions/setup-node@v2
-        with:
-          node-version: '16'
-
-      - name: Install pnpm
-        run: npm install pnpm -g
-
-      - name: Install Node Dependencies
-        run: pnpm install
+      - name: Setup node and install deps
+        uses: ./.github/workflows/actions/node-setup
 
       - name: Create Release Pull Request or Publish to npm
         id: changesets

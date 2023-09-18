@@ -18,39 +18,14 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Setup node
-        uses: actions/setup-node@v2
-        with:
-          node-version: '16'
+      - name: Setup node and install deps
+        uses: ./.github/workflows/actions/node-setup
 
       - name: Config git user
         run: |
           git config --global user.name "${{ github.actor }}"
           git config --global user.email "${{ github.actor }}@users.noreply.github.com"
           git fetch --depth=1 origin +refs/tags/*:refs/tags/*
-
-      - name: Cache Node Modules
-        id: cache-node
-        uses: actions/cache@v2
-        with:
-          path: node_modules
-          key: ${{ runner.OS }}-build-${{ hashFiles('**/package.json') }}
-
-      - name: Cache pnpm Modules
-        uses: actions/cache@v2
-        with:
-          path: |
-            ~/.pnpm-store
-          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-pnpm-
-
-      - name: Install pnpm
-        run: npm install pnpm -g
-
-      - name: Install Node Dependencies
-        if: steps.cache-node.outputs.cache-hit != 'true'
-        run: pnpm install
 
       - name: Bump versions (pre-release)
         run: |

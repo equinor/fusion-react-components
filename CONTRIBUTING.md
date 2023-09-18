@@ -19,6 +19,8 @@ description
 
 ## Install
 
+We are using pnpm as our package manager. Read more about pnpm [here](https://pnpm.io/motivation)
+
 ```sh
 npm install pnpm -g
 pnpm install

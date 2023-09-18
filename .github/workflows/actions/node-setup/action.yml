@@ -15,6 +15,22 @@ runs:
         node-version: ${{ inputs.node-version }}
         cache: 'pnpm'
 
+    - name: Cache Node Modules
+      id: cache-node
+      uses: actions/cache@v2
+      with:
+        path: node_modules
+        key: ${{ runner.OS }}-build-${{ hashFiles('**/package.json') }}
+
+    - name: Cache pnpm Modules
+      uses: actions/cache@v2
+      with:
+        path: |
+          ~/.pnpm-store
+        key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+        restore-keys: |
+          ${{ runner.os }}-pnpm-
+
     - name: Install Node Dependencies
       shell: bash
       run: pnpm install
