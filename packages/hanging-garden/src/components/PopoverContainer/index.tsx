@@ -18,7 +18,11 @@ const useStyles = makeStyles(() =>
   }),
 );
 
-const PopoverContainer = forwardRef((props: { children: ReactNode }, ref: ForwardedRef<HTMLDivElement>) => {
+const PopoverContainer: React.ForwardRefExoticComponent<
+  {
+    children: ReactNode;
+  } & React.RefAttributes<HTMLDivElement>
+> = forwardRef((props: { children: ReactNode }, ref: ForwardedRef<HTMLDivElement>) => {
   const { children } = props;
   const styles = useStyles();
   return (

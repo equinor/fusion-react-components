@@ -40,7 +40,9 @@ export interface IHangingGardenContext {
   padding: number;
 }
 
-const HangingGardenContext = createContext<IHangingGardenContext>({} as IHangingGardenContext);
+const HangingGardenContext: React.Context<IHangingGardenContext> = createContext<IHangingGardenContext>(
+  {} as IHangingGardenContext,
+);
 
 export const useHangingGardenContext = (): IHangingGardenContext =>
   useContext<IHangingGardenContext>(HangingGardenContext);
