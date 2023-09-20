@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-stepper",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Component for displaying and using stepps in stepper",
   "keywords": [
     "stepper",
@@ -36,6 +36,6 @@
   },
   "dependencies": {
     "@equinor/eds-core-react": "^0.32.4",
-    "@equinor/fusion-react-styles": "^0.5.9"
+    "@equinor/fusion-react-styles": "^0.5.10"
   }
 }

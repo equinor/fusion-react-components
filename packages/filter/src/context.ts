@@ -8,6 +8,6 @@ export const useFilterContext = <
   TData extends Record<string, any> = Record<string, any>,
 >(): FilterContext<TSelection, TData> => useContext(context) as FilterContext<TSelection, TData>;
 
-export const { Provider, Consumer } = context;
+export const { Provider, Consumer } = context as { Provider: any; Consumer: any };
 
 export default useFilterContext;

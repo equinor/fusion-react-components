@@ -13,7 +13,7 @@ export type FilterPanelProviderContext = {
 };
 
 const context = createContext<FilterPanelProviderContext | null>(null);
-const { Provider, Consumer } = context;
+const { Provider, Consumer } = context as { Provider: any; Consumer: any };
 
 export { Consumer as FilterPanelConsumer };
 

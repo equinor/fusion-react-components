@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-breadcrumb",
-  "version": "0.1.12",
+  "version": "0.1.13",
   "description": "React component for displaying a breadcrumb",
   "keywords": [
     "breadcrumb",
@@ -34,7 +34,7 @@
     "url": "https://github.com/equinor/fusion-react-components/issues"
   },
   "dependencies": {
-    "@equinor/fusion-react-skeleton": "^0.2.13",
-    "@equinor/fusion-react-styles": "^0.5.9"
+    "@equinor/fusion-react-skeleton": "^0.2.14",
+    "@equinor/fusion-react-styles": "^0.5.10"
   }
 }

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.0.2 (2023-09-18)
+
+
+### Bug Fixes
+
+* **react-components:** lint errors ([28031ec](https://github.com/equinor/fusion-react-components/commit/28031ecf22b3e405a8a3c797b7e6351bd8547f9d))
+
+
+
+
+
 ## [1.0.1](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-side-sheet@1.0.0...@equinor/fusion-react-side-sheet@1.0.1) (2023-07-25)
 
 

@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.14.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@2.13.0...@equinor/fusion-react-components-stories@2.14.0) (2023-09-18)
+
+
+### Features
+
+* **storybook:** person details type ([9ae651d](https://github.com/equinor/fusion-react-components/commit/9ae651dedc86d255fcffb21457828074aed64cb6))
+* **storybook:** show story url ([854ba34](https://github.com/equinor/fusion-react-components/commit/854ba344eb38c01f23e2af892618b3d3afdd8eef))
+
+
+
+
+
 # [2.13.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@2.12.0...@equinor/fusion-react-components-stories@2.13.0) (2023-09-07)
 
 

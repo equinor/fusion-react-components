@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.1.10 (2023-09-18)
+
+
+### Bug Fixes
+
+* **react-components:** lint warnings ([959adb4](https://github.com/equinor/fusion-react-components/commit/959adb4f470016f3873733ad60a9317023d3b5a1))
+
+
+
+
+
 ## [1.1.9](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-tooltip@1.1.8...@equinor/fusion-react-tooltip@1.1.9) (2023-08-15)
 
 **Note:** Version bump only for package @equinor/fusion-react-tooltip

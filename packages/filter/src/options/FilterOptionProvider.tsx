@@ -24,7 +24,9 @@ export type FilterComponentProviderProps<TData, TOption extends FilterOption, TV
   initial?: Set<TValue>;
 };
 
-export const FilterOptionProvider = <TData extends Record<string, any>, TOption extends FilterOption, TValue>(
+export const FilterOptionProvider: <TData extends Record<string, any>, TOption extends FilterOption, TValue>(
+  props: React.PropsWithChildren<FilterComponentProviderProps<TData, TOption, TValue>>,
+) => JSX.Element = <TData extends Record<string, any>, TOption extends FilterOption, TValue>(
   props: React.PropsWithChildren<FilterComponentProviderProps<TData, TOption, TValue>>,
 ): JSX.Element => {
   /** append change method if not provided */
