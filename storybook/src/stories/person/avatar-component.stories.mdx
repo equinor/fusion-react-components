@@ -60,7 +60,7 @@ You can create your own [`<PersonProvider>`](?path=/docs/data-person-provider--p
 
 Name                      | Type                            | Description
 ------------------------- | -----------------------------   | -----------
-`resolve`                 | `PersonResolver`               | Person resolver for a provider.
+`personResolver`                 | `PersonResolver`               | Person resolver for a provider.
 
 ### Methods for PersonAvatar
 
@@ -71,7 +71,19 @@ Name                          | Return Type                     | Description
 
 \*\* `AvatarData` is exported type.
 ```ts
-type AvatarData = RequiredAndOptionalPick<PersonDetails, 'name' | 'pictureSrc', 'accountType'>
+type AvatarData = Pick<PersonInfo, 'name' | 'accountType'>;
+
+type PersonInfo = {
+    azureId: string;
+    name?: string;
+    jobTitle?: string;
+    department?: string;
+    mail?: string;
+    mobilePhone?: string;
+    accountType?: PersonAccountType;
+    officeLocation?: string;
+    managerAzureUniqueId?: string;
+};
 ```
 
 ## Changelog
