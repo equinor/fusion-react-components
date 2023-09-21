@@ -1,4 +1,4 @@
-import { makeStyles, createStyles, FusionTheme } from '@equinor/fusion-react-styles';
+import { makeStyles, createStyles, FusionTheme, ClassNameMap } from '@equinor/fusion-react-styles';
 
 type popoverStyleProps = {
   width?: string;
@@ -7,7 +7,7 @@ type popoverStyleProps = {
   color?: string;
 };
 
-export const useStyles = makeStyles<FusionTheme, popoverStyleProps>(
+export const useStyles: (props: popoverStyleProps) => ClassNameMap = makeStyles<FusionTheme, popoverStyleProps>(
   (theme) =>
     createStyles({
       baseElement: {
