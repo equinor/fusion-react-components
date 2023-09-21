@@ -3,7 +3,8 @@ import { createElement } from 'react';
 import { useStyle, useStyles } from './style';
 import { TypographyPropertiesType, TypographyType } from './types';
 
-export const Typography = <
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const Typography: any = <
   K extends keyof TypographyType,
   T extends keyof TypographyPropertiesType<K>,
   C extends keyof JSX.IntrinsicElements = 'div',

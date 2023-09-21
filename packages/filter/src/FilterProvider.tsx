@@ -26,39 +26,39 @@ export const FilterProvider: <
 ) => JSX.Element = <TSelections extends Record<string, any>, TData extends Record<string, any> = Record<string, any>>(
   props: React.PropsWithChildren<FilterProviderProps<TSelections, TData>>,
 ): JSX.Element => {
-    const {
-      data,
-      initialSelection = {} as TSelections,
-      initialFilters = {} as Record<string, Filter<TData, unknown>>,
-      children,
-    } = props;
-    const source$ = useObservable(createDataReducer(data), data);
-    const selection$ = useObservable(createSelectionReducer(initialSelection), initialSelection);
-    const filter$ = useObservable(createFilterReducer({}), initialFilters);
+  const {
+    data,
+    initialSelection = {} as TSelections,
+    initialFilters = {} as Record<string, Filter<TData, unknown>>,
+    children,
+  } = props;
+  const source$ = useObservable(createDataReducer(data), data);
+  const selection$ = useObservable(createSelectionReducer(initialSelection), initialSelection);
+  const filter$ = useObservable(createFilterReducer({}), initialFilters);
 
-    const filterData$ = useMemo(() => filterData(source$, filter$, selection$), [source$, filter$, selection$]);
+  const filterData$ = useMemo(() => filterData(source$, filter$, selection$), [source$, filter$, selection$]);
 
-    const [data$] = useState(new BehaviorSubject<TData[]>(data));
+  const [data$] = useState(new BehaviorSubject<TData[]>(data));
 
-    useSubscription(filterData$, data$);
+  useSubscription(filterData$, data$);
 
-    const context = useMemo(
-      () =>
-        ({
-          source$,
-          filter$,
-          selection$,
-          data$,
-          /** type issues, might fix later */
-        }) as unknown as FilterContext,
-      [source$, filter$, selection$, data$],
-    );
+  const context = useMemo(
+    () =>
+      ({
+        source$,
+        filter$,
+        selection$,
+        data$,
+        /** type issues, might fix later */
+      }) as unknown as FilterContext,
+    [source$, filter$, selection$, data$],
+  );
 
-    useLayoutEffect(() => {
-      source$.next(actions.source.update(data));
-    }, [source$, data]);
+  useLayoutEffect(() => {
+    source$.next(actions.source.update(data));
+  }, [source$, data]);
 
-    return <Provider value={context}>{children}</Provider>;
-  };
+  return <Provider value={context}>{children}</Provider>;
+};
 
 export default FilterProvider;

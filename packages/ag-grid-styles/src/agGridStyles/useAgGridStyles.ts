@@ -1,4 +1,4 @@
-import { makeStyles, createStyles } from '@equinor/fusion-react-styles';
+import { makeStyles, createStyles, ClassNameMap } from '@equinor/fusion-react-styles';
 import styles from './styles.jss.json';
 
 type agGridProps = {
@@ -24,6 +24,6 @@ export const useStyles = makeStyles(
       }),
     }),
   { name: 'fusion-ag-grid-styles' },
-);
+) as () => ClassNameMap;
 
 export default useStyles;
