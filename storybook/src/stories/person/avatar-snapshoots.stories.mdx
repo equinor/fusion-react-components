@@ -1,11 +1,11 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs';
 import { PersonProvider, PersonAvatar, PersonAccountType } from '@equinor/fusion-react-person';
-import { createResolve } from './PersonResolve';
+import { createResolve } from './resolve-mock/PersonResolve';
 
 <Meta title="Snapshots/Person/PersonAvatar" parameters={{ chromatic: { disableSnapshot: false } }} />
 
 export const Container = ({ title, children }) => (
-  <PersonProvider resolve={createResolve()}>
+  <PersonProvider personResolver={createResolve}>
     <section>
       <h3>{title}</h3>
       <div style={{ display: 'flex', gap: '10px' }}>{children}</div>
@@ -47,8 +47,7 @@ export const Container = ({ title, children }) => (
 
 <Story name="Custom data"> 
     <Container title="With datasource">
-      <PersonAvatar dataSource={{
-         pictureSrc: 'https://i.imgur.com/Qq8jj5I.png',
+      <PersonAvatar azureId='9876-5432-1098' dataSource={{
          name: 'Rick Sanchez',
          accountType: PersonAccountType.Consultant,
      }} />

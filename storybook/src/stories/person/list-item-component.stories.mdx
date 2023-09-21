@@ -63,7 +63,7 @@ You can create your own [`<PersonProvider>`](?path=/docs/data-person-provider--p
 
 Name                      | Type                            | Description
 ------------------------- | -----------------------------   | -----------
-`resolve`                 | `PersonResolver`               | Person resolver for a provider. 
+`personResolver`                 | `PersonResolver`               | Person resolver for a provider. 
 
 ### Methods for PersonListItem
 
@@ -75,7 +75,19 @@ Name                      | Type                            | Description
 
 \* `ListItemData` is exported type.
 ```ts
-type ListItemData = RequiredAndOptionalPick<PersonDetails, 'name' | 'accountType', 'department' | 'pictureSrc'>;
+type ListItemData = PersonInfo;
+
+type PersonInfo = {
+    azureId: string;
+    name?: string;
+    jobTitle?: string;
+    department?: string;
+    mail?: string;
+    mobilePhone?: string;
+    accountType?: PersonAccountType;
+    officeLocation?: string;
+    managerAzureUniqueId?: string;
+};
 ```
 
 ## Changelog

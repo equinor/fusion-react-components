@@ -16,101 +16,81 @@ In order to create a custom provider you need to have a **resolver**.
 
 Name                      | Type                            | Description
 ------------------------- | -----------------------------   | -----------
-`resolve`                 | `PersonResolver*`               | Person resolver for a provider. See [`person-provider`](https://github.com/equinor/fusion-react-components/blob/main/packages/person/src/PersonProvider.tsx) 
+`personResolver`          | `PersonResolver*`               | Person resolver for a provider. See [`person-provider`](https://github.com/equinor/fusion-react-components/blob/main/packages/person/src/PersonProvider.tsx) 
 
 ## Example Usage
 
+When creating custom provider with resolver, PersonResolver methods are optional.
+
 ```tsx
-import { PersonProvider, PersonAvatar } from '@equinor/fusion-react-person';
+import { PersonDetails, PersonResolver, PersonInfo, PersonSearchResult } from "@equinor/fusion-react-person";
 
   // create resolver for provider
-  const useResolver = () => {
-      return {
-          // you need to provide all the data
-          getImageByAzureId: async (azureId) => {
-            return await Promise.resolve({
-              azureId,
-              name,
-              pictureSrc,
-              accountType,
-            }) as AvatarData;
-          },
-          getImageByUpn: async (upn) => {
-            return await Promise.resolve({
-              name,
-              pictureSrc,
-              accountType,
-            }) as AvatarData;
-          },
-          // ...and add the rest
-          getCardDetailsByAzureId,
-          getCardDetailsByUpn,
-          getListItemDetailsByAzureId,
-          getListItemDetailsByUpn,
-      };
-  }
+  const createResolve: PersonResolver = {
+    getDetails: async (args) => await Promise.resolve(getUsers(args) as PersonDetails),
+    getInfo: async (args) => await Promise.resolve(getUsers(args) as PersonInfo),
+    getPhoto: async (args) => await Promise.resolve((getUsers(args) as PersonPicture).pictureSrc),
+    search: async (args) => await Promise.resolve(getUsers(args) as PersonSearchResult),
+  };
 
   // use resolver for a provider with person components, example. PersonAvatar
-  <PersonProvider resolve={useResolver()}> 
-    <PersonAvatar {...props}>
+  <PersonProvider personResolver={createResolve}> 
+    <PersonAvatar azureId {...props}>
   </PersonProvider>
 
 ```
 
 ## PersonResolver
 
-\*  `PersonResolver` is exported by `fwc-person-provider`.
+\*  `PersonResolver` is exported by `PersonProvider`.
 ```ts
+type ResolverResult<T = unknown> = T | Promise<T>;
+
 interface PersonResolver {
-    getImageByAzureId: (azureId: string) => Promise<AvatarData> | AvatarData;
-    getImageByUpn: (upn: string) => Promise<AvatarData> | AvatarData;
-    getCardDetailsByAzureId: (azureId: string) => Promise<CardData> | CardData;
-    getCardDetailsByUpn: (upn: string) => Promise<CardData> | CardData;
-    getListItemDetailsByAzureId: (azureId: string) => Promise<ListItemData> | ListItemData;
-    getListItemDetailsByUpn: (upn: string) => Promise<ListItemData> | ListItemData;
+    getDetails?: (args: ResolverArgs<AzureIdOrUpnObj>) => ResolverResult<PersonDetails>;
+    getInfo?: (args: ResolverArgs<AzureIdOrUpnObj>) => ResolverResult<PersonInfo>;
+    getPhoto?: (args: ResolverArgs<AzureIdOrUpnObj>) => ResolverResult<string>;
+    search?: (args: ResolverArgs<{
+        search: string;
+    }>) => ResolverResult<PersonSearchResult>;
 }
 ```
 
 ### AvatarData
 `AvatarData` is exported type used by [person avatar](?path=/docs/data-person-avatar--page).
 ```ts
-type AvatarData = RequiredAndOptionalPick<PersonDetails, 'name' | 'pictureSrc', 'accountType'>
+type AvatarData = Pick<PersonInfo, 'name' | 'accountType'>;
 ```
 
 ### CardData
 `CardData` is exported type used by [person card](?path=/docs/data-person-card--page).
 ```ts
-type CardData = RequiredAndOptionalPick<
-  PersonDetails,
-  'name' | 'pictureSrc', 'department' | 'jobTitle' | 'accountType' | 'mail' | 'mobilePhone' | 'positions' | 'manager'
->
+type CardData = PersonDetails;
 ```
 
 ### ListItemData
 `ListItemData` is exported type used by [person list item](?path=/docs/data-person-list-item--page).
 ```ts
-type ListItemData = RequiredAndOptionalPick<PersonDetails, 'name' | 'accountType', 'department' | 'pictureSrc'>;
+type ListItemData = PersonInfo;
 ```
-
-`PersonDetails` is exported by `fwc-person-provider`.
+### PersonInfo and PersonDetails
 ```ts
-type PersonDetails = {
+type PersonInfo = {
     azureId: string;
     name?: string;
-    pictureSrc?: string;
     jobTitle?: string;
     department?: string;
     mail?: string;
-    companies?: Company[];
     mobilePhone?: string;
     accountType?: PersonAccountType;
     officeLocation?: string;
-}
+    managerAzureUniqueId?: string;
+};
 
-type Company = {
-    id: string;
-    name: string;
-}
+type PersonDetails = PersonInfo & {
+    positions?: Position[];
+    manager?: Manager;
+};
 
 type Position = {
     id: string;

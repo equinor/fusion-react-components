@@ -66,7 +66,7 @@ You can create your own [`<PersonProvider>`](?path=/docs/data-person-provider--p
 
 Name                      | Type                            | Description
 ------------------------- | -----------------------------   | -----------
-`resolve`                 | `PersonResolver`               | Person resolver for a provider. 
+`personResolver`                 | `PersonResolver`               | Person resolver for a provider. 
 
 ### Methods for PersonCard
 
@@ -77,11 +77,41 @@ Name                                    | Return Type                     | Desc
 
 \*\* `CardData` is exported type.
 ```ts
-type CardData = RequiredAndOptionalPick<
-  PersonDetails,
-  'name' | 'pictureSrc',
-  'department' | 'jobTitle' | 'accountType' | 'mail' | 'mobilePhone' | 'positions' | 'manager'
->
+type CardData = PersonDetails;
+
+type PersonDetails = PersonInfo & {
+    positions?: Position[];
+    manager?: Manager;
+};
+
+type PersonInfo = {
+    azureId: string;
+    name?: string;
+    jobTitle?: string;
+    department?: string;
+    mail?: string;
+    mobilePhone?: string;
+    accountType?: PersonAccountType;
+    officeLocation?: string;
+    managerAzureUniqueId?: string;
+};
+
+type Position = {
+    id: string;
+    name: string;
+    project: {
+        id: string;
+        name: string;
+    };
+};
+
+type Manager = {
+    azureUniqueId: string;
+    name?: string;
+    pictureSrc?: string;
+    department?: string;
+    accountType?: PersonAccountType;
+};
 ```
 
 ## Changelog
