@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.5.11 (2023-09-21)
+
+
+### Bug Fixes
+
+* **react-components:** type fixes ([e475c31](https://github.com/equinor/fusion-react-components/commit/e475c315b9cdad01bd568be39e63b1aa8f309761))
+
+
+
+
+
 ## 0.5.10 (2023-09-18)
 
 
