@@ -7,7 +7,10 @@
     "card",
     "react",
     "fusion",
-    "equinor"
+    "equinor",
+    "search",
+    "people",
+    "personnel"
   ],
   "homepage": "https://github.com/equinor/fusion-react-components/edit/feat/person-card/packages/person#readme",
   "license": "ISC",
@@ -37,7 +40,8 @@
     "url": "https://github.com/equinor/fusion-react-components/issues"
   },
   "dependencies": {
+    "@equinor/fusion-wc-person": "^1.2.1",
     "@equinor/fusion-react-button": "^0.8.3",
-    "@equinor/fusion-wc-person": "^1.0.0-next.13"
+    "@equinor/fusion-react-utils": "^2.0.5"
   }
 }

@@ -17,6 +17,7 @@ npm install @equinor/fusion-react-person
 - [PersonAvatar](https://equinor.github.io/fusion-react-components/?path=/docs/data-person-avatar--page) - This component displays a person's image with an account type border and provides detailed information on hover.
 - [PersonCard](https://equinor.github.io/fusion-react-components/?path=/docs/data-person-card--page) - Use this component to display comprehensive information about a person,including their department, positions, tasks, and current manager
 - [PersonAvatar](https://equinor.github.io/fusion-react-components/?path=/docs/data-person-list-item--page) - This component showcases basic information about a person, with the option to add additional buttons.
+- [PersonSelect](https://equinor.github.io/fusion-react-components/?path=/docs/data-person-select--page)
 
 ## Provider
 - [PersonProvider](https://equinor.github.io/fusion-react-components/?path=/docs/data-person-provider--page) - PersonProvider is a component that allows you to create a custom resolver for all person components.
