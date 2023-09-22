@@ -1,6 +1,6 @@
 import { PropsWithChildren, useEffect, useRef } from 'react';
 import { ComponentProps, createComponent } from '@equinor/fusion-react-utils';
-import HTMLPersonSelectCustomElement, { tag, PersonSelectElementProps } from '@equinor/fusion-wc-person/select';
+import HTMLPersonSelectCustomElement, { tag } from '@equinor/fusion-wc-person/select';
 import extractProps from './extract-props';
 
 export type ElementProps = PropsWithChildren<
