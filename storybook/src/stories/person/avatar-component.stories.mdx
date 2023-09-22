@@ -60,14 +60,14 @@ You can create your own [`<PersonProvider>`](?path=/docs/data-person-provider--p
 
 Name                      | Type                            | Description
 ------------------------- | -----------------------------   | -----------
-`personResolver`                 | `PersonResolver`               | Person resolver for a provider.
+`personResolver`          | `PersonResolver`                | Person resolver for a provider.
 
 ### Methods for PersonAvatar
 
-Name                          | Return Type                     | Description
------------------------------ | -----------------------------   | -----------------------------
-`getImageByAzureId(azureId)`  | `AvatarData**`                  | Returns `AvatarData` for unique AuzureId.
-`getImageByUpn(upn)`          | `AvatarData**`                  | Returns `AvatarData` for unique email address.
+Name                                     | Return Type                     | Description
+| -------------------------------------- | -----------------------------   | -----------------------------
+`getInfo()`                              | `PersonInfo`                    | Returns `PersonInfo` of person.
+`getPhoto()`                             | `PersonPicture***`              | Returns `PersonPicture` of person.
 
 \*\* `AvatarData` is exported type.
 ```ts
@@ -84,6 +84,11 @@ type PersonInfo = {
     officeLocation?: string;
     managerAzureUniqueId?: string;
 };
+```
+
+\*\*\* `PersonPicture` is exported type.
+```ts
+type PersonPicture = PersonDetails & { pictureSrc: string };
 ```
 
 ## Changelog

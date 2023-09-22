@@ -66,19 +66,27 @@ You can create your own [`<PersonProvider>`](?path=/docs/data-person-provider--p
 
 Name                      | Type                            | Description
 ------------------------- | -----------------------------   | -----------
-`personResolver`                 | `PersonResolver`               | Person resolver for a provider. 
+`personResolver`          | `PersonResolver`                | Person resolver for a provider. 
 
 ### Methods for PersonCard
 
 Name                                    | Return Type                     | Description
 --------------------------------------  | -----------------------------   | -----------------------------
-`getCardDetailsByAzureId(azureId)`      | `CardData**`                    | Returns `CardData` for unique AuzureId.
-`getCardDetailsByUpn(upn)`              | `CardData**`                    | Returns `CardData` for unique email address.
+`getDetails()`                          | `PersonDetails***`              | Returns `PersonDetails` of person.
+`getPhoto()`                            | `PersonPicture****`             | Returns `PersonPicture` of person.
 
 \*\* `CardData` is exported type.
 ```ts
 type CardData = PersonDetails;
 
+type PersonDetails = PersonInfo & {
+    positions?: Position[];
+    manager?: Manager;
+};
+```
+
+\*\*\* `PersonDetails` is exported type.
+```ts
 type PersonDetails = PersonInfo & {
     positions?: Position[];
     manager?: Manager;
@@ -112,6 +120,11 @@ type Manager = {
     department?: string;
     accountType?: PersonAccountType;
 };
+```
+
+\*\*\*\* `PersonPicture` is exported type.
+```ts
+type PersonPicture = PersonDetails & { pictureSrc: string };
 ```
 
 ## Changelog
