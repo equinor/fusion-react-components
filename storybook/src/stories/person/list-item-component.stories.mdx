@@ -63,14 +63,14 @@ You can create your own [`<PersonProvider>`](?path=/docs/data-person-provider--p
 
 Name                      | Type                            | Description
 ------------------------- | -----------------------------   | -----------
-`personResolver`                 | `PersonResolver`               | Person resolver for a provider. 
+`personResolver`          | `PersonResolver`                | Person resolver for a provider. 
 
 ### Methods for PersonListItem
 
 | Name                                   | Return Type                     | Description
 | -------------------------------------- | -----------------------------   | -----------------------------
-| `getListItemDetailsByAzureId(azureId)` | `ListItemData*`                | Returns `ListItemData` for unique AuzureId.
-| `getListItemDetailsByUpn(upn)`         | `ListItemData*`                | Returns `ListItemData` for unique AuzureId.
+`getInfo()`                              | `PersonInfo`                    | Returns `PersonInfo` of person.
+`getPhoto()`                             | `PersonPicture**`                | Returns `PersonPicture` of person.
 
 
 \* `ListItemData` is exported type.
@@ -88,6 +88,11 @@ type PersonInfo = {
     officeLocation?: string;
     managerAzureUniqueId?: string;
 };
+```
+
+\*\* `PersonPicture` is exported type.
+```ts
+type PersonPicture = PersonDetails & { pictureSrc: string };
 ```
 
 ## Changelog
