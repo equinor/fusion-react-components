@@ -13,6 +13,16 @@ export default {
         type: { summary: 'string' },
       },
     },
+    upn: {
+      description: 'Unique person email address',
+      type: { name: 'string', required: false },
+      table: {
+        type: { summary: 'string' },
+      },
+    },
+    dataSource: {
+      description: 'Custom data for card',
+    },
     size: {
       description: 'Size of avatar',
       control: 'radio',
