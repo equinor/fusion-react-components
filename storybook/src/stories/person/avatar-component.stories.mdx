@@ -12,20 +12,31 @@ import { PersonCard, PersonAvatar } from '@equinor/fusion-react-person/src';
 
 In order for component to work, `azureId`, `upn` or `dataSource` is **required**.
 
+The **`azureId`** serves as a ***distinctive identification number*** unique to each individual within **Equinor's system**. 
+
+The **`upn`** stands as a ***unique email address*** assigned to every personnel at Equinor.
+
+The data of every individual is accessible via the ***Fusion People API***
+
 Name                      | Type                            | Default                         | Description
 ------------------------- | -----------------------------   | -----------------------------   | -----------
 `azureId`                 | `string`                        | `/`                             | Unique Azure ID for every person.
 `upn`                     | `string`                        | `/`                             | Unique person email address.
 `dataSource`              | `AvatarData**`                  | `/`                             | Custom data for avatar.
-`size`                    | `AvatarSize*`                   | `medium`                        | Size of the avatar. See [`fusion-wc-avatar`](https://github.com/equinor/fusion-web-components/tree/main/packages/avatar).
+`size`                    | `AvatarSize*`                   | `medium`                        | Size of the avatar.
 `clickable`               | `boolean`                       | `false`                         | Set to true to activate visual ripple effects to indicate that the avatar is clickable.
 `showFloatingOn`          | `"click" or "hover"`            | `/`                             | Show person card on click or hover over the avatar.
 `disabled`                | `boolean`                       | `false`                         | Set to true to display the avatar as disabled. 
 
 ---
-\*  `AvatarSize` is exported by `fwc-avatar`.
+\*  `AvatarSize` is exported enum.
 ```ts
-type AvatarSize = 'small' | 'medium' | 'large';
+export declare enum AvatarSize {
+    XSmall = "x-small",
+    Small = "small",
+    Medium = "medium",
+    Large = "large"
+}
 ```
 
 ## Example Usage
