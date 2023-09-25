@@ -1,10 +1,5 @@
 import { Meta, Story } from '@storybook/react';
-import {
-  PersonProvider,
-  PersonAccountType,
-  PersonSelect,
-  PersonSelectProps,
-} from '@equinor/fusion-react-person/src';
+import { Provider, PersonAccountType, PersonSelect, PersonSelectProps } from '@equinor/fusion-react-person/src';
 import { createResolve } from './resolve-mock/PersonResolve';
 
 export default {
@@ -27,35 +22,33 @@ export default {
       type: 'string',
       description: 'The type of Searchabledropdown to render, multiple variants for header or page usage',
       control: 'select',
-      options: [
-        'page', 'page-outlined', 'page-dense', 'header', 'header-filled'
-      ]
+      options: ['page', 'page-outlined', 'page-dense', 'header', 'header-filled'],
     },
     dropdownHeight: {
-      description: 'The scroll height for dropdown result list'
+      description: 'The scroll height for dropdown result list',
     },
     label: {
-      description: 'Textinput label'
+      description: 'Textinput label',
     },
     value: {
-      description: 'The selected value do display in TextInput'
+      description: 'The selected value do display in TextInput',
     },
     meta: {
-      description: 'A fwc-icon name to show AFTER each list item. may also be set per result item.'
+      description: 'A fwc-icon name to show AFTER each list item. may also be set per result item.',
     },
     graphic: {
-      description: 'A fwc-icon name to show BEFORE each list item. may also be set per result item.'
+      description: 'A fwc-icon name to show BEFORE each list item. may also be set per result item.',
     },
     autofocus: {
       type: 'boolean',
       description: 'Flag for setting focus on textInput on component mount',
     },
     multiple: {
-      description: 'Flag for selecting multiple items.'
+      description: 'Flag for selecting multiple items.',
     },
     disabled: {
       type: 'boolean',
-      description: 'Disable text input'
+      description: 'Disable text input',
     },
     selectedId: {
       type: 'string',
@@ -63,7 +56,7 @@ export default {
     },
     leadingIcon: {
       description: 'Leading Icon to display in text input',
-    }
+    },
   },
 } as Meta;
 
@@ -71,17 +64,17 @@ export type CardProps = PersonSelectProps & {
   accountType: PersonAccountType;
 };
 
-export const Component: Story<CardProps> = ({ accountType, ...props }: CardProps) => (
-  <PersonProvider personResolver={createResolve}>
+export const Component: Story<CardProps> = (props: CardProps) => (
+  <Provider resolve={createResolve}>
     <div style={{ maxWidth: '420px', height: '350px', margin: '3em auto' }}>
       <PersonSelect {...props} />
     </div>
-  </PersonProvider>
+  </Provider>
 );
 Component.args = {
   placeholder: 'Start to type to search...',
   initialText: 'The initial text result',
-  variant: "page-outlined",
+  variant: 'page-outlined',
   dropdownHeight: '300px',
   leadingIcon: 'search',
 };

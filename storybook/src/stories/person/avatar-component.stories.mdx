@@ -50,19 +50,19 @@ import { PersonAvatar } from '@equinor/fusion-react-person';
 
 <StoryExample storyId="examples-person-person-avatar--component" showSource />
 
-## Person Provider
+## Provider
 
-In order to use PersonAvatar component you need to have [**PersonProvider**](?path=/docs/data-person-provider--page) wrapper.
+In order to use PersonAvatar component you need to have [**Provider**](?path=/docs/data-person-provider--page) wrapper.
 
-You can create your own [`<PersonProvider>`](?path=/docs/data-person-provider--page) if it's not already implemented, like in [fusion-framework](https://github.com/equinor/fusion-framework)
+You can create your own [`<Provider>`](?path=/docs/data-person-provider--page) if it's not already implemented, like in [fusion-framework](https://github.com/equinor/fusion-framework)
 
 ### Properties/Attributes
 
 Name                      | Type                            | Description
 ------------------------- | -----------------------------   | -----------
-`personResolver`          | `PersonResolver`                | Person resolver for a provider.
+`resolve`                 | `PersonResolver`                | Person resolver for a provider.
 
-### Methods for PersonAvatar
+### Methods in provider for PersonAvatar
 
 Name                                     | Return Type                     | Description
 | -------------------------------------- | -----------------------------   | -----------------------------

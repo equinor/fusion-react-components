@@ -2,9 +2,9 @@ import { PropsWithChildren, useEffect, useRef } from 'react';
 import { PersonProviderElement, PersonResolver } from '@equinor/fusion-wc-person';
 
 /** Person porvider properties for the resolver */
-export type PersonProviderProps = {
+export type ProviderProps = {
   /** Person resolver interface that contains getPresence and getDetails functions */
-  personResolver: PersonResolver;
+  resolve: PersonResolver;
 };
 
 /**
@@ -13,17 +13,17 @@ export type PersonProviderProps = {
  * @returns wrapped fusion web-components person provider with its reference around children
  */
 
-export const PersonProvider = (props: PropsWithChildren<PersonProviderProps>) => {
-  const { personResolver, children } = props;
+export const Provider = (props: PropsWithChildren<ProviderProps>) => {
+  const { resolve, children } = props;
   const providerRef = useRef<PersonProviderElement>(null);
 
   useEffect(() => {
     if (providerRef.current) {
-      providerRef.current.resolver = personResolver;
+      providerRef.current.resolver = resolve;
     }
-  }, [providerRef, personResolver]);
+  }, [providerRef, resolve]);
 
   return <fwc-person-provider ref={providerRef}>{children}</fwc-person-provider>;
 };
 
-export default PersonProvider;
+export default Provider;

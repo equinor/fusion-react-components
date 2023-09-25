@@ -38,7 +38,7 @@ Name                      | Type                        | Default          | Des
 ```tsx
 import { PersonSelect } from '@equinor/fusion-react-person';
 
-<PersonCard placeholder="Start to type to search..."
+<PersonSelect placeholder="Start to type to search..."
       initialText="The initial text result"
       variant="header"
       dropdownHeight="300px"
@@ -49,19 +49,19 @@ import { PersonSelect } from '@equinor/fusion-react-person';
 
 <StoryExample storyId="examples-person-person-select--component" showSource />
 
-## Person Provider
+## Provider
 
-In order to use PersonCard component you need to have [**PersonProvider**](?path=/docs/data-person-provider--page) wrapper.
+In order to use PersonSelect component you need to have [**Provider**](?path=/docs/data-person-provider--page) wrapper.
 
-You can create your own [`<PersonProvider>`](?path=/docs/data-person-provider--page) if it's not already implemented, like in [fusion-framework](https://github.com/equinor/fusion-framework)
+You can create your own [`<Provider>`](?path=/docs/data-person-provider--page) if it's not already implemented, like in [fusion-framework](https://github.com/equinor/fusion-framework)
 
 ### Properties/Attributes
 
 Name                      | Type                            | Description
 ------------------------- | -----------------------------   | -----------
-`personResolver`                 | `PersonResolver`               | Person resolver for a provider. 
+`resolve`                 | `PersonResolver`                | Person resolver for a provider. 
 
-### Methods for PersonSelect
+### Methods in provider for PersonSelect
 
 Name                                    | Return Type                     | Description
 --------------------------------------  | -----------------------------   | -----------------------------

@@ -20,6 +20,6 @@ npm install @equinor/fusion-react-person
 - [PersonSelect](https://equinor.github.io/fusion-react-components/?path=/docs/data-person-select--page)
 
 ## Provider
-- [PersonProvider](https://equinor.github.io/fusion-react-components/?path=/docs/data-person-provider--page) - PersonProvider is a component that allows you to create a custom resolver for all person components.
+- [Provider](https://equinor.github.io/fusion-react-components/?path=/docs/data-person-provider--page) - Provider is a component that allows you to create a custom resolver for all person components.
 
 <!--prettier-ignore-end-->

@@ -1,14 +1,14 @@
 import { Meta, Story, Canvas, ArgsTable, Description } from '@storybook/addon-docs';
 import { ChangeLog, PackageInfo, StoryExample } from '../../components';
-import { PersonCard, PersonProvider } from '@equinor/fusion-react-person/src';
+import { PersonCard, Provider } from '@equinor/fusion-react-person/src';
 
-<Meta title="Data/Person/Provider" component={PersonProvider} />
+<Meta title="Data/Person/Provider" component={Provider} />
 
 <PackageInfo pkg={require('@equinor/fusion-react-person/package.json')} />
 
-# PersonProvider
+# Provider
 
-**PersonProvider** is a component that allows you to create a ***custom resolver for all person components***.
+**Provider** is a component that allows you to create a ***custom resolver for all person components***.
 
 In order to create a custom provider you need to have a **resolver**.
 
@@ -16,7 +16,7 @@ In order to create a custom provider you need to have a **resolver**.
 
 Name                      | Type                            | Description
 ------------------------- | -----------------------------   | -----------
-`personResolver`          | `PersonResolver*`               | Person resolver for a provider. See [`person-provider`](https://github.com/equinor/fusion-react-components/blob/main/packages/person/src/PersonProvider.tsx) 
+`resolve`                 | `PersonResolver*`               | Person resolver for a provider. See [`provider`](https://github.com/equinor/fusion-react-components/blob/main/packages/person/src/Provider.tsx) 
 
 ## Example Usage
 
@@ -34,15 +34,15 @@ import { PersonDetails, PersonResolver, PersonInfo, PersonSearchResult } from "@
   };
 
   // use resolver for a provider with person components, example. PersonAvatar
-  <PersonProvider personResolver={createResolve}> 
+  <Provider resolve={createResolve}> 
     <PersonAvatar azureId {...props}>
-  </PersonProvider>
+  </Provider>
 
 ```
 
 ## PersonResolver
 
-\*  `PersonResolver` is exported by `PersonProvider`.
+\*  `PersonResolver` is exported by `Provider`.
 ```ts
 type ResolverResult<T = unknown> = T | Promise<T>;
 
