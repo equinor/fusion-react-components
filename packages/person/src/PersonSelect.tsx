@@ -4,7 +4,24 @@ import HTMLPersonSelectCustomElement, { tag } from '@equinor/fusion-wc-person/se
 import extractProps from './extract-props';
 
 export type ElementProps = PropsWithChildren<
-  Partial<Pick<HTMLPersonSelectCustomElement, "autofocus" | "disabled" | "dropdownHeight" | "graphic" | "initialText" | "label" | "leadingIcon" | "meta" | "multiple" | "placeholder" | "selectedId" | "value" | "variant">>
+  Partial<
+    Pick<
+      HTMLPersonSelectCustomElement,
+      | 'autofocus'
+      | 'disabled'
+      | 'dropdownHeight'
+      | 'graphic'
+      | 'initialText'
+      | 'label'
+      | 'leadingIcon'
+      | 'meta'
+      | 'multiple'
+      | 'placeholder'
+      | 'selectedId'
+      | 'value'
+      | 'variant'
+    >
+  >
 >;
 
 export type PersonSelectProps = ComponentProps<HTMLPersonSelectCustomElement, ElementProps>;
