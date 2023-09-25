@@ -10,6 +10,14 @@ import { PersonListItem } from '@equinor/fusion-react-person/src';
 
 ## Properties/Attributes
 
+In order for component to work, `azureId`, `upn` or `dataSource` is **required**.
+
+The **`azureId`** serves as a ***distinctive identification number*** unique to each individual within **Equinor's system**. 
+
+The **`upn`** stands as a ***unique email address*** assigned to every personnel at Equinor.
+
+The data of every individual is accessible via the ***Fusion People API***
+
 Name                      | Type                            | Default                         | Description
 ------------------------- | -----------------------------   | -----------------------------   | -----------
 `azureId`                 | `string`                        | `/`                             | Unique Azure ID for every person `required`
