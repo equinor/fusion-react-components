@@ -1,12 +1,5 @@
 import { Meta, Story } from '@storybook/react';
-import {
-  PersonProvider,
-  PersonAvailability,
-  PersonAccountType,
-  PersonListItem,
-  PersonListItemProps,
-  ListItemData,
-} from '@equinor/fusion-react-person/src';
+import { Provider, PersonAccountType, PersonListItem, PersonListItemProps } from '@equinor/fusion-react-person/src';
 import { IconButton } from '@equinor/fusion-react-button';
 import { createResolve } from './resolve-mock/PersonResolve';
 
@@ -53,10 +46,10 @@ export type ListItemProps = PersonListItemProps & {
   accountType: PersonAccountType;
 };
 
-export const Component: Story<ListItemProps> = ({ accountType, ...props }: ListItemProps) => (
-  <PersonProvider personResolver={createResolve}>
+export const Component: Story<ListItemProps> = (props: ListItemProps) => (
+  <Provider resolve={createResolve}>
     <PersonListItem {...props} />
-  </PersonProvider>
+  </Provider>
 );
 Component.args = {
   azureId: '1234',
@@ -65,15 +58,15 @@ Component.args = {
 };
 
 export const Clickable: Story<ListItemProps> = () => (
-  <PersonProvider personResolver={createResolve}>
+  <Provider resolve={createResolve}>
     <div style={{ display: 'flex', flexDirection: 'column', rowGap: 30 }}>
       <PersonListItem clickable azureId="1234" />
     </div>
-  </PersonProvider>
+  </Provider>
 );
 
 export const Toolbar: Story<ListItemProps> = () => (
-  <PersonProvider personResolver={createResolve}>
+  <Provider resolve={createResolve}>
     <div style={{ display: 'flex', flexDirection: 'column', rowGap: 30 }}>
       <PersonListItem azureId="1234">
         <IconButton color="primary" icon="account_circle" rounded size="small" />
@@ -81,11 +74,13 @@ export const Toolbar: Story<ListItemProps> = () => (
         <IconButton color="success" icon="whats_app" rounded size="small" />
       </PersonListItem>
     </div>
-  </PersonProvider>
+  </Provider>
 );
 
-export const Size: Story<{ sizes: Array<ListItemProps['size']> }> = (props: { sizes: Array<ListItemProps['size']> }) => (
-  <PersonProvider personResolver={createResolve}>
+export const Size: Story<{ sizes: Array<ListItemProps['size']> }> = (props: {
+  sizes: Array<ListItemProps['size']>;
+}) => (
+  <Provider resolve={createResolve}>
     <div style={{ display: 'flex', flexDirection: 'column', rowGap: 30 }}>
       {props.sizes.map((size) => (
         <div key={size}>
@@ -93,23 +88,26 @@ export const Size: Story<{ sizes: Array<ListItemProps['size']> }> = (props: { si
         </div>
       ))}
     </div>
-  </PersonProvider>
+  </Provider>
 );
 Size.args = { sizes: ['small', 'medium', 'large'] };
 
 export const DataSource: Story<ListItemProps> = () => (
-  <PersonProvider personResolver={createResolve}>
+  <Provider resolve={createResolve}>
     <div style={{ display: 'flex', flexDirection: 'column', rowGap: 30 }}>
-      <PersonListItem azureId='9876-5432-1098' dataSource={{
-        azureId: '9876-5432-1098',
-        name: 'Rick Sanchez (C-132)',
-        accountType: PersonAccountType.ExternalHire,
-        jobTitle: 'Scientist',
-        mail: 'rick.sanchez@email.com',
-        mobilePhone: '+47 123456789',
-      }}>
+      <PersonListItem
+        azureId="9876-5432-1098"
+        dataSource={{
+          azureId: '9876-5432-1098',
+          name: 'Rick Sanchez (C-132)',
+          accountType: PersonAccountType.ExternalHire,
+          jobTitle: 'Scientist',
+          mail: 'rick.sanchez@email.com',
+          mobilePhone: '+47 123456789',
+        }}
+      >
         <IconButton color="primary" icon="account_circle" rounded size="small" />
       </PersonListItem>
     </div>
-  </PersonProvider>
+  </Provider>
 );
