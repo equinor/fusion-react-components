@@ -9,27 +9,15 @@ runs:
   steps:
 
     - uses: pnpm/action-setup@v2
+      name: Install pnpm
+        with:
+          version: 8
+          run_install: false
 
     - uses: actions/setup-node@v3
       with:
         node-version: ${{ inputs.node-version }}
         cache: 'pnpm'
-
-    - name: Cache Node Modules
-      id: cache-node
-      uses: actions/cache@v2
-      with:
-        path: node_modules
-        key: ${{ runner.OS }}-build-${{ hashFiles('**/package.json') }}
-
-    - name: Cache pnpm Modules
-      uses: actions/cache@v2
-      with:
-        path: |
-          ~/.pnpm-store
-        key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
-        restore-keys: |
-          ${{ runner.os }}-pnpm-
 
     - name: Install Node Dependencies
       shell: bash

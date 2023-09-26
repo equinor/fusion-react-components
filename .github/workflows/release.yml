@@ -7,33 +7,48 @@ on:
       - main
     paths:
       - 'packages/**'
+      - '.changeset/*.md'
 
 jobs:
   release-pkg:
     name: Create release
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    outputs:
+      published: ${{ steps.changesets.outputs.published }}
+      hasChangesets: ${{ steps.changesets.outputs.hasChangesets }}
     steps:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
 
+      - name: Setup node and install deps
+        uses: ./.github/workflows/actions/node-setup
+
       - name: Config git user
         run: |
           git config --global user.name "${{ github.actor }}"
           git config --global user.email "${{ github.actor }}@users.noreply.github.com"
-          git fetch --depth=1 origin +refs/tags/*:refs/tags/*
-
-      - name: Setup node and install deps
-        uses: ./.github/workflows/actions/node-setup
+          pnpm config set '//registry.npmjs.org/:_authToken' "${NPM_AUTH_TOKEN}"
+        env:
+          NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
       - name: Create Release Pull Request or Publish to npm
         id: changesets
         uses: changesets/action@v1
         with:
-          title: Fusion React Components Release
+          title: '🤖 Bip Bop - Fusion React Components Release'
+          commit: 'chore: version packages'
           createGithubReleases: true
           setupGitUser: false
-          version: yarn changeset:version
-          publish: yarn changeset:release
+          publish: pnpm changeset:publish
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ github.token }}
+          NPM_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+
+  documentation:
+    name: Update documentation
+    needs: release-pkg
+    if: needs.release-pkg.outputs.published == 'true'
+    uses: ./.github/workflows/generate-docs.yml
+    secrets: inherit

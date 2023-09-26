@@ -12,7 +12,6 @@ jobs:
     name: Publish to PR
     runs-on: ubuntu-latest
     steps:
-
       - name: Checkout project
         uses: actions/checkout@v2
         with:
@@ -25,27 +24,9 @@ jobs:
         run: |
           git config --global user.name "${{ github.actor }}"
           git config --global user.email "${{ github.actor }}@users.noreply.github.com"
-          git fetch --depth=1 origin +refs/tags/*:refs/tags/*
 
-      - name: Bump versions (pre-release)
-        run: |
-          pnpm changeset pre enter next
-          pnpm changeset version
-        env:
-          GH_TOKEN: ${{ github.token }}
-
-      - name: Commit changes
-        continue-on-error: true
-        run: |
-            git add packages/*/package.json storybook/package.json 
-            git commit -m'chore(prerelease): enter prerelease mode and version packages with tag ${{ github.event.inputs.tag }}'
-            git push
-        env:
-          GH_TOKEN: ${{ github.token }}
-
-      - name: Publish versions (pre-release)
-        run: |
-          pnpm changeset publish
-          git push --follow-tags
-        env:
-          GH_TOKEN: ${{ github.token }}
+      - name: Create snapshot
+        uses: ./.github/workflows/actions/changeset-snapshot
+        with:
+          tag: ${{ inputs.tag }}
+          npm-token: ${{ secrets.NPM_AUTH_TOKEN }}
