@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.33](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-hanging-garden@1.6.32...@equinor/fusion-react-hanging-garden@1.6.33) (2023-09-21)
+
+
+### Bug Fixes
+
+* **react-components:** lint fixes ([ef85499](https://github.com/equinor/fusion-react-components/commit/ef85499903c09bb57c8b99e66af2b3125f2e0569))
+
+
+
+
+
 ## [1.6.32](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-hanging-garden@1.6.31...@equinor/fusion-react-hanging-garden@1.6.32) (2023-09-20)
 
 

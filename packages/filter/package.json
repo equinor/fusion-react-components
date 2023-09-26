@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-filter",
-  "version": "1.4.16",
+  "version": "1.4.17",
   "description": "component for Filtering data",
   "author": "",
   "homepage": "https://github.com/equinor/fusion-react-components/tree/master/packages/filter#readme",
@@ -47,7 +47,7 @@
     "@equinor/fusion-react-icon": "^0.2.16",
     "@equinor/fusion-react-observable": "^1.1.9",
     "@equinor/fusion-react-radio": "^0.4.15",
-    "@equinor/fusion-react-styles": "^0.5.10",
+    "@equinor/fusion-react-styles": "^0.5.11",
     "@equinor/fusion-react-textinput": "^0.6.16",
     "@equinor/fusion-react-utils": "^2.0.5"
   }
