@@ -1,7 +1,7 @@
 import { Meta, Story } from '@storybook/react';
 import { Provider, PersonAccountType, PersonListItem, PersonListItemProps } from '@equinor/fusion-react-person/src';
 import { IconButton } from '@equinor/fusion-react-button';
-import { createResolve } from './resolve-mock/PersonResolve';
+import { createResolve } from './resolve-mock/person-resolve-mock';
 
 export default {
   title: 'Examples/Person/Person List Item',

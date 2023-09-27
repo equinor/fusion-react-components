@@ -1,6 +1,6 @@
 import { Meta, Story } from '@storybook/react';
 import { Provider, PersonAccountType, PersonCard, PersonCardProps } from '@equinor/fusion-react-person/src';
-import { createResolve } from './resolve-mock/PersonResolve';
+import { createResolve } from './resolve-mock/person-resolve-mock';
 
 export default {
   title: 'Examples/Person/Person Card',
