@@ -1,7 +1,7 @@
 import { Meta, Story } from '@storybook/react';
 import { Provider, PersonAvatar, AvatarSize, PersonAccountType } from '@equinor/fusion-react-person/src';
 import type { PersonAvatarProps } from '@equinor/fusion-react-person/src';
-import { createResolve } from './resolve-mock/PersonResolve';
+import { createResolve } from './resolve-mock/person-resolve-mock';
 
 export default {
   title: 'Examples/Person/Person Avatar',
