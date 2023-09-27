@@ -37,7 +37,6 @@ import { PersonDetails, PersonResolver, PersonInfo, PersonSearchResult } from "@
   <Provider resolve={createResolve}> 
     <PersonAvatar azureId {...props}>
   </Provider>
-
 ```
 
 ## PersonResolver
@@ -54,6 +53,35 @@ interface PersonResolver {
         search: string;
     }>) => ResolverResult<PersonSearchResult>;
 }
+```
+
+### Custom search
+
+You have the flexibility to create your own ***custom search filter*** when using a custom provider.
+
+```jsx
+// filter search result
+const getSearchedUsers = (args: { search: string }) => {
+  if (args.search !== undefined) {
+    const { search } = args;
+    return users.filter(
+      (user) =>
+        user.name.toLocaleLowerCase().indexOf(search) > -1 ||
+        user.mail.toLocaleLowerCase().indexOf(search) > -1,
+    ) as PersonSearchResult;
+  }
+};
+
+// create custom resolver
+export const createCustomResolve: PersonResolver = {
+  search: (args) => Promise.resolve(getSearchedUsers(args) as PersonSearchResult),
+};
+
+// override provider
+<Provider resolve={createCustomResolve}> 
+  <PersonSelect {...props}>
+</Provider>
+
 ```
 
 ### AvatarData
