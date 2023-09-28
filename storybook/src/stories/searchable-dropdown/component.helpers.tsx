@@ -2,7 +2,9 @@ import {
   SearchableDropdownResultItem,
   SearchableDropdownResult,
   SearchableDropdownResolver,
+  IconType,
 } from '@equinor/fusion-react-searchable-dropdown';
+import { eqOneIcon, orgIcon, reviewIcon } from './component.icons';
 
 /* generates a single SearchableDropdownResult item with required propterties  */
 const singleItem = (props: Partial<SearchableDropdownResultItem>): SearchableDropdownResultItem => {
@@ -15,6 +17,7 @@ const singleItem = (props: Partial<SearchableDropdownResultItem>): SearchableDro
  * Query string min length to start "http request" is 3 chars.
  * uses singleItem() to create a single result with errors or other information
  */
+
 const allItems = [
   {
     id: 'section-001',
@@ -24,8 +27,9 @@ const allItems = [
       {
         id: '8aa0d62f-21d4-4933-a1e1-823a8de7c13c',
         title: 'Johan prod',
-        subTitle: 'An App from Fusion',
-        graphic: 'settings',
+        subTitle: 'An App from Fusion 2211',
+        graphic: eqOneIcon,
+        graphicType: IconType.SVG,
       },
       {
         id: '8aa0d62f-21d4-4933-a1e1-823a8de7c13d',
@@ -130,8 +134,18 @@ export const _exampleResolver: SearchableDropdownResolver = {
       title: 'Initial Items',
       type: 'section',
       children: [
-        singleItem({ id: '456', title: 'Initial Item 1', graphic: 'list' }),
-        singleItem({ id: '654', title: 'Initial Item 2', graphic: 'list' }),
+        singleItem({
+          id: '456',
+          title: 'Initial Item 1',
+          graphic: orgIcon,
+          graphicType: IconType.SVG,
+        }),
+        singleItem({
+          id: '654',
+          title: 'Initial Item 2',
+          graphicType: IconType.SVG,
+          graphic: reviewIcon,
+        }),
         singleItem({ id: '789', title: 'Initial Item 3', graphic: 'list' }),
         singleItem({ id: '321', title: 'Initial Item 4', graphic: 'list' }),
       ],
