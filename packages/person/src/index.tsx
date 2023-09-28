@@ -3,7 +3,7 @@ export { PersonAvatar } from './PersonAvatar';
 export { PersonCard } from './PersonCard';
 export { PersonListItem } from './PersonListItem';
 export { PersonSelect } from './PersonSelect';
-export { Provider } from './Provider';
+export { PersonProvider } from './PersonProvider';
 // export enum
 export { AvatarSize } from './PersonAvatar';
 export { PersonAvailability, PersonAccountType } from '@equinor/fusion-wc-person';

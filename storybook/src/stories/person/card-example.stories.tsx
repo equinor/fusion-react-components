@@ -1,5 +1,5 @@
 import { Meta, Story } from '@storybook/react';
-import { Provider, PersonAccountType, PersonCard, PersonCardProps } from '@equinor/fusion-react-person/src';
+import { PersonProvider, PersonAccountType, PersonCard, PersonCardProps } from '@equinor/fusion-react-person/src';
 import { createResolve } from './resolve-mock/person-resolve-mock';
 
 export default {
@@ -66,9 +66,9 @@ export type CardProps = PersonCardProps & {
 };
 
 export const Component: Story<CardProps> = (props: CardProps) => (
-  <Provider resolve={createResolve}>
+  <PersonProvider resolve={createResolve}>
     <PersonCard {...props} />
-  </Provider>
+  </PersonProvider>
 );
 Component.args = {
   azureId: '49132c24-6ea4-41fe-8221-112f314573f0',
@@ -77,7 +77,7 @@ Component.args = {
 };
 
 export const Size: Story<{ sizes: Array<CardProps['size']> }> = (props: { sizes: Array<CardProps['size']> }) => (
-  <Provider resolve={createResolve}>
+  <PersonProvider resolve={createResolve}>
     <div style={{ display: 'flex', flexDirection: 'row', columnGap: 30 }}>
       {props.sizes.map((size) => (
         <div key={size}>
@@ -85,12 +85,12 @@ export const Size: Story<{ sizes: Array<CardProps['size']> }> = (props: { sizes:
         </div>
       ))}
     </div>
-  </Provider>
+  </PersonProvider>
 );
 Size.args = { sizes: ['small', 'medium', 'large'] };
 
 export const DataSource: Story<CardProps> = (props: CardProps) => (
-  <Provider resolve={createResolve}>
+  <PersonProvider resolve={createResolve}>
     <PersonCard
       {...props}
       azureId="9876-5432-1098"
@@ -121,7 +121,7 @@ export const DataSource: Story<CardProps> = (props: CardProps) => (
         ],
       }}
     />
-  </Provider>
+  </PersonProvider>
 );
 DataSource.args = {
   size: 'medium',
