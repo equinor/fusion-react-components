@@ -1,12 +1,7 @@
 import { Meta, Story } from '@storybook/react';
-import {
-  PersonProvider,
-  PersonAvatar,
-  AvatarSize,
-  PersonAccountType,
-} from '@equinor/fusion-react-person/src';
+import { PersonProvider, PersonAvatar, AvatarSize, PersonAccountType } from '@equinor/fusion-react-person/src';
 import type { PersonAvatarProps } from '@equinor/fusion-react-person/src';
-import { createResolve } from './PersonResolve';
+import { createResolve } from './resolve-mock/person-resolve-mock';
 
 export default {
   title: 'Examples/Person/Person Avatar',
@@ -48,7 +43,7 @@ export default {
     showFloatingOn: {
       description: 'Employment type of the person',
       control: 'radio',
-      options: ["click", "hover"],
+      options: ['click', 'hover'],
       table: {
         type: { summary: '"click","hover"' },
       },
@@ -75,8 +70,8 @@ export type AvatarProps = PersonAvatarProps & {
   accountType: PersonAccountType;
 };
 
-export const Component: Story<AvatarProps> = ({ accountType, ...props }: AvatarProps) => (
-  <PersonProvider resolve={createResolve(accountType)}>
+export const Component: Story<AvatarProps> = (props: AvatarProps) => (
+  <PersonProvider resolve={createResolve}>
     <PersonAvatar {...props} />
   </PersonProvider>
 );
@@ -89,22 +84,22 @@ Component.args = {
 };
 
 export const DataSource: Story<AvatarProps> = (props: AvatarProps) => (
-  <PersonProvider resolve={createResolve(PersonAccountType.External)}>
+  <PersonProvider resolve={createResolve}>
     <PersonAvatar
       {...props}
+      azureId="9876-5432-1098"
       dataSource={{
-        pictureSrc: 'https://prod-images.tcm.com/Master-Profile-Images/BurtReynolds.jpg',
-        name: 'Tux Penguin',
+        name: 'Rick Sanchez (C-137)',
       }}
     />
   </PersonProvider>
 );
 
 export const Size: Story<{ sizes: Array<AvatarProps['size']> }> = (props: { sizes: Array<AvatarProps['size']> }) => (
-  <PersonProvider resolve={createResolve(PersonAccountType.Employee)}>
+  <PersonProvider resolve={createResolve}>
     <div style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
       {props.sizes.map((size) => (
-        <PersonAvatar key={size} size={size} upn="mail@mail.com" />
+        <PersonAvatar key={size} size={size} azureId="1234" />
       ))}
     </div>
   </PersonProvider>
@@ -112,7 +107,7 @@ export const Size: Story<{ sizes: Array<AvatarProps['size']> }> = (props: { size
 Size.args = { sizes: [AvatarSize.Large, AvatarSize.Medium, AvatarSize.Small, AvatarSize.XSmall] };
 
 export const Clickable: Story<AvatarProps> = (props: AvatarProps) => (
-  <PersonProvider resolve={createResolve(PersonAccountType.Employee,)}>
+  <PersonProvider resolve={createResolve}>
     <PersonAvatar {...props} />
   </PersonProvider>
 );
@@ -122,29 +117,29 @@ Clickable.args = {
 };
 
 export const CardOnHover: Story<AvatarProps> = (props: AvatarProps) => (
-  <PersonProvider resolve={createResolve("External")}>
+  <PersonProvider resolve={createResolve}>
     <PersonAvatar {...props} />
   </PersonProvider>
 );
 CardOnHover.args = {
   azureId: '1234',
   clickable: true,
-  showFloatingOn: "hover"
+  showFloatingOn: 'hover',
 };
 
 export const CardOnClick: Story<AvatarProps> = (props: AvatarProps) => (
-  <PersonProvider resolve={createResolve(PersonAccountType.External)}>
+  <PersonProvider resolve={createResolve}>
     <PersonAvatar {...props} />
   </PersonProvider>
 );
 CardOnClick.args = {
   azureId: '1234',
   clickable: true,
-  showFloatingOn: "click"
+  showFloatingOn: 'click',
 };
 
 export const Disabled: Story<AvatarProps> = (props: AvatarProps) => (
-  <PersonProvider resolve={createResolve(PersonAccountType.External)}>
+  <PersonProvider resolve={createResolve}>
     <div>
       <PersonAvatar {...props} />
     </div>

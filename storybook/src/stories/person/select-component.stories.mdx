@@ -1,0 +1,114 @@
+import { Meta, Story, Canvas, ArgsTable, Description } from '@storybook/addon-docs';
+import { ChangeLog, PackageInfo, StoryExample } from '../../components';
+import PersonSelect from '@equinor/fusion-react-person/src';
+
+<Meta title="Data/Person/Select" component={PersonSelect} />
+
+<PackageInfo pkg={require('@equinor/fusion-react-person/package.json')} />
+
+# PersonSelect
+
+## Properties/Attributes
+
+Name                      | Type                        | Default          | Description
+------------------------- | -------------------------   | --------------   | -----------
+`placeholder`             | `string`                    | `/`              | TextInput placeholder string
+`initialText`             | `string`                    | `/`              | First item in dropdown before any search is done
+`variant`                 | `variants*`                 | `page`           | The type of Searchabledropdown to render, multiple variants for header or page usage
+`dropdownHeight`          | `string`                    | `/`              | The scroll height for dropdown result list
+`leadingIcon`             | `string`                    | `/`              | Leading Icon to display in text input
+`autofocus`               | `boolean`                   | `false`          | Flag for setting focus on textInput on component mount
+`disabled`                | `boolean`                   | `false`          | Disable text input
+`graphic`                 | `string`                    | `/`              | A fwc-icon name to show BEFORE each list item. may also be set per result item.
+`label`                   | `string`                    | `/`              | Text input label
+`meta`                    | `string`                    | `/`              | A fwc-icon name to show AFTER each list item. may also be set per result item.
+`multiple`                | `string`                    | `/`              | Flag for selecting multiple items.
+`selectedId`              | `string`                    | `/`              | The pre-selected id to higlight
+`value`                   | `string`                    | `/`              | The selected value do display in TextInput
+`id`                      | `string`                    | `/`              | HTML ID for component
+
+---
+\*  available `variants` are:
+```ts
+'page' | 'page-outlined' | 'page-dense' | 'header' | 'header-filled';
+```
+
+## Example Usage
+
+```tsx
+import { PersonSelect } from '@equinor/fusion-react-person';
+
+<PersonSelect placeholder="Start to type to search..."
+      initialText="The initial text result"
+      variant="header"
+      dropdownHeight="300px"
+      leadingIcon="search" />
+```
+
+## Example
+
+<StoryExample storyId="examples-person-person-select--component" showSource />
+
+## PersonProvider
+
+In order to use PersonSelect component you need to have [**PersonProvider**](?path=/docs/data-person-provider--page) wrapper.
+
+You can create your own [`<PersonProvider>`](?path=/docs/data-person-provider--page) if it's not already implemented, like in [fusion-framework](https://github.com/equinor/fusion-framework)
+
+### Properties/Attributes
+
+Name                      | Type                            | Description
+------------------------- | -----------------------------   | -----------
+`resolve`                 | `PersonResolver`                | Person resolver for a provider. 
+
+### Methods in provider for PersonSelect
+
+Name                                    | Return Type                     | Description
+--------------------------------------  | -----------------------------   | -----------------------------
+`search()`                              | `PersonSearchResult**`          | Returns `PersonSearchResult` for unique search.
+
+Read on how to create your own ***custom search filter*** in [PersonProvider - Custom search](?path=/docs/data-person-provider--page#custom-search)
+
+---
+
+\*\* `PersonSearchResult` is exported type.
+```ts
+type PersonSearchResult = Array<PersonInfo>;
+
+type PersonInfo = {
+    azureId: string;
+    name?: string;
+    jobTitle?: string;
+    department?: string;
+    mail?: string;
+    mobilePhone?: string;
+    accountType?: PersonAccountType;
+    officeLocation?: string;
+    managerAzureUniqueId?: string;
+};
+
+type Position = {
+    id: string;
+    name: string;
+    project: {
+        id: string;
+        name: string;
+    };
+};
+
+type Manager = {
+    azureUniqueId: string;
+    name?: string;
+    pictureSrc?: string;
+    department?: string;
+    accountType?: PersonAccountType;
+};
+```
+
+## Changelog
+
+<ChangeLog
+  changelogs={{
+    react: require('@equinor/fusion-react-person/CHANGELOG.md'),
+  }}
+/>

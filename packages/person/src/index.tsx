@@ -1,7 +1,22 @@
-export * from './PersonAvatar';
-export * from './PersonCard';
-export * from './PersonProvider';
-export * from './PersonListItem';
-export type { PersonResolver } from '@equinor/fusion-wc-person/provider';
+// export components
+export { PersonAvatar } from './PersonAvatar';
+export { PersonCard } from './PersonCard';
+export { PersonListItem } from './PersonListItem';
+export { PersonSelect } from './PersonSelect';
+export { PersonProvider } from './PersonProvider';
+// export enum
+export { AvatarSize } from './PersonAvatar';
 export { PersonAvailability, PersonAccountType } from '@equinor/fusion-wc-person';
-export type { PersonDetails, PersonPresence, PersonPicture } from '@equinor/fusion-wc-person';
+// export types
+export type { AvatarData, PersonAvatarProps } from './PersonAvatar';
+export type { CardData, PersonItemSize, PersonCardProps } from './PersonCard';
+export type { ListItemData, PersonListItemProps } from './PersonListItem';
+export type { PersonSelectProps } from './PersonSelect';
+export type { PersonResolver } from '@equinor/fusion-wc-person/provider';
+export type {
+  PersonDetails,
+  PersonPresence,
+  PersonPicture,
+  PersonInfo,
+  PersonSearchResult,
+} from '@equinor/fusion-wc-person';

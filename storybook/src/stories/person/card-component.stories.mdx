@@ -12,6 +12,12 @@ import { PersonCard, PersonAvatar } from '@equinor/fusion-react-person/src';
 
 In order for component to work, `azureId`, `upn` or `dataSource` is **required**.
 
+The **`azureId`** serves as a ***distinctive identification number*** unique to each individual within **Equinor's system**. 
+
+The **`upn`** stands as a ***unique email address*** assigned to every personnel at Equinor.
+
+The data of every individual is accessible via the ***Fusion People API***
+
 Name                      | Type                            | Default                         | Description
 ------------------------- | -----------------------------   | -----------------------------   | -----------
 `azureId`                 | `string`                        | `/`                             | Unique Azure ID for every person `required`
@@ -56,7 +62,7 @@ import { PersonCard } from '@equinor/fusion-react-person';
 
 <StoryExample storyId="examples-person-person-card--component" showSource />
 
-## Person Provider
+## PersonProvider
 
 In order to use PersonCard component you need to have [**PersonProvider**](?path=/docs/data-person-provider--page) wrapper.
 
@@ -66,22 +72,65 @@ You can create your own [`<PersonProvider>`](?path=/docs/data-person-provider--p
 
 Name                      | Type                            | Description
 ------------------------- | -----------------------------   | -----------
-`resolve`                 | `PersonResolver`               | Person resolver for a provider. 
+`resolve`                 | `PersonResolver`                | Person resolver for a provider. 
 
-### Methods for PersonCard
+### Methods in provider for PersonCard
 
 Name                                    | Return Type                     | Description
 --------------------------------------  | -----------------------------   | -----------------------------
-`getCardDetailsByAzureId(azureId)`      | `CardData**`                    | Returns `CardData` for unique AuzureId.
-`getCardDetailsByUpn(upn)`              | `CardData**`                    | Returns `CardData` for unique email address.
+`getDetails()`                          | `PersonDetails***`              | Returns `PersonDetails` of person.
+`getPhoto()`                            | `PersonPicture****`             | Returns `PersonPicture` of person.
 
 \*\* `CardData` is exported type.
 ```ts
-type CardData = RequiredAndOptionalPick<
-  PersonDetails,
-  'name' | 'pictureSrc',
-  'department' | 'jobTitle' | 'accountType' | 'mail' | 'mobilePhone' | 'positions' | 'manager'
->
+type CardData = PersonDetails;
+
+type PersonDetails = PersonInfo & {
+    positions?: Position[];
+    manager?: Manager;
+};
+```
+
+\*\*\* `PersonDetails` is exported type.
+```ts
+type PersonDetails = PersonInfo & {
+    positions?: Position[];
+    manager?: Manager;
+};
+
+type PersonInfo = {
+    azureId: string;
+    name?: string;
+    jobTitle?: string;
+    department?: string;
+    mail?: string;
+    mobilePhone?: string;
+    accountType?: PersonAccountType;
+    officeLocation?: string;
+    managerAzureUniqueId?: string;
+};
+
+type Position = {
+    id: string;
+    name: string;
+    project: {
+        id: string;
+        name: string;
+    };
+};
+
+type Manager = {
+    azureUniqueId: string;
+    name?: string;
+    pictureSrc?: string;
+    department?: string;
+    accountType?: PersonAccountType;
+};
+```
+
+\*\*\*\* `PersonPicture` is exported type.
+```ts
+type PersonPicture = PersonDetails & { pictureSrc: string };
 ```
 
 ## Changelog

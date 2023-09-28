@@ -19,11 +19,7 @@ export const PersonProvider = (props: PropsWithChildren<PersonProviderProps>) =>
 
   useEffect(() => {
     if (providerRef.current) {
-      providerRef.current.setResolver(resolve);
-
-      return () => {
-        providerRef.current?.removeResolver();
-      };
+      providerRef.current.resolver = resolve;
     }
   }, [providerRef, resolve]);
 

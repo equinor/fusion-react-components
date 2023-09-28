@@ -1,12 +1,6 @@
 import { Meta, Story } from '@storybook/react';
-import {
-  PersonProvider,
-  PersonAccountType,
-  PersonCard,
-  PersonCardProps,
-  CardData,
-} from '@equinor/fusion-react-person/src';
-import { createResolve } from './PersonResolve';
+import { PersonProvider, PersonAccountType, PersonCard, PersonCardProps } from '@equinor/fusion-react-person/src';
+import { createResolve } from './resolve-mock/person-resolve-mock';
 
 export default {
   title: 'Examples/Person/Person Card',
@@ -18,6 +12,16 @@ export default {
       table: {
         type: { summary: 'string' },
       },
+    },
+    upn: {
+      description: 'Unique person email address',
+      type: { name: 'string', required: false },
+      table: {
+        type: { summary: 'string' },
+      },
+    },
+    dataSource: {
+      description: 'Custom data for card',
     },
     size: {
       description: 'Size of avatar',
@@ -61,23 +65,23 @@ export type CardProps = PersonCardProps & {
   accountType: PersonAccountType;
 };
 
-export const Component: Story<CardProps> = ({ accountType, ...props }: CardProps) => (
-  <PersonProvider resolve={createResolve(accountType)}>
+export const Component: Story<CardProps> = (props: CardProps) => (
+  <PersonProvider resolve={createResolve}>
     <PersonCard {...props} />
   </PersonProvider>
 );
 Component.args = {
-  azureId: '1234-5678',
+  azureId: '49132c24-6ea4-41fe-8221-112f314573f0',
   size: 'medium',
   accountType: PersonAccountType.Employee,
 };
 
 export const Size: Story<{ sizes: Array<CardProps['size']> }> = (props: { sizes: Array<CardProps['size']> }) => (
-  <PersonProvider resolve={createResolve(PersonAccountType.Employee)}>
+  <PersonProvider resolve={createResolve}>
     <div style={{ display: 'flex', flexDirection: 'row', columnGap: 30 }}>
       {props.sizes.map((size) => (
         <div key={size}>
-          <PersonCard size={size} azureId="1234-5678" />
+          <PersonCard size={size} azureId="1234" />
         </div>
       ))}
     </div>
@@ -86,33 +90,37 @@ export const Size: Story<{ sizes: Array<CardProps['size']> }> = (props: { sizes:
 Size.args = { sizes: ['small', 'medium', 'large'] };
 
 export const DataSource: Story<CardProps> = (props: CardProps) => (
-  <PersonProvider resolve={createResolve()}>
-    <PersonCard {...props} dataSource={{
-              name: 'Rick Sanchez (C-137)',
-              pictureSrc: 'https://i.imgur.com/17Kw9my.jpg',
-              accountType: PersonAccountType.Enterprise,
-              jobTitle: 'Scientist',
-              mail: 'rick.sanchez@email.com',
-              mobilePhone: '+47 123456789',
-              manager: {
-                  azureUniqueId: '1234-1324-1235',
-                  name: 'Justin Roiland',
-                  department: 'Adult Swim',
-                  pictureSrc:
-                  'https://i.imgur.com/2TO7k63.jpeg',
-                  accountType: PersonAccountType.Employee,
-              },
-              positions: [
-                  {
-                      id: '123-123',
-                      name: 'Wubba Lubba Dub Dub',
-                      project: {
-                          id: '1234-1234',
-                          name: 'The Citadel',
-                      },
-                  },
-              ],
-          }} />
+  <PersonProvider resolve={createResolve}>
+    <PersonCard
+      {...props}
+      azureId="9876-5432-1098"
+      dataSource={{
+        azureId: '9876-5432-1098',
+        name: 'Rick Sanchez (C-137)',
+        accountType: PersonAccountType.ExternalHire,
+        jobTitle: 'Scientist',
+        mail: 'rick.sanchez@email.com',
+        mobilePhone: '+47 123456789',
+        managerAzureUniqueId: '222-333-444',
+        manager: {
+          azureUniqueId: '222-333-444',
+          name: 'Justin Roiland',
+          department: 'Adult Swim',
+          pictureSrc: 'https://i.imgur.com/2TO7k63.jpeg',
+          accountType: PersonAccountType.Employee,
+        },
+        positions: [
+          {
+            id: '123-123',
+            name: 'Wubba Lubba Dub Dub',
+            project: {
+              id: '1234-1234',
+              name: 'The Citadel',
+            },
+          },
+        ],
+      }}
+    />
   </PersonProvider>
 );
 DataSource.args = {

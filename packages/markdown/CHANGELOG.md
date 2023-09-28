@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.2.0 (2023-09-26)
+
+
+### Features
+
+* **markdown:** add markdown-viewer ([bc13da3](https://github.com/equinor/fusion-react-components/commit/bc13da3dff9724bf19d9f7a5956e716914b8154a)), closes [#716](https://github.com/equinor/fusion-react-components/issues/716)
+
+
+
+
+
 ## 0.1.2 (2023-09-18)
 
 

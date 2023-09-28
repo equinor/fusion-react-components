@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.15.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@2.14.2...@equinor/fusion-react-components-stories@2.15.0) (2023-09-26)
+
+
+### Features
+
+* **markdown:** add markdown-viewer ([bc13da3](https://github.com/equinor/fusion-react-components/commit/bc13da3dff9724bf19d9f7a5956e716914b8154a)), closes [#716](https://github.com/equinor/fusion-react-components/issues/716)
+
+
+
+
+
 ## [2.14.2](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@2.14.1...@equinor/fusion-react-components-stories@2.14.2) (2023-09-21)
 
 **Note:** Version bump only for package @equinor/fusion-react-components-stories
