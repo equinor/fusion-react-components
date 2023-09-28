@@ -1,5 +1,10 @@
 import { Meta, Story } from '@storybook/react';
-import { Provider, PersonAccountType, PersonListItem, PersonListItemProps } from '@equinor/fusion-react-person/src';
+import {
+  PersonProvider,
+  PersonAccountType,
+  PersonListItem,
+  PersonListItemProps,
+} from '@equinor/fusion-react-person/src';
 import { IconButton } from '@equinor/fusion-react-button';
 import { createResolve } from './resolve-mock/person-resolve-mock';
 
@@ -57,9 +62,9 @@ export type ListItemProps = PersonListItemProps & {
 };
 
 export const Component: Story<ListItemProps> = (props: ListItemProps) => (
-  <Provider resolve={createResolve}>
+  <PersonProvider resolve={createResolve}>
     <PersonListItem {...props} />
-  </Provider>
+  </PersonProvider>
 );
 Component.args = {
   azureId: '1234',
@@ -68,15 +73,15 @@ Component.args = {
 };
 
 export const Clickable: Story<ListItemProps> = () => (
-  <Provider resolve={createResolve}>
+  <PersonProvider resolve={createResolve}>
     <div style={{ display: 'flex', flexDirection: 'column', rowGap: 30 }}>
       <PersonListItem clickable azureId="1234" />
     </div>
-  </Provider>
+  </PersonProvider>
 );
 
 export const Toolbar: Story<ListItemProps> = () => (
-  <Provider resolve={createResolve}>
+  <PersonProvider resolve={createResolve}>
     <div style={{ display: 'flex', flexDirection: 'column', rowGap: 30 }}>
       <PersonListItem azureId="1234">
         <IconButton color="primary" icon="account_circle" rounded size="small" />
@@ -84,13 +89,13 @@ export const Toolbar: Story<ListItemProps> = () => (
         <IconButton color="success" icon="whats_app" rounded size="small" />
       </PersonListItem>
     </div>
-  </Provider>
+  </PersonProvider>
 );
 
 export const Size: Story<{ sizes: Array<ListItemProps['size']> }> = (props: {
   sizes: Array<ListItemProps['size']>;
 }) => (
-  <Provider resolve={createResolve}>
+  <PersonProvider resolve={createResolve}>
     <div style={{ display: 'flex', flexDirection: 'column', rowGap: 30 }}>
       {props.sizes.map((size) => (
         <div key={size}>
@@ -98,12 +103,12 @@ export const Size: Story<{ sizes: Array<ListItemProps['size']> }> = (props: {
         </div>
       ))}
     </div>
-  </Provider>
+  </PersonProvider>
 );
 Size.args = { sizes: ['small', 'medium', 'large'] };
 
 export const DataSource: Story<ListItemProps> = () => (
-  <Provider resolve={createResolve}>
+  <PersonProvider resolve={createResolve}>
     <div style={{ display: 'flex', flexDirection: 'column', rowGap: 30 }}>
       <PersonListItem
         azureId="9876-5432-1098"
@@ -119,5 +124,5 @@ export const DataSource: Story<ListItemProps> = () => (
         <IconButton color="primary" icon="account_circle" rounded size="small" />
       </PersonListItem>
     </div>
-  </Provider>
+  </PersonProvider>
 );

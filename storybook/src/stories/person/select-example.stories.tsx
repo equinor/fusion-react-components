@@ -1,5 +1,5 @@
 import { Meta, Story } from '@storybook/react';
-import { Provider, PersonAccountType, PersonSelect, PersonSelectProps } from '@equinor/fusion-react-person/src';
+import { PersonProvider, PersonAccountType, PersonSelect, PersonSelectProps } from '@equinor/fusion-react-person/src';
 import { createResolve } from './resolve-mock/person-resolve-mock';
 
 export default {
@@ -65,11 +65,11 @@ export type CardProps = PersonSelectProps & {
 };
 
 export const Component: Story<CardProps> = (props: CardProps) => (
-  <Provider resolve={createResolve}>
+  <PersonProvider resolve={createResolve}>
     <div style={{ maxWidth: '420px', height: '350px', margin: '3em auto' }}>
       <PersonSelect {...props} />
     </div>
-  </Provider>
+  </PersonProvider>
 );
 Component.args = {
   placeholder: 'Start to type to search...',

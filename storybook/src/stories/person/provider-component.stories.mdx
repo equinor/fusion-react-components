@@ -1,14 +1,16 @@
 import { Meta, Story, Canvas, ArgsTable, Description } from '@storybook/addon-docs';
 import { ChangeLog, PackageInfo, StoryExample } from '../../components';
-import { PersonCard, Provider } from '@equinor/fusion-react-person/src';
+import { PersonCard, PersonProvider } from '@equinor/fusion-react-person/src';
 
-<Meta title="Data/Person/Provider" component={Provider} />
+<Meta title="Data/Person/Provider" component={PersonProvider} />
 
 <PackageInfo pkg={require('@equinor/fusion-react-person/package.json')} />
 
-# Provider
+# PersonProvider
 
-**Provider** is a component that allows you to create a ***custom resolver for all person components***.
+**PersonProvider** is a component that allows you to create a ***custom resolver for all person components***.
+
+> PersonProvider is available in the Fusions CLI, Framework CLI and Portal. You should **NOT** add it unless you intend to override an existing provider.
 
 In order to create a custom provider you need to have a **resolver**.
 
@@ -16,7 +18,7 @@ In order to create a custom provider you need to have a **resolver**.
 
 Name                      | Type                            | Description
 ------------------------- | -----------------------------   | -----------
-`resolve`                 | `PersonResolver*`               | Person resolver for a provider. See [`provider`](https://github.com/equinor/fusion-react-components/blob/main/packages/person/src/Provider.tsx) 
+`resolve`                 | `PersonResolver*`               | Person resolver for a provider. See [`PersonProvider`](https://github.com/equinor/fusion-react-components/blob/main/packages/person/src/PersonProvider.tsx) 
 
 ## Example Usage
 
@@ -34,14 +36,14 @@ import { PersonDetails, PersonResolver, PersonInfo, PersonSearchResult } from "@
   };
 
   // use resolver for a provider with person components, example. PersonAvatar
-  <Provider resolve={createResolve}> 
+  <PersonProvider resolve={createResolve}> 
     <PersonAvatar azureId {...props}>
-  </Provider>
+  </PersonProvider>
 ```
 
 ## PersonResolver
 
-\*  `PersonResolver` is exported by `Provider`.
+\*  `PersonResolver` is exported by `PersonProvider`.
 ```ts
 type ResolverResult<T = unknown> = T | Promise<T>;
 
@@ -78,9 +80,9 @@ export const createCustomResolve: PersonResolver = {
 };
 
 // override provider
-<Provider resolve={createCustomResolve}> 
+<PersonProvider resolve={createCustomResolve}> 
   <PersonSelect {...props}>
-</Provider>
+</PersonProvider>
 
 ```
 

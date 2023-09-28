@@ -1,5 +1,5 @@
 import { Meta, Story } from '@storybook/react';
-import { Provider, PersonAvatar, AvatarSize, PersonAccountType } from '@equinor/fusion-react-person/src';
+import { PersonProvider, PersonAvatar, AvatarSize, PersonAccountType } from '@equinor/fusion-react-person/src';
 import type { PersonAvatarProps } from '@equinor/fusion-react-person/src';
 import { createResolve } from './resolve-mock/person-resolve-mock';
 
@@ -71,9 +71,9 @@ export type AvatarProps = PersonAvatarProps & {
 };
 
 export const Component: Story<AvatarProps> = (props: AvatarProps) => (
-  <Provider resolve={createResolve}>
+  <PersonProvider resolve={createResolve}>
     <PersonAvatar {...props} />
-  </Provider>
+  </PersonProvider>
 );
 Component.args = {
   azureId: '1234',
@@ -84,7 +84,7 @@ Component.args = {
 };
 
 export const DataSource: Story<AvatarProps> = (props: AvatarProps) => (
-  <Provider resolve={createResolve}>
+  <PersonProvider resolve={createResolve}>
     <PersonAvatar
       {...props}
       azureId="9876-5432-1098"
@@ -92,24 +92,24 @@ export const DataSource: Story<AvatarProps> = (props: AvatarProps) => (
         name: 'Rick Sanchez (C-137)',
       }}
     />
-  </Provider>
+  </PersonProvider>
 );
 
 export const Size: Story<{ sizes: Array<AvatarProps['size']> }> = (props: { sizes: Array<AvatarProps['size']> }) => (
-  <Provider resolve={createResolve}>
+  <PersonProvider resolve={createResolve}>
     <div style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
       {props.sizes.map((size) => (
         <PersonAvatar key={size} size={size} azureId="1234" />
       ))}
     </div>
-  </Provider>
+  </PersonProvider>
 );
 Size.args = { sizes: [AvatarSize.Large, AvatarSize.Medium, AvatarSize.Small, AvatarSize.XSmall] };
 
 export const Clickable: Story<AvatarProps> = (props: AvatarProps) => (
-  <Provider resolve={createResolve}>
+  <PersonProvider resolve={createResolve}>
     <PersonAvatar {...props} />
-  </Provider>
+  </PersonProvider>
 );
 Clickable.args = {
   azureId: '1234',
@@ -117,9 +117,9 @@ Clickable.args = {
 };
 
 export const CardOnHover: Story<AvatarProps> = (props: AvatarProps) => (
-  <Provider resolve={createResolve}>
+  <PersonProvider resolve={createResolve}>
     <PersonAvatar {...props} />
-  </Provider>
+  </PersonProvider>
 );
 CardOnHover.args = {
   azureId: '1234',
@@ -128,9 +128,9 @@ CardOnHover.args = {
 };
 
 export const CardOnClick: Story<AvatarProps> = (props: AvatarProps) => (
-  <Provider resolve={createResolve}>
+  <PersonProvider resolve={createResolve}>
     <PersonAvatar {...props} />
-  </Provider>
+  </PersonProvider>
 );
 CardOnClick.args = {
   azureId: '1234',
@@ -139,11 +139,11 @@ CardOnClick.args = {
 };
 
 export const Disabled: Story<AvatarProps> = (props: AvatarProps) => (
-  <Provider resolve={createResolve}>
+  <PersonProvider resolve={createResolve}>
     <div>
       <PersonAvatar {...props} />
     </div>
-  </Provider>
+  </PersonProvider>
 );
 Disabled.args = {
   azureId: '1234',
