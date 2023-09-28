@@ -3,6 +3,28 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.5.0 (2023-09-28)
+
+
+### Bug Fixes
+
+* **person-components:** export ([cdd2087](https://github.com/equinor/fusion-react-components/commit/cdd2087f7888a84ac01095a1aef184fa920f5e3a))
+* **person-components:** lint ([8a29a77](https://github.com/equinor/fusion-react-components/commit/8a29a77e17cecbe45fdea11ccbac0a656c88e038))
+* **person-components:** lint fix ([8ee218e](https://github.com/equinor/fusion-react-components/commit/8ee218e0c9a49e098481d54c0be4b7049d1503a0))
+* **person-components:** provider update ([8b4cd0d](https://github.com/equinor/fusion-react-components/commit/8b4cd0d3bdb3dd1beb68e76baa6088985bb4715b))
+* **person-components:** readme ([4e5e9fa](https://github.com/equinor/fusion-react-components/commit/4e5e9fae2bb2c23a8c2a6d3e51cead68f08a4b88))
+* **person-provider:** rename ([2700ce2](https://github.com/equinor/fusion-react-components/commit/2700ce2cbe177720e1aed917f879a9d9f8b99aab))
+
+
+### Features
+
+* **person-components:** components update ([8cbe0b6](https://github.com/equinor/fusion-react-components/commit/8cbe0b6320911a901f44fd1d432019c3d236a9e1))
+* **person-components:** person select ([fe23ae7](https://github.com/equinor/fusion-react-components/commit/fe23ae7b626d5b7e50e13e1e7f5a45cdbb8c2808))
+
+
+
+
+
 ## [0.4.2](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-person@0.4.1...@equinor/fusion-react-person@0.4.2) (2023-09-18)
 
 

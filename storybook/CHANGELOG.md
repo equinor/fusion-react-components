@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.16.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@2.15.0...@equinor/fusion-react-components-stories@2.16.0) (2023-09-28)
+
+
+### Bug Fixes
+
+* **person-components:** azureId and upn ([a6e1936](https://github.com/equinor/fusion-react-components/commit/a6e1936c86f0bfc6b307fb41677daba2974f4c44))
+* **person-components:** card args ([f5fea65](https://github.com/equinor/fusion-react-components/commit/f5fea654a38661136e18902d8a8a2a4a020a3a8a))
+* **person-components:** provider update ([8b4cd0d](https://github.com/equinor/fusion-react-components/commit/8b4cd0d3bdb3dd1beb68e76baa6088985bb4715b))
+* **person-components:** rename mock ([f3d1549](https://github.com/equinor/fusion-react-components/commit/f3d1549ac3a4d52192a9c37de8d6169e3190c18d))
+* **person-components:** storybook ([2f66754](https://github.com/equinor/fusion-react-components/commit/2f667543b0d245656bcc4706c6a10d2f4b8ff986))
+* **person-components:** storybook select ([0178452](https://github.com/equinor/fusion-react-components/commit/01784529a4de37c074f274e569056c5be9894739))
+* **person-provider:** rename ([2700ce2](https://github.com/equinor/fusion-react-components/commit/2700ce2cbe177720e1aed917f879a9d9f8b99aab))
+
+
+### Features
+
+* **person-components:** person select ([fe23ae7](https://github.com/equinor/fusion-react-components/commit/fe23ae7b626d5b7e50e13e1e7f5a45cdbb8c2808))
+* **person-components:** storybook update ([8a9bbaa](https://github.com/equinor/fusion-react-components/commit/8a9bbaab111ea93f4f1f5a951d6ffbd812f5055e))
+* **person-select:** custom search ([e0305ac](https://github.com/equinor/fusion-react-components/commit/e0305acedb5c69d9beed239b23d21d2d090694ba))
+
+
+
+
+
 # [2.15.0](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-components-stories@2.14.2...@equinor/fusion-react-components-stories@2.15.0) (2023-09-26)
 
 
