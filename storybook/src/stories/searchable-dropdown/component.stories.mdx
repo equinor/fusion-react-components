@@ -130,9 +130,16 @@ interface SearchableDropdownResultItem {
   isError?: boolean;
   meta?: string;
   graphic?: string;
+  graphicType?: IconType;
   type?: 'section' | 'divider' | null;
   children?: SearchableDropdownResult;
 }
+
+declare enum IconType {
+  EDS = 'eds',
+  SVG = 'svg',
+}
+
 ```
 
 There is an example mapper function in this story for mapping a context api result.
