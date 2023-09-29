@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.4.18 (2023-09-29)
+
+**Note:** Version bump only for package @equinor/fusion-react-filter
+
+
+
+
+
 ## [1.4.17](https://github.com/equinor/fusion-react-components/compare/@equinor/fusion-react-filter@1.4.16...@equinor/fusion-react-filter@1.4.17) (2023-09-21)
 
 

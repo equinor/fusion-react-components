@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.1.18 (2023-09-29)
+
+**Note:** Version bump only for package @equinor/fusion-react-popover
+
+
+
+
+
 ## 0.1.17 (2023-09-21)
 
 
