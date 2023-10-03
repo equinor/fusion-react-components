@@ -4,7 +4,7 @@ import HTMLBadgeCustomElement, { tag } from '@equinor/fusion-wc-badge';
 export { HTMLBadgeCustomElement };
 
 type ElementProps = React.PropsWithChildren<
-  Partial<Pick<HTMLBadgeCustomElement, 'size' | 'position' | 'color' | 'value' | 'icon' | 'circular' | 'tooltip'>>
+  Partial<Pick<HTMLBadgeCustomElement, 'size' | 'position' | 'color' | 'value' | 'icon' | 'circular'>>
 >;
 
 export const Badge = createComponent<HTMLBadgeCustomElement, ElementProps>(HTMLBadgeCustomElement, tag);
