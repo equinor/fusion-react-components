@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.1.15 (2023-10-03)
+
+**Note:** Version bump only for package @equinor/fusion-react-breadcrumb
+
+
+
+
+
 ## 0.1.14 (2023-09-21)
 
 **Note:** Version bump only for package @equinor/fusion-react-breadcrumb
