@@ -122,7 +122,7 @@ export const ContextSearch = ({
     const ref = elementRef.current;
     if (ref) {
       // reference to web element
-      setSdd(ref.querySelector('fwc-searchable-dropdown'));
+      setSdd(ref.querySelector<SearchableDropdownElement>('fwc-searchable-dropdown') ?? null);
 
       ref.addEventListener('dropdownClosed', () => {
         setGettingCtx(false);
