@@ -9,7 +9,7 @@
     "yarn": "please-use-pnpm",
     "pnpm": ">=4"
   },
-  "packageManager": "pnpm@8.0.0",
+  "packageManager": "pnpm@8.8.0",
   "scripts": {
     "test": "lerna run --no-bail test",
     "start": "pnpm run storybook",
@@ -43,11 +43,11 @@
   },
   "homepage": "https://github.com/equinor/fusion-react-components#readme",
   "devDependencies": {
-    "@commitlint/cli": "^17.7.1",
-    "@commitlint/config-conventional": "^17.7.0",
-    "@equinor/eslint-config-fusion": "^2.1.4",
+    "@commitlint/cli": "^17.5.0",
+    "@commitlint/config-conventional": "^17.4.4",
+    "@equinor/eslint-config-fusion-react": "^2.0.1",
     "@types/react": "^17.0.2",
-    "eslint": "^8.50.0",
+    "eslint": "^8.49.0",
     "eslint-plugin-prettier": "5.0.0",
     "husky": "^8.0.3",
     "lerna": "^7.3.0",
@@ -55,8 +55,8 @@
     "lint-staged": "^14.0.1",
     "prettier": "^3.0.3",
     "react": "^17.0.2",
-    "rimraf": "^5.0.5",
-    "typescript": "^4.9.5"
+    "rimraf": "^5.0.1",
+    "typescript": "^4.4.4"
   },
   "lint-staged": {
     "./packages/**/src/**/*.{ts,tsx}": [
@@ -65,8 +65,8 @@
   },
   "dependencies": {
     "@changesets/cli": "^2.26.2",
-    "@equinor/fusion-react-icon": "^0.2.16",
-    "@equinor/fusion-react-styles": "^0.5.11",
-    "@equinor/fusion-react-tooltip": "^1.1.11"
+    "@equinor/fusion-react-icon": "^0.2.15",
+    "@equinor/fusion-react-styles": "^0.5.5",
+    "@equinor/fusion-react-tooltip": "^1.1.5"
   }
 }

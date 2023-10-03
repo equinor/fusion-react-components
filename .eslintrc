@@ -1,7 +1,4 @@
 {
   "root": true,
-  "extends": "@equinor/eslint-config-fusion",
-  "plugins": [
-    "prettier"
-  ]
+  "extends": "@equinor/eslint-config-fusion-react"
 }
