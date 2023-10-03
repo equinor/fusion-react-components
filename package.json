@@ -7,7 +7,7 @@
     "start": "npm run storybook",
     "install": "npm run bootstrap",
     "bootstrap": "lerna bootstrap -- --legacy-peer-deps",
-    "test": "lerna run test",
+    "test": "lerna run --no-bail test",
     "test:build": "docker build -t test -f build.Dockerfile .",
     "lint": "eslint ./packages/*/src/**",
     "build": "lerna run build --ignore '@equinor/fusion-react-components-stories'",

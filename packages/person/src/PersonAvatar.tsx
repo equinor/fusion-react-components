@@ -4,12 +4,7 @@ import HTMLPersonAvatarCustomElement, { tag, AvatarSize, AvatarData } from '@equ
 import extractProps from './extract-props';
 
 type ElementProps = PropsWithChildren<
-  Partial<
-    Pick<
-      HTMLPersonAvatarCustomElement,
-      'azureId' | 'upn' | 'dataSource' | 'size' | 'clickable' | 'disabled' | 'showFloatingOn'
-    >
-  >
+  Partial<Pick<HTMLPersonAvatarCustomElement, 'azureId' | 'upn' | 'dataSource' | 'size' | 'clickable' | 'disabled'>>
 >;
 
 export type PersonAvatarProps = ComponentProps<HTMLPersonAvatarCustomElement, ElementProps>;
