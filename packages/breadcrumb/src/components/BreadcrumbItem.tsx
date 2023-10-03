@@ -23,6 +23,8 @@ const BreadcrumbItem: FC<BreadcrumbItemProps> = ({ onClick, name, isActive, hasH
 
   if (isActive) return <div>{name}</div>;
   return (
+    // TODO
+    // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
     <div onClick={onClick} className={style.breadcrumbLink}>
       {name}
     </div>

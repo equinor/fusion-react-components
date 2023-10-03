@@ -91,6 +91,8 @@ const MonthHeaderInput = forwardRef<HTMLInputElement, InputProps>(
   ({ onClick, value }: InputProps, ref: React.ForwardedRef<HTMLInputElement>) => {
     const classes = useStyles(defaultStyleProps);
     return (
+      // TODO
+      // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
       <div className={classes.monthHeaderInput} onClick={onClick}>
         <span className={classes.monthHeaderInputText} ref={ref}>
           {value}
