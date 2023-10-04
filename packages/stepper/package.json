@@ -36,7 +36,11 @@
   },
   "dependencies": {
     "@equinor/eds-core-react": "^0.32.4",
-    "@equinor/fusion-react-styles": "^0.5.11",
-    "@equinor/eds-icons": "^0.19.3"
+    "@equinor/eds-icons": "^0.19.3",
+    "@equinor/fusion-react-styles": "^0.5.11"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.67",
+    "react": "^18.2.0"
   }
 }

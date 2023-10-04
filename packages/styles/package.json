@@ -53,5 +53,9 @@
     "react-dom": {
       "optional": true
     }
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.24",
+    "react": "^18.2.0"
   }
 }

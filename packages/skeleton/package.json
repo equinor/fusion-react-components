@@ -36,5 +36,9 @@
   "dependencies": {
     "@equinor/fusion-react-utils": "^2.0.5",
     "@equinor/fusion-wc-skeleton": "^2.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.67",
+    "react": "^18.2.0"
   }
 }

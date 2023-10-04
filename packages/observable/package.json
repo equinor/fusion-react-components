@@ -37,5 +37,9 @@
   "dependencies": {
     "@equinor/fusion-react-utils": "^2.0.5",
     "rxjs": "^7.4.0"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.67",
+    "react": "^18.2.0"
   }
 }

@@ -7,10 +7,6 @@ settings:
 importers:
 
   .:
-    dependencies:
-      '@equinor/eslint-config-fusion':
-        specifier: ^2.1.5
-        version: 2.1.5(eslint@8.50.0)(prettier@3.0.3)(typescript@4.9.5)
     devDependencies:
       '@changesets/cli':
         specifier: ^2.26.2
@@ -21,6 +17,9 @@ importers:
       '@commitlint/config-conventional':
         specifier: ^17.4.4
         version: 17.7.0
+      '@equinor/eslint-config-fusion':
+        specifier: ^2.1.5
+        version: 2.1.5(eslint@8.50.0)(prettier@3.0.3)(typescript@4.9.5)
       '@equinor/eslint-config-fusion-react':
         specifier: ^2.0.2
         version: 2.0.2(@equinor/eslint-config-fusion@2.1.5)(eslint@8.50.0)
@@ -61,6 +60,9 @@ importers:
       '@types/gulp':
         specifier: ^4.0.9
         version: 4.0.14
+      '@types/react':
+        specifier: ^17.0.67
+        version: 17.0.67
       '@types/webpack-stream':
         specifier: ^3.2.12
         version: 3.2.13
@@ -94,6 +96,9 @@ importers:
       postcss-scss:
         specifier: ^4.0.3
         version: 4.0.9(postcss@8.4.31)
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
       sass:
         specifier: ^1.49.9
         version: 1.68.0
@@ -127,6 +132,9 @@ importers:
       '@types/gulp':
         specifier: ^4.0.9
         version: 4.0.14
+      '@types/react':
+        specifier: ^17.0.67
+        version: 17.0.67
       '@types/webpack-stream':
         specifier: ^3.2.12
         version: 3.2.13
@@ -160,6 +168,9 @@ importers:
       postcss-scss:
         specifier: ^4.0.3
         version: 4.0.9(postcss@8.4.31)
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
       sass:
         specifier: ^1.49.9
         version: 1.68.0
@@ -190,6 +201,12 @@ importers:
       '@ag-grid-community/core':
         specifier: ~29.3.4
         version: 29.3.5
+      '@types/react':
+        specifier: ^17.0.67
+        version: 17.0.67
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
 
   packages/avatar:
     dependencies:
@@ -199,6 +216,13 @@ importers:
       '@equinor/fusion-wc-avatar':
         specifier: ^3.1.0
         version: 3.1.0
+    devDependencies:
+      '@types/react':
+        specifier: ^17.0.67
+        version: 17.0.67
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
 
   packages/badge:
     dependencies:
@@ -208,6 +232,13 @@ importers:
       '@equinor/fusion-wc-badge':
         specifier: ^1.1.0
         version: 1.1.0
+    devDependencies:
+      '@types/react':
+        specifier: ^17.0.67
+        version: 17.0.67
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
 
   packages/breadcrumb:
     dependencies:
@@ -217,6 +248,13 @@ importers:
       '@equinor/fusion-react-styles':
         specifier: ^0.5.11
         version: link:../styles
+    devDependencies:
+      '@types/react':
+        specifier: ^17.0.67
+        version: 17.0.67
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
 
   packages/button:
     dependencies:
@@ -229,11 +267,12 @@ importers:
       '@equinor/fusion-wc-icon':
         specifier: ^1.0.24
         version: 1.0.33
+    devDependencies:
       '@types/react':
-        specifier: "^17.0.0 ||\_^18.0.0"
-        version: 17.0.67
+        specifier: ^18.2.24
+        version: 18.2.24
       react:
-        specifier: "^17.0.0 ||\_^18.0.0"
+        specifier: ^18.2.0
         version: 18.2.0
 
   packages/checkbox:
@@ -247,6 +286,13 @@ importers:
       '@equinor/fusion-wc-formfield':
         specifier: ^1.0.0
         version: 1.0.0
+    devDependencies:
+      '@types/react':
+        specifier: ^17.0.67
+        version: 17.0.67
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
 
   packages/chip:
     dependencies:
@@ -256,6 +302,13 @@ importers:
       '@equinor/fusion-wc-chip':
         specifier: ^1.1.0
         version: 1.1.0
+    devDependencies:
+      '@types/react':
+        specifier: ^17.0.67
+        version: 17.0.67
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
 
   packages/context-selector:
     dependencies:
@@ -274,6 +327,13 @@ importers:
       '@equinor/fusion-wc-searchable-dropdown':
         specifier: ^2.5.1
         version: 2.6.1
+    devDependencies:
+      '@types/react':
+        specifier: ^17.0.67
+        version: 17.0.67
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
 
   packages/date:
     dependencies:
@@ -283,6 +343,13 @@ importers:
       '@equinor/fusion-wc-date':
         specifier: ^0.2.21
         version: 0.2.29
+    devDependencies:
+      '@types/react':
+        specifier: ^17.0.67
+        version: 17.0.67
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
 
   packages/datepicker:
     dependencies:
@@ -296,12 +363,18 @@ importers:
         specifier: ^4.13.0
         version: 4.18.0(react-dom@17.0.2)(react@18.2.0)
     devDependencies:
+      '@types/react':
+        specifier: ^17.0.67
+        version: 17.0.67
       '@types/react-datepicker':
         specifier: ^4.11.2
         version: 4.15.1(react-dom@17.0.2)(react@18.2.0)
       jss-cli:
         specifier: ^6.0.2
         version: 6.0.2
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
 
   packages/divider:
     dependencies:
@@ -314,6 +387,13 @@ importers:
       '@lit-labs/react':
         specifier: ^1.0.1
         version: 1.2.1
+    devDependencies:
+      '@types/react':
+        specifier: ^17.0.67
+        version: 17.0.67
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
 
   packages/errorboundary:
     dependencies:
@@ -329,6 +409,13 @@ importers:
       '@equinor/fusion-react-utils':
         specifier: ^2.0.5
         version: link:../utils
+    devDependencies:
+      '@types/react':
+        specifier: ^17.0.67
+        version: 17.0.67
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
 
   packages/filter:
     dependencies:
@@ -365,6 +452,13 @@ importers:
       typesafe-actions:
         specifier: ^5.1.0
         version: 5.1.0
+    devDependencies:
+      '@types/react':
+        specifier: ^17.0.67
+        version: 17.0.67
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
 
   packages/hanging-garden:
     dependencies:
@@ -390,6 +484,12 @@ importers:
       '@types/node':
         specifier: ^17.0.7
         version: 17.0.45
+      '@types/react':
+        specifier: ^17.0.67
+        version: 17.0.67
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
 
   packages/icon:
     dependencies:
@@ -400,8 +500,11 @@ importers:
         specifier: ^2.1.0
         version: 2.1.0
     devDependencies:
+      '@types/react':
+        specifier: ^17.0.67
+        version: 17.0.67
       react:
-        specifier: ^18.1.0
+        specifier: ^18.2.0
         version: 18.2.0
 
   packages/list:
@@ -415,6 +518,13 @@ importers:
       '@lit-labs/react':
         specifier: ^1.0.1
         version: 1.2.1
+    devDependencies:
+      '@types/react':
+        specifier: ^17.0.67
+        version: 17.0.67
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
 
   packages/markdown:
     dependencies:
@@ -424,6 +534,13 @@ importers:
       '@equinor/fusion-wc-markdown':
         specifier: ^0.3.3
         version: 0.3.6
+    devDependencies:
+      '@types/react':
+        specifier: ^17.0.67
+        version: 17.0.67
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
 
   packages/menu:
     dependencies:
@@ -433,6 +550,13 @@ importers:
       '@equinor/fusion-wc-menu':
         specifier: ^1.0.2
         version: 1.0.2
+    devDependencies:
+      '@types/react':
+        specifier: ^17.0.67
+        version: 17.0.67
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
 
   packages/observable:
     dependencies:
@@ -442,6 +566,13 @@ importers:
       rxjs:
         specifier: ^7.4.0
         version: 7.8.1
+    devDependencies:
+      '@types/react':
+        specifier: ^17.0.67
+        version: 17.0.67
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
 
   packages/person:
     dependencies:
@@ -454,6 +585,13 @@ importers:
       '@equinor/fusion-wc-person':
         specifier: ^2.0.0
         version: 2.1.0
+    devDependencies:
+      '@types/react':
+        specifier: ^17.0.67
+        version: 17.0.67
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
 
   packages/popover:
     dependencies:
@@ -469,6 +607,13 @@ importers:
       react-popper:
         specifier: ^2.2.5
         version: 2.3.0(@popperjs/core@2.11.8)(react-dom@17.0.2)(react@18.2.0)
+    devDependencies:
+      '@types/react':
+        specifier: ^17.0.67
+        version: 17.0.67
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
 
   packages/progress-indicator:
     dependencies:
@@ -478,6 +623,13 @@ importers:
       '@equinor/fusion-wc-progress-indicator':
         specifier: ^0.4.3
         version: 0.4.11
+    devDependencies:
+      '@types/react':
+        specifier: ^17.0.67
+        version: 17.0.67
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
 
   packages/radio:
     dependencies:
@@ -490,6 +642,13 @@ importers:
       '@equinor/fusion-wc-radio':
         specifier: ^0.2.19
         version: 0.2.27
+    devDependencies:
+      '@types/react':
+        specifier: ^17.0.67
+        version: 17.0.67
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
 
   packages/ripple:
     dependencies:
@@ -499,6 +658,13 @@ importers:
       '@equinor/fusion-wc-ripple':
         specifier: ^0.2.13
         version: 0.2.21
+    devDependencies:
+      '@types/react':
+        specifier: ^17.0.67
+        version: 17.0.67
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
 
   packages/searchable-dropdown:
     dependencies:
@@ -511,6 +677,13 @@ importers:
       '@equinor/fusion-wc-searchable-dropdown':
         specifier: ^3.2.1
         version: 3.2.1
+    devDependencies:
+      '@types/react':
+        specifier: ^17.0.67
+        version: 17.0.67
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
 
   packages/select:
     dependencies:
@@ -520,6 +693,13 @@ importers:
       '@equinor/fusion-wc-select':
         specifier: ^1.0.2
         version: 1.0.2
+    devDependencies:
+      '@types/react':
+        specifier: ^17.0.67
+        version: 17.0.67
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
 
   packages/side-sheet:
     dependencies:
@@ -537,7 +717,7 @@ importers:
         specifier: ^0.9.0
         version: 0.9.2
       '@types/react':
-        specifier: ^17.0.11
+        specifier: ^17.0.67
         version: 17.0.67
       '@types/styled-components':
         specifier: ^5.1.26
@@ -563,6 +743,13 @@ importers:
       '@equinor/fusion-wc-skeleton':
         specifier: ^2.0.0
         version: 2.0.0
+    devDependencies:
+      '@types/react':
+        specifier: ^17.0.67
+        version: 17.0.67
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
 
   packages/stepper:
     dependencies:
@@ -575,6 +762,13 @@ importers:
       '@equinor/fusion-react-styles':
         specifier: ^0.5.11
         version: link:../styles
+    devDependencies:
+      '@types/react':
+        specifier: ^17.0.67
+        version: 17.0.67
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
 
   packages/styles:
     dependencies:
@@ -586,19 +780,20 @@ importers:
         version: 0.1.7
       '@material-ui/styles':
         specifier: ^4.11.4
-        version: 4.11.5(@types/react@17.0.67)(react-dom@17.0.2)(react@18.2.0)
-      '@types/react':
-        specifier: ^17.0.0 || ^18.0.0
-        version: 17.0.67
+        version: 4.11.5(@types/react@18.2.24)(react-dom@17.0.2)(react@18.2.0)
       clsx:
         specifier: ^1.1.1
         version: 1.2.1
-      react:
-        specifier: ^17.0.0 || ^18.0.0
-        version: 18.2.0
       react-dom:
         specifier: ^17.0.0 || ^18.0.0
         version: 17.0.2(react@18.2.0)
+    devDependencies:
+      '@types/react':
+        specifier: ^18.2.24
+        version: 18.2.24
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
 
   packages/switch:
     dependencies:
@@ -611,6 +806,13 @@ importers:
       '@equinor/fusion-wc-switch':
         specifier: ^0.2.19
         version: 0.2.29
+    devDependencies:
+      '@types/react':
+        specifier: ^17.0.67
+        version: 17.0.67
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
 
   packages/table:
     dependencies:
@@ -633,6 +835,12 @@ importers:
         specifier: ^7.7.0
         version: 7.8.0(react@18.2.0)
     devDependencies:
+      '@types/react':
+        specifier: ^17.0.67
+        version: 17.0.67
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
       typesafe-actions:
         specifier: ^5.1.0
         version: 5.1.0
@@ -645,6 +853,13 @@ importers:
       '@equinor/fusion-wc-textarea':
         specifier: ^0.4.13
         version: 0.4.22
+    devDependencies:
+      '@types/react':
+        specifier: ^17.0.67
+        version: 17.0.67
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
 
   packages/textinput:
     dependencies:
@@ -654,6 +869,13 @@ importers:
       '@equinor/fusion-wc-textinput':
         specifier: ^0.5.12
         version: 0.5.21
+    devDependencies:
+      '@types/react':
+        specifier: ^17.0.67
+        version: 17.0.67
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
 
   packages/tooltip:
     dependencies:
@@ -663,12 +885,26 @@ importers:
       '@tippyjs/react':
         specifier: ^4.2.6
         version: 4.2.6(react-dom@17.0.2)(react@18.2.0)
+    devDependencies:
+      '@types/react':
+        specifier: ^17.0.67
+        version: 17.0.67
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
 
   packages/typography:
     dependencies:
       '@equinor/fusion-react-styles':
         specifier: ^0.5.11
         version: link:../styles
+    devDependencies:
+      '@types/react':
+        specifier: ^17.0.67
+        version: 17.0.67
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
 
   packages/utils:
     dependencies:
@@ -676,8 +912,11 @@ importers:
         specifier: ^2.28.0
         version: 2.28.0
     devDependencies:
+      '@types/react':
+        specifier: ^17.0.67
+        version: 17.0.67
       react:
-        specifier: ^18.1.0
+        specifier: ^18.2.0
         version: 18.2.0
 
   storybook:
@@ -690,10 +929,10 @@ importers:
         version: 11.11.2
       '@emotion/react':
         specifier: ^11.10.6
-        version: 11.11.1(react@17.0.2)
+        version: 11.11.1(@types/react@17.0.67)(react@17.0.2)
       '@emotion/styled':
         specifier: ^11.10.6
-        version: 11.11.0(@emotion/react@11.11.1)(react@17.0.2)
+        version: 11.11.0(@emotion/react@11.11.1)(@types/react@17.0.67)(react@17.0.2)
       '@equinor/eds-core-react':
         specifier: ^0.30.0
         version: 0.30.0(@babel/core@7.23.0)(react-dom@17.0.2)(react@17.0.2)(styled-components@5.3.11)
@@ -847,9 +1086,6 @@ importers:
       faker:
         specifier: ^5.5.3
         version: 5.5.3
-      react:
-        specifier: ^17.0.2
-        version: 17.0.2
       react-dom:
         specifier: ^17.0.2
         version: 17.0.2(react@17.0.2)
@@ -866,9 +1102,15 @@ importers:
         specifier: ^5.88.2
         version: 5.88.2
     devDependencies:
+      '@types/react':
+        specifier: ^17.0.67
+        version: 17.0.67
       namor:
         specifier: ^3.0.1
         version: 3.0.1
+      react:
+        specifier: ^17.0.2
+        version: 17.0.2
 
 packages:
 
@@ -2840,7 +3082,7 @@ packages:
   /@emotion/memoize@0.8.1:
     resolution: {integrity: sha512-W2P2c/VRW1/1tLox0mVUalvnWXxavmv/Oum2aPsRcoDJuob75FC3Y8FbpfLwUegRcxINtGUMPq0tFCvYNTBXNA==}
 
-  /@emotion/react@11.11.1(react@17.0.2):
+  /@emotion/react@11.11.1(@types/react@17.0.67)(react@17.0.2):
     resolution: {integrity: sha512-5mlW1DquU5HaxjLkfkGN1GA/fvVGdyHURRiX/0FHl2cfIfRxSOfmxEH5YS43edp0OldZrZ+dkBKbngxcNCdZvA==}
     peerDependencies:
       '@types/react': '*'
@@ -2856,6 +3098,7 @@ packages:
       '@emotion/use-insertion-effect-with-fallbacks': 1.0.1(react@17.0.2)
       '@emotion/utils': 1.2.1
       '@emotion/weak-memoize': 0.3.1
+      '@types/react': 17.0.67
       hoist-non-react-statics: 3.3.2
       react: 17.0.2
     dev: false
@@ -2874,7 +3117,7 @@ packages:
     resolution: {integrity: sha512-0QBtGvaqtWi+nx6doRwDdBIzhNdZrXUppvTM4dtZZWEGTXL/XE/yJxLMGlDT1Gt+UHH5IX1n+jkXyytE/av7OA==}
     dev: false
 
-  /@emotion/styled@11.11.0(@emotion/react@11.11.1)(react@17.0.2):
+  /@emotion/styled@11.11.0(@emotion/react@11.11.1)(@types/react@17.0.67)(react@17.0.2):
     resolution: {integrity: sha512-hM5Nnvu9P3midq5aaXj4I+lnSfNi7Pmd4EWk1fOZ3pxookaQTNew6bp4JaCBYM4HVFZF9g7UjJmsUmC2JlxOng==}
     peerDependencies:
       '@emotion/react': ^11.0.0-rc.0
@@ -2887,10 +3130,11 @@ packages:
       '@babel/runtime': 7.23.1
       '@emotion/babel-plugin': 11.11.0
       '@emotion/is-prop-valid': 1.2.1
-      '@emotion/react': 11.11.1(react@17.0.2)
+      '@emotion/react': 11.11.1(@types/react@17.0.67)(react@17.0.2)
       '@emotion/serialize': 1.1.2
       '@emotion/use-insertion-effect-with-fallbacks': 1.0.1(react@17.0.2)
       '@emotion/utils': 1.2.1
+      '@types/react': 17.0.67
       react: 17.0.2
     dev: false
 
@@ -3075,6 +3319,7 @@ packages:
     transitivePeerDependencies:
       - '@types/eslint'
       - supports-color
+    dev: true
 
   /@equinor/fusion-wc-avatar@3.1.0:
     resolution: {integrity: sha512-Pk+uKSMu7jb+jAhEDIH3aRG2acL6Ng1SoRsggppV6lItdVWVpIVN1iFmUNU+IyYsY1zOLcRLdzaF+8t26omJ9A==}
@@ -3886,7 +4131,7 @@ packages:
       read-yaml-file: 1.1.0
     dev: true
 
-  /@material-ui/styles@4.11.5(@types/react@17.0.67)(react-dom@17.0.2)(react@18.2.0):
+  /@material-ui/styles@4.11.5(@types/react@18.2.24)(react-dom@17.0.2)(react@18.2.0):
     resolution: {integrity: sha512-o/41ot5JJiUsIETME9wVLAJrmIWL3j0R0Bj2kCOLbSfqEkKf0fmaPt+5vtblUh5eXr2S+J/8J3DaCb10+CzPGA==}
     engines: {node: '>=8.0.0'}
     deprecated: Material UI v4 doesn't receive active development since September 2021. See the guide https://mui.com/material-ui/migration/migration-v4/ to upgrade to v5.
@@ -3900,9 +4145,9 @@ packages:
     dependencies:
       '@babel/runtime': 7.23.1
       '@emotion/hash': 0.8.0
-      '@material-ui/types': 5.1.0(@types/react@17.0.67)
+      '@material-ui/types': 5.1.0(@types/react@18.2.24)
       '@material-ui/utils': 4.11.3(react-dom@17.0.2)(react@18.2.0)
-      '@types/react': 17.0.67
+      '@types/react': 18.2.24
       clsx: 1.2.1
       csstype: 2.6.21
       hoist-non-react-statics: 3.3.2
@@ -3919,7 +4164,7 @@ packages:
       react-dom: 17.0.2(react@18.2.0)
     dev: false
 
-  /@material-ui/types@5.1.0(@types/react@17.0.67):
+  /@material-ui/types@5.1.0(@types/react@18.2.24):
     resolution: {integrity: sha512-7cqRjrY50b8QzRSYyhSpx4WRw2YuO0KKIGQEVk5J8uoz2BanawykgZGoWEqKm7pVIbzFDN0SpPcVV4IhOFkl8A==}
     peerDependencies:
       '@types/react': '*'
@@ -3927,7 +4172,7 @@ packages:
       '@types/react':
         optional: true
     dependencies:
-      '@types/react': 17.0.67
+      '@types/react': 18.2.24
     dev: false
 
   /@material-ui/utils@4.11.3(react-dom@17.0.2)(react@18.2.0):
@@ -5309,6 +5554,7 @@ packages:
       open: 9.1.0
       picocolors: 1.0.0
       tslib: 2.6.2
+    dev: true
 
   /@pmmmwh/react-refresh-webpack-plugin@0.5.11(react-refresh@0.11.0)(webpack@5.88.2):
     resolution: {integrity: sha512-7j/6vdTym0+qZ6u4XbSAxrWBGYSdCfTzySkj7WAFgDLmSyWlOrWvpyzxlFh5jtw9dn0oL/jtW+06XfFiisN3JQ==}
@@ -7214,6 +7460,13 @@ packages:
       '@types/scheduler': 0.16.4
       csstype: 3.1.2
 
+  /@types/react@18.2.24:
+    resolution: {integrity: sha512-Ee0Jt4sbJxMu1iDcetZEIKQr99J1Zfb6D4F3qfUWoR1JpInkY1Wdg4WwCyBjL257D0+jGqSl1twBjV8iCaC0Aw==}
+    dependencies:
+      '@types/prop-types': 15.7.8
+      '@types/scheduler': 0.16.4
+      csstype: 3.1.2
+
   /@types/resize-observer-browser@0.1.8:
     resolution: {integrity: sha512-OpjAd26fD1G2OWlYzkrapJ12n+kyi0znYgE2AHfNccHY/am3kG+lfJ5brfcZ7+1CIybkPWGKrW+Wm97kbcOQaQ==}
     dev: false
@@ -7228,6 +7481,7 @@ packages:
 
   /@types/semver@7.5.3:
     resolution: {integrity: sha512-OxepLK9EuNEIPxWNME+C6WwbRAOOI2o2BaQEGzz5Lu2e4Z5eDnEo+/aVEDMIXywoJitJ7xWd641wrGLZdtwRyw==}
+    dev: true
 
   /@types/source-list-map@0.1.3:
     resolution: {integrity: sha512-I9R/7fUjzUOyDy6AFkehCK711wWoAXEaBi80AfjZt1lIkbe6AcXKd3ckQc3liMvQExWvfOeh/8CtKzrfUFN5gA==}
@@ -7388,6 +7642,7 @@ packages:
       typescript: 4.9.5
     transitivePeerDependencies:
       - supports-color
+    dev: true
 
   /@typescript-eslint/experimental-utils@4.33.0(eslint@7.32.0)(typescript@4.9.5):
     resolution: {integrity: sha512-zeQjOoES5JFjTnAhI5QY7ZviczMzDptls15GFsI6jyUOq0kOf9+WonkhtlIhh0RgHRnqj5gdNxW5j1EvAyYg6Q==}
@@ -7446,6 +7701,7 @@ packages:
       typescript: 4.9.5
     transitivePeerDependencies:
       - supports-color
+    dev: true
 
   /@typescript-eslint/scope-manager@4.33.0:
     resolution: {integrity: sha512-5IfJHpgTsTZuONKbODctL4kKuQje/bzBRkwHE8UOZ4f89Zeddg+EGZs8PD8NcN4LdM3ygHWYB3ukPAYjvl/qbQ==}
@@ -7461,6 +7717,7 @@ packages:
     dependencies:
       '@typescript-eslint/types': 6.7.4
       '@typescript-eslint/visitor-keys': 6.7.4
+    dev: true
 
   /@typescript-eslint/type-utils@6.7.4(eslint@8.50.0)(typescript@4.9.5):
     resolution: {integrity: sha512-n+g3zi1QzpcAdHFP9KQF+rEFxMb2KxtnJGID3teA/nxKHOVi3ylKovaqEzGBbVY2pBttU6z85gp0D00ufLzViQ==}
@@ -7480,6 +7737,7 @@ packages:
       typescript: 4.9.5
     transitivePeerDependencies:
       - supports-color
+    dev: true
 
   /@typescript-eslint/types@4.33.0:
     resolution: {integrity: sha512-zKp7CjQzLQImXEpLt2BUw1tvOMPfNoTAfb8l51evhYbOEEzdWyQNmHWWGPR6hwKJDAi+1VXSBmnhL9kyVTTOuQ==}
@@ -7489,6 +7747,7 @@ packages:
   /@typescript-eslint/types@6.7.4:
     resolution: {integrity: sha512-o9XWK2FLW6eSS/0r/tgjAGsYasLAnOWg7hvZ/dGYSSNjCh+49k5ocPN8OmG5aZcSJ8pclSOyVKP2x03Sj+RrCA==}
     engines: {node: ^16.0.0 || >=18.0.0}
+    dev: true
 
   /@typescript-eslint/typescript-estree@4.33.0(typescript@4.9.5):
     resolution: {integrity: sha512-rkWRY1MPFzjwnEVHsxGemDzqqddw2QbTJlICPD9p9I9LfsO8fdmfQPOX3uKfUaGRDFJbfrtm/sXhVXN4E+bzCA==}
@@ -7530,6 +7789,7 @@ packages:
       typescript: 4.9.5
     transitivePeerDependencies:
       - supports-color
+    dev: true
 
   /@typescript-eslint/utils@6.7.4(eslint@8.50.0)(typescript@4.9.5):
     resolution: {integrity: sha512-PRQAs+HUn85Qdk+khAxsVV+oULy3VkbH3hQ8hxLRJXWBEd7iI+GbQxH5SEUSH7kbEoTp6oT1bOwyga24ELALTA==}
@@ -7548,6 +7808,7 @@ packages:
     transitivePeerDependencies:
       - supports-color
       - typescript
+    dev: true
 
   /@typescript-eslint/visitor-keys@4.33.0:
     resolution: {integrity: sha512-uqi/2aSz9g2ftcHWf8uLPJA70rUv6yuMW5Bohw+bwcuzaxQIHaKFZCKGoGXIrc9vkTJ3+0txM73K0Hq3d5wgIg==}
@@ -7563,6 +7824,7 @@ packages:
     dependencies:
       '@typescript-eslint/types': 6.7.4
       eslint-visitor-keys: 3.4.3
+    dev: true
 
   /@webassemblyjs/ast@1.11.6:
     resolution: {integrity: sha512-IN1xI7PwOvLPgjcf180gC1bqn3q/QaOCwYUahIOhbYUu8KA/3tw2RT/T0Gidi1l7Hhj5D/INhJxiICObqpMu4Q==}
@@ -8949,6 +9211,7 @@ packages:
     engines: {node: '>= 5.10.0'}
     dependencies:
       big-integer: 1.6.51
+    dev: true
 
   /brace-expansion@1.1.11:
     resolution: {integrity: sha512-iCuPHDFgrHX7H2vEI/5xpz07zSHB00TpugqhmYtVmMO6518mCuRMoOYFldEBl0g187ufozdaHgWKcYFb61qGiA==}
@@ -9143,6 +9406,7 @@ packages:
     engines: {node: '>=12'}
     dependencies:
       run-applescript: 5.0.0
+    dev: true
 
   /byte-size@8.1.1:
     resolution: {integrity: sha512-tUkzZWK0M/qdoLEqikxBWe4kumyuwjl3HO6zHTr4yEI23EojPtLYXdG1+AQY7MN0cGyNDvEaJ8wiYQm6P2bPxg==}
@@ -10583,6 +10847,7 @@ packages:
     dependencies:
       bplist-parser: 0.2.0
       untildify: 4.0.0
+    dev: true
 
   /default-browser@4.0.0:
     resolution: {integrity: sha512-wX5pXO1+BrhMkSbROFsyxUm0i/cJEScyNhA4PPxc41ICuv05ZZB/MX28s8aZx6xjmatvebIapF6hLEKEcpneUA==}
@@ -10592,6 +10857,7 @@ packages:
       default-browser-id: 3.0.0
       execa: 7.2.0
       titleize: 3.0.0
+    dev: true
 
   /default-compare@1.0.0:
     resolution: {integrity: sha512-QWfXlM0EkAbqOCbD/6HjdwT19j7WCkMyiRhWilc4H9/5h/RzTF9gv5LYh1+CmDV5d1rki6KAWLtQale0xt20eQ==}
@@ -10630,6 +10896,7 @@ packages:
   /define-lazy-prop@3.0.0:
     resolution: {integrity: sha512-N+MeXYoqr3pOgn8xfyRPREN7gHakLYjhsHhWGT3fWAiL4IkAt0iDw14QiiEm2bE30c5XX5q0FtAA3CK5f9/BUg==}
     engines: {node: '>=12'}
+    dev: true
 
   /define-properties@1.2.1:
     resolution: {integrity: sha512-8QmQKqEASLd5nx0U1B1okLElbUuuttJ/AnYmRXbbbGDWh6uS208EjD4Xqq/I9wK7u0v6O08XhTWnt5XtEbR6Dg==}
@@ -11283,6 +11550,7 @@ packages:
       eslint: '>=7.0.0'
     dependencies:
       eslint: 8.50.0
+    dev: true
 
   /eslint-plugin-jsx-a11y@6.7.1(eslint@8.50.0):
     resolution: {integrity: sha512-63Bog4iIethyo8smBklORknVjB0T2dwB8Mr/hIC+fBS0uyHdYYpzM/Ed+YC8VxTjlXHEWFOdmgwcDn1U2L9VCA==}
@@ -11345,6 +11613,7 @@ packages:
       prettier: 3.0.3
       prettier-linter-helpers: 1.0.0
       synckit: 0.8.5
+    dev: true
 
   /eslint-plugin-react-hooks@4.6.0(eslint@7.32.0):
     resolution: {integrity: sha512-oFc7Itz9Qxh2x4gNHStv3BqJq54ExXmfC+a1NjAta66IAN87Wu0R/QArgIS9qKzX3dXKPI9H5crl9QchNMY9+g==}
@@ -11769,6 +12038,7 @@ packages:
       onetime: 6.0.0
       signal-exit: 3.0.7
       strip-final-newline: 3.0.0
+    dev: true
 
   /executable@4.1.1:
     resolution: {integrity: sha512-8iA79xD3uAch729dUG8xaaBBFGaEa0wdD2VkYLFHwlqosEj/jT66AzcreRDSgV7ehnNLBW2WR5jIXwGKjVdTLg==}
@@ -11967,6 +12237,7 @@ packages:
 
   /fast-diff@1.3.0:
     resolution: {integrity: sha512-VxPP4NqbUjj6MaAOafWeUn2cXWLcCtljklUtZf0Ind4XQ+QPtmA0b18zZy0jIQx+ExRVCR/ZQpBmik5lXshNsw==}
+    dev: true
 
   /fast-glob@2.2.7:
     resolution: {integrity: sha512-g1KuQwHOZAmOZMuBtHdxDtju+T2RT8jgCC9aANsbpdiDDTSnjgfuVsIBNKbUeJI3oKMRExcfNDtJl4OhbffMsw==}
@@ -13615,6 +13886,7 @@ packages:
   /human-signals@4.3.1:
     resolution: {integrity: sha512-nZXjEF2nbo7lIw3mgYjItAfgQXog3OjJogSbKa2CQIIvSGWcKgeJnQlNXip6NglNzYH45nSRiEVimMvYL8DDqQ==}
     engines: {node: '>=14.18.0'}
+    dev: true
 
   /humanize-ms@1.2.1:
     resolution: {integrity: sha512-Fl70vYtsAFb/C06PTS9dZBo7ihau+Tu/DNCk/OyHhea07S+aeMWpFFkUaXRa8fI+ScZbEI8dfSxwY7gxZ9SAVQ==}
@@ -14150,6 +14422,7 @@ packages:
     resolution: {integrity: sha512-eljcgEDlEns/7AXFosB5K/2nCM4P7FQPkGc/DWLy5rmFEWvZayGrik1d9/QIY5nJ4f9YsVvBkA6kJpHn9rISdQ==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     hasBin: true
+    dev: true
 
   /is-dom@1.1.0:
     resolution: {integrity: sha512-u82f6mvhYxRPKpw8V1N0W8ce1xXwOrQtgGcxl6UCL5zBmZu3is/18K0rR7uFCnMDuAsS/3W54mGL4vsaFUQlEQ==}
@@ -14246,6 +14519,7 @@ packages:
     hasBin: true
     dependencies:
       is-docker: 3.0.0
+    dev: true
 
   /is-installed-globally@0.4.0:
     resolution: {integrity: sha512-iwGqO3J21aaSkC7jWnHP/difazwS7SFeIqxv6wEtLU8Y5KlzFTjyqcSIT0d8s4+dDhKytsk9PJZ2BkS5eZwQRQ==}
@@ -14414,6 +14688,7 @@ packages:
   /is-stream@3.0.0:
     resolution: {integrity: sha512-LnQR4bZ9IADDRSkvpqMGvt/tEJWclzklNgSw48V5EAaAeDd6qGvN8ei6k5p0tvxSR171VmGyHuTiAOfxAbr8kA==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
+    dev: true
 
   /is-string@1.0.7:
     resolution: {integrity: sha512-tE2UXzivje6ofPW7l23cjDOMa09gb7xlAqG6jG5ej6uPV32TlWP3NKPigtaGeHNu9fohccRYvIiZMfOOnOYUtg==}
@@ -16023,6 +16298,7 @@ packages:
   /mimic-fn@4.0.0:
     resolution: {integrity: sha512-vqiC06CuhBTUdZH+RYl8sFrL096vA45Ok5ISO6sE/Mr1jRbGH4Csnhi8f3wKVl7x8mO4Au7Ir9D3Oyv1VYMFJw==}
     engines: {node: '>=12'}
+    dev: true
 
   /mimic-response@1.0.1:
     resolution: {integrity: sha512-j5EctnkH7amfV/q5Hgmoal1g2QHFJRraOtmx0JpIqkxhBhI/lJSl1nMpQ45hVarwNETOoWEimndZ4QK0RHxuxQ==}
@@ -16630,6 +16906,7 @@ packages:
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     dependencies:
       path-key: 4.0.0
+    dev: true
 
   /npmlog@5.0.1:
     resolution: {integrity: sha512-AqZtDUWOMKs1G/8lwylVjrdYgqA4d9nu8hc+0gzRxlDb1I10+FHBGMXs6aiQHFdCUUlqH99MUMuLfzWDNDtfxw==}
@@ -16875,6 +17152,7 @@ packages:
     engines: {node: '>=12'}
     dependencies:
       mimic-fn: 4.0.0
+    dev: true
 
   /open@7.4.2:
     resolution: {integrity: sha512-MVHddDVweXZF3awtlAS+6pgKLlm/JgxZ90+/NBurBoQctVOOB/zDdVjcyPzQ+0laDGbsWgrRkflI65sQeOgT9Q==}
@@ -16900,6 +17178,7 @@ packages:
       define-lazy-prop: 3.0.0
       is-inside-container: 1.0.0
       is-wsl: 2.2.0
+    dev: true
 
   /optionator@0.9.3:
     resolution: {integrity: sha512-JjCoypp+jKn1ttEFExxhetCKeJt9zhAgAve5FXHixTvFDW/5aEktX9bufBKLRRMdU7bNtpLfcGu94B3cdEJgjg==}
@@ -17430,6 +17709,7 @@ packages:
   /path-key@4.0.0:
     resolution: {integrity: sha512-haREypq7xkM7ErfgIyA0z+Bj4AGKlMSdlQE2jvJo6huWD1EdkKYV+G/T4nq0YEF2vgTT8kqMFKo1uHn950r4SQ==}
     engines: {node: '>=12'}
+    dev: true
 
   /path-parse@1.0.7:
     resolution: {integrity: sha512-LDJzPVEEEPR+y48z93A0Ed0yXb8pAByGWo/k5YYdYgpY2/2EsOsksJrq7lOHxryrVOn1ejG6oAp8ahvOIQD8sw==}
@@ -17842,6 +18122,7 @@ packages:
     engines: {node: '>=6.0.0'}
     dependencies:
       fast-diff: 1.3.0
+    dev: true
 
   /prettier@2.3.0:
     resolution: {integrity: sha512-kXtO4s0Lz/DW/IJ9QdWhAf7/NmPWQXkFr/r/WkR3vyI+0v8amTDxiaQSLzs8NBlytfLWX/7uQUMIW677yLKl4w==}
@@ -17859,6 +18140,7 @@ packages:
     resolution: {integrity: sha512-L/4pUDMxcNa8R/EthV08Zt42WBO4h1rarVtK0K+QJG0X187OLo7l699jWw0GKuwzkPQ//jMFA/8Xm6Fh3J/DAg==}
     engines: {node: '>=14'}
     hasBin: true
+    dev: true
 
   /pretty-error@2.1.2:
     resolution: {integrity: sha512-EY5oDzmsX5wvuynAByrmY0P0hcp+QpnAKbJng2A2MPjVKXCxrDSUkzghVJ4ZGPIv+JC4gX8fPUWscC0RtjsWGw==}
@@ -19067,6 +19349,7 @@ packages:
     engines: {node: '>=12'}
     dependencies:
       execa: 5.1.1
+    dev: true
 
   /run-async@2.4.1:
     resolution: {integrity: sha512-tvVnVv01b8c1RrA6Ep7JkStj85Guv/YrMcwqYQnwjsAS2cTmmPGBBjAjpCW7RrSodNSoE2/qg9O4bceNvUuDgQ==}
@@ -19972,6 +20255,7 @@ packages:
   /strip-final-newline@3.0.0:
     resolution: {integrity: sha512-dOESqjYr96iWYylGObzd39EuNTa5VJxyvVAEm5Jnh7KGo75V43Hk1odPQkNDyXNmUR6k+gEiDVXnjB8HJ3crXw==}
     engines: {node: '>=12'}
+    dev: true
 
   /strip-indent@1.0.1:
     resolution: {integrity: sha512-I5iQq6aFMM62fBEAIB/hXzwJD6EEZ0xEGCX2t7oXqaKPIRgt4WruAQ285BISgdkP+HLGWyeGmNJcpIwFeRYRUA==}
@@ -20174,6 +20458,7 @@ packages:
     dependencies:
       '@pkgr/utils': 2.4.2
       tslib: 2.6.2
+    dev: true
 
   /tabbable@6.2.0:
     resolution: {integrity: sha512-Cat63mxsVJlzYvN51JmVXIgNoUokrIaT2zLclCXjRd8boZ0004U4KCs/sToJ75C6sdlByWxpYnb5Boif1VSFew==}
@@ -20443,6 +20728,7 @@ packages:
   /titleize@3.0.0:
     resolution: {integrity: sha512-KxVu8EYHDPBdUYdKZdKtU2aj2XfEx9AfjXxE/Aj0vT06w2icA09Vus1rh6eSu1y01akYg6BjIK/hxyLJINoMLQ==}
     engines: {node: '>=12'}
+    dev: true
 
   /tmp@0.0.33:
     resolution: {integrity: sha512-jRCJlojKnZ3addtTOjdIqoRuPEKBvNXcGYqzO6zWZX8KfKEpnGY5jfggJQ3EjKuu8D4bJRr0y+cYJFmYbImXGw==}
@@ -20580,6 +20866,7 @@ packages:
       typescript: '>=4.2.0'
     dependencies:
       typescript: 4.9.5
+    dev: true
 
   /ts-dedent@2.2.0:
     resolution: {integrity: sha512-q5W7tVM71e2xjHZTlgfTDoPF/SmqKG5hddq9SzR49CH2hayqRKJtQ4mtRlSxKaJlR/+9rEM+mnBHf7I2/BQcpQ==}
@@ -21045,6 +21332,7 @@ packages:
   /untildify@4.0.0:
     resolution: {integrity: sha512-KK8xQ1mkzZeg9inewmFVDNkg3l5LUhoq9kN6iWYB/CC9YMG8HA+c1Q8HwDe6dEX7kErrEVNVBO3fWsVq5iDgtw==}
     engines: {node: '>=8'}
+    dev: true
 
   /upath@1.2.0:
     resolution: {integrity: sha512-aZwGpamFO61g3OlfT7OQCHqhGnW43ieH9WZeP7QxN/G/jS4jfqUkZxoryvJgVPEcrl5NL/ggHsSmLMHuH64Lhg==}
