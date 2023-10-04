@@ -11,10 +11,7 @@ type ElementProps = PropsWithChildren<
   >
 >;
 
-export const IconButton = createComponent(
-  HTMLIconButtonCustomElement,
-  iconButtonTag,
-);
+export const IconButton = createComponent(HTMLIconButtonCustomElement, iconButtonTag);
 
 export type IconButtonProps = ComponentProps<HTMLIconButtonCustomElement, ElementProps>;
 

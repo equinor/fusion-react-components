@@ -7,7 +7,7 @@ const StyledIndicator = styled.span<{ color?: HEXString }>`
   margin-right: 1rem;
 `;
 
-export const Indicator = ({ color }: { color?: HEXString }) => {
+export const Indicator = ({ color }: { readonly color?: HEXString }) => {
   return <StyledIndicator color={color} />;
 };
 

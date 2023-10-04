@@ -1,7 +1,7 @@
 import React, { PropsWithChildren } from 'react';
 
 export type ActionsProps = {
-  sideSheetRef?: React.RefObject<HTMLDivElement>;
+  readonly sideSheetRef?: React.RefObject<HTMLDivElement>;
 };
 
 export const Actions = ({ children, sideSheetRef }: PropsWithChildren<ActionsProps>) => {

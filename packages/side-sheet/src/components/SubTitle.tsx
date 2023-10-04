@@ -1,7 +1,7 @@
 import { Typography } from '@equinor/eds-core-react';
 
 type SubTitleProps = {
-  subTitle: string;
+  readonly subTitle: string;
 };
 
 export const SubTitle = ({ subTitle }: SubTitleProps) => {
