@@ -21,7 +21,7 @@
     "test:build": "docker build -t test -f build.Dockerfile .",
     "lint": "eslint packages/**/src/**/*.{ts,tsx} --no-ignore",
     "lint:fix": "pnpm lint --fix",
-    "lint:report": "eslint --format json --output-file ./eslint-report.log.json --ext .js,.jsx,.ts,.tsx packages/**/src/**/*.{ts,tsx}",
+    "lint:report": "eslint --format json --output-file ./eslint-report.log.json packages/**/src/**/*.{ts,tsx}",
     "storybook": "pnpm run --dir ./storybook start",
     "storybook:build": "pnpm run --dir ./storybook build",
     "lerna:update": "lernaupdate",
