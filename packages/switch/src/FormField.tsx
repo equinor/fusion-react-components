@@ -5,10 +5,10 @@ import { ComponentProps, createComponent, WebComponent } from '@equinor/fusion-r
 
 export type ElementProps = Partial<Pick<FormfieldElement, 'label' | 'alignEnd' | 'spaceBetween' | 'nowrap'>>;
 
-export const FormField: WebComponent<FormfieldElement, React.PropsWithChildren<ElementProps>> = createComponent<FormfieldElement, React.PropsWithChildren<ElementProps>>(
+export const FormField: WebComponent<FormfieldElement, React.PropsWithChildren<ElementProps>> = createComponent<
   FormfieldElement,
-  tag,
-);
+  React.PropsWithChildren<ElementProps>
+>(FormfieldElement, tag);
 
 export type FormFieldProps = ComponentProps<FormfieldElement, ElementProps>;
 

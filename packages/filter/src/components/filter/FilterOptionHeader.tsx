@@ -4,7 +4,7 @@ import { HTMLTextInputCustomElement, TextInput } from '@equinor/fusion-react-tex
 import { useFilterOptionContext, useFilterOptionSearch } from '../../options';
 
 type FilterHeaderProps = {
-  title: string;
+  readonly title: string;
 };
 
 import { clsx, createStyles, makeStyles } from '@equinor/fusion-react-styles';

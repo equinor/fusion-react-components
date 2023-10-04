@@ -4,7 +4,7 @@ import { PersonProviderElement, PersonResolver } from '@equinor/fusion-wc-person
 /** Person porvider properties for the resolver */
 export type PersonProviderProps = {
   /** Person resolver interface that contains getPresence and getDetails functions */
-  resolve: PersonResolver;
+  readonly resolve: PersonResolver;
 };
 
 /**

@@ -10,7 +10,7 @@ import { FormField, FormFieldElementProps } from './FormField';
 export type CheckboxElementProps = CheckboxBaseProps &
   FormFieldElementProps & {
     /** Size of the checkbox */
-    size?: number;
+    readonly size?: number;
   };
 
 export const Checkbox: React.FC<CheckboxElementProps> = forwardRef(

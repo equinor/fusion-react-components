@@ -4,17 +4,17 @@ import { useStyles } from './style';
 import { Badge } from './StepBadge';
 
 export type StepProps = {
-  title: string;
-  stepKey: string;
-  description?: string;
-  disabled?: boolean;
-  isCurrent?: boolean;
-  position?: number;
-  onChange?: () => void;
-  isClickable?: boolean;
-  done?: boolean;
-  stepPaneRef?: MutableRefObject<HTMLElement>;
-  stepCount?: number;
+  readonly title: string;
+  readonly stepKey: string;
+  readonly description?: string;
+  readonly disabled?: boolean;
+  readonly isCurrent?: boolean;
+  readonly position?: number;
+  readonly onChange?: () => void;
+  readonly isClickable?: boolean;
+  readonly done?: boolean;
+  readonly stepPaneRef?: MutableRefObject<HTMLElement>;
+  readonly stepCount?: number;
 };
 
 export const Step = ({

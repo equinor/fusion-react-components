@@ -9,7 +9,7 @@ Element;
 
 export const StylesProvider = (
   props: StylesProviderProps & {
-    seed?: string;
+    readonly seed?: string;
   },
 ): JSX.Element => {
   const { children, seed, ...args } = props;

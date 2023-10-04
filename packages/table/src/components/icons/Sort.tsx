@@ -8,9 +8,9 @@ import { clsx } from '@equinor/fusion-react-styles';
 
 export type IconType = 'alpha' | 'amount' | 'numeric';
 export type IconProps = {
-  descending?: boolean;
-  type: 'alpha' | 'amount' | 'numeric';
-  active?: boolean;
+  readonly descending?: boolean;
+  readonly type: 'alpha' | 'amount' | 'numeric';
+  readonly active?: boolean;
 };
 
 export type SortIconProps = React.SVGProps<SVGSVGElement> & { descending?: boolean };

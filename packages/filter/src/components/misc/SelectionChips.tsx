@@ -45,7 +45,7 @@ const useStyles = makeStyles(
 );
 
 export type SelectionChipsProps = JSX.IntrinsicElements['div'] & {
-  chips: Omit<ChipProps, 'removable' | 'onRemove' | 'value' | 'children'>;
+  readonly chips: Omit<ChipProps, 'removable' | 'onRemove' | 'value' | 'children'>;
 };
 
 export const SelectionChips = (props: SelectionChipsProps): JSX.Element => {

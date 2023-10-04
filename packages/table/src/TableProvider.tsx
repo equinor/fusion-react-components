@@ -26,8 +26,8 @@ export const useTableContext = <TData extends TableData = TableData>(): TableCon
   useContext(context) as TableContext<TData>;
 
 export type TableProviderProps<TData extends TableData> = {
-  options: TableOptions<TData>;
-  plugins?: PluginHook<TData>[];
+  readonly options: TableOptions<TData>;
+  readonly plugins?: PluginHook<TData>[];
 };
 
 export const TableProvider = <TData extends TableData = TableData>(

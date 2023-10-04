@@ -7,7 +7,10 @@ export type FormFieldElementProps = Partial<
   Pick<HTMLFormFieldCustomElement, 'label' | 'alignEnd' | 'spaceBetween' | 'nowrap'>
 >;
 
-export const FormField: WebComponent<HTMLFormFieldCustomElement, React.PropsWithChildren<FormFieldElementProps>> = createComponent<HTMLFormFieldCustomElement, React.PropsWithChildren<FormFieldElementProps>>(
+export const FormField: WebComponent<
+  HTMLFormFieldCustomElement,
+  React.PropsWithChildren<FormFieldElementProps>
+> = createComponent<HTMLFormFieldCustomElement, React.PropsWithChildren<FormFieldElementProps>>(
   HTMLFormFieldCustomElement,
   tag,
 );

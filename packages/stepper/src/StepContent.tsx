@@ -1,7 +1,7 @@
 import { Fragment, Children, ReactElement, cloneElement, PropsWithChildren } from 'react';
 
 type StepContentProps = {
-  activeStepKey: string | null;
+  readonly activeStepKey: string | null;
 };
 
 const StepContent = ({ children, activeStepKey }: PropsWithChildren<StepContentProps>): JSX.Element => {
