@@ -46,7 +46,6 @@
     "@equinor/fusion-wc-icon": "^1.0.24"
   },
   "peerDependencies": {
-    "@types/react": "^17.0.0 || ^18.0.0",
     "react": "^17.0.0 || ^18.0.0"
   },
   "peerDependenciesMeta": {

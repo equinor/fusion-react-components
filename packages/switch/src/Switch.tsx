@@ -15,7 +15,7 @@ type ElementProps = SwitchBaseProps &
 // TODO - fix sizing of switch element
 // TODO - Emit change on switch
 
-export const Switch = forwardRef((props: ElementProps, ref: React.ForwardedRef<HTMLSwitchCustomElement>) => {
+export const Switch: React.FC<ElementProps> = forwardRef((props: ElementProps, ref: React.ForwardedRef<HTMLSwitchCustomElement>) => {
   const { label, alignEnd, spaceBetween, nowrap, className, slot, ...switchProps } = props;
   const formfieldProps = {
     label,

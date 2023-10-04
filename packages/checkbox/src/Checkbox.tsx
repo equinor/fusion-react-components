@@ -13,7 +13,7 @@ export type CheckboxElementProps = CheckboxBaseProps &
     size?: number;
   };
 
-export const Checkbox = forwardRef(
+export const Checkbox: React.FC<CheckboxElementProps> = forwardRef(
   (props: CheckboxElementProps, ref: React.ForwardedRef<HTMLCheckboxCustomElement>) => {
     const { label, alignEnd, spaceBetween, nowrap, className, size, slot, ...checkboxProps } = props;
     const formfieldProps = {

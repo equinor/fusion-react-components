@@ -33,6 +33,8 @@ const translateReactAttribute = (k: string) => {
 /** @see @link [Data Types](https://www.programiz.com/javascript/data-types) */
 const SUPPORTED_REACT_PROP_TYPES = ['string', 'number', 'boolean', 'bigint'];
 
+export type WebComponent<E extends HTMLElement, P extends Record<string, unknown>> = React.ForwardRefExoticComponent<PropsWithoutRef<ComponentAttributes<E> & P> & RefAttributes<E>>
+
 /**
  * Wraps a custom element as a React Component
  *
@@ -47,7 +49,7 @@ export const createComponent = <E extends HTMLElement, P extends Record<string, 
     functions?: Set<keyof E>;
     displayName?: string;
   } = {},
-): ForwardRefExoticComponent<PropsWithoutRef<ComponentAttributes<E> & P> & RefAttributes<E>> => {
+): WebComponent<E, P> => {
   type ComponentProps = PropsWithoutRef<ComponentAttributes<E> & P>;
   type EventProps = Partial<Record<keyof E, EventHandler<SyntheticEvent<E, Event>>>>;
 

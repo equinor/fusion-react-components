@@ -6,7 +6,7 @@ import { map } from 'rxjs/operators';
 import { FilterContainer } from '../misc';
 
 type FilterPanelFiltersProps = JSX.IntrinsicElements['div'] & {
-  FilterSelector?: () => JSX.Element;
+  FilterSelector?: React.FC;
 };
 
 export const FilterPanelFilters = (props: FilterPanelFiltersProps): JSX.Element => {

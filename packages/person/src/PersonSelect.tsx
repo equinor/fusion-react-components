@@ -30,7 +30,7 @@ export const PersonSelectComponent = createComponent<HTMLPersonSelectCustomEleme
   tag,
 );
 
-export const PersonSelect = ({ children, ...props }: PropsWithChildren<PersonSelectProps>) => {
+export const PersonSelect: React.FC<PersonSelectProps> = ({ children, ...props }: PropsWithChildren<PersonSelectProps>) => {
   const searchRef = useRef<HTMLPersonSelectCustomElement>(null);
 
   useEffect(() => {

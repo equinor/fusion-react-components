@@ -12,7 +12,7 @@ export class ErrorBoundary extends Component<PropsWithChildren<ErrorBoundaryProp
     this.setState({ hasError: true });
   }
 
-  render() {
+  render(): JSX.Element {
     return (
       <ErrorMessage hasError={this.state.hasError} {...this.props}>
         {this.props.children}
