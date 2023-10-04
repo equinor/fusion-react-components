@@ -29,6 +29,8 @@ export const CheckboxFilterOption = (props: CheckboxFilterOptionProps): JSX.Elem
   }, []);
   const styles = useStyles();
   return (
+    // TODO
+    // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
     <div
       {...args}
       className={clsx(className, styles.root, inactive && styles.inactive, hide && styles.hide)}

@@ -64,6 +64,8 @@ export const Popover: FC<PopoverProps> = ({
 
   return (
     <span ref={PopoverRef}>
+      {/* TODO */}
+      {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
       <span ref={setReferenceElement} onClick={handleClick} className={popoverStyles.baseElement}>
         {baseElement}
       </span>

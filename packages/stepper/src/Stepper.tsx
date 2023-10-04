@@ -8,12 +8,12 @@ import StepContent from './StepContent';
 import { findNextAvailable, findPrevAvailable, getSteps } from './utils';
 
 export type StepperProps = {
-  onChange?: (stepKey: string, allSteps: StepKey[]) => void;
-  forceOrder?: boolean;
-  activeStepKey: string;
-  hideNavButtons?: boolean;
-  verticalSteps?: boolean;
-  allSteps: StepKey[];
+  readonly onChange?: (stepKey: string, allSteps: StepKey[]) => void;
+  readonly forceOrder?: boolean;
+  readonly activeStepKey: string;
+  readonly hideNavButtons?: boolean;
+  readonly verticalSteps?: boolean;
+  readonly allSteps: StepKey[];
 };
 
 export type StepKey = {
@@ -146,15 +146,16 @@ export const Stepper = ({
         )}
         <StepPane
           forceOrder={forceOrder || false}
-          children={children}
           activeStepKey={currentStepKey}
           activeStepPosition={activeStepPosition}
           onChange={handleChange}
           verticalSteps={verticalSteps}
-        />
+        >
+          {children}
+        </StepPane>
       </div>
       <div className={styles.stepContent}>
-        <StepContent children={children} activeStepKey={currentStepKey} />
+        <StepContent activeStepKey={currentStepKey}>{children}</StepContent>
       </div>
     </div>
   );
