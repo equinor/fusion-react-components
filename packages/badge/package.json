@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-badge",
-  "version": "0.3.15",
+  "version": "0.4.0",
   "description": "React component for displaying a badge",
   "keywords": [
     "badge",
@@ -34,7 +34,7 @@
     "url": "https://github.com/equinor/fusion-react-components/issues"
   },
   "dependencies": {
-    "@equinor/fusion-react-utils": "^2.0.5",
+    "@equinor/fusion-react-utils": "^2.1.0",
     "@equinor/fusion-wc-badge": "^1.1.0"
   },
   "devDependencies": {
