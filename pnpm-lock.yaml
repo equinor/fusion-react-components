@@ -293,8 +293,8 @@ importers:
         specifier: ^2.1.0
         version: link:../utils
       '@equinor/fusion-wc-divider':
-        specifier: ^0.2.15
-        version: 0.2.23
+        specifier: ^1.0.0
+        version: 1.0.0
       '@lit-labs/react':
         specifier: ^1.0.1
         version: 1.2.1
