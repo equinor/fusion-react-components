@@ -1,0 +1,1 @@
+deprecated, not yet in [EDS](https://storybook.eds.equinor.com/), but as a [Web Component](https://equinor.github.io/fusion-web-components/?path=/docs/data-display-badge--docs)
