@@ -1,1 +1,0 @@
-# deprecated use @equinor/fusion-react-ag-grid-styles and/or @equinor/fusion-react-ag-grid-utils
