@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.5.0
+
+### Minor Changes
+
+- c2faab01: deprecated
+
 ## 0.4.0
 
 ### Minor Changes
