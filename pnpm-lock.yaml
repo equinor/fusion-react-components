@@ -236,8 +236,8 @@ importers:
         specifier: ^2.1.0
         version: link:../utils
       '@equinor/fusion-wc-searchable-dropdown':
-        specifier: ^2.5.1
-        version: 2.6.1
+        specifier: ^3.2.1
+        version: 3.2.1
     devDependencies:
       '@types/react':
         specifier: ^18.2.24
@@ -3237,14 +3237,6 @@ packages:
       lit: 2.7.0
     dev: false
 
-  /@equinor/fusion-wc-checkbox@0.3.17:
-    resolution: {integrity: sha512-rvNWXEZtxF+P2pAeQXFSTTa80viEDGKEavPfndMhZ5T1d/W+Hpac6xNeT6sxCQMscsMWN7Amla6XojN7sHey0A==}
-    dependencies:
-      '@equinor/fusion-wc-core': 1.0.5
-      '@material/mwc-checkbox': 0.27.0
-      lit: 2.7.0
-    dev: false
-
   /@equinor/fusion-wc-checkbox@1.0.1:
     resolution: {integrity: sha512-tvwl1a4xkOW2MbATru950C5OybyeHPvOPNdfAksJtX8KjyK1Ph98AUVdtDlfnHloO3JJbfPT8xO+TMzjHE19bw==}
     dependencies:
@@ -3276,13 +3268,6 @@ packages:
     dependencies:
       '@equinor/fusion-wc-core': 1.0.5
       date-fns: 2.30.0
-      lit: 2.7.0
-    dev: false
-
-  /@equinor/fusion-wc-divider@0.2.23:
-    resolution: {integrity: sha512-nC3z+W+OlbRGaFGq3QX/CapjRoCRKcQ+pnSQm5cnaor8jF1K0f96E8vh/YxOAcfSBoLEOZnhHLoFzX4oZb2gCw==}
-    dependencies:
-      '@equinor/fusion-wc-core': 1.0.5
       lit: 2.7.0
     dev: false
 
@@ -3324,18 +3309,6 @@ packages:
     dependencies:
       '@equinor/eds-icons': 0.19.3
       '@equinor/fusion-wc-core': 2.0.0
-      lit: 2.7.0
-    dev: false
-
-  /@equinor/fusion-wc-list@0.4.1:
-    resolution: {integrity: sha512-X0Hd9aIELZ4aljY3E+zBhgbgpg5Kg2hpsfbrtiHLJQjOmegIi2AZiXh/sC9lERbG2KvA2q6CPDWjFvt1q2xTIQ==}
-    dependencies:
-      '@equinor/fusion-wc-checkbox': 0.3.17
-      '@equinor/fusion-wc-core': 1.0.5
-      '@equinor/fusion-wc-divider': 0.2.23
-      '@equinor/fusion-wc-icon': 1.0.33
-      '@equinor/fusion-wc-radio': 0.2.27
-      '@material/mwc-list': 0.27.0
       lit: 2.7.0
     dev: false
 
@@ -3453,20 +3426,6 @@ packages:
       '@equinor/fusion-wc-core': 2.0.0
       '@material/mwc-ripple': 0.27.0
       lit: 2.7.0
-
-  /@equinor/fusion-wc-searchable-dropdown@2.6.1:
-    resolution: {integrity: sha512-4/9NomvVGHyI24AySc5GzqBsWIWBGBJ3c5Wpd+6l1V0iDUnUKBr8JdQo3y3Vx+0VB4ltP378vbtZ4eSMHke48A==}
-    dependencies:
-      '@equinor/fusion-wc-core': 1.0.5
-      '@equinor/fusion-wc-divider': 0.2.23
-      '@equinor/fusion-wc-icon': 1.0.33
-      '@equinor/fusion-wc-list': 0.4.1
-      '@equinor/fusion-wc-textinput': 0.5.21
-      '@lit-labs/task': 2.1.2
-      '@types/uuid': 9.0.4
-      lit: 2.7.0
-      uuid: 9.0.1
-    dev: false
 
   /@equinor/fusion-wc-searchable-dropdown@3.2.1:
     resolution: {integrity: sha512-MZQ+2SUdEy118O6sXlqjL3YGBaRnbiBLp1usf7Z6d6fiaI1t4nccl1zXE8Cgv6tcbQz1cz4IsGTCAHvn1ENxlA==}
