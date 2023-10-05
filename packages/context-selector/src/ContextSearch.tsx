@@ -122,7 +122,7 @@ export const ContextSearch = ({
     const ref = elementRef.current;
     if (ref) {
       // reference to web element
-      setSdd(ref.querySelector('fwc-searchable-dropdown'));
+      setSdd(ref.querySelector<SearchableDropdownElement>('fwc-searchable-dropdown') ?? null);
 
       ref.addEventListener('dropdownClosed', () => {
         setGettingCtx(false);
@@ -152,8 +152,10 @@ export const ContextSearch = ({
   return (
     <div ref={elementRef} className={styles.root}>
       <div className={clsx(gettingCtx && styles.hidden)}>
+        {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions, jsx-a11y/no-static-element-interactions */}
         <div className={styles.context} onKeyUp={() => handleKeyup}>
           <div className={styles.icon}>{ctx?.graphic && <Icon icon={ctx.graphic} />}</div>
+          {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions, jsx-a11y/no-static-element-interactions, jsx-a11y/no-noninteractive-tabindex */}
           <div tabIndex={0} className={styles.titleBlock} onClick={toggleGettingCtx} onKeyDown={keyUpGettingCtx}>
             <span className={styles.title}>{ctx?.title}</span>
             <span className={styles.subTitle}>{ctx?.subTitle}</span>

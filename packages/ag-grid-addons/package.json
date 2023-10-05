@@ -40,6 +40,7 @@
   },
   "devDependencies": {
     "@types/gulp": "^4.0.9",
+    "@types/react": "^18.2.24",
     "@types/webpack-stream": "^3.2.12",
     "autoprefixer": "^9.8.8",
     "cache-loader": "^4.1.0",
@@ -51,6 +52,7 @@
     "postcss": "^8.4.12",
     "postcss-loader": "^3.0.0",
     "postcss-scss": "^4.0.3",
+    "react": "^18.2.0",
     "sass": "^1.49.9",
     "sass-loader": "^12.6.0",
     "through2": "^4.0.2",

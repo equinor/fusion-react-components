@@ -17,21 +17,22 @@ description
 
 # Setup
 
-## Bootstrap Repo
+## Install
+
+We are using pnpm as our package manager. Read more about pnpm [here](https://pnpm.io/motivation)
 
 ```sh
-npm install
+npm install pnpm -g
+pnpm install
 ```
-
-> When running the npm install, post-install will run `lerna bootstrap` which hoists the packages dependencies
 
 ## Start Storybook
 
 StoryBook is not handling too well composite libraries, so a clean build is needed 
 
 ```sh
-npm run build
-npm start
+pnpm build
+pnpm start
 ```
 
 ## Development
@@ -56,7 +57,7 @@ tsc -w
   ]
 }
 ```
-+ run `lerna bootstrap` (might need `npm -g lerna` or navigate to root and `npm i`)
++ run `pnpm clean` and then `pnpm install` from root
 
 ## Add a dependency
 
@@ -64,7 +65,7 @@ tsc -w
 lerna add @SCOPE/PACKAGE --scope @equinor/fusion-react-MY_COMPONENT
 ````
 
-> alternative add with regular `npm i @SCOPE/PACKAGE` in the package dir, but the project need to be bootstrapped again.
+> alternative add with regular `pnpm add @SCOPE/PACKAGE` in the package dir, but the project need to be bootstrapped again.
 
 ## Refer to another package
 
@@ -127,8 +128,8 @@ import MY_COMPONENT from '@equinor/fusion-react-MY_COMPONENT/src/MY_COMPONENT';
 
 > __DO NOT__ create a PR before code is ready for review/alpha/beta, since each push eats up story snapshots
 
-- [x] make sure that the repo compiles `npm run build`
-- [x] make sure code is semantic correct `npm run lint`
+- [x] make sure that the repo compiles `pnpm build`
+- [x] make sure code is semantic correct `pnpm lint`
 - [x] is the bug/feature ready for review?!
 - [x] does all test on GH run without fails
 
@@ -146,12 +147,12 @@ When the commit is rebased/merge into `main`, GH will deploy all affected packag
 
 __Storybook wont compile 😡__
 ```sh
-npm run npm:clean && npm i
+pnpm clean && pnpm i
 ```
 
 __Watcher does not work__
 ```sh
-npm i -g typescript@latest
+pnpm add -g typescript@latest
 ```
 
 

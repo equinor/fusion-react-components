@@ -9,7 +9,7 @@ import { CheckboxFilterOption, CheckboxFilterOptionProps } from './CheckboxFilte
 const defaultSortFn = <T extends { label: string }>(a: T, b: T) => a.label.localeCompare(b.label);
 
 type CheckboxFilterOptionsProps = {
-  sortFn?: <T extends { label: string }>(a: T, b: T) => number;
+  readonly sortFn?: <T extends { label: string }>(a: T, b: T) => number;
 };
 
 export const CheckboxFilterOptions = ({ sortFn }: CheckboxFilterOptionsProps): JSX.Element => {

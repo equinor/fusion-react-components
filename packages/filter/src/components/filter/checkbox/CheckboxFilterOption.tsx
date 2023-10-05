@@ -8,11 +8,11 @@ import type { CheckboxOption } from './types';
 
 export type CheckboxFilterOptionProps = JSX.IntrinsicElements['div'] &
   Omit<CheckboxOption, 'totalCount'> & {
-    name: string;
-    checked?: boolean;
-    indeterminate?: boolean;
-    count: string | number;
-    onOptionChange: (item: { name: string; selected?: boolean }) => void;
+    readonly name: string;
+    readonly checked?: boolean;
+    readonly indeterminate?: boolean;
+    readonly count: string | number;
+    readonly onOptionChange: (item: { name: string; selected?: boolean }) => void;
   };
 
 export const CheckboxFilterOption = (props: CheckboxFilterOptionProps): JSX.Element => {
@@ -29,6 +29,8 @@ export const CheckboxFilterOption = (props: CheckboxFilterOptionProps): JSX.Elem
   }, []);
   const styles = useStyles();
   return (
+    // TODO
+    // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
     <div
       {...args}
       className={clsx(className, styles.root, inactive && styles.inactive, hide && styles.hide)}

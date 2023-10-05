@@ -91,12 +91,12 @@ const useStyles = makeStyles(
 );
 
 type FusionDatePickerInputProps = React.InputHTMLAttributes<HTMLInputElement> & {
-  dateFormat: string;
-  label?: string;
-  isClearable?: boolean;
+  readonly dateFormat: string;
+  readonly label?: string;
+  readonly isClearable?: boolean;
   onClear(): void;
-  type: FusionDatePickerType;
-  onClick?: MouseEventHandler;
+  readonly type: FusionDatePickerType;
+  readonly onClick?: MouseEventHandler;
 };
 
 export const FusionDatePickerInput = forwardRef<HTMLInputElement, FusionDatePickerInputProps>((properties, ref) => {

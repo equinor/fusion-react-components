@@ -39,6 +39,8 @@ export const ColumnMenu = <D extends TableData>(props: HeaderProps<D>): JSX.Elem
 
   return (
     <fwc-popover {...(showMenu && { show: true })} placement="bottom-end">
+      {/* TODO */}
+      {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
       <span className={clsx(styles.button, styles.interactive)} onClick={toggleMenu}>
         {column.render('MenuIcon')}
       </span>

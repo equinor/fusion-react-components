@@ -14,27 +14,27 @@ type StyleProps = {
 type HeaderProps = {
   changeMonth(month: number): void;
   changeYear(year: number): void;
-  customHeaderCount: number;
-  date: Date;
+  readonly customHeaderCount: number;
+  readonly date: Date;
   decreaseMonth(): void;
   decreaseYear(): void;
   increaseMonth(): void;
   increaseYear(): void;
-  maxDate?: Date | null;
-  minDate?: Date | null;
-  nextMonthButtonDisabled: boolean;
-  nextYearButtonDisabled: boolean;
-  prevMonthButtonDisabled: boolean;
-  prevYearButtonDisabled: boolean;
-  type: FusionDatePickerType;
+  readonly maxDate?: Date | null;
+  readonly minDate?: Date | null;
+  readonly nextMonthButtonDisabled: boolean;
+  readonly nextYearButtonDisabled: boolean;
+  readonly prevMonthButtonDisabled: boolean;
+  readonly prevYearButtonDisabled: boolean;
+  readonly type: FusionDatePickerType;
 };
 
 type InputProps = {
-  disabled?: boolean;
+  readonly disabled?: boolean;
   onClear?(): void;
   onClick?(): void;
-  placeholder?: string;
-  value?: string;
+  readonly placeholder?: string;
+  readonly value?: string;
 };
 
 const defaultStyleProps: StyleProps = {
@@ -91,6 +91,8 @@ const MonthHeaderInput = forwardRef<HTMLInputElement, InputProps>(
   ({ onClick, value }: InputProps, ref: React.ForwardedRef<HTMLInputElement>) => {
     const classes = useStyles(defaultStyleProps);
     return (
+      // TODO
+      // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
       <div className={classes.monthHeaderInput} onClick={onClick}>
         <span className={classes.monthHeaderInputText} ref={ref}>
           {value}

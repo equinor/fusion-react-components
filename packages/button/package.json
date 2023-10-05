@@ -42,15 +42,19 @@
   },
   "dependencies": {
     "@equinor/fusion-react-utils": "^2.0.5",
-    "@equinor/fusion-wc-button": "^2.1.0"
+    "@equinor/fusion-wc-button": "^2.1.0",
+    "@equinor/fusion-wc-icon": "^1.0.24"
   },
   "peerDependencies": {
-    "@types/react": "^17.0.0 || ^18.0.0",
     "react": "^17.0.0 || ^18.0.0"
   },
   "peerDependenciesMeta": {
     "@types/react": {
       "optional": true
     }
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.24",
+    "react": "^18.2.0"
   }
 }

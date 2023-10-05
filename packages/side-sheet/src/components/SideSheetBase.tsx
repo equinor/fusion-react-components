@@ -45,9 +45,9 @@ export const StyledSideSheetContent = styled.div`
 
 const MIN_WIDTH = 480;
 export type SideSheetProps = {
-  isOpen: boolean;
-  isDismissable?: boolean;
-  minWidth?: number;
+  readonly isOpen: boolean;
+  readonly isDismissable?: boolean;
+  readonly minWidth?: number;
   onClose(): void;
 };
 

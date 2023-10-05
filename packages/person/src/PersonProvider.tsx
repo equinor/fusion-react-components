@@ -4,7 +4,7 @@ import { PersonProviderElement, PersonResolver } from '@equinor/fusion-wc-person
 /** Person porvider properties for the resolver */
 export type PersonProviderProps = {
   /** Person resolver interface that contains getPresence and getDetails functions */
-  resolve: PersonResolver;
+  readonly resolve: PersonResolver;
 };
 
 /**
@@ -13,7 +13,7 @@ export type PersonProviderProps = {
  * @returns wrapped fusion web-components person provider with its reference around children
  */
 
-export const PersonProvider = (props: PropsWithChildren<PersonProviderProps>) => {
+export const PersonProvider: React.FC<PersonProviderProps> = (props: PropsWithChildren<PersonProviderProps>) => {
   const { resolve, children } = props;
   const providerRef = useRef<PersonProviderElement>(null);
 

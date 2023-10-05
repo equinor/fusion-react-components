@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import { useCallback } from 'react';
 
 import { Checkbox, HTMLCheckboxCustomElement } from '@equinor/fusion-react-checkbox';
 
@@ -9,7 +9,7 @@ export type FilterPanelSelectorProps = {
   title?: string;
 };
 
-export const FilterPanelSelector = () => {
+export const FilterPanelSelector: React.FC = () => {
   const { filters$ } = useFilterPanelContext();
 
   const { filters, selectedFilters } = useObservableState(filters$) || initialState;

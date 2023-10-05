@@ -29,7 +29,7 @@ const useStyles = makeStyles(() =>
 );
 
 type GardenProps = {
-  provideController?: MutableRefObject<GardenController | null>;
+  readonly provideController?: MutableRefObject<GardenController | null>;
 };
 
 const Garden = <T extends HangingGardenColumnIndex>({ provideController }: GardenProps): JSX.Element => {

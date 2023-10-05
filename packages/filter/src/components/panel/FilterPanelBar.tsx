@@ -33,7 +33,7 @@ const useStyles = makeStyles(
 );
 
 type FilterPanelBarProps<TData> = JSX.IntrinsicElements['div'] & {
-  searchFn?: FilterFn<TData, string>;
+  readonly searchFn?: FilterFn<TData, string>;
 };
 
 export const FilterPanelBar = <TData,>(props: FilterPanelBarProps<TData>): JSX.Element => {

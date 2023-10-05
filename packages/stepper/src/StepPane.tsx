@@ -5,11 +5,11 @@ import { StepKey } from './Stepper';
 import { getSteps } from './utils';
 
 type StepPaneProps = {
-  onChange: (stepKey: string, allSteps: StepKey[]) => void;
-  activeStepKey: string | null;
-  activeStepPosition: number;
-  forceOrder: boolean;
-  verticalSteps?: boolean;
+  readonly onChange: (stepKey: string, allSteps: StepKey[]) => void;
+  readonly activeStepKey: string | null;
+  readonly activeStepPosition: number;
+  readonly forceOrder: boolean;
+  readonly verticalSteps?: boolean;
 };
 
 type StepPaneChildProps = {

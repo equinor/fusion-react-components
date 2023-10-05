@@ -34,8 +34,8 @@ const StyledHeader = styled(StyledFlexBox)`
 `;
 
 type PortalSideSheet = SideSheetProps & {
-  minWidth?: number;
-  enableFullscreen?: boolean;
+  readonly minWidth?: number;
+  readonly enableFullscreen?: boolean;
 };
 
 type SideSheetComponents = {

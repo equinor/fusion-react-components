@@ -17,9 +17,9 @@ const defaultMatcher = <TData,>(data: TData[], query: string): TData[] => {
 
 export type SearchFilterProps<TData> = Omit<TextInputProps, 'onInput' | 'ref'> & {
   /** identifier for filter */
-  filterKey: string;
+  readonly filterKey: string;
   /** function for filtering by provided query */
-  filterFn?: FilterFn<TData, string>;
+  readonly filterFn?: FilterFn<TData, string>;
 };
 
 /**

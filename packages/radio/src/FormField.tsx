@@ -1,14 +1,14 @@
 import { FormfieldElement, tag } from '@equinor/fusion-wc-formfield';
-import { createComponent, ComponentProps } from '@equinor/fusion-react-utils';
+import { createComponent, ComponentProps, WebComponent } from '@equinor/fusion-react-utils';
 
 // TODO import from @equinor/fusion-react-form when created
 
 export type FormFieldElementProps = Partial<Pick<FormfieldElement, 'label' | 'alignEnd' | 'spaceBetween' | 'nowrap'>>;
 
-export const FormField = createComponent<FormfieldElement, React.PropsWithChildren<FormFieldElementProps>>(
+export const FormField: WebComponent<
   FormfieldElement,
-  tag,
-);
+  React.PropsWithChildren<FormFieldElementProps>
+> = createComponent<FormfieldElement, React.PropsWithChildren<FormFieldElementProps>>(FormfieldElement, tag);
 
 export type FormFieldProps = ComponentProps<FormfieldElement, FormFieldElementProps>;
 
