@@ -44,7 +44,7 @@
     "@types/styled-components": "^5.1.26",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "styled-components": "^5.3.9",
+    "styled-components": "^6.0.8",
     "typescript": "^5.2.2"
   },
   "peerDependencies": {
@@ -52,7 +52,7 @@
     "@equinor/eds-icons": "^0.19.1",
     "@equinor/eds-tokens": "^0.9.0",
     "react": "^17.0.0 || ^18.0.0",
-    "styled-components": "^5.3.9"
+    "styled-components": "^6.0.8"
   },
   "peerDependenciesMeta": {
     "@types/react": {
