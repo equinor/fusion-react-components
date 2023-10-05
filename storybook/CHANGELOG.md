@@ -1,5 +1,12 @@
 # Change Log
 
+## 2.17.1
+
+### Patch Changes
+
+- Updated dependencies [c2faab01]
+  - @equinor/fusion-react-avatar@0.5.0
+
 ## 2.17.0
 
 ### Minor Changes
