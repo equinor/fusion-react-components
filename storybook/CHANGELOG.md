@@ -1,5 +1,13 @@
 # Change Log
 
+## 2.17.2
+
+### Patch Changes
+
+- f5f6371b: removed avatar
+- Updated dependencies [811bc4ea]
+  - @equinor/fusion-react-divider@0.4.0
+
 ## 2.17.1
 
 ### Patch Changes
