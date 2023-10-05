@@ -994,6 +994,9 @@ importers:
         specifier: ^5.76.3
         version: 5.88.2
     devDependencies:
+      '@equinor/fusion-wc-avatar':
+        specifier: ^3.1.0
+        version: 3.1.0
       namor:
         specifier: ^3.0.1
         version: 3.0.1
@@ -3104,7 +3107,6 @@ packages:
   /@equinor/eds-tokens@0.5.5:
     resolution: {integrity: sha512-PserXGVxf5Q7Z0o/AypudGWdh9Vangct3dQZsgiERfqRj8+a+mU0ObRa6bMm+JouQRV3WktNPJVWMjjJf8jQbw==}
     engines: {node: '>=10.0.0', pnpm: '>=4'}
-    dev: false
 
   /@equinor/eds-tokens@0.9.0:
     resolution: {integrity: sha512-7FLqrH13dRc/q+wxHzZrIGkV35XMYIGojjkqLIbIeM0AwijSE1PETKqLauNf8VtMZPevt/2Hr9dV2a2NpEORQw==}
@@ -3213,7 +3215,6 @@ packages:
       '@equinor/fusion-wc-ripple': 1.0.0
       '@equinor/fusion-web-theme': 0.1.7
       lit: 2.7.0
-    dev: false
 
   /@equinor/fusion-wc-badge@1.1.0:
     resolution: {integrity: sha512-wZKNv5+mKY4bbHRHPwv7UU9LQwVxM2cBwd52+Ywz0Da1VAqtNjN1qIa65nLrE72dbFCMS96XPUc8/eoasbPrag==}
@@ -3269,7 +3270,6 @@ packages:
 
   /@equinor/fusion-wc-core@2.0.0:
     resolution: {integrity: sha512-yxUepfQhMIkKNYn2Vc73R6/cyvyO0hde3LXFitCCaa8QR9woK0UXZlxP+RwnEYzve528l9K1t7SnEsX6x5eyPg==}
-    dev: false
 
   /@equinor/fusion-wc-date@0.2.29:
     resolution: {integrity: sha512-V0v3l9VmVwPKXkJDV2llFJBtf+rhOMOO/JBLb1yRlyfjD0OMuZQZyghLlBBFmHdAB6fdbupAcLuvT4/AEDaxMA==}
@@ -3405,7 +3405,6 @@ packages:
     dependencies:
       '@equinor/fusion-wc-core': 2.0.0
       lit: 2.7.0
-    dev: false
 
   /@equinor/fusion-wc-popover@1.0.30:
     resolution: {integrity: sha512-1XRpzAQx5mCkqowWIewOROMNwLRyU+ptnb3e5LSLqc3ulvPSWJI8Vxr3in1hSNeLXLTHVM9FPmPW6jb5QawVGQ==}
@@ -3454,7 +3453,6 @@ packages:
       '@equinor/fusion-wc-core': 2.0.0
       '@material/mwc-ripple': 0.27.0
       lit: 2.7.0
-    dev: false
 
   /@equinor/fusion-wc-searchable-dropdown@2.6.1:
     resolution: {integrity: sha512-4/9NomvVGHyI24AySc5GzqBsWIWBGBJ3c5Wpd+6l1V0iDUnUKBr8JdQo3y3Vx+0VB4ltP378vbtZ4eSMHke48A==}
@@ -3563,7 +3561,6 @@ packages:
     dependencies:
       '@equinor/eds-tokens': 0.5.5
       csstype: 3.1.2
-    dev: false
 
   /@equinor/fusion@3.4.11(eslint@7.32.0)(prettier@2.8.8)(tslib@2.6.2)(typescript@4.9.5):
     resolution: {integrity: sha512-VNwx4ASiTcok02f66k70in0Vaq0bpUY8TW4wJsA+X9x7ovBvZV+SHC6dYkaMHWAeltT8Hj7TO5gy3FSNhOdWrQ==}
@@ -3975,7 +3972,6 @@ packages:
 
   /@lit-labs/ssr-dom-shim@1.1.1:
     resolution: {integrity: sha512-kXOeFbfCm4fFf2A3WwVEeQj55tMZa8c8/f9AKHMobQMkzNUfUj+antR3fRPaZJawsa1aZiP/Da3ndpZrwEe4rQ==}
-    dev: false
 
   /@lit-labs/task@2.1.2:
     resolution: {integrity: sha512-pDjPYojmCXnOezT/4BgqxHA2kahmSsCE0y6uPCYyVqigIx9DJav05s0KAtD9IImTY3LvWu5isSlq6nkWagAybA==}
@@ -3993,7 +3989,6 @@ packages:
     resolution: {integrity: sha512-QuTgnG52Poic7uM1AN5yJ09QMe0O28e10XzSvWDz02TJiiKee4stsiownEIadWm8nYzyDAyT+gKzUoZmiWQtsQ==}
     dependencies:
       '@lit-labs/ssr-dom-shim': 1.1.1
-    dev: false
 
   /@manypkg/find-root@1.1.0:
     resolution: {integrity: sha512-mki5uBvhHzO8kYYix/WRy2WX8S3B5wdVSc9D6KcU5lQNglP2yt58/VfLuAK49glRXChosY8ap2oJ1qgma3GUVA==}
@@ -4077,13 +4072,11 @@ packages:
     resolution: {integrity: sha512-GBuR4VmcTQW1D0lPXEosf5Giho72LLbyGIydWGtaEUtLJoive/D9kFkwTN4Fsyt9Kkl7hbhs35vrNe6QkAH4/Q==}
     dependencies:
       tslib: 2.6.2
-    dev: false
 
   /@material/base@14.0.0-canary.53b3cad2f.0:
     resolution: {integrity: sha512-UJKbXwZtkrA3sfQDmj8Zbw1Q3Tqtl6KdfVFws95Yf7TCUgTFzbZI/FSx1w7dVugQPOEnIBuZnzqZam/MtHkx4w==}
     dependencies:
       tslib: 2.6.2
-    dev: false
 
   /@material/density@14.0.0-canary.53b3cad2f.0:
     resolution: {integrity: sha512-Eh/vZ3vVyqtpylg5Ci33qlgtToS4H1/ppd450Ib3tcdISIoodgijYY0w4XsRvrnZgbI/h/1STFdLxdzS0UNuFw==}
@@ -4096,7 +4089,6 @@ packages:
     dependencies:
       '@material/feature-targeting': 14.0.0-canary.53b3cad2f.0
       tslib: 2.6.2
-    dev: false
 
   /@material/elevation@14.0.0-canary.53b3cad2f.0:
     resolution: {integrity: sha512-3h+EkR588RMZ5TSNQ4UeXD1FOBnL3ABQix0DQIGwtNJCqSMoPndT/oJEFvwQbTkZNDbFIKN9p1Q7/KuFPVY8Pw==}
@@ -4119,7 +4111,6 @@ packages:
     resolution: {integrity: sha512-fn7Af3PRyARtNeYqtjxXmE3Y/dCpnpQVWWys57MqiGR/nvc6qpgOfJ6rOdcu/MrOysOE/oebTUDmDnTmwpe9Hw==}
     dependencies:
       tslib: 2.6.2
-    dev: false
 
   /@material/floating-label@14.0.0-canary.53b3cad2f.0:
     resolution: {integrity: sha512-gHZUTTVKnP+Zjz4l9IT/G89NPmypn5FlTGLWKKqXbuQphr37rsKFR3Y80SJxULRyMDnAdKSxuZwiXLFKQz9KlA==}
@@ -4214,7 +4205,6 @@ packages:
       '@material/dom': 14.0.0-canary.53b3cad2f.0
       lit: 2.7.0
       tslib: 2.6.2
-    dev: false
 
   /@material/mwc-button@0.27.0:
     resolution: {integrity: sha512-t5m2zfE93RNKHMjdsU67X6csFzuSG08VJKKvXVQ+BriGE3xBgzY5nZdmZXomFpaWjDENPAlyS4ppCFm6o+DILw==}
@@ -4338,7 +4328,6 @@ packages:
       '@material/ripple': 14.0.0-canary.53b3cad2f.0
       lit: 2.7.0
       tslib: 2.6.2
-    dev: false
 
   /@material/mwc-select@0.27.0:
     resolution: {integrity: sha512-LTr2nl7gAYq8ung4eWfUz24mey4/K9vAlqJBo/uu6w0122C9X64szBS9kHAb87aD1oxLkxAJCDuv/wwlXV1i2w==}
@@ -4429,14 +4418,12 @@ packages:
       '@material/rtl': 14.0.0-canary.53b3cad2f.0
       '@material/theme': 14.0.0-canary.53b3cad2f.0
       tslib: 2.6.2
-    dev: false
 
   /@material/rtl@14.0.0-canary.53b3cad2f.0:
     resolution: {integrity: sha512-f08LT0HSa0WYU+4Jz/tbm1TQ9Fcf2k+H6dPPYv0J1sZmX6hMgCEmNiUdUFLQFvszoXx2XrRi1/hIFjbz2e69Yg==}
     dependencies:
       '@material/theme': 14.0.0-canary.53b3cad2f.0
       tslib: 2.6.2
-    dev: false
 
   /@material/select@14.0.0-canary.53b3cad2f.0:
     resolution: {integrity: sha512-fAiTaHZ1PIEmCUbufS+IZvsWO0hDxtbU8rOsbmSu1oupAboP7jSgOVgcCGdT9KY5WacrniIIMO6jZjhnvrC0Lg==}
@@ -4521,7 +4508,6 @@ packages:
     dependencies:
       '@material/feature-targeting': 14.0.0-canary.53b3cad2f.0
       tslib: 2.6.2
-    dev: false
 
   /@material/tokens@14.0.0-canary.53b3cad2f.0:
     resolution: {integrity: sha512-myHFB7vac8zErA3qgkqmV+kpE+i9JEwc/6Yf0MOumDSpylJGw28QikpNC6eAVBK2EmPQTaFn20mqUxyud8dGqw==}
@@ -7382,7 +7368,6 @@ packages:
 
   /@types/trusted-types@2.0.4:
     resolution: {integrity: sha512-IDaobHimLQhjwsQ/NMwRVfa/yL7L/wriQPMhw1ZJall0KX6E1oxk29XMDeilW5qTIg5aoiqf5Udy8U/51aNoQQ==}
-    dev: false
 
   /@types/uglify-js@3.17.2:
     resolution: {integrity: sha512-9SjrHO54LINgC/6Ehr81NjAxAYvwEZqjUHLjJYvC4Nmr9jbLQCIZbWSvl4vXQkkmR1UAuaKDycau3O1kWGFyXQ==}
@@ -15489,13 +15474,11 @@ packages:
       '@lit-labs/ssr-dom-shim': 1.1.1
       '@lit/reactive-element': 1.6.3
       lit-html: 2.8.0
-    dev: false
 
   /lit-html@2.8.0:
     resolution: {integrity: sha512-o9t+MQM3P4y7M7yNzqAyjp7z+mQGa4NS4CxiyLqFPyFWyc4O+nodLrkrxSaCTrla6M5YOLaT3RpbbqjszB5g3Q==}
     dependencies:
       '@types/trusted-types': 2.0.4
-    dev: false
 
   /lit@2.7.0:
     resolution: {integrity: sha512-qSy2BAVA+OiWtNptP404egcC/izDdNRw6iHGIbUmkZtbMJvPKfNsaoKrNs8Zmsbjmv5ZX2tur1l9TfzkSWWT4g==}
@@ -15503,7 +15486,6 @@ packages:
       '@lit/reactive-element': 1.6.3
       lit-element: 3.3.3
       lit-html: 2.8.0
-    dev: false
 
   /load-json-file@1.1.0:
     resolution: {integrity: sha512-cy7ZdNRXdablkXYNI049pthVeXFurRyb9+hA/dZzerZ0pGTx42z+y+ssxBaVV2l70t1muq5IdKhn4UtcoGUY9A==}

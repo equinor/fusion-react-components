@@ -1,7 +1,9 @@
 import { Meta, Story } from '@storybook/react';
 import { Badge, BadgeProps } from '@equinor/fusion-react-badge/src';
-import { Avatar } from '@equinor/fusion-react-avatar';
+import AvatarElement from '@equinor/fusion-wc-avatar';
 import { iconNames } from '@equinor/fusion-react-icon/src';
+
+AvatarElement;
 
 export default {
   title: 'Examples/Badge',
@@ -16,9 +18,9 @@ export default {
 
 type ComponentProps = BadgeProps & { initial: string };
 export const Component: Story<ComponentProps> = (props: ComponentProps) => (
-  <Avatar>
+  <fwc-avatar>
     <Badge slot="badge" {...props} />
-  </Avatar>
+  </fwc-avatar>
 );
 Component.args = {
   value: 'A',
@@ -29,30 +31,30 @@ Component.args = {
 };
 
 export const Simple: Story = () => (
-  <Avatar>
+  <fwc-avatar>
     <Badge slot="badge" value="A" circular />
-  </Avatar>
+  </fwc-avatar>
 );
 
 export const Icon: Story = () => (
-  <Avatar>
+  <fwc-avatar>
     <Badge slot="badge" icon="alarm_on" circular />
-  </Avatar>
+  </fwc-avatar>
 );
 
 export const Alignment: Story = () => (
   <div style={{ display: 'inline-flex', gap: 10 }}>
-    <Avatar>
+    <fwc-avatar>
       <Badge slot="badge" position="top-left" circular />
-    </Avatar>
-    <Avatar>
+    </fwc-avatar>
+    <fwc-avatar>
       <Badge slot="badge" position="top-right" circular />
-    </Avatar>
-    <Avatar>
+    </fwc-avatar>
+    <fwc-avatar>
       <Badge slot="badge" position="bottom-left" circular />
-    </Avatar>
-    <Avatar>
+    </fwc-avatar>
+    <fwc-avatar>
       <Badge slot="badge" position="bottom-right" circular />
-    </Avatar>
+    </fwc-avatar>
   </div>
 );
