@@ -408,8 +408,8 @@ importers:
         specifier: ^1.0.2
         version: 1.0.2
       '@lit-labs/react':
-        specifier: ^1.0.1
-        version: 1.2.1
+        specifier: ^2.1.0
+        version: 2.1.0(@types/react@18.2.24)
     devDependencies:
       '@types/react':
         specifier: ^18.2.24
@@ -3966,8 +3966,12 @@ packages:
       '@lit/reactive-element': 1.6.3
     dev: false
 
-  /@lit-labs/react@1.2.1:
-    resolution: {integrity: sha512-DiZdJYFU0tBbdQkfwwRSwYyI/mcWkg3sWesKRsHUd4G+NekTmmeq9fzsurvcKTNVa0comNljwtg4Hvi1ds3V+A==}
+  /@lit-labs/react@2.1.0(@types/react@18.2.24):
+    resolution: {integrity: sha512-8z8I0sWWWqyFiRxnCdxotT5z5XQAOI6opD/i3trxcfW5NG/tQeflNWV+leg+SWRVaO3GpYspoCgYGxkqDwE++A==}
+    peerDependencies:
+      '@types/react': 17 || 18
+    dependencies:
+      '@types/react': 18.2.24
     dev: false
 
   /@lit-labs/ssr-dom-shim@1.1.1:
