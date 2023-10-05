@@ -135,22 +135,6 @@ importers:
         specifier: ^18.2.0
         version: 18.2.0
 
-  packages/avatar:
-    dependencies:
-      '@equinor/fusion-react-utils':
-        specifier: ^2.1.0
-        version: link:../utils
-      '@equinor/fusion-wc-avatar':
-        specifier: ^3.1.0
-        version: 3.1.0
-    devDependencies:
-      '@types/react':
-        specifier: ^18.2.24
-        version: 18.2.24
-      react:
-        specifier: ^18.2.0
-        version: 18.2.0
-
   packages/badge:
     dependencies:
       '@equinor/fusion-react-utils':
@@ -872,9 +856,6 @@ importers:
       '@equinor/fusion-react-ag-grid-styles':
         specifier: ^30.0.0
         version: link:../packages/ag-grid-styles
-      '@equinor/fusion-react-avatar':
-        specifier: ^0.5.0
-        version: link:../packages/avatar
       '@equinor/fusion-react-badge':
         specifier: ^0.4.0
         version: link:../packages/badge
