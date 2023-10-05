@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.5.0
+
+### Minor Changes
+
+- f3a758bf: depreacted
+
 ## 0.4.0
 
 ### Minor Changes

@@ -1,5 +1,13 @@
 # Change Log
 
+## 2.17.3
+
+### Patch Changes
+
+- 8f06ece9: removed divider component
+- Updated dependencies [f3a758bf]
+  - @equinor/fusion-react-badge@0.5.0
+
 ## 2.17.2
 
 ### Patch Changes

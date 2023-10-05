@@ -838,7 +838,7 @@ importers:
         specifier: ^30.0.0
         version: link:../packages/ag-grid-styles
       '@equinor/fusion-react-badge':
-        specifier: ^0.4.0
+        specifier: ^0.5.0
         version: link:../packages/badge
       '@equinor/fusion-react-breadcrumb':
         specifier: ^0.2.0
