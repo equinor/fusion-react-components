@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-tooltip",
-  "version": "1.1.11",
+  "version": "1.2.0",
   "description": "React component for displaying tooltip",
   "keywords": [
     "tooltip",
@@ -35,7 +35,7 @@
     "url": "https://github.com/equinor/fusion-react-components/issues"
   },
   "dependencies": {
-    "@equinor/fusion-react-styles": "^0.5.11",
+    "@equinor/fusion-react-styles": "^0.6.0",
     "@tippyjs/react": "^4.2.6"
   },
   "devDependencies": {
