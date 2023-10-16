@@ -1,5 +1,11 @@
 # Change Log
 
+## 2.17.4
+
+### Patch Changes
+
+- e1671b1d: remove badge
+
 ## 2.17.3
 
 ### Patch Changes
