@@ -2,9 +2,6 @@ name: Lint project files
 
 on: 
   pull_request:
-    paths:
-      - '**.ts'
-      - '**.tsx'
 
 jobs:
   eslint:
