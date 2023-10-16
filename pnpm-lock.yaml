@@ -160,8 +160,8 @@ importers:
         specifier: ^2.1.0
         version: 2.1.0
       '@equinor/fusion-wc-icon':
-        specifier: ^1.0.24
-        version: 1.0.33
+        specifier: ^2.1.0
+        version: 2.1.0
     devDependencies:
       '@types/react':
         specifier: ^18.2.24
@@ -699,8 +699,8 @@ importers:
         specifier: ^0.6.0
         version: link:../styles
       '@equinor/fusion-wc-icon':
-        specifier: ^1.0.24
-        version: 1.0.33
+        specifier: ^2.1.0
+        version: 2.1.0
       '@equinor/fusion-wc-popover':
         specifier: ^1.0.22
         version: 1.0.30
