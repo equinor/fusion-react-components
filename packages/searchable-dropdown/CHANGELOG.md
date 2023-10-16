@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.4.1
+
+### Patch Changes
+
+- f390acb7: Web component update
+
 ## 0.4.0
 
 ### Minor Changes
