@@ -61,7 +61,7 @@ export const Checkbox: Story<StoryProps> = ({ filterHeight, rows, unique }: Stor
   )();
   return (
     <FilterProvider data={data} initialSelection={{ lastName: new Set([data[0].lastName, data[1].lastName]) }}>
-      <FilterPanel showBar showFilters classes={{ filters: styles.filters }}>
+      <FilterPanel showBar showFilters classes={{ filters: styles.filters }} showSelection>
         <CheckboxFilter title="First name" filterKey="firstName" initial={new Set([data[0].firstName])} />
         <CheckboxFilter title="Last name" filterKey="lastName" />
         <CheckboxFilter title="Company" filterKey="company" enableAll />
