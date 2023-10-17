@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { combineLatest, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { useSubscription } from '@equinor/fusion-react-observable';
-import Chip, { ChipElement } from '@equinor/fusion-wc-chip';
+import Chip, { ChipElement, ChipElementProps } from '@equinor/fusion-wc-chip';
 import { useFilterContext } from '../../hooks';
 import { actions } from '../../actions';
 import { clsx, createStyles, makeStyles } from '@equinor/fusion-react-styles';
@@ -46,8 +46,12 @@ const useStyles = makeStyles(
   { name: 'fusion-filter-selection-chips' },
 );
 
-export const SelectionChips = (props: JSX.IntrinsicElements['div']): JSX.Element => {
-  const { className, ...args } = props;
+export type SelectionChipsProps = JSX.IntrinsicElements['div'] & {
+  readonly chips: Pick<ChipElementProps, 'variant'>;
+};
+
+export const SelectionChips = (props: SelectionChipsProps): JSX.Element => {
+  const { chips, className, ...args } = props;
   const { filter$, selection$ } = useFilterContext();
   const [items, setItems] = useState<SelectionItem[]>([]);
 
@@ -93,7 +97,7 @@ export const SelectionChips = (props: JSX.IntrinsicElements['div']): JSX.Element
   return (
     <div {...args} className={clsx(styles.root, className)} ref={ref}>
       {items?.map((x) => (
-        <fwc-chip key={x.key} value={x.key} removable>
+        <fwc-chip key={x.key} value={x.key} removable variant={chips.variant}>
           <span>{x.title} </span>
           <span slot="graphic" className={styles.chip}>
             {x.selection.length}
