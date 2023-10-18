@@ -18,12 +18,6 @@ design rules from EDS.
 | [`<ThemeProvider>`](https://github.com/equinor/fusion-react-components/tree/main/packages/styles) | `@equinor/fusion-react-styles` | [![Published on npm](https://img.shields.io/npm/v/@equinor/fusion-react-styles.svg)](https://www.npmjs.com/package/@equinor/fusion-react-styles)
 <!-- | [`<Intersection>`](https://github.com/equinor/fusion-react-components/tree/main/packages/intersection) | `@equinor/fusion-react-intersection` | TBD -->
 
-### Layout
-| Component | Package | Status
-| --------- | ------- | ------
-| [`<Divider>`](https://github.com/equinor/fusion-react-components/tree/main/packages/divider) | `@equinor/fusion-react-divider` | [![Published on npm](https://img.shields.io/npm/v/@equinor/fusion-react-divider.svg)](https://www.npmjs.com/package/@equinor/fusion-react-divider)
-<!-- | [`<Accordion>`](https://github.com/equinor/fusion-react-components/tree/main/packages/accordion) | `@equinor/fusion-react-accordion` | TBD -->
-
 ### Inputs
 | Component | Package | Status
 | --------- | ------- | ------
@@ -49,10 +43,7 @@ design rules from EDS.
 ### Data Display
 | Component | Package | Status
 | --------- | ------- | ------
-| [`<Avatar>`](https://github.com/equinor/fusion-react-components/tree/main/packages/avatar) | `@equinor/fusion-react-avatar` | [![Published on npm](https://img.shields.io/npm/v/@equinor/fusion-react-avatar.svg)](https://www.npmjs.com/package/@equinor/fusion-react-avatar)
-| [`<Badge>`](https://github.com/equinor/fusion-react-components/tree/main/packages/badge) | `@equinor/fusion-react-badge` | [![Published on npm](https://img.shields.io/npm/v/@equinor/fusion-react-badge.svg)](https://www.npmjs.com/package/@equinor/fusion-react-badge)
 | [`<Breadcrumb>`](https://github.com/equinor/fusion-react-components/tree/main/packages/breadcrumb) | `@equinor/fusion-react-breadcrumb` | [![Published on npm](https://img.shields.io/npm/v/@equinor/fusion-react-breadcrumb.svg)](https://www.npmjs.com/package/@equinor/fusion-react-breadcrumb)
-| [`<Chip>`](https://github.com/equinor/fusion-react-components/tree/main/packages/chip) | `@equinor/fusion-react-chip` | [![Published on npm](https://img.shields.io/npm/v/@equinor/fusion-react-chip.svg)](https://www.npmjs.com/package/@equinor/fusion-react-chip)
 | [`<ContextSelector>`](https://github.com/equinor/fusion-react-components/tree/main/packages/context-selector) | `@equinor/fusion-react-context-selector` | [![Published on npm](https://img.shields.io/npm/v/@equinor/fusion-react-chip.svg)](https://www.npmjs.com/package/@equinor/fusion-react-context-selector)
 | [`<DateRange>`](https://github.com/equinor/fusion-react-components/tree/main/packages/date/src/DateRange.tsx) <br /> [`<DateTime>`](https://github.com/equinor/fusion-react-components/tree/main/packages/date/src/DateTime.tsx) | `@equinor/fusion-react-date` | [![Published on npm](https://img.shields.io/npm/v/@equinor/fusion-react-date.svg)](https://www.npmjs.com/package/@equinor/fusion-react-date)
 | [`<FusionDatePicker>`](https://github.com/equinor/fusion-react-components/tree/main/packages/datepicker) | `@equinor/fusion-react-datepicker` | [![Published on npm](https://img.shields.io/npm/v/@equinor/fusion-react-datepicker.svg)](https://www.npmjs.com/package/@equinor/fusion-react-datepicker)
