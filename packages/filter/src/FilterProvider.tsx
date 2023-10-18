@@ -2,7 +2,7 @@ import { useLayoutEffect, useMemo, useState } from 'react';
 
 import { BehaviorSubject } from 'rxjs';
 
-import { useObservable, useSubscription } from '@equinor/fusion-react-observable';
+import { useObservable, useObservableSubscription } from '@equinor/fusion-observable/react';
 
 import { createSelectionReducer, createDataReducer, createFilterReducer } from './reducers';
 
@@ -40,7 +40,7 @@ export const FilterProvider: <
 
   const [data$] = useState(new BehaviorSubject<TData[]>(data));
 
-  useSubscription(filterData$, data$);
+  useObservableSubscription(filterData$, data$);
 
   const context = useMemo(
     () =>

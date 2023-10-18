@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { combineLatest, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
-import { useSubscription } from '@equinor/fusion-react-observable';
+import { useObservableSubscription } from '@equinor/fusion-observable/react';
 import Chip, { ChipElement, ChipElementProps } from '@equinor/fusion-wc-chip';
 import { useFilterContext } from '../../hooks';
 import { actions } from '../../actions';
@@ -57,7 +57,7 @@ export const SelectionChips = (props: SelectionChipsProps): JSX.Element => {
 
   const ref = useRef<HTMLDivElement>(null);
 
-  useSubscription(
+  useObservableSubscription(
     useMemo(
       () =>
         /** Observe filter and selection changes */
