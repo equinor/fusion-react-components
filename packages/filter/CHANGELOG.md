@@ -1,5 +1,15 @@
 # Change Log
 
+## 1.6.0
+
+### Minor Changes
+
+- 69654898: deprecated @equinor/fusion-react-observable
+
+### Patch Changes
+
+- b762221a: removed `@equinor/fusion-react-chip`
+
 ## 1.5.1
 
 ### Patch Changes

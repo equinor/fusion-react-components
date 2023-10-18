@@ -827,7 +827,7 @@ importers:
         specifier: ^0.2.0
         version: link:../packages/errorboundary
       '@equinor/fusion-react-filter':
-        specifier: ^1.5.0
+        specifier: ^1.6.0
         version: link:../packages/filter
       '@equinor/fusion-react-hanging-garden':
         specifier: ^1.7.0

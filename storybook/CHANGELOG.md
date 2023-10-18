@@ -1,5 +1,15 @@
 # Change Log
 
+## 2.17.6
+
+### Patch Changes
+
+- b762221a: removed `@equinor/fusion-react-chip`
+- 69654898: deprecated @equinor/fusion-react-observable
+- Updated dependencies [b762221a]
+- Updated dependencies [69654898]
+  - @equinor/fusion-react-filter@1.6.0
+
 ## 2.17.5
 
 ### Patch Changes
