@@ -32,7 +32,6 @@
     "@equinor/fusion-react-list": "^0.3.0",
     "@equinor/fusion-react-markdown": "^0.3.0",
     "@equinor/fusion-react-menu": "^0.2.0",
-    "@equinor/fusion-react-observable": "^1.2.0",
     "@equinor/fusion-react-person": "^0.6.0",
     "@equinor/fusion-react-popover": "^0.2.0",
     "@equinor/fusion-react-progress-indicator": "^0.2.0",
@@ -59,9 +58,7 @@
     "@storybook/builder-webpack5": "^6.5.16",
     "@storybook/manager-webpack5": "^6.5.16",
     "@storybook/react": "^6.5.16",
-    "@types/faker": "^6.6.8",
     "babel-loader": "^9.1.2",
-    "faker": "^5.5.3",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-is": "^18.2.0",
@@ -72,6 +69,7 @@
   },
   "devDependencies": {
     "@equinor/fusion-wc-avatar": "^3.1.0",
+    "@faker-js/faker": "^8.2.0",
     "namor": "^3.0.1"
   }
 }

@@ -1,6 +1,6 @@
 import { useCallback, useMemo, useRef } from 'react';
 
-import { useSubscription } from '@equinor/fusion-react-observable';
+import { useObservableSelector } from '@equinor/fusion-observable/react';
 
 import { HTMLTextInputCustomElement, TextInput, TextInputProps } from '@equinor/fusion-react-textinput';
 
@@ -55,7 +55,7 @@ export const SearchFilter = <TData,>(props: SearchFilterProps<TData>): JSX.Eleme
   );
 
   /** subscribe to changes in the filter selection */
-  useSubscription(
+  useObservableSelector(
     /** create an observable selection for filter  */
     useFilterSelection<string>(props.filterKey),
     /** update value of text input when selection changes */

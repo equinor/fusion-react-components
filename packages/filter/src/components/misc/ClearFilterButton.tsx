@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 
 import { useForwardRef } from '@equinor/fusion-react-utils';
-import { useSubscription } from '@equinor/fusion-react-observable';
+import { useObservableSubscription } from '@equinor/fusion-observable/react';
 import { Button, ButtonProps, HTMLButtonCustomElement } from '@equinor/fusion-react-button';
 
 import { useClearFilter } from '../../hooks/useClearFilter';
@@ -19,7 +19,7 @@ export const ClearFilterButton = (props: ClearFilterButtonProps): JSX.Element =>
   const ref = useForwardRef<HTMLButtonCustomElement>(props.ref);
 
   /** Subscribe to changes and toggle `disable` of button */
-  useSubscription(
+  useObservableSubscription(
     changed$,
     useCallback(
       (changed: any) => {

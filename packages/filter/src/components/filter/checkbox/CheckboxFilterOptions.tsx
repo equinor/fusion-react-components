@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 
-import { useObservableRef, useObservableState } from '@equinor/fusion-react-observable';
+import { useObservableRef, useObservableState } from '@equinor/fusion-observable/react';
 
 import { useCheckboxFilterOptionContext } from './context';
 
@@ -14,7 +14,7 @@ type CheckboxFilterOptionsProps = {
 
 export const CheckboxFilterOptions = ({ sortFn }: CheckboxFilterOptionsProps): JSX.Element => {
   const context = useCheckboxFilterOptionContext();
-  const data = useObservableState(context.options$);
+  const { value: data } = useObservableState(context.options$);
   const selectionRef = useObservableRef(context.selection$);
 
   const onOptionChange = useCallback(

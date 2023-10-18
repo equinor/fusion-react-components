@@ -1,3 +1,4 @@
+import * as React from 'react';
 import { Meta, Story } from '@storybook/react';
 
 import { useObservableState } from '@equinor/fusion-react-observable';
@@ -67,13 +68,14 @@ export const Checkbox: Story<StoryProps> = ({ filterHeight, rows, unique }: Stor
         <CheckboxFilter title="Company" filterKey="company" enableAll />
         <CheckboxFilter title="Job title" filterKey="jobType" sortFn={customSortFn} selector={customOptions} />
       </FilterPanel>
+      <DataLogger></DataLogger>
     </FilterProvider>
   );
 };
 
 Checkbox.args = {
   rows: 100,
-  unique: 20,
+  unique: 5,
   filterHeight: 200,
 };
 

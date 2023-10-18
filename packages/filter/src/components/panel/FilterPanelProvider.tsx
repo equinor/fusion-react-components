@@ -1,4 +1,5 @@
-import { useObservable, ReactiveSubject } from '@equinor/fusion-react-observable';
+import { type FlowSubject } from '@equinor/fusion-observable';
+import { useObservable } from '@equinor/fusion-observable/react';
 import { ReactElement, createContext, useContext, useState } from 'react';
 
 import { FilterComponent } from '../filter';
@@ -7,7 +8,7 @@ import FilterPanelSelector from './FilterPanelSelector';
 import { createAction, createReducer, ActionType } from 'typesafe-actions';
 
 export type FilterPanelProviderContext = {
-  filters$: ReactiveSubject<State, Actions>;
+  filters$: FlowSubject<State, Actions>;
   showFilters?: boolean;
   setShowFilters: (show: boolean) => void;
 };

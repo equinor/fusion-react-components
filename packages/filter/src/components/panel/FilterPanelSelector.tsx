@@ -3,7 +3,7 @@ import { useCallback } from 'react';
 import { Checkbox, HTMLCheckboxCustomElement } from '@equinor/fusion-react-checkbox';
 
 import { initialState, useFilterPanelContext, actions } from './FilterPanelProvider';
-import { useObservableState } from '@equinor/fusion-react-observable';
+import { useObservableState } from '@equinor/fusion-observable/react';
 
 export type FilterPanelSelectorProps = {
   title?: string;
@@ -12,7 +12,7 @@ export type FilterPanelSelectorProps = {
 export const FilterPanelSelector: React.FC = () => {
   const { filters$ } = useFilterPanelContext();
 
-  const { filters, selectedFilters } = useObservableState(filters$) || initialState;
+  const { filters, selectedFilters } = useObservableState(filters$).value || initialState;
 
   const onInput = useCallback(
     (e: React.FormEvent<HTMLCheckboxCustomElement>) => {

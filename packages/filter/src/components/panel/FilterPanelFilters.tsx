@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import { useObservableState } from '@equinor/fusion-react-observable';
+import { useObservableState } from '@equinor/fusion-observable/react';
 import { useFilterPanelContext } from './FilterPanelProvider';
 
 import { map } from 'rxjs/operators';
@@ -13,7 +13,7 @@ export const FilterPanelFilters = (props: FilterPanelFiltersProps): JSX.Element 
   const { FilterSelector, ...args } = props;
   const { filters$, showFilters } = useFilterPanelContext();
 
-  const filters = useObservableState(
+  const { value: filters } = useObservableState(
     useMemo(
       () =>
         filters$.pipe(

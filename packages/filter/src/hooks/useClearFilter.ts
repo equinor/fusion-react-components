@@ -6,7 +6,7 @@ import { map, distinctUntilChanged, filter, withLatestFrom } from 'rxjs/operator
 
 import { isActionOf } from 'typesafe-actions';
 
-import { useObservableEffect } from '@equinor/fusion-react-observable';
+import { useObservableFlow } from '@equinor/fusion-observable/react';
 
 import { useFilterContext } from '../context';
 import { actions } from '../actions';
@@ -49,10 +49,10 @@ export const useClearFilter = (): { clear: VoidFunction; changed$: Observable<Re
 
   const changed$ = useMemo(() => selectionChanges(filter$, selection$), [filter$, selection$]);
 
-  useObservableEffect(
+  useObservableFlow(
     selection$,
     useCallback(
-      (action$: any) =>
+      (action$) =>
         action$.pipe(
           filter(isActionOf(actions.selection.clear)),
           withLatestFrom(initial$),

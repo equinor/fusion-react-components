@@ -3,7 +3,7 @@ import { useEffect, useMemo } from 'react';
 import { combineLatest, of } from 'rxjs';
 import { switchMap, map } from 'rxjs/operators';
 
-import { useObservable } from '@equinor/fusion-react-observable';
+import { useObservable } from '@equinor/fusion-observable/react';
 
 import { useFilterData, useFilterSelection, useFilter, useFilterContext } from '../hooks';
 import type { Filter } from '../types';
