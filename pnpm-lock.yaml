@@ -418,22 +418,6 @@ importers:
         specifier: ^18.2.0
         version: 18.2.0
 
-  packages/observable:
-    dependencies:
-      '@equinor/fusion-react-utils':
-        specifier: ^2.1.0
-        version: link:../utils
-      rxjs:
-        specifier: ^7.4.0
-        version: 7.8.1
-    devDependencies:
-      '@types/react':
-        specifier: ^18.2.24
-        version: 18.2.24
-      react:
-        specifier: ^18.2.0
-        version: 18.2.0
-
   packages/person:
     dependencies:
       '@equinor/fusion-react-button':
@@ -947,6 +931,9 @@ importers:
         specifier: ^5.76.3
         version: 5.88.2
     devDependencies:
+      '@equinor/fusion-observable':
+        specifier: ^8.1.2
+        version: 8.1.2(react@17.0.2)
       '@equinor/fusion-wc-avatar':
         specifier: ^3.1.0
         version: 3.1.0
@@ -3178,6 +3165,21 @@ packages:
       rxjs: 7.8.1
       uuid: 8.3.2
     dev: false
+
+  /@equinor/fusion-observable@8.1.2(react@17.0.2):
+    resolution: {integrity: sha512-pzfr80y+vXijX5hZZK6uQHp/8GcA9PD8ZLWL7PBptD70Rdlig9bMVaIb61e/TNexG6KDCOoynuX2rx1BcxU9QA==}
+    peerDependencies:
+      '@types/react': "^17.0.0 ||\_^18.0.0"
+      react: "^17.0.0 ||\_^18.0.0"
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+    dependencies:
+      immer: 9.0.21
+      react: 17.0.2
+      rxjs: 7.8.1
+      uuid: 8.3.2
+    dev: true
 
   /@equinor/fusion-wc-avatar@3.1.0:
     resolution: {integrity: sha512-Pk+uKSMu7jb+jAhEDIH3aRG2acL6Ng1SoRsggppV6lItdVWVpIVN1iFmUNU+IyYsY1zOLcRLdzaF+8t26omJ9A==}
@@ -13867,7 +13869,6 @@ packages:
 
   /immer@9.0.21:
     resolution: {integrity: sha512-bc4NBHqOqSfRW7POMkHd51LvClaeMXpm8dx0e8oE2GORbq5aRK7Bxl4FyzVLdGtLmvLKL7BTDBG5ACQm4HWjTA==}
-    dev: false
 
   /immutable@4.3.4:
     resolution: {integrity: sha512-fsXeu4J4i6WNWSikpI88v/PcVflZz+6kMhUfIwc5SY+poQRPnaf5V7qds6SUyUN3cVxEzuCab7QIoLOQ+DQ1wA==}

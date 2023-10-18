@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Meta, Story } from '@storybook/react';
 
-import { useObservableState } from '@equinor/fusion-react-observable';
+import { useObservableState } from '@equinor/fusion-observable';
 
 import { FilterProvider, useFilterContext } from '@equinor/fusion-react-filter';
 import { CheckboxFilter, FilterPanel } from '@equinor/fusion-react-filter/components';
@@ -11,7 +11,7 @@ import { generateData, DataType } from './generate-data';
 
 const DataLogger = () => {
   const { data$ } = useFilterContext<never, Record<string, DataType>>();
-  const data = useObservableState(data$);
+  const { value: data } = useObservableState(data$);
   if (!data?.length) return null;
   return (
     <table width="100%">
@@ -36,9 +36,9 @@ const DataLogger = () => {
 };
 
 type StoryProps = {
-  rows: number;
-  unique: number;
-  filterHeight: number;
+  readonly rows: number;
+  readonly unique: number;
+  readonly filterHeight: number;
 };
 
 const customSortFn = <T extends { label: string }>(a: T, b: T) => b.label.localeCompare(a.label);
@@ -58,7 +58,7 @@ export const Checkbox: Story<StoryProps> = ({ filterHeight, rows, unique }: Stor
       filters: {
         maxHeight: filterHeight,
       },
-    })
+    }),
   )();
   return (
     <FilterProvider data={data} initialSelection={{ lastName: new Set([data[0].lastName, data[1].lastName]) }}>
