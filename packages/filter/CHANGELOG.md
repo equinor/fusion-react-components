@@ -1,5 +1,13 @@
 # Change Log
 
+## 1.5.1
+
+### Patch Changes
+
+- 35ae000b: deprecated chip
+- Updated dependencies [35ae000b]
+  - @equinor/fusion-react-chip@0.5.0
+
 ## 1.5.0
 
 ### Minor Changes

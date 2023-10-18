@@ -302,7 +302,7 @@ importers:
         specifier: ^0.6.0
         version: link:../checkbox
       '@equinor/fusion-react-chip':
-        specifier: ^0.4.0
+        specifier: ^0.5.0
         version: link:../chip
       '@equinor/fusion-react-icon':
         specifier: ^0.3.0
@@ -834,7 +834,7 @@ importers:
         specifier: ^0.6.0
         version: link:../packages/checkbox
       '@equinor/fusion-react-chip':
-        specifier: ^0.4.0
+        specifier: ^0.5.0
         version: link:../packages/chip
       '@equinor/fusion-react-context-selector':
         specifier: ^0.5.0
