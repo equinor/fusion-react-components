@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.5.0
+
+### Minor Changes
+
+- 35ae000b: deprecated chip
+
 ## 0.4.0
 
 ### Minor Changes
