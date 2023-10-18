@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.3.0
+
+### Minor Changes
+
+- 69654898: deprecated @equinor/fusion-react-observable
+
 ## 1.2.0
 
 ### Minor Changes
