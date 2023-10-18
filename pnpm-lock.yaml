@@ -189,22 +189,6 @@ importers:
         specifier: ^18.2.0
         version: 18.2.0
 
-  packages/chip:
-    dependencies:
-      '@equinor/fusion-react-utils':
-        specifier: ^2.1.0
-        version: link:../utils
-      '@equinor/fusion-wc-chip':
-        specifier: ^1.1.0
-        version: 1.1.0
-    devDependencies:
-      '@types/react':
-        specifier: ^18.2.24
-        version: 18.2.24
-      react:
-        specifier: ^18.2.0
-        version: 18.2.0
-
   packages/context-selector:
     dependencies:
       '@equinor/fusion-react-icon':
@@ -301,9 +285,6 @@ importers:
       '@equinor/fusion-react-checkbox':
         specifier: ^0.6.0
         version: link:../checkbox
-      '@equinor/fusion-react-chip':
-        specifier: ^0.5.0
-        version: link:../chip
       '@equinor/fusion-react-icon':
         specifier: ^0.3.0
         version: link:../icon
@@ -833,9 +814,6 @@ importers:
       '@equinor/fusion-react-checkbox':
         specifier: ^0.6.0
         version: link:../packages/checkbox
-      '@equinor/fusion-react-chip':
-        specifier: ^0.5.0
-        version: link:../packages/chip
       '@equinor/fusion-react-context-selector':
         specifier: ^0.5.0
         version: link:../packages/context-selector
