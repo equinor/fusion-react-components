@@ -68,6 +68,7 @@
     "webpack": "^5.76.3"
   },
   "devDependencies": {
+    "@equinor/fusion-observable": "^8.1.2",
     "@equinor/fusion-wc-avatar": "^3.1.0",
     "@faker-js/faker": "^8.2.0",
     "namor": "^3.0.1"
