@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.4.2
+
+### Patch Changes
+
+- 02771113: SearchableDropdown - dependencies update
+
 ## 0.4.1
 
 ### Patch Changes
