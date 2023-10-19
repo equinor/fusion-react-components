@@ -516,11 +516,11 @@ importers:
         specifier: ^2.1.0
         version: link:../utils
       '@equinor/fusion-wc-icon':
-        specifier: ^2.1.0
-        version: 2.1.0
+        specifier: ^2.2.0
+        version: 2.2.0
       '@equinor/fusion-wc-searchable-dropdown':
-        specifier: ^3.3.0
-        version: 3.3.0
+        specifier: ^3.4.0
+        version: 3.4.0
     devDependencies:
       '@types/react':
         specifier: ^18.2.24
@@ -3194,7 +3194,7 @@ packages:
     resolution: {integrity: sha512-wZKNv5+mKY4bbHRHPwv7UU9LQwVxM2cBwd52+Ywz0Da1VAqtNjN1qIa65nLrE72dbFCMS96XPUc8/eoasbPrag==}
     dependencies:
       '@equinor/fusion-wc-core': 2.0.0
-      '@equinor/fusion-wc-icon': 2.1.0
+      '@equinor/fusion-wc-icon': 2.2.0
       '@equinor/fusion-web-theme': 0.1.7
       lit: 2.7.0
     dev: false
@@ -3301,6 +3301,14 @@ packages:
       lit: 2.7.0
     dev: false
 
+  /@equinor/fusion-wc-icon@2.2.0:
+    resolution: {integrity: sha512-gcklHv0tdDBeshqyaJ9A9uDefXyO2kOIMITLo3nlXscZOh0Lm3a0We6tpQPE0/Cl8TLwGY/6Faf19DpdXpcHWQ==}
+    dependencies:
+      '@equinor/eds-icons': 0.19.3
+      '@equinor/fusion-wc-core': 2.0.0
+      lit: 2.7.0
+    dev: false
+
   /@equinor/fusion-wc-list@0.4.1:
     resolution: {integrity: sha512-X0Hd9aIELZ4aljY3E+zBhgbgpg5Kg2hpsfbrtiHLJQjOmegIi2AZiXh/sC9lERbG2KvA2q6CPDWjFvt1q2xTIQ==}
     dependencies:
@@ -3320,6 +3328,19 @@ packages:
       '@equinor/fusion-wc-core': 2.0.0
       '@equinor/fusion-wc-divider': 1.0.0
       '@equinor/fusion-wc-icon': 2.1.0
+      '@equinor/fusion-wc-radio': 1.0.0
+      '@equinor/fusion-web-theme': 0.1.7
+      '@material/mwc-list': 0.27.0
+      lit: 2.7.0
+    dev: false
+
+  /@equinor/fusion-wc-list@1.0.3:
+    resolution: {integrity: sha512-Dp+USzneOBbLlG7TBlOHdBB7/DLCcXUTF2yQafZMk0+I0mXO6qECh+lwX8pXYlr7D1jCRIAcB7NmxZMq2yA6tg==}
+    dependencies:
+      '@equinor/fusion-wc-checkbox': 1.0.1
+      '@equinor/fusion-wc-core': 2.0.0
+      '@equinor/fusion-wc-divider': 1.0.0
+      '@equinor/fusion-wc-icon': 2.2.0
       '@equinor/fusion-wc-radio': 1.0.0
       '@equinor/fusion-web-theme': 0.1.7
       '@material/mwc-list': 0.27.0
@@ -3447,7 +3468,7 @@ packages:
     dependencies:
       '@equinor/fusion-wc-core': 2.0.0
       '@equinor/fusion-wc-divider': 1.0.0
-      '@equinor/fusion-wc-icon': 2.1.0
+      '@equinor/fusion-wc-icon': 2.2.0
       '@equinor/fusion-wc-list': 1.0.2
       '@equinor/fusion-wc-textinput': 1.0.1
       '@equinor/fusion-web-theme': 0.1.7
@@ -3458,14 +3479,14 @@ packages:
       uuid: 9.0.1
     dev: false
 
-  /@equinor/fusion-wc-searchable-dropdown@3.3.0:
-    resolution: {integrity: sha512-CbKZUhSFyh9Dct9bK45CHcqy6yVHTo1QrONX44MTyCBr/UGjDyZMqtOzo75aS61Y4Zea39WfiRmfSu4AWskNpQ==}
+  /@equinor/fusion-wc-searchable-dropdown@3.4.0:
+    resolution: {integrity: sha512-jqSmNks1bBlWuNveGBP3yOwhv0WU+gQklSe8JwWT6kfmEtef+kaDpaPRtwoA+aPY09mxQkSVxrXC2HhyJ3aDJg==}
     dependencies:
       '@equinor/fusion-wc-core': 2.0.0
       '@equinor/fusion-wc-divider': 1.0.0
-      '@equinor/fusion-wc-icon': 2.1.0
-      '@equinor/fusion-wc-list': 1.0.2
-      '@equinor/fusion-wc-textinput': 1.0.1
+      '@equinor/fusion-wc-icon': 2.2.0
+      '@equinor/fusion-wc-list': 1.0.3
+      '@equinor/fusion-wc-textinput': 1.0.2
       '@equinor/fusion-web-theme': 0.1.7
       '@lit-labs/task': 2.1.2
       '@material/mwc-textfield': 0.27.0
@@ -3522,7 +3543,17 @@ packages:
     resolution: {integrity: sha512-BVv1NOXbuw9ixzSxqT92K8w7A5Bvw+n379pqBz2eiNVDetq3ogsHugWHJCtRZ8xauLgWHGF4XzuNzGZsC/MA8g==}
     dependencies:
       '@equinor/fusion-wc-core': 2.0.0
-      '@equinor/fusion-wc-icon': 2.1.0
+      '@equinor/fusion-wc-icon': 2.2.0
+      '@equinor/fusion-web-theme': 0.1.7
+      '@material/mwc-textfield': 0.27.0
+      lit: 2.7.0
+    dev: false
+
+  /@equinor/fusion-wc-textinput@1.0.2:
+    resolution: {integrity: sha512-z2kFZSX0VTVcdFJoWGDRQF2KRsQRo+PRcUlu+Fm2Ei1gBxwadTxL2Hpg9mke4bAox7iBRSZwMD9R9d/ACQ+cQQ==}
+    dependencies:
+      '@equinor/fusion-wc-core': 2.0.0
+      '@equinor/fusion-wc-icon': 2.2.0
       '@equinor/fusion-web-theme': 0.1.7
       '@material/mwc-textfield': 0.27.0
       lit: 2.7.0
