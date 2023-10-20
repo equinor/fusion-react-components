@@ -3,7 +3,7 @@ import { Resizable } from 're-resizable';
 import { PropsWithChildren, useState } from 'react';
 import styled from 'styled-components';
 
-export const StyledScrim = styled(Scrim)`
+const StyledScrim = styled(Scrim)`
   animation: ScrimAnimation ease 0.3s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
@@ -19,7 +19,7 @@ export const StyledScrim = styled(Scrim)`
   }
 `;
 
-export const StyledSideSheet = styled.div`
+const StyledSideSheet = styled.div`
   height: 100vh;
   position: fixed;
   top: 0;
@@ -37,7 +37,7 @@ export const StyledSideSheet = styled.div`
   }
 `;
 
-export const StyledSideSheetContent = styled.div`
+const StyledSideSheetContent = styled.div`
   height: 100%;
   background: #fff; // TODO: token
   width: 100%;
