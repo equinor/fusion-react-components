@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.2.0
+
+### Minor Changes
+
+- 1aecd0e3: update EDS to @0.33.0
+
 ## 1.1.0
 
 ### Minor Changes
