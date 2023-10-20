@@ -35,3 +35,4 @@ jobs:
         with:
           repo-token: "${{ github.token }}"
           report-json: "eslint-report.log.json"
+          markdown-report-on-step-summary: true
