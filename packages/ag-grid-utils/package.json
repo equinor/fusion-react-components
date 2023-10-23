@@ -40,5 +40,8 @@
   },
   "peerDependencies": {
     "@ag-grid-community/core": "~29.3.4"
+  },
+  "dependencies": {
+    "@equinor/fusion-react-styles": "workspace:^0.6.0"
   }
 }
