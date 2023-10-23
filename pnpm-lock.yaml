@@ -658,8 +658,8 @@ importers:
         specifier: ^2.1.0
         version: link:../utils
       '@equinor/fusion-wc-textarea':
-        specifier: ^0.4.13
-        version: 0.4.22
+        specifier: ^1.0.2
+        version: 1.0.2
     devDependencies:
       '@types/react':
         specifier: ^18.2.24
@@ -3463,7 +3463,7 @@ packages:
       '@equinor/fusion-wc-divider': 1.0.0
       '@equinor/fusion-wc-icon': 2.2.0
       '@equinor/fusion-wc-list': 1.0.2
-      '@equinor/fusion-wc-textinput': 1.0.1
+      '@equinor/fusion-wc-textinput': 1.0.2
       '@equinor/fusion-web-theme': 0.1.7
       '@lit-labs/task': 2.1.2
       '@material/mwc-textfield': 0.27.0
@@ -3514,11 +3514,11 @@ packages:
       lit: 2.7.0
     dev: false
 
-  /@equinor/fusion-wc-textarea@0.4.22:
-    resolution: {integrity: sha512-ebHkaqzM44rYtJjePh1OKkiI+CtMMphrwDDIvuBqutJSU6JK8+458o3AoYYW3NzWC5cVPsIIkmlLVe+7AifWSg==}
+  /@equinor/fusion-wc-textarea@1.0.2:
+    resolution: {integrity: sha512-eIJau0X6TrcBjevXbBw+rNFMc3MlUmLoJplYYYiCnKdCwUatcMp40tx10nlEatncWLzXAZxiFHQJ974w9QdedA==}
     dependencies:
-      '@equinor/fusion-wc-core': 1.0.5
-      '@equinor/fusion-wc-textinput': 0.5.21
+      '@equinor/fusion-wc-core': 2.0.0
+      '@equinor/fusion-wc-textinput': 1.0.2
       '@material/mwc-textarea': 0.27.0
       lit: 2.7.0
     dev: false
