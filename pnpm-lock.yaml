@@ -848,7 +848,7 @@ importers:
         version: link:../packages/select
       '@equinor/fusion-react-side-sheet':
         specifier: ^1.1.0
-        version: 1.2.0(@equinor/eds-core-react@0.30.0)(@equinor/eds-icons@0.19.3)(@equinor/eds-tokens@0.9.2)(react-dom@17.0.2)(react@17.0.2)(styled-components@5.3.11)
+        version: link:../packages/side-sheet
       '@equinor/fusion-react-skeleton':
         specifier: ^0.3.0
         version: link:../packages/skeleton
@@ -3248,31 +3248,6 @@ packages:
       rxjs: 7.8.1
       uuid: 8.3.2
     dev: true
-
-  /@equinor/fusion-react-side-sheet@1.2.0(@equinor/eds-core-react@0.30.0)(@equinor/eds-icons@0.19.3)(@equinor/eds-tokens@0.9.2)(react-dom@17.0.2)(react@17.0.2)(styled-components@5.3.11):
-    resolution: {integrity: sha512-KvLwjBINM0CXELpAefpNkFCdoDgzquI67iQHz7iYM+I13CEQtaYWkhy1kIaSJUICCEkXAMCPtB5N0CZdjy2RvA==}
-    peerDependencies:
-      '@equinor/eds-core-react': ^0.33.0
-      '@equinor/eds-icons': ^0.19.3
-      '@equinor/eds-tokens': ^0.9.2
-      '@types/react': '*'
-      react: "^17.0.0 ||\_^18.0.0"
-      react-dom: '*'
-      styled-components: ^6.1.0
-    peerDependenciesMeta:
-      '@types/react':
-        optional: true
-      react-dom:
-        optional: true
-    dependencies:
-      '@equinor/eds-core-react': 0.30.0(@babel/core@7.23.0)(react-dom@17.0.2)(react@17.0.2)(styled-components@5.3.11)
-      '@equinor/eds-icons': 0.19.3
-      '@equinor/eds-tokens': 0.9.2
-      re-resizable: 6.9.11(react-dom@17.0.2)(react@17.0.2)
-      react: 17.0.2
-      react-dom: 17.0.2(react@17.0.2)
-      styled-components: 5.3.11(@babel/core@7.23.0)(react-dom@17.0.2)(react-is@18.2.0)(react@17.0.2)
-    dev: false
 
   /@equinor/fusion-wc-avatar@3.1.0:
     resolution: {integrity: sha512-Pk+uKSMu7jb+jAhEDIH3aRG2acL6Ng1SoRsggppV6lItdVWVpIVN1iFmUNU+IyYsY1zOLcRLdzaF+8t26omJ9A==}
