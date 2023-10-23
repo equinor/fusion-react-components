@@ -867,9 +867,6 @@ importers:
       '@equinor/fusion-react-textinput':
         specifier: ^0.7.0
         version: link:../packages/textinput
-      '@equinor/fusion-react-tooltip':
-        specifier: ^1.2.0
-        version: link:../packages/tooltip
       '@equinor/fusion-wc-theme':
         specifier: ^1.0.0
         version: 1.0.0
