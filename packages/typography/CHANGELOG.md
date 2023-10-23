@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.3.0
+
+### Minor Changes
+
+- aea4b54d: deprecate package
+
 ## 0.2.0
 
 ### Minor Changes

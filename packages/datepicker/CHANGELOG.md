@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.13.0
+
+### Minor Changes
+
+- e22cc77a: depreacted package
+
 ## 0.12.0
 
 ### Minor Changes
