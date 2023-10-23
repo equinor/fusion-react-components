@@ -1,3 +1,1 @@
-# @equinor/fusion-react-datepicker
-
-> WIP - more docs comming
+deprecated see [EDS](https://storybook.eds.equinor.com/?path=/story/inputs-textfield--datepicker)

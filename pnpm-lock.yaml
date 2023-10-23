@@ -801,9 +801,6 @@ importers:
       '@equinor/fusion-react-date':
         specifier: ^0.5.0
         version: link:../packages/date
-      '@equinor/fusion-react-datepicker':
-        specifier: ^0.12.0
-        version: link:../packages/datepicker
       '@equinor/fusion-react-errorboundary':
         specifier: ^0.2.0
         version: link:../packages/errorboundary
