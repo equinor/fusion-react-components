@@ -124,6 +124,10 @@ importers:
         version: 7.0.0(webpack@5.88.2)
 
   packages/ag-grid-utils:
+    dependencies:
+      '@equinor/fusion-react-styles':
+        specifier: workspace:^0.6.0
+        version: link:../styles
     devDependencies:
       '@ag-grid-community/core':
         specifier: ~29.3.4
