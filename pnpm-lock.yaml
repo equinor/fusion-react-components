@@ -696,19 +696,6 @@ importers:
         specifier: ^18.2.0
         version: 18.2.0
 
-  packages/typography:
-    dependencies:
-      '@equinor/fusion-react-styles':
-        specifier: ^0.6.0
-        version: link:../styles
-    devDependencies:
-      '@types/react':
-        specifier: ^18.2.24
-        version: 18.2.24
-      react:
-        specifier: ^18.2.0
-        version: 18.2.0
-
   packages/utils:
     dependencies:
       date-fns:
