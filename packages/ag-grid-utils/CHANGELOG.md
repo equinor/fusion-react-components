@@ -1,5 +1,11 @@
 # Change Log
 
+## 29.4.1
+
+### Patch Changes
+
+- c9dddba7: fix missing deps
+
 ## 29.4.0
 
 ### Minor Changes
