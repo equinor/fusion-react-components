@@ -30,6 +30,26 @@ export const useStyles = makeStyles(
       stepContent: {
         flex: '1',
       },
+      /** Horizontal title stepper */
+      horizontalTitleStepper: {
+        '& $step': {
+          flex: '1 1 auto',
+          flexDirection: 'row',
+          alignItems: 'flex-start',
+          paddingRight: 'var(--spacing)',
+          '&:not(:last-child):after': {
+            flex: '1',
+            order: '1',
+            left: '0',
+            width: 'calc(100% - var(--spacing))',
+          },
+        },
+        '& $content': {
+          paddingTop: '2px',
+          textAlign: 'left',
+        },
+      },
+
       /** Vertical stepper */
       verticalStepper: {
         flexDirection: 'column',
@@ -74,7 +94,7 @@ export const useStyles = makeStyles(
           },
         },
         '& $content': {
-          paddingTop: '3px',
+          paddingTop: '1px',
           textAlign: 'left',
         },
       },
