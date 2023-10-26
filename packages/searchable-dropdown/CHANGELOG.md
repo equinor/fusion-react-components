@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.4.3
+
+### Patch Changes
+
+- ee674c9f: Updating fwc-searchable-dropdown dependency in context-selector and searchabledropdown
+
 ## 0.4.2
 
 ### Patch Changes
