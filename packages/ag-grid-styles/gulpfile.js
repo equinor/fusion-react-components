@@ -76,25 +76,20 @@ const scssTask = () => {
             },
           ],
         },
-        plugins: [new RemoveEmptyScriptsPlugin(), new MiniCssExtractPlugin({ filename: '[name].css.ts' })],
+        plugins: [new RemoveEmptyScriptsPlugin(), new MiniCssExtractPlugin({ filename: '[name].jss.json' })],
       })
     )
     .pipe(
       through2.obj(function (file, _, cb) {
         if (file.isBuffer()) {
-          // convert css to jss and stringify object
-          const styleStr = JSON.stringify(
-            jssCli.cssToJss({ code: file.contents.toString() }),
-            null,
-            2
-          );
-          
-          /* removes 4 backslash created by jssCli/stringify from the content propertie */
-          let styleStrPrepped = styleStr.replace(/\\"/g, '');
-          styleStrPrepped = styleStrPrepped.replace(/(\\){3}/g, '');
+          // store styleobject as json string
+          let styleStr = JSON.stringify(jssCli.cssToJss({ code: file.contents.toString(), dashes: true }), null, 2);
 
-          /* Save to js file */
-          file.contents = Buffer.from(`/* eslint-disable */\nexport const agGridStyles = ${styleStrPrepped};`);
+          /* convert 4 backslashes to 2, created by json stringify on the unicode content property */
+          styleStr = styleStr.replace(/(")\\{4}([a-f0-9])/g, '$1\\\\$2');
+
+          /* Save to json file as jss object */
+          file.contents = Buffer.from(styleStr);
         }
 
         cb(null, file);

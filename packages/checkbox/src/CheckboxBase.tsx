@@ -8,7 +8,7 @@ export type CheckboxBaseElementProps = Partial<
 
 export const CheckboxBase = createComponent<HTMLCheckboxCustomElement, CheckboxBaseElementProps>(
   HTMLCheckboxCustomElement,
-  tag
+  tag,
 );
 
 export type CheckboxBaseProps = ComponentProps<HTMLCheckboxCustomElement, CheckboxBaseElementProps>;

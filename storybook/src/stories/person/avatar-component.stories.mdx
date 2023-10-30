@@ -1,0 +1,111 @@
+import { Meta, Story, Canvas, ArgsTable, Description } from '@storybook/addon-docs';
+import { ChangeLog, PackageInfo, StoryExample } from '../../components';
+import { PersonCard, PersonAvatar } from '@equinor/fusion-react-person/src';
+
+<Meta title="Data/Person/Avatar" component={PersonAvatar} />
+
+<PackageInfo pkg={require('@equinor/fusion-react-person/package.json')} />
+
+# PersonAvatar
+
+## Properties/Attributes
+
+In order for component to work, `azureId`, `upn` or `dataSource` is **required**.
+
+The **`azureId`** serves as a ***distinctive identification number*** unique to each individual within **Equinor's system**. 
+
+The **`upn`** stands as a ***unique email address*** assigned to every personnel at Equinor.
+
+The data of every individual is accessible via the ***Fusion People API***
+
+Name                      | Type                            | Default                         | Description
+------------------------- | -----------------------------   | -----------------------------   | -----------
+`azureId`                 | `string`                        | `/`                             | Unique Azure ID for every person.
+`upn`                     | `string`                        | `/`                             | Unique person email address.
+`dataSource`              | `AvatarData**`                  | `/`                             | Custom data for avatar.
+`size`                    | `AvatarSize*`                   | `medium`                        | Size of the avatar.
+`clickable`               | `boolean`                       | `false`                         | Set to true to activate visual ripple effects to indicate that the avatar is clickable.
+`showFloatingOn`          | `"click" or "hover"`            | `/`                             | Show person card on click or hover over the avatar.
+`disabled`                | `boolean`                       | `false`                         | Set to true to display the avatar as disabled. 
+
+---
+\*  `AvatarSize` is exported enum.
+```ts
+export declare enum AvatarSize {
+    XSmall = "x-small",
+    Small = "small",
+    Medium = "medium",
+    Large = "large"
+}
+```
+
+## Example Usage
+
+```tsx
+import { PersonAvatar } from '@equinor/fusion-react-person';
+
+// azureId
+<PersonAvatar azureId="8a5f03ff-1875-4bf3-a3f4-aef1264e3bcc" />
+
+// upn
+<PersonAvatar upn="email@equinor.com" />
+
+// dataSource
+<PersonAvatar dataSource={{
+    pictureSrc: 'https://picture.com/picture-source.jpg',
+    name: 'Justin Case',
+  }} />
+```
+
+## Example
+
+<StoryExample storyId="examples-person-person-avatar--component" showSource />
+
+## PersonProvider
+
+In order to use PersonAvatar component you need to have [**PersonProvider**](?path=/docs/data-person-provider--page) wrapper.
+
+You can create your own [`<PersonProvider>`](?path=/docs/data-person-provider--page) if it's not already implemented, like in [fusion-framework](https://github.com/equinor/fusion-framework)
+
+### Properties/Attributes
+
+Name                      | Type                            | Description
+------------------------- | -----------------------------   | -----------
+`resolve`                 | `PersonResolver`                | Person resolver for a provider.
+
+### Methods in provider for PersonAvatar
+
+Name                                     | Return Type                     | Description
+| -------------------------------------- | -----------------------------   | -----------------------------
+`getInfo()`                              | `PersonInfo`                    | Returns `PersonInfo` of person.
+`getPhoto()`                             | `PersonPicture***`              | Returns `PersonPicture` of person.
+
+\*\* `AvatarData` is exported type.
+```ts
+type AvatarData = Pick<PersonInfo, 'name' | 'accountType'>;
+
+type PersonInfo = {
+    azureId: string;
+    name?: string;
+    jobTitle?: string;
+    department?: string;
+    mail?: string;
+    mobilePhone?: string;
+    accountType?: PersonAccountType;
+    officeLocation?: string;
+    managerAzureUniqueId?: string;
+};
+```
+
+\*\*\* `PersonPicture` is exported type.
+```ts
+type PersonPicture = PersonDetails & { pictureSrc: string };
+```
+
+## Changelog
+
+<ChangeLog
+  changelogs={{
+    react: require('@equinor/fusion-react-person/CHANGELOG.md'),
+  }}
+/>

@@ -1,0 +1,142 @@
+import { Meta, Story, Canvas, ArgsTable, Description } from '@storybook/addon-docs';
+import { ChangeLog, PackageInfo, StoryExample } from '../../components';
+import { PersonCard, PersonAvatar } from '@equinor/fusion-react-person/src';
+
+<Meta title="Data/Person/Card" component={PersonCard} />
+
+<PackageInfo pkg={require('@equinor/fusion-react-person/package.json')} />
+
+# PersonCard
+
+## Properties/Attributes
+
+In order for component to work, `azureId`, `upn` or `dataSource` is **required**.
+
+The **`azureId`** serves as a ***distinctive identification number*** unique to each individual within **Equinor's system**. 
+
+The **`upn`** stands as a ***unique email address*** assigned to every personnel at Equinor.
+
+The data of every individual is accessible via the ***Fusion People API***
+
+Name                      | Type                            | Default                         | Description
+------------------------- | -----------------------------   | -----------------------------   | -----------
+`azureId`                 | `string`                        | `/`                             | Unique Azure ID for every person `required`
+`upn`                     | `string`                        | `/`                             | Unique person email address.
+`dataSource`              | `CardData**`                    | `/`                             | Custom data for avatar.
+`size`                    | `PersonItemSize*`               | `medium`                        | Size of elements of the card.
+`maxWidth`                | `number`                        | `300`                           | Maximum width of the component (px)
+`contentHeight`           | `number`                        | `150`                           | Height of content (px)
+
+---
+\*  `PersonItemSize` is exported type element size.
+```ts
+type PersonItemSize = 'small' | 'medium' | 'large';
+```
+
+## Example Usage
+
+```tsx
+import { PersonCard } from '@equinor/fusion-react-person';
+
+// azureId
+<PersonCard azureId="8a5f03ff-1875-4bf3-a3f4-aef1264e3bcc" />
+
+// upn
+<PersonCard upn="email@equinor.com" />
+
+// dataSource
+<PersonCard dataSource={{
+        azureId: '8a5f03ff-1875-4bf3-a3f4-aef1264e3bcc',
+        name: 'First Last Name (Bouvet ASA)',
+        pictureSrc: 'https://i.imgur.com/GcZeeXX.jpeg',
+        accountType: "Consultant",
+        jobTitle: 'X-Bouvet ASA (PX)',
+        department: 'FOIT CON PDP',
+        mail: 'example@email.com',
+        officeLocation: 'Stavanger',
+        mobilePhone: '+47 999999999',
+    }} />
+```
+
+## Example
+
+<StoryExample storyId="examples-person-person-card--component" showSource />
+
+## PersonProvider
+
+In order to use PersonCard component you need to have [**PersonProvider**](?path=/docs/data-person-provider--page) wrapper.
+
+You can create your own [`<PersonProvider>`](?path=/docs/data-person-provider--page) if it's not already implemented, like in [fusion-framework](https://github.com/equinor/fusion-framework)
+
+### Properties/Attributes
+
+Name                      | Type                            | Description
+------------------------- | -----------------------------   | -----------
+`resolve`                 | `PersonResolver`                | Person resolver for a provider. 
+
+### Methods in provider for PersonCard
+
+Name                                    | Return Type                     | Description
+--------------------------------------  | -----------------------------   | -----------------------------
+`getDetails()`                          | `PersonDetails***`              | Returns `PersonDetails` of person.
+`getPhoto()`                            | `PersonPicture****`             | Returns `PersonPicture` of person.
+
+\*\* `CardData` is exported type.
+```ts
+type CardData = PersonDetails;
+
+type PersonDetails = PersonInfo & {
+    positions?: Position[];
+    manager?: Manager;
+};
+```
+
+\*\*\* `PersonDetails` is exported type.
+```ts
+type PersonDetails = PersonInfo & {
+    positions?: Position[];
+    manager?: Manager;
+};
+
+type PersonInfo = {
+    azureId: string;
+    name?: string;
+    jobTitle?: string;
+    department?: string;
+    mail?: string;
+    mobilePhone?: string;
+    accountType?: PersonAccountType;
+    officeLocation?: string;
+    managerAzureUniqueId?: string;
+};
+
+type Position = {
+    id: string;
+    name: string;
+    project: {
+        id: string;
+        name: string;
+    };
+};
+
+type Manager = {
+    azureUniqueId: string;
+    name?: string;
+    pictureSrc?: string;
+    department?: string;
+    accountType?: PersonAccountType;
+};
+```
+
+\*\*\*\* `PersonPicture` is exported type.
+```ts
+type PersonPicture = PersonDetails & { pictureSrc: string };
+```
+
+## Changelog
+
+<ChangeLog
+  changelogs={{
+    react: require('@equinor/fusion-react-person/CHANGELOG.md'),
+  }}
+/>

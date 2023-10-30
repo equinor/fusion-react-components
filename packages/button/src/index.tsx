@@ -1,19 +1,10 @@
-import { ButtonElement as HTMLButtonCustomElement, tag } from '@equinor/fusion-wc-button';
+export { Button, Button as default, HTMLButtonCustomElement } from './button';
+export type { ButtonProps } from './button';
 
-import { ComponentProps, createComponent } from '@equinor/fusion-react-utils';
+export { LinkButton, HTMLLinkButtonCustomElement } from './link-button';
+export type { LinkButtonProps } from './link-button';
 
-type ButtonElementProps = React.PropsWithChildren<
-  Partial<
-    Pick<
-      HTMLButtonCustomElement,
-      'color' | 'dense' | 'disabled' | 'icon' | 'label' | 'trailingIcon' | 'variant' | 'expandContent'
-    >
-  >
->;
+export { IconButton, IconButtonColor, IconButtonSize, HTMLIconButtonCustomElement } from './icon-button';
 
-export const Button = createComponent<HTMLButtonCustomElement, ButtonElementProps>(HTMLButtonCustomElement, tag);
-export type ButtonProps = ComponentProps<HTMLButtonCustomElement, ButtonElementProps>;
-
-export { HTMLButtonCustomElement };
-
-export default Button;
+export { IconButtonToggle, HTMLIconButtonToggleCustomElement } from './icon-button-toggle';
+export type { IconButtonToggleProps } from './icon-button-toggle';

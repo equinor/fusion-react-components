@@ -2,7 +2,7 @@ import { useLayoutEffect, useMemo, useState } from 'react';
 
 import { BehaviorSubject } from 'rxjs';
 
-import { useObservable, useSubscription } from '@equinor/fusion-react-observable';
+import { useObservable, useObservableSubscription } from '@equinor/fusion-observable/react';
 
 import { createSelectionReducer, createDataReducer, createFilterReducer } from './reducers';
 
@@ -18,11 +18,13 @@ export type FilterProviderProps<TSelections extends Record<string, unknown>, TDa
   initialFilters?: Record<string, Filter<TData, TSelections>>;
 };
 
-export const FilterProvider = <
+export const FilterProvider: <
   TSelections extends Record<string, any>,
-  TData extends Record<string, any> = Record<string, any>
+  TData extends Record<string, any> = Record<string, any>,
 >(
-  props: React.PropsWithChildren<FilterProviderProps<TSelections, TData>>
+  props: React.PropsWithChildren<FilterProviderProps<TSelections, TData>>,
+) => JSX.Element = <TSelections extends Record<string, any>, TData extends Record<string, any> = Record<string, any>>(
+  props: React.PropsWithChildren<FilterProviderProps<TSelections, TData>>,
 ): JSX.Element => {
   const {
     data,
@@ -38,7 +40,7 @@ export const FilterProvider = <
 
   const [data$] = useState(new BehaviorSubject<TData[]>(data));
 
-  useSubscription(filterData$, data$);
+  useObservableSubscription(filterData$, data$);
 
   const context = useMemo(
     () =>
@@ -48,8 +50,8 @@ export const FilterProvider = <
         selection$,
         data$,
         /** type issues, might fix later */
-      } as unknown as FilterContext),
-    [source$, filter$, selection$, data$]
+      }) as unknown as FilterContext,
+    [source$, filter$, selection$, data$],
   );
 
   useLayoutEffect(() => {

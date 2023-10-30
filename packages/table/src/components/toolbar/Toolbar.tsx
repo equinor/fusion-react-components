@@ -3,8 +3,8 @@ import { ReactNode } from 'react';
 import { ExportToExcelBtn } from './ExportToExcelBtn';
 
 type ToolbarProps = JSX.IntrinsicElements['div'] & {
-  children?: ReactNode | undefined;
-  hideExportBtn?: boolean;
+  readonly children?: ReactNode | undefined;
+  readonly hideExportBtn?: boolean;
 };
 
 const useStyles = makeStyles(() =>
@@ -14,7 +14,7 @@ const useStyles = makeStyles(() =>
       flexDirection: 'row',
       gap: '1em',
     },
-  })
+  }),
 );
 
 /**

@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-ag-grid-styles",
-  "version": "0.4.6",
+  "version": "30.1.0",
   "description": "React addons for ag-grid styles",
   "keywords": [
     "ag-grid",
@@ -25,18 +25,20 @@
     "url": "git+https://github.com/equinor/fusion-react-components.git"
   },
   "scripts": {
-    "build": "npm run build-css && tsc -b",
+    "build": "npm run build:css && tsc -b",
     "lint": "eslint --ext .ts,.tsx,.js src/",
     "lint:fix": "eslint --ext .ts,.tsx,.js src/ --fix",
     "prepack": "npm run build",
-    "build-css": "gulp scss-to-css"
+    "build:css": "gulp scss-to-css"
   },
   "bugs": {
     "url": "https://github.com/equinor/fusion-react-components/issues"
   },
   "devDependencies": {
-    "@ag-grid-community/core": "^28.2.0",
+    "@ag-grid-community/styles": "~30.2.0",
+    "@equinor/fusion-react-styles": "^0.6.0",
     "@types/gulp": "^4.0.9",
+    "@types/react": "^18.2.24",
     "@types/webpack-stream": "^3.2.12",
     "autoprefixer": "^9.8.8",
     "css-loader": "^6.7.1",
@@ -48,6 +50,7 @@
     "postcss": "^8.4.12",
     "postcss-loader": "^3.0.0",
     "postcss-scss": "^4.0.3",
+    "react": "^18.2.0",
     "sass": "^1.49.9",
     "sass-loader": "^12.6.0",
     "through2": "^4.0.2",
@@ -58,8 +61,7 @@
     "webpack-stream": "^7.0.0"
   },
   "peerDependencies": {
-    "@ag-grid-community/core": "^28.2.0",
-    "@equinor/fusion-react-styles": "^0.5.5",
-    "@material-ui/styles": "^4.11.5"
+    "@ag-grid-community/styles": "~29.3.4",
+    "@equinor/fusion-react-styles": "^0.6.0"
   }
 }

@@ -9,7 +9,7 @@ type ElementProps = PropsWithChildren<ElementAttributes>;
 
 export const StarProgress = createComponent<HTMLStarIndicatorCustomElement, ElementProps>(
   HTMLStarIndicatorCustomElement,
-  tag
+  tag,
 );
 
 export type StarProgressProps = ComponentProps<HTMLStarIndicatorCustomElement, ElementProps>;

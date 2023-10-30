@@ -1,6 +1,5 @@
 import { Meta, Story } from '@storybook/react';
 import { List, ListItem, ListProps } from '@equinor/fusion-react-list';
-import { iconNames } from '@equinor/fusion-react-icon';
 
 export default {
   title: 'Examples/List',

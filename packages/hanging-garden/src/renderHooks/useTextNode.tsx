@@ -36,7 +36,7 @@ const useTextNode = (): UseTextNode => {
 
       return texture;
     },
-    [getTextureFromCache, addTextureToCache, stage.current]
+    [getTextureFromCache, addTextureToCache, stage.current],
   );
 
   const createTextNode = useCallback(
@@ -73,7 +73,7 @@ const useTextNode = (): UseTextNode => {
 
       return new PIXI.Sprite(cachedText);
     },
-    [addTextureToCache, getTextureFromCache, pixiApp.current]
+    [addTextureToCache, getTextureFromCache, pixiApp.current],
   );
 
   return { createTextNode };

@@ -3,8 +3,16 @@
   "compilerOptions": {
     "noEmit": true
   },
-  "include": ["packages/**/src/**/*"],
-  "exclude": ["node_modules", "dist", "lib", "*.spec.ts", "api"],
+  "include": [
+    "packages/**/src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "lib",
+    "*.spec.ts",
+    "api"
+  ],
   "files": [],
   "references": [
     {
@@ -26,6 +34,9 @@
       "path": "packages/chip"
     },
     {
+      "path": "packages/context-selector"
+    },
+    {
       "path": "packages/date"
     },
     {
@@ -35,6 +46,9 @@
       "path": "packages/divider"
     },
     {
+      "path": "packages/errorboundary"
+    },
+    {
       "path": "packages/filter"
     },
     {
@@ -42,6 +56,9 @@
     },
     {
       "path": "packages/list"
+    },
+    {
+      "path": "packages/markdown"
     },
     {
       "path": "packages/menu"
@@ -72,6 +89,9 @@
     },
     {
       "path": "packages/skeleton"
+    },
+    {
+      "path": "packages/stepper"
     },
     {
       "path": "packages/styles"

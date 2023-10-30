@@ -1,4 +1,4 @@
-import Button from '@equinor/fusion-react-button';
+import { Button } from '@equinor/fusion-react-button';
 import { clsx, createStyles, makeStyles } from '@equinor/fusion-react-styles';
 import { FilterFn } from '../../types';
 import { SearchFilter } from '../filter';
@@ -29,11 +29,11 @@ const useStyles = makeStyles(
         },
       },
     }),
-  { name: 'fusion-filter-panel-bar' }
+  { name: 'fusion-filter-panel-bar' },
 );
 
 type FilterPanelBarProps<TData> = JSX.IntrinsicElements['div'] & {
-  searchFn?: FilterFn<TData, string>;
+  readonly searchFn?: FilterFn<TData, string>;
 };
 
 export const FilterPanelBar = <TData,>(props: FilterPanelBarProps<TData>): JSX.Element => {

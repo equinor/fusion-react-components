@@ -1,21 +1,43 @@
 # Change Log
 
+## 0.2.0
+
+### Minor Changes
+
+- 60e68683: change package manager from NPM to PNPM
+
+  only code refactor, but deps and peer-deps might change and cause unexpected changes
+
+### Patch Changes
+
+- Updated dependencies [60e68683]
+  - @equinor/fusion-react-utils@2.1.0
+
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## 0.1.4 (2023-10-03)
+
+**Note:** Version bump only for package @equinor/fusion-react-select
+
+## 0.1.3 (2023-09-18)
+
+**Note:** Version bump only for package @equinor/fusion-react-select
+
+## 0.1.2 (2023-03-28)
+
+### Bug Fixes
+
+- **react-components:** lint fix ([ddd65cf](https://github.com/equinor/fusion-react-components/commit/ddd65cf753205f72d70d3f7dd46d028f83799276))
 
 ## 0.1.1 (2022-11-21)
 
 **Note:** Version bump only for package @equinor/fusion-react-select
 
-
-
-
-
 # 0.1.0 (2022-10-17)
-
 
 ### Features
 
-* **select:** adds fusion-react-select package ([3135586](https://github.com/equinor/fusion-react-components/commit/3135586ae54d6058666d85d2b5c9075fbeb2eb6b))
-* **select:** exporting web component ([1d416d5](https://github.com/equinor/fusion-react-components/commit/1d416d5d49ab6a478525095f8a1e3148f1117983))
-* **select:** exposed properties from web component ([2c7f844](https://github.com/equinor/fusion-react-components/commit/2c7f8446f0bfff2cc0136082bd39d555fc09b747))
+- **select:** adds fusion-react-select package ([3135586](https://github.com/equinor/fusion-react-components/commit/3135586ae54d6058666d85d2b5c9075fbeb2eb6b))
+- **select:** exporting web component ([1d416d5](https://github.com/equinor/fusion-react-components/commit/1d416d5d49ab6a478525095f8a1e3148f1117983))
+- **select:** exposed properties from web component ([2c7f844](https://github.com/equinor/fusion-react-components/commit/2c7f8446f0bfff2cc0136082bd39d555fc09b747))

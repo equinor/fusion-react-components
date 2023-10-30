@@ -1,4 +1,3 @@
-/* eslint-disable react/no-multi-comp */
 import { tag, TextInputElement } from '@equinor/fusion-wc-textinput';
 import { TextInputInvalidHandler } from './types';
 

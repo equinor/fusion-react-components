@@ -3,9 +3,32 @@
 
 [![Published on npm](https://img.shields.io/npm/v/@equinor/fusion-react-button.svg)](https://www.npmjs.com/package/@equinor/fusion-react-button)
 
-[Storybook](https://equinor.github.io/fusion-react-components/?path=/docs/input-button)
+## Default
 
-[Fusion Web Component](https://github.com/equinor/fusion-web-components/tree/main/packages/button)
+[Storybook](https://equinor.github.io/fusion-react-components/?path=/docs/input-button-default--page)
+
+[Fusion Web Component](https://github.com/equinor/fusion-web-components/tree/main/packages/button/src/button)
+
+
+## Link
+
+[Storybook](https://equinor.github.io/fusion-react-components/?path=/docs/input-button-link--page)
+
+[Fusion Web Component](https://github.com/equinor/fusion-web-components/tree/main/packages/button/src/link-button)
+
+
+## Icon
+
+[Storybook](https://equinor.github.io/fusion-react-components/?path=/docs/input-button-icon--page)
+
+[Fusion Web Component](https://github.com/equinor/fusion-web-components/tree/main/packages/button/src/icon-button)
+
+
+## Icon toggle
+
+[Storybook](https://equinor.github.io/fusion-react-components/?path=/docs/input-button-icon-toggle--page)
+
+[Fusion Web Component](https://github.com/equinor/fusion-web-components/tree/main/packages/button/src/icon-button-toggle)
 
 ## Installation
 

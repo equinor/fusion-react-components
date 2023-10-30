@@ -12,7 +12,7 @@ type ElementProps = PropsWithChildren<ElementAttributes>;
 
 export const CircularProgress = createComponent<HTMLCircularIndicatorCustomElement, ElementProps>(
   HTMLCircularIndicatorCustomElement,
-  tagCircular
+  tagCircular,
 );
 
 export type CircularProgressProps = ComponentProps<HTMLCircularIndicatorCustomElement, ElementProps>;

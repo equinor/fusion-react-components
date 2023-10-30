@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-skeleton",
-  "version": "0.2.13",
+  "version": "0.3.0",
   "description": "React component for displaying a skeleton",
   "keywords": [
     "skeleton",
@@ -34,7 +34,11 @@
     "url": "https://github.com/equinor/fusion-react-components/issues"
   },
   "dependencies": {
-    "@equinor/fusion-react-utils": "^2.0.4",
-    "@equinor/fusion-wc-skeleton": "^0.2.17"
+    "@equinor/fusion-react-utils": "^2.1.0",
+    "@equinor/fusion-wc-skeleton": "^2.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.24",
+    "react": "^18.2.0"
   }
 }

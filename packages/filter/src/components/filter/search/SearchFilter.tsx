@@ -1,6 +1,6 @@
 import { useCallback, useMemo, useRef } from 'react';
 
-import { useSubscription } from '@equinor/fusion-react-observable';
+import { useObservableSelector } from '@equinor/fusion-observable/react';
 
 import { HTMLTextInputCustomElement, TextInput, TextInputProps } from '@equinor/fusion-react-textinput';
 
@@ -17,9 +17,9 @@ const defaultMatcher = <TData,>(data: TData[], query: string): TData[] => {
 
 export type SearchFilterProps<TData> = Omit<TextInputProps, 'onInput' | 'ref'> & {
   /** identifier for filter */
-  filterKey: string;
+  readonly filterKey: string;
   /** function for filtering by provided query */
-  filterFn?: FilterFn<TData, string>;
+  readonly filterFn?: FilterFn<TData, string>;
 };
 
 /**
@@ -37,7 +37,7 @@ export const SearchFilter = <TData,>(props: SearchFilterProps<TData>): JSX.Eleme
       key: filterKey,
       filterFn: filterFn || defaultMatcher,
     }),
-    [filterKey, filterFn]
+    [filterKey, filterFn],
   );
 
   /** register filter in the filter context */
@@ -51,19 +51,19 @@ export const SearchFilter = <TData,>(props: SearchFilterProps<TData>): JSX.Eleme
     (e: React.FormEvent<HTMLTextInputCustomElement>) => {
       setSelection(e.currentTarget.value);
     },
-    [setSelection]
+    [setSelection],
   );
 
   /** subscribe to changes in the filter selection */
-  useSubscription(
+  useObservableSelector(
     /** create an observable selection for filter  */
     useFilterSelection<string>(props.filterKey),
     /** update value of text input when selection changes */
-    useCallback((query) => {
+    useCallback((query: any) => {
       if (inputRef.current) {
         inputRef.current.value = query || '';
       }
-    }, [])
+    }, []),
   );
 
   return <TextInput ref={inputRef} onInput={onInput} type="search" variant="outlined" icon="search" {...args} />;

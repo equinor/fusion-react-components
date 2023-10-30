@@ -15,10 +15,14 @@ const useStyles = makeStyles(() =>
       transform: 'translateX(-50%)',
       marginTop: '8px',
     },
-  })
+  }),
 );
 
-const PopoverContainer = forwardRef((props: { children: ReactNode }, ref: ForwardedRef<HTMLDivElement>) => {
+const PopoverContainer: React.ForwardRefExoticComponent<
+  {
+    children: ReactNode;
+  } & React.RefAttributes<HTMLDivElement>
+> = forwardRef((props: { readonly children: ReactNode }, ref: ForwardedRef<HTMLDivElement>) => {
   const { children } = props;
   const styles = useStyles();
   return (

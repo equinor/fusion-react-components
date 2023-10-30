@@ -1,5 +1,5 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs';
-import Button from '@equinor/fusion-react-button/src';
+import { Button } from '@equinor/fusion-react-button';
 
 export const ButtonSnap = (props) => (
   <div style={{display:'flex', gap: 10}}>
@@ -31,7 +31,7 @@ export const ButtonStory = (props) => (
 );
 
 <Meta
-  title="Snapshots/Button"
+  title="Snapshots/Button/Default"
   component={Button}
   parameters={{ chromatic: { disableSnapshot: false } }}
 />

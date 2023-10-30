@@ -9,7 +9,7 @@ type ElementProps = PropsWithChildren<ElementAttributes>;
 
 export const DotsProgress = createComponent<HTMLDotsIndicatorCustomElement, ElementProps>(
   HTMLDotsIndicatorCustomElement,
-  tagDots
+  tagDots,
 );
 
 export type DotsProgressProps = ComponentProps<HTMLDotsIndicatorCustomElement, ElementProps>;

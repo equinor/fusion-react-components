@@ -24,7 +24,7 @@ type UseHangingGardenErrorMessage = {
 export const useHangingGardenErrorMessage = (
   resourceName: string,
   error: GardenDataError | null,
-  onTakeAction: () => void
+  onTakeAction: () => void,
 ): UseHangingGardenErrorMessage => {
   const [errorMessage, setErrorMessage] = useState<ErrorMessageProps | null>(null);
 
@@ -91,7 +91,7 @@ export const useHangingGardenErrorMessage = (
         onTakeAction: onTakeAction,
       };
     },
-    [resourceName, onTakeAction]
+    [resourceName, onTakeAction],
   );
 
   useEffect(() => {

@@ -1,4 +1,4 @@
-import type { Observable, ReactiveSubject } from '@equinor/fusion-react-observable';
+import type { Observable, FlowSubject } from '@equinor/fusion-observable';
 import { Actions } from './actions';
 
 export type FilterOption = {
@@ -13,7 +13,7 @@ export type FilterOption = {
 };
 
 export type FilterOptionContext<TOption extends FilterOption, TValue = string> = {
-  options$: ReactiveSubject<Record<string, TOption>, Actions>;
+  options$: FlowSubject<Record<string, TOption>, Actions>;
   selection$: Observable<Set<TValue>>;
   setSelection: (selection?: Set<TValue>) => void;
 };
@@ -27,7 +27,7 @@ export type FilterOptionSelector<TData> = (data: TData) => {
 export type FilterOptionBuilder<TData, TOption extends FilterOption, TValue = string> = (
   source: TData[],
   selection: Set<TValue>,
-  data: TData[]
+  data: TData[],
 ) => Record<string, TOption>;
 
 export type FilterOptionType<T> = T extends (a: infer TData, b: infer TSelection) => infer C

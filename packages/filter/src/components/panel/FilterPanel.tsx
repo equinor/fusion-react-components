@@ -33,7 +33,7 @@ const useStyles = makeStyles(
         backgroundColor: theme.colors.ui.background__light.getVariable('color'),
       },
     }),
-  { name: 'fusion-filter-panel' }
+  { name: 'fusion-filter-panel' },
 );
 
 type StyleClasses = {
@@ -72,7 +72,9 @@ export type FilterPanelProps<TData> = JSX.IntrinsicElements['div'] & {
 /**
  * Base component for displaying filter components and controllers
  */
-export const FilterPanel = <TData,>(props: React.PropsWithChildren<FilterPanelProps<TData>>): JSX.Element => {
+export const FilterPanel: <TData>(props: React.PropsWithChildren<FilterPanelProps<TData>>) => JSX.Element = <TData,>(
+  props: React.PropsWithChildren<FilterPanelProps<TData>>,
+): JSX.Element => {
   const { showFilters, className, classes, children, showSelection, searchFn, ...args } = props;
   const filters = (Children.toArray(children) as ReactElement<FilterComponent>[]).filter((x) => !!x.props.filterKey);
   const initialSelectedFilters = props.selectedFilters || filters.map((x) => x.props.filterKey);
@@ -86,7 +88,9 @@ export const FilterPanel = <TData,>(props: React.PropsWithChildren<FilterPanelPr
           className={clsx(styles.filters, classes?.filters)}
         />
         <FilterPanelConsumer>
-          {(context) => showSelection && !context?.showFilters && <SelectionChips chips={{ variant: 'outlined' }} />}
+          {(context: any) =>
+            showSelection && !context?.showFilters && <SelectionChips chips={{ variant: 'outlined' }} />
+          }
         </FilterPanelConsumer>
       </div>
     </FilterPanelProvider>

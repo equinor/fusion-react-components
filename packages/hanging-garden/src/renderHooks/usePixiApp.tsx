@@ -14,7 +14,7 @@ type UsePixiApp = {
 const usePixiApp = (
   canvas: React.RefObject<HTMLCanvasElement> | null,
   container: React.RefObject<HTMLDivElement> | null,
-  backgroundColor: number
+  backgroundColor: number,
 ): UsePixiApp => {
   PIXI.utils.skipHello(); // Don't output the pixi message to the console
   PIXI.Ticker.shared.autoStart = false;

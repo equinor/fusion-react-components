@@ -1,49 +1,34 @@
-import SearchableDropdown, {
+import {
+  SearchableDropdown,
   DropdownProvider,
-  Dropdown,
   useDropdownProviderRef,
   DropdownProps,
 } from '@equinor/fusion-react-searchable-dropdown';
-import { _handleAction, _exampleResolver } from './component.helpers';
+import { _handleSelect, _exampleResolver } from './component.helpers';
 
 export default {
   title: 'Examples/Searchable-Dropdown',
   component: SearchableDropdown,
 };
 
-export const Component = ({ ...props }) => {
+export const SearchableIcons = (props: DropdownProps) => {
+  const providerRef = useDropdownProviderRef(_exampleResolver);
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', height: '250px' }}>
-      <SearchableDropdown {...props} />
+      <DropdownProvider ref={providerRef}>
+        <SearchableDropdown {...props} />
+      </DropdownProvider>
     </div>
   );
 };
-Component.args = {
-  label: 'Example 1',
+SearchableIcons.args = {
+  label: 'Icons',
   placeholder: 'Search here...',
   variant: 'outlined',
   selected: '',
   initialText: 'See results by searching',
   trailingIcon: 'car_wash',
   meta: 'car',
-  onAction: _handleAction,
+  onSelect: _handleSelect,
   resolver: _exampleResolver,
-};
-
-export const SeperatedComponents = (props: DropdownProps) => {
-  const providerRef = useDropdownProviderRef(_exampleResolver);
-  return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', height: '250px' }}>
-      <DropdownProvider ref={providerRef}>
-        <Dropdown {...props} />
-      </DropdownProvider>
-    </div>
-  );
-};
-SeperatedComponents.args = {
-  label: 'Seperated',
-  placeholder: 'Search...',
-  initialText: 'Resolver results',
-  trailingIcon: 'build_wrench',
-  onAction: _handleAction,
 };

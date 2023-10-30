@@ -1,10 +1,10 @@
-import { useObservableState, useSelector } from '@equinor/fusion-react-observable';
+import { useObservableState, useObservableSelector } from '@equinor/fusion-observable/react';
 import { Icon } from '@equinor/fusion-react-icon';
 import { HTMLTextInputCustomElement, TextInput } from '@equinor/fusion-react-textinput';
 import { useFilterOptionContext, useFilterOptionSearch } from '../../options';
 
 type FilterHeaderProps = {
-  title: string;
+  readonly title: string;
 };
 
 import { clsx, createStyles, makeStyles } from '@equinor/fusion-react-styles';
@@ -48,7 +48,7 @@ export const useStyles = makeStyles(
         },
       },
     }),
-  { name: 'fusion-filter-header' }
+  { name: 'fusion-filter-header' },
 );
 
 export const FilterOptionHeader = (props: FilterHeaderProps): JSX.Element => {
@@ -58,7 +58,7 @@ export const FilterOptionHeader = (props: FilterHeaderProps): JSX.Element => {
   const searchRef = useRef<HTMLTextInputCustomElement>(null);
   const { options$, selection$ } = useFilterOptionContext();
   const optionCount = Object.keys(useObservableState(options$) || {}).length;
-  const selectedCount = useObservableState(useSelector(selection$, (x) => x && x.size));
+  const { value: selectedCount } = useObservableState(useObservableSelector(selection$, (x) => x && x.size));
   const styles = useStyles();
   const onIconClick = () => {
     if (showSearch) {

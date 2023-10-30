@@ -4,13 +4,13 @@
     "rootDir": "./src",
     "resolveJsonModule": true
   },
-  "exclude": ["./node_modules", "./__tmp__"],
+  "exclude": [
+    "./node_modules",
+    "./__tmp__"
+  ],
   "references": [
     {
-      "path": "../packages/avatar"
-    },
-    {
-      "path": "../packages/badge"
+      "path": "../packages/ag-grid-styles"
     },
     {
       "path": "../packages/button"
@@ -19,25 +19,19 @@
       "path": "../packages/checkbox"
     },
     {
-      "path": "../packages/chip"
-    },
-    {
       "path": "../packages/context-selector"
     },
     {
       "path": "../packages/date"
     },
     {
-      "path": "../packages/divider"
+      "path": "../packages/errorboundary"
     },
     {
       "path": "../packages/filter"
     },
     {
       "path": "../packages/icon"
-    },
-    {
-      "path": "../packages/observable"
     },
     {
       "path": "../packages/datepicker"
@@ -47,6 +41,9 @@
     },
     {
       "path": "../packages/list"
+    },
+    {
+      "path": "../packages/markdown"
     },
     {
       "path": "../packages/menu"
@@ -59,6 +56,9 @@
     },
     {
       "path": "../packages/person"
+    },
+    {
+      "path": "../packages/ripple"
     },
     {
       "path": "../packages/radio"
@@ -76,6 +76,9 @@
       "path": "../packages/switch"
     },
     {
+      "path": "../packages/stepper"
+    },
+    {
       "path": "../packages/table"
     },
     {
@@ -91,7 +94,10 @@
       "path": "../packages/typography"
     },
     {
-      "path": "../packages/utils" 
+      "path": "../packages/utils"
+    },
+    {
+      "path": "../packages/side-sheet"
     }
   ]
 }

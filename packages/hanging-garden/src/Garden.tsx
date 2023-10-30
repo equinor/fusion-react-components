@@ -26,11 +26,11 @@ const useStyles = makeStyles(() =>
       minHeight: '100%',
       ...wrapper,
     }),
-  })
+  }),
 );
 
 type GardenProps = {
-  provideController?: MutableRefObject<GardenController | null>;
+  readonly provideController?: MutableRefObject<GardenController | null>;
 };
 
 const Garden = <T extends HangingGardenColumnIndex>({ provideController }: GardenProps): JSX.Element => {
@@ -70,7 +70,7 @@ const Garden = <T extends HangingGardenColumnIndex>({ provideController }: Garde
     (e: UIEvent<HTMLDivElement>) => {
       onScroll(e, renderGarden);
     },
-    [renderGarden, onScroll]
+    [renderGarden, onScroll],
   );
 
   const style = useStyles({
@@ -78,7 +78,7 @@ const Garden = <T extends HangingGardenColumnIndex>({ provideController }: Garde
       width: getCalculatedWidth(
         expandedColumns,
         (columns as HangingGardenColumn<T>[]).length,
-        itemWidth + padding + groupLevels * GROUP_LEVEL_OFFSET
+        itemWidth + padding + groupLevels * GROUP_LEVEL_OFFSET,
       ),
       height: getCalculatedHeight(headerHeight, itemHeight + padding, maxRowCount),
     },

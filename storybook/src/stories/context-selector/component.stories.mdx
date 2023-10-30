@@ -1,3 +1,4 @@
+import { useState, useCallback } from 'react';
 import { Meta, Story, Canvas, ArgsTable, Description } from '@storybook/addon-docs';
 import { ContextProvider, ContextSelector, ContextSelectorProps } from '@equinor/fusion-react-context-selector';
 import { _handleSelect, _exampleResolver } from './component.helpers.tsx';
@@ -29,6 +30,7 @@ export const Template = ({ children, ...props }) => {
       id: 'sdd-test',
       variant: 'page',
       dropdownHeight: '300px',
+      onSelect: _handleSelect,
     }}
     argTypes={{
       id: {

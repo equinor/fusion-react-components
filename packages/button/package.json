@@ -1,12 +1,19 @@
 {
   "name": "@equinor/fusion-react-button",
-  "version": "0.5.15",
+  "version": "0.9.0",
   "description": "React component for displaying a button",
   "keywords": [
     "button",
     "react",
     "fusion",
-    "equinor"
+    "equinor",
+    "icon",
+    "icon button",
+    "link",
+    "link button",
+    "toggle",
+    "icon toggle",
+    "icon toggle button"
   ],
   "homepage": "https://github.com/equinor/fusion-react-components/tree/master/packages/button#readme",
   "license": "ISC",
@@ -34,7 +41,20 @@
     "url": "https://github.com/equinor/fusion-react-components/issues"
   },
   "dependencies": {
-    "@equinor/fusion-react-utils": "^2.0.4",
-    "@equinor/fusion-wc-button": "^1.1.31"
+    "@equinor/fusion-react-utils": "^2.1.0",
+    "@equinor/fusion-wc-button": "^2.1.0",
+    "@equinor/fusion-wc-icon": "^1.0.24"
+  },
+  "peerDependencies": {
+    "react": "^17.0.0 || ^18.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@types/react": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.24",
+    "react": "^18.2.0"
   }
 }

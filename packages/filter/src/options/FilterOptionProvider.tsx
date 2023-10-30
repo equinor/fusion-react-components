@@ -3,7 +3,7 @@ import { useEffect, useMemo } from 'react';
 import { combineLatest, of } from 'rxjs';
 import { switchMap, map } from 'rxjs/operators';
 
-import { useObservable } from '@equinor/fusion-react-observable';
+import { useObservable } from '@equinor/fusion-observable/react';
 
 import { useFilterData, useFilterSelection, useFilter, useFilterContext } from '../hooks';
 import type { Filter } from '../types';
@@ -24,8 +24,10 @@ export type FilterComponentProviderProps<TData, TOption extends FilterOption, TV
   initial?: Set<TValue>;
 };
 
-export const FilterOptionProvider = <TData extends Record<string, any>, TOption extends FilterOption, TValue>(
-  props: React.PropsWithChildren<FilterComponentProviderProps<TData, TOption, TValue>>
+export const FilterOptionProvider: <TData extends Record<string, any>, TOption extends FilterOption, TValue>(
+  props: React.PropsWithChildren<FilterComponentProviderProps<TData, TOption, TValue>>,
+) => JSX.Element = <TData extends Record<string, any>, TOption extends FilterOption, TValue>(
+  props: React.PropsWithChildren<FilterComponentProviderProps<TData, TOption, TValue>>,
 ): JSX.Element => {
   /** append change method if not provided */
   const filter = useMemo(() => {
@@ -49,7 +51,7 @@ export const FilterOptionProvider = <TData extends Record<string, any>, TOption 
         /** if selector is not a key of object return the selector for creating option */
         typeof props.selector === 'string'
           ? propertySelector(props.selector as Extract<keyof TData, string>)
-          : props.selector
+          : props.selector,
       );
     }
     throw Error('either provide a builder for option or a selector for option creation');
@@ -63,7 +65,7 @@ export const FilterOptionProvider = <TData extends Record<string, any>, TOption 
         switchMap(([source, data, selection]) => {
           return of(optionBuilder(source, selection, data));
         }),
-        map((x) => actions.set(x))
+        map((x) => actions.set(x)),
       )
       .subscribe(options$);
     return () => subscription.unsubscribe();

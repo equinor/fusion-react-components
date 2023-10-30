@@ -1,11 +1,13 @@
-import { PointerEvent, useCallback, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { combineLatest, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
-import { useSubscription } from '@equinor/fusion-react-observable';
-import { Chip, ChipProps, HTMLChipCustomElement } from '@equinor/fusion-react-chip';
+import { useObservableSubscription } from '@equinor/fusion-observable/react';
+import Chip, { ChipElement, ChipElementProps } from '@equinor/fusion-wc-chip';
 import { useFilterContext } from '../../hooks';
 import { actions } from '../../actions';
 import { clsx, createStyles, makeStyles } from '@equinor/fusion-react-styles';
+
+Chip;
 
 /** method for extracting selection to array */
 const formatSelection = (selection: any): string[] => {
@@ -41,18 +43,21 @@ const useStyles = makeStyles(
         marginRight: theme.spacing.comfortable.small.getVariable('padding'),
       },
     }),
-  { name: 'fusion-filter-selection-chips' }
+  { name: 'fusion-filter-selection-chips' },
 );
 
 export type SelectionChipsProps = JSX.IntrinsicElements['div'] & {
-  chips: Omit<ChipProps, 'removable' | 'onRemove' | 'value' | 'children'>;
+  readonly chips: Pick<ChipElementProps, 'variant'>;
 };
 
 export const SelectionChips = (props: SelectionChipsProps): JSX.Element => {
   const { chips, className, ...args } = props;
   const { filter$, selection$ } = useFilterContext();
   const [items, setItems] = useState<SelectionItem[]>([]);
-  useSubscription(
+
+  const ref = useRef<HTMLDivElement>(null);
+
+  useObservableSubscription(
     useMemo(
       () =>
         /** Observe filter and selection changes */
@@ -68,31 +73,36 @@ export const SelectionChips = (props: SelectionChipsProps): JSX.Element => {
               /** Exclude filters that does not have any selection */
               .filter((x) => !!x.title && !!x.selection.length);
             return of(items as SelectionItem[]);
-          })
+          }),
         ),
-      [filter$, selection$]
+      [filter$, selection$],
     ),
-    setItems
+    setItems,
   );
 
-  const onRemove = useCallback(
-    (e: PointerEvent<HTMLChipCustomElement>) => {
-      selection$.next(actions.selection.remove(String(e.currentTarget.value)));
-    },
-    [selection$]
-  );
+  useEffect(() => {
+    const el = ref.current;
+    if (el) {
+      const handler = (e: Event) => {
+        const value = (e.target as ChipElement).value;
+        selection$.next(actions.selection.remove(String(value)));
+      };
+      el.addEventListener('remove', handler);
+      return () => el.removeEventListener('remove', handler);
+    }
+  }, [ref, selection$]);
 
   const styles = useStyles();
 
   return (
-    <div {...args} className={clsx(styles.root, className)}>
+    <div {...args} className={clsx(styles.root, className)} ref={ref}>
       {items?.map((x) => (
-        <Chip {...chips} key={x.key} value={x.key} onRemove={onRemove} removable>
+        <fwc-chip key={x.key} value={x.key} removable variant={chips.variant}>
           <span>{x.title} </span>
           <span slot="graphic" className={styles.chip}>
             {x.selection.length}
           </span>
-        </Chip>
+        </fwc-chip>
       ))}
     </div>
   );

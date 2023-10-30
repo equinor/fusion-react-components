@@ -1,5 +1,5 @@
-import { useSelector } from '@equinor/fusion-react-observable';
-import type { Observable } from '@equinor/fusion-react-observable';
+import { useObservableSelector } from '@equinor/fusion-observable/react';
+import type { Observable } from '@equinor/fusion-observable';
 
 import { useFilterContext } from '../context';
 
@@ -9,6 +9,6 @@ import { useFilterContext } from '../context';
  * @returns {Observable<TSelection>}
  */
 export const useFilterSelection = <TSelection>(filterKey: string): Observable<Set<TSelection>> =>
-  useSelector(useFilterContext().selection$ as Observable<Record<string, any>>, filterKey);
+  useObservableSelector(useFilterContext().selection$ as Observable<Record<string, any>>, filterKey);
 
 export default useFilterSelection;

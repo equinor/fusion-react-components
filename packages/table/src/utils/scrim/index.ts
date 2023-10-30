@@ -17,7 +17,7 @@ export const scrimClick =
  */
 export const useScrimClickRef = <TElement extends HTMLElement = HTMLElement>(
   props: { cb: VoidFunction; disabled?: boolean; ref: RefObject<TElement> },
-  deps: unknown[] = []
+  deps: unknown[] = [],
 ): void => {
   const { cb, disabled, ref } = props;
   useEffect(() => {
@@ -37,7 +37,7 @@ export const useScrimClickRef = <TElement extends HTMLElement = HTMLElement>(
 export const useScrimClick = <TElement extends HTMLElement = HTMLElement>(
   cb: VoidFunction,
   disabled?: boolean,
-  deps: unknown[] = []
+  deps: unknown[] = [],
 ): RefObject<TElement> => {
   const ref = useRef<TElement>(null);
   useScrimClickRef({ cb, ref, disabled }, deps);

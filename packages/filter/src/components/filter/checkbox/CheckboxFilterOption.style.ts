@@ -40,7 +40,7 @@ export const useStyles = makeStyles(
         display: 'none',
       },
     }),
-  { name: 'fusion-filter-checkbox-option' }
+  { name: 'fusion-filter-checkbox-option' },
 );
 
 export default useStyles;

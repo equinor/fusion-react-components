@@ -49,7 +49,7 @@ const useItemDescription = <T extends HangingGardenColumnIndex>(): UseItemDescri
       }
       return itemDescription as PIXI.Container;
     },
-    [backgroundColor, getTextureFromCache, addTextureToCache, getItemDescription]
+    [backgroundColor, getTextureFromCache, addTextureToCache, getItemDescription],
   );
 
   const renderItemDescription = useCallback(
@@ -82,7 +82,7 @@ const useItemDescription = <T extends HangingGardenColumnIndex>(): UseItemDescri
       itemWidth,
       getRenderedItemDescription,
       stage.current,
-    ]
+    ],
   );
 
   return { renderItemDescription, getRenderedItemDescription };

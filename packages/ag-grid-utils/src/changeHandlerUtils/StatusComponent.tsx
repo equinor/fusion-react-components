@@ -19,21 +19,31 @@ const useStyles = makeStyles(
     closeIcon: {
       color: theme.colors.infographic.primary__energy_red_100.getVariable('color'),
     },
+    patchedIcon: {
+      color: theme.colors.interactive.warning__text.getVariable('color'),
+    },
     pendingChanges: {
       width: '.5rem',
       height: '.5rem',
       background: theme.colors.interactive.warning__text.getVariable('color'),
       borderRadius: '50%',
     },
-  })
+  }),
 );
 
 const StatusComponent: FC<ICellRendererParams> = (props) => {
   const styles = useStyles();
 
+  const isGroupRow = props.node.group;
+  if (isGroupRow) return null;
+
   return props.data?.hasChanged || props.data?.status === AGGridDataStatus.NEW ? (
     <div className={styles.statusContainer}>
       <div className={styles.pendingChanges} />
+    </div>
+  ) : props.data?.status === AGGridDataStatus.PATCHED ? (
+    <div className={clsx(styles.patchedIcon, styles.statusContainer)}>
+      <Icon icon="check_circle_outlined" />
     </div>
   ) : (
     <div className={clsx(styles.checkIcon, styles.statusContainer)}>

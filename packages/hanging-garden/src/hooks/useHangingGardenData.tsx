@@ -56,7 +56,7 @@ type UseHangingGardenData<T> = {
 export const useHangingGardenData = <T,>(
   getDataAsync: (invalidateCache: boolean) => Promise<HttpResponse<T[]>>,
   applyToFetchedData?: ((data: T[]) => T[]) | null,
-  searchableValues?: ((data: T) => T) | null
+  searchableValues?: ((data: T) => T) | null,
 ): UseHangingGardenData<T> => {
   const { isFetching, error, getData } = useHangingGardenGetData<T>(getDataAsync);
   const [data, setData] = useState<T[]>([]);
@@ -87,7 +87,7 @@ export const useHangingGardenData = <T,>(
       const formattedData = applyToFetchedData ? applyToFetchedData(data) : data;
       return searchableValues ? formattedData.map(searchableValues) : formattedData;
     },
-    [searchableValues, applyToFetchedData]
+    [searchableValues, applyToFetchedData],
   );
 
   const fetch = useCallback(
@@ -97,7 +97,7 @@ export const useHangingGardenData = <T,>(
       setCacheAgeDate(result?.cacheAge || new Date());
       setCacheDuration(result?.cacheDurationInMinutes || 30);
     },
-    [isFetching, error, getData, formatData]
+    [isFetching, error, getData, formatData],
   );
 
   useEffect(() => {

@@ -26,19 +26,19 @@ export const useTableContext = <TData extends TableData = TableData>(): TableCon
   useContext(context) as TableContext<TData>;
 
 export type TableProviderProps<TData extends TableData> = {
-  options: TableOptions<TData>;
-  plugins?: PluginHook<TData>[];
+  readonly options: TableOptions<TData>;
+  readonly plugins?: PluginHook<TData>[];
 };
 
 export const TableProvider = <TData extends TableData = TableData>(
-  props: PropsWithChildren<TableProviderProps<TData>>
+  props: PropsWithChildren<TableProviderProps<TData>>,
 ): JSX.Element => {
   const { children, options } = props;
 
   const _plugins = props.plugins || [];
   const plugins = useMemo(
     () => [useResizeColumns, useColumnMenu, useFilters, useSortBy, usePagination, useExcel, ..._plugins],
-    [..._plugins]
+    [..._plugins],
   );
 
   const defaultColumn = useDefaultColumn(options);
