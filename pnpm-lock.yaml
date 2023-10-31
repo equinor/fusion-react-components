@@ -292,8 +292,8 @@ importers:
         specifier: 4.x
         version: 4.7.11
       date-fns:
-        specifier: 2.28.0
-        version: 2.28.0
+        specifier: 2.30.0
+        version: 2.30.0
       history:
         specifier: 4.x
         version: 4.10.1
@@ -674,8 +674,8 @@ importers:
         specifier: ^2.1.0
         version: link:../utils
       '@equinor/fusion-wc-textinput':
-        specifier: ^0.5.12
-        version: 0.5.21
+        specifier: ^1.0.2
+        version: 1.0.2
     devDependencies:
       '@types/react':
         specifier: ^18.2.24
@@ -3538,7 +3538,7 @@ packages:
       '@equinor/fusion-wc-list': 1.0.3
       '@equinor/fusion-wc-searchable-dropdown': 3.4.1
       '@equinor/fusion-wc-skeleton': 2.0.0
-      '@equinor/fusion-wc-textinput': 1.0.1
+      '@equinor/fusion-wc-textinput': 1.0.2
       '@equinor/fusion-web-theme': 0.1.7
       '@floating-ui/dom': 1.5.3
       '@lit-labs/observers': 2.0.0
@@ -3656,16 +3656,6 @@ packages:
     dependencies:
       '@equinor/fusion-wc-core': 1.0.5
       '@equinor/fusion-wc-icon': 1.0.33
-      '@material/mwc-textfield': 0.27.0
-      lit: 2.7.0
-    dev: false
-
-  /@equinor/fusion-wc-textinput@1.0.1:
-    resolution: {integrity: sha512-BVv1NOXbuw9ixzSxqT92K8w7A5Bvw+n379pqBz2eiNVDetq3ogsHugWHJCtRZ8xauLgWHGF4XzuNzGZsC/MA8g==}
-    dependencies:
-      '@equinor/fusion-wc-core': 2.0.0
-      '@equinor/fusion-wc-icon': 2.2.0
-      '@equinor/fusion-web-theme': 0.1.7
       '@material/mwc-textfield': 0.27.0
       lit: 2.7.0
     dev: false
