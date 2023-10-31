@@ -3522,7 +3522,7 @@ packages:
     resolution: {integrity: sha512-UGzlvn7uIMZlPfJA/6Tm5AJRfWqTESW14lXIEiyu8RJxmq+WujnaBYra7b6DtoFwh5OtoRlDTgHVSuxsU1XAuA==}
     dependencies:
       '@equinor/fusion-wc-core': 2.0.0
-      '@equinor/fusion-wc-list': 1.0.2
+      '@equinor/fusion-wc-list': 1.0.3
       '@material/mwc-menu': 0.27.0
       lit: 2.7.0
     dev: false
@@ -3535,7 +3535,7 @@ packages:
       '@equinor/fusion-wc-button': 2.1.0
       '@equinor/fusion-wc-core': 2.0.0
       '@equinor/fusion-wc-icon': 2.1.0
-      '@equinor/fusion-wc-list': 1.0.2
+      '@equinor/fusion-wc-list': 1.0.3
       '@equinor/fusion-wc-searchable-dropdown': 3.4.1
       '@equinor/fusion-wc-skeleton': 2.0.0
       '@equinor/fusion-wc-textinput': 1.0.1
