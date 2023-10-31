@@ -20,9 +20,9 @@ const StyledScrim = styled(Scrim)`
 `;
 
 const StyledSideSheet = styled.div`
-  height: 100vh;
+  height: var(--custom-side-sheet-height, var(--side-sheet-height, 100%));
   position: fixed;
-  top: 0;
+  top: var(--custom-header-height, var(--header-height, 0));
   transition: right 10s;
   animation: Animation ease 0.3s;
   right: 0px;
