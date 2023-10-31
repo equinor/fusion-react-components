@@ -292,8 +292,8 @@ importers:
         specifier: 4.x
         version: 4.7.11
       date-fns:
-        specifier: 2.28.0
-        version: 2.28.0
+        specifier: 2.30.0
+        version: 2.30.0
       history:
         specifier: 4.x
         version: 4.10.1
@@ -447,8 +447,8 @@ importers:
         specifier: ^0.2.12
         version: 0.2.20
       '@equinor/fusion-wc-radio':
-        specifier: ^0.2.19
-        version: 0.2.27
+        specifier: ^1.0.0
+        version: 1.0.0
     devDependencies:
       '@types/react':
         specifier: ^18.2.24
@@ -3565,14 +3565,6 @@ packages:
     resolution: {integrity: sha512-8b//6stMcnrHbsXy1hbPfj/9EyGDTTcWq6npdnL3etdQejMwvxUDCHWdqYfE616Bap7OPtrNZ5haMWz1hHh9gQ==}
     dependencies:
       '@equinor/fusion-wc-core': 1.0.5
-      lit: 2.7.0
-    dev: false
-
-  /@equinor/fusion-wc-radio@0.2.27:
-    resolution: {integrity: sha512-wO7ZkzWk5eRMe1TFY7OJg2NrIWxpQECEM8h6XQMXj1qkZWUgWARLg3Yt90dXLk5XljuwXjydyXA15vsY0mUO7g==}
-    dependencies:
-      '@equinor/fusion-wc-core': 1.0.5
-      '@material/mwc-radio': 0.27.0
       lit: 2.7.0
     dev: false
 
