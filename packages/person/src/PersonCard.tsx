@@ -25,7 +25,7 @@ export const PersonCard = ({ children, ...props }: PropsWithChildren<PersonCardP
         cardRef.current[name] = value;
       }
     }
-  }, []);
+  }, [props]);
 
   return <PersonCardComponent ref={cardRef}>{children}</PersonCardComponent>;
 };

@@ -25,7 +25,7 @@ export const PersonAvatar = ({ children, ...props }: PropsWithChildren<PersonAva
         avatarRef.current[name] = value;
       }
     }
-  }, []);
+  }, [props]);
 
   return <PersonAvatarComponent ref={avatarRef}>{children}</PersonAvatarComponent>;
 };

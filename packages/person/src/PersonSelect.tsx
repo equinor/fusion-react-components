@@ -2,7 +2,7 @@ import { BaseSyntheticEvent, PropsWithChildren, useEffect, useRef } from 'react'
 import { ComponentProps, createComponent } from '@equinor/fusion-react-utils';
 import HTMLPersonSelectCustomElement, {
   tag,
-  PersonSelectEvent as HTMLPersonSelectEvent
+  PersonSelectEvent as HTMLPersonSelectEvent,
 } from '@equinor/fusion-wc-person/select';
 import extractProps from './extract-props';
 
@@ -58,7 +58,7 @@ export const PersonSelect: React.FC<PersonSelectProps> = ({
         searchRef.current[name] = value;
       }
     }
-  }, []);
+  }, [props]);
 
   return <PersonSelectComponent ref={searchRef}>{children}</PersonSelectComponent>;
 };
