@@ -1,5 +1,11 @@
 # Change Log
 
+## 30.2.0
+
+### Minor Changes
+
+- 7c20329c: Updating ag-grid dependency to 30.2
+
 ## 30.0.0
 
 ### Minor Changes

@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.7.1
+
+### Patch Changes
+
+- 6f15f585: fix(hanging-garden): use scrollbar gutter to avoid weird behaviour
+
 ## 1.7.0
 
 ### Minor Changes
