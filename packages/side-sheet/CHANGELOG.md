@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.2.1
+
+### Patch Changes
+
+- 59771d08: Added missing border radius to side sheet indicator
+
 ## 1.2.0
 
 ### Minor Changes
