@@ -1,9 +1,12 @@
-import { PropsWithChildren, useEffect, useRef } from 'react';
+import { BaseSyntheticEvent, PropsWithChildren, useEffect, useRef } from 'react';
 import { ComponentProps, createComponent } from '@equinor/fusion-react-utils';
-import HTMLPersonSelectCustomElement, { tag } from '@equinor/fusion-wc-person/select';
+import HTMLPersonSelectCustomElement, {
+  tag,
+  PersonSelectEvent as HTMLPersonSelectEvent
+} from '@equinor/fusion-wc-person/select';
 import extractProps from './extract-props';
 
-export type ElementProps = PropsWithChildren<
+type ElementAtts = PropsWithChildren<
   Partial<
     Pick<
       HTMLPersonSelectCustomElement,
@@ -24,10 +27,21 @@ export type ElementProps = PropsWithChildren<
   >
 >;
 
+export type PersonSelectEvent = BaseSyntheticEvent<HTMLPersonSelectEvent>;
+
+type ElementEvents = {
+  onSelect?: (e: PersonSelectEvent) => void;
+  onDropdownClosed?: (e: CustomEvent) => void;
+};
+
+type ElementProps = ElementAtts & ElementEvents;
+
 export type PersonSelectProps = ComponentProps<HTMLPersonSelectCustomElement, ElementProps>;
+
 export const PersonSelectComponent = createComponent<HTMLPersonSelectCustomElement, ElementProps>(
   HTMLPersonSelectCustomElement,
   tag,
+  { events: { onSelect: 'select', onDropdownClosed: 'dropdownClosed' } },
 );
 
 export const PersonSelect: React.FC<PersonSelectProps> = ({
