@@ -713,7 +713,7 @@ importers:
         version: 11.11.0(@emotion/react@11.11.1)(react@17.0.2)
       '@equinor/eds-core-react':
         specifier: ^0.30.0
-        version: 0.30.0(@babel/core@7.23.0)(react-dom@17.0.2)(react@17.0.2)(styled-components@5.3.11)
+        version: 0.30.0(@babel/core@7.23.0)(react-dom@17.0.2)(react@17.0.2)(styled-components@6.1.0)
       '@equinor/eds-icons':
         specifier: ^0.19.1
         version: 0.19.3
@@ -844,8 +844,8 @@ importers:
         specifier: ^6.5.16
         version: 6.5.16(eslint@8.50.0)(react-dom@17.0.2)(react@17.0.2)(typescript@4.9.5)
       styled-components:
-        specifier: ^5.3.9
-        version: 5.3.11(@babel/core@7.23.0)(react-dom@17.0.2)(react-is@18.2.0)(react@17.0.2)
+        specifier: ^6.1.0
+        version: 6.1.0(react-dom@17.0.2)(react@17.0.2)
       typescript:
         specifier: ^4.4.4
         version: 4.9.5
@@ -916,7 +916,7 @@ packages:
       '@babel/helpers': 7.23.1
       '@babel/parser': 7.23.0
       '@babel/template': 7.22.15
-      '@babel/traverse': 7.23.0(supports-color@5.5.0)
+      '@babel/traverse': 7.23.0
       '@babel/types': 7.23.0
       convert-source-map: 1.9.0
       debug: 4.3.4(supports-color@5.5.0)
@@ -942,7 +942,7 @@ packages:
       '@babel/helpers': 7.23.1
       '@babel/parser': 7.23.0
       '@babel/template': 7.22.15
-      '@babel/traverse': 7.23.0(supports-color@5.5.0)
+      '@babel/traverse': 7.23.0
       '@babel/types': 7.23.0
       convert-source-map: 2.0.0
       debug: 4.3.4(supports-color@5.5.0)
@@ -965,7 +965,7 @@ packages:
       '@babel/helpers': 7.23.2
       '@babel/parser': 7.23.0
       '@babel/template': 7.22.15
-      '@babel/traverse': 7.23.2
+      '@babel/traverse': 7.23.2(supports-color@5.5.0)
       '@babel/types': 7.23.0
       convert-source-map: 2.0.0
       debug: 4.3.4(supports-color@5.5.0)
@@ -1050,7 +1050,7 @@ packages:
       '@babel/helper-compilation-targets': 7.22.15
       '@babel/helper-module-imports': 7.22.15
       '@babel/helper-plugin-utils': 7.22.5
-      '@babel/traverse': 7.23.0(supports-color@5.5.0)
+      '@babel/traverse': 7.23.0
       debug: 4.3.4(supports-color@5.5.0)
       lodash.debounce: 4.0.8
       resolve: 1.22.6
@@ -1238,7 +1238,7 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       '@babel/template': 7.22.15
-      '@babel/traverse': 7.23.0(supports-color@5.5.0)
+      '@babel/traverse': 7.23.0
       '@babel/types': 7.23.0
     transitivePeerDependencies:
       - supports-color
@@ -1249,7 +1249,7 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       '@babel/template': 7.22.15
-      '@babel/traverse': 7.23.2
+      '@babel/traverse': 7.23.2(supports-color@5.5.0)
       '@babel/types': 7.23.0
     transitivePeerDependencies:
       - supports-color
@@ -2568,7 +2568,7 @@ packages:
       '@babel/types': 7.23.0
     dev: false
 
-  /@babel/traverse@7.23.0(supports-color@5.5.0):
+  /@babel/traverse@7.23.0:
     resolution: {integrity: sha512-t/QaEvyIoIkwzpiZ7aoSKK8kObQYeF7T2v+dazAYCb8SXtp58zEVkWW7zAnju8FNKNdr4ScAOEDmMItbyOmEYw==}
     engines: {node: '>=6.9.0'}
     dependencies:
@@ -2586,7 +2586,7 @@ packages:
       - supports-color
     dev: false
 
-  /@babel/traverse@7.23.2:
+  /@babel/traverse@7.23.2(supports-color@5.5.0):
     resolution: {integrity: sha512-azpe59SQ48qG6nu2CzcMLbxUudtN+dOM9kDbUqGq3HXUJRlo7i8fvPoxQUzYgLZ4cMVmuZgm8vvBpNeRhd6XSw==}
     engines: {node: '>=6.9.0'}
     dependencies:
@@ -3133,7 +3133,7 @@ packages:
     resolution: {integrity: sha512-EsBwpc7hBUJWAsNPBmJy4hxWx12v6bshQsldrVmjxJoc3isbxhOrF2IcCpaXxfvq03NwkI7sbsOLXbYuqF/8Ww==}
     dev: false
 
-  /@equinor/eds-core-react@0.30.0(@babel/core@7.23.0)(react-dom@17.0.2)(react@17.0.2)(styled-components@5.3.11):
+  /@equinor/eds-core-react@0.30.0(@babel/core@7.23.0)(react-dom@17.0.2)(react@17.0.2)(styled-components@6.1.0):
     resolution: {integrity: sha512-CBSwNsn6LwDx99tYu2LuQAKP7f7JfcFPRSXG8AybU2zkCKBUU0e/rFV7THG2GztB3cDfppIuIB89UqEERfklfQ==}
     engines: {node: '>=10.0.0', pnpm: '>=4'}
     peerDependencies:
@@ -3144,13 +3144,13 @@ packages:
       '@babel/runtime': 7.23.1
       '@equinor/eds-icons': 0.19.1
       '@equinor/eds-tokens': 0.9.0
-      '@equinor/eds-utils': 0.7.0(@babel/core@7.23.0)(react-dom@17.0.2)(react@17.0.2)(styled-components@5.3.11)
+      '@equinor/eds-utils': 0.7.0(@babel/core@7.23.0)(react-dom@17.0.2)(react@17.0.2)(styled-components@6.1.0)
       '@floating-ui/react': 0.19.2(react-dom@17.0.2)(react@17.0.2)
       '@tanstack/react-virtual': 3.0.0-beta.45(react@17.0.2)
       downshift: 7.6.2(react@17.0.2)
       react: 17.0.2
       react-dom: 17.0.2(react@17.0.2)
-      styled-components: 5.3.11(@babel/core@7.23.0)(react-dom@17.0.2)(react-is@18.2.0)(react@17.0.2)
+      styled-components: 6.1.0(react-dom@17.0.2)(react@17.0.2)
     transitivePeerDependencies:
       - '@babel/core'
       - supports-color
@@ -3221,7 +3221,7 @@ packages:
     resolution: {integrity: sha512-pDIFei0vsfN3GN12NKWqxskAkYBQd6+Dzjga2liuY81LfnlJs5g9NblamU9WY5w5YdVE5Z8FNjsMKDLs2JIWcw==}
     engines: {node: '>=10.0.0', pnpm: '>=4'}
 
-  /@equinor/eds-utils@0.7.0(@babel/core@7.23.0)(react-dom@17.0.2)(react@17.0.2)(styled-components@5.3.11):
+  /@equinor/eds-utils@0.7.0(@babel/core@7.23.0)(react-dom@17.0.2)(react@17.0.2)(styled-components@6.1.0):
     resolution: {integrity: sha512-Gy6QwH/wbq0o3Oa9M4iHb8Mlsd+25pjT8KvyfXMmQPlqe3DrSVAFJ1A+PP3SWyBoIMHHkHkW6SHlzhkfomA81g==}
     engines: {node: '>=10.0.0', pnpm: '>=4'}
     peerDependencies:
@@ -3236,7 +3236,7 @@ packages:
       react: 17.0.2
       react-dom: 17.0.2(react@17.0.2)
       react-popper: 2.3.0(@popperjs/core@2.11.6)(react-dom@17.0.2)(react@17.0.2)
-      styled-components: 5.3.11(@babel/core@7.23.0)(react-dom@17.0.2)(react-is@18.2.0)(react@17.0.2)
+      styled-components: 6.1.0(react-dom@17.0.2)(react@17.0.2)
     transitivePeerDependencies:
       - '@babel/core'
       - supports-color
@@ -6745,7 +6745,7 @@ packages:
       '@babel/parser': 7.23.0
       '@babel/plugin-transform-react-jsx': 7.22.15(@babel/core@7.23.0)
       '@babel/preset-env': 7.22.20(@babel/core@7.23.0)
-      '@babel/traverse': 7.23.0(supports-color@5.5.0)
+      '@babel/traverse': 7.23.0
       '@babel/types': 7.23.0
       '@storybook/csf': 0.0.2--canary.4566f4d.1
       '@storybook/mdx1-csf': 0.0.1(@babel/core@7.23.0)
@@ -7572,7 +7572,6 @@ packages:
 
   /@types/stylis@4.2.2:
     resolution: {integrity: sha512-Rm17MsTpQQP5Jq4BF7CdrxJsDufoiL/q5IbJZYZmOZAJALyijgF7BzLgobXUqraNcQdqFYLYGeglDp6QzaxPpg==}
-    dev: true
 
   /@types/tapable@1.0.9:
     resolution: {integrity: sha512-fOHIwZua0sRltqWzODGUM6b4ffZrf/vzGUmNXdR+4DzuJP42PMbM5dLKcdzlYvv8bMJ3GALOzkk1q7cDm2zPyA==}
@@ -9031,21 +9030,6 @@ packages:
       react-docgen: 5.4.3
     transitivePeerDependencies:
       - supports-color
-    dev: false
-
-  /babel-plugin-styled-components@2.1.4(@babel/core@7.23.0)(styled-components@5.3.11):
-    resolution: {integrity: sha512-Xgp9g+A/cG47sUyRwwYxGM4bR/jDRg5N6it/8+HxCnbT5XNKSKDT9xm4oag/osgqjC2It/vH0yXsomOG6k558g==}
-    peerDependencies:
-      styled-components: '>= 2'
-    dependencies:
-      '@babel/helper-annotate-as-pure': 7.22.5
-      '@babel/helper-module-imports': 7.22.15
-      '@babel/plugin-syntax-jsx': 7.22.5(@babel/core@7.23.0)
-      lodash: 4.17.21
-      picomatch: 2.3.1
-      styled-components: 5.3.11(@babel/core@7.23.0)(react-dom@17.0.2)(react-is@18.2.0)(react@17.0.2)
-    transitivePeerDependencies:
-      - '@babel/core'
     dev: false
 
   /babel-plugin-styled-components@2.1.4(@babel/core@7.23.2)(styled-components@5.3.11):
@@ -12010,7 +11994,7 @@ packages:
     resolution: {integrity: sha512-YNF+mZ/Wu2FU/gvmzuWtYc8rloubL7wfXCTgouFrnjGVXPA/EeYYA7pupXWrb3Iv1cTBeSSxxJIbK23l4MRNqg==}
     engines: {node: '>=8.3.0'}
     dependencies:
-      '@babel/traverse': 7.23.0(supports-color@5.5.0)
+      '@babel/traverse': 7.23.0
       '@babel/types': 7.23.0
       c8: 7.14.0
     transitivePeerDependencies:
@@ -20447,31 +20431,6 @@ packages:
       inline-style-parser: 0.1.1
     dev: false
 
-  /styled-components@5.3.11(@babel/core@7.23.0)(react-dom@17.0.2)(react-is@18.2.0)(react@17.0.2):
-    resolution: {integrity: sha512-uuzIIfnVkagcVHv9nE0VPlHPSCmXIUGKfJ42LNjxCCTDTL5sgnJ8Z7GZBq0EnLYGln77tPpEpExt2+qa+cZqSw==}
-    engines: {node: '>=10'}
-    peerDependencies:
-      react: '>= 16.8.0'
-      react-dom: '>= 16.8.0'
-      react-is: '>= 16.8.0'
-    dependencies:
-      '@babel/helper-module-imports': 7.22.15
-      '@babel/traverse': 7.23.0(supports-color@5.5.0)
-      '@emotion/is-prop-valid': 1.2.1
-      '@emotion/stylis': 0.8.5
-      '@emotion/unitless': 0.7.5
-      babel-plugin-styled-components: 2.1.4(@babel/core@7.23.0)(styled-components@5.3.11)
-      css-to-react-native: 3.2.0
-      hoist-non-react-statics: 3.3.2
-      react: 17.0.2
-      react-dom: 17.0.2(react@17.0.2)
-      react-is: 18.2.0
-      shallowequal: 1.1.0
-      supports-color: 5.5.0
-    transitivePeerDependencies:
-      - '@babel/core'
-    dev: false
-
   /styled-components@5.3.11(@babel/core@7.23.2)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-uuzIIfnVkagcVHv9nE0VPlHPSCmXIUGKfJ42LNjxCCTDTL5sgnJ8Z7GZBq0EnLYGln77tPpEpExt2+qa+cZqSw==}
     engines: {node: '>=10'}
@@ -20481,7 +20440,7 @@ packages:
       react-is: '>= 16.8.0'
     dependencies:
       '@babel/helper-module-imports': 7.22.15
-      '@babel/traverse': 7.23.0(supports-color@5.5.0)
+      '@babel/traverse': 7.23.2(supports-color@5.5.0)
       '@emotion/is-prop-valid': 1.2.1
       '@emotion/stylis': 0.8.5
       '@emotion/unitless': 0.7.5
@@ -20495,6 +20454,26 @@ packages:
       supports-color: 5.5.0
     transitivePeerDependencies:
       - '@babel/core'
+    dev: false
+
+  /styled-components@6.1.0(react-dom@17.0.2)(react@17.0.2):
+    resolution: {integrity: sha512-VWNfYYBuXzuLS/QYEeoPgMErP26WL+dX9//rEh80B2mmlS1yRxRxuL5eax4m6ybYEUoHWlTy2XOU32767mlMkg==}
+    engines: {node: '>= 16'}
+    peerDependencies:
+      react: '>= 16.8.0'
+      react-dom: '>= 16.8.0'
+    dependencies:
+      '@emotion/is-prop-valid': 1.2.1
+      '@emotion/unitless': 0.8.1
+      '@types/stylis': 4.2.2
+      css-to-react-native: 3.2.0
+      csstype: 3.1.2
+      postcss: 8.4.31
+      react: 17.0.2
+      react-dom: 17.0.2(react@17.0.2)
+      shallowequal: 1.1.0
+      stylis: 4.3.0
+      tslib: 2.6.2
     dev: false
 
   /styled-components@6.1.0(react-dom@18.2.0)(react@18.2.0):
@@ -20523,7 +20502,6 @@ packages:
 
   /stylis@4.3.0:
     resolution: {integrity: sha512-E87pIogpwUsUwXw7dNyU4QDjdgVMy52m+XEOPEKUn161cCzWjjhPSQhByfd1CcNvrOLnXQ6OnnZDwnJrz/Z4YQ==}
-    dev: true
 
   /supports-color@5.5.0:
     resolution: {integrity: sha512-QjVjwdXIt408MIiAqCX4oUKsgU2EqAGzs2Ppkm4aQYbjm+ZEWEcW4SfFNTr4uMNZma0ey4f5lgLrkB0aX0QMow==}
