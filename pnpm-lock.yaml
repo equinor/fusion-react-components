@@ -463,8 +463,8 @@ importers:
         specifier: ^2.1.0
         version: link:../utils
       '@equinor/fusion-wc-ripple':
-        specifier: ^0.2.13
-        version: 0.2.21
+        specifier: ^1.0.0
+        version: 1.0.0
     devDependencies:
       '@types/react':
         specifier: ^18.2.24
@@ -3635,14 +3635,6 @@ packages:
       '@equinor/fusion-wc-core': 2.0.0
       '@equinor/fusion-web-theme': 0.1.7
       '@material/mwc-radio': 0.27.0
-      lit: 2.7.0
-    dev: false
-
-  /@equinor/fusion-wc-ripple@0.2.21:
-    resolution: {integrity: sha512-vouQuZ1CXNy1PfVlLYythCAkxeESJZKHzlN7hqQTNm5eo0u4bRjBf1EnHr//N/l+ip42BBu7Xjd5OJQq9qRaHw==}
-    dependencies:
-      '@equinor/fusion-wc-core': 1.0.5
-      '@material/mwc-ripple': 0.27.0
       lit: 2.7.0
     dev: false
 
