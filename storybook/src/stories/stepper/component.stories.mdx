@@ -12,33 +12,35 @@ import { Stepper } from '@equinor/fusion-react-stepper/src';
 
 ### for stepper
 
-Name                      | Type                            | Default                         | Description
-------------------------- | -----------------------------   | -----------------------------   | -----------
-`activeStepKey`           | `string`                        | `/`                             | Select/change active stepp, use *** stepKey ***. `required`
-`forceOrder`              | `boolean`                       | `false`                         | Can't skip steps. Steps will have specific order.
-`verticalSteps`           | `boolean`                       | `false`                         | Change stepper layout to vertical. Vertical positioning of steps.
-`hideNavButtons`          | `boolean`                       | `false`                         | Show/hide next and previous navigation buttons for stepper.
-`onChange`                | `(stepKey: string, allSteps: StepKey[]) => void`  |               | onChange event for active step and all step properties.
+| Name              | Type                                             | Default | Description                                                       |
+| ----------------- | ------------------------------------------------ | ------- | ----------------------------------------------------------------- |
+| `activeStepKey`   | `string`                                         | `/`     | Select/change active stepp, use **_ stepKey _**. `required`       |
+| `forceOrder`      | `boolean`                                        | `false` | Can't skip steps. Steps will have specific order.                 |
+| `verticalSteps`   | `boolean`                                        | `false` | Change stepper layout to vertical. Vertical positioning of steps. |
+| `hideNavButtons`  | `boolean`                                        | `false` | Show/hide next and previous navigation buttons for stepper.       |
+| `horizontalTitle` | `boolean`                                        | `false` | Change direction of title and sub-title to horizontal.            |
+| `onChange`        | `(stepKey: string, allSteps: StepKey[]) => void` |         | onChange event for active step and all step properties.           |
 
 ### for step
 
-Name                      | Type                            | Default                         | Description
-------------------------- | -----------------------------   | -----------------------------   | -----------
-`stepKey`                 | `string`                        | `/`                             | Step key of step. Used for *** activeStepKey ***. `required`
-`done`                    | `boolean`                       | `false`                         | Complete the step.
-`title`                   | `string`                        | `/`                             | Title of step
-`description`             | `string`                        | `/`                             | Description of step 
-`disabled`                | `boolean`                       | `false`                         | Disable step. Can't be clicked, but can manually navigate to it
-
+| Name          | Type      | Default | Description                                                     |
+| ------------- | --------- | ------- | --------------------------------------------------------------- |
+| `stepKey`     | `string`  | `/`     | Step key of step. Used for **_ activeStepKey _**. `required`    |
+| `done`        | `boolean` | `false` | Complete the step.                                              |
+| `title`       | `string`  | `/`     | Title of step                                                   |
+| `description` | `string`  | `/`     | Description of step                                             |
+| `disabled`    | `boolean` | `false` | Disable step. Can't be clicked, but can manually navigate to it |
 
 ## Example Usage
 
 ```tsx
 import { Stepper } from '@equinor/fusion-react-stepper';
 
-<Stepper activeStepKey="step1" 
-  onChange={(activeStep, allSteps) => console.log('active: ', activeStep, ' keys: ', allSteps)} props>
-
+<Stepper
+  activeStepKey="step1"
+  onChange={(activeStep, allSteps) => console.log('active: ', activeStep, ' keys: ', allSteps)}
+  props
+>
   <Step title="Title 1" stepKey="step1" props>
     Step content 1
   </Step>
@@ -48,13 +50,12 @@ import { Stepper } from '@equinor/fusion-react-stepper';
   <Step title="Title 3" stepKey="step3" props>
     Step content 3
   </Step>
-
-</Stepper>
+</Stepper>;
 ```
 
 #### All steps return type (onChange)
 
-```tsx 
+```tsx
 type StepKey = {
   key: string;
   position: number;

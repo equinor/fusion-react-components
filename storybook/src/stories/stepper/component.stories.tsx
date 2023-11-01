@@ -30,6 +30,14 @@ export default {
         defaultValue: { summary: false },
       },
     },
+    horizontalTitle: {
+      description: 'Change direction of title and sub-title to horizontal',
+      type: { name: 'boolean' },
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+      },
+    },
     hideNavButtons: {
       description: 'Hide stepper navigation buttons',
       table: {
@@ -45,7 +53,7 @@ export default {
   },
 } as Meta;
 
-const Item = (props: { children: ReactNode }) => {
+const Item = (props: { readonly children: ReactNode }) => {
   return (
     <div
       style={{
@@ -59,7 +67,7 @@ const Item = (props: { children: ReactNode }) => {
   );
 };
 
-const Buttons = (props: { children: ReactNode }) => {
+const Buttons = (props: { readonly children: ReactNode }) => {
   return (
     <div
       style={{
@@ -112,6 +120,7 @@ Component.args = {
   forceOrder: false,
   hideNavButtons: false,
   verticalSteps: false,
+  horizontalTitle: false,
 };
 
 export const ForceOrder: Story<StepperProps> = (props: StepperProps) => {
@@ -171,6 +180,32 @@ ForceOrder.args = {
   forceOrder: true,
   hideNavButtons: true,
   verticalSteps: false,
+};
+
+export const HorizontalTitle: Story<StepperProps> = (props: StepperProps) => {
+  return (
+    <Stepper {...props}>
+      <Step title="Select contract" description="Shows available contracts" stepKey="contract">
+        <Item>Choose Contract to import personnel from</Item>
+      </Step>
+      <Step title="Select personnel" description="Choose personnel" stepKey="personnel">
+        <Item>Select personnel from contract</Item>
+      </Step>
+      <Step title="Review selection" description="Check for mistakes" stepKey="review">
+        <Item>Review persons who will be added to contract and set dates.</Item>
+      </Step>
+      <Step title="Publish" stepKey="publish">
+        <Item>Congrats, you have successfully added personnel to contract</Item>
+      </Step>
+    </Stepper>
+  );
+};
+
+HorizontalTitle.args = {
+  activeStepKey: 'contract',
+  forceOrder: false,
+  hideNavButtons: true,
+  horizontalTitle: true,
 };
 
 export const Vertical: Story<StepperProps> = (props: StepperProps) => {

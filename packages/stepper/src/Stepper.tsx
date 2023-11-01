@@ -13,6 +13,7 @@ export type StepperProps = {
   readonly activeStepKey: string;
   readonly hideNavButtons?: boolean;
   readonly verticalSteps?: boolean;
+  readonly horizontalTitle?: boolean;
   readonly allSteps: StepKey[];
 };
 
@@ -32,6 +33,7 @@ export const Stepper = ({
   onChange,
   hideNavButtons,
   verticalSteps,
+  horizontalTitle,
 }: PropsWithChildren<StepperProps>): JSX.Element => {
   const styles = useStyles();
   const [stepKeys, setStepKeys] = useState<StepKey[]>([]);
@@ -46,7 +48,11 @@ export const Stepper = ({
     styles.stepperContainer,
     verticalSteps && styles.verticalStepperContainer,
   );
-  const stepperClasses = clsx(styles.stepper, verticalSteps && styles.verticalStepper);
+  const stepperClasses = clsx(
+    styles.stepper,
+    verticalSteps && styles.verticalStepper,
+    !verticalSteps && horizontalTitle && styles.horizontalTitleStepper,
+  );
 
   useEffect(() => {
     const steps = getSteps(children);
