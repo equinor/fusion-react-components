@@ -633,8 +633,8 @@ importers:
         specifier: ^1.0.24
         version: 1.0.33
       '@equinor/fusion-wc-popover':
-        specifier: ^1.0.22
-        version: 1.0.30
+        specifier: ^2.0.0
+        version: 2.0.0
       '@types/react-table':
         specifier: ^7.7.8
         version: 7.7.16
@@ -3596,10 +3596,10 @@ packages:
       '@equinor/fusion-wc-core': 2.0.0
       lit: 2.7.0
 
-  /@equinor/fusion-wc-popover@1.0.30:
-    resolution: {integrity: sha512-1XRpzAQx5mCkqowWIewOROMNwLRyU+ptnb3e5LSLqc3ulvPSWJI8Vxr3in1hSNeLXLTHVM9FPmPW6jb5QawVGQ==}
+  /@equinor/fusion-wc-popover@2.0.0:
+    resolution: {integrity: sha512-iejo+3IgtnCTBmeA0sOQYLkLRP6iByVdUyKp278MKgzZZ4rk8K09CBXegJsu0uisWkXEVupjf8PH5+zIpnFmVA==}
     dependencies:
-      '@equinor/fusion-wc-core': 1.0.5
+      '@equinor/fusion-wc-core': 2.0.0
       '@popperjs/core': 2.11.8
       '@types/resize-observer-browser': 0.1.8
       lit: 2.7.0
