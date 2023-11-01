@@ -447,8 +447,8 @@ importers:
         specifier: ^0.2.12
         version: 0.2.20
       '@equinor/fusion-wc-radio':
-        specifier: ^0.2.19
-        version: 0.2.27
+        specifier: ^1.0.1
+        version: 1.0.1
     devDependencies:
       '@types/react':
         specifier: ^18.2.24
@@ -3510,7 +3510,7 @@ packages:
       '@equinor/fusion-wc-core': 2.0.0
       '@equinor/fusion-wc-divider': 1.0.0
       '@equinor/fusion-wc-icon': 2.1.0
-      '@equinor/fusion-wc-radio': 1.0.0
+      '@equinor/fusion-wc-radio': 1.0.1
       '@equinor/fusion-web-theme': 0.1.7
       '@material/mwc-list': 0.27.0
       lit: 2.7.0
@@ -3523,7 +3523,7 @@ packages:
       '@equinor/fusion-wc-core': 2.0.0
       '@equinor/fusion-wc-divider': 1.0.0
       '@equinor/fusion-wc-icon': 2.2.0
-      '@equinor/fusion-wc-radio': 1.0.0
+      '@equinor/fusion-wc-radio': 1.0.1
       '@equinor/fusion-web-theme': 0.1.7
       '@material/mwc-list': 0.27.0
       lit: 2.7.0
@@ -3609,23 +3609,6 @@ packages:
     resolution: {integrity: sha512-8b//6stMcnrHbsXy1hbPfj/9EyGDTTcWq6npdnL3etdQejMwvxUDCHWdqYfE616Bap7OPtrNZ5haMWz1hHh9gQ==}
     dependencies:
       '@equinor/fusion-wc-core': 1.0.5
-      lit: 2.7.0
-    dev: false
-
-  /@equinor/fusion-wc-radio@0.2.27:
-    resolution: {integrity: sha512-wO7ZkzWk5eRMe1TFY7OJg2NrIWxpQECEM8h6XQMXj1qkZWUgWARLg3Yt90dXLk5XljuwXjydyXA15vsY0mUO7g==}
-    dependencies:
-      '@equinor/fusion-wc-core': 1.0.5
-      '@material/mwc-radio': 0.27.0
-      lit: 2.7.0
-    dev: false
-
-  /@equinor/fusion-wc-radio@1.0.0:
-    resolution: {integrity: sha512-YQHGX9REqgb8WCND1xHgFfHniMJZhTvQuh2gm64EMxfzid8lcKHTloQ4kVKljUeFa3JEKTtxhYWiPfSCCoTPcg==}
-    dependencies:
-      '@equinor/fusion-wc-core': 2.0.0
-      '@equinor/fusion-web-theme': 0.1.7
-      '@material/mwc-radio': 0.27.0
       lit: 2.7.0
     dev: false
 
