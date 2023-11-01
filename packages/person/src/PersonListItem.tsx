@@ -24,7 +24,7 @@ export const PersonListItem = ({ children, ...props }: PropsWithChildren<PersonL
         avatarRef.current[name] = value;
       }
     }
-  }, []);
+  }, [props]);
 
   return <PersonListItemComponent ref={avatarRef}>{children}</PersonListItemComponent>;
 };
