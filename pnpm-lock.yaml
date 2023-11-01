@@ -117,8 +117,8 @@ importers:
         specifier: ^5.70.0
         version: 5.88.2
       webpack-remove-empty-scripts:
-        specifier: ^0.7.3
-        version: 0.7.3(webpack@5.88.2)
+        specifier: ^1.0.4
+        version: 1.0.4(webpack@5.88.2)
       webpack-stream:
         specifier: ^7.0.0
         version: 7.0.0(webpack@5.88.2)
@@ -8423,8 +8423,8 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /ansis@1.5.6:
-    resolution: {integrity: sha512-vKn0k5V0oiaOClcUMNDFb7DvI3+asAozhg1wI8bLkYxV0lhfPtIuwjUa1wG9/YaUY/KwO9U2B7m0FMqzn/jXUQ==}
+  /ansis@1.5.2:
+    resolution: {integrity: sha512-T3vUABrcgSj/HXv27P+A/JxGk5b/ydx0JjN3lgjBTC2iZUFxQGjh43zCzLSbU4C1QTgmx9oaPeWNJFM+auI8qw==}
     engines: {node: '>=12.13'}
     dev: true
 
@@ -21876,13 +21876,13 @@ packages:
       uuid: 3.4.0
     dev: false
 
-  /webpack-remove-empty-scripts@0.7.3(webpack@5.88.2):
-    resolution: {integrity: sha512-yipqb25A0qtH7X9vKt6yihwyYkTtSlRiDdBb2QsyrkqGM3hpfAcfOO1lYDef9HQUNm3s8ojmorbNg32XXX6FYg==}
+  /webpack-remove-empty-scripts@1.0.4(webpack@5.88.2):
+    resolution: {integrity: sha512-W/Vd94oNXMsQam+W9G+aAzGgFlX1aItcJpkG3byuHGDaxyK3H17oD/b5RcqS/ZHzStIKepksdLDznejDhDUs+Q==}
     engines: {node: '>=12.14'}
     peerDependencies:
       webpack: '>=5.32.0'
     dependencies:
-      ansis: 1.5.6
+      ansis: 1.5.2
       webpack: 5.88.2
     dev: true
 
