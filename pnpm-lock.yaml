@@ -658,8 +658,8 @@ importers:
         specifier: ^2.1.0
         version: link:../utils
       '@equinor/fusion-wc-textarea':
-        specifier: ^0.4.13
-        version: 0.4.22
+        specifier: ^1.0.4
+        version: 1.0.4
     devDependencies:
       '@types/react':
         specifier: ^18.2.24
@@ -3711,11 +3711,11 @@ packages:
       lit: 2.7.0
     dev: false
 
-  /@equinor/fusion-wc-textarea@0.4.22:
-    resolution: {integrity: sha512-ebHkaqzM44rYtJjePh1OKkiI+CtMMphrwDDIvuBqutJSU6JK8+458o3AoYYW3NzWC5cVPsIIkmlLVe+7AifWSg==}
+  /@equinor/fusion-wc-textarea@1.0.4:
+    resolution: {integrity: sha512-kEsscgpgcJmVILackm4cThshYeSDkibv0/yThG1eZA5ZD+FJVAOinM5EQlIwDkTO+JdnFJ50UPe3SP1DFa8Ntw==}
     dependencies:
-      '@equinor/fusion-wc-core': 1.0.5
-      '@equinor/fusion-wc-textinput': 0.5.21
+      '@equinor/fusion-wc-core': 2.0.0
+      '@equinor/fusion-wc-textinput': 1.0.3
       '@material/mwc-textarea': 0.27.0
       lit: 2.7.0
     dev: false
