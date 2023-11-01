@@ -580,8 +580,8 @@ importers:
   packages/styles:
     dependencies:
       '@equinor/fusion-wc-theme':
-        specifier: ^0.2.33
-        version: 0.2.35
+        specifier: ^1.0.0
+        version: 1.0.0
       '@equinor/fusion-web-theme':
         specifier: ^0.1.7
         version: 0.1.7
@@ -3746,15 +3746,6 @@ packages:
       '@equinor/fusion-wc-icon': 2.2.0
       '@equinor/fusion-web-theme': 0.1.7
       '@material/mwc-textfield': 0.27.0
-      lit: 2.7.0
-    dev: false
-
-  /@equinor/fusion-wc-theme@0.2.35:
-    resolution: {integrity: sha512-t/pBoMgS8E3IRpHYX6dnEFWlOIfWHliuKoGjHGLEKRncWiHpP7WviH5LrKbHyT0wwZWxSn6V7cldUawLFe/k9g==}
-    dependencies:
-      '@equinor/fusion-wc-core': 1.0.5
-      '@equinor/fusion-web-theme': 0.1.7
-      '@material/theme': 14.0.0
       lit: 2.7.0
     dev: false
 
