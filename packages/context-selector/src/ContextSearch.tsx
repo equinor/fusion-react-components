@@ -170,9 +170,11 @@ export const ContextSearch = ({
         </div>
       </div>
       <div className={clsx(styles.ctxSelector, !gettingCtx ? styles.hidden : 'active')}>
-        <ContextSelector {...props} onSelect={handleSelect}>
-          {children}
-        </ContextSelector>
+        {!gettingCtx && (
+          <ContextSelector {...props} onSelect={handleSelect}>
+            {children}
+          </ContextSelector>
+        )}
       </div>
     </div>
   );
