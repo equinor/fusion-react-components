@@ -482,8 +482,8 @@ importers:
         specifier: ^2.2.0
         version: 2.2.0
       '@equinor/fusion-wc-searchable-dropdown':
-        specifier: ^3.4.1
-        version: 3.4.1
+        specifier: ^3.5.0
+        version: 3.5.0
     devDependencies:
       '@types/react':
         specifier: ^18.2.24
@@ -3542,6 +3542,19 @@ packages:
       lit: 2.7.0
     dev: false
 
+  /@equinor/fusion-wc-list@1.0.5:
+    resolution: {integrity: sha512-r+pLnNIQQHb04wmK0EX6+gDqn55eGmGNb5OBZFS6iZosyTwPvxjFmyJjLnrtbce/WKynJK1EWY9aPiATlV5zmA==}
+    dependencies:
+      '@equinor/fusion-wc-checkbox': 1.0.1
+      '@equinor/fusion-wc-core': 2.0.0
+      '@equinor/fusion-wc-divider': 1.0.1
+      '@equinor/fusion-wc-icon': 2.2.0
+      '@equinor/fusion-wc-radio': 1.0.1
+      '@equinor/fusion-web-theme': 0.1.7
+      '@material/mwc-list': 0.27.0
+      lit: 2.7.0
+    dev: false
+
   /@equinor/fusion-wc-markdown@0.3.6:
     resolution: {integrity: sha512-YdN4E/48ZLH1QFa20AT2htlvLvnZ/F843cgn+3V0Zw3hU5xrjJI/pNzm3LeopySy75RPHlPV3nzaOgwInnICVg==}
     dependencies:
@@ -3679,6 +3692,22 @@ packages:
       '@equinor/fusion-wc-textinput': 1.0.3
       '@equinor/fusion-web-theme': 0.1.7
       '@lit-labs/task': 2.1.2
+      '@material/mwc-textfield': 0.27.0
+      '@types/uuid': 9.0.4
+      lit: 2.7.0
+      uuid: 9.0.1
+    dev: false
+
+  /@equinor/fusion-wc-searchable-dropdown@3.5.0:
+    resolution: {integrity: sha512-z1wglhXNs9w7V3o3ENCBK6MgYno9fWdHYfLQI1SlS4XiIfYFFEGDYlkoiaO8V1g+Mz7GafnwJJwK0FqWf4b9Tw==}
+    dependencies:
+      '@equinor/fusion-wc-core': 2.0.0
+      '@equinor/fusion-wc-divider': 1.0.1
+      '@equinor/fusion-wc-icon': 2.2.0
+      '@equinor/fusion-wc-list': 1.0.5
+      '@equinor/fusion-wc-textinput': 1.0.3
+      '@equinor/fusion-web-theme': 0.1.7
+      '@lit-labs/task': 3.1.0
       '@material/mwc-textfield': 0.27.0
       '@types/uuid': 9.0.4
       lit: 2.7.0
@@ -4205,10 +4234,22 @@ packages:
       '@lit/reactive-element': 1.6.3
     dev: false
 
+  /@lit-labs/task@3.1.0:
+    resolution: {integrity: sha512-zMlcUtZeHDT83IiT2+CJBSoFvWDLnPEezhOCgqjxW4DmRHlbgd7jdft97T6dw4S4RvIETfI7OOyvubCV/EzTlg==}
+    dependencies:
+      '@lit/task': 1.0.0
+    dev: false
+
   /@lit/reactive-element@1.6.3:
     resolution: {integrity: sha512-QuTgnG52Poic7uM1AN5yJ09QMe0O28e10XzSvWDz02TJiiKee4stsiownEIadWm8nYzyDAyT+gKzUoZmiWQtsQ==}
     dependencies:
       '@lit-labs/ssr-dom-shim': 1.1.1
+
+  /@lit/task@1.0.0:
+    resolution: {integrity: sha512-7jocGBh3yGlo3kKxQggZph2txK4X5GYNWp2FAsmV9u2spzUypwrzRzXe8I72icAb02B00+k2nlvxVcrQB6vyrw==}
+    dependencies:
+      '@lit/reactive-element': 1.6.3
+    dev: false
 
   /@manypkg/find-root@1.1.0:
     resolution: {integrity: sha512-mki5uBvhHzO8kYYix/WRy2WX8S3B5wdVSc9D6KcU5lQNglP2yt58/VfLuAK49glRXChosY8ap2oJ1qgma3GUVA==}
