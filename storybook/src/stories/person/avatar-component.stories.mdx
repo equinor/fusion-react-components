@@ -8,6 +8,7 @@ import { PersonCard, PersonAvatar } from '@equinor/fusion-react-person/src';
 
 # PersonAvatar
 
+
 ## Properties/Attributes
 
 In order for component to work, `azureId`, `upn` or `dataSource` is **required**.
@@ -18,17 +19,8 @@ The **`upn`** stands as a ***unique email address*** assigned to every personnel
 
 The data of every individual is accessible via the ***Fusion People API***
 
-Name                      | Type                            | Default                         | Description
-------------------------- | -----------------------------   | -----------------------------   | -----------
-`azureId`                 | `string`                        | `/`                             | Unique Azure ID for every person.
-`upn`                     | `string`                        | `/`                             | Unique person email address.
-`dataSource`              | `AvatarData**`                  | `/`                             | Custom data for avatar.
-`size`                    | `AvatarSize*`                   | `medium`                        | Size of the avatar.
-`clickable`               | `boolean`                       | `false`                         | Set to true to activate visual ripple effects to indicate that the avatar is clickable.
-`showFloatingOn`          | `"click" or "hover"`            | `/`                             | Show person card on click or hover over the avatar.
-`disabled`                | `boolean`                       | `false`                         | Set to true to display the avatar as disabled. 
+<ArgsTable />
 
----
 \*  `AvatarSize` is exported enum.
 ```ts
 export declare enum AvatarSize {
