@@ -1,5 +1,14 @@
 # Change Log
 
+## 2.17.7
+
+### Patch Changes
+
+- f3e50576: expose `trigger` attribute from avatar
+- 6698455c: **New Feature** - Horizontal Title available in Stepper
+- Updated dependencies [6698455c]
+  - @equinor/fusion-react-stepper@0.4.0
+
 ## 2.17.6
 
 ### Patch Changes

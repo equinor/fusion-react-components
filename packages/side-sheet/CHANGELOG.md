@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.2.2
+
+### Patch Changes
+
+- 543811b0: The side-sheet should be displayed beneath the portal header, ensuring that no content is obscured or hidden.
+
 ## 1.2.1
 
 ### Patch Changes

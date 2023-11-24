@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.5.2
+
+### Patch Changes
+
+- 54941b4a: Dropdown is hidden when navigating to context by url
+
 ## 0.5.1
 
 ### Patch Changes

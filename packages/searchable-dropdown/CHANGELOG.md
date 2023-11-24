@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.4.4
+
+### Patch Changes
+
+- 978356af: Bumping webcomponent to improve click outside
+
 ## 0.4.3
 
 ### Patch Changes

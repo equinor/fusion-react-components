@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.4.0
+
+### Minor Changes
+
+- 6698455c: **New Feature** - Horizontal Title available in Stepper
+
 ## 0.3.0
 
 ### Minor Changes
