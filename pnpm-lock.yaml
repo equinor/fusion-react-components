@@ -784,7 +784,7 @@ importers:
         specifier: ^0.3.0
         version: link:../packages/skeleton
       '@equinor/fusion-react-stepper':
-        specifier: ^0.3.0
+        specifier: ^0.4.0
         version: link:../packages/stepper
       '@equinor/fusion-react-styles':
         specifier: ^0.6.0

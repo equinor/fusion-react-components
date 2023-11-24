@@ -1,5 +1,12 @@
 # Change Log
 
+## 0.6.1
+
+### Patch Changes
+
+- f3e50576: expose `trigger` attribute from avatar
+- 0d907751: adding missing event PersonSelectEvent from webcomponent
+
 ## 0.6.0
 
 ### Minor Changes
