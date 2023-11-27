@@ -1,5 +1,17 @@
 # Change Log
 
+## 2.18.0
+
+### Minor Changes
+
+- 5854d91a: deprecate @equinor/fusion-react-checkbox
+
+### Patch Changes
+
+- Updated dependencies [5854d91a]
+  - @equinor/fusion-react-checkbox@0.7.0
+  - @equinor/fusion-react-filter@1.7.0
+
 ## 2.17.7
 
 ### Patch Changes

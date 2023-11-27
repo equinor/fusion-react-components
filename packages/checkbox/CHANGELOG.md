@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.7.0
+
+### Minor Changes
+
+- 5854d91a: deprecate @equinor/fusion-react-checkbox
+
 ## 0.6.0
 
 ### Minor Changes
