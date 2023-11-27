@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.6.2
+
+### Patch Changes
+
+- bcb9b7ad: chore: Dependencies update for person component
+
 ## 0.6.1
 
 ### Patch Changes

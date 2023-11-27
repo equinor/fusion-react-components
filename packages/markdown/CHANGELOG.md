@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.3.1
+
+### Patch Changes
+
+- 8eba21f5: build(deps): bump @equinor/fusion-wc-markdown from 0.3.6 to 1.2.0
+
 ## 0.3.0
 
 ### Minor Changes

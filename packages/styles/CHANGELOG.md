@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.6.1
+
+### Patch Changes
+
+- 8a7ddd95: build(deps): bump @equinor/fusion-wc-theme from 0.2.35 to 1.1.0
+
 ## 0.6.0
 
 ### Minor Changes
