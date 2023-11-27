@@ -208,8 +208,8 @@ importers:
         specifier: ^2.1.0
         version: link:../utils
       '@equinor/fusion-wc-date':
-        specifier: ^0.2.21
-        version: 0.2.29
+        specifier: ^1.1.0
+        version: 1.1.0
     devDependencies:
       '@types/react':
         specifier: ^18.2.24
@@ -4556,12 +4556,13 @@ packages:
   /@equinor/fusion-wc-core@2.0.0:
     resolution: {integrity: sha512-yxUepfQhMIkKNYn2Vc73R6/cyvyO0hde3LXFitCCaa8QR9woK0UXZlxP+RwnEYzve528l9K1t7SnEsX6x5eyPg==}
 
-  /@equinor/fusion-wc-date@0.2.29:
-    resolution: {integrity: sha512-V0v3l9VmVwPKXkJDV2llFJBtf+rhOMOO/JBLb1yRlyfjD0OMuZQZyghLlBBFmHdAB6fdbupAcLuvT4/AEDaxMA==}
+  /@equinor/fusion-wc-date@1.1.0:
+    resolution: {integrity: sha512-osR4b2Rj6OoOp8whkG5cb2e0zG7oxb0O2sLei6+lFZUOjfhipATSkvv133idjuYHKabPU3Jv3LTdm3bd0fccOw==}
     dependencies:
-      '@equinor/fusion-wc-core': 1.0.5
+      '@equinor/fusion-wc-core': 2.0.0
+      '@equinor/fusion-web-theme': 0.1.7
       date-fns: 2.30.0
-      lit: 2.7.0
+      lit: 3.0.2
     dev: false
 
   /@equinor/fusion-wc-divider@1.0.0:
