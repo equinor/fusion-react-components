@@ -1,5 +1,12 @@
 # Change Log
 
+## 0.6.1
+
+### Patch Changes
+
+- fa92f2ea: build(deps): bump @equinor/fusion-wc-popover from 1.0.30 to 2.1.0
+- 93621309: build(deps): bump @equinor/fusion-wc-icon from 1.0.33 to 2.3.0
+
 ## 0.6.0
 
 ### Minor Changes

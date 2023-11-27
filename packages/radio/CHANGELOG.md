@@ -1,5 +1,12 @@
 # Change Log
 
+## 0.5.1
+
+### Patch Changes
+
+- 278b606c: build(deps): bump @equinor/fusion-wc-formfield from 0.2.20 to 1.1.0
+- b0c072cf: build(deps): bump @equinor/fusion-wc-radio from 0.2.27 to 1.1.0
+
 ## 0.5.0
 
 ### Minor Changes

@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.5.1
+
+### Patch Changes
+
+- 54453cb6: build(deps): bump @equinor/fusion-wc-date from 0.2.29 to 1.1.0
+
 ## 0.5.0
 
 ### Minor Changes

@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.7.1
+
+### Patch Changes
+
+- 0f7b89a7: build(deps): bump @equinor/fusion-wc-textinput from 0.5.21 to 1.1.0
+
 ## 0.7.0
 
 ### Minor Changes

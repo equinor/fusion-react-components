@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.2.1
+
+### Patch Changes
+
+- 8820c4bc: build(deps): bump @equinor/fusion-wc-progress-indicator from 0.4.11 to 1.1.0
+
 ## 0.2.0
 
 ### Minor Changes
