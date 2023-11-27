@@ -611,8 +611,8 @@ importers:
         specifier: ^1.1.0
         version: 1.1.0
       '@equinor/fusion-wc-switch':
-        specifier: ^0.2.19
-        version: 0.2.29
+        specifier: ^1.1.0
+        version: 1.1.0
     devDependencies:
       '@types/react':
         specifier: ^18.2.24
@@ -4858,12 +4858,13 @@ packages:
       lit: 3.0.2
     dev: false
 
-  /@equinor/fusion-wc-switch@0.2.29:
-    resolution: {integrity: sha512-G7hOPZZfALpLcccrwngpUWOrLQzMUYRE3KOWMNL/A5Av4H9noogJe5yLHX5VZk8YB5jd+Wz4lC4Zhlka+ycOrA==}
+  /@equinor/fusion-wc-switch@1.1.0:
+    resolution: {integrity: sha512-L+bDYnHewJDhXP26XN7X3+AD5Zj+OBuZmGwDmflaMwC4Ag6smiTM0jhiVVGjpQwcShVvGcm2P8dBHvnsiMLr7w==}
     dependencies:
-      '@equinor/fusion-wc-core': 1.0.5
+      '@equinor/fusion-wc-core': 2.0.0
+      '@equinor/fusion-web-theme': 0.1.7
       '@material/mwc-switch': 0.27.0
-      lit: 2.7.0
+      lit: 3.0.2
     dev: false
 
   /@equinor/fusion-wc-textarea@1.1.0:
