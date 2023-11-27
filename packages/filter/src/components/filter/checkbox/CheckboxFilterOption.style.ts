@@ -6,7 +6,7 @@ export const useStyles = makeStyles(
       root: {
         display: 'flex',
         alignItems: 'center',
-        // justifyContent: 'space-between',
+        justifyContent: 'space-between',
         cursor: 'pointer',
         backgroundColor: 'transparent',
         willChange: 'backgroundColor',
@@ -20,16 +20,6 @@ export const useStyles = makeStyles(
       inactive: {
         filter: 'grayscale(100%)',
         opacity: 0.5,
-      },
-      checkbox: {
-        '--fwc-checkbox-size': '14px',
-      },
-      label: {
-        ...theme.typography.input.label.style,
-        flex: '1 1 auto',
-        overflow: 'hidden',
-        whiteSpace: 'nowrap',
-        textOverflow: 'ellipsis',
       },
       counter: {
         ...theme.typography.input.label.style,

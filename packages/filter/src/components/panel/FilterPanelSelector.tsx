@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 
-import { Checkbox, HTMLCheckboxCustomElement } from '@equinor/fusion-react-checkbox';
+import { Checkbox } from '@equinor/eds-core-react';
 
 import { initialState, useFilterPanelContext, actions } from './FilterPanelProvider';
 import { useObservableState } from '@equinor/fusion-observable/react';
@@ -15,7 +15,7 @@ export const FilterPanelSelector: React.FC = () => {
   const { filters, selectedFilters } = useObservableState(filters$).value || initialState;
 
   const onInput = useCallback(
-    (e: React.FormEvent<HTMLCheckboxCustomElement>) => {
+    (e: React.FormEvent<HTMLInputElement>) => {
       const key = e.currentTarget.value;
       const selected = e.currentTarget.checked;
       filters$.next(selected ? actions.remove(key) : actions.add(key));

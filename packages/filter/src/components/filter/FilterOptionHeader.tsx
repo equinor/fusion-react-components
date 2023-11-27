@@ -57,7 +57,7 @@ export const FilterOptionHeader = (props: FilterHeaderProps): JSX.Element => {
   const { setQuery, query$ } = useFilterOptionSearch();
   const searchRef = useRef<HTMLTextInputCustomElement>(null);
   const { options$, selection$ } = useFilterOptionContext();
-  const optionCount = Object.keys(useObservableState(options$) || {}).length;
+  const optionCount = Object.keys(useObservableState(options$).value || {}).length;
   const { value: selectedCount } = useObservableState(useObservableSelector(selection$, (x) => x && x.size));
   const styles = useStyles();
   const onIconClick = () => {

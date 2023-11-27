@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Meta, Story } from '@storybook/react';
 
-import { useObservableState } from '@equinor/fusion-observable';
+import { useObservableState } from '@equinor/fusion-observable/react';
 
 import { FilterProvider, useFilterContext } from '@equinor/fusion-react-filter';
 import { CheckboxFilter, FilterPanel } from '@equinor/fusion-react-filter/components';

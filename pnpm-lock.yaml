@@ -55,7 +55,7 @@ importers:
         version: 30.2.0
       '@equinor/fusion-react-styles':
         specifier: ^0.6.0
-        version: link:../styles
+        version: 0.6.1(@types/react@18.2.24)(react-dom@17.0.2)(react@18.2.0)
       '@types/gulp':
         specifier: ^4.0.9
         version: 4.0.14
@@ -187,7 +187,7 @@ importers:
         version: link:../searchable-dropdown
       '@equinor/fusion-react-styles':
         specifier: ^0.6.0
-        version: link:../styles
+        version: 0.6.1(@types/react@18.2.24)(react-dom@17.0.2)(react@18.2.0)
       '@equinor/fusion-react-utils':
         specifier: ^2.1.0
         version: link:../utils
@@ -222,13 +222,13 @@ importers:
     dependencies:
       '@equinor/fusion-react-button':
         specifier: ^0.9.0
-        version: link:../button
+        version: 0.9.1(@types/react@18.2.24)(react@18.2.0)
       '@equinor/fusion-react-icon':
         specifier: ^0.3.0
         version: link:../icon
       '@equinor/fusion-react-styles':
         specifier: ^0.6.0
-        version: link:../styles
+        version: 0.6.1(@types/react@18.2.24)(react-dom@17.0.2)(react@18.2.0)
       '@equinor/fusion-react-utils':
         specifier: ^2.1.0
         version: link:../utils
@@ -247,22 +247,19 @@ importers:
         version: 8.1.2(@types/react@18.2.24)(react@18.2.0)
       '@equinor/fusion-react-button':
         specifier: ^0.9.0
-        version: link:../button
-      '@equinor/fusion-react-checkbox':
-        specifier: ^0.6.0
-        version: link:../checkbox
+        version: 0.9.1(@types/react@18.2.24)(react@18.2.0)
       '@equinor/fusion-react-icon':
         specifier: ^0.3.0
         version: link:../icon
       '@equinor/fusion-react-radio':
         specifier: ^0.5.0
-        version: link:../radio
+        version: 0.5.1(react@18.2.0)
       '@equinor/fusion-react-styles':
         specifier: ^0.6.0
-        version: link:../styles
+        version: 0.6.1(@types/react@18.2.24)(react-dom@17.0.2)(react@18.2.0)
       '@equinor/fusion-react-textinput':
         specifier: ^0.7.0
-        version: link:../textinput
+        version: 0.7.1(react@18.2.0)
       '@equinor/fusion-react-utils':
         specifier: ^2.1.0
         version: link:../utils
@@ -276,6 +273,9 @@ importers:
         specifier: ^5.1.0
         version: 5.1.0
     devDependencies:
+      '@equinor/eds-core-react':
+        specifier: ^0.34.0
+        version: 0.34.0(react-dom@17.0.2)(react@18.2.0)(styled-components@6.1.0)
       '@types/react':
         specifier: ^18.2.24
         version: 18.2.24
@@ -287,7 +287,7 @@ importers:
     dependencies:
       '@equinor/fusion-react-styles':
         specifier: ^0.6.0
-        version: link:../styles
+        version: 0.6.1(@types/react@18.2.24)(react-dom@17.0.2)(react@18.2.0)
       '@types/history':
         specifier: 4.x
         version: 4.7.11
@@ -385,7 +385,7 @@ importers:
     dependencies:
       '@equinor/fusion-react-button':
         specifier: ^0.9.0
-        version: link:../button
+        version: 0.9.1(@types/react@18.2.38)(react@18.2.0)
       '@equinor/fusion-react-utils':
         specifier: ^2.1.0
         version: link:../utils
@@ -407,13 +407,13 @@ importers:
         version: link:../icon
       '@equinor/fusion-react-styles':
         specifier: ^0.6.0
-        version: link:../styles
+        version: 0.6.1(@types/react@18.2.24)(react-dom@17.0.2)(react@18.2.0)
       '@popperjs/core':
         specifier: ^2.11.0
         version: 2.11.8
       react-popper:
         specifier: ^2.2.5
-        version: 2.3.0(@popperjs/core@2.11.8)(react-dom@18.2.0)(react@18.2.0)
+        version: 2.3.0(@popperjs/core@2.11.8)(react-dom@17.0.2)(react@18.2.0)
     devDependencies:
       '@types/react':
         specifier: ^18.2.24
@@ -562,13 +562,13 @@ importers:
     dependencies:
       '@equinor/eds-core-react':
         specifier: ^0.32.4
-        version: 0.32.4(@babel/core@7.23.2)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
+        version: 0.32.4(@babel/core@7.23.2)(react-dom@17.0.2)(react@18.2.0)(styled-components@5.3.11)
       '@equinor/eds-icons':
         specifier: ^0.19.3
         version: 0.19.3
       '@equinor/fusion-react-styles':
         specifier: ^0.6.0
-        version: link:../styles
+        version: 0.6.1(@types/react@18.2.24)(react-dom@17.0.2)(react@18.2.0)
     devDependencies:
       '@types/react':
         specifier: ^18.2.24
@@ -625,10 +625,10 @@ importers:
     dependencies:
       '@equinor/fusion-react-button':
         specifier: ^0.9.0
-        version: link:../button
+        version: 0.9.1(@types/react@18.2.24)(react@18.2.0)
       '@equinor/fusion-react-styles':
         specifier: ^0.6.0
-        version: link:../styles
+        version: 0.6.1(@types/react@18.2.24)(react-dom@17.0.2)(react@18.2.0)
       '@equinor/fusion-wc-icon':
         specifier: ^2.3.0
         version: 2.3.0
@@ -721,85 +721,85 @@ importers:
         specifier: ^0.9.0
         version: 0.9.2
       '@equinor/fusion-react-ag-grid-styles':
-        specifier: ^30.0.0
+        specifier: workspace:^
         version: link:../packages/ag-grid-styles
       '@equinor/fusion-react-button':
-        specifier: ^0.9.0
+        specifier: workspace:^
         version: link:../packages/button
       '@equinor/fusion-react-checkbox':
-        specifier: ^0.6.0
+        specifier: workspace:^
         version: link:../packages/checkbox
       '@equinor/fusion-react-context-selector':
-        specifier: ^0.5.0
+        specifier: workspace:^
         version: link:../packages/context-selector
       '@equinor/fusion-react-date':
-        specifier: ^0.5.0
+        specifier: workspace:^
         version: link:../packages/date
       '@equinor/fusion-react-errorboundary':
-        specifier: ^0.2.0
+        specifier: workspace:^
         version: link:../packages/errorboundary
       '@equinor/fusion-react-filter':
-        specifier: ^1.6.0
+        specifier: workspace:^
         version: link:../packages/filter
       '@equinor/fusion-react-hanging-garden':
-        specifier: ^1.7.0
+        specifier: workspace:^
         version: link:../packages/hanging-garden
       '@equinor/fusion-react-icon':
-        specifier: ^0.3.0
+        specifier: workspace:^
         version: link:../packages/icon
       '@equinor/fusion-react-list':
-        specifier: ^0.3.0
+        specifier: workspace:^
         version: link:../packages/list
       '@equinor/fusion-react-markdown':
-        specifier: ^0.3.0
+        specifier: workspace:^
         version: link:../packages/markdown
       '@equinor/fusion-react-menu':
-        specifier: ^0.2.0
+        specifier: workspace:^
         version: link:../packages/menu
       '@equinor/fusion-react-person':
-        specifier: ^0.6.0
+        specifier: workspace:^
         version: link:../packages/person
       '@equinor/fusion-react-popover':
-        specifier: ^0.2.0
+        specifier: workspace:^
         version: link:../packages/popover
       '@equinor/fusion-react-progress-indicator':
-        specifier: ^0.2.0
+        specifier: workspace:^
         version: link:../packages/progress-indicator
       '@equinor/fusion-react-radio':
-        specifier: ^0.5.0
+        specifier: workspace:^
         version: link:../packages/radio
       '@equinor/fusion-react-ripple':
-        specifier: ^0.4.0
+        specifier: workspace:^
         version: link:../packages/ripple
       '@equinor/fusion-react-searchable-dropdown':
-        specifier: ^0.4.0
+        specifier: workspace:^
         version: link:../packages/searchable-dropdown
       '@equinor/fusion-react-select':
-        specifier: ^0.2.0
+        specifier: workspace:^
         version: link:../packages/select
       '@equinor/fusion-react-side-sheet':
-        specifier: ^1.1.0
+        specifier: workspace:^
         version: link:../packages/side-sheet
       '@equinor/fusion-react-skeleton':
-        specifier: ^0.3.0
+        specifier: workspace:^
         version: link:../packages/skeleton
       '@equinor/fusion-react-stepper':
-        specifier: ^0.4.0
+        specifier: workspace:^
         version: link:../packages/stepper
       '@equinor/fusion-react-styles':
-        specifier: ^0.6.0
+        specifier: workspace:^
         version: link:../packages/styles
       '@equinor/fusion-react-switch':
-        specifier: ^0.5.0
+        specifier: workspace:^
         version: link:../packages/switch
       '@equinor/fusion-react-table':
-        specifier: ^0.6.0
+        specifier: workspace:^
         version: link:../packages/table
       '@equinor/fusion-react-textarea':
-        specifier: ^0.6.0
+        specifier: workspace:^
         version: link:../packages/textarea
       '@equinor/fusion-react-textinput':
-        specifier: ^0.7.0
+        specifier: workspace:^
         version: link:../packages/textinput
       '@equinor/fusion-wc-theme':
         specifier: ^1.0.0
@@ -2559,6 +2559,13 @@ packages:
     dependencies:
       regenerator-runtime: 0.14.0
 
+  /@babel/runtime@7.23.4:
+    resolution: {integrity: sha512-2Yv65nlWnWlSpe3fXEyX5i7fx5kIKo4Qbcj+hMO0odwaneFjfXw5fdum+4yL20O0QiaHpia0cYQ9xpNMqrBwHg==}
+    engines: {node: '>=6.9.0'}
+    dependencies:
+      regenerator-runtime: 0.14.0
+    dev: true
+
   /@babel/template@7.22.15:
     resolution: {integrity: sha512-QPErUVm4uyJa60rkI73qneDacvdvzxshT3kksGqlGWYdOTIUOwJ7RDUL8sGqslY1uXWSL6xMFKEXDS3ox2uF0w==}
     engines: {node: '>=6.9.0'}
@@ -3027,7 +3034,6 @@ packages:
 
   /@emotion/hash@0.8.0:
     resolution: {integrity: sha512-kBJtf7PH6aWwZ6fka3zQ0p6SBYzx4fl1LoZXE2RrnYST9Xljm7WfKJrU4g/Xr3Beg72MLrp1AWNUmuYJTL7Cow==}
-    dev: false
 
   /@emotion/hash@0.9.1:
     resolution: {integrity: sha512-gJB6HLm5rYwSLI6PQa+X1t5CFGrv1J1TWG+sOyMCeKz2ojaj6Fnl/rZEspogG+cvqbt4AE/2eIyD2QfLKTBNlQ==}
@@ -3145,7 +3151,7 @@ packages:
       - supports-color
     dev: false
 
-  /@equinor/eds-core-react@0.32.4(@babel/core@7.23.2)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11):
+  /@equinor/eds-core-react@0.32.4(@babel/core@7.23.2)(react-dom@17.0.2)(react@18.2.0)(styled-components@5.3.11):
     resolution: {integrity: sha512-UTUE8TImQkVxl3srR0dOkPHTkLtmqsp+lcZz509sl3WRaGFlBseBiPgWrCTdgfT4EtAKRimmXhqsrAHllhGgJA==}
     engines: {node: '>=10.0.0', pnpm: '>=4'}
     peerDependencies:
@@ -3156,13 +3162,13 @@ packages:
       '@babel/runtime': 7.23.1
       '@equinor/eds-icons': 0.19.3
       '@equinor/eds-tokens': 0.9.2
-      '@equinor/eds-utils': 0.8.1(@babel/core@7.23.2)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
-      '@floating-ui/react': 0.25.4(react-dom@18.2.0)(react@18.2.0)
+      '@equinor/eds-utils': 0.8.1(@babel/core@7.23.2)(react-dom@17.0.2)(react@18.2.0)(styled-components@5.3.11)
+      '@floating-ui/react': 0.25.4(react-dom@17.0.2)(react@18.2.0)
       '@tanstack/react-virtual': 3.0.0-beta.54(react@18.2.0)
       downshift: 8.2.2(react@18.2.0)
       react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-      styled-components: 5.3.11(@babel/core@7.23.2)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
+      react-dom: 17.0.2(react@18.2.0)
+      styled-components: 5.3.11(@babel/core@7.23.2)(react-dom@17.0.2)(react-is@18.2.0)(react@18.2.0)
     transitivePeerDependencies:
       - '@babel/core'
       - supports-color
@@ -3186,6 +3192,26 @@ packages:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       styled-components: 6.1.0(react-dom@18.2.0)(react@18.2.0)
+    dev: true
+
+  /@equinor/eds-core-react@0.34.0(react-dom@17.0.2)(react@18.2.0)(styled-components@6.1.0):
+    resolution: {integrity: sha512-hkAuNhXk0/PylpEEtRobt3qeZyK7Hhu27pxMV6Y+StKi7ckuH7LJEisRAXxbUchFiv2tzNV7zxhdoPd5GjRp4w==}
+    engines: {node: '>=10.0.0', pnpm: '>=4'}
+    peerDependencies:
+      react: '>=16.8'
+      react-dom: '>=16.8'
+      styled-components: '>=4.2'
+    dependencies:
+      '@babel/runtime': 7.23.4
+      '@equinor/eds-icons': 0.19.3
+      '@equinor/eds-tokens': 0.9.2
+      '@equinor/eds-utils': 0.8.3(react-dom@17.0.2)(react@18.2.0)(styled-components@6.1.0)
+      '@floating-ui/react': 0.26.3(react-dom@17.0.2)(react@18.2.0)
+      '@tanstack/react-virtual': 3.0.0-beta.54(react@18.2.0)
+      downshift: 8.2.3(react@18.2.0)
+      react: 18.2.0
+      react-dom: 17.0.2(react@18.2.0)
+      styled-components: 6.1.0(react-dom@17.0.2)(react@18.2.0)
     dev: true
 
   /@equinor/eds-icons@0.19.1:
@@ -3231,7 +3257,7 @@ packages:
       - supports-color
     dev: false
 
-  /@equinor/eds-utils@0.8.1(@babel/core@7.23.2)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11):
+  /@equinor/eds-utils@0.8.1(@babel/core@7.23.2)(react-dom@17.0.2)(react@18.2.0)(styled-components@5.3.11):
     resolution: {integrity: sha512-MqKqHhfOxGxbZPhHlZqiR58ei11CQ+UGJ/qEa7wC5pA/c+W9kyu7OveiK9OVvaswRiOmLaahnhSEC9JTFa7ICw==}
     engines: {node: '>=10.0.0', pnpm: '>=4'}
     peerDependencies:
@@ -3243,8 +3269,8 @@ packages:
       '@equinor/eds-tokens': 0.9.2
       babel-jest: 29.7.0(@babel/core@7.23.2)
       react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-      styled-components: 5.3.11(@babel/core@7.23.2)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
+      react-dom: 17.0.2(react@18.2.0)
+      styled-components: 5.3.11(@babel/core@7.23.2)(react-dom@17.0.2)(react-is@18.2.0)(react@18.2.0)
     transitivePeerDependencies:
       - '@babel/core'
       - supports-color
@@ -3263,6 +3289,21 @@ packages:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       styled-components: 6.1.0(react-dom@18.2.0)(react@18.2.0)
+    dev: true
+
+  /@equinor/eds-utils@0.8.3(react-dom@17.0.2)(react@18.2.0)(styled-components@6.1.0):
+    resolution: {integrity: sha512-+Xm+BsXMUqlxZpPeGAJExhf27WqcQDHmKY9e4s6hfFP8D2vj5VcS0cglY86cmH4N3bDb4LmHL8V2FSX9xHr9+g==}
+    engines: {node: '>=10.0.0', pnpm: '>=4'}
+    peerDependencies:
+      react: '>=16.8'
+      react-dom: '>=16.8'
+      styled-components: '>=4.2'
+    dependencies:
+      '@babel/runtime': 7.23.4
+      '@equinor/eds-tokens': 0.9.2
+      react: 18.2.0
+      react-dom: 17.0.2(react@18.2.0)
+      styled-components: 6.1.0(react-dom@17.0.2)(react@18.2.0)
     dev: true
 
   /@equinor/eslint-config-fusion-react@2.0.2(@equinor/eslint-config-fusion@2.1.5)(eslint@8.50.0):
@@ -3347,6 +3388,86 @@ packages:
       rxjs: 7.8.1
       uuid: 8.3.2
     dev: true
+
+  /@equinor/fusion-react-button@0.9.1(@types/react@18.2.24)(react@18.2.0):
+    resolution: {integrity: sha512-2rISCx7ZNU/pqcgZMdtEao+fRDVQadc0SBEiN9rH3KbCC6K5186jrqG0GHVqXBzfmID9WtUz5MiFPZcymFeJqw==}
+    peerDependencies:
+      '@types/react': '*'
+      react: "^17.0.0 ||\_^18.0.0"
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+    dependencies:
+      '@equinor/fusion-react-utils': 2.1.0(react@18.2.0)
+      '@equinor/fusion-wc-button': 2.4.0
+      '@equinor/fusion-wc-icon': 2.3.0
+      '@types/react': 18.2.24
+      react: 18.2.0
+    dev: false
+
+  /@equinor/fusion-react-button@0.9.1(@types/react@18.2.38)(react@18.2.0):
+    resolution: {integrity: sha512-2rISCx7ZNU/pqcgZMdtEao+fRDVQadc0SBEiN9rH3KbCC6K5186jrqG0GHVqXBzfmID9WtUz5MiFPZcymFeJqw==}
+    peerDependencies:
+      '@types/react': '*'
+      react: "^17.0.0 ||\_^18.0.0"
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+    dependencies:
+      '@equinor/fusion-react-utils': 2.1.0(react@18.2.0)
+      '@equinor/fusion-wc-button': 2.4.0
+      '@equinor/fusion-wc-icon': 2.3.0
+      '@types/react': 18.2.38
+      react: 18.2.0
+    dev: false
+
+  /@equinor/fusion-react-radio@0.5.1(react@18.2.0):
+    resolution: {integrity: sha512-YZM2err+pyjsFGLYv3yyLDknCmOZvYC6o7q4nUPSDQ0YKpH9GVYMhH7W9xAcVJU5InnWbzCpWkRkAuwZTkvAHA==}
+    dependencies:
+      '@equinor/fusion-react-utils': 2.1.0(react@18.2.0)
+      '@equinor/fusion-wc-formfield': 1.1.0
+      '@equinor/fusion-wc-radio': 1.1.0
+    transitivePeerDependencies:
+      - react
+    dev: false
+
+  /@equinor/fusion-react-styles@0.6.1(@types/react@18.2.24)(react-dom@17.0.2)(react@18.2.0):
+    resolution: {integrity: sha512-OMhlwLwfl6DFiIs8cnJkwNR3CjxO/D+Q/z2pQN62vQFynlqiCYLBiNb7bRmLnpUtPs90gaf1K/dzfrYYqGcwFA==}
+    peerDependencies:
+      '@types/react': '*'
+      react: ^17.0.0 || ^18.0.0
+      react-dom: ^17.0.0 || ^18.0.0
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+      react-dom:
+        optional: true
+    dependencies:
+      '@equinor/fusion-wc-theme': 1.1.0
+      '@equinor/fusion-web-theme': 0.1.7
+      '@material-ui/styles': 4.11.5(@types/react@18.2.24)(react-dom@17.0.2)(react@18.2.0)
+      '@types/react': 18.2.24
+      clsx: 1.2.1
+      react: 18.2.0
+      react-dom: 17.0.2(react@18.2.0)
+
+  /@equinor/fusion-react-textinput@0.7.1(react@18.2.0):
+    resolution: {integrity: sha512-moVbfYKrkm5NyB02nxT1V49AjFoDR8lV9wNTQqOEHB455w33yPxHyQaro4YgmLSwOGvoYLTxJwzOze624YApNQ==}
+    dependencies:
+      '@equinor/fusion-react-utils': 2.1.0(react@18.2.0)
+      '@equinor/fusion-wc-textinput': 1.1.0
+    transitivePeerDependencies:
+      - react
+    dev: false
+
+  /@equinor/fusion-react-utils@2.1.0(react@18.2.0):
+    resolution: {integrity: sha512-qbQ8Unf8uX5+oVNOBRXq14eTRIiMr2GmShbzYcuZyHlH1Ri4zKns7Lzas/IjbUq/Wxv7uG0A2ssKZX2VipdZXA==}
+    peerDependencies:
+      react: ^17.0.0 || ^18.0.0
+    dependencies:
+      date-fns: 2.30.0
+      react: 18.2.0
+    dev: false
 
   /@equinor/fusion-wc-avatar@3.1.0:
     resolution: {integrity: sha512-Pk+uKSMu7jb+jAhEDIH3aRG2acL6Ng1SoRsggppV6lItdVWVpIVN1iFmUNU+IyYsY1zOLcRLdzaF+8t26omJ9A==}
@@ -3808,7 +3929,6 @@ packages:
       '@equinor/fusion-web-theme': 0.1.7
       '@material/theme': 14.0.0
       lit: 3.0.2
-    dev: false
 
   /@equinor/fusion-web-theme@0.1.7:
     resolution: {integrity: sha512-avEw9LqHUe2CpD6AHxjLScWTWicRzO1VrTk/eAL90gBTvUssUU7F0w8GEh3V0/hovszbZsl0LTkMbFopLLnIjg==}
@@ -3919,6 +4039,17 @@ packages:
       react-dom: 17.0.2(react@17.0.2)
     dev: false
 
+  /@floating-ui/react-dom@2.0.2(react-dom@17.0.2)(react@18.2.0):
+    resolution: {integrity: sha512-5qhlDvjaLmAst/rKb3VdlCinwTF4EYMiVxuuc/HVUjs46W0zgtbMmAZ1UTsDrRTxRmUEzl92mOtWbeeXL26lSQ==}
+    peerDependencies:
+      react: '>=16.8.0'
+      react-dom: '>=16.8.0'
+    dependencies:
+      '@floating-ui/dom': 1.5.3
+      react: 18.2.0
+      react-dom: 17.0.2(react@18.2.0)
+    dev: false
+
   /@floating-ui/react-dom@2.0.2(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-5qhlDvjaLmAst/rKb3VdlCinwTF4EYMiVxuuc/HVUjs46W0zgtbMmAZ1UTsDrRTxRmUEzl92mOtWbeeXL26lSQ==}
     peerDependencies:
@@ -3928,6 +4059,18 @@ packages:
       '@floating-ui/dom': 1.5.3
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
+    dev: true
+
+  /@floating-ui/react-dom@2.0.4(react-dom@17.0.2)(react@18.2.0):
+    resolution: {integrity: sha512-CF8k2rgKeh/49UrnIBs4BdxPUV6vize/Db1d/YbCLyp9GiVZ0BEwf5AiDSxJRCr6yOkGqTFHtmrULxkEfYZ7dQ==}
+    peerDependencies:
+      react: '>=16.8.0'
+      react-dom: '>=16.8.0'
+    dependencies:
+      '@floating-ui/dom': 1.5.3
+      react: 18.2.0
+      react-dom: 17.0.2(react@18.2.0)
+    dev: true
 
   /@floating-ui/react@0.19.2(react-dom@17.0.2)(react@17.0.2):
     resolution: {integrity: sha512-JyNk4A0Ezirq8FlXECvRtQOX/iBe5Ize0W/pLkrZjfHW9GUV7Xnq6zm6fyZuQzaHHqEnVizmvlA96e1/CkZv+w==}
@@ -3942,6 +4085,19 @@ packages:
       tabbable: 6.2.0
     dev: false
 
+  /@floating-ui/react@0.25.4(react-dom@17.0.2)(react@18.2.0):
+    resolution: {integrity: sha512-lWRQ/UiTvSIBxohn0/2HFHEmnmOVRjl7j6XcRJuLH0ls6f/9AyHMWVzkAJFuwx0n9gaEeCmg9VccCSCJzbEJig==}
+    peerDependencies:
+      react: '>=16.8.0'
+      react-dom: '>=16.8.0'
+    dependencies:
+      '@floating-ui/react-dom': 2.0.2(react-dom@17.0.2)(react@18.2.0)
+      '@floating-ui/utils': 0.1.6
+      react: 18.2.0
+      react-dom: 17.0.2(react@18.2.0)
+      tabbable: 6.2.0
+    dev: false
+
   /@floating-ui/react@0.25.4(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-lWRQ/UiTvSIBxohn0/2HFHEmnmOVRjl7j6XcRJuLH0ls6f/9AyHMWVzkAJFuwx0n9gaEeCmg9VccCSCJzbEJig==}
     peerDependencies:
@@ -3953,6 +4109,20 @@ packages:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       tabbable: 6.2.0
+    dev: true
+
+  /@floating-ui/react@0.26.3(react-dom@17.0.2)(react@18.2.0):
+    resolution: {integrity: sha512-iKH8WRR0L/nLiM6qavFZxkyegIZRMxGnM9aKEc71M4wRlUNkgTamjPsOQXy11oZbDOH37MiTbk/nAPn9M2+shA==}
+    peerDependencies:
+      react: '>=16.8.0'
+      react-dom: '>=16.8.0'
+    dependencies:
+      '@floating-ui/react-dom': 2.0.4(react-dom@17.0.2)(react@18.2.0)
+      '@floating-ui/utils': 0.1.6
+      react: 18.2.0
+      react-dom: 17.0.2(react@18.2.0)
+      tabbable: 6.2.0
+    dev: true
 
   /@floating-ui/utils@0.1.6:
     resolution: {integrity: sha512-OfX7E2oUDYxtBvsuS4e/jSn4Q9Qb6DzgeYtsAdkPZ47znpoNsMgZw0+tVijiv3uGNR6dgNlty6r9rzIzHjtd/A==}
@@ -4308,7 +4478,6 @@ packages:
       prop-types: 15.8.1
       react: 18.2.0
       react-dom: 17.0.2(react@18.2.0)
-    dev: false
 
   /@material-ui/types@5.1.0(@types/react@18.2.24):
     resolution: {integrity: sha512-7cqRjrY50b8QzRSYyhSpx4WRw2YuO0KKIGQEVk5J8uoz2BanawykgZGoWEqKm7pVIbzFDN0SpPcVV4IhOFkl8A==}
@@ -4319,7 +4488,6 @@ packages:
         optional: true
     dependencies:
       '@types/react': 18.2.24
-    dev: false
 
   /@material-ui/utils@4.11.3(react-dom@17.0.2)(react@18.2.0):
     resolution: {integrity: sha512-ZuQPV4rBK/V1j2dIkSSEcH5uT6AaHuKWFfotADHsC0wVL1NLd2WkFCm4ZZbX33iO4ydl6V0GPngKm8HZQ2oujg==}
@@ -4333,7 +4501,6 @@ packages:
       react: 18.2.0
       react-dom: 17.0.2(react@18.2.0)
       react-is: 17.0.2
-    dev: false
 
   /@material/animation@14.0.0-canary.53b3cad2f.0:
     resolution: {integrity: sha512-GBuR4VmcTQW1D0lPXEosf5Giho72LLbyGIydWGtaEUtLJoive/D9kFkwTN4Fsyt9Kkl7hbhs35vrNe6QkAH4/Q==}
@@ -4372,7 +4539,6 @@ packages:
     resolution: {integrity: sha512-a5WGgHEq5lJeeNL5yevtgoZjBjXWy6+klfVWQEh8oyix/rMJygGgO7gEc52uv8fB8uAIoYEB3iBMOv8jRq8FeA==}
     dependencies:
       tslib: 2.6.2
-    dev: false
 
   /@material/feature-targeting@14.0.0-canary.53b3cad2f.0:
     resolution: {integrity: sha512-fn7Af3PRyARtNeYqtjxXmE3Y/dCpnpQVWWys57MqiGR/nvc6qpgOfJ6rOdcu/MrOysOE/oebTUDmDnTmwpe9Hw==}
@@ -4768,7 +4934,6 @@ packages:
     dependencies:
       '@material/feature-targeting': 14.0.0
       tslib: 2.6.2
-    dev: false
 
   /@material/theme@14.0.0-canary.53b3cad2f.0:
     resolution: {integrity: sha512-S06XAevDCDWMe+GgsEpITMS07imUidzadNaTbJsqssFajBLr53QWVZsG84BpjXKXoYvyEJvb0hX5U0lq6ip9UQ==}
@@ -9069,7 +9234,7 @@ packages:
       '@babel/plugin-syntax-jsx': 7.22.5(@babel/core@7.23.2)
       lodash: 4.17.21
       picomatch: 2.3.1
-      styled-components: 5.3.11(@babel/core@7.23.2)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)
+      styled-components: 5.3.11(@babel/core@7.23.2)(react-dom@17.0.2)(react-is@18.2.0)(react@18.2.0)
     transitivePeerDependencies:
       - '@babel/core'
     dev: false
@@ -10070,7 +10235,6 @@ packages:
   /clsx@1.2.1:
     resolution: {integrity: sha512-EcR6r5a8bj6pu3ycsa/E/cKVGuTgZJZdsyUYHOksG/UHIiKfjxzRxYJpyVBwYaQeOvghal9fcc4PidlgzugAQg==}
     engines: {node: '>=6'}
-    dev: false
 
   /cmd-shim@6.0.1:
     resolution: {integrity: sha512-S9iI9y0nKR4hwEQsVWpyxld/6kRfGepGfzff83FcaiEBpmvlbA2nnGe7Cylgrx2f/p1P5S5wpRm9oL8z1PbS3Q==}
@@ -10759,7 +10923,6 @@ packages:
 
   /csstype@2.6.21:
     resolution: {integrity: sha512-Z1PhmomIfypOpoMjRQB70jfvy/wxT50qW08YXO5lMIJkrdq4yOTR+AW7FqutScmB9NkLwxo+jU+kZLbofZZq/w==}
-    dev: false
 
   /csstype@3.1.2:
     resolution: {integrity: sha512-I7K1Uu0MBPzaFKg4nI5Q7Vs2t+3gWWW648spaF+Rg7pI9ds18Ugn+lvg4SHczUdKlHI5LWBXyqfS8+DufyBsgQ==}
@@ -11316,6 +11479,19 @@ packages:
       react: 18.2.0
       react-is: 18.2.0
       tslib: 2.6.2
+
+  /downshift@8.2.3(react@18.2.0):
+    resolution: {integrity: sha512-1HkvqaMTZpk24aqnXaRDnT+N5JCbpFpW+dCogB11+x+FCtfkFX0MbAO4vr/JdXi1VYQF174KjNUveBXqaXTPtg==}
+    peerDependencies:
+      react: '>=16.12.0'
+    dependencies:
+      '@babel/runtime': 7.23.4
+      compute-scroll-into-view: 3.1.0
+      prop-types: 15.8.1
+      react: 18.2.0
+      react-is: 18.2.0
+      tslib: 2.6.2
+    dev: true
 
   /duplexer3@0.1.5:
     resolution: {integrity: sha512-1A8za6ws41LQgv9HrE/66jyC5yuSjQ3L/KOpFtoBilsAK2iA2wuS5rTt1OCzIvtS2V7nVmedsUU+DGRcjBmOYA==}
@@ -18767,7 +18943,6 @@ packages:
       object-assign: 4.1.1
       react: 18.2.0
       scheduler: 0.20.2
-    dev: false
 
   /react-dom@18.2.0(react@18.2.0):
     resolution: {integrity: sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==}
@@ -18811,7 +18986,6 @@ packages:
 
   /react-is@17.0.2:
     resolution: {integrity: sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w==}
-    dev: false
 
   /react-is@18.2.0:
     resolution: {integrity: sha512-xWGDIW6x921xtzPkhiULtthJHoJvBbF3q26fzloPCK0hsvxtPVelvftw3zjbHWSkR2km9Z+4uxbDDK/6Zw9B8w==}
@@ -18830,7 +19004,7 @@ packages:
       warning: 4.0.3
     dev: false
 
-  /react-popper@2.3.0(@popperjs/core@2.11.8)(react-dom@18.2.0)(react@18.2.0):
+  /react-popper@2.3.0(@popperjs/core@2.11.8)(react-dom@17.0.2)(react@18.2.0):
     resolution: {integrity: sha512-e1hj8lL3uM+sgSR4Lxzn5h1GxBlpa4CQz0XLF8kx4MDrDRWY0Ena4c97PUeSX9i5W3UAfDP0z0FXCTQkoXUl3Q==}
     peerDependencies:
       '@popperjs/core': ^2.0.0
@@ -18839,7 +19013,7 @@ packages:
     dependencies:
       '@popperjs/core': 2.11.8
       react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
+      react-dom: 17.0.2(react@18.2.0)
       react-fast-compare: 3.2.2
       warning: 4.0.3
     dev: false
@@ -19634,7 +19808,6 @@ packages:
     dependencies:
       loose-envify: 1.4.0
       object-assign: 4.1.1
-    dev: false
 
   /scheduler@0.23.0:
     resolution: {integrity: sha512-CtuThmgHNg7zIZWAXi3AsyIzA3n4xx7aNyjwC2VJldO2LMVDhFK+63xGqq6CsJH4rTAt6/M+N4GhZiDYPx9eUw==}
@@ -20528,7 +20701,7 @@ packages:
       - '@babel/core'
     dev: false
 
-  /styled-components@5.3.11(@babel/core@7.23.2)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0):
+  /styled-components@5.3.11(@babel/core@7.23.2)(react-dom@17.0.2)(react-is@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-uuzIIfnVkagcVHv9nE0VPlHPSCmXIUGKfJ42LNjxCCTDTL5sgnJ8Z7GZBq0EnLYGln77tPpEpExt2+qa+cZqSw==}
     engines: {node: '>=10'}
     peerDependencies:
@@ -20545,13 +20718,33 @@ packages:
       css-to-react-native: 3.2.0
       hoist-non-react-statics: 3.3.2
       react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
+      react-dom: 17.0.2(react@18.2.0)
       react-is: 18.2.0
       shallowequal: 1.1.0
       supports-color: 5.5.0
     transitivePeerDependencies:
       - '@babel/core'
     dev: false
+
+  /styled-components@6.1.0(react-dom@17.0.2)(react@18.2.0):
+    resolution: {integrity: sha512-VWNfYYBuXzuLS/QYEeoPgMErP26WL+dX9//rEh80B2mmlS1yRxRxuL5eax4m6ybYEUoHWlTy2XOU32767mlMkg==}
+    engines: {node: '>= 16'}
+    peerDependencies:
+      react: '>= 16.8.0'
+      react-dom: '>= 16.8.0'
+    dependencies:
+      '@emotion/is-prop-valid': 1.2.1
+      '@emotion/unitless': 0.8.1
+      '@types/stylis': 4.2.2
+      css-to-react-native: 3.2.0
+      csstype: 3.1.2
+      postcss: 8.4.31
+      react: 18.2.0
+      react-dom: 17.0.2(react@18.2.0)
+      shallowequal: 1.1.0
+      stylis: 4.3.0
+      tslib: 2.6.2
+    dev: true
 
   /styled-components@6.1.0(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-VWNfYYBuXzuLS/QYEeoPgMErP26WL+dX9//rEh80B2mmlS1yRxRxuL5eax4m6ybYEUoHWlTy2XOU32767mlMkg==}
