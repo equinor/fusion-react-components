@@ -16,34 +16,13 @@
   "files": [],
   "references": [
     {
-      "path": "packages/avatar"
-    },
-    {
-      "path": "packages/badge"
-    },
-    {
-      "path": "packages/breadcrumb"
-    },
-    {
       "path": "packages/button"
-    },
-    {
-      "path": "packages/checkbox"
-    },
-    {
-      "path": "packages/chip"
     },
     {
       "path": "packages/context-selector"
     },
     {
       "path": "packages/date"
-    },
-    {
-      "path": "packages/datepicker"
-    },
-    {
-      "path": "packages/divider"
     },
     {
       "path": "packages/errorboundary"
@@ -62,9 +41,6 @@
     },
     {
       "path": "packages/menu"
-    },
-    {
-      "path": "packages/observable"
     },
     {
       "path": "packages/person"
@@ -107,12 +83,6 @@
     },
     {
       "path": "packages/textinput"
-    },
-    {
-      "path": "packages/tooltip"
-    },
-    {
-      "path": "packages/typography"
     },
     {
       "path": "packages/utils"
