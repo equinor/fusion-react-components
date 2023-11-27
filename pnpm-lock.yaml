@@ -580,8 +580,8 @@ importers:
   packages/styles:
     dependencies:
       '@equinor/fusion-wc-theme':
-        specifier: ^0.2.33
-        version: 0.2.35
+        specifier: ^1.1.0
+        version: 1.1.0
       '@equinor/fusion-web-theme':
         specifier: ^0.1.7
         version: 0.1.7
@@ -3846,15 +3846,6 @@ packages:
       lit: 3.0.2
     dev: false
 
-  /@equinor/fusion-wc-theme@0.2.35:
-    resolution: {integrity: sha512-t/pBoMgS8E3IRpHYX6dnEFWlOIfWHliuKoGjHGLEKRncWiHpP7WviH5LrKbHyT0wwZWxSn6V7cldUawLFe/k9g==}
-    dependencies:
-      '@equinor/fusion-wc-core': 1.0.5
-      '@equinor/fusion-web-theme': 0.1.7
-      '@material/theme': 14.0.0
-      lit: 2.7.0
-    dev: false
-
   /@equinor/fusion-wc-theme@1.0.0:
     resolution: {integrity: sha512-+y+1ylgnjZfRiOkkCzN9K6yMxsI8O5pdkI6+6jRkq3HaVbx4g3pFxDNA4FkP8WM/1W0zrhdlJsbxPJrB3T5RrQ==}
     dependencies:
@@ -3862,6 +3853,15 @@ packages:
       '@equinor/fusion-web-theme': 0.1.7
       '@material/theme': 14.0.0
       lit: 2.7.0
+    dev: false
+
+  /@equinor/fusion-wc-theme@1.1.0:
+    resolution: {integrity: sha512-V8ECVXAz2BcKoAFZxTUja0x1ujY+2TbVqpOf3Nwh+7DoIucSqv7PBxr2JmDXQW4r88m+YChtxcp8rVthXwKxIg==}
+    dependencies:
+      '@equinor/fusion-wc-core': 2.0.0
+      '@equinor/fusion-web-theme': 0.1.7
+      '@material/theme': 14.0.0
+      lit: 3.0.2
     dev: false
 
   /@equinor/fusion-web-theme@0.1.7:
@@ -4280,19 +4280,15 @@ packages:
   /@lit-labs/observers@2.0.2:
     resolution: {integrity: sha512-eZb5+W9Cb0e/Y5m1DNxBSGTvGB2TAVTGMnTxL/IzFhPQEcZIAHewW1eVBhN8W07A5tirRaAmmF6fGL1V20p3gQ==}
     dependencies:
-      '@lit/reactive-element': 1.6.3
+      '@lit/reactive-element': 2.0.2
     dev: false
 
   /@lit-labs/react@1.2.1:
     resolution: {integrity: sha512-DiZdJYFU0tBbdQkfwwRSwYyI/mcWkg3sWesKRsHUd4G+NekTmmeq9fzsurvcKTNVa0comNljwtg4Hvi1ds3V+A==}
     dev: false
 
-  /@lit-labs/ssr-dom-shim@1.1.1:
-    resolution: {integrity: sha512-kXOeFbfCm4fFf2A3WwVEeQj55tMZa8c8/f9AKHMobQMkzNUfUj+antR3fRPaZJawsa1aZiP/Da3ndpZrwEe4rQ==}
-
   /@lit-labs/ssr-dom-shim@1.1.2:
     resolution: {integrity: sha512-jnOD+/+dSrfTWYfSXBXlo5l5f0q1UuJo3tkbMDCYA2lKUYq79jaxqtGEvnRoh049nt1vdo1+45RinipU6FGY2g==}
-    dev: false
 
   /@lit-labs/task@2.1.2:
     resolution: {integrity: sha512-pDjPYojmCXnOezT/4BgqxHA2kahmSsCE0y6uPCYyVqigIx9DJav05s0KAtD9IImTY3LvWu5isSlq6nkWagAybA==}
@@ -4309,7 +4305,7 @@ packages:
   /@lit/reactive-element@1.6.3:
     resolution: {integrity: sha512-QuTgnG52Poic7uM1AN5yJ09QMe0O28e10XzSvWDz02TJiiKee4stsiownEIadWm8nYzyDAyT+gKzUoZmiWQtsQ==}
     dependencies:
-      '@lit-labs/ssr-dom-shim': 1.1.1
+      '@lit-labs/ssr-dom-shim': 1.1.2
 
   /@lit/reactive-element@2.0.2:
     resolution: {integrity: sha512-SVOwLAWUQg3Ji1egtOt1UiFe4zdDpnWHyc5qctSceJ5XIu0Uc76YmGpIjZgx9YJ0XtdW0Jm507sDvjOu+HnB8w==}
@@ -4320,7 +4316,7 @@ packages:
   /@lit/task@1.0.0:
     resolution: {integrity: sha512-7jocGBh3yGlo3kKxQggZph2txK4X5GYNWp2FAsmV9u2spzUypwrzRzXe8I72icAb02B00+k2nlvxVcrQB6vyrw==}
     dependencies:
-      '@lit/reactive-element': 1.6.3
+      '@lit/reactive-element': 2.0.2
     dev: false
 
   /@manypkg/find-root@1.1.0:
@@ -15892,7 +15888,7 @@ packages:
   /lit-element@3.3.3:
     resolution: {integrity: sha512-XbeRxmTHubXENkV4h8RIPyr8lXc+Ff28rkcQzw3G6up2xg5E8Zu1IgOWIwBLEQsu3cOVFqdYwiVi0hv0SlpqUA==}
     dependencies:
-      '@lit-labs/ssr-dom-shim': 1.1.1
+      '@lit-labs/ssr-dom-shim': 1.1.2
       '@lit/reactive-element': 1.6.3
       lit-html: 2.8.0
 
