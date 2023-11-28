@@ -1,5 +1,12 @@
 # Change Log
 
+## 2.18.1
+
+### Patch Changes
+
+- Updated dependencies [e7568ae1]
+  - @equinor/fusion-react-progress-indicator@0.3.0
+
 ## 2.18.0
 
 ### Minor Changes
