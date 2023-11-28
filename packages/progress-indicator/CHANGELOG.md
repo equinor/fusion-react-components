@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.3.0
+
+### Minor Changes
+
+- e7568ae1: deprecated @equinor/fusion-react-progress-indicator
+
 ## 0.2.1
 
 ### Patch Changes
