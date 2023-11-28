@@ -403,22 +403,6 @@ importers:
         specifier: ^18.2.0
         version: 18.2.0
 
-  packages/progress-indicator:
-    dependencies:
-      '@equinor/fusion-react-utils':
-        specifier: ^2.1.0
-        version: link:../utils
-      '@equinor/fusion-wc-progress-indicator':
-        specifier: ^1.1.0
-        version: 1.1.0
-    devDependencies:
-      '@types/react':
-        specifier: ^18.2.24
-        version: 18.2.24
-      react:
-        specifier: ^18.2.0
-        version: 18.2.0
-
   packages/radio:
     dependencies:
       '@equinor/fusion-react-utils':
@@ -740,9 +724,6 @@ importers:
       '@equinor/fusion-react-popover':
         specifier: workspace:^
         version: link:../packages/popover
-      '@equinor/fusion-react-progress-indicator':
-        specifier: workspace:^
-        version: link:../packages/progress-indicator
       '@equinor/fusion-react-radio':
         specifier: workspace:^
         version: link:../packages/radio
@@ -3637,14 +3618,6 @@ packages:
       '@equinor/fusion-wc-core': 2.0.0
       '@popperjs/core': 2.11.8
       '@types/resize-observer-browser': 0.1.8
-      lit: 3.0.2
-    dev: false
-
-  /@equinor/fusion-wc-progress-indicator@1.1.0:
-    resolution: {integrity: sha512-uKKbU2vjd2gFuVNxAn11NNdYhARDO88l9FRCC4XKxeRtnS/odt+fzY4A5/HZhbt/9fxb3OL06iCbFZxYw7hlag==}
-    dependencies:
-      '@equinor/fusion-wc-core': 2.0.0
-      '@equinor/fusion-web-theme': 0.1.7
       lit: 3.0.2
     dev: false
 
