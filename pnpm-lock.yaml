@@ -3528,9 +3528,9 @@ packages:
   /@equinor/fusion-wc-list@1.0.5:
     resolution: {integrity: sha512-r+pLnNIQQHb04wmK0EX6+gDqn55eGmGNb5OBZFS6iZosyTwPvxjFmyJjLnrtbce/WKynJK1EWY9aPiATlV5zmA==}
     dependencies:
-      '@equinor/fusion-wc-checkbox': 1.0.1
+      '@equinor/fusion-wc-checkbox': 1.1.0
       '@equinor/fusion-wc-core': 2.0.0
-      '@equinor/fusion-wc-divider': 1.0.1
+      '@equinor/fusion-wc-divider': 1.1.0
       '@equinor/fusion-wc-icon': 2.3.0
       '@equinor/fusion-wc-radio': 1.1.0
       '@equinor/fusion-web-theme': 0.1.7
