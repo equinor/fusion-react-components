@@ -1,5 +1,12 @@
 # Change Log
 
+## 2.18.2
+
+### Patch Changes
+
+- Updated dependencies [aabee34f]
+  - @equinor/fusion-react-select@0.3.0
+
 ## 2.18.1
 
 ### Patch Changes

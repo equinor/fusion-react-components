@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.3.0
+
+### Minor Changes
+
+- aabee34f: deprecated
+
 ## 0.2.0
 
 ### Minor Changes
