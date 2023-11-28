@@ -1,1 +1,0 @@
-deprecated, see [EDS](https://storybook.eds.equinor.com/?path=/docs/feedback-progress-indicators-circular--docs)
