@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.8.0
+
+### Minor Changes
+
+- 9fb0891c: deprecated `@equinor/fusion-react-textinput`
+
 ## 0.7.1
 
 ### Patch Changes
