@@ -16,7 +16,7 @@ import { TableData } from './types';
 
 export const useTable = <TData extends TableData>(
   options: TableOptions<TData>,
-  plugins: Array<PluginHook<TData>> = []
+  plugins: Array<PluginHook<TData>> = [],
 ): TableInstance<TData> => {
   // TODO: check if sort is allready added?
   true && plugins.push(useFilters);

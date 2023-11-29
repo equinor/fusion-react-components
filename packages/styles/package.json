@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-styles",
-  "version": "0.5.5",
+  "version": "0.6.1",
   "description": "style lib inspired by @material-ui/styles",
   "keywords": [
     "styling",
@@ -36,15 +36,14 @@
     "url": "https://github.com/equinor/fusion-react-components/issues"
   },
   "dependencies": {
-    "@equinor/fusion-wc-theme": "^0.2.25",
+    "@equinor/fusion-wc-theme": "^1.1.0",
     "@equinor/fusion-web-theme": "^0.1.7",
     "@material-ui/styles": "^4.11.4",
     "clsx": "^1.1.1"
   },
   "peerDependencies": {
-    "@types/react": "^17.0.0 || ^18.0.0",
-    "react": "^17.0.0 || ^18.0.0",
-    "react-dom": "^17.0.0 || ^18.0.0"
+    "react": "^17.0.0 || ^18.0.0",
+    "react-dom": "^17.0.0 || ^18.0.0"
   },
   "peerDependenciesMeta": {
     "@types/react": {
@@ -53,5 +52,9 @@
     "react-dom": {
       "optional": true
     }
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.24",
+    "react": "^18.2.0"
   }
 }

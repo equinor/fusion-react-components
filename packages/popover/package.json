@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-popover",
-  "version": "0.1.11",
+  "version": "0.2.0",
   "description": "React component for displaying popover",
   "keywords": [
     "popover",
@@ -35,9 +35,13 @@
     "url": "https://github.com/equinor/fusion-react-components/issues"
   },
   "dependencies": {
-    "@equinor/fusion-react-icon": "^0.2.15",
-    "@equinor/fusion-react-styles": "^0.5.5",
+    "@equinor/fusion-react-icon": "^0.3.0",
+    "@equinor/fusion-react-styles": "^0.6.0",
     "@popperjs/core": "^2.11.0",
     "react-popper": "^2.2.5"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.24",
+    "react": "^18.2.0"
   }
 }

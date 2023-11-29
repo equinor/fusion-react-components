@@ -11,7 +11,7 @@ export const useInstance = <TData extends TableData>(instance: TableInstance<TDa
     (columnId: string, show?: boolean) => {
       dispatch(actions.toggle({ columnId, show }));
     },
-    [dispatch]
+    [dispatch],
   );
   allColumns.forEach((column) => {
     const { menu } = state;

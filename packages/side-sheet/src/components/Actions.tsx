@@ -1,15 +1,18 @@
 import React, { PropsWithChildren } from 'react';
 
 export type ActionsProps = {
-  sideSheetRef?: React.RefObject<HTMLDivElement>;
+  readonly sideSheetRef?: React.RefObject<HTMLDivElement>;
 };
 
 export const Actions = ({ children, sideSheetRef }: PropsWithChildren<ActionsProps>) => {
   const childrenWithProps = React.Children.map(children, (child) => {
     if (React.isValidElement(child)) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       return React.cloneElement(child as React.ReactElement<any>, { sideSheetRef });
     }
     return child;
   });
   return <>{childrenWithProps}</>;
 };
+
+export default Actions;

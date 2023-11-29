@@ -15,7 +15,7 @@ const objectToString = (object: Object) => {
  * [W3](https://www.w3.org/TR/2008/WD-html5-20080610/semantics.html#boolean)
  */
 export const elementAttributes = <T extends Partial<Record<keyof T, unknown>> = Record<string, unknown>>(
-  props: Partial<T>
+  props: Partial<T>,
 ): T => {
   return Object.keys(props).reduce((cur, key) => {
     const value = props[key as keyof T];

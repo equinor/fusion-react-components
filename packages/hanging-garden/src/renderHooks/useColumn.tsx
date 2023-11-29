@@ -43,7 +43,7 @@ const useColumn = <T extends HangingGardenColumnIndex>(): UseColumn<T> => {
 
       const endRow = Math.min(
         flattenedColumn.length,
-        Math.ceil((scrollTop.current + (container.current?.offsetHeight || 0)) / itemHeight)
+        Math.ceil((scrollTop.current + (container.current?.offsetHeight || 0)) / itemHeight),
       );
 
       for (let i = startRow; i < endRow; i++) {
@@ -52,7 +52,7 @@ const useColumn = <T extends HangingGardenColumnIndex>(): UseColumn<T> => {
         isGroupheader(item) ? renderGroupHeader(item.key, i, index, item.level) : renderItem(item, i, index);
       }
     },
-    [renderItem]
+    [renderItem],
   );
 
   const renderItems = useCallback(
@@ -62,7 +62,7 @@ const useColumn = <T extends HangingGardenColumnIndex>(): UseColumn<T> => {
         item && renderItem(item, i, index);
       }
     },
-    [renderItem]
+    [renderItem],
   );
 
   const renderColumn = useCallback(
@@ -87,7 +87,7 @@ const useColumn = <T extends HangingGardenColumnIndex>(): UseColumn<T> => {
       scrollTop.current,
       itemHeight,
       padding,
-    ]
+    ],
   );
 
   return { renderColumn };

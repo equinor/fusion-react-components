@@ -1,11 +1,11 @@
-import type { Observable, ReactiveSubject } from '@equinor/fusion-react-observable';
+import type { Observable, FlowSubject } from '@equinor/fusion-observable';
 
 export type FilterData<TValue = unknown> = Record<string, TValue>;
 
 export type FilterContext<TSelection = unknown, TData extends Record<string, any> = Record<string, any>> = {
-  source$: ReactiveSubject<TData[]>;
-  selection$: ReactiveSubject<Record<string, TSelection>>;
-  filter$: ReactiveSubject<Record<string, Filter<TData, TSelection>>>;
+  source$: FlowSubject<TData[]>;
+  selection$: FlowSubject<Record<string, TSelection>>;
+  filter$: FlowSubject<Record<string, Filter<TData, TSelection>>>;
   data$: Observable<TData[]>;
 };
 

@@ -48,7 +48,7 @@ const usePopover = (delay?: number): UsePopover => {
 
       hitContainer.addChild(hitAreaContainer);
     },
-    []
+    [],
   );
 
   const popover = useMemo(() => {

@@ -10,19 +10,10 @@
   ],
   "references": [
     {
-      "path": "../packages/avatar"
-    },
-    {
-      "path": "../packages/badge"
+      "path": "../packages/ag-grid-styles"
     },
     {
       "path": "../packages/button"
-    },
-    {
-      "path": "../packages/checkbox"
-    },
-    {
-      "path": "../packages/chip"
     },
     {
       "path": "../packages/context-selector"
@@ -31,19 +22,13 @@
       "path": "../packages/date"
     },
     {
-      "path": "../packages/divider"
+      "path": "../packages/errorboundary"
     },
     {
       "path": "../packages/filter"
     },
     {
       "path": "../packages/icon"
-    },
-    {
-      "path": "../packages/observable"
-    },
-    {
-      "path": "../packages/datepicker"
     },
     {
       "path": "../packages/hanging-garden"
@@ -61,19 +46,10 @@
       "path": "../packages/popover"
     },
     {
-      "path": "../packages/progress-indicator"
-    },
-    {
       "path": "../packages/person"
     },
     {
       "path": "../packages/ripple"
-    },
-    {
-      "path": "../packages/radio"
-    },
-    {
-      "path": "../packages/select"
     },
     {
       "path": "../packages/searchable-dropdown"
@@ -82,22 +58,13 @@
       "path": "../packages/skeleton"
     },
     {
-      "path": "../packages/switch"
+      "path": "../packages/stepper"
     },
     {
       "path": "../packages/table"
     },
     {
       "path": "../packages/textarea"
-    },
-    {
-      "path": "../packages/textinput"
-    },
-    {
-      "path": "../packages/tooltip"
-    },
-    {
-      "path": "../packages/typography"
     },
     {
       "path": "../packages/utils"

@@ -31,7 +31,7 @@ export type PropsFunc<Props extends Record<string, unknown>, T> = (props: Props)
  */
 export type StyleRules<
   Props extends Record<string, unknown> = Record<string, unknown>,
-  ClassKey extends string = string
+  ClassKey extends string = string,
 > = Record<
   ClassKey,
   // JSS property bag
@@ -44,7 +44,7 @@ export type StyleRules<
 >;
 
 export type StyleRulesCallback<Theme, Props extends Record<string, unknown>, ClassKey extends string = string> = (
-  theme: Theme
+  theme: Theme,
 ) => StyleRules<Props, ClassKey>;
 
 export type Styles<Theme, Props extends Record<string, unknown>, ClassKey extends string = string> =

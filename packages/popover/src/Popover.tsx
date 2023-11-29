@@ -6,16 +6,16 @@ import useHandleClickOutside from './useHandleClickOutside';
 import { Placement, PositioningStrategy } from '@popperjs/core';
 
 export type PopoverProps = {
-  children?: ReactNode;
-  placement?: Placement;
-  strategy?: PositioningStrategy;
-  width?: string;
-  height?: string;
-  baseElement?: ReactNode;
-  title?: ReactNode;
-  showCloseIcon?: boolean;
-  setVisibility: (isVisible: boolean) => void;
-  visible: boolean;
+  readonly children?: ReactNode;
+  readonly placement?: Placement;
+  readonly strategy?: PositioningStrategy;
+  readonly width?: string;
+  readonly height?: string;
+  readonly baseElement?: ReactNode;
+  readonly title?: ReactNode;
+  readonly showCloseIcon?: boolean;
+  readonly setVisibility: (isVisible: boolean) => void;
+  readonly visible: boolean;
 };
 
 export const Popover: FC<PopoverProps> = ({
@@ -64,6 +64,8 @@ export const Popover: FC<PopoverProps> = ({
 
   return (
     <span ref={PopoverRef}>
+      {/* TODO */}
+      {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
       <span ref={setReferenceElement} onClick={handleClick} className={popoverStyles.baseElement}>
         {baseElement}
       </span>

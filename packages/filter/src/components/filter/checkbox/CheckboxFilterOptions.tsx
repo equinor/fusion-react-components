@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 
-import { useObservableRef, useObservableState } from '@equinor/fusion-react-observable';
+import { useObservableRef, useObservableState } from '@equinor/fusion-observable/react';
 
 import { useCheckboxFilterOptionContext } from './context';
 
@@ -9,12 +9,12 @@ import { CheckboxFilterOption, CheckboxFilterOptionProps } from './CheckboxFilte
 const defaultSortFn = <T extends { label: string }>(a: T, b: T) => a.label.localeCompare(b.label);
 
 type CheckboxFilterOptionsProps = {
-  sortFn?: <T extends { label: string }>(a: T, b: T) => number;
+  readonly sortFn?: <T extends { label: string }>(a: T, b: T) => number;
 };
 
 export const CheckboxFilterOptions = ({ sortFn }: CheckboxFilterOptionsProps): JSX.Element => {
   const context = useCheckboxFilterOptionContext();
-  const data = useObservableState(context.options$);
+  const { value: data } = useObservableState(context.options$);
   const selectionRef = useObservableRef(context.selection$);
 
   const onOptionChange = useCallback(
@@ -28,7 +28,7 @@ export const CheckboxFilterOptions = ({ sortFn }: CheckboxFilterOptionsProps): J
       }
       context.setSelection(selection.size ? selection : undefined);
     },
-    [context, selectionRef]
+    [context, selectionRef],
   );
 
   const itemProps = Object.entries(data || {})
@@ -42,7 +42,7 @@ export const CheckboxFilterOptions = ({ sortFn }: CheckboxFilterOptionsProps): J
           count: value.count === value.totalCount ? value.count : `${value.count} / ${value.totalCount}`,
           inactive: !value.count,
           hide: value.hide,
-        } as CheckboxFilterOptionProps)
+        }) as CheckboxFilterOptionProps,
     )
     .sort(sortFn ?? defaultSortFn);
   return (

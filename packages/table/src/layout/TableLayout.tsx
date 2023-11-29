@@ -19,6 +19,7 @@ export const TableLayoutTemplate = (props: LayoutProps): JSX.Element => {
     <table {...getTableProps({ className: clsx(styles.root, className) })} style={style}>
       <thead className={styles.thead}>
         {headerGroups.map((headerGroup) => (
+          // eslint-disable-next-line react/jsx-key
           <tr {...headerGroup.getHeaderGroupProps()}>
             {headerGroup.headers.map((column) => {
               const isGroupHeader = !!column.columns?.length;
@@ -28,6 +29,7 @@ export const TableLayoutTemplate = (props: LayoutProps): JSX.Element => {
               const style = {
                 width: column.canResize ? column.width : undefined,
               };
+              // eslint-disable-next-line react/jsx-key
               return <th {...column.getHeaderProps({ className, style })}>{column.render(renderer)}</th>;
             })}
           </tr>
@@ -38,8 +40,10 @@ export const TableLayoutTemplate = (props: LayoutProps): JSX.Element => {
           prepareRow(row);
           const additionalProps = setTableRowProps ? setTableRowProps(row) : {};
           return (
+            // eslint-disable-next-line react/jsx-key
             <tr {...row.getRowProps({ className: clsx(styles.row, additionalProps?.className), ...additionalProps })}>
               {row.cells.map((cell) => (
+                // eslint-disable-next-line react/jsx-key
                 <td {...cell.getCellProps({ className: styles.cell })}>{cell.render('Cell')}</td>
               ))}
             </tr>

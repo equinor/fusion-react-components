@@ -1,32 +1,38 @@
 import { useMemo } from 'react';
-import { useObservableState } from '@equinor/fusion-react-observable';
+import { useObservableState } from '@equinor/fusion-observable/react';
 import { useFilterPanelContext } from './FilterPanelProvider';
+
+import { EdsProvider } from '@equinor/eds-core-react';
 
 import { map } from 'rxjs/operators';
 import { FilterContainer } from '../misc';
 
 type FilterPanelFiltersProps = JSX.IntrinsicElements['div'] & {
-  FilterSelector?: () => JSX.Element;
+  readonly FilterSelector?: React.FC;
 };
 
 export const FilterPanelFilters = (props: FilterPanelFiltersProps): JSX.Element => {
   const { FilterSelector, ...args } = props;
   const { filters$, showFilters } = useFilterPanelContext();
 
-  const filters = useObservableState(
+  const { value: filters } = useObservableState(
     useMemo(
       () =>
         filters$.pipe(
-          map(({ filters, selectedFilters }) => filters.filter((filter) => selectedFilters.has(filter.props.filterKey)))
+          map(({ filters, selectedFilters }) =>
+            filters.filter((filter) => selectedFilters.has(filter.props.filterKey)),
+          ),
         ),
-      [filters$]
-    )
+      [filters$],
+    ),
   );
   return (
-    <div {...args} style={{ display: showFilters ? '' : 'none' }}>
-      {FilterSelector && <FilterSelector />}
-      <FilterContainer>{filters}</FilterContainer>
-    </div>
+    <EdsProvider density="compact">
+      <div {...args} style={{ display: showFilters ? '' : 'none' }}>
+        {FilterSelector && <FilterSelector />}
+        <FilterContainer>{filters}</FilterContainer>
+      </div>
+    </EdsProvider>
   );
 };
 

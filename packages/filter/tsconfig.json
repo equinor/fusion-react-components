@@ -8,25 +8,10 @@
   "exclude": ["node_modules"],
   "references": [
     {
-      "path": "../checkbox"
-    },
-    {
-      "path": "../chip"
-    },
-    {
       "path": "../button"
     },
     {
       "path": "../icon"
-    },
-    {
-      "path": "../observable"
-    },
-    {
-      "path": "../textinput"
-    },
-    {
-      "path": "../radio"
     },
     {
       "path": "../styles"

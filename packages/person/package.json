@@ -1,13 +1,16 @@
 {
   "name": "@equinor/fusion-react-person",
-  "version": "0.2.1",
+  "version": "0.6.2",
   "description": "React component for displaying an person information",
   "keywords": [
     "person",
     "card",
     "react",
     "fusion",
-    "equinor"
+    "equinor",
+    "search",
+    "people",
+    "personnel"
   ],
   "homepage": "https://github.com/equinor/fusion-react-components/edit/feat/person-card/packages/person#readme",
   "license": "ISC",
@@ -37,8 +40,12 @@
     "url": "https://github.com/equinor/fusion-react-components/issues"
   },
   "dependencies": {
-    "@equinor/fusion-react-button": "^0.8.1",
-    "@equinor/fusion-react-popover": "^0.1.11",
-    "@equinor/fusion-wc-person": "^0.4.1"
+    "@equinor/fusion-react-button": "^0.9.0",
+    "@equinor/fusion-react-utils": "^2.1.0",
+    "@equinor/fusion-wc-person": "^2.2.1"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.38",
+    "react": "^18.2.0"
   }
 }

@@ -7,12 +7,12 @@ import { clsx, createStyles, makeStyles } from '@equinor/fusion-react-styles';
 import Paginator from './components/pagination/Paginator';
 
 export type TableProps<TData extends TableData> = JSX.IntrinsicElements['div'] & {
-  options: TableOptions<TData>;
-  layout?: Layout<TData>;
-  spacing?: SpacingType;
-  classes?: Partial<Record<'table' | 'toolbar', string>>;
-  plugins?: Array<PluginHook<TData>>;
-  slots?: Partial<Record<'Toolbar', ReactNode>>;
+  readonly options: TableOptions<TData>;
+  readonly layout?: Layout<TData>;
+  readonly spacing?: SpacingType;
+  readonly classes?: Partial<Record<'table' | 'toolbar', string>>;
+  readonly plugins?: Array<PluginHook<TData>>;
+  readonly slots?: Partial<Record<'Toolbar', ReactNode>>;
 };
 const useStyles = makeStyles(() =>
   createStyles({
@@ -24,7 +24,7 @@ const useStyles = makeStyles(() =>
     table: {
       minWidth: '100%',
     },
-  })
+  }),
 );
 
 export const Table = <TData extends TableData>(props: PropsWithChildren<TableProps<TData>>): JSX.Element => {

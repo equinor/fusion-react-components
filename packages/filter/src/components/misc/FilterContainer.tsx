@@ -13,11 +13,11 @@ const useStyles = makeStyles(
         },
       }),
     }),
-  { name: 'fusion-filter-container' }
+  { name: 'fusion-filter-container' },
 );
 
 type StyleProps = {
-  spacing?: keyof typeof theme.spacing.comfortable;
+  readonly spacing?: keyof typeof theme.spacing.comfortable;
 };
 
 export type FilterContainerProps = JSX.IntrinsicElements['div'] & StyleProps;

@@ -1,28 +1,23 @@
 {
-    "compilerOptions": {
-        "strict": true,
-        "allowSyntheticDefaultImports": true,
-        "module": "ESNext",
-        "target": "es2021",
-        "moduleResolution": "node",
-        "esModuleInterop": true,
-        "experimentalDecorators": true,
-        "skipLibCheck": true,
-        "declaration": true,
-        "declarationMap": true,
-        "composite": true,
-        "baseUrl": "./packages",
-        "sourceMap": true,
-        "rootDir": ".",
-        "lib": [
-            "esnext",
-            "dom"
-          ],
-        "paths": {
-            "@equinor/fusion-react-*": [
-                "*/src"
-            ],
-        },
-        "jsx": "react-jsx",
-    }
+  "compilerOptions": {
+    "strict": true,
+    "allowSyntheticDefaultImports": true,
+    "module": "ESNext",
+    "target": "es2021",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "skipLibCheck": true,
+    "declaration": true,
+    "declarationMap": true,
+    "composite": true,
+    "baseUrl": "./packages",
+    "sourceMap": true,
+    "rootDir": ".",
+    "lib": ["esnext", "dom"],
+    "paths": {
+      "@equinor/fusion-react-*": ["*/src"]
+    },
+    "jsx": "react-jsx"
+  }
 }

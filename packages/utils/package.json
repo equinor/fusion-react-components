@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-utils",
-  "version": "2.0.4",
+  "version": "2.1.0",
   "description": "Helper and util functions for React",
   "keywords": [
     "utils",
@@ -42,7 +42,8 @@
     "date-fns": "^2.28.0"
   },
   "devDependencies": {
-    "react": "^18.1.0"
+    "@types/react": "^18.2.24",
+    "react": "^18.2.0"
   },
   "peerDependencies": {
     "react": "^17.0.0 || ^18.0.0"

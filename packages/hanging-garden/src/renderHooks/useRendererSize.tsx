@@ -37,7 +37,7 @@ const useRendererSize = (): void => {
         renderGarden();
       }
     },
-    [renderGarden]
+    [renderGarden],
   );
 
   React.useEffect(() => {
@@ -47,7 +47,7 @@ const useRendererSize = (): void => {
       const { width, height } = arr[0].contentRect;
       window.cancelAnimationFrame(checkRendererSizeAnimationframe.current);
       checkRendererSizeAnimationframe.current = window.requestAnimationFrame(() =>
-        resizeRenderer(width, height, pixiApp.current)
+        resizeRenderer(width, height, pixiApp.current),
       );
     });
 

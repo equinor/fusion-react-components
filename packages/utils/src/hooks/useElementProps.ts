@@ -18,7 +18,7 @@ export const extractElementProps = <E extends HTMLElement>(elementClass: Constru
         console.warn(
           `${elementClass.name} contains property ${p} which is a React ` +
             `reserved property. It will be used by React and not set on ` +
-            `the element.`
+            `the element.`,
         );
       } else {
         elementClassProps.add(p as keyof E);
@@ -35,7 +35,7 @@ export const extractElementProps = <E extends HTMLElement>(elementClass: Constru
 export const useElementProps = <E extends HTMLElement>(
   ref: RefObject<E | null>,
   props?: Partial<Record<string, any>>,
-  propMap?: Set<keyof E>
+  propMap?: Set<keyof E>,
 ): void => {
   useEffect(() => {
     const el = ref.current;

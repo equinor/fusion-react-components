@@ -1,25 +1,36 @@
 {
   "name": "@equinor/fusion-react-components",
   "version": "1.1.0",
+  "private": true,
   "description": "collection of fusion components",
   "main": "index.js",
+  "engines": {
+    "node": "^16 || ^18",
+    "npm": "please-use-pnpm",
+    "yarn": "please-use-pnpm",
+    "pnpm": ">=4"
+  },
+  "packageManager": "pnpm@8.8.0",
   "scripts": {
-    "start": "npm run storybook",
-    "install": "npm run bootstrap",
-    "bootstrap": "lerna bootstrap -- --legacy-peer-deps",
-    "test": "lerna run test",
-    "test:build": "docker build -t test -f build.Dockerfile .",
-    "lint": "eslint packages/**/src/**/*.{ts,tsx}",
+    "test": "lerna run --no-bail test",
+    "start": "pnpm run storybook",
+    "clean": "pnpm clean:node && pnpm clean:build",
+    "clean:node": "pnpm -r exec rimraf node_modules && pnpm exec rimraf node_modules",
+    "clean:build": "pnpm -r exec rimraf tsconfig.tsbuildinfo ",
     "build": "lerna run build --ignore '@equinor/fusion-react-components-stories'",
-    "lint:report": "eslint --output-file eslint-report.log.json --format json ./packages/*/src/**",
-    "storybook": "npm run start --prefix storybook",
-    "storybook:build": "npm run build --prefix storybook",
-    "npm:clean": "rm -rf node_modules && lerna exec 'rm -rf node_modules'",
+    "build:clean": "pnpm clean:build && pnpm build",
+    "build:all": "lerna run build",
+    "test:build": "docker build -t test -f build.Dockerfile .",
+    "lint": "eslint 'packages/**/src/**/*.{ts,tsx}' --no-ignore",
+    "lint:fix": "pnpm lint --fix",
+    "lint:report": "eslint --format json --output-file ./eslint-report.log.json 'packages/**/src/**/*.{ts,tsx}'",
+    "storybook": "pnpm run --dir ./storybook start",
+    "storybook:build": "pnpm run --dir ./storybook build",
     "lerna:update": "lernaupdate",
     "lerna:dedupe": "lernaupdate --dedupe",
-    "ncu": "lerna exec 'npx npm-check-updates \"/fusion-wc.*/\" -u'",
-    "postncu": "npm run bootstrap",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "changeset:version": "changeset version && pnpm install --lockfile-only",
+    "changeset:publish": "pnpm changeset tag && pnpm publish -r"
   },
   "repository": {
     "type": "git",
@@ -37,30 +48,23 @@
   },
   "homepage": "https://github.com/equinor/fusion-react-components#readme",
   "devDependencies": {
-    "@commitlint/cli": "^17.5.0",
-    "@commitlint/config-conventional": "^17.4.4",
-    "@equinor/eslint-config-fusion": "^2.0.0",
-    "@types/react": "^17.0.33",
-    "eslint": "^8.8.0",
+    "@changesets/cli": "^2.26.2",
+    "@commitlint/cli": "^18.4.3",
+    "@commitlint/config-conventional": "^18.4.3",
+    "@equinor/eslint-config-fusion": "^2.1.5",
+    "@equinor/eslint-config-fusion-react": "^2.0.2",
+    "eslint": "^8.50.0",
     "husky": "^8.0.3",
-    "lerna": "^6.6.1",
+    "lerna": "^7.3.0",
     "lerna-update-wizard": "^1.1.2",
-    "lint-staged": "^13.2.0",
-    "prettier": "^2.8.7",
-    "react": "^17.0.2",
-    "typescript": "^4.4.4",
-    "rimraf": "^4.4.1"
+    "lint-staged": "^14.0.1",
+    "prettier": "^3.0.3",
+    "rimraf": "^5.0.1",
+    "typescript": "^4.4.4"
   },
   "lint-staged": {
     "./packages/**/src/**/*.{ts,tsx}": [
       "eslint --quiet --fix"
     ]
-  },
-  "dependencies": {
-    "@equinor/fusion": "^3.4.9",
-    "@equinor/fusion-react-icon": "^0.2.15",
-    "@equinor/fusion-react-styles": "^0.5.5",
-    "@equinor/fusion-react-tooltip": "^1.1.5",
-    "powerbi-client": "^2.22.2"
   }
 }

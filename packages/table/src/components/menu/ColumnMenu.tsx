@@ -27,17 +27,20 @@ export const ColumnMenu = <D extends TableData>(props: HeaderProps<D>): JSX.Elem
   const styles = useStyle();
 
   const renderMenuItems = useCallback(
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (props: any) =>
       menuItems?.map((Component, i) => (
         <div key={i} className={clsx(styles.item, styles.interactive)}>
           <Component {...props}></Component>
         </div>
       )),
-    [menuItems, styles]
+    [menuItems, styles],
   );
 
   return (
     <fwc-popover {...(showMenu && { show: true })} placement="bottom-end">
+      {/* TODO */}
+      {/* eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */}
       <span className={clsx(styles.button, styles.interactive)} onClick={toggleMenu}>
         {column.render('MenuIcon')}
       </span>

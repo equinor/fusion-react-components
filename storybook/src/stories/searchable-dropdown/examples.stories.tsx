@@ -1,5 +1,5 @@
 import {
-  Dropdown,
+  SearchableDropdown,
   DropdownProvider,
   useDropdownProviderRef,
   DropdownProps,
@@ -8,7 +8,7 @@ import { _handleSelect, _exampleResolver } from './component.helpers';
 
 export default {
   title: 'Examples/Searchable-Dropdown',
-  component: Dropdown,
+  component: SearchableDropdown,
 };
 
 export const SearchableIcons = (props: DropdownProps) => {
@@ -16,7 +16,7 @@ export const SearchableIcons = (props: DropdownProps) => {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', height: '250px' }}>
       <DropdownProvider ref={providerRef}>
-        <Dropdown {...props} />
+        <SearchableDropdown {...props} />
       </DropdownProvider>
     </div>
   );

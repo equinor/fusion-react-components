@@ -22,7 +22,7 @@ type LinkButtonElementProps = React.PropsWithChildren<
 
 export const LinkButton = createComponent<HTMLLinkButtonCustomElement, LinkButtonElementProps>(
   HTMLLinkButtonCustomElement,
-  buttonLinkTag
+  buttonLinkTag,
 );
 export type LinkButtonProps = ComponentProps<HTMLLinkButtonCustomElement, LinkButtonElementProps>;
 

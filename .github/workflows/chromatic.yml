@@ -21,15 +21,12 @@ jobs:
     steps:
       # requires v1 @see https://www.chromatic.com/docs/github-actions
       - uses: actions/checkout@v1
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '16'
-          cache: 'npm'
-      - name: Install dependencies
-        run: npm ci --legacy-peer-deps
-        
+
+      - name: Setup node and install deps
+        uses: ./.github/workflows/actions/node-setup
+
       - name: Build libs
-        run: npm run build
+        run: pnpm build
 
       # 👇 Checks if the branch is not main and runs Chromatic
       - name: Publish to Chromatic
@@ -38,6 +35,7 @@ jobs:
         # Required options for the Chromatic GitHub Action
         with:
           workingDir: storybook
+          buildScriptName: build
           token: ${{ secrets.GITHUB_TOKEN }}
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
 
@@ -48,6 +46,7 @@ jobs:
         # Required options for the Chromatic GitHub Action
         with:
           workingDir: storybook
+          buildScriptName: build
           token: ${{ secrets.GITHUB_TOKEN }}
           projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
           autoAcceptChanges: true # 👈 Option to accept all changes

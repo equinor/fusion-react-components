@@ -13,6 +13,8 @@ export {
   SearchableDropdownResolver,
 } from '@equinor/fusion-wc-searchable-dropdown';
 
+export { IconType } from '@equinor/fusion-wc-icon';
+
 type ElementAttributes = Partial<Pick<SearchableDropdownElement, keyof SearchableDropdownProps>>;
 
 export type SearchableDropdownSelectEvent = BaseSyntheticEvent<HTMLSearchableDropdownSelectEvent>;
@@ -29,7 +31,7 @@ export type DropdownProps = ComponentProps<SearchableDropdownElement, ElementPro
 export const Dropdown = createComponent<SearchableDropdownElement, ElementProps>(
   SearchableDropdownElement,
   'fwc-searchable-dropdown',
-  { events: { onSelect: 'select', onDropdownClosed: 'dropdownClosed' } }
+  { events: { onSelect: 'select', onDropdownClosed: 'dropdownClosed' } },
 );
 
 export default Dropdown;

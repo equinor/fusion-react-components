@@ -1,12 +1,16 @@
-import { useCallback, useMemo, useRef } from 'react';
+import { InputHTMLAttributes, useCallback, useMemo, useRef } from 'react';
 
-import { useSubscription } from '@equinor/fusion-react-observable';
+import { useObservableSelector } from '@equinor/fusion-observable/react';
 
-import { HTMLTextInputCustomElement, TextInput, TextInputProps } from '@equinor/fusion-react-textinput';
+import { TextField, TextFieldProps, Icon } from '@equinor/eds-core-react';
 
 import { useFilter, useFilterSelection } from '../../../hooks';
 
 import type { Filter, FilterFn } from '../../../types';
+
+import { search } from '@equinor/eds-icons';
+
+Icon.add({ search });
 
 const defaultMatcher = <TData,>(data: TData[], query: string): TData[] => {
   /** early escape, no filter */
@@ -15,11 +19,11 @@ const defaultMatcher = <TData,>(data: TData[], query: string): TData[] => {
   return data.filter((x) => !!JSON.stringify(Object.values(x ?? {})).match(matcher));
 };
 
-export type SearchFilterProps<TData> = Omit<TextInputProps, 'onInput' | 'ref'> & {
+export type SearchFilterProps<TData> = Omit<TextFieldProps, 'onInput' | 'ref'| 'id'> & {
   /** identifier for filter */
-  filterKey: string;
+  readonly filterKey: string;
   /** function for filtering by provided query */
-  filterFn?: FilterFn<TData, string>;
+  readonly filterFn?: FilterFn<TData, string>;
 };
 
 /**
@@ -37,25 +41,25 @@ export const SearchFilter = <TData,>(props: SearchFilterProps<TData>): JSX.Eleme
       key: filterKey,
       filterFn: filterFn || defaultMatcher,
     }),
-    [filterKey, filterFn]
+    [filterKey, filterFn],
   );
 
   /** register filter in the filter context */
   const setSelection = useFilter(filter);
 
   /** create a reference to the text input */
-  const inputRef = useRef<HTMLTextInputCustomElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   /** update search selection when input value changes */
-  const onInput = useCallback(
-    (e: React.FormEvent<HTMLTextInputCustomElement>) => {
+  const onInput: React.ChangeEventHandler<HTMLInputElement> = useCallback(
+    (e: React.FormEvent<HTMLInputElement>) => {
       setSelection(e.currentTarget.value);
     },
-    [setSelection]
+    [setSelection],
   );
 
   /** subscribe to changes in the filter selection */
-  useSubscription(
+  useObservableSelector(
     /** create an observable selection for filter  */
     useFilterSelection<string>(props.filterKey),
     /** update value of text input when selection changes */
@@ -63,10 +67,19 @@ export const SearchFilter = <TData,>(props: SearchFilterProps<TData>): JSX.Eleme
       if (inputRef.current) {
         inputRef.current.value = query || '';
       }
-    }, [])
+    }, []),
   );
 
-  return <TextInput ref={inputRef} onInput={onInput} type="search" variant="outlined" icon="search" {...args} />;
+  return (
+    <TextField
+      id={filterKey}
+      ref={inputRef}
+      onInput={onInput}
+      type="search"
+      inputIcon={<Icon name="search" />}
+      {...(args as Omit<InputHTMLAttributes<HTMLInputElement>, 'id'>)}
+    />
+  );
 };
 
 export default SearchFilter;

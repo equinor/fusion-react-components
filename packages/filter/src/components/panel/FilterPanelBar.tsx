@@ -29,11 +29,11 @@ const useStyles = makeStyles(
         },
       },
     }),
-  { name: 'fusion-filter-panel-bar' }
+  { name: 'fusion-filter-panel-bar' },
 );
 
 type FilterPanelBarProps<TData> = JSX.IntrinsicElements['div'] & {
-  searchFn?: FilterFn<TData, string>;
+  readonly searchFn?: FilterFn<TData, string>;
 };
 
 export const FilterPanelBar = <TData,>(props: FilterPanelBarProps<TData>): JSX.Element => {
@@ -42,7 +42,7 @@ export const FilterPanelBar = <TData,>(props: FilterPanelBarProps<TData>): JSX.E
   const styles = useStyles();
   return (
     <div {...args} className={clsx(className, styles.root)}>
-      <SearchFilter filterKey="global" label="Search all" className={styles.searchInput} dense filterFn={searchFn} />
+      <SearchFilter filterKey="global" label="Search all" className={styles.searchInput} filterFn={searchFn} />
       <div className={styles.actions}>
         <ClearFilterButton className={styles.resetBtn} label="Reset Filters" icon="refresh" variant="ghost" />
         <Button

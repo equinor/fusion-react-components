@@ -36,5 +36,5 @@ export const createSelectionReducer = <TSelections extends Record<string, unknow
 export const createDataReducer = <TData>(initial: TData) =>
   createReducer<TData, ActionType<typeof actions.source>>(initial).handleAction(
     actions.source.update,
-    (_, action) => action.payload as TData
+    (_, action) => action.payload as TData,
   );

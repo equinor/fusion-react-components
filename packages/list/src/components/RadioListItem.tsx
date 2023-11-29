@@ -23,7 +23,7 @@ type ElementProps = React.PropsWithChildren<
 
 export const RadioListItem = createComponent<HTMLRadioListItemCustomElement, ElementProps>(
   HTMLRadioListItemCustomElement,
-  tag
+  tag,
 );
 export type RadioListItemProps = ComponentProps<HTMLRadioListItemCustomElement, ElementProps>;
 

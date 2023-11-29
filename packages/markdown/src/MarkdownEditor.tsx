@@ -11,6 +11,7 @@ export type MarkdownEditorProps = ComponentProps<HTMLMarkdownEditorCustomElement
 export const MarkdownEditor = createComponent<HTMLMarkdownEditorCustomElement, ElementProps>(
   HTMLMarkdownEditorCustomElement,
   MarkdownEditorTag,
+  { events: { onInput: 'markdownEvent' } },
 );
 
 export { HTMLMarkdownEditorCustomElement, MenuSizes };

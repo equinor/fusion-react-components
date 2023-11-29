@@ -23,7 +23,7 @@ type ElementProps = React.PropsWithChildren<
 
 export const CheckListItem = createComponent<HTMLCheckListItemCustomElement, ElementProps>(
   HTMLCheckListItemCustomElement,
-  tag
+  tag,
 );
 
 export type CheckListItemProps = ComponentProps<HTMLCheckListItemCustomElement, ElementProps>;

@@ -1,0 +1,46 @@
+{
+  "name": "@equinor/fusion-react-stepper",
+  "version": "0.4.0",
+  "description": "Component for displaying and using stepps in stepper",
+  "keywords": [
+    "stepper",
+    "stepp",
+    "react",
+    "fusion",
+    "equinor"
+  ],
+  "homepage": "https://github.com/equinor/fusion-react-components/tree/master/packages/stepper#readme",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "directories": {
+    "dist": "dist"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/equinor/fusion-react-components.git"
+  },
+  "scripts": {
+    "build": "tsc -b",
+    "lint": "eslint --ext .ts,.tsx,.js src/",
+    "lint:fix": "eslint --ext .ts,.tsx,.js src/ --fix",
+    "prepack": "npm run build"
+  },
+  "bugs": {
+    "url": "https://github.com/equinor/fusion-react-components/issues"
+  },
+  "dependencies": {
+    "@equinor/eds-core-react": "^0.32.4",
+    "@equinor/eds-icons": "^0.19.3",
+    "@equinor/fusion-react-styles": "^0.6.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.24",
+    "react": "^18.2.0"
+  }
+}
