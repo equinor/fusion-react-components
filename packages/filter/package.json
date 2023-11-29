@@ -42,7 +42,6 @@
   },
   "dependencies": {
     "@equinor/fusion-react-button": "^0.9.0",
-    "@equinor/fusion-react-radio": "^0.6.0",
     "@equinor/fusion-react-styles": "^0.6.0",
     "@equinor/fusion-react-utils": "^2.1.0",
     "@equinor/fusion-wc-chip": "^1.1.0",
@@ -50,9 +49,9 @@
     "typesafe-actions": "^5.1.0"
   },
   "devDependencies": {
-    "@equinor/fusion-observable": "^8.1.2",
     "@equinor/eds-core-react": "^0.34.0",
     "@equinor/eds-icons": "^0.19.3",
+    "@equinor/fusion-observable": "^8.1.2",
     "@types/react": "^18.2.24",
     "react": "^18.2.0"
   },
