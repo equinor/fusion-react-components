@@ -2,6 +2,8 @@ import { useMemo } from 'react';
 import { useObservableState } from '@equinor/fusion-observable/react';
 import { useFilterPanelContext } from './FilterPanelProvider';
 
+import { EdsProvider } from '@equinor/eds-core-react';
+
 import { map } from 'rxjs/operators';
 import { FilterContainer } from '../misc';
 
@@ -25,10 +27,12 @@ export const FilterPanelFilters = (props: FilterPanelFiltersProps): JSX.Element 
     ),
   );
   return (
-    <div {...args} style={{ display: showFilters ? '' : 'none' }}>
-      {FilterSelector && <FilterSelector />}
-      <FilterContainer>{filters}</FilterContainer>
-    </div>
+    <EdsProvider density="compact">
+      <div {...args} style={{ display: showFilters ? '' : 'none' }}>
+        {FilterSelector && <FilterSelector />}
+        <FilterContainer>{filters}</FilterContainer>
+      </div>
+    </EdsProvider>
   );
 };
 

@@ -223,24 +223,15 @@ importers:
 
   packages/filter:
     dependencies:
-      '@equinor/fusion-observable':
-        specifier: ^8.1.2
-        version: 8.1.2(@types/react@18.2.24)(react@18.2.0)
       '@equinor/fusion-react-button':
         specifier: ^0.9.0
         version: link:../button
-      '@equinor/fusion-react-icon':
-        specifier: ^0.3.0
-        version: link:../icon
       '@equinor/fusion-react-radio':
         specifier: ^0.5.0
         version: link:../radio
       '@equinor/fusion-react-styles':
         specifier: ^0.6.0
         version: link:../styles
-      '@equinor/fusion-react-textinput':
-        specifier: ^0.8.0
-        version: link:../textinput
       '@equinor/fusion-react-utils':
         specifier: ^2.1.0
         version: link:../utils
@@ -257,6 +248,12 @@ importers:
       '@equinor/eds-core-react':
         specifier: ^0.34.0
         version: 0.34.0(react-dom@18.2.0)(react@18.2.0)(styled-components@6.1.0)
+      '@equinor/eds-icons':
+        specifier: ^0.19.3
+        version: 0.19.3
+      '@equinor/fusion-observable':
+        specifier: ^8.1.2
+        version: 8.1.2(@types/react@18.2.24)(react@18.2.0)
       '@types/react':
         specifier: ^18.2.24
         version: 18.2.24
@@ -598,22 +595,6 @@ importers:
         specifier: ^18.2.0
         version: 18.2.0
 
-  packages/textinput:
-    dependencies:
-      '@equinor/fusion-react-utils':
-        specifier: ^2.1.0
-        version: link:../utils
-      '@equinor/fusion-wc-textinput':
-        specifier: ^1.1.0
-        version: 1.1.0
-    devDependencies:
-      '@types/react':
-        specifier: ^18.2.24
-        version: 18.2.24
-      react:
-        specifier: ^18.2.0
-        version: 18.2.0
-
   packages/utils:
     dependencies:
       date-fns:
@@ -716,9 +697,6 @@ importers:
       '@equinor/fusion-react-textarea':
         specifier: workspace:^
         version: link:../packages/textarea
-      '@equinor/fusion-react-textinput':
-        specifier: workspace:^
-        version: link:../packages/textinput
       '@equinor/fusion-wc-theme':
         specifier: ^1.0.0
         version: 1.0.0
@@ -3291,7 +3269,7 @@ packages:
       react: 18.2.0
       rxjs: 7.8.1
       uuid: 8.3.2
-    dev: false
+    dev: true
 
   /@equinor/fusion-observable@8.1.2(react@17.0.2):
     resolution: {integrity: sha512-pzfr80y+vXijX5hZZK6uQHp/8GcA9PD8ZLWL7PBptD70Rdlig9bMVaIb61e/TNexG6KDCOoynuX2rx1BcxU9QA==}
@@ -14051,6 +14029,7 @@ packages:
 
   /immer@9.0.21:
     resolution: {integrity: sha512-bc4NBHqOqSfRW7POMkHd51LvClaeMXpm8dx0e8oE2GORbq5aRK7Bxl4FyzVLdGtLmvLKL7BTDBG5ACQm4HWjTA==}
+    dev: true
 
   /immutable@4.3.4:
     resolution: {integrity: sha512-fsXeu4J4i6WNWSikpI88v/PcVflZz+6kMhUfIwc5SY+poQRPnaf5V7qds6SUyUN3cVxEzuCab7QIoLOQ+DQ1wA==}
@@ -21518,6 +21497,7 @@ packages:
     resolution: {integrity: sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg==}
     hasBin: true
     requiresBuild: true
+    dev: true
 
   /uuid@9.0.1:
     resolution: {integrity: sha512-b+1eJOlsR9K8HJpow9Ok3fiWOWSIcIzXodvv0rQjVoOVNpWMpxf1wZNpt4y9h10odCNrqnYp1OBzRktckBe3sA==}
