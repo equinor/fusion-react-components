@@ -457,22 +457,6 @@ importers:
         specifier: ^18.2.0
         version: 18.2.0
 
-  packages/select:
-    dependencies:
-      '@equinor/fusion-react-utils':
-        specifier: ^2.1.0
-        version: link:../utils
-      '@equinor/fusion-wc-select':
-        specifier: ^1.0.2
-        version: 1.0.2
-    devDependencies:
-      '@types/react':
-        specifier: ^18.2.24
-        version: 18.2.24
-      react:
-        specifier: ^18.2.0
-        version: 18.2.0
-
   packages/side-sheet:
     dependencies:
       re-resizable:
@@ -733,9 +717,6 @@ importers:
       '@equinor/fusion-react-searchable-dropdown':
         specifier: workspace:^
         version: link:../packages/searchable-dropdown
-      '@equinor/fusion-react-select':
-        specifier: workspace:^
-        version: link:../packages/select
       '@equinor/fusion-react-side-sheet':
         specifier: workspace:^
         version: link:../packages/side-sheet
@@ -3676,16 +3657,6 @@ packages:
       uuid: 9.0.1
     dev: false
 
-  /@equinor/fusion-wc-select@1.0.2:
-    resolution: {integrity: sha512-Vu3SwAqk5E9Mn7h24TYRsi9i7HfeTF5Aeq8WRtJD+50Twzw150yqMgjc4JPJR4Ez5dB6w518aK/QwWrq0falPw==}
-    dependencies:
-      '@equinor/fusion-wc-core': 2.0.0
-      '@equinor/fusion-wc-menu': 1.0.2
-      '@equinor/fusion-web-theme': 0.1.7
-      '@material/mwc-select': 0.27.0
-      lit: 2.7.0
-    dev: false
-
   /@equinor/fusion-wc-skeleton@2.0.0:
     resolution: {integrity: sha512-qELLw/7yOAucMhc3MDYBfjJcvXOIi4OupsS7127sAFe/MjvY9IDRURQYERCebyOIUFyLX40XOs8mXfIKRh3tsA==}
     dependencies:
@@ -4578,25 +4549,6 @@ packages:
       lit: 2.7.0
       tslib: 2.6.2
 
-  /@material/mwc-select@0.27.0:
-    resolution: {integrity: sha512-LTr2nl7gAYq8ung4eWfUz24mey4/K9vAlqJBo/uu6w0122C9X64szBS9kHAb87aD1oxLkxAJCDuv/wwlXV1i2w==}
-    dependencies:
-      '@material/dom': 14.0.0-canary.53b3cad2f.0
-      '@material/floating-label': 14.0.0-canary.53b3cad2f.0
-      '@material/line-ripple': 14.0.0-canary.53b3cad2f.0
-      '@material/list': 14.0.0-canary.53b3cad2f.0
-      '@material/mwc-base': 0.27.0
-      '@material/mwc-floating-label': 0.27.0
-      '@material/mwc-icon': 0.27.0
-      '@material/mwc-line-ripple': 0.27.0
-      '@material/mwc-list': 0.27.0
-      '@material/mwc-menu': 0.27.0
-      '@material/mwc-notched-outline': 0.27.0
-      '@material/select': 14.0.0-canary.53b3cad2f.0
-      lit: 2.7.0
-      tslib: 2.6.2
-    dev: false
-
   /@material/mwc-switch@0.27.0:
     resolution: {integrity: sha512-MKKjm42f8YyHN1HmvfgppgTPJUxulcmOqND5R7zI/kB38vFcWDxEhnpdUYr2kEsFtebpYNSF0j6FXcKV/W+fJw==}
     dependencies:
@@ -4673,30 +4625,6 @@ packages:
     dependencies:
       '@material/theme': 14.0.0-canary.53b3cad2f.0
       tslib: 2.6.2
-
-  /@material/select@14.0.0-canary.53b3cad2f.0:
-    resolution: {integrity: sha512-fAiTaHZ1PIEmCUbufS+IZvsWO0hDxtbU8rOsbmSu1oupAboP7jSgOVgcCGdT9KY5WacrniIIMO6jZjhnvrC0Lg==}
-    dependencies:
-      '@material/animation': 14.0.0-canary.53b3cad2f.0
-      '@material/base': 14.0.0-canary.53b3cad2f.0
-      '@material/density': 14.0.0-canary.53b3cad2f.0
-      '@material/dom': 14.0.0-canary.53b3cad2f.0
-      '@material/elevation': 14.0.0-canary.53b3cad2f.0
-      '@material/feature-targeting': 14.0.0-canary.53b3cad2f.0
-      '@material/floating-label': 14.0.0-canary.53b3cad2f.0
-      '@material/line-ripple': 14.0.0-canary.53b3cad2f.0
-      '@material/list': 14.0.0-canary.53b3cad2f.0
-      '@material/menu': 14.0.0-canary.53b3cad2f.0
-      '@material/menu-surface': 14.0.0-canary.53b3cad2f.0
-      '@material/notched-outline': 14.0.0-canary.53b3cad2f.0
-      '@material/ripple': 14.0.0-canary.53b3cad2f.0
-      '@material/rtl': 14.0.0-canary.53b3cad2f.0
-      '@material/shape': 14.0.0-canary.53b3cad2f.0
-      '@material/theme': 14.0.0-canary.53b3cad2f.0
-      '@material/tokens': 14.0.0-canary.53b3cad2f.0
-      '@material/typography': 14.0.0-canary.53b3cad2f.0
-      tslib: 2.6.2
-    dev: false
 
   /@material/shape@14.0.0-canary.53b3cad2f.0:
     resolution: {integrity: sha512-RyjInLCNe+nI/ulKea0ZLHphXQDiDqYazS25SRn18g8Hoa5qGNaY5oOBncDXUYn3jm5oI5kFc9oif//kulkbjg==}
