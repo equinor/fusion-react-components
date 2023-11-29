@@ -1,5 +1,12 @@
 # Change Log
 
+## 2.19.2
+
+### Patch Changes
+
+- Updated dependencies [974e5315]
+  - @equinor/fusion-react-table@0.7.0
+
 ## 2.19.1
 
 ### Patch Changes

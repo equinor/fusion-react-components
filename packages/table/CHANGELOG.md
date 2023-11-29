@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.7.0
+
+### Minor Changes
+
+- 974e5315: deprecate `@equinor/fusion-react-table`
+
 ## 0.6.1
 
 ### Patch Changes
