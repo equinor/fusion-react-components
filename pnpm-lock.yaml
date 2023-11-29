@@ -551,25 +551,6 @@ importers:
         specifier: ^18.2.0
         version: 18.2.0
 
-  packages/switch:
-    dependencies:
-      '@equinor/fusion-react-utils':
-        specifier: ^2.1.0
-        version: link:../utils
-      '@equinor/fusion-wc-formfield':
-        specifier: ^1.1.0
-        version: 1.1.0
-      '@equinor/fusion-wc-switch':
-        specifier: ^1.1.0
-        version: 1.1.0
-    devDependencies:
-      '@types/react':
-        specifier: ^18.2.24
-        version: 18.2.24
-      react:
-        specifier: ^18.2.0
-        version: 18.2.0
-
   packages/table:
     dependencies:
       '@equinor/fusion-react-button':
@@ -729,9 +710,6 @@ importers:
       '@equinor/fusion-react-styles':
         specifier: workspace:^
         version: link:../packages/styles
-      '@equinor/fusion-react-switch':
-        specifier: workspace:^
-        version: link:../packages/switch
       '@equinor/fusion-react-table':
         specifier: workspace:^
         version: link:../packages/table
@@ -3673,15 +3651,6 @@ packages:
       lit: 3.0.2
     dev: false
 
-  /@equinor/fusion-wc-switch@1.1.0:
-    resolution: {integrity: sha512-L+bDYnHewJDhXP26XN7X3+AD5Zj+OBuZmGwDmflaMwC4Ag6smiTM0jhiVVGjpQwcShVvGcm2P8dBHvnsiMLr7w==}
-    dependencies:
-      '@equinor/fusion-wc-core': 2.0.0
-      '@equinor/fusion-web-theme': 0.1.7
-      '@material/mwc-switch': 0.27.0
-      lit: 3.0.2
-    dev: false
-
   /@equinor/fusion-wc-textarea@1.1.0:
     resolution: {integrity: sha512-0q6H6ynWuoOK0WOi4oi7Z37cCgPqOW+ZZgqfjzWmKUjKIlksdegY+yKA8JlkBQkZYaYyc0VbhD7HekRkXtZBHg==}
     dependencies:
@@ -4549,16 +4518,6 @@ packages:
       lit: 2.7.0
       tslib: 2.6.2
 
-  /@material/mwc-switch@0.27.0:
-    resolution: {integrity: sha512-MKKjm42f8YyHN1HmvfgppgTPJUxulcmOqND5R7zI/kB38vFcWDxEhnpdUYr2kEsFtebpYNSF0j6FXcKV/W+fJw==}
-    dependencies:
-      '@material/mwc-base': 0.27.0
-      '@material/mwc-ripple': 0.27.0
-      '@material/switch': 14.0.0-canary.53b3cad2f.0
-      lit: 2.7.0
-      tslib: 2.6.2
-    dev: false
-
   /@material/mwc-textarea@0.27.0:
     resolution: {integrity: sha512-4srpZ+//Ce0A+OZ3NVjv/YIDDxnpStmpZwTGICMCGsQzQqHyGDX17NhL5mGP8xGguma/ZIgcY6gm7+UQWaTx4g==}
     dependencies:
@@ -4632,24 +4591,6 @@ packages:
       '@material/feature-targeting': 14.0.0-canary.53b3cad2f.0
       '@material/rtl': 14.0.0-canary.53b3cad2f.0
       '@material/theme': 14.0.0-canary.53b3cad2f.0
-      tslib: 2.6.2
-    dev: false
-
-  /@material/switch@14.0.0-canary.53b3cad2f.0:
-    resolution: {integrity: sha512-hL7lOF8tgYaS1Spce6zlxfveoqUlqDTW+vv+R7TIHwzLD5HJCdhTiotXshOKCZLoSi7Ljx7JpCdvNqGlv4rpIw==}
-    dependencies:
-      '@material/animation': 14.0.0-canary.53b3cad2f.0
-      '@material/base': 14.0.0-canary.53b3cad2f.0
-      '@material/density': 14.0.0-canary.53b3cad2f.0
-      '@material/dom': 14.0.0-canary.53b3cad2f.0
-      '@material/elevation': 14.0.0-canary.53b3cad2f.0
-      '@material/feature-targeting': 14.0.0-canary.53b3cad2f.0
-      '@material/focus-ring': 14.0.0-canary.53b3cad2f.0
-      '@material/ripple': 14.0.0-canary.53b3cad2f.0
-      '@material/rtl': 14.0.0-canary.53b3cad2f.0
-      '@material/shape': 14.0.0-canary.53b3cad2f.0
-      '@material/theme': 14.0.0-canary.53b3cad2f.0
-      '@material/tokens': 14.0.0-canary.53b3cad2f.0
       tslib: 2.6.2
     dev: false
 
