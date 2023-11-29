@@ -1,12 +1,16 @@
-import { useCallback, useMemo, useRef } from 'react';
+import { InputHTMLAttributes, useCallback, useMemo, useRef } from 'react';
 
 import { useObservableSelector } from '@equinor/fusion-observable/react';
 
-import { HTMLTextInputCustomElement, TextInput, TextInputProps } from '@equinor/fusion-react-textinput';
+import { TextField, TextFieldProps, Icon } from '@equinor/eds-core-react';
 
 import { useFilter, useFilterSelection } from '../../../hooks';
 
 import type { Filter, FilterFn } from '../../../types';
+
+import { search } from '@equinor/eds-icons';
+
+Icon.add({ search });
 
 const defaultMatcher = <TData,>(data: TData[], query: string): TData[] => {
   /** early escape, no filter */
@@ -15,7 +19,7 @@ const defaultMatcher = <TData,>(data: TData[], query: string): TData[] => {
   return data.filter((x) => !!JSON.stringify(Object.values(x ?? {})).match(matcher));
 };
 
-export type SearchFilterProps<TData> = Omit<TextInputProps, 'onInput' | 'ref'> & {
+export type SearchFilterProps<TData> = Omit<TextFieldProps, 'onInput' | 'ref'| 'id'> & {
   /** identifier for filter */
   readonly filterKey: string;
   /** function for filtering by provided query */
@@ -44,11 +48,11 @@ export const SearchFilter = <TData,>(props: SearchFilterProps<TData>): JSX.Eleme
   const setSelection = useFilter(filter);
 
   /** create a reference to the text input */
-  const inputRef = useRef<HTMLTextInputCustomElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   /** update search selection when input value changes */
-  const onInput = useCallback(
-    (e: React.FormEvent<HTMLTextInputCustomElement>) => {
+  const onInput: React.ChangeEventHandler<HTMLInputElement> = useCallback(
+    (e: React.FormEvent<HTMLInputElement>) => {
       setSelection(e.currentTarget.value);
     },
     [setSelection],
@@ -66,7 +70,16 @@ export const SearchFilter = <TData,>(props: SearchFilterProps<TData>): JSX.Eleme
     }, []),
   );
 
-  return <TextInput ref={inputRef} onInput={onInput} type="search" variant="outlined" icon="search" {...args} />;
+  return (
+    <TextField
+      id={filterKey}
+      ref={inputRef}
+      onInput={onInput}
+      type="search"
+      inputIcon={<Icon name="search" />}
+      {...(args as Omit<InputHTMLAttributes<HTMLInputElement>, 'id'>)}
+    />
+  );
 };
 
 export default SearchFilter;

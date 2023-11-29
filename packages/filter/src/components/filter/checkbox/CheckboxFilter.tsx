@@ -10,7 +10,6 @@ import CheckboxFilterOptionAll from './CheckboxFilterOptionAll';
 import useStyles from './CheckboxFilter.style';
 import { CheckboxOption } from './types';
 import type { FilterFn } from '../../../types';
-import { EdsProvider } from '@equinor/eds-core-react';
 
 export type CheckboxFilterProps<TData extends Record<string, any> = Record<string, any>> = FilterComponent & {
   /** either name of property of data type or a function that selects value */
@@ -41,12 +40,10 @@ export const CheckboxFilter = <TData extends Record<string, any> = Record<string
     <CheckboxFilterProvider {...args}>
       <div className={styles.root}>
         <FilterOptionHeader title={args.title} />
-        <EdsProvider density="compact">
-          <div className={styles.items}>
-            {enableAll && <CheckboxFilterOptionAll />}
-            <CheckboxFilterOptions sortFn={sortFn} />
-          </div>
-        </EdsProvider>
+        <div className={styles.items}>
+          {enableAll && <CheckboxFilterOptionAll />}
+          <CheckboxFilterOptions sortFn={sortFn} />
+        </div>
       </div>
     </CheckboxFilterProvider>
   );
