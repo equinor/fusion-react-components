@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.6.0
+
+### Minor Changes
+
+- 82e8cb02: deprecated `@equinor/fusion-react-radio`
+
 ## 0.5.1
 
 ### Patch Changes

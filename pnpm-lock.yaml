@@ -227,7 +227,7 @@ importers:
         specifier: ^0.9.0
         version: link:../button
       '@equinor/fusion-react-radio':
-        specifier: ^0.5.0
+        specifier: ^0.6.0
         version: link:../radio
       '@equinor/fusion-react-styles':
         specifier: ^0.6.0
