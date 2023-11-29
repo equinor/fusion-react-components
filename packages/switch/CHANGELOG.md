@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.6.0
+
+### Minor Changes
+
+- 5395610f: deprecated
+
 ## 0.5.1
 
 ### Patch Changes

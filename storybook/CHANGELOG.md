@@ -1,5 +1,12 @@
 # Change Log
 
+## 2.18.3
+
+### Patch Changes
+
+- Updated dependencies [5395610f]
+  - @equinor/fusion-react-switch@0.6.0
+
 ## 2.18.2
 
 ### Patch Changes
