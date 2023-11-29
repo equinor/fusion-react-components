@@ -239,7 +239,7 @@ importers:
         specifier: ^0.6.0
         version: link:../styles
       '@equinor/fusion-react-textinput':
-        specifier: ^0.7.0
+        specifier: ^0.8.0
         version: link:../textinput
       '@equinor/fusion-react-utils':
         specifier: ^2.1.0

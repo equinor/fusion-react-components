@@ -1,5 +1,17 @@
 # Change Log
 
+## 2.19.0
+
+### Minor Changes
+
+- eb2def65: deprecated
+
+### Patch Changes
+
+- Updated dependencies [9fb0891c]
+  - @equinor/fusion-react-textinput@0.8.0
+  - @equinor/fusion-react-filter@1.7.1
+
 ## 2.18.3
 
 ### Patch Changes
