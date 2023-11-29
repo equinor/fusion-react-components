@@ -1,5 +1,12 @@
 # Change Log
 
+## 2.19.3
+
+### Patch Changes
+
+- Updated dependencies [f11bc7ad]
+  - @equinor/fusion-react-popover@0.3.0
+
 ## 2.19.2
 
 ### Patch Changes
