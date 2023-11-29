@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.3.0
+
+### Minor Changes
+
+- 8a503fcc: deprecate `@equinor/fusion-react-menu`
+
 ## 0.2.0
 
 ### Minor Changes
