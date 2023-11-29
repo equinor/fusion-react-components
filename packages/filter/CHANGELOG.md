@@ -1,5 +1,16 @@
 # Change Log
 
+## 1.8.0
+
+### Minor Changes
+
+- b0758ca7: replaced `@equinor/fusion-react-textinput` with EDS
+
+### Patch Changes
+
+- Updated dependencies [82e8cb02]
+  - @equinor/fusion-react-radio@0.6.0
+
 ## 1.7.1
 
 ### Patch Changes

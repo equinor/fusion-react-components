@@ -1,5 +1,14 @@
 # Change Log
 
+## 2.19.1
+
+### Patch Changes
+
+- Updated dependencies [82e8cb02]
+- Updated dependencies [b0758ca7]
+  - @equinor/fusion-react-radio@0.6.0
+  - @equinor/fusion-react-filter@1.8.0
+
 ## 2.19.0
 
 ### Minor Changes
