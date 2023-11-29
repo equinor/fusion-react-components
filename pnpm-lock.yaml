@@ -462,9 +462,6 @@ importers:
 
   packages/stepper:
     dependencies:
-      '@equinor/eds-core-react':
-        specifier: ^0.34.0
-        version: 0.34.0(react-dom@18.2.0)(react@18.2.0)(styled-components@6.1.0)
       '@equinor/eds-icons':
         specifier: ^0.19.3
         version: 0.19.3
@@ -472,6 +469,9 @@ importers:
         specifier: ^0.6.0
         version: link:../styles
     devDependencies:
+      '@equinor/eds-core-react':
+        specifier: ^0.34.0
+        version: 0.34.0(react-dom@18.2.0)(react@18.2.0)(styled-components@6.1.0)
       '@types/react':
         specifier: ^18.2.24
         version: 18.2.24
@@ -2784,6 +2784,7 @@ packages:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       styled-components: 6.1.0(react-dom@18.2.0)(react@18.2.0)
+    dev: true
 
   /@equinor/eds-icons@0.19.3:
     resolution: {integrity: sha512-Sh0W01PrwXPCi8/p9YKj0qKNtRU9R/xYJORinIzsNNRllpiu9wvuGAsQNE0gQaDDnrprsiRBH3+MdMSRXVs3Wg==}
@@ -2825,6 +2826,7 @@ packages:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       styled-components: 6.1.0(react-dom@18.2.0)(react@18.2.0)
+    dev: true
 
   /@equinor/eslint-config-fusion-react@2.0.2(@equinor/eslint-config-fusion@2.1.5)(eslint@8.50.0):
     resolution: {integrity: sha512-hDkZ5G3ybwLXC1dyt0rHU5gNoqUvWhe2Vsu/IRogpmj22+xjHg1kEiXso0dl72pR7JfzprF4PYQGC2C2n4B/8Q==}
@@ -3409,6 +3411,7 @@ packages:
       '@floating-ui/dom': 1.5.3
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
+    dev: true
 
   /@floating-ui/react@0.26.3(react-dom@17.0.2)(react@17.0.2):
     resolution: {integrity: sha512-iKH8WRR0L/nLiM6qavFZxkyegIZRMxGnM9aKEc71M4wRlUNkgTamjPsOQXy11oZbDOH37MiTbk/nAPn9M2+shA==}
@@ -3434,6 +3437,7 @@ packages:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       tabbable: 6.2.0
+    dev: true
 
   /@floating-ui/utils@0.1.6:
     resolution: {integrity: sha512-OfX7E2oUDYxtBvsuS4e/jSn4Q9Qb6DzgeYtsAdkPZ47znpoNsMgZw0+tVijiv3uGNR6dgNlty6r9rzIzHjtd/A==}
@@ -6619,6 +6623,7 @@ packages:
     dependencies:
       '@tanstack/virtual-core': 3.0.0-beta.54
       react: 18.2.0
+    dev: true
 
   /@tanstack/virtual-core@3.0.0-beta.54:
     resolution: {integrity: sha512-jtkwqdP2rY2iCCDVAFuaNBH3fiEi29aTn2RhtIoky8DTTiCdc48plpHHreLwmv1PICJ4AJUUESaq3xa8fZH8+g==}
@@ -6898,6 +6903,7 @@ packages:
 
   /@types/stylis@4.2.2:
     resolution: {integrity: sha512-Rm17MsTpQQP5Jq4BF7CdrxJsDufoiL/q5IbJZYZmOZAJALyijgF7BzLgobXUqraNcQdqFYLYGeglDp6QzaxPpg==}
+    dev: true
 
   /@types/tapable@1.0.9:
     resolution: {integrity: sha512-fOHIwZua0sRltqWzODGUM6b4ffZrf/vzGUmNXdR+4DzuJP42PMbM5dLKcdzlYvv8bMJ3GALOzkk1q7cDm2zPyA==}
@@ -10482,6 +10488,7 @@ packages:
       react: 18.2.0
       react-is: 18.2.0
       tslib: 2.6.2
+    dev: true
 
   /duplexer3@0.1.5:
     resolution: {integrity: sha512-1A8za6ws41LQgv9HrE/66jyC5yuSjQ3L/KOpFtoBilsAK2iA2wuS5rTt1OCzIvtS2V7nVmedsUU+DGRcjBmOYA==}
@@ -19627,6 +19634,7 @@ packages:
       shallowequal: 1.1.0
       stylis: 4.3.0
       tslib: 2.6.2
+    dev: true
 
   /stylis@4.2.0:
     resolution: {integrity: sha512-Orov6g6BB1sDfYgzWfTHDOxamtX1bE/zo104Dh9e6fqJ3PooipYyfJ0pUmrZO2wAvO8YbEyeFrkV91XTsGMSrw==}
@@ -19634,6 +19642,7 @@ packages:
 
   /stylis@4.3.0:
     resolution: {integrity: sha512-E87pIogpwUsUwXw7dNyU4QDjdgVMy52m+XEOPEKUn161cCzWjjhPSQhByfd1CcNvrOLnXQ6OnnZDwnJrz/Z4YQ==}
+    dev: true
 
   /supports-color@5.5.0:
     resolution: {integrity: sha512-QjVjwdXIt408MIiAqCX4oUKsgU2EqAGzs2Ppkm4aQYbjm+ZEWEcW4SfFNTr4uMNZma0ey4f5lgLrkB0aX0QMow==}
