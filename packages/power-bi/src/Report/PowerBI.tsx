@@ -7,12 +7,12 @@ import { ApiClient } from '../types';
 import { useBookmarkWithConfig } from './components/hooks/useBookmarkWithConfig';
 
 export type PowerBIProps = {
-  reportId: string;
-  hasContext?: boolean;
-  reloadOnContextChange?: boolean;
-  contextRef?: MutableRefObject<PowerBIReportContext>;
-  config?: PowerBIComponentConfig;
-  apiClient: ApiClient;
+  readonly reportId: string;
+  readonly hasContext?: boolean;
+  readonly reloadOnContextChange?: boolean;
+  readonly contextRef?: MutableRefObject<PowerBIReportContext>;
+  readonly config?: PowerBIComponentConfig;
+  readonly apiClient: ApiClient;
 };
 
 export const PowerBI: FunctionComponent<PowerBIProps> = ({

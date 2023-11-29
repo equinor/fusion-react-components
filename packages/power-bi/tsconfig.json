@@ -9,7 +9,6 @@
   "references": [
     { "path": "../errorboundary" },
     { "path": "../utils" },
-    { "path": "../styles" },
-    { "path": "../progress-indicator" }
+    { "path": "../styles" }
   ]
 }

@@ -1,4 +1,4 @@
-import { useContext, PropsWithChildren, FC } from 'react';
+import { useContext } from 'react';
 
 import { ErrorBoundary } from '@equinor/fusion-react-errorboundary';
 
@@ -11,13 +11,15 @@ import { processActionError } from './process-action-error';
 import PowerBIReportInfo from '../../../ReportInfo';
 import processReportInfoError from './process-reportInfo-error';
 
-type PowerBIReportErrorBoundryProps = PropsWithChildren<unknown>;
+type PowerBIReportErrorBoundryProps = {
+  children: React.ReactNode;
+};
 
 // TODO: move me
 const compareArray = (a: ApiError[], b: ApiError[]): boolean =>
   a.length === b.length && a.every((value, index) => value.action === b[index].action);
 
-export const PowerBIReportErrorBoundary: FC = (props: PowerBIReportErrorBoundryProps) => {
+export const PowerBIReportErrorBoundary = (_props: PowerBIReportErrorBoundryProps): JSX.Element => {
   const { store } = useContext(context);
 
   const id = useSelector(store, 'id');
@@ -33,7 +35,7 @@ export const PowerBIReportErrorBoundary: FC = (props: PowerBIReportErrorBoundryP
     return <ErrorBoundary hasError={true} title={title} message={message} errorType={type} />;
   }
 
-  return <>{props.children}</>;
+  return <>props.children</>;
 };
 
 export default PowerBIReportErrorBoundary;
