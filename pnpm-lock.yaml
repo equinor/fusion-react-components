@@ -226,9 +226,6 @@ importers:
       '@equinor/fusion-react-button':
         specifier: ^0.9.0
         version: link:../button
-      '@equinor/fusion-react-radio':
-        specifier: ^0.6.0
-        version: link:../radio
       '@equinor/fusion-react-styles':
         specifier: ^0.6.0
         version: link:../styles
@@ -392,25 +389,6 @@ importers:
       react-popper:
         specifier: ^2.2.5
         version: 2.3.0(@popperjs/core@2.11.8)(react-dom@18.2.0)(react@18.2.0)
-    devDependencies:
-      '@types/react':
-        specifier: ^18.2.24
-        version: 18.2.24
-      react:
-        specifier: ^18.2.0
-        version: 18.2.0
-
-  packages/radio:
-    dependencies:
-      '@equinor/fusion-react-utils':
-        specifier: ^2.1.0
-        version: link:../utils
-      '@equinor/fusion-wc-formfield':
-        specifier: ^1.1.0
-        version: 1.1.0
-      '@equinor/fusion-wc-radio':
-        specifier: ^1.1.0
-        version: 1.1.0
     devDependencies:
       '@types/react':
         specifier: ^18.2.24
@@ -670,9 +648,6 @@ importers:
       '@equinor/fusion-react-popover':
         specifier: workspace:^
         version: link:../packages/popover
-      '@equinor/fusion-react-radio':
-        specifier: workspace:^
-        version: link:../packages/radio
       '@equinor/fusion-react-ripple':
         specifier: workspace:^
         version: link:../packages/ripple
@@ -3403,15 +3378,6 @@ packages:
       lit: 3.0.2
     dev: false
 
-  /@equinor/fusion-wc-formfield@1.1.0:
-    resolution: {integrity: sha512-6zkzqvVAwI8wYcChnepagQaC/HAGnRCmNipbmHV5nvtK2ArXJyKNuxCaM+y+D+dd770F9XsF/rRzM4R2g2WkXw==}
-    dependencies:
-      '@equinor/fusion-wc-core': 2.0.0
-      '@equinor/fusion-web-theme': 0.1.7
-      '@material/mwc-formfield': 0.27.0
-      lit: 3.0.2
-    dev: false
-
   /@equinor/fusion-wc-icon@2.1.0:
     resolution: {integrity: sha512-g2Ov2LzoMOTW9aQHSsufm0wBdI61o5SHlNkp5DsKAD9BhtnKLt6AWAvatzNH4b7HYTy3IiNq1gKBOnk3BC7OEQ==}
     dependencies:
@@ -4300,18 +4266,6 @@ packages:
       '@material/rtl': 14.0.0-canary.53b3cad2f.0
     dev: false
 
-  /@material/form-field@14.0.0-canary.53b3cad2f.0:
-    resolution: {integrity: sha512-h9jFm9f5WeMHJWGpQsZ9sPrERLGcDQdW8uvbHAHZ/zN35Mqj43s8+alXROiibx+m1oHLvf2Z01pPWtFSXLYzxA==}
-    dependencies:
-      '@material/base': 14.0.0-canary.53b3cad2f.0
-      '@material/feature-targeting': 14.0.0-canary.53b3cad2f.0
-      '@material/ripple': 14.0.0-canary.53b3cad2f.0
-      '@material/rtl': 14.0.0-canary.53b3cad2f.0
-      '@material/theme': 14.0.0-canary.53b3cad2f.0
-      '@material/typography': 14.0.0-canary.53b3cad2f.0
-      tslib: 2.6.2
-    dev: false
-
   /@material/line-ripple@14.0.0-canary.53b3cad2f.0:
     resolution: {integrity: sha512-k8f8uuDwnSqZZ98CzbYtQVtxlp1ryUup9nd2uobo3kiqQNlQfXdGkVjuCXcla0OPiKFizNn7dS6Kl/j6L09XUA==}
     dependencies:
@@ -4395,15 +4349,6 @@ packages:
     resolution: {integrity: sha512-uLleloTxQ6dDShcZzqgqfC8otQY8DtGMO9HFQbAEncoFAWpAehcEonsuT/IUhMORN+c5un0P5WXwcZsInJb7og==}
     dependencies:
       '@material/floating-label': 14.0.0-canary.53b3cad2f.0
-      lit: 2.7.0
-      tslib: 2.6.2
-    dev: false
-
-  /@material/mwc-formfield@0.27.0:
-    resolution: {integrity: sha512-XGZtC1MTyGQ8b2osnaygGzS3qe2QvlWfXZepcFs9i6MW+b6VimQQ4c/KsKIF7dHmeY6N0o4k9pAZ086EGesXOQ==}
-    dependencies:
-      '@material/form-field': 14.0.0-canary.53b3cad2f.0
-      '@material/mwc-base': 0.27.0
       lit: 2.7.0
       tslib: 2.6.2
     dev: false
