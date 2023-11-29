@@ -314,8 +314,8 @@ importers:
         specifier: ^1.0.2
         version: 1.0.2
       '@lit-labs/react':
-        specifier: ^1.0.1
-        version: 1.2.1
+        specifier: ^2.1.2
+        version: 2.1.2(@types/react@18.2.24)
     devDependencies:
       '@types/react':
         specifier: ^18.2.24
@@ -3673,8 +3673,12 @@ packages:
       '@lit/reactive-element': 2.0.2
     dev: false
 
-  /@lit-labs/react@1.2.1:
-    resolution: {integrity: sha512-DiZdJYFU0tBbdQkfwwRSwYyI/mcWkg3sWesKRsHUd4G+NekTmmeq9fzsurvcKTNVa0comNljwtg4Hvi1ds3V+A==}
+  /@lit-labs/react@2.1.2(@types/react@18.2.24):
+    resolution: {integrity: sha512-/Ej0zY/+OVHKRqk97sLSYpUknNq2XZh/GRPDBWi7pwLVumpH5r7b78JGPg0LA7z+qp8UZidndZbMtaGNCXvyqA==}
+    dependencies:
+      '@lit/react': 1.0.2(@types/react@18.2.24)
+    transitivePeerDependencies:
+      - '@types/react'
     dev: false
 
   /@lit-labs/ssr-dom-shim@1.1.2:
@@ -3690,6 +3694,14 @@ packages:
     resolution: {integrity: sha512-zMlcUtZeHDT83IiT2+CJBSoFvWDLnPEezhOCgqjxW4DmRHlbgd7jdft97T6dw4S4RvIETfI7OOyvubCV/EzTlg==}
     dependencies:
       '@lit/task': 1.0.0
+    dev: false
+
+  /@lit/react@1.0.2(@types/react@18.2.24):
+    resolution: {integrity: sha512-UJ5TQ46DPcJDIzyjbwbj6Iye0XcpCxL2yb03zcWq1BpWchpXS3Z0BPVhg7zDfZLF6JemPml8u/gt/+KwJ/23sg==}
+    peerDependencies:
+      '@types/react': 17 || 18
+    dependencies:
+      '@types/react': 18.2.24
     dev: false
 
   /@lit/reactive-element@1.6.3:
