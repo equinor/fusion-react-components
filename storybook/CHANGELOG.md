@@ -1,5 +1,16 @@
 # Change Log
 
+## 2.19.4
+
+### Patch Changes
+
+- cc41a1a9: build(deps): bump @equinor/eds-core-react from 0.30.0 to 0.34.0
+- Updated dependencies [cc41a1a9]
+- Updated dependencies [8a503fcc]
+  - @equinor/fusion-react-side-sheet@1.2.3
+  - @equinor/fusion-react-stepper@0.4.1
+  - @equinor/fusion-react-menu@0.3.0
+
 ## 2.19.3
 
 ### Patch Changes

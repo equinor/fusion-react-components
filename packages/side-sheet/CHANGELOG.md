@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.2.3
+
+### Patch Changes
+
+- cc41a1a9: build(deps): bump @equinor/eds-core-react from 0.30.0 to 0.34.0
+
 ## 1.2.2
 
 ### Patch Changes
