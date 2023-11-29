@@ -526,37 +526,6 @@ importers:
         specifier: ^18.2.0
         version: 18.2.0
 
-  packages/table:
-    dependencies:
-      '@equinor/fusion-react-button':
-        specifier: ^0.9.0
-        version: link:../button
-      '@equinor/fusion-react-styles':
-        specifier: ^0.6.0
-        version: link:../styles
-      '@equinor/fusion-wc-icon':
-        specifier: ^2.3.0
-        version: 2.3.0
-      '@equinor/fusion-wc-popover':
-        specifier: ^2.1.0
-        version: 2.1.0
-      '@types/react-table':
-        specifier: ^7.7.8
-        version: 7.7.16
-      react-table:
-        specifier: ^7.7.0
-        version: 7.8.0(react@18.2.0)
-    devDependencies:
-      '@types/react':
-        specifier: ^18.2.24
-        version: 18.2.24
-      react:
-        specifier: ^18.2.0
-        version: 18.2.0
-      typesafe-actions:
-        specifier: ^5.1.0
-        version: 5.1.0
-
   packages/textarea:
     dependencies:
       '@equinor/fusion-react-utils':
@@ -666,9 +635,6 @@ importers:
       '@equinor/fusion-react-styles':
         specifier: workspace:^
         version: link:../packages/styles
-      '@equinor/fusion-react-table':
-        specifier: workspace:^
-        version: link:../packages/table
       '@equinor/fusion-react-textarea':
         specifier: workspace:^
         version: link:../packages/textarea
@@ -3486,15 +3452,6 @@ packages:
     resolution: {integrity: sha512-3RQmbd0ZBJ4IBI93EP5e7P535qCG8BMKYkEAi67O9vKPOppzijtRenrdKQKHLAZ7jBtW7bRPTsW8dl6hyunjig==}
     dependencies:
       '@equinor/fusion-wc-core': 2.0.0
-      lit: 3.0.2
-    dev: false
-
-  /@equinor/fusion-wc-popover@2.1.0:
-    resolution: {integrity: sha512-bQkimS+nDa65bM5oWDag137Mq/5mJfwFjAxdSZgvwNa1C3qpLEGMje2aNooRp2zSR06fVC6UiQ1u7JXxtPHgDA==}
-    dependencies:
-      '@equinor/fusion-wc-core': 2.0.0
-      '@popperjs/core': 2.11.8
-      '@types/resize-observer-browser': 0.1.8
       lit: 3.0.2
     dev: false
 
@@ -7303,12 +7260,6 @@ packages:
     resolution: {integrity: sha512-u95svzDlTysU5xecFNTgfFG5RUWu1A9P0VzgpcIiGZA9iraHOdSzcxMxQ55DyeRaGCSxQi7LxXDI4rzq/MYfdg==}
     dev: false
 
-  /@types/react-table@7.7.16:
-    resolution: {integrity: sha512-khfVwkNkvFnQV+Dx5Z/4jeMWIi+qytR8/Hl89fMPQ3aGiIgVlnghwdnyrq45UVSU+9wTqQFL0kUmIk4MGaM20Q==}
-    dependencies:
-      '@types/react': 18.2.38
-    dev: false
-
   /@types/react@18.2.24:
     resolution: {integrity: sha512-Ee0Jt4sbJxMu1iDcetZEIKQr99J1Zfb6D4F3qfUWoR1JpInkY1Wdg4WwCyBjL257D0+jGqSl1twBjV8iCaC0Aw==}
     dependencies:
@@ -7330,10 +7281,7 @@ packages:
       '@types/prop-types': 15.7.8
       '@types/scheduler': 0.16.4
       csstype: 3.1.2
-
-  /@types/resize-observer-browser@0.1.8:
-    resolution: {integrity: sha512-OpjAd26fD1G2OWlYzkrapJ12n+kyi0znYgE2AHfNccHY/am3kG+lfJ5brfcZ7+1CIybkPWGKrW+Wm97kbcOQaQ==}
-    dev: false
+    dev: true
 
   /@types/responselike@1.0.1:
     resolution: {integrity: sha512-TiGnitEDxj2X0j+98Eqk5lv/Cij8oHd32bU4D/Yw6AOq7vvTk0gSD2GPj0G/HkvhMoVsdlhYF4yqqlyPBTM6Sg==}
@@ -18686,14 +18634,6 @@ packages:
       refractor: 3.6.0
     dev: false
 
-  /react-table@7.8.0(react@18.2.0):
-    resolution: {integrity: sha512-hNaz4ygkZO4bESeFfnfOft73iBUj8K5oKi1EcSHPAibEydfsX2MyU6Z8KCr3mv3C9Kqqh71U+DhZkFvibbnPbA==}
-    peerDependencies:
-      react: ^16.8.3 || ^17.0.0-0 || ^18.0.0
-    dependencies:
-      react: 18.2.0
-    dev: false
-
   /react@17.0.2:
     resolution: {integrity: sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA==}
     engines: {node: '>=0.10.0'}
@@ -21029,6 +20969,7 @@ packages:
   /typesafe-actions@5.1.0:
     resolution: {integrity: sha512-bna6Yi1pRznoo6Bz1cE6btB/Yy8Xywytyfrzu/wc+NFW3ZF0I+2iCGImhBsoYYCOWuICtRO4yHcnDlzgo1AdNg==}
     engines: {node: '>= 4'}
+    dev: false
 
   /typescript@4.9.5:
     resolution: {integrity: sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==}
