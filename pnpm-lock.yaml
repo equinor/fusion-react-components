@@ -340,22 +340,6 @@ importers:
         specifier: ^18.2.0
         version: 18.2.0
 
-  packages/menu:
-    dependencies:
-      '@equinor/fusion-react-utils':
-        specifier: ^2.1.0
-        version: link:../utils
-      '@equinor/fusion-wc-menu':
-        specifier: ^1.0.2
-        version: 1.0.2
-    devDependencies:
-      '@types/react':
-        specifier: ^18.2.24
-        version: 18.2.24
-      react:
-        specifier: ^18.2.0
-        version: 18.2.0
-
   packages/person:
     dependencies:
       '@equinor/fusion-react-button':
@@ -586,9 +570,6 @@ importers:
       '@equinor/fusion-react-markdown':
         specifier: workspace:^
         version: link:../packages/markdown
-      '@equinor/fusion-react-menu':
-        specifier: workspace:^
-        version: link:../packages/menu
       '@equinor/fusion-react-person':
         specifier: workspace:^
         version: link:../packages/person
@@ -3097,15 +3078,6 @@ packages:
       prosemirror-view: 1.32.4
     dev: false
 
-  /@equinor/fusion-wc-menu@1.0.2:
-    resolution: {integrity: sha512-UGzlvn7uIMZlPfJA/6Tm5AJRfWqTESW14lXIEiyu8RJxmq+WujnaBYra7b6DtoFwh5OtoRlDTgHVSuxsU1XAuA==}
-    dependencies:
-      '@equinor/fusion-wc-core': 2.0.0
-      '@equinor/fusion-wc-list': 1.1.0
-      '@material/mwc-menu': 0.27.0
-      lit: 2.7.0
-    dev: false
-
   /@equinor/fusion-wc-person@2.2.1:
     resolution: {integrity: sha512-0HxTb3AZUIFlDiv3xhgIs2zHcpedYVxYBhTzUGPm55whneIBoRVuvsAzsqqVU6TNvmvoDLJ1cgt6cXYuU/enow==}
     dependencies:
@@ -3876,34 +3848,6 @@ packages:
       tslib: 2.6.2
     dev: false
 
-  /@material/menu-surface@14.0.0-canary.53b3cad2f.0:
-    resolution: {integrity: sha512-IQWb/n15FpLnn+kHp0EqzLE+UoWSPumq3eze2QifiowvGb37bNFR9oSe7CaOzPMrHdkrZ5SBWnDU41wPZN5kOg==}
-    dependencies:
-      '@material/animation': 14.0.0-canary.53b3cad2f.0
-      '@material/base': 14.0.0-canary.53b3cad2f.0
-      '@material/elevation': 14.0.0-canary.53b3cad2f.0
-      '@material/feature-targeting': 14.0.0-canary.53b3cad2f.0
-      '@material/rtl': 14.0.0-canary.53b3cad2f.0
-      '@material/shape': 14.0.0-canary.53b3cad2f.0
-      '@material/theme': 14.0.0-canary.53b3cad2f.0
-      tslib: 2.6.2
-    dev: false
-
-  /@material/menu@14.0.0-canary.53b3cad2f.0:
-    resolution: {integrity: sha512-MmYKVrMIqOtP3TN4vdrrnQrS8P81+tMaA6bKiT9V79R1U6+mKsBYTzaLtLbzyem5vF8O0q7bSwyPwhWPtJr75Q==}
-    dependencies:
-      '@material/base': 14.0.0-canary.53b3cad2f.0
-      '@material/dom': 14.0.0-canary.53b3cad2f.0
-      '@material/elevation': 14.0.0-canary.53b3cad2f.0
-      '@material/feature-targeting': 14.0.0-canary.53b3cad2f.0
-      '@material/list': 14.0.0-canary.53b3cad2f.0
-      '@material/menu-surface': 14.0.0-canary.53b3cad2f.0
-      '@material/ripple': 14.0.0-canary.53b3cad2f.0
-      '@material/rtl': 14.0.0-canary.53b3cad2f.0
-      '@material/theme': 14.0.0-canary.53b3cad2f.0
-      tslib: 2.6.2
-    dev: false
-
   /@material/mwc-base@0.27.0:
     resolution: {integrity: sha512-oCWWtjbyQ52AaUbzINLGBKScIPyqhps2Y7c8t6Gu6fcFeDxhKXMV1Cqvtj/OMhtAt53XjHfD2XruWwYv3cYYUA==}
     dependencies:
@@ -3981,19 +3925,6 @@ packages:
       '@material/mwc-checkbox': 0.27.0
       '@material/mwc-radio': 0.27.0
       '@material/mwc-ripple': 0.27.0
-      lit: 2.7.0
-      tslib: 2.6.2
-    dev: false
-
-  /@material/mwc-menu@0.27.0:
-    resolution: {integrity: sha512-K+L/t267ZGrlhjK/iSKUVZQKRMkWELArKVglfS5of93ALP4in0RGnj1sOG2u3IFI2F/mEZxRi+wr7HgNxpe0wA==}
-    dependencies:
-      '@material/menu': 14.0.0-canary.53b3cad2f.0
-      '@material/menu-surface': 14.0.0-canary.53b3cad2f.0
-      '@material/mwc-base': 0.27.0
-      '@material/mwc-list': 0.27.0
-      '@material/shape': 14.0.0-canary.53b3cad2f.0
-      '@material/theme': 14.0.0-canary.53b3cad2f.0
       lit: 2.7.0
       tslib: 2.6.2
     dev: false
