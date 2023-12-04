@@ -14,7 +14,6 @@ export type StepperProps = {
   readonly hideNavButtons?: boolean;
   readonly verticalSteps?: boolean;
   readonly horizontalTitle?: boolean;
-  readonly allSteps: StepKey[];
 };
 
 export type StepKey = {
