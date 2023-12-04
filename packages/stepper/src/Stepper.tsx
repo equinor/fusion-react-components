@@ -109,7 +109,7 @@ export const Stepper = ({
     }
 
     handleChange(prevKey.key, getSteps(children));
-  }, [handleChange, findStepKey]);
+  }, [findStepKey, handleChange, children]);
 
   const handleClickNext = useCallback(() => {
     const nextKey = findStepKey('next');
@@ -118,7 +118,7 @@ export const Stepper = ({
       return;
     }
     handleChange(nextKey.key, getSteps(children));
-  }, [handleChange, findStepKey]);
+  }, [findStepKey, handleChange, children]);
 
   return (
     <div className={stepperContainerClasses}>
