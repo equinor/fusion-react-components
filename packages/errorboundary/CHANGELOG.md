@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.0.0
+
+### Major Changes
+
+- 402ba2a8: aligned package with `react-error-boundary`
+
 ## 0.2.0
 
 ### Minor Changes
