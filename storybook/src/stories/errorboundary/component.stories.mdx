@@ -1,6 +1,6 @@
-import { Meta, Story, Canvas, ArgsTable,Description } from '@storybook/addon-docs';
+import { Meta, ArgsTable,Description } from '@storybook/addon-docs';
 import { ChangeLog, PackageInfo, StoryExample } from '../../components';
-import { ErrorBoundary } from '@equinor/fusion-react-errorboundary/src';
+import { ErrorBoundary } from '@equinor/fusion-react-errorboundary/legacy';
 
 <Meta title="Data/ErrorBoundary" />
 
@@ -10,9 +10,29 @@ import { ErrorBoundary } from '@equinor/fusion-react-errorboundary/src';
 
 <ArgsTable of={ErrorBoundary} />
 
-### Usage
+<StoryExample storyId="examples-errorboundary--primary" showSource/>
 
-<StoryExample storyId="examples-errorboundary--component" showSource/>
+## Custom render
+
+```tsx
+import {
+  createFallbackRender,
+  ErrorBoundary,
+} from '@equinor/fusion-react-errorboundary/legacy';
+
+const Component = () => {
+  const fallbackRender = useMemo(createFallbackRender({
+    action: 'custom action',
+    title: 'custom error',
+    errorType: 'accessDenied',
+  }), []);
+  return (
+    <ErrorBoundary fallbackRender={fallbackRender}>
+      <ErrorComponent />
+    </ErrorBoundary>
+  )
+}
+```
 
 # Changelog
 

@@ -1,15 +1,5 @@
-# @equinor/fusion-react-errorboundary
+Display a Error message if error is thrown in children
 
-[![Published on npm](https://img.shields.io/npm/v/@equinor/fusion-react-errorboundary.svg)](https://www.npmjs.com/package/@equinor/fusion-react-errorboundary)
+> this component uses the `react-error-boundary` with a predefined `Fallback`
 
-[Storybook](https://equinor.github.io/fusion-react-components/?path=/docs/errorboundary)
-
-## Installation
-
-```sh
-npm install @equinor/fusion-react-errorboundary
-```
-
-### Description
-
-Display a Error message if error is trown in children
+atm this component is under `@equinor/fusion-react-errorboundary/legacy` since there is a WIP to create a generic component in the future
