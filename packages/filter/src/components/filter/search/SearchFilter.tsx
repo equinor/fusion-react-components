@@ -19,7 +19,7 @@ const defaultMatcher = <TData,>(data: TData[], query: string): TData[] => {
   return data.filter((x) => !!JSON.stringify(Object.values(x ?? {})).match(matcher));
 };
 
-export type SearchFilterProps<TData> = Omit<TextFieldProps, 'onInput' | 'ref'| 'id'> & {
+export type SearchFilterProps<TData> = Omit<TextFieldProps, 'onInput' | 'ref' | 'id'> & {
   /** identifier for filter */
   readonly filterKey: string;
   /** function for filtering by provided query */
