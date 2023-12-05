@@ -36,11 +36,11 @@
     "url": "https://github.com/equinor/fusion-react-components/issues"
   },
   "dependencies": {
+    "@equinor/eds-core-react": "^0.34.0",
     "@equinor/fusion": "^3.4.9",
-    "@equinor/fusion-framework-react-module-bookmark": "1.0.5",
-    "@equinor/fusion-react-errorboundary": "^0.1.0-beta.7",
-    "@equinor/fusion-react-progress-indicator": "^0.1.6",
-    "@equinor/fusion-react-styles": "^0.5.5",
+    "@equinor/fusion-framework-react-module-bookmark": "2.0.22",
+    "@equinor/fusion-react-errorboundary": "workspace:^",
+    "@equinor/fusion-react-styles": "workspace:^",
     "clsx": "^1.2.1",
     "deepmerge": "^4.3.1",
     "powerbi-client-react": "^1.4.0",

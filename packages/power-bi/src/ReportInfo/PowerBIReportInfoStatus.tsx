@@ -2,7 +2,7 @@ import { FunctionComponent } from 'react';
 
 import { useSelector } from '@equinor/fusion/lib/epic';
 
-import { StarProgress } from '@equinor/fusion-react-progress-indicator';
+import { StarProgress, Typography } from '@equinor/eds-core-react';
 
 import { Status } from './store/state';
 import Store from './store/store';
@@ -20,11 +20,16 @@ const statusText = (status: Status) => {
   }
 };
 
-export const PowerBIInfoStatus: FunctionComponent<{ store: Store }> = ({ store }) => {
+export const PowerBIInfoStatus: FunctionComponent<{ readonly store: Store }> = ({ store }) => {
   const status = useSelector(store, 'status');
   const title = status?.map(statusText).shift();
   // TODO
-  return status?.length ? <StarProgress title={title} /> : null;
+  return status?.length ? (
+    <>
+      <Typography variant="h1">{title}</Typography>
+      <StarProgress />
+    </>
+  ) : null;
 };
 
 export default PowerBIInfoStatus;
