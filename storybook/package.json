@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-components-stories",
-  "version": "2.19.4",
+  "version": "2.19.5",
   "description": "",
   "private": true,
   "scripts": {
@@ -58,6 +58,7 @@
     "@equinor/fusion-observable": "^8.1.2",
     "@equinor/fusion-wc-avatar": "^3.1.0",
     "@faker-js/faker": "^8.2.0",
+    "@types/react": "^17.0.0",
     "namor": "^3.0.1"
   }
 }

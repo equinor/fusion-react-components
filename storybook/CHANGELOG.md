@@ -1,5 +1,12 @@
 # Change Log
 
+## 2.19.5
+
+### Patch Changes
+
+- Updated dependencies [402ba2a8]
+  - @equinor/fusion-react-errorboundary@1.0.0
+
 ## 2.19.4
 
 ### Patch Changes
