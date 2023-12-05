@@ -1,13 +1,13 @@
 import { useContext } from 'react';
 
-import { ErrorBoundary } from '@equinor/fusion-react-errorboundary';
+import { ErrorBoundary } from '@equinor/fusion-react-errorboundary/legacy';
 
 import { useSelector } from '@equinor/fusion/lib/epic';
 
 import { ApiError } from '../../store/actions';
 import { context } from '../../context';
 
-import { processActionError } from './process-action-error';
+// import { processActionError } from './process-action-error';
 import PowerBIReportInfo from '../../../ReportInfo';
 import processReportInfoError from './process-reportInfo-error';
 
@@ -31,8 +31,8 @@ export const PowerBIReportErrorBoundary = (_props: PowerBIReportErrorBoundryProp
     return <PowerBIReportInfo id={id || ''} {...reportInfoErrorString} />;
   }
   if (errors?.length) {
-    const { title, message, type } = processActionError(errors[0]);
-    return <ErrorBoundary hasError={true} title={title} message={message} errorType={type} />;
+    // const { title, message, type } = processActionError(errors[0]);
+    return <ErrorBoundary />;
   }
 
   return <>props.children</>;
