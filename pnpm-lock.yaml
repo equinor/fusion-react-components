@@ -51,8 +51,8 @@ importers:
   packages/ag-grid-styles:
     devDependencies:
       '@ag-grid-community/styles':
-        specifier: ~30.2.0
-        version: 30.2.0
+        specifier: ~31.0.0
+        version: 31.0.0
       '@equinor/fusion-react-styles':
         specifier: ^0.6.0
         version: link:../styles
@@ -687,8 +687,8 @@ packages:
     resolution: {integrity: sha512-r86bOCscnKVtaYyKqlN2UCtfbjf4UcmxHfVuXzJ94iN8Jy3iiQVrbQnbNArnjR589Bt/1VR/m+SdAMsOLcdpag==}
     dev: true
 
-  /@ag-grid-community/styles@30.2.0:
-    resolution: {integrity: sha512-ipI/weI0jgvhZI/PooNkKUJlJQ21uiyLKmzeQkSOTBPxSqpszvBm5BGkeaw+WmTc6dF/dF2yRVcFz8uTcwveLA==}
+  /@ag-grid-community/styles@31.0.0:
+    resolution: {integrity: sha512-ekVHXSfpmlFpKFe3sWiP2OPjlZOuD7CEd5PL5H6YjgE93ee6zZW3vMQ7A2vGF/VR4nE4stz3dlkQB5JkmaKVRQ==}
     dev: true
 
   /@ampproject/remapping@2.2.1:
