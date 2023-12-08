@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.8.1
+
+### Patch Changes
+
+- 38ba120f: remove button from filter
+
 ## 1.8.0
 
 ### Minor Changes
