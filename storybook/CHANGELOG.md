@@ -1,5 +1,14 @@
 # Change Log
 
+## 2.19.6
+
+### Patch Changes
+
+- Updated dependencies [2b4e9e1e]
+- Updated dependencies [38ba120f]
+  - @equinor/fusion-react-stepper@0.4.2
+  - @equinor/fusion-react-filter@1.8.1
+
 ## 2.19.5
 
 ### Patch Changes

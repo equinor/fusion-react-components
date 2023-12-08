@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.4.2
+
+### Patch Changes
+
+- 2b4e9e1e: Remove unused property
+
 ## 0.4.1
 
 ### Patch Changes
