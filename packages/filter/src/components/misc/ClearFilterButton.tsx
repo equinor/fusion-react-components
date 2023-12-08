@@ -2,21 +2,22 @@ import { useCallback } from 'react';
 
 import { useForwardRef } from '@equinor/fusion-react-utils';
 import { useObservableSubscription } from '@equinor/fusion-observable/react';
-import { Button, ButtonProps, HTMLButtonCustomElement } from '@equinor/fusion-react-button';
+import { Button, type ButtonProps } from '@equinor/eds-core-react';
 
 import { useClearFilter } from '../../hooks/useClearFilter';
 
-export type ClearFilterButtonProps = Omit<ButtonProps, 'onClick'>;
+export type ClearFilterButtonProps = React.PropsWithChildren<
+  Omit<ButtonProps, 'onClick'> & { ref?: React.ForwardedRef<HTMLButtonElement> }
+>;
 
 /**
  * Component for resetting filter values.
  * uses the `useClearFilter` hook
- * inherits `ButtonProps` from `@equinor/fusion-react-button`
  */
 export const ClearFilterButton = (props: ClearFilterButtonProps): JSX.Element => {
-  const { label = 'Clear Filter', ...args } = props;
+  const { children, ...args } = props;
   const { clear, changed$ } = useClearFilter();
-  const ref = useForwardRef<HTMLButtonCustomElement>(props.ref);
+  const ref = useForwardRef<HTMLButtonElement>(props.ref);
 
   /** Subscribe to changes and toggle `disable` of button */
   useObservableSubscription(
@@ -32,7 +33,11 @@ export const ClearFilterButton = (props: ClearFilterButtonProps): JSX.Element =>
   /** Reset filters on click */
   const onClick = useCallback(() => clear(), [clear]);
 
-  return <Button variant="ghost" {...{ ...args, ref, onClick, label }} />;
+  return (
+    <Button variant="ghost" {...{ ...args, ref, onClick }}>
+      {children ?? 'Clear Filter'}
+    </Button>
+  );
 };
 
 export default ClearFilterButton;
