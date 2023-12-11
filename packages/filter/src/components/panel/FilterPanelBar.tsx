@@ -9,7 +9,6 @@ import { useFilterPanelContext } from './FilterPanelProvider';
 
 Icon.add({ chevron_down, chevron_up, refresh });
 
-
 const useStyles = makeStyles(
   (theme) =>
     createStyles({
