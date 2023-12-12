@@ -77,4 +77,6 @@ Component.args = {
   variant: 'page-outlined',
   dropdownHeight: '300px',
   leadingIcon: 'search',
+  onSelect: (w) => console.log('onSelect', w),
+  onDropdownClosed: (w) => console.log('onDropdownClosed', w),
 };
