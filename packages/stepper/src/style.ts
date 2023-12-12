@@ -15,6 +15,7 @@ export const useStyles = makeStyles(
       stepperContainer: {
         display: 'flex',
         flexDirection: 'column',
+        height: '100%',
       },
       verticalStepperContainer: {
         flexDirection: 'row',

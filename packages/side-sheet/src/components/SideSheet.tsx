@@ -24,13 +24,13 @@ const StyledFlexColumn = styled(StyledFlexBox)`
 
 const StyledContainerWrapper = styled(StyledFlexColumn)`
   background: ${tokens.colors.ui.background__default.hex};
-  gap: 1rem;
-  padding: 1rem;
+  height: 100%;
 `;
 
 const StyledHeader = styled(StyledFlexBox)`
   height: 3rem;
   justify-content: space-between;
+  padding: 1rem;
 `;
 
 type PortalSideSheet = SideSheetProps & {
