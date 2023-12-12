@@ -40,13 +40,8 @@ export const ContextSearch = ({
   }, [previewItem]);
 
   const toggleGettingCtx = useCallback(() => {
-    if (sdd) {
-      requestAnimationFrame(() => {
-        sdd.textInputElement?.focus();
-      });
-    }
     setGettingCtx(!gettingCtx);
-  }, [gettingCtx, sdd]);
+  }, [gettingCtx]);
 
   const keyUpGettingCtx = useCallback(
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -119,11 +114,15 @@ export const ContextSearch = ({
   }, [handleKeyup]);
 
   useEffect(() => {
+    if (elementRef.current) {
+      // sets the fwc node
+      setSdd(elementRef.current.querySelector<SearchableDropdownElement>('fwc-searchable-dropdown'));
+    }
+  }, [gettingCtx, elementRef, sdd]);
+
+  useEffect(() => {
     const ref = elementRef.current;
     if (ref) {
-      // reference to web element
-      setSdd(ref.querySelector<SearchableDropdownElement>('fwc-searchable-dropdown') ?? null);
-
       ref.addEventListener('dropdownClosed', () => {
         setGettingCtx(false);
       });
@@ -141,7 +140,7 @@ export const ContextSearch = ({
         ref.removeEventListener('dropdownClosed', () => null);
       }
     };
-  }, [elementRef, sdd]);
+  }, [elementRef]);
 
   useEffect(() => {
     if (sdd && gettingCtx) {
@@ -170,8 +169,8 @@ export const ContextSearch = ({
         </div>
       </div>
       <div className={clsx(styles.ctxSelector, !gettingCtx ? styles.hidden : 'active')}>
-        {!gettingCtx && (
-          <ContextSelector {...props} onSelect={handleSelect}>
+        {gettingCtx && (
+          <ContextSelector autofocus={true} {...props} onSelect={handleSelect}>
             {children}
           </ContextSelector>
         )}
