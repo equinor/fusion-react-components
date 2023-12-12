@@ -1,5 +1,12 @@
 # Change Log
 
+## 0.5.3
+
+### Patch Changes
+
+- 56dd4331: Dropdown is hidden when navigating to context by url
+- 56dd4331: Fixing hiden dropdownlist on ContextSearch
+
 ## 0.5.2
 
 ### Patch Changes
