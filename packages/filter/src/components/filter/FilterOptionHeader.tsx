@@ -1,14 +1,18 @@
+import { FormEvent, useLayoutEffect, useRef, useState } from 'react';
+
 import { useObservableState, useObservableSelector } from '@equinor/fusion-observable/react';
-import { Icon } from '@equinor/fusion-react-icon';
-import { HTMLTextInputCustomElement, TextInput } from '@equinor/fusion-react-textinput';
+import { TextField, Icon } from '@equinor/eds-core-react';
 import { useFilterOptionContext, useFilterOptionSearch } from '../../options';
+
+import { search, chevron_right } from '@equinor/eds-icons';
+
+Icon.add({ search, chevron_right });
 
 type FilterHeaderProps = {
   readonly title: string;
 };
 
 import { clsx, createStyles, makeStyles } from '@equinor/fusion-react-styles';
-import React, { useLayoutEffect, useRef, useState } from 'react';
 
 export const useStyles = makeStyles(
   (theme) =>
@@ -55,9 +59,9 @@ export const FilterOptionHeader = (props: FilterHeaderProps): JSX.Element => {
   const { title } = props;
   const [showSearch, setShowSearch] = useState(false);
   const { setQuery, query$ } = useFilterOptionSearch();
-  const searchRef = useRef<HTMLTextInputCustomElement>(null);
+  const searchRef = useRef<HTMLInputElement>(null);
   const { options$, selection$ } = useFilterOptionContext();
-  const optionCount = Object.keys(useObservableState(options$) || {}).length;
+  const optionCount = Object.keys(useObservableState(options$).value || {}).length;
   const { value: selectedCount } = useObservableState(useObservableSelector(selection$, (x) => x && x.size));
   const styles = useStyles();
   const onIconClick = () => {
@@ -75,15 +79,14 @@ export const FilterOptionHeader = (props: FilterHeaderProps): JSX.Element => {
 
   return (
     <div className={styles.root}>
-      <TextInput
+      <TextField
+        id={title}
         ref={searchRef}
         className={clsx(styles.searchField, showSearch && styles.showSearch)}
-        icon="search"
-        variant="outlined"
         type="search"
-        label={title}
-        onInput={(e) => setQuery(e.currentTarget.value)}
-        dense
+        placeholder={title}
+        onInput={(e: FormEvent<HTMLInputElement>) => setQuery(e.currentTarget.value)}
+        inputIcon={<Icon name="search" key="thumbs" size={16} />}
       />
       <header className={clsx(styles.header, showSearch && styles.showSearch)}>
         <span>{title}</span>
@@ -95,7 +98,7 @@ export const FilterOptionHeader = (props: FilterHeaderProps): JSX.Element => {
           <span>)</span>
         </span>
       </header>
-      <Icon className={styles.iconBtn} icon={showSearch ? 'chevron_right' : 'search'} onClick={onIconClick} />
+      <Icon className={styles.iconBtn} name={showSearch ? 'chevron_right' : 'search'} size={16} onClick={onIconClick} />
     </div>
   );
 };

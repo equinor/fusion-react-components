@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.9.1
+
+### Patch Changes
+
+- 93621309: build(deps): bump @equinor/fusion-wc-icon from 1.0.33 to 2.3.0
+
 ## 0.9.0
 
 ### Minor Changes

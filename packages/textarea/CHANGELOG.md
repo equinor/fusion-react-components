@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.6.1
+
+### Patch Changes
+
+- 754204ef: build(deps): bump @equinor/fusion-wc-textarea from 0.4.22 to 1.1.0
+
 ## 0.6.0
 
 ### Minor Changes

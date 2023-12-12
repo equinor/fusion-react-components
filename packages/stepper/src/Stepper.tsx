@@ -7,15 +7,17 @@ import StepPane from './StepPane';
 import StepContent from './StepContent';
 import { findNextAvailable, findPrevAvailable, getSteps } from './utils';
 
+/** Define the props interface for Stepper component */
 export type StepperProps = {
   readonly onChange?: (stepKey: string, allSteps: StepKey[]) => void;
   readonly forceOrder?: boolean;
   readonly activeStepKey: string;
   readonly hideNavButtons?: boolean;
   readonly verticalSteps?: boolean;
-  readonly allSteps: StepKey[];
+  readonly horizontalTitle?: boolean;
 };
 
+/** Define the type for StepKey */
 export type StepKey = {
   key: string;
   position: number;
@@ -23,6 +25,7 @@ export type StepKey = {
   done: boolean;
 };
 
+/** Define the type for StepDirection */
 type StepDirection = 'next' | 'prev';
 
 export const Stepper = ({
@@ -32,12 +35,15 @@ export const Stepper = ({
   onChange,
   hideNavButtons,
   verticalSteps,
+  horizontalTitle,
 }: PropsWithChildren<StepperProps>): JSX.Element => {
   const styles = useStyles();
+  /** State to manage step keys, current step key, and active step position */
   const [stepKeys, setStepKeys] = useState<StepKey[]>([]);
   const [currentStepKey, setCurrentStepKey] = useState<string>(activeStepKey);
   const [activeStepPosition, setActiveStepPosition] = useState<number>(0);
 
+  /** State to manage navigation button availability */
   const [canNext, setCanNext] = useState(true);
   const [canPrev, setCanPrev] = useState(false);
 
@@ -46,38 +52,42 @@ export const Stepper = ({
     styles.stepperContainer,
     verticalSteps && styles.verticalStepperContainer,
   );
-  const stepperClasses = clsx(styles.stepper, verticalSteps && styles.verticalStepper);
+  const stepperClasses = clsx(
+    styles.stepper,
+    verticalSteps && styles.verticalStepper,
+    !verticalSteps && horizontalTitle && styles.horizontalTitleStepper,
+  );
 
+  /** Effect to update stepKeys when children change */
   useEffect(() => {
     const steps = getSteps(children);
     setStepKeys(steps);
   }, [children]);
 
+  /** Effect to update currentStepKey when activeStepKey changes */
   useEffect(() => {
     setCurrentStepKey(activeStepKey);
   }, [activeStepKey]);
 
+  /** Effect to update activeStepPosition, canNext, and canPrev when stepKeys or currentStepKey change */
   useEffect(() => {
     const current = stepKeys.find((sk) => sk.key === currentStepKey);
+    if (!current) return;
 
-    if (current) {
-      setActiveStepPosition(current.position);
+    setActiveStepPosition(current.position);
 
-      const checkNext = findNextAvailable(current.position, stepKeys).next;
-      const checkPrevious = findPrevAvailable(current.position, stepKeys).previous;
+    const checkNext = findNextAvailable(current.position, stepKeys).next;
+    const checkPrevious = findPrevAvailable(current.position, stepKeys).previous;
 
-      setCanNext(checkNext);
-      setCanPrev(checkPrevious);
-    }
+    setCanNext(checkNext);
+    setCanPrev(checkPrevious);
   }, [stepKeys, currentStepKey]);
 
+  /** Callback to find the next or previous step key */
   const findStepKey = useCallback(
     (direction: StepDirection) => {
       const current = stepKeys.find((sk) => sk.key === currentStepKey);
-
-      if (!current) {
-        return;
-      }
+      if (!current) return;
 
       const nextNewPosition = findNextAvailable(current.position, stepKeys).step?.position;
       const nextPrevPosition = findPrevAvailable(current.position, stepKeys).step?.position;
@@ -89,6 +99,7 @@ export const Stepper = ({
     [currentStepKey, stepKeys],
   );
 
+  /** Callback to handle step change */
   const handleChange = useCallback(
     (stepKey: string, allSteps: StepKey[]) => {
       setCurrentStepKey(stepKey);
@@ -97,23 +108,18 @@ export const Stepper = ({
     [onChange],
   );
 
+  /** Callbacks to handle button clicks in navigation */
   const handleClickPrev = useCallback(() => {
     const prevKey = findStepKey('prev');
-    if (!prevKey) {
-      return;
-    }
-
+    if (!prevKey) return;
     handleChange(prevKey.key, getSteps(children));
-  }, [handleChange, findStepKey]);
+  }, [children, findStepKey, handleChange]);
 
   const handleClickNext = useCallback(() => {
     const nextKey = findStepKey('next');
-
-    if (!nextKey) {
-      return;
-    }
+    if (!nextKey) return;
     handleChange(nextKey.key, getSteps(children));
-  }, [handleChange, findStepKey]);
+  }, [children, findStepKey, handleChange]);
 
   return (
     <div className={stepperContainerClasses}>

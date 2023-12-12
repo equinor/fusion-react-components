@@ -1,5 +1,35 @@
 # Change Log
 
+## 1.8.1
+
+### Patch Changes
+
+- 38ba120f: remove button from filter
+
+## 1.8.0
+
+### Minor Changes
+
+- b0758ca7: replaced `@equinor/fusion-react-textinput` with EDS
+
+### Patch Changes
+
+- Updated dependencies [82e8cb02]
+  - @equinor/fusion-react-radio@0.6.0
+
+## 1.7.1
+
+### Patch Changes
+
+- Updated dependencies [9fb0891c]
+  - @equinor/fusion-react-textinput@0.8.0
+
+## 1.7.0
+
+### Minor Changes
+
+- 5854d91a: deprecate @equinor/fusion-react-checkbox
+
 ## 1.6.0
 
 ### Minor Changes

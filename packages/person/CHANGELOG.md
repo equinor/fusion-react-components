@@ -1,5 +1,24 @@
 # Change Log
 
+## 0.6.3
+
+### Patch Changes
+
+- 0baac88f: Updating webcomponent dependency @equinor/fusion-wc-person
+
+## 0.6.2
+
+### Patch Changes
+
+- bcb9b7ad: chore: Dependencies update for person component
+
+## 0.6.1
+
+### Patch Changes
+
+- f3e50576: expose `trigger` attribute from avatar
+- 0d907751: adding missing event PersonSelectEvent from webcomponent
+
 ## 0.6.0
 
 ### Minor Changes

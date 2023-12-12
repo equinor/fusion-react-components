@@ -3,6 +3,7 @@ import { clsx } from '@equinor/fusion-react-styles';
 import { useStyles } from './style';
 import { Badge } from './StepBadge';
 
+/** Define the props interface for Step component */
 export type StepProps = {
   readonly title: string;
   readonly stepKey: string;
@@ -41,6 +42,7 @@ export const Step = ({
 
   const titleClasses = clsx(styles.title);
 
+  /** Handle scrolling to the current step when it is not fully visible */
   useEffect(() => {
     if (stepPaneRef && stepRef.current && stepPaneRef.current && isCurrent) {
       if (!stepPaneRef.current || !stepRef) {
@@ -54,6 +56,7 @@ export const Step = ({
     }
   }, [isCurrent, stepPaneRef, stepRef]);
 
+  /** Render the component differently when disabled */
   if (disabled) {
     return (
       <span className={stepClasses}>
@@ -68,11 +71,12 @@ export const Step = ({
     );
   }
 
+  /** Render the component with a clickable anchor when not disabled */
   return (
-    // TODO!
+    // TODO
     // eslint-disable-next-line jsx-a11y/anchor-is-valid, jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
     <a onClick={() => !disabled && isClickable && onChange && onChange()} ref={stepRef} className={stepClasses}>
-      <Badge position={position} active={isCurrent} done={done} runChange={() => onChange && onChange()} />
+      <Badge position={position} active={isCurrent} done={done} />
       <div className={styles.content}>
         <div className={titleClasses}>
           <span className={styles.text} title={title}>

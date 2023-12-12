@@ -1,5 +1,23 @@
 # Change Log
 
+## 1.2.4
+
+### Patch Changes
+
+- 2fee8065: Sidesheet content height adjustment
+
+## 1.2.3
+
+### Patch Changes
+
+- cc41a1a9: build(deps): bump @equinor/eds-core-react from 0.30.0 to 0.34.0
+
+## 1.2.2
+
+### Patch Changes
+
+- 543811b0: The side-sheet should be displayed beneath the portal header, ensuring that no content is obscured or hidden.
+
 ## 1.2.1
 
 ### Patch Changes

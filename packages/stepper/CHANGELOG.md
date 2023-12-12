@@ -1,5 +1,29 @@
 # Change Log
 
+## 0.4.3
+
+### Patch Changes
+
+- 2fee8065: Stepper height
+
+## 0.4.2
+
+### Patch Changes
+
+- 2b4e9e1e: Remove unused property
+
+## 0.4.1
+
+### Patch Changes
+
+- cc41a1a9: build(deps): bump @equinor/eds-core-react from 0.30.0 to 0.34.0
+
+## 0.4.0
+
+### Minor Changes
+
+- 6698455c: **New Feature** - Horizontal Title available in Stepper
+
 ## 0.3.0
 
 ### Minor Changes

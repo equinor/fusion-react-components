@@ -20,6 +20,7 @@ const StyledScrim = styled(Scrim)`
 `;
 
 const StyledSideSheet = styled.div`
+  --side-sheet-height: calc(100vh - var(--header-height, 0));
   height: var(--custom-side-sheet-height, var(--side-sheet-height, 100%));
   position: fixed;
   top: var(--custom-header-height, var(--header-height, 0));

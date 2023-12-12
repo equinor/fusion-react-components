@@ -11,7 +11,7 @@ export { PersonAvailability, PersonAccountType } from '@equinor/fusion-wc-person
 export type { AvatarData, PersonAvatarProps } from './PersonAvatar';
 export type { CardData, PersonItemSize, PersonCardProps } from './PersonCard';
 export type { ListItemData, PersonListItemProps } from './PersonListItem';
-export type { PersonSelectProps } from './PersonSelect';
+export type { PersonSelectProps, PersonSelectEvent } from './PersonSelect';
 export type { PersonResolver } from '@equinor/fusion-wc-person/provider';
 export type {
   PersonDetails,

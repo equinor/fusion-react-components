@@ -1,5 +1,120 @@
 # Change Log
 
+## 2.19.7
+
+### Patch Changes
+
+- Updated dependencies [2fee8065]
+- Updated dependencies [0baac88f]
+- Updated dependencies [2fee8065]
+  - @equinor/fusion-react-stepper@0.4.3
+  - @equinor/fusion-react-person@0.6.3
+  - @equinor/fusion-react-side-sheet@1.2.4
+
+## 2.19.6
+
+### Patch Changes
+
+- Updated dependencies [2b4e9e1e]
+- Updated dependencies [38ba120f]
+  - @equinor/fusion-react-stepper@0.4.2
+  - @equinor/fusion-react-filter@1.8.1
+
+## 2.19.5
+
+### Patch Changes
+
+- Updated dependencies [402ba2a8]
+  - @equinor/fusion-react-errorboundary@1.0.0
+
+## 2.19.4
+
+### Patch Changes
+
+- cc41a1a9: build(deps): bump @equinor/eds-core-react from 0.30.0 to 0.34.0
+- Updated dependencies [cc41a1a9]
+- Updated dependencies [8a503fcc]
+  - @equinor/fusion-react-side-sheet@1.2.3
+  - @equinor/fusion-react-stepper@0.4.1
+  - @equinor/fusion-react-menu@0.3.0
+
+## 2.19.3
+
+### Patch Changes
+
+- Updated dependencies [f11bc7ad]
+  - @equinor/fusion-react-popover@0.3.0
+
+## 2.19.2
+
+### Patch Changes
+
+- Updated dependencies [974e5315]
+  - @equinor/fusion-react-table@0.7.0
+
+## 2.19.1
+
+### Patch Changes
+
+- Updated dependencies [82e8cb02]
+- Updated dependencies [b0758ca7]
+  - @equinor/fusion-react-radio@0.6.0
+  - @equinor/fusion-react-filter@1.8.0
+
+## 2.19.0
+
+### Minor Changes
+
+- eb2def65: deprecated
+
+### Patch Changes
+
+- Updated dependencies [9fb0891c]
+  - @equinor/fusion-react-textinput@0.8.0
+  - @equinor/fusion-react-filter@1.7.1
+
+## 2.18.3
+
+### Patch Changes
+
+- Updated dependencies [5395610f]
+  - @equinor/fusion-react-switch@0.6.0
+
+## 2.18.2
+
+### Patch Changes
+
+- Updated dependencies [aabee34f]
+  - @equinor/fusion-react-select@0.3.0
+
+## 2.18.1
+
+### Patch Changes
+
+- Updated dependencies [e7568ae1]
+  - @equinor/fusion-react-progress-indicator@0.3.0
+
+## 2.18.0
+
+### Minor Changes
+
+- 5854d91a: deprecate @equinor/fusion-react-checkbox
+
+### Patch Changes
+
+- Updated dependencies [5854d91a]
+  - @equinor/fusion-react-checkbox@0.7.0
+  - @equinor/fusion-react-filter@1.7.0
+
+## 2.17.7
+
+### Patch Changes
+
+- f3e50576: expose `trigger` attribute from avatar
+- 6698455c: **New Feature** - Horizontal Title available in Stepper
+- Updated dependencies [6698455c]
+  - @equinor/fusion-react-stepper@0.4.0
+
 ## 2.17.6
 
 ### Patch Changes

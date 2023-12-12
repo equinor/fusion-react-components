@@ -11,7 +11,7 @@ type PrevAvailableStep = {
   previous: boolean;
 };
 
-// Map out all children as an array of objects that have key, position, disabled and done
+/** Map out all children as an array of objects that have key, position, disabled and done */
 export const getSteps = (children: ReactNode): StepKey[] => {
   return Children.toArray(children).map((child, i) => {
     return {
@@ -23,7 +23,7 @@ export const getSteps = (children: ReactNode): StepKey[] => {
   });
 };
 
-// Check if there is next step that is available (not disabled) for "jump"
+/** Check if there is next step that is available (not disabled) for "jump" */
 export const findNextAvailable = (currentPosition: number, steps: StepKey[]): NextAvailableStep => {
   const current = steps.find((sk) => sk.position === currentPosition);
   if (current) {
@@ -45,7 +45,7 @@ export const findNextAvailable = (currentPosition: number, steps: StepKey[]): Ne
   };
 };
 
-// Check if there is previous step that is available (not disabled) for "jump"
+/** Check if there is previous step that is available (not disabled) for "jump" */
 export const findPrevAvailable = (currentPosition: number, steps: StepKey[]): PrevAvailableStep => {
   const current = steps.find((sk) => sk.position === currentPosition);
   if (current) {
