@@ -1,5 +1,16 @@
 # Change Log
 
+## 2.19.7
+
+### Patch Changes
+
+- Updated dependencies [2fee8065]
+- Updated dependencies [0baac88f]
+- Updated dependencies [2fee8065]
+  - @equinor/fusion-react-stepper@0.4.3
+  - @equinor/fusion-react-person@0.6.3
+  - @equinor/fusion-react-side-sheet@1.2.4
+
 ## 2.19.6
 
 ### Patch Changes

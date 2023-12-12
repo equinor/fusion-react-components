@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.6.3
+
+### Patch Changes
+
+- 0baac88f: Updating webcomponent dependency @equinor/fusion-wc-person
+
 ## 0.6.2
 
 ### Patch Changes

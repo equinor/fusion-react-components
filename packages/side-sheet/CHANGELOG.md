@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.2.4
+
+### Patch Changes
+
+- 2fee8065: Sidesheet content height adjustment
+
 ## 1.2.3
 
 ### Patch Changes
