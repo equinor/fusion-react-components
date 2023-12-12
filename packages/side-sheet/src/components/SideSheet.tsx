@@ -24,6 +24,7 @@ const StyledFlexColumn = styled(StyledFlexBox)`
 
 const StyledContainerWrapper = styled(StyledFlexColumn)`
   background: ${tokens.colors.ui.background__default.hex};
+  height: 100%;
 `;
 
 const StyledHeader = styled(StyledFlexBox)`
