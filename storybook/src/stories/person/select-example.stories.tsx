@@ -74,7 +74,9 @@ export const Component: Story<CardProps> = (props: CardProps) => (
 Component.args = {
   placeholder: 'Start to type to search...',
   initialText: 'The initial text result',
-  variant: 'page-outlined',
+  variant: 'page',
   dropdownHeight: '300px',
   leadingIcon: 'search',
+  onSelect: (w) => console.log('onSelect', w),
+  onDropdownClosed: (w) => console.log('onDropdownClosed', w),
 };

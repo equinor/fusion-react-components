@@ -1,10 +1,9 @@
-import { BaseSyntheticEvent, PropsWithChildren, useEffect, useRef } from 'react';
+import { BaseSyntheticEvent, PropsWithChildren } from 'react';
 import { ComponentProps, createComponent } from '@equinor/fusion-react-utils';
 import HTMLPersonSelectCustomElement, {
   tag,
   PersonSelectEvent as HTMLPersonSelectEvent,
 } from '@equinor/fusion-wc-person/select';
-import extractProps from './extract-props';
 
 type ElementAtts = PropsWithChildren<
   Partial<
@@ -48,19 +47,7 @@ export const PersonSelect: React.FC<PersonSelectProps> = ({
   children,
   ...props
 }: PropsWithChildren<PersonSelectProps>) => {
-  const searchRef = useRef<HTMLPersonSelectCustomElement>(null);
-
-  useEffect(() => {
-    for (const [name, value] of Object.entries(extractProps<ElementProps>(props))) {
-      if (searchRef.current) {
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        searchRef.current[name] = value;
-      }
-    }
-  }, [props]);
-
-  return <PersonSelectComponent ref={searchRef}>{children}</PersonSelectComponent>;
+  return <PersonSelectComponent {...props}>{children}</PersonSelectComponent>;
 };
 
 export default PersonSelect;
