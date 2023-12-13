@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.6.4
+
+### Patch Changes
+
+- c6f9fb71: Fixing props not working on person-select component
+
 ## 0.6.3
 
 ### Patch Changes

@@ -1,5 +1,13 @@
 # Change Log
 
+## 2.19.9
+
+### Patch Changes
+
+- c6f9fb71: Fixing props not working on person-select component
+- Updated dependencies [c6f9fb71]
+  - @equinor/fusion-react-person@0.6.4
+
 ## 2.19.8
 
 ### Patch Changes
