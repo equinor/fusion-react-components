@@ -1,5 +1,12 @@
 # Change Log
 
+## 2.19.10
+
+### Patch Changes
+
+- Updated dependencies [c719c248]
+  - @equinor/fusion-react-side-sheet@1.2.5
+
 ## 2.19.9
 
 ### Patch Changes

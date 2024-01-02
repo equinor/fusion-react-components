@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.2.5
+
+### Patch Changes
+
+- c719c248: Content height adjustment for 100% height
+
 ## 1.2.4
 
 ### Patch Changes
