@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const StyledContentContainer = styled.div`
   overflow-y: auto;
-  height: calc(100vh - 5rem);
+  height: calc(100vh - 7rem);
   padding: 1rem;
 `;
 
