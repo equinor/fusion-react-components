@@ -1,73 +1,86 @@
-import { createReducer, ActionType } from 'typesafe-actions';
+import { type State, Status } from './types';
+import { type Actions, actions } from './actions';
+import { createReducer } from '@equinor/fusion-observable';
 
-import { State, Status, removeStatus } from './state';
-import { Actions, actions } from './actions';
+const removeError = (state: State, action: Actions) => {
+  state.errors = state.errors.filter((x) => x.action.type !== action.type);
+};
 
-export const fetchReport = (initial: State) =>
-  createReducer<State, ActionType<typeof actions.fetchReport>>(initial).handleAction(
-    actions.fetchReport.success,
-    (state, action) => ({
-      ...state,
-      report: action.payload,
-      status: removeStatus(state, Status.LoadingReport),
-    })
-  );
+export const makeReducer = (id: string) => {
+  const initial: State = { id, errors: [], status: new Set() };
+  return createReducer(initial, (builder) => {
+    /** ===== report ====== */
+    builder
+      .addCase(actions.report.fetch, (state, action) => {
+        state.status.add(Status.LoadingReport);
+        removeError(state, action);
+      })
+      .addCase(actions.report.fetch.success, (state, action) => {
+        state.report = action.payload;
+        state.status.delete(Status.LoadingReport);
+      })
+      .addCase(actions.report.fetch.failure, (state, action) => {
+        state.errors.push(action.payload);
+        state.status.delete(Status.LoadingReport);
+      })
+      .addCase(actions.report.cancel, (state) => {
+        state.status.delete(Status.LoadingReport);
+      });
 
-export const fetchReportDescription = (initial: State) =>
-  createReducer<State, ActionType<typeof actions.fetchReportDescription>>(initial).handleAction(
-    actions.fetchReportDescription.success,
-    (state, action) => ({
-      ...state,
-      description: action.payload,
-      status: removeStatus(state, Status.LoadingDescription),
-    })
-  );
+    /** ===== description ====== */
+    builder
+      .addCase(actions.description.fetch, (state, action) => {
+        state.status.add(Status.LoadingDescription);
+        removeError(state, action);
+      })
+      .addCase(actions.description.fetch.success, (state, action) => {
+        state.description = action.payload;
+        state.status.delete(Status.LoadingDescription);
+      })
+      .addCase(actions.description.fetch.failure, (state, action) => {
+        state.errors.push(action.payload);
+        state.status.delete(Status.LoadingDescription);
+      })
+      .addCase(actions.description.cancel, (state) => {
+        state.status.delete(Status.LoadingDescription);
+      });
 
-export const fetchReportAccessDescription = (initial: State) =>
-  createReducer<State, ActionType<typeof actions.fetchReportAccessDescription>>(initial).handleAction(
-    actions.fetchReportAccessDescription.success,
-    (state, action) => ({
-      ...state,
-      accessDescription: action.payload,
-      status: removeStatus(state, Status.LoadingAccessDescription),
-    })
-  );
+    /** ===== access description ====== */
+    builder
+      .addCase(actions.accessDescription.fetch, (state, action) => {
+        state.status.add(Status.LoadingAccessDescription);
+        removeError(state, action);
+      })
+      .addCase(actions.accessDescription.fetch.success, (state, action) => {
+        state.accessDescription = action.payload;
+        state.status.delete(Status.LoadingAccessDescription);
+      })
+      .addCase(actions.accessDescription.fetch.failure, (state, action) => {
+        state.errors.push(action.payload);
+        state.status.delete(Status.LoadingAccessDescription);
+      })
+      .addCase(actions.accessDescription.cancel, (state) => {
+        state.status.delete(Status.LoadingAccessDescription);
+      });
 
-export const fetchReportRequirements = (initial: State) =>
-  createReducer<State, ActionType<typeof actions.fetchReportRequirements>>(initial).handleAction(
-    actions.fetchReportRequirements.success,
-    (state, action) => ({
-      ...state,
-      requirements: action.payload,
-      status: removeStatus(state, Status.LoadingRequirements),
-    })
-  );
-
-export const initialize = (initial: State) =>
-  createReducer<State, ActionType<typeof actions.initialize>>(initial)
-    .handleAction(actions.initialize.request, (state, action) => ({
-      id: action.payload,
-      errors: [],
-      status: [
-        Status.LoadingReport,
-        Status.LoadingDescription,
-        Status.LoadingAccessDescription,
-        Status.LoadingRequirements,
-      ],
-    }))
-    .handleAction(actions.initialize.success, (state, _action) => ({
-      ...state,
-      status: [],
-      initialized: true,
-    }));
-
-export const reducer = (initial: State) =>
-  createReducer<State, Actions>(initial, {
-    ...fetchReport(initial).handlers,
-    ...fetchReportDescription(initial).handlers,
-    ...fetchReportAccessDescription(initial).handlers,
-    ...fetchReportRequirements(initial).handlers,
-    ...initialize(initial).handlers,
+    /** ===== access requirements ====== */
+    builder
+      .addCase(actions.requirements.fetch, (state, action) => {
+        state.status.add(Status.LoadingRequirements);
+        removeError(state, action);
+      })
+      .addCase(actions.requirements.fetch.success, (state, action) => {
+        state.accessDescription = action.payload;
+        state.status.delete(Status.LoadingRequirements);
+      })
+      .addCase(actions.requirements.fetch.failure, (state, action) => {
+        state.errors.push(action.payload);
+        state.status.delete(Status.LoadingRequirements);
+      })
+      .addCase(actions.requirements.cancel, (state) => {
+        state.status.delete(Status.LoadingRequirements);
+      });
   });
+};
 
-export default reducer;
+export default makeReducer;

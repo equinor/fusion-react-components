@@ -4,22 +4,20 @@ import { IEmbedConfiguration } from 'powerbi-client';
 
 import deepmerge from 'deepmerge';
 
-import { useSelector } from '@equinor/fusion/lib/epic';
+import { useObservableState, useObservableSelector } from '@equinor/fusion-observable/react';
 import { context } from '../../context';
 import { createConfig } from './embed-config';
 
 export const useConfig = (options: IEmbedConfiguration = {}) => {
-  const pbiContext = useContext(context);
-  if (!pbiContext) return {};
-  const { store } = pbiContext;
-
-  const embedInfo = useSelector(store, 'embedInfo');
+  const { store } = useContext(context);
+  const { value: embedInfo } = useObservableState(useObservableSelector(store, 'embedInfo'));
+  const { value: token } = useObservableState(useObservableSelector(store, 'token'));
   const config = useMemo(() => embedInfo && createConfig(embedInfo), [embedInfo]);
-  const accessToken = useSelector(store, 'token')?.token;
-  const embedConfig = useMemo<IEmbedConfiguration | null>(() => {
-    if (!config) return null;
-    return { ...deepmerge(config, options), accessToken };
-  }, [config, options, accessToken]);
+  const embedConfig = useMemo<IEmbedConfiguration | void>(() => {
+    if (config && token) {
+      return { ...deepmerge(config, options), accessToken: token.token } satisfies IEmbedConfiguration;
+    }
+  }, [config, options, token]);
   return embedConfig;
 };
 

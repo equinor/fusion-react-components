@@ -1,22 +1,32 @@
-import { EpicReducer, combineEpics } from '@equinor/fusion/lib/epic';
+import { FlowSubject } from '@equinor/fusion-observable';
 
-import { State } from './state';
-import { Actions, actions } from './actions';
-import { epics, Dependencies } from './epics';
-import { reducer } from './reducer';
+import { makeReducer } from './reducer';
+import { type Actions, actions } from './actions';
+import { createFlows } from './flows';
 
-export const epic = combineEpics<Actions, Actions, State>(...Object.values(epics));
+import type { ApiClient } from '../../types';
+import type { State } from './types';
 
-export class Store extends EpicReducer<State, Actions> {
+export class Store extends FlowSubject<State, Actions> {
+  constructor(args: { id: string; apiClient: ApiClient }) {
+    super(makeReducer(args.id));
+    this.addFlow(createFlows(args.apiClient));
+  }
   initialize() {
-    this.dispatch(actions.initialize.request(this.value.id));
-    return () => this.dispatch(actions.initialize.cancel());
+    [
+      actions.report.fetch,
+      actions.description.fetch,
+      actions.accessDescription.fetch,
+      actions.requirements.fetch,
+    ].forEach((action) => this.next(action()));
+    return () =>
+      [
+        actions.report.cancel,
+        actions.description.cancel,
+        actions.accessDescription.cancel,
+        actions.requirements.cancel,
+      ].forEach((action) => this.next(action('initialize aborted!')));
   }
 }
-
-export const createStore = (id: string, dependencies: Dependencies): Store => {
-  const initial: State = { id, errors: [], status: [] };
-  return new Store(reducer, epic, initial, dependencies);
-};
 
 export default Store;

@@ -1,4 +1,4 @@
-export { PowerBI } from './Report';
+export { PowerBI, type PowerBIProps } from './Report';
 export { PowerBIReportInfo } from './ReportInfo';
 
 export {

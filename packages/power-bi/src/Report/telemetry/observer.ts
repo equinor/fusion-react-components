@@ -7,13 +7,13 @@ import { Store } from '../store';
 import trackActions from './track-actions';
 
 const createContext = (store: Store) =>
-  store.state$.pipe(
+  store.pipe(
     map((x) => ({
       id: x.id,
       type: x.embedInfo?.embedType,
       name: x.embedInfo?.name,
       workspace: x.embedInfo?.groupId,
-    }))
+    })),
   );
 
 export class PowerBITelemetryObserver extends TelemetryObserver {

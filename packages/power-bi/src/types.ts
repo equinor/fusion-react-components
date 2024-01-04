@@ -160,14 +160,33 @@ export type Report = {
 // TODO - add required props for using context
 type Context = unknown;
 
+export class ApiClientError extends Error {
+  static TYPE = 'unauthorized';
+  #type: typeof ApiClientError.TYPE;
+
+  get type(){
+    return this.#type;
+  }
+  constructor(type: typeof ApiClientError.TYPE) {
+    super('');
+    this.#type = type;
+  }
+}
+
+
 export type ApiClient = {
   acquireAccessToken(reportId: string): ObservableInput<AccessToken>;
   checkContextAccess(reportId: string, contextExternalId: string, contextType: string): ObservableInput<void>;
   getEmbedInfo(reportId: string): ObservableInput<EmbedInfo>;
-  getReport(reportId: string): ObservableInput<EmbedInfo>;
-  getReportDescription(reportId: string): ObservableInput<EmbedInfo>;
+  getReport(reportId: string): ObservableInput<Report>;
+  getReportDescription(reportId: string): ObservableInput<string>;
   getReportAccessDescription(reportId: string): ObservableInput<string>;
+  getReportRequirements(reportId: string): ObservableInput<string>;
   context?: {
     currentContext: Observable<Context>;
   }
+  processError(err: unknown): { header: string; subHeader: string };
 };
+
+
+// PBI-Common

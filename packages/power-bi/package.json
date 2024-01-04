@@ -36,20 +36,31 @@
     "url": "https://github.com/equinor/fusion-react-components/issues"
   },
   "dependencies": {
-    "@equinor/eds-core-react": "^0.34.0",
-    "@equinor/fusion": "^3.4.9",
-    "@equinor/fusion-framework-react-module-bookmark": "2.0.22",
     "@equinor/fusion-react-errorboundary": "workspace:^",
     "@equinor/fusion-react-styles": "workspace:^",
     "clsx": "^1.2.1",
     "deepmerge": "^4.3.1",
     "powerbi-client-react": "^1.4.0",
-    "powerbi-models": "^1.13.0",
-    "rxjs": "^7.4.0",
-    "typesafe-actions": "^5.1.0"
+    "powerbi-models": "^1.13.0"
   },
   "devDependencies": {
+    "@equinor/eds-core-react": "^0.34.0",
+    "@equinor/fusion-observable": "^8.1.2",
     "@types/react": "^18.2.39",
+    "immer": "^9",
+    "rxjs": "^7.4.0",
     "react": "^18.2.0"
+  },
+  "peerDependencies": {
+    "@equinor/eds-core-react": "^0.34.0",
+    "@equinor/fusion-observable": "^8.1.2",
+    "immer": "^9",
+    "rxjs": "^7.4.0",
+    "react": "^18.2.0"
+  },
+  "peerDependenciesMeta": {
+    "@types/react": {
+      "optional": true
+    }
   }
 }

@@ -1,56 +1,45 @@
-import { createAsyncAction, ActionType } from 'typesafe-actions';
+import { type ActionTypes, createAction, createAsyncAction, ActionError } from '@equinor/fusion-observable';
+import type { Report } from '../../types';
 
-import { HttpClientRequestFailedError } from '@equinor/fusion';
-import { Report } from '@equinor/fusion/lib/http/apiClients/models/report';
-import { ActionError } from '@equinor/fusion/lib/epic';
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type ApiError = ActionError<HttpClientRequestFailedError<any>>;
-type AbortSignal = string | void;
-
-export const fetchReport = createAsyncAction(
-  '@PBI/FETCH_REPORT_REQUEST',
-  '@PBI/FETCH_REPORT_SUCCESS',
-  '@PBI/FETCH_REPORT_FAILURE',
-  '@PBI/FETCH_REPORT_CANCEL'
-)<string, Report, ApiError, AbortSignal>();
-
-export const fetchReportDescription = createAsyncAction(
-  '@PBI/FETCH_REPORT_DESCRIPTION_REQUEST',
-  '@PBI/FETCH_REPORT_DESCRIPTION_SUCCESS',
-  '@PBI/FETCH_REPORT_DESCRIPTION_FAILURE',
-  '@PBI/FETCH_REPORT_DESCRIPTION_CANCEL'
-)<string, string, ApiError, AbortSignal>();
-
-export const fetchReportAccessDescription = createAsyncAction(
-  '@PBI/FETCH_REPORT_ACCESS_DESCRIPTION_REQUEST',
-  '@PBI/FETCH_REPORT_ACCESS_DESCRIPTION_SUCCESS',
-  '@PBI/FETCH_REPORT_ACCESS_DESCRIPTION_FAILURE',
-  '@PBI/FETCH_REPORT_ACCESS_DESCRIPTION_CANCEL'
-)<string, string, ApiError, AbortSignal>();
-
-export const fetchReportRequirements = createAsyncAction(
-  '@PBI/FETCH_REPORT_REQUIRMENTS_REQUEST',
-  '@PBI/FETCH_REPORT_REQUIRMENTS_SUCCESS',
-  '@PBI/FETCH_REPORT_REQUIRMENTS_FAILURE',
-  '@PBI/FETCH_REPORT_REQUIRMENTS_CANCEL'
-)<string, string, ApiError, AbortSignal>();
-
-export const initialize = createAsyncAction(
-  '@PBI/INFO_INITIALIZE_REQUEST',
-  '@PBI/INFO_INITIALIZE_SUCCESS',
-  '@PBI/INFO_INITIALIZE_FAILURE',
-  '@PBI/INFO_INITIALIZE_CANCEL'
-)<string, void, void, AbortSignal>();
+export type Actions = ActionTypes<typeof actions>;
 
 export const actions = {
-  initialize,
-  fetchReport,
-  fetchReportDescription,
-  fetchReportAccessDescription,
-  fetchReportRequirements,
+  report: {
+    fetch: createAsyncAction(
+      'PBI/FETCH_REPORT',
+      () => ({ payload: undefined }),
+      (report: Report) => ({ payload: report }),
+      (err: ActionError) => ({ payload: err }),
+    ),
+    cancel: createAction('PBI/FETCH_REPORT::cancel', (reason: string) => ({ payload: reason })),
+  },
+  description: {
+    fetch: createAsyncAction(
+      'PBI/FETCH_REPORT_DESCRIPTION',
+      () => ({ payload: undefined }),
+      (description: string) => ({ payload: description }),
+      (err: ActionError) => ({ payload: err }),
+    ),
+    cancel: createAction('PBI/FETCH_REPORT_DESCRIPTION::cancel', (reason: string) => ({ payload: reason })),
+  },
+  accessDescription: {
+    fetch: createAsyncAction(
+      'PBI/FETCH_REPORT_ACCESS_DESCRIPTION',
+      () => ({ payload: undefined }),
+      (description: string) => ({ payload: description }),
+      (err) => ({ payload: err }),
+    ),
+    cancel: createAction('PBI/FETCH_REPORT_ACCESS_DESCRIPTION::cancel', (reason: string) => ({ payload: reason })),
+  },
+  requirements: {
+    fetch: createAsyncAction(
+      'FETCH_REPORT_REQUIREMENTS',
+      () => ({ payload: undefined }),
+      (description: string) => ({ payload: description }),
+      (err: ActionError) => ({ payload: err }),
+    ),
+    cancel: createAction('FETCH_REPORT_REQUIREMENTS', (reason: string) => ({ payload: reason })),
+  },
 };
-
-export type Actions = ActionType<typeof actions>;
 
 export default actions;

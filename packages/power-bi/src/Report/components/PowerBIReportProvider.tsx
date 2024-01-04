@@ -1,20 +1,33 @@
-import { useEffect, PropsWithChildren, FunctionComponent, useRef, useMemo, useState } from 'react';
-
-// import { useCurrentContext, useTelemetryLogger } from '@equinor/fusion';
+import {
+  useEffect,
+  PropsWithChildren,
+  FunctionComponent,
+  useRef,
+  useMemo,
+  useState,
+  useLayoutEffect,
+  useCallback,
+} from 'react';
 
 import { context, PowerBIEmbedComponent, PowerBIEmbedEventEntry, PowerBIReportContext } from '../context';
-import { of, Subject, Subscription } from 'rxjs';
-// import PowerBITelemetryObserver from '../telemetry/observer';
-import { createStore } from '../store';
-import { distinctUntilKeyChanged, filter, switchMap } from 'rxjs/operators';
+import { Subject } from 'rxjs';
+
+import { Store } from '../store';
+import { distinctUntilKeyChanged, filter, map } from 'rxjs/operators';
 import { ApiClient } from '../../types';
 
+import {
+  useObservableLayoutSubscription,
+} from '@equinor/fusion-observable/react';
+
+// import PowerBITelemetryObserver from '../telemetry/observer';
+
 type Props = PropsWithChildren<{
-  id: string;
-  hasContext: boolean;
-  reloadOnContextChange?: boolean;
-  apiClient: ApiClient;
-  context?: { externalId?: string; type?: { id: string } };
+  readonly id: string;
+  readonly hasContext: boolean;
+  readonly reloadOnContextChange?: boolean;
+  readonly apiClient: ApiClient;
+  readonly context?: { externalId: string; type: string };
 }>;
 
 const { Provider } = context;
@@ -27,37 +40,18 @@ export const PowerBIReportProvider: FunctionComponent<Props> = ({
   apiClient,
   context,
 }: Props) => {
-  const store = useMemo(() => createStore(id, apiClient), [id, apiClient]);
+  const store = useMemo(() => new Store(id, { apiClient }), [id, apiClient]);
+  const event$ = useMemo(() => new Subject<PowerBIEmbedEventEntry>(), []);
 
-  /** After initial fetch, allow fetched to happen silently. meaning to spinners.
-   * Used with access check when changing context, else a spinner will overlay the report embed */
-  const [silentAccessCheck, setSilentAccessCheck] = useState<boolean>(false);
+  /**
+   * Null default, as to not set contextAccess before embedInfo has been fetched
+   */
+  const [hasRls, setHasRls] = useState<boolean | undefined>(undefined);
 
-  /*Null default, as to not set contextAccess before embedInfo has been fetched */
-  const [hasRls, setHasRls] = useState<boolean | null>(null);
   const component = useRef<PowerBIEmbedComponent | undefined>(undefined);
 
   // TODO add metrics
   // const metrics = useMemo(() => new PowerBITelemetryObserver(store, logger), [store, logger]);
-  const event$ = useMemo(() => new Subject<PowerBIEmbedEventEntry>(), [store]);
-  const value = useMemo<PowerBIReportContext>(
-    // () => ({ store, event$, metrics, component }),
-    // [store, event$, metrics, component]
-    () => ({ store, event$, component }),
-    [store, event$, component]
-  );
-
-  // TODO import context!
-  // const selectedContext = undefined;
-  // const currentContext = useCurrentContext();
-  const selectedContext = useMemo(() => {
-    if (context?.externalId && context?.type) {
-      return {
-        externalId: context.externalId,
-        type: context.type.id,
-      };
-    }
-  }, [context?.externalId, context?.type]);
 
   // useEffect(() => {
   //   if (reloadOnContextChange && component.current) {
@@ -65,63 +59,73 @@ export const PowerBIReportProvider: FunctionComponent<Props> = ({
   //   }
   // }, [selectedContext, component, reloadOnContextChange]);
 
-  // configure store and teardown
-  useEffect(() => {
-    const subscription = new Subscription(() => {
-      store.reset();
-    });
+  /**
+   * when new store created, fetch embed info for the report
+   */
+  useLayoutEffect(() => store.requestEmbedInfo(), [store]);
 
-    store.requestEmbedInfo();
-
-    subscription.add(
-      store.state$
-        .pipe(
+  /**
+   * when embed info is loaded, check if
+   */
+  useObservableLayoutSubscription(
+    useMemo(
+      () =>
+        store.pipe(
           distinctUntilKeyChanged('embedInfo'),
-          switchMap((x) => (x?.embedInfo ? of(Boolean(x.embedInfo?.rlsConfiguration)) : of(null)))
-        )
-        .subscribe((rls) => {
-          setHasRls(rls);
-          setSilentAccessCheck(false);
-        })
-    );
+          map((x) => !!x?.embedInfo),
+        ),
+      [store],
+    ),
+    useCallback((rls: boolean) => {
+      setHasRls(rls);
+    }, []),
+    useCallback(() => {
+      setHasRls(undefined);
+    }, []),
+  );
 
-    subscription.add(
-      store.state$
-        .pipe(
+  useObservableLayoutSubscription(
+    useMemo(
+      () =>
+        store.pipe(
           distinctUntilKeyChanged('hasContextAccess'),
-          filter((x) => Boolean(x.hasContextAccess && !x.token))
-        )
-        .subscribe(() => store.requestAccessToken(silentAccessCheck))
-    );
+          filter((x) => Boolean(x.hasContextAccess && !x.token)),
+        ),
+      [store],
+    ),
+    useCallback(() => store.requestAccessToken(), [store]),
+  );
 
-    return () => subscription.unsubscribe();
-  }, [store, selectedContext]);
-
+  /**
+   * if not using context, or hasRLS is determined to be false, the the process through to requestToken.
+   * When EmbedInfo is fetched, the hasRls state should resolve to true/false or we have caught an error.
+   */
   useEffect(() => {
-    return () => store.unsubscribe();
-  }, [store]);
-
-  useEffect(() => {
-    /**
-     * Determines context access on wither rapport uses RLS and if it uses context.
-     * checkContextAccess should only run for reports using context AND RLS.
-     */
-    if (hasContext && hasRls) {
-      // TODO
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      store.checkContextAccess({ ...selectedContext, silent: silentAccessCheck });
-      setSilentAccessCheck(true);
-      return;
+    if (!hasContext || hasRls === false) {
+      store.contextAccess = true;
     }
-    /**
-     * if not using context, or hasRLS is determined to be false, the the process through to requestToken.
-     * When EmbedInfo is fetched, the hasRls state should resolve to true/false or we have caught an error.
-     */
-    if (!hasContext || hasRls === false) store.contextAccess = true;
-  }, [store, hasContext, hasRls, selectedContext]);
+    return () => {
+      store.contextAccess = false;
+    };
+  }, [store, hasContext, hasRls]);
 
-  return <Provider value={value}>{children}</Provider>;
+  useEffect(() => {
+    if (context && hasRls) {
+      /**
+       * Determines context access on wither rapport uses RLS and if it uses context.
+       * checkContextAccess should only run for reports using context AND RLS.
+       */
+      return store.checkContextAccess(context);
+    }
+  }, [store, hasRls, context]);
+
+  return (
+    <Provider
+      value={useMemo(() => ({ store, event$, component }) satisfies PowerBIReportContext, [store, event$, component])}
+    >
+      {children}
+    </Provider>
+  );
 };
 
 export default PowerBIReportProvider;

@@ -11,14 +11,18 @@ import { ActionError } from '@equinor/fusion/lib/epic';
 const requests = (action$: Observable<Actions>) =>
   action$.pipe(
     filter(
-      isActionOf([actions.fetchAccessToken.request, actions.fetchEmbedInfo.request, actions.checkContextAccess.request])
+      isActionOf([
+        actions.fetchAccessToken.request,
+        actions.fetchEmbedInfo.request,
+        actions.checkContextAccess.request,
+      ]),
     ),
     map(({ type, payload }) =>
       TelemetryActions.event({
         name: 'action.request',
         properties: { action: type, payload },
-      })
-    )
+      }),
+    ),
   );
 
 const failures = (action$: Observable<Actions>) =>
@@ -30,13 +34,13 @@ const failures = (action$: Observable<Actions>) =>
         name: 'action.error',
         properties: { error: { action: type, statusCode, url } },
       });
-    })
+    }),
   );
 
 const tokenRefresh = (action$: Observable<Actions>) =>
   action$.pipe(
     filter(isActionOf(actions.refreshAccessToken)),
-    map(() => TelemetryActions.event({ name: 'token.refresh' }))
+    map(() => TelemetryActions.event({ name: 'token.refresh' })),
   );
 
 export const trackers = (action$: Observable<Actions>) =>

@@ -1,17 +1,17 @@
-import { createAsyncAction, ActionType } from 'typesafe-actions';
+import { type ActionTypes, createAction, createAsyncAction, type ActionError } from '@equinor/fusion-observable';
 
-import { HttpClientRequestFailedError } from '@equinor/fusion';
-import { EmbedInfo } from '@equinor/fusion/lib/http/apiClients/models/report';
-import { ActionError } from '@equinor/fusion/lib/epic';
+import type { EmbedInfo } from '../../../types';
 
-export type FetchEmbedInfoAction = ActionType<typeof fetchEmbedInfo>;
+export const actions = {
+  fetch: createAsyncAction(
+    '@PBI/FETCH_REPORT_EMBED_INFO',
+    (payload: string) => ({ payload }),
+    (payload: EmbedInfo) => ({ payload }),
+    (payload: ActionError) => ({ payload }),
+  ),
+  cancel: createAction('@PBI/FETCH_REPORT_EMBED_INFO::cancel', (payload: string | void) => ({ payload })),
+};
 
-export const fetchEmbedInfo = createAsyncAction(
-  '@PBI/FETCH_REPORT_EMBED_INFO_REQUEST',
-  '@PBI/FETCH_REPORT_EMBED_INFO_SUCCESS',
-  '@PBI/FETCH_REPORT_EMBED_INFO_FAILURE',
-  '@PBI/FETCH_REPORT_EMBED_INFO_CANCEL'
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-)<string, EmbedInfo, ActionError<HttpClientRequestFailedError<any>>, string | void>();
+export type Actions = ActionTypes<typeof actions>;
 
-export default { fetchEmbedInfo };
+export default actions;

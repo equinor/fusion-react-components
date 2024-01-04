@@ -1,34 +1,43 @@
-import { EpicReducer, ActionPayload } from '@equinor/fusion/lib/epic';
+import { FlowSubject, type ActionPayloadType } from '@equinor/fusion-observable';
 
-import { State } from './state';
-import { Actions, actions } from './actions';
+import { type Actions, actions } from './actions';
+import { makeReducer } from './reducer';
+import { flows } from './flows';
 
-type CheckAccess = Pick<ActionPayload<typeof actions.checkContextAccess.request>, 'externalId' | 'type'> & {
-  silent?: boolean;
-};
+import type { State } from './types';
+import type { ApiClient } from '../../types';
 
-export class Store extends EpicReducer<State, Actions> {
+type CheckAccess = Pick<ActionPayloadType<typeof actions.contextAccess.checkAccess>, 'externalId' | 'type' | 'silent'>;
+
+export class Store extends FlowSubject<State, Actions> {
   set contextAccess(value: boolean) {
-    this.dispatch(actions.setContextAccess(value));
+    this.next(actions.contextAccess.setAccess(value));
+  }
+
+  constructor(id: string, args: { apiClient: ApiClient }) {
+    super(
+      makeReducer({
+        id,
+        errors: [],
+        status: [],
+      }),
+    );
+    flows(args).map((flow) => this.addFlow(flow));
   }
 
   requestEmbedInfo(): VoidFunction {
-    this.dispatch(actions.fetchEmbedInfo.request(this.value.id));
-    return () => this.dispatch(actions.fetchEmbedInfo.cancel());
+    this.next(actions.embedInfo.fetch(this.value.id));
+    return (reason?: string) => this.next(actions.embedInfo.cancel(reason));
   }
 
   requestAccessToken(silent?: boolean): VoidFunction {
-    this.dispatch(actions.fetchAccessToken.request({ reportId: this.value.id, silent: !!silent }));
-    return () => this.dispatch(actions.fetchAccessToken.cancel());
+    this.next(actions.accessToken.fetch({ reportId: this.value.id, silent: !!silent }));
+    return (reason?: string) => this.next(actions.accessToken.cancel(reason));
   }
 
   checkContextAccess(args: CheckAccess): VoidFunction {
-    this.dispatch(actions.checkContextAccess.request({ reportId: this.value.id, ...args }));
-    return () => this.dispatch(actions.checkContextAccess.cancel());
-  }
-
-  reset(): void {
-    this.dispatch(actions.reset());
+    this.next(actions.contextAccess.checkAccess({ reportId: this.value.id, ...args }));
+    return (reason?: string) => this.next(actions.contextAccess.cancel(reason));
   }
 }
 
