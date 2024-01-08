@@ -25,4 +25,8 @@
   .ag-rich-select-row-selected {
     background-color: var(--ag-selected-row-background-color, #deedee);
   }
+
+  [class*="ag-tooltip-hiding"] {
+    display: none;
+  }
 }
