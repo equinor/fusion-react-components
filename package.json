@@ -10,7 +10,7 @@
     "yarn": "please-use-pnpm",
     "pnpm": ">=4"
   },
-  "packageManager": "pnpm@8.8.0",
+  "packageManager": "pnpm@8.14.0",
   "scripts": {
     "test": "lerna run --no-bail test",
     "start": "pnpm run storybook",

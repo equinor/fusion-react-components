@@ -32,8 +32,7 @@ runs:
         pnpm changeset version --snapshot ${{ inputs.tag }}
         pnpm changeset publish --no-git-tag --tag ${{ inputs.tag }} 
       env:
-        NODE_AUTH_TOKEN: ${{ inputs.npm-token }}
-        GITHUB_TOKEN: ${{ inputs.gh-token }}
+        NPM_AUTH_TOKEN: ${{ inputs.npm-token }}
 
     - uses: actions/upload-artifact@v3
       if: ${{ steps.status.outputs.releases > 0 }}
