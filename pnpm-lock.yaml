@@ -130,8 +130,8 @@ importers:
         version: link:../styles
     devDependencies:
       '@ag-grid-community/core':
-        specifier: ~29.3.4
-        version: 29.3.5
+        specifier: ~31.0.1
+        version: 31.0.1
       '@types/react':
         specifier: ^18.2.24
         version: 18.2.24
@@ -683,8 +683,8 @@ packages:
     resolution: {integrity: sha512-1Yjs2SvM8TflER/OD3cOjhWWOZb58A2t7wpE2S9XfBYTiIl+XFhQG2bjy4Pu1I+EAlCNUzRDYDdFwFYUKvXcIA==}
     engines: {node: '>=0.10.0'}
 
-  /@ag-grid-community/core@29.3.5:
-    resolution: {integrity: sha512-r86bOCscnKVtaYyKqlN2UCtfbjf4UcmxHfVuXzJ94iN8Jy3iiQVrbQnbNArnjR589Bt/1VR/m+SdAMsOLcdpag==}
+  /@ag-grid-community/core@31.0.1:
+    resolution: {integrity: sha512-wnovNtzLTOOUo0BypUGFUwswjlvmFZVidP9G9Pl/R0NO5TpKktW8rz9hUjOEnQ/0XUtUc6MYKwvelmKttJpYCw==}
     dev: true
 
   /@ag-grid-community/styles@30.2.0:
