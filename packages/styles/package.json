@@ -39,7 +39,7 @@
     "@equinor/fusion-wc-theme": "^1.1.0",
     "@equinor/fusion-web-theme": "^0.1.7",
     "@material-ui/styles": "^4.11.4",
-    "clsx": "^1.1.1"
+    "clsx": "^2.1.0"
   },
   "peerDependencies": {
     "react": "^17.0.0 || ^18.0.0",
