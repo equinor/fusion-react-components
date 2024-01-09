@@ -282,8 +282,8 @@ importers:
         specifier: 4.x
         version: 4.7.11
       date-fns:
-        specifier: 2.30.0
-        version: 2.30.0
+        specifier: 3.2.0
+        version: 3.2.0
       history:
         specifier: 4.x
         version: 4.10.1
@@ -522,8 +522,8 @@ importers:
   packages/utils:
     dependencies:
       date-fns:
-        specifier: ^2.28.0
-        version: 2.28.0
+        specifier: ^3.2.0
+        version: 3.2.0
     devDependencies:
       '@types/react':
         specifier: ^18.2.24
@@ -9991,16 +9991,15 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
-  /date-fns@2.28.0:
-    resolution: {integrity: sha512-8d35hViGYx/QH0icHYCeLmsLmMUheMmTyV9Fcm6gvNwdw31yXXH+O85sOBJ+OLnLQMKZowvpKb6FgMIQjcpvQw==}
-    engines: {node: '>=0.11'}
-    dev: false
-
   /date-fns@2.30.0:
     resolution: {integrity: sha512-fnULvOpxnC5/Vg3NCiWelDsLiUc9bRwAPs/+LfTLNvetFCtCTN+yQz15C/fs4AwX1R9K5GLtLfn8QW+dWisaAw==}
     engines: {node: '>=0.11'}
     dependencies:
       '@babel/runtime': 7.23.1
+    dev: false
+
+  /date-fns@3.2.0:
+    resolution: {integrity: sha512-E4KWKavANzeuusPi0jUjpuI22SURAznGkx7eZV+4i6x2A+IZxAMcajgkvuDAU1bg40+xuhW1zRdVIIM/4khuIg==}
     dev: false
 
   /dateformat@3.0.3:
