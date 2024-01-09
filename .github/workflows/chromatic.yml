@@ -21,6 +21,8 @@ jobs:
     steps:
       # requires v1 @see https://www.chromatic.com/docs/github-actions
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup node and install deps
         uses: ./.github/workflows/actions/node-setup
