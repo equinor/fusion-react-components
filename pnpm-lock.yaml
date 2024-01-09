@@ -490,8 +490,8 @@ importers:
         specifier: ^4.11.4
         version: 4.11.5(@types/react@18.2.24)(react-dom@17.0.2)(react@18.2.0)
       clsx:
-        specifier: ^1.1.1
-        version: 1.2.1
+        specifier: ^2.1.0
+        version: 2.1.0
       react-dom:
         specifier: ^17.0.0 || ^18.0.0
         version: 17.0.2(react@18.2.0)
@@ -9233,6 +9233,11 @@ packages:
 
   /clsx@1.2.1:
     resolution: {integrity: sha512-EcR6r5a8bj6pu3ycsa/E/cKVGuTgZJZdsyUYHOksG/UHIiKfjxzRxYJpyVBwYaQeOvghal9fcc4PidlgzugAQg==}
+    engines: {node: '>=6'}
+    dev: false
+
+  /clsx@2.1.0:
+    resolution: {integrity: sha512-m3iNNWpd9rl3jvvcBnu70ylMdrXt8Vlq4HYadnU5fwcOtvkSQWPmj7amUcDT2qYI7risszBjI5AUIUox9D16pg==}
     engines: {node: '>=6'}
     dev: false
 
