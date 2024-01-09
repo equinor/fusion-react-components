@@ -16,7 +16,7 @@ importers:
         version: 18.4.4(@types/node@17.0.45)(typescript@4.9.5)
       '@commitlint/config-conventional':
         specifier: ^18.4.3
-        version: 18.4.3
+        version: 18.4.4
       '@equinor/eslint-config-fusion':
         specifier: ^2.1.5
         version: 2.1.5(eslint@8.50.0)(prettier@3.0.3)(typescript@4.9.5)
@@ -2463,8 +2463,8 @@ packages:
       - typescript
     dev: true
 
-  /@commitlint/config-conventional@18.4.3:
-    resolution: {integrity: sha512-729eRRaNta7JZF07qf6SAGSghoDEp9mH7yHU0m7ff0q89W97wDrWCyZ3yoV3mcQJwbhlmVmZPTkPcm7qiAu8WA==}
+  /@commitlint/config-conventional@18.4.4:
+    resolution: {integrity: sha512-Bz3sPQSboBN+Et/KyZrR+OJ3z9PrHDw7Bls0/hv94PmuHBtMq1dCGxS9XzTGzxeMNlytCC4kxF083tbhPljl3Q==}
     engines: {node: '>=v18'}
     dependencies:
       conventional-changelog-conventionalcommits: 7.0.2
