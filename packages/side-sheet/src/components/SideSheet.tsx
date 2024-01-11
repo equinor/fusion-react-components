@@ -82,9 +82,7 @@ export const SideSheet = (props: PropsWithChildren<PortalSideSheet>) => {
       components.content = child;
     } else if (child.type === Actions) {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      components.actions = React.cloneElement(child as React.ReactElement<any>, {
-        sideSheetRef: ref,
-      });
+      components.actions = React.cloneElement(child as React.ReactElement<any>);
     } else {
       throw Error(`unsupported child ${child.type} in SideSheet component`);
     }
@@ -104,7 +102,7 @@ export const SideSheet = (props: PropsWithChildren<PortalSideSheet>) => {
 
   return (
     <SideSheetBase {...props}>
-      <StyledContainerWrapper>
+      <StyledContainerWrapper ref={ref}>
         <StyledHeader>
           <StyledFlexBox>
             {components.indicator}

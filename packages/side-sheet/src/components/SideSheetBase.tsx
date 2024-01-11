@@ -1,10 +1,10 @@
 import { Scrim } from '@equinor/eds-core-react';
 import { Resizable } from 're-resizable';
-import { PropsWithChildren, useState } from 'react';
+import { PropsWithChildren, useMemo, useState } from 'react';
 import styled from 'styled-components';
 
-const StyledScrim = styled(Scrim)`
-  animation: ScrimAnimation ease 0.3s;
+const StyledScrim = styled(Scrim)<{ shouldAnimate: boolean }>`
+  animation: ${({ shouldAnimate }) => (shouldAnimate ? 'ScrimAnimation ease 0.3s' : 'none')};
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
 
@@ -19,13 +19,13 @@ const StyledScrim = styled(Scrim)`
   }
 `;
 
-const StyledSideSheet = styled.div`
+const StyledSideSheet = styled.div<{ shouldAnimate: boolean }>`
   --side-sheet-height: calc(100vh - var(--header-height, 0));
   height: var(--custom-side-sheet-height, var(--side-sheet-height, 100%));
   position: fixed;
   top: var(--custom-header-height, var(--header-height, 0));
   transition: right 10s;
-  animation: Animation ease 0.3s;
+  animation: ${({ shouldAnimate }) => (shouldAnimate ? 'Animation ease 0.3s' : 'none')};
   right: 0px;
 
   @keyframes Animation {
@@ -49,16 +49,19 @@ export type SideSheetProps = {
   readonly isOpen: boolean;
   readonly isDismissable?: boolean;
   readonly minWidth?: number;
+  readonly animate?: boolean;
   onClose(): void;
 };
 
 export const SideSheetBase = (props: PropsWithChildren<SideSheetProps>) => {
-  const { isOpen, onClose, isDismissable, minWidth, children } = props;
+  const { isOpen, onClose, isDismissable, minWidth, children, animate } = props;
   const [width, setWidth] = useState(minWidth ?? MIN_WIDTH);
 
+  const shouldAnimate = useMemo(() => (animate === undefined ? true : animate), [animate]);
+  
   return (
-    <StyledScrim open={isOpen} onClose={onClose} isDismissable={isDismissable}>
-      <StyledSideSheet>
+    <StyledScrim open={isOpen} onClose={onClose} isDismissable={isDismissable} shouldAnimate={shouldAnimate}>
+      <StyledSideSheet shouldAnimate={shouldAnimate}>
         <Resizable
           size={{ width, height: '100%' }}
           maxWidth={'100vw'}

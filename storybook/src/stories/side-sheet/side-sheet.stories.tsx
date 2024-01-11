@@ -17,13 +17,16 @@ type Props = {
   minWidth: number;
   isResizable: boolean;
   fullScreen: boolean;
+  animate: boolean;
 };
 
 export const Component = (props: Props) => {
   const [open, setOpen] = useState(false);
+  
   const onClick = useCallback(() => {
     setOpen(true);
   }, [setOpen]);
+
   const onClose = useCallback(() => {
     setOpen(false);
   }, [setOpen]);
@@ -31,7 +34,7 @@ export const Component = (props: Props) => {
   return (
     <div>
       <Button onClick={onClick}>Open Side Sheet</Button>
-      <SideSheet isOpen={open} onClose={onClose} enableFullscreen={props.fullScreen} minWidth={props.minWidth}>
+      <SideSheet isOpen={open} onClose={onClose} enableFullscreen={props.fullScreen} minWidth={props.minWidth} animate={props.animate}>
         {props.color.length === 7 && <SideSheet.Indicator color={props.color} />}
         <SideSheet.Title title={props.title} />
         <SideSheet.SubTitle subTitle={props.subTitle} />
@@ -42,7 +45,7 @@ export const Component = (props: Props) => {
               console.log('Custom Action Help button clicked');
             }}
           >
-            <Icon name="help_outline" />
+            <Icon data={help_outline} />
           </Button>
         </SideSheet.Actions>
         <SideSheet.Content>{props.content}</SideSheet.Content>
@@ -57,6 +60,7 @@ Component.args = {
   minWidth: 480,
   content: '',
   fullScreen: true,
+  animate: true,
 };
 
 Component.argTypes = {
