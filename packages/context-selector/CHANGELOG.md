@@ -1,5 +1,12 @@
 # Change Log
 
+## 0.5.4
+
+### Patch Changes
+
+- Updated dependencies [fbf66eb]
+  - @equinor/fusion-react-utils@2.1.1
+
 ## 0.5.3
 
 ### Patch Changes

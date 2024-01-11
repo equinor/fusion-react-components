@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.7.3
+
+### Patch Changes
+
+- fbf66eb: build(deps): bump date-fns from 2.28.0 to 3.2.0
+
 ## 1.7.2
 
 ## 1.7.1

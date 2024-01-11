@@ -1,5 +1,29 @@
 # Change Log
 
+## 2.19.11
+
+### Patch Changes
+
+- 9b7ef80: Change to component.stories.mdx:
+
+  - Modified the imports.
+  - Updated the StoryExample calls.
+
+  Change to examples.stories.tsx:
+
+  - Modified the imports.
+  - Updated the Component story to use SkeletonSize.Medium.
+  - Added new stories for different variations of the Skeleton component:
+    - WithText: Displays the skeleton with text.
+    - WithCustomColor: Displays the skeleton with a custom fill color and ink color.
+    - Sizes: Displays the skeleton in different sizes.
+    - Variants: Displays the skeleton with different variants.
+    - Variants: Displays the skeleton with different variants.
+
+- Updated dependencies [fbf66eb]
+  - @equinor/fusion-react-hanging-garden@1.7.3
+  - @equinor/fusion-react-context-selector@0.5.4
+
 ## 2.19.10
 
 ### Patch Changes
