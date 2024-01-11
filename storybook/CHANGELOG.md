@@ -1,5 +1,19 @@
 # Change Log
 
+## 2.20.0
+
+### Minor Changes
+
+- a0a521d: Adding the ability to toggle the side-sheet animation, by passing `boolean` to the `animate` prop
+  - Fixing the full-screen button
+  - Updating eds packages
+  - Fixing indicator size according to ux request now 8px
+
+### Patch Changes
+
+- Updated dependencies [a0a521d]
+  - @equinor/fusion-react-side-sheet@1.3.0
+
 ## 2.19.11
 
 ### Patch Changes

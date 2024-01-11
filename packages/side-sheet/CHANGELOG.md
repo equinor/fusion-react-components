@@ -1,5 +1,14 @@
 # Change Log
 
+## 1.3.0
+
+### Minor Changes
+
+- a0a521d: Adding the ability to toggle the side-sheet animation, by passing `boolean` to the `animate` prop
+  - Fixing the full-screen button
+  - Updating eds packages
+  - Fixing indicator size according to ux request now 8px
+
 ## 1.2.5
 
 ### Patch Changes
