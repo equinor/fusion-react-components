@@ -172,9 +172,6 @@ importers:
 
   packages/context-selector:
     dependencies:
-      '@equinor/fusion-react-icon':
-        specifier: workspace:^
-        version: link:../icon
       '@equinor/fusion-react-searchable-dropdown':
         specifier: workspace:^
         version: link:../searchable-dropdown
@@ -184,6 +181,9 @@ importers:
       '@equinor/fusion-react-utils':
         specifier: workspace:^
         version: link:../utils
+      '@equinor/fusion-wc-icon':
+        specifier: ^2.3.0
+        version: 2.3.0
       '@equinor/fusion-wc-searchable-dropdown':
         specifier: ^3.6.0
         version: 3.6.0
