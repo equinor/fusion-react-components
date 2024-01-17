@@ -1,10 +1,12 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { Icon } from '@equinor/fusion-react-icon';
 import { clsx } from '@equinor/fusion-react-styles';
 import { ContextSelector } from './ContextSelector';
 import { ContextSelectorProps, ContextResultItem, ContextSelectEvent } from './types';
 import { useStyles } from './ContextSearch.styles';
 import { SearchableDropdownElement } from '@equinor/fusion-wc-searchable-dropdown';
+
+import { IconElement } from '@equinor/fusion-wc-icon';
+IconElement;
 
 export type ContextSearchProps = ContextSelectorProps & {
   previewItem?: ContextResultItem;
@@ -153,7 +155,7 @@ export const ContextSearch = ({
       <div className={clsx(gettingCtx && styles.hidden)}>
         {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions, jsx-a11y/no-static-element-interactions */}
         <div className={styles.context} onKeyUp={() => handleKeyup}>
-          <div className={styles.icon}>{ctx?.graphic && <Icon icon={ctx.graphic} />}</div>
+          <div className={styles.icon}>{ctx?.graphic && <fwc-icon icon={ctx.graphic}></fwc-icon>}</div>
           {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions, jsx-a11y/no-static-element-interactions, jsx-a11y/no-noninteractive-tabindex */}
           <div tabIndex={0} className={styles.titleBlock} onClick={toggleGettingCtx} onKeyDown={keyUpGettingCtx}>
             <span className={styles.title}>{ctx?.title}</span>
@@ -162,7 +164,7 @@ export const ContextSearch = ({
           <div className={styles.icon}>
             {ctx && !ctx.isDisabled && (
               <button className={clsx(styles.closeBtn)} onClick={handleClearContext}>
-                <Icon icon="close" />
+                <fwc-icon icon="close"></fwc-icon>
               </button>
             )}
           </div>

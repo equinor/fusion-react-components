@@ -37,14 +37,23 @@
     "url": "https://github.com/equinor/fusion-react-components/issues"
   },
   "dependencies": {
-    "@equinor/fusion-react-icon": "workspace:^",
     "@equinor/fusion-react-searchable-dropdown": "workspace:^",
     "@equinor/fusion-react-styles": "workspace:^",
     "@equinor/fusion-react-utils": "workspace:^",
+    "@equinor/fusion-wc-icon": "^2.3.0",
     "@equinor/fusion-wc-searchable-dropdown": "^3.6.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.24",
     "react": "^18.2.0"
+  },
+  "peerDependencies": {
+    "@types/react": "^18",
+    "react": "^18"
+  },
+  "peerDependenciesMeta": {
+    "@types/react": {
+      "optional": true
+    }
   }
 }
