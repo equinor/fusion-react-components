@@ -9,7 +9,6 @@ import { StatusIcon } from './StatusIcon';
 const Styled = {
   Container: styled('div')`
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100%;

@@ -50,7 +50,7 @@ export const ChangeHandler = () => {
       <button
         onClick={() => gridRef.current?.api.applyTransaction({ add: [addInitialProps({}, AGGridDataStatus.NEW)] })}
       >
-        Foo
+        Add row
       </button>
       <div className="ag-theme-alpine" style={{ width: '1080px', height: '500px' }}>
         <AgGridReact
