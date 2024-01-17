@@ -1,5 +1,7 @@
 import { ColDef, GetRowIdParams, ValueGetterParams, ValueSetterParams } from '@ag-grid-community/core';
-import StatusComponent from './StatusComponent';
+import { AGGridDataStatus } from './constants';
+import { checkForChanges } from './dataManipulators';
+import { StatusComponent } from './StatusComponent';
 
 /**
  * Value getter, gets the "current" prop in the data set
@@ -25,6 +27,9 @@ export const defaultValueSetter = (params: ValueSetterParams): boolean => {
     throw new Error('Missing field in column def');
   }
   params.data.current[field] = params.newValue;
+  if (params.data.status !== AGGridDataStatus.NEW) {
+    params.data.status = checkForChanges(params.data) ? AGGridDataStatus.PATCHED : AGGridDataStatus.FETCHED;
+  }
   return true;
 };
 
@@ -50,7 +55,8 @@ export const createStatusField = (customDefs?: ColDef): ColDef => ({
   editable: false,
   maxWidth: 100,
   cellRenderer: StatusComponent,
-  valueGetter: (params: ValueGetterParams) => params.data?.current + params.data?.current?.name,
+  /** rerender when the status of the row changes */
+  valueGetter: (params: ValueGetterParams) => params.data.status,
   suppressCellFlash: true,
   ...customDefs,
 });

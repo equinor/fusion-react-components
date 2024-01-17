@@ -1,54 +1,32 @@
-import Icon from '@equinor/fusion-react-icon';
-import { clsx, createStyles, makeStyles, theme } from '@equinor/fusion-react-styles';
-import { ICellRendererParams } from '@ag-grid-community/core';
 import { FC } from 'react';
-import { AGGridDataStatus } from './constants';
 
-const useStyles = makeStyles(
-  createStyles({
-    statusContainer: {
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      justifyContent: 'center',
-      height: '100%',
-    },
-    checkIcon: {
-      color: theme.colors.interactive.success__text.getVariable('color'),
-    },
-    closeIcon: {
-      color: theme.colors.infographic.primary__energy_red_100.getVariable('color'),
-    },
-    patchedIcon: {
-      color: theme.colors.interactive.warning__text.getVariable('color'),
-    },
-    pendingChanges: {
-      width: '.5rem',
-      height: '.5rem',
-      background: theme.colors.interactive.warning__text.getVariable('color'),
-      borderRadius: '50%',
-    },
-  }),
-);
+import { ICellRendererParams } from '@ag-grid-community/core';
 
-const StatusComponent: FC<ICellRendererParams> = (props) => {
-  const styles = useStyles();
+import { styled } from 'styled-components';
 
+import { StatusIcon } from './StatusIcon';
+
+const Styled = {
+  Container: styled('div')`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  `,
+};
+
+/**
+ * Renders a status component for a cell in an ag-grid table.
+ * @param props - The cell renderer parameters.
+ * @returns The rendered status component.
+ */
+export const StatusComponent: FC<ICellRendererParams> = (props: ICellRendererParams) => {
   const isGroupRow = props.node.group;
   if (isGroupRow) return null;
-
-  return props.data?.hasChanged || props.data?.status === AGGridDataStatus.NEW ? (
-    <div className={styles.statusContainer}>
-      <div className={styles.pendingChanges} />
-    </div>
-  ) : props.data?.status === AGGridDataStatus.PATCHED ? (
-    <div className={clsx(styles.patchedIcon, styles.statusContainer)}>
-      <Icon icon="check_circle_outlined" />
-    </div>
-  ) : (
-    <div className={clsx(styles.checkIcon, styles.statusContainer)}>
-      <Icon icon="check" />
-    </div>
+  return (
+    <Styled.Container>
+      <StatusIcon status={props.data?.status} />
+    </Styled.Container>
   );
 };
 
