@@ -22,7 +22,7 @@ export const Template = ({ children, ...props }) => {
   );
 };
 
-## ContextSelector Component 
+## ContextSelector Component
 <Canvas withSource="closed">
   <Story name="Component" args={{
       placeholder: 'Start to type to search...',
@@ -33,6 +33,11 @@ export const Template = ({ children, ...props }) => {
       onSelect: _handleSelect,
     }}
     argTypes={{
+      selectTextOnFocus: {
+        type: 'boolean',
+        defaultValue: false,
+        description: 'Flag for selecting the textbox input on focus.'
+      },
       id: {
         type: 'string',
         description: 'HTML ID for component',
