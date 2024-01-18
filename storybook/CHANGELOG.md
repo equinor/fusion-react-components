@@ -1,5 +1,42 @@
 # Change Log
 
+## 2.20.1
+
+### Patch Changes
+
+- 8f4b910: - In the `packages/errorboundary/package.json` file:
+  - The dependency `@equinor/fusion-react-icon` with version `^0.3.0` has been removed.
+  - In the `packages/icon/README.md` file:
+    - The entire content has been replaced with a deprecation notice.
+  - In the `storybook/package.json` file:
+    - The dependency `@equinor/fusion-react-icon` with version `^0.3.0` has been removed.
+  - In the `storybook/src/stories/button/button-link.stories.mdx` file:
+    - The line mentioning `@equinor/fusion-react-icon` has been replaced with a reference to using EDS (Equinor Design System) for icons.
+  - In the `storybook/src/stories/button/button-link.stories.tsx` file:
+    - The import statement for `@equinor/fusion-react-icon` has been replaced with an import statement for `@equinor/fusion-wc-icon`.
+  - In the `storybook/src/stories/button/button.stories.tsx` file:
+    - The import statement for `@equinor/fusion-react-icon` has been replaced with an import statement for `@equinor/fusion-wc-icon`.
+- cb99230: **@equinor/fusion-react-ag-grid-utils:**
+
+  - Updated README
+  - updated Ag Grid to `~30.2.0`
+  - refactor compare function (lifted resolve of comparer)
+  - fixed value getter for status field (triggers change check)
+  - changed styling from fusion-style to styled components
+  - replaced fusion icon with EDS icon
+
+  **@equinor/fusion-react-storybook:**
+
+  - added example for using change-handler and status component
+  - cleaned up deps
+
+- Updated dependencies [2a0cbfd]
+- Updated dependencies [8f4b910]
+- Updated dependencies [cb99230]
+  - @equinor/fusion-react-context-selector@0.5.5
+  - @equinor/fusion-react-errorboundary@1.0.1
+  - @equinor/fusion-react-ag-grid-utils@30.2.1
+
 ## 2.20.0
 
 ### Minor Changes
