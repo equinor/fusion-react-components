@@ -1,6 +1,6 @@
 import { Meta, Story } from '@storybook/react';
 import { LinkButton, LinkButtonProps } from '@equinor/fusion-react-button';
-import { iconNames } from '@equinor/fusion-react-icon';
+import { iconNames } from '@equinor/fusion-wc-icon';
 
 export default {
   title: 'Examples/Button/Link',

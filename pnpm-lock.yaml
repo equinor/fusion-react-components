@@ -219,9 +219,6 @@ importers:
       '@equinor/fusion-react-button':
         specifier: ^0.9.0
         version: link:../button
-      '@equinor/fusion-react-icon':
-        specifier: ^0.3.0
-        version: link:../icon
       '@equinor/fusion-react-styles':
         specifier: ^0.6.0
         version: link:../styles
@@ -591,9 +588,6 @@ importers:
       '@equinor/fusion-react-hanging-garden':
         specifier: workspace:^
         version: link:../packages/hanging-garden
-      '@equinor/fusion-react-icon':
-        specifier: workspace:^
-        version: link:../packages/icon
       '@equinor/fusion-react-list':
         specifier: workspace:^
         version: link:../packages/list
@@ -691,6 +685,9 @@ importers:
       '@equinor/fusion-wc-avatar':
         specifier: ^3.1.0
         version: 3.1.0
+      '@equinor/fusion-wc-icon':
+        specifier: ^2.3.0
+        version: 2.3.0
       '@faker-js/faker':
         specifier: ^8.2.0
         version: 8.2.0
@@ -3172,7 +3169,6 @@ packages:
       '@equinor/eds-icons': 0.19.3
       '@equinor/fusion-wc-core': 2.0.0
       lit: 3.0.2
-    dev: false
 
   /@equinor/fusion-wc-list@1.0.2:
     resolution: {integrity: sha512-EfC0TFcs5MlYq+gMAEnj075VtTJ1oEM1UcoQVkf5U5qcwUah9tv9MR1puXbTrv+iMYmyGCV3E5VoH24O6ezSjQ==}

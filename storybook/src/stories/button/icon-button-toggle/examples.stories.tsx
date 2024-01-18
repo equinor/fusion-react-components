@@ -1,5 +1,5 @@
 import { Meta, Story } from '@storybook/react';
-import { iconNames } from '@equinor/fusion-react-icon/src';
+import { iconNames } from '@equinor/fusion-wc-icon';
 import { IconButtonToggle, IconButtonToggleProps } from '@equinor/fusion-react-button/src/icon-button-toggle';
 
 export default {
