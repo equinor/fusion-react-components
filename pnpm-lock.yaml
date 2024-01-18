@@ -185,8 +185,8 @@ importers:
         specifier: ^2.3.0
         version: 2.3.0
       '@equinor/fusion-wc-searchable-dropdown':
-        specifier: ^3.6.0
-        version: 3.6.0
+        specifier: ^3.7.0
+        version: 3.7.0
     devDependencies:
       '@types/react':
         specifier: ^18.2.24
@@ -408,8 +408,8 @@ importers:
         specifier: ^2.2.0
         version: 2.2.0
       '@equinor/fusion-wc-searchable-dropdown':
-        specifier: ^3.5.0
-        version: 3.6.0
+        specifier: ^3.7.0
+        version: 3.7.0
     devDependencies:
       '@types/react':
         specifier: ^18.2.24
@@ -3224,7 +3224,7 @@ packages:
       '@equinor/fusion-wc-core': 2.0.0
       '@equinor/fusion-wc-icon': 2.3.0
       '@equinor/fusion-wc-list': 1.1.0
-      '@equinor/fusion-wc-searchable-dropdown': 3.6.0
+      '@equinor/fusion-wc-searchable-dropdown': 3.7.0
       '@equinor/fusion-wc-skeleton': 2.1.0
       '@equinor/fusion-wc-textinput': 1.1.0
       '@equinor/fusion-web-theme': 0.1.7
@@ -3281,8 +3281,8 @@ packages:
       '@material/mwc-ripple': 0.27.0
       lit: 3.0.2
 
-  /@equinor/fusion-wc-searchable-dropdown@3.6.0:
-    resolution: {integrity: sha512-o6FOlwcWNDxcJrGv1so5jSNvvDuZGjyothu0yym10A02DYLMRKNrIYe95MjdwqiV52PjYK1puTMWbueyQQ/Nsg==}
+  /@equinor/fusion-wc-searchable-dropdown@3.7.0:
+    resolution: {integrity: sha512-5t4kHw8xbD0Np9uKa9yiw3hPChVw9yd6Njl6raQZOqEVI3P10vL4nZytw+HB9PG82Gsr0YX8x0O7RDXwtT55Fw==}
     dependencies:
       '@equinor/fusion-wc-core': 2.0.0
       '@equinor/fusion-wc-divider': 1.1.0
