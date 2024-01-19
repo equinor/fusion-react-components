@@ -5,7 +5,6 @@ import {
   PersonListItem,
   PersonListItemProps,
 } from '@equinor/fusion-react-person/src';
-import { IconButton } from '@equinor/fusion-react-button';
 import { createResolve } from './resolve-mock/person-resolve-mock';
 
 export default {
@@ -84,9 +83,6 @@ export const Toolbar: Story<ListItemProps> = () => (
   <PersonProvider resolve={createResolve}>
     <div style={{ display: 'flex', flexDirection: 'column', rowGap: 30 }}>
       <PersonListItem azureId="1234">
-        <IconButton color="primary" icon="account_circle" rounded size="small" />
-        <IconButton color="secondary" icon="microsoft_outlook" rounded size="small" />
-        <IconButton color="success" icon="whats_app" rounded size="small" />
       </PersonListItem>
     </div>
   </PersonProvider>
@@ -121,7 +117,6 @@ export const DataSource: Story<ListItemProps> = () => (
           mobilePhone: '+47 123456789',
         }}
       >
-        <IconButton color="primary" icon="account_circle" rounded size="small" />
       </PersonListItem>
     </div>
   </PersonProvider>

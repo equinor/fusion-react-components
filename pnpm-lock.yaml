@@ -158,14 +158,14 @@ importers:
         version: link:../utils
       '@equinor/fusion-wc-button':
         specifier: ^2.1.0
-        version: 2.1.0
+        version: 2.4.0
       '@equinor/fusion-wc-icon':
         specifier: ^2.3.0
         version: 2.3.0
     devDependencies:
       '@types/react':
         specifier: ^18.2.24
-        version: 18.2.24
+        version: 18.2.38
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -216,9 +216,6 @@ importers:
       '@equinor/eds-core-react':
         specifier: ^0.34.0
         version: 0.34.0(react-dom@18.2.0)(react@18.2.0)(styled-components@6.1.1)
-      '@equinor/fusion-react-button':
-        specifier: ^0.9.0
-        version: link:../button
       '@equinor/fusion-react-styles':
         specifier: ^0.6.0
         version: link:../styles
@@ -247,9 +244,6 @@ importers:
 
   packages/filter:
     dependencies:
-      '@equinor/fusion-react-button':
-        specifier: ^0.9.0
-        version: link:../button
       '@equinor/fusion-react-styles':
         specifier: ^0.6.0
         version: link:../styles
@@ -350,9 +344,6 @@ importers:
 
   packages/person:
     dependencies:
-      '@equinor/fusion-react-button':
-        specifier: ^0.9.0
-        version: link:../button
       '@equinor/fusion-react-utils':
         specifier: ^2.1.0
         version: link:../utils
@@ -554,9 +545,6 @@ importers:
       '@equinor/fusion-react-ag-grid-utils':
         specifier: workspace:^
         version: link:../packages/ag-grid-utils
-      '@equinor/fusion-react-button':
-        specifier: workspace:^
-        version: link:../packages/button
       '@equinor/fusion-react-context-selector':
         specifier: workspace:^
         version: link:../packages/context-selector
@@ -3049,18 +3037,6 @@ packages:
       '@equinor/fusion-wc-icon': 2.3.0
       '@equinor/fusion-web-theme': 0.1.7
       lit: 3.0.2
-    dev: false
-
-  /@equinor/fusion-wc-button@2.1.0:
-    resolution: {integrity: sha512-tzFuPsR3FzRXhsDU2mWjd3w/1wQ5agmHufJs6WRE3B3i/sNdFb9jBOk76IdRBnb4CqvUTTA1FR2gwfBKxwZuaw==}
-    dependencies:
-      '@equinor/fusion-wc-core': 2.0.0
-      '@equinor/fusion-wc-icon': 2.3.0
-      '@equinor/fusion-web-theme': 0.1.7
-      '@material/mwc-button': 0.27.0
-      '@material/mwc-icon-button': 0.27.0
-      '@material/mwc-icon-button-toggle': 0.27.0
-      lit: 2.7.0
     dev: false
 
   /@equinor/fusion-wc-button@2.4.0:
