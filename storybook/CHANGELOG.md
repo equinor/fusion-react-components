@@ -1,5 +1,38 @@
 # Change Log
 
+## 2.21.0
+
+### Minor Changes
+
+- 388302a: bump @equinor/fusion-wc-searchable-dropdown to 3.7.0 + update storybook
+
+### Patch Changes
+
+- 5e10a53: - In the `packages/errorboundary/package.json` file:
+  - The dependency `@equinor/fusion-react-icon` with version `^0.3.0` has been removed.
+  - In the `packages/icon/README.md` file:
+    - The entire content has been replaced with a deprecation notice.
+  - In the `storybook/package.json` file:
+    - The dependency `@equinor/fusion-react-icon` with version `^0.3.0` has been removed.
+  - In the `storybook/src/stories/button/button-link.stories.mdx` file:
+    - The line mentioning `@equinor/fusion-react-icon` has been replaced with a reference to using EDS (Equinor Design System) for icons.
+  - In the `storybook/src/stories/button/button-link.stories.tsx` file:
+    - The import statement for `@equinor/fusion-react-icon` has been replaced with an import statement for `@equinor/fusion-wc-icon`.
+  - In the `storybook/src/stories/button/button.stories.tsx` file:
+    - The import statement for `@equinor/fusion-react-icon` has been replaced with an import statement for `@equinor/fusion-wc-icon`.
+- 13c0ca4: deprecated `@equinor/fusion-react-button`
+- Updated dependencies [5e10a53]
+- Updated dependencies [388302a]
+- Updated dependencies [13c0ca4]
+- Updated dependencies [5e10a53]
+  - @equinor/fusion-react-errorboundary@1.0.2
+  - @equinor/fusion-react-searchable-dropdown@0.5.0
+  - @equinor/fusion-react-context-selector@0.6.0
+  - @equinor/fusion-react-stepper@0.4.4
+  - @equinor/fusion-react-filter@1.8.2
+  - @equinor/fusion-react-person@0.6.5
+  - @equinor/fusion-react-ag-grid-utils@30.2.2
+
 ## 2.20.1
 
 ### Patch Changes

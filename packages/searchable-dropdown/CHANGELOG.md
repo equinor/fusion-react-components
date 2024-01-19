@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.5.0
+
+### Minor Changes
+
+- 388302a: bump @equinor/fusion-wc-searchable-dropdown to 3.7.0 + update storybook
+
 ## 0.4.4
 
 ### Patch Changes

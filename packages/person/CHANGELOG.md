@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.6.5
+
+### Patch Changes
+
+- 13c0ca4: deprecated `@equinor/fusion-react-button`
+
 ## 0.6.4
 
 ### Patch Changes

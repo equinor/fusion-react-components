@@ -1,5 +1,12 @@
 # Change Log
 
+## 0.4.4
+
+### Patch Changes
+
+- 13c0ca4: deprecated `@equinor/fusion-react-button`
+- 5e10a53: removed `@equinor/fusion-react-icon`
+
 ## 0.4.3
 
 ### Patch Changes

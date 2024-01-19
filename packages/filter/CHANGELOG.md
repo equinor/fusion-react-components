@@ -1,5 +1,12 @@
 # Change Log
 
+## 1.8.2
+
+### Patch Changes
+
+- 13c0ca4: deprecated `@equinor/fusion-react-button`
+- 5e10a53: removed `@equinor/fusion-react-icon`
+
 ## 1.8.1
 
 ### Patch Changes
