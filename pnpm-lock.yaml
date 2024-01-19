@@ -313,22 +313,6 @@ importers:
         specifier: ^18.2.0
         version: 18.2.0
 
-  packages/icon:
-    dependencies:
-      '@equinor/fusion-react-utils':
-        specifier: ^2.1.0
-        version: link:../utils
-      '@equinor/fusion-wc-icon':
-        specifier: ^2.1.0
-        version: 2.1.0
-    devDependencies:
-      '@types/react':
-        specifier: ^18.2.24
-        version: 18.2.24
-      react:
-        specifier: ^18.2.0
-        version: 18.2.0
-
   packages/list:
     dependencies:
       '@equinor/fusion-react-utils':
@@ -3145,14 +3129,6 @@ packages:
       '@equinor/fusion-wc-core': 2.0.0
       '@equinor/fusion-web-theme': 0.1.7
       lit: 3.0.2
-    dev: false
-
-  /@equinor/fusion-wc-icon@2.1.0:
-    resolution: {integrity: sha512-g2Ov2LzoMOTW9aQHSsufm0wBdI61o5SHlNkp5DsKAD9BhtnKLt6AWAvatzNH4b7HYTy3IiNq1gKBOnk3BC7OEQ==}
-    dependencies:
-      '@equinor/eds-icons': 0.19.3
-      '@equinor/fusion-wc-core': 2.0.0
-      lit: 2.7.0
     dev: false
 
   /@equinor/fusion-wc-icon@2.2.0:

@@ -1,1 +1,0 @@
-Deprecated, use [EDS](https://storybook.eds.equinor.com/?path=/docs/icons-icon--docs)
