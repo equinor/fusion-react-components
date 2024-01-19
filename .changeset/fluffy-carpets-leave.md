@@ -1,5 +1,4 @@
 ---
-"@equinor/fusion-react-icon": minor
 "@equinor/fusion-react-errorboundary": patch
 "@equinor/fusion-react-components-stories": patch
 ---
