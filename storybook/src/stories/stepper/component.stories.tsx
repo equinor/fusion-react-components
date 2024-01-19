@@ -1,7 +1,8 @@
-import { Button } from '@equinor/fusion-react-button';
 import { Step, Stepper, StepperProps } from '@equinor/fusion-react-stepper';
 import { Meta, Story } from '@storybook/react';
 import { ReactNode, useState } from 'react';
+
+import {Button} from '@equinor/eds-core-react';
 
 export default {
   title: 'Examples/Stepper',
