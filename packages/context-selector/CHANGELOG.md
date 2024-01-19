@@ -1,5 +1,17 @@
 # Change Log
 
+## 0.6.0
+
+### Minor Changes
+
+- 388302a: bump @equinor/fusion-wc-searchable-dropdown to 3.7.0 + update storybook
+
+### Patch Changes
+
+- 5e10a53: removed `@equinor/fusion-react-icon`
+- Updated dependencies [388302a]
+  - @equinor/fusion-react-searchable-dropdown@0.5.0
+
 ## 0.5.5
 
 ### Patch Changes

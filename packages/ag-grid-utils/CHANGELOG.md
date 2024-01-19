@@ -1,5 +1,11 @@
 # Change Log
 
+## 30.2.2
+
+### Patch Changes
+
+- 5e10a53: removed `@equinor/fusion-react-icon`
+
 ## 30.2.1
 
 ### Patch Changes
