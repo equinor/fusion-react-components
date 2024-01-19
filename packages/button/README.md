@@ -1,1 +1,0 @@
-__deprecated__, use [EDS](https://storybook.eds.equinor.com/?path=/docs/inputs-button-button--docs)
