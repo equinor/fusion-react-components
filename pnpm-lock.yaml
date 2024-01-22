@@ -130,8 +130,8 @@ importers:
         version: 0.34.0(react-dom@18.2.0)(react@18.2.0)(styled-components@6.1.1)
     devDependencies:
       '@ag-grid-community/core':
-        specifier: ~30.2.0
-        version: 30.2.1
+        specifier: ~31.0.2
+        version: 31.0.2
       '@equinor/eds-icons':
         specifier: ^0.19.3
         version: 0.19.3
@@ -627,11 +627,11 @@ importers:
         specifier: ~31.0.2
         version: 31.0.2
       '@ag-grid-community/core':
-        specifier: ~30.2.0
-        version: 30.2.1
+        specifier: ~31.0.2
+        version: 31.0.2
       '@ag-grid-community/react':
         specifier: ~30.2.0
-        version: 30.2.1(@ag-grid-community/core@30.2.1)(react-dom@17.0.2)(react@17.0.2)
+        version: 30.2.1(@ag-grid-community/core@31.0.2)(react-dom@17.0.2)(react@17.0.2)
       '@equinor/fusion-observable':
         specifier: ^8.1.2
         version: 8.1.2(@types/react@17.0.0)(react@17.0.2)
@@ -663,22 +663,18 @@ packages:
       '@ag-grid-community/core': 31.0.2
     dev: true
 
-  /@ag-grid-community/core@30.2.1:
-    resolution: {integrity: sha512-jGRBfRFsLwxch8GJGjbVI2FVbB+/fy1s4mm8//+kOkcPFlq4BbLFELvU4Kupwk1YkhduxUC50GTYyFzmF0rSIQ==}
-    dev: true
-
   /@ag-grid-community/core@31.0.2:
     resolution: {integrity: sha512-iAKQgS5GXJ85ib8aPfrIMWPVUrrSzPV7neii6nZitVS4zoqEYx7ommMi7viUmSMjUAwPF0QE5TbExBiDB3hSmA==}
     dev: true
 
-  /@ag-grid-community/react@30.2.1(@ag-grid-community/core@30.2.1)(react-dom@17.0.2)(react@17.0.2):
+  /@ag-grid-community/react@30.2.1(@ag-grid-community/core@31.0.2)(react-dom@17.0.2)(react@17.0.2):
     resolution: {integrity: sha512-bSrEh/zVI5oL0pf4cXRvZYiLuMjzWhyS0o5THzS4fqifmPczmH0HU3iTgQjH6QUNHAX3Ch4ZficVWdD005j/vw==}
     peerDependencies:
       '@ag-grid-community/core': ~30.2.1
       react: ^16.3.0 || ^17.0.0 || ^18.0.0
       react-dom: ^16.3.0 || ^17.0.0 || ^18.0.0
     dependencies:
-      '@ag-grid-community/core': 30.2.1
+      '@ag-grid-community/core': 31.0.2
       prop-types: 15.8.1
       react: 17.0.2
       react-dom: 17.0.2(react@17.0.2)
