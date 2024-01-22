@@ -726,7 +726,7 @@ packages:
       '@babel/generator': 7.23.0
       '@babel/helper-module-transforms': 7.23.0(@babel/core@7.12.9)
       '@babel/helpers': 7.23.1
-      '@babel/parser': 7.23.0
+      '@babel/parser': 7.23.6
       '@babel/template': 7.22.15
       '@babel/traverse': 7.23.0(supports-color@5.5.0)
       '@babel/types': 7.23.6
@@ -1033,6 +1033,7 @@ packages:
     hasBin: true
     dependencies:
       '@babel/types': 7.23.6
+    dev: false
 
   /@babel/parser@7.23.6:
     resolution: {integrity: sha512-Z2uID7YJ7oNvAI20O9X0bblw7Qqs8Q2hFy0R9tAfnfLkp5MW0UH9eUvnDSnFwKZ0AvgS1ucqR4KzvVHgnke1VQ==}
@@ -1040,7 +1041,6 @@ packages:
     hasBin: true
     dependencies:
       '@babel/types': 7.23.6
-    dev: false
 
   /@babel/plugin-bugfix-safari-id-destructuring-collision-in-function-expression@7.22.15(@babel/core@7.23.0):
     resolution: {integrity: sha512-FB9iYlz7rURmRJyXRKEnalYPPdn87H5no108cyuQQyMwlpJ2SJtpIUBI27kdTin956pz+LPypkPVPUTlxOmrsg==}
@@ -2228,7 +2228,7 @@ packages:
       '@babel/helper-function-name': 7.23.0
       '@babel/helper-hoist-variables': 7.22.5
       '@babel/helper-split-export-declaration': 7.22.6
-      '@babel/parser': 7.23.0
+      '@babel/parser': 7.23.6
       '@babel/types': 7.23.6
       debug: 4.3.4(supports-color@5.5.0)
       globals: 11.12.0
@@ -6095,7 +6095,7 @@ packages:
     dependencies:
       '@babel/core': 7.23.0
       '@babel/generator': 7.23.0
-      '@babel/parser': 7.23.0
+      '@babel/parser': 7.23.6
       '@babel/plugin-transform-react-jsx': 7.22.15(@babel/core@7.23.0)
       '@babel/preset-env': 7.22.20(@babel/core@7.23.0)
       '@babel/traverse': 7.23.0(supports-color@5.5.0)
@@ -6252,7 +6252,7 @@ packages:
     resolution: {integrity: sha512-4biZIWWzoWlCarMZmTpqcJNgo/RBesYZwGFbQeXiGYsswuvfWARZnW9RE9aUEMZ4XPn7B1N3EKkWcdcWe/K2tg==}
     dependencies:
       '@babel/generator': 7.23.0
-      '@babel/parser': 7.23.0
+      '@babel/parser': 7.23.6
       '@babel/preset-env': 7.22.20(@babel/core@7.23.0)
       '@babel/types': 7.23.6
       '@mdx-js/mdx': 1.6.22
@@ -10978,7 +10978,7 @@ packages:
     peerDependencies:
       eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8
     dependencies:
-      '@babel/parser': 7.23.0
+      '@babel/parser': 7.23.6
       eslint: 8.56.0
       eslint-plugin-jsx-a11y: 6.7.1(eslint@8.56.0)
     dev: true
@@ -14211,7 +14211,7 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       '@babel/core': 7.23.0
-      '@babel/parser': 7.23.0
+      '@babel/parser': 7.23.6
       '@istanbuljs/schema': 0.1.3
       istanbul-lib-coverage: 3.2.0
       semver: 6.3.1
@@ -14400,7 +14400,7 @@ packages:
       '@babel/preset-env': ^7.1.6
     dependencies:
       '@babel/core': 7.23.0
-      '@babel/parser': 7.23.0
+      '@babel/parser': 7.23.6
       '@babel/plugin-proposal-class-properties': 7.18.6(@babel/core@7.23.0)
       '@babel/plugin-proposal-nullish-coalescing-operator': 7.18.6(@babel/core@7.23.0)
       '@babel/plugin-proposal-optional-chaining': 7.21.0(@babel/core@7.23.0)
