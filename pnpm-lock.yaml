@@ -235,7 +235,7 @@ importers:
         specifier: ^1.1.0
         version: 1.2.0
       rxjs:
-        specifier: ^7.4.0
+        specifier: ^7.8.1
         version: 7.8.1
       typesafe-actions:
         specifier: ^5.1.0
@@ -11415,7 +11415,6 @@ packages:
 
   /figgy-pudding@3.5.2:
     resolution: {integrity: sha512-0btnI/H8f2pavGMN8w40mlSKOfTK2SVJmBfBeVIj3kNw0swwgzyRq0d5TJVOwodFmtvpPeWPN/MCcfuWF0Ezbw==}
-    deprecated: This module is no longer supported.
     dev: false
 
   /figures@3.2.0:
