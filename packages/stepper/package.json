@@ -35,7 +35,7 @@
     "url": "https://github.com/equinor/fusion-react-components/issues"
   },
   "dependencies": {
-    "@equinor/eds-icons": "^0.19.3",
+    "@equinor/eds-icons": "~0.19.3",
     "@equinor/fusion-react-styles": "^0.6.0"
   },
   "devDependencies": {

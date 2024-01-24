@@ -16,7 +16,7 @@
     "@emotion/react": "^11.10.6",
     "@emotion/styled": "^11.10.6",
     "@equinor/eds-core-react": "^0.34.0",
-    "@equinor/eds-icons": "^0.19.1",
+    "@equinor/eds-icons": "~0.19.3",
     "@equinor/eds-tokens": "^0.9.0",
     "@equinor/fusion-react-ag-grid-styles": "workspace:^",
     "@equinor/fusion-react-ag-grid-utils": "workspace:^",
@@ -54,7 +54,7 @@
     "webpack": "^5.76.3"
   },
   "devDependencies": {
-    "@ag-grid-community/client-side-row-model": "~30.2.0",
+    "@ag-grid-community/client-side-row-model": "~31.0.2",
     "@ag-grid-community/core": "~30.2.0",
     "@ag-grid-community/react": "~30.2.0",
     "@equinor/fusion-observable": "^8.1.2",
