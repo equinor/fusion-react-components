@@ -294,8 +294,8 @@ importers:
         specifier: ^2.1.0
         version: link:../utils
       '@equinor/fusion-wc-list':
-        specifier: ^1.0.2
-        version: 1.1.0
+        specifier: ^1.1.1
+        version: 1.1.1
       '@lit-labs/react':
         specifier: ^1.0.1
         version: 1.2.1
@@ -3007,6 +3007,19 @@ packages:
 
   /@equinor/fusion-wc-list@1.1.0:
     resolution: {integrity: sha512-dwyI7PC90jhU+mObj5BDoda0JWIhCj7rRuk4qo/5s08REXZR3gW52VXJY9qSRrdwbI48GbP9cY4v66q87ViW1g==}
+    dependencies:
+      '@equinor/fusion-wc-checkbox': 1.1.0
+      '@equinor/fusion-wc-core': 2.0.0
+      '@equinor/fusion-wc-divider': 1.1.0
+      '@equinor/fusion-wc-icon': 2.3.0
+      '@equinor/fusion-wc-radio': 1.1.0
+      '@equinor/fusion-web-theme': 0.1.7
+      '@material/mwc-list': 0.27.0
+      lit: 3.0.2
+    dev: false
+
+  /@equinor/fusion-wc-list@1.1.1:
+    resolution: {integrity: sha512-+pBtqfGLvOEA2Fs4rw/A2r7onaRKl44y92upFdPq5mH4EOKuCe1Pzose1njVNxnmNhBbADwjWRsya47QlKlLZg==}
     dependencies:
       '@equinor/fusion-wc-checkbox': 1.1.0
       '@equinor/fusion-wc-core': 2.0.0
