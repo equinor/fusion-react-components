@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.6.6
+
+### Patch Changes
+
+- 97ff612: PersonSelectEvent details show now as null when no-one is selected.
+
 ## 0.6.5
 
 ### Patch Changes
