@@ -39,11 +39,11 @@
     "@equinor/fusion-react-styles": "^0.6.0"
   },
   "devDependencies": {
-    "@equinor/eds-core-react": "^0.34.0",
+    "@equinor/eds-core-react": "^0.35.1",
     "@types/react": "^18.2.24",
     "react": "^18.2.0"
   },
   "peerDependencies": {
-    "@equinor/eds-core-react": "^0.34.0"
+    "@equinor/eds-core-react": "^0.35.1"
   }
 }
