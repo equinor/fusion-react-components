@@ -1,5 +1,12 @@
 # Change Log
 
+## 2.21.2
+
+### Patch Changes
+
+- Updated dependencies [bc05316]
+  - @equinor/fusion-react-list@0.3.1
+
 ## 2.21.1
 
 ### Patch Changes
