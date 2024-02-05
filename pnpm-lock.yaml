@@ -575,8 +575,8 @@ importers:
         specifier: ^1.0.0
         version: 1.1.0
       '@storybook/addon-actions':
-        specifier: ^6.5.16
-        version: 6.5.16(react-dom@17.0.2)(react@17.0.2)
+        specifier: ^7.6.12
+        version: 7.6.12
       '@storybook/addon-docs':
         specifier: ^6.5.16
         version: 6.5.16(@babel/core@7.23.9)(eslint@8.56.0)(react-dom@17.0.2)(react@17.0.2)(typescript@4.9.5)(webpack@5.90.0)
@@ -4989,6 +4989,17 @@ packages:
       uuid-browser: 3.1.0
     dev: false
 
+  /@storybook/addon-actions@7.6.12:
+    resolution: {integrity: sha512-vK/H6K+AJ4ZSsCu/+MapYYI/xrynB6JoCOejt//flTigZOhwTWv7WXbmEeqGIIToXy0LA2IUZ1/kCjFXR0lEdQ==}
+    dependencies:
+      '@storybook/core-events': 7.6.12
+      '@storybook/global': 5.0.0
+      '@types/uuid': 9.0.8
+      dequal: 2.0.3
+      polished: 4.2.2
+      uuid: 9.0.1
+    dev: false
+
   /@storybook/addon-backgrounds@6.5.16(react-dom@17.0.2)(react@17.0.2):
     resolution: {integrity: sha512-t7qooZ892BruhilFmzYPbysFwpULt/q4zYXNSmKVbAYta8UVvitjcU4F18p8FpWd9WvhiTr0SDlyhNZuzvDfug==}
     peerDependencies:
@@ -5830,6 +5841,12 @@ packages:
       core-js: 3.35.1
     dev: false
 
+  /@storybook/core-events@7.6.12:
+    resolution: {integrity: sha512-IO4cwk7bBCKH6lLnnIlHO9FwQXt/9CzLUAoZSY9msWsdPppCdKlw8ynJI5YarSNKDBUn8ArIfnRf0Mve0KQr9Q==}
+    dependencies:
+      ts-dedent: 2.2.0
+    dev: false
+
   /@storybook/core-server@6.5.16(@storybook/builder-webpack5@6.5.16)(@storybook/manager-webpack5@6.5.16)(eslint@8.56.0)(react-dom@17.0.2)(react@17.0.2)(typescript@4.9.5):
     resolution: {integrity: sha512-/3NPfmNyply395Dm0zaVZ8P9aruwO+tPx4D6/jpw8aqrRSwvAMndPMpoMCm0NXcpSm5rdX+Je4S3JW6JcggFkA==}
     peerDependencies:
@@ -5993,6 +6010,10 @@ packages:
       - react
       - react-dom
       - supports-color
+    dev: false
+
+  /@storybook/global@5.0.0:
+    resolution: {integrity: sha512-FcOqPAXACP0I3oJ/ws6/rrPT9WGhu915Cg8D02a9YxLo0DE9zI+a9A5gRGvmQ09fiWPukqI8ZAEoQEdWUKMQdQ==}
     dev: false
 
   /@storybook/manager-webpack4@6.5.16(eslint@8.56.0)(react-dom@17.0.2)(react@17.0.2)(typescript@4.9.5):
@@ -10053,7 +10074,6 @@ packages:
   /dequal@2.0.3:
     resolution: {integrity: sha512-0je+qPKHEMohvfRTCEo3CrPG6cAzAYgmzKyxRiYSSDkS6eGJdyVJm7WaYA5ECaAD9wLB2T4EEeymA5aFVcYXCA==}
     engines: {node: '>=6'}
-    dev: true
 
   /des.js@1.1.0:
     resolution: {integrity: sha512-r17GxjhUCjSRy8aiJpr8/UadFIzMzJGexI3Nmz4ADi9LYSFx4gTBp80+NaX/YsXWWLhpZ7v/v/ubEc/bCNfKwg==}
