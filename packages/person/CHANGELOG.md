@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.7.0
+
+### Minor Changes
+
+- 1445e4e: bump @equinor/fusion-wc-person from 2.3.2 to 2.4.0
+
 ## 0.6.6
 
 ### Patch Changes
