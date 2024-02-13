@@ -1,11 +1,64 @@
 import { useState, useEffect, useCallback, PropsWithChildren } from 'react';
-import { useStyles } from './style';
-import { clsx } from '@equinor/fusion-react-styles';
+import styled, { css } from 'styled-components';
+import { tokens } from '@equinor/eds-tokens';
 import { Button, Icon } from '@equinor/eds-core-react';
 import { arrow_back, arrow_forward } from '@equinor/eds-icons';
 import StepPane from './StepPane';
 import StepContent from './StepContent';
 import { findNextAvailable, findPrevAvailable, getSteps } from './utils';
+
+const Styled = {
+  Container: styled.div<{ $vertical?: boolean }>`
+    --content-resize: 1;
+    --badge-size: 21px;
+    --spacing: 7.5px;
+    --spacing-vertical: 5px;
+    --spacing-between-vartical-steps: ${tokens.spacings.comfortable.x_large};
+    --spacing-between-horizontal-steps: ${tokens.spacings.comfortable.medium};
+    --stepper-divider: 1px solid ${tokens.colors.interactive.disabled__border.hex};
+    display: flex;
+    flex-direction: ${(props) => (props.$vertical ? 'row' : 'column')};
+    height: 100%;
+    ${(props) => (props.$vertical ? 'width:100%' : '')}
+  `,
+  Stepper: styled.div<{ $vertical?: boolean; $horizontalTitle?: boolean }>`
+    display: flex;
+    flex-direction: ${(props) => (props.$vertical ? 'column' : 'row')};
+    align-items: ${(props) => (props.$vertical ? 'flex-start' : 'center')};
+    gap: ${tokens.spacings.comfortable.medium};
+    padding-bottom: ${tokens.spacings.comfortable.medium};
+    ${(props) => (props.$vertical ? 'border-right:var(--stepper-divider)' : 'border-bottom:var(--stepper-divider)')};
+    padding-right: ${(props) => (props.$vertical ? tokens.spacings.comfortable.medium : '0')};
+    ${(props) =>
+      !props.$vertical &&
+      props.$horizontalTitle &&
+      css`
+        & $step {
+          flex: 1 1 auto;
+          flex-direction: row;
+          align-items: flex-start;
+          padding-right: var(--spacing);
+          &:not(:last-child):after {
+            flex: 1;
+            order: 1;
+            left: 0;
+            width: calc(100% - var(--spacing));
+          }
+        }
+        & $content {
+          padding-top: 2px;
+          text-align: left;
+        }
+      `}
+  `,
+  StepContent: styled.div`
+    flex: 1;
+  `,
+  Navigation: styled.div`
+    display: flex;
+    flex-wrap: nowrap;
+  `,
+};
 
 /** Define the props interface for Stepper component */
 export type StepperProps = {
@@ -37,7 +90,6 @@ export const Stepper = ({
   verticalSteps,
   horizontalTitle,
 }: PropsWithChildren<StepperProps>): JSX.Element => {
-  const styles = useStyles();
   /** State to manage step keys, current step key, and active step position */
   const [stepKeys, setStepKeys] = useState<StepKey[]>([]);
   const [currentStepKey, setCurrentStepKey] = useState<string>(activeStepKey);
@@ -46,17 +98,6 @@ export const Stepper = ({
   /** State to manage navigation button availability */
   const [canNext, setCanNext] = useState(true);
   const [canPrev, setCanPrev] = useState(false);
-
-  const stepperContainerClasses = clsx(
-    styles.root,
-    styles.stepperContainer,
-    verticalSteps && styles.verticalStepperContainer,
-  );
-  const stepperClasses = clsx(
-    styles.stepper,
-    verticalSteps && styles.verticalStepper,
-    !verticalSteps && horizontalTitle && styles.horizontalTitleStepper,
-  );
 
   /** Effect to update stepKeys when children change */
   useEffect(() => {
@@ -122,33 +163,29 @@ export const Stepper = ({
   }, [children, findStepKey, handleChange]);
 
   return (
-    <div className={stepperContainerClasses}>
-      <div className={stepperClasses}>
+    <Styled.Container $vertical={verticalSteps}>
+      <Styled.Stepper $vertical={verticalSteps} $horizontalTitle={horizontalTitle}>
         {!hideNavButtons && (
-          <div className={styles.navigationArrows}>
-            <div className={styles.navigationArrow}>
-              <Button
-                color="primary"
-                variant="ghost_icon"
-                onClick={handleClickPrev}
-                disabled={!canPrev}
-                aria-label="Stepper navigation button - previous step"
-              >
-                <Icon data={arrow_back} />
-              </Button>
-            </div>
-            <div className={styles.navigationArrow}>
-              <Button
-                color="primary"
-                variant="ghost_icon"
-                onClick={handleClickNext}
-                disabled={!canNext}
-                aria-label="Stepper navigation button - next step"
-              >
-                <Icon data={arrow_forward} />
-              </Button>
-            </div>
-          </div>
+          <Styled.Navigation>
+            <Button
+              color="primary"
+              variant="ghost_icon"
+              onClick={handleClickPrev}
+              disabled={!canPrev}
+              aria-label="Stepper navigation button - previous step"
+            >
+              <Icon data={arrow_back} />
+            </Button>
+            <Button
+              color="primary"
+              variant="ghost_icon"
+              onClick={handleClickNext}
+              disabled={!canNext}
+              aria-label="Stepper navigation button - next step"
+            >
+              <Icon data={arrow_forward} />
+            </Button>
+          </Styled.Navigation>
         )}
         <StepPane
           forceOrder={forceOrder || false}
@@ -159,11 +196,11 @@ export const Stepper = ({
         >
           {children}
         </StepPane>
-      </div>
-      <div className={styles.stepContent}>
+      </Styled.Stepper>
+      <Styled.StepContent>
         <StepContent activeStepKey={currentStepKey}>{children}</StepContent>
-      </div>
-    </div>
+      </Styled.StepContent>
+    </Styled.Container>
   );
 };
 
