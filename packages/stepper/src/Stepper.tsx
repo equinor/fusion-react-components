@@ -10,7 +10,7 @@ export type StepperProps = {
   readonly hideNavButtons?: boolean;
   readonly verticalSteps?: boolean;
   readonly horizontalTitle?: boolean;
-  readonly divider?:boolean;
+  readonly divider?: boolean;
 };
 
 /** Define the type for StepKey */
@@ -52,7 +52,7 @@ export const Stepper = ({
   hideNavButtons,
   verticalSteps,
   horizontalTitle,
-  divider
+  divider,
 }: PropsWithChildren<StepperProps>): JSX.Element => {
   /** State to manage step keys, current step key, and active step position */
   const [stepKeys, setStepKeys] = useState<StepKey[]>([]);
@@ -111,7 +111,9 @@ export const Stepper = ({
         handleChange,
       }}
     >
-      <StepperContent hideNavButtons={hideNavButtons} divider={divider}>{children}</StepperContent>
+      <StepperContent hideNavButtons={hideNavButtons} divider={divider}>
+        {children}
+      </StepperContent>
     </StepperContext.Provider>
   );
 };

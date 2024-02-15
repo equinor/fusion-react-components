@@ -20,13 +20,15 @@ const Styled = {
     height: 100%;
     ${(props) => (props.$vertical ? 'width:100%' : '')}
   `,
-  Stepper: styled.div<{ $vertical?: boolean, $divider?: boolean }>`
+  Stepper: styled.div<{ $vertical?: boolean; $divider?: boolean }>`
     display: flex;
     flex-direction: ${(props) => (props.$vertical ? 'column' : 'row')};
     align-items: ${(props) => (props.$vertical ? 'flex-start' : 'center')};
     gap: ${tokens.spacings.comfortable.medium};
     padding-bottom: ${tokens.spacings.comfortable.medium};
-    ${(props) => (props.$divider && (props.$vertical ? 'border-right:var(--stepper-divider)' : 'border-bottom:var(--stepper-divider)'))};
+    ${(props) =>
+      props.$divider &&
+      (props.$vertical ? 'border-right:var(--stepper-divider)' : 'border-bottom:var(--stepper-divider)')};
     padding-right: ${(props) => (props.$vertical ? tokens.spacings.comfortable.medium : '0')};
   `,
   StepContent: styled.div`
@@ -35,8 +37,8 @@ const Styled = {
 };
 
 type StepperContentProps = {
-  hideNavButtons?: boolean;
-  divider?: boolean;
+  readonly hideNavButtons?: boolean;
+  readonly divider?: boolean;
 };
 
 export const StepperContent = (props: PropsWithChildren<StepperContentProps>): JSX.Element => {

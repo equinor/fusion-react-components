@@ -22,7 +22,7 @@ type StepPaneChildProps = {
 };
 
 /** Define the props interface for children components of StepPane */
-const StepPane = ({ children }: { children: ReactNode }): JSX.Element => {
+const StepPane = ({ children }: { readonly children: ReactNode }): JSX.Element => {
   const stepPaneRef = useRef<HTMLDivElement | null>(null);
   const { verticalSteps, activeStepPosition, forceOrder } = useStepperContext();
 

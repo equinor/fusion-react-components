@@ -134,11 +134,11 @@ export const Step = ({
   const isClickable = !forceOrder;
   const isCurrent = stepKey === currentStepKey;
 
-  useEffect(()=>{
-    if(isCurrent) {
-      handleChange(stepKey, stepKeys)
+  useEffect(() => {
+    if (isCurrent) {
+      handleChange(stepKey, stepKeys);
     }
-  },[done]);
+  }, [done]);
 
   /** Handle scrolling to the current step when it is not fully visible */
   useEffect(() => {
