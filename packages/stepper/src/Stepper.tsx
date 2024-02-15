@@ -1,40 +1,6 @@
 import { useState, useEffect, useCallback, PropsWithChildren, createContext, useContext } from 'react';
-import styled from 'styled-components';
-import { tokens } from '@equinor/eds-tokens';
 import { findNextAvailable, findPrevAvailable, getSteps } from './utils';
 import StepperContent from './StepperContent';
-
-const Styled = {
-  Container: styled.div<{ $vertical?: boolean }>`
-    --content-resize: 1;
-    --badge-size: 21px;
-    --spacing: 7.5px;
-    --spacing-vertical: 5px;
-    --spacing-between-vartical-steps: ${tokens.spacings.comfortable.x_large};
-    --spacing-between-horizontal-steps: ${tokens.spacings.comfortable.medium};
-    --stepper-divider: 1px solid ${tokens.colors.interactive.disabled__border.hex};
-    display: flex;
-    flex-direction: ${(props) => (props.$vertical ? 'row' : 'column')};
-    height: 100%;
-    ${(props) => (props.$vertical ? 'width:100%' : '')}
-  `,
-  Stepper: styled.div<{ $vertical?: boolean }>`
-    display: flex;
-    flex-direction: ${(props) => (props.$vertical ? 'column' : 'row')};
-    align-items: ${(props) => (props.$vertical ? 'flex-start' : 'center')};
-    gap: ${tokens.spacings.comfortable.medium};
-    padding-bottom: ${tokens.spacings.comfortable.medium};
-    ${(props) => (props.$vertical ? 'border-right:var(--stepper-divider)' : 'border-bottom:var(--stepper-divider)')};
-    padding-right: ${(props) => (props.$vertical ? tokens.spacings.comfortable.medium : '0')};
-  `,
-  StepContent: styled.div`
-    flex: 1;
-  `,
-  Navigation: styled.div`
-    display: flex;
-    flex-wrap: nowrap;
-  `,
-};
 
 /** Define the props interface for Stepper component */
 export type StepperProps = {

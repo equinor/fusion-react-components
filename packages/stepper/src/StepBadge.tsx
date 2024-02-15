@@ -2,8 +2,6 @@ import { Icon } from '@equinor/eds-core-react';
 import { done as doneStepIcon } from '@equinor/eds-icons';
 import styled, { css } from 'styled-components';
 import { tokens } from '@equinor/eds-tokens';
-import { useEffect, useRef } from 'react';
-import { useStepperContext } from './Stepper';
 
 const Styled = {
   Badge: styled.div<{ $active?: boolean; $done?: boolean }>`
