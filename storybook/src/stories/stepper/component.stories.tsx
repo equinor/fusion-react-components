@@ -46,6 +46,14 @@ export default {
         defaultValue: { summary: false },
       },
     },
+    divider: {
+      description: 'Add/remove divider from stepper',
+      type: { name: 'boolean' },
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+      },
+    },
     onChange: {
       table: {
         type: { summary: '(stepKey: string, allSteps: StepKey[]) => void' },
@@ -121,6 +129,7 @@ Component.args = {
   hideNavButtons: false,
   verticalSteps: false,
   horizontalTitle: false,
+  divider: true,
 };
 
 export const ForceOrder: Story<StepperProps> = (props: StepperProps) => {
@@ -235,4 +244,5 @@ Vertical.args = {
   forceOrder: false,
   hideNavButtons: false,
   verticalSteps: true,
+  divider: true,
 };

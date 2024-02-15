@@ -20,13 +20,13 @@ const Styled = {
     height: 100%;
     ${(props) => (props.$vertical ? 'width:100%' : '')}
   `,
-  Stepper: styled.div<{ $vertical?: boolean }>`
+  Stepper: styled.div<{ $vertical?: boolean, $divider?: boolean }>`
     display: flex;
     flex-direction: ${(props) => (props.$vertical ? 'column' : 'row')};
     align-items: ${(props) => (props.$vertical ? 'flex-start' : 'center')};
     gap: ${tokens.spacings.comfortable.medium};
     padding-bottom: ${tokens.spacings.comfortable.medium};
-    ${(props) => (props.$vertical ? 'border-right:var(--stepper-divider)' : 'border-bottom:var(--stepper-divider)')};
+    ${(props) => (props.$divider && (props.$vertical ? 'border-right:var(--stepper-divider)' : 'border-bottom:var(--stepper-divider)'))};
     padding-right: ${(props) => (props.$vertical ? tokens.spacings.comfortable.medium : '0')};
   `,
   StepContent: styled.div`
@@ -36,15 +36,16 @@ const Styled = {
 
 type StepperContentProps = {
   hideNavButtons?: boolean;
+  divider?: boolean;
 };
 
 export const StepperContent = (props: PropsWithChildren<StepperContentProps>): JSX.Element => {
-  const { hideNavButtons, children } = props;
+  const { hideNavButtons, divider, children } = props;
   const { verticalSteps, currentStepKey } = useStepperContext();
 
   return (
     <Styled.Container $vertical={verticalSteps}>
-      <Styled.Stepper $vertical={verticalSteps}>
+      <Styled.Stepper $vertical={verticalSteps} $divider={divider}>
         {!hideNavButtons && <StepperControls />}
         <StepPane>{children}</StepPane>
       </Styled.Stepper>
