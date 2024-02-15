@@ -3,7 +3,7 @@ import { Button, Icon } from '@equinor/eds-core-react';
 import { arrow_back, arrow_forward } from '@equinor/eds-icons';
 import styled from 'styled-components';
 import { useStepperContext } from './Stepper';
-import { findNextAvailable, findPrevAvailable, getSteps } from './utils';
+import { findNextAvailable, findPrevAvailable } from './utils';
 
 /** Define the type for StepDirection */
 type StepDirection = 'next' | 'prev';

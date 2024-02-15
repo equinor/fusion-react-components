@@ -1,10 +1,6 @@
 import { useState, useEffect, useCallback, PropsWithChildren, createContext, useContext } from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { tokens } from '@equinor/eds-tokens';
-import { Button, Icon } from '@equinor/eds-core-react';
-import { arrow_back, arrow_forward } from '@equinor/eds-icons';
-import StepPane from './StepPane';
-import StepContent from './StepContent';
 import { findNextAvailable, findPrevAvailable, getSteps } from './utils';
 import StepperContent from './StepperContent';
 
@@ -58,9 +54,6 @@ export type StepKey = {
   done: boolean;
 };
 
-/** Define the type for StepDirection */
-type StepDirection = 'next' | 'prev';
-
 /** Create context for Stepper */
 type StepperContextType = {
   verticalSteps?: boolean;
@@ -106,7 +99,6 @@ export const Stepper = ({
   useEffect(() => {
     const steps = getSteps(children);
     setStepKeys(steps);
-    
   }, [children]);
 
   /** Effect to update currentStepKey when activeStepKey changes */
@@ -145,7 +137,7 @@ export const Stepper = ({
         canPrev,
         canNext,
         forceOrder: forceOrder || false,
-        stepKeys,
+        stepKeys: getSteps(children),
         currentStepKey,
         activeStepPosition,
         handleChange,

@@ -134,6 +134,12 @@ export const Step = ({
   const isClickable = !forceOrder;
   const isCurrent = stepKey === currentStepKey;
 
+  useEffect(()=>{
+    if(isCurrent) {
+      handleChange(stepKey, stepKeys)
+    }
+  },[done]);
+
   /** Handle scrolling to the current step when it is not fully visible */
   useEffect(() => {
     if (stepPaneRef && stepRef.current && stepPaneRef.current && isCurrent) {
