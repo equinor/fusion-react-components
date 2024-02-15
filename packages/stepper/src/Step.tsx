@@ -1,7 +1,111 @@
 import { useEffect, useRef, MutableRefObject, PropsWithChildren } from 'react';
-import { clsx } from '@equinor/fusion-react-styles';
-import { useStyles } from './style';
 import { Badge } from './StepBadge';
+import styled, { css } from 'styled-components';
+import { tokens } from '@equinor/eds-tokens';
+import { Button, Typography } from '@equinor/eds-core-react';
+import { useStepperContext } from './Stepper';
+
+type StyledStepProps = {
+  $vertical?: boolean;
+  $horizontalTitle?: boolean;
+  $clickable?: boolean;
+  $disabled?: boolean;
+  $done?: boolean;
+};
+
+type StyledContentProps = {
+  $vertical?: boolean;
+  $horizontalTitle?: boolean;
+  $disabled?: boolean;
+};
+
+const Styled = {
+  Step: styled(Button)<StyledStepProps>`
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex: 1 1 150px;
+    cursor: ${({ $clickable }) => ($clickable ? 'pointer' : 'default')};
+    &:not(:last-child):after {
+      content: '';
+      position: relative;
+      top: calc(var(--badge-size) / 2);
+      width: calc(100% - var(--badge-size) - calc(var(--spacing) * 2));
+      left: 50%;
+      height: 1px;
+      background-color: ${tokens.colors.interactive.disabled__border.hex};
+      order: -1;
+    }
+    &:focus-visible {
+      outline: 2px dashed ${tokens.colors.interactive.primary__resting.hex};
+      outline-offset: 2px;
+    }
+    ${({ $vertical, $horizontalTitle }) =>
+      $vertical
+        ? css`
+            position: relative;
+            flex-direction: row;
+            align-items: flex-start;
+            flex: 1 1;
+            padding-bottom: var(--spacing-between-vartical-steps);
+            &:not(:last-child):after {
+              content: '';
+              position: absolute;
+              left: calc(var(--badge-size) / 2);
+              top: calc(var(--badge-size) + var(--spacing-vertical));
+              width: 1px;
+              height: calc(100% - var(--badge-size) - calc(var(--spacing-vertical) * 2));
+            }
+          `
+        : $horizontalTitle &&
+          css`
+            flex: 1 1 auto;
+            flex-direction: row;
+            align-items: flex-start;
+            padding-right: var(--spacing);
+            &:not(:last-child):after {
+              flex: 1;
+              order: 1;
+              left: 0;
+              width: calc(100% - var(--spacing));
+            }
+          `}
+    ${({ $done }) =>
+      $done &&
+      css`
+        &:not(:last-child):after {
+          background-color: ${tokens.colors.interactive.primary__resting.hex};
+        }
+      `}
+    ${({ $disabled }) =>
+      $disabled &&
+      css`
+        pointer-events: none;
+        color: ${tokens.colors.interactive.disabled__text.hex};
+        --line-color: ${tokens.colors.interactive.disabled__border.hex};
+      `}
+  `,
+  Content: styled.div<StyledContentProps>`
+    display: flex;
+    flex-direction: column;
+    padding: ${tokens.spacings.comfortable.small} calc(var(--spacing-between-horizontal-steps) / 2);
+    ${({ $vertical, $horizontalTitle }) => ($vertical ? 'padding-top: 1px;' : $horizontalTitle && 'padding-top: 2px;')}
+    p {
+      text-align: ${({ $vertical, $horizontalTitle }) => ($vertical ? 'left' : $horizontalTitle ? 'left' : 'center')};
+    }
+  `,
+  Title: styled(Typography)<{ $current?: boolean }>`
+    font-weight: ${({ $current }) => ($current ? '700' : '400')};
+    margin-bottom: ${tokens.spacings.comfortable.xx_small};
+    }
+  `,
+  Description: styled(Typography)`
+    font-weight: 400;
+  `,
+};
 
 /** Define the props interface for Step component */
 export type StepProps = {
@@ -9,10 +113,7 @@ export type StepProps = {
   readonly stepKey: string;
   readonly description?: string;
   readonly disabled?: boolean;
-  readonly isCurrent?: boolean;
   readonly position?: number;
-  readonly onChange?: () => void;
-  readonly isClickable?: boolean;
   readonly done?: boolean;
   readonly stepPaneRef?: MutableRefObject<HTMLElement>;
   readonly stepCount?: number;
@@ -21,26 +122,17 @@ export type StepProps = {
 export const Step = ({
   title,
   description,
-  isCurrent,
   disabled,
   position,
-  onChange,
-  isClickable,
   done,
   stepPaneRef,
+  stepKey,
 }: PropsWithChildren<StepProps>): JSX.Element => {
-  const styles = useStyles();
   const stepRef = useRef<HTMLAnchorElement>(null);
+  const { verticalSteps, horizontalTitle, currentStepKey, handleChange, stepKeys, forceOrder } = useStepperContext();
 
-  const stepClasses = clsx(
-    styles.step,
-    isCurrent && styles.current,
-    isClickable && styles.isClickable,
-    disabled && styles.disabled,
-    done && styles.doneStep,
-  );
-
-  const titleClasses = clsx(styles.title);
+  const isClickable = !forceOrder;
+  const isCurrent = stepKey === currentStepKey;
 
   /** Handle scrolling to the current step when it is not fully visible */
   useEffect(() => {
@@ -56,36 +148,38 @@ export const Step = ({
     }
   }, [isCurrent, stepPaneRef, stepRef]);
 
-  /** Render the component differently when disabled */
-  if (disabled) {
-    return (
-      <span className={stepClasses}>
-        <Badge position={position} active={isCurrent} done={done} />
-        <div className={styles.content}>
-          <div className={titleClasses}>
-            <span>{title}</span>
-          </div>
-          <span className={styles.description}>{description}</span>
-        </div>
-      </span>
-    );
-  }
-
-  /** Render the component with a clickable anchor when not disabled */
+  /** Render the component */
   return (
-    // TODO
-    // eslint-disable-next-line jsx-a11y/anchor-is-valid, jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
-    <a onClick={() => !disabled && isClickable && onChange && onChange()} ref={stepRef} className={stepClasses}>
+    <Styled.Step
+      ref={stepRef}
+      $current={isCurrent}
+      $clickable={isClickable}
+      $disabled={disabled}
+      $done={done}
+      $vertical={verticalSteps}
+      $horizontalTitle={horizontalTitle}
+      as="button"
+      onClick={() => !disabled && isClickable && handleChange(stepKey, stepKeys)}
+    >
       <Badge position={position} active={isCurrent} done={done} />
-      <div className={styles.content}>
-        <div className={titleClasses}>
-          <span className={styles.text} title={title}>
-            {title}
-          </span>
-        </div>
-        <span className={styles.description}>{description}</span>
-      </div>
-    </a>
+      <Styled.Content $vertical={verticalSteps} $horizontalTitle={horizontalTitle}>
+        <Styled.Title
+          $current={isCurrent}
+          group="paragraph"
+          variant="body_short"
+          color={isCurrent ? 'primary' : disabled ? 'disabled' : tokens.colors.text.static_icons__default.hex}
+        >
+          {title}
+        </Styled.Title>
+        <Styled.Description
+          group="paragraph"
+          variant="caption"
+          color={isCurrent ? 'primary' : disabled ? 'disabled' : tokens.colors.text.static_icons__tertiary.hex}
+        >
+          {description}
+        </Styled.Description>
+      </Styled.Content>
+    </Styled.Step>
   );
 };
 
