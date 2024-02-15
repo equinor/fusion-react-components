@@ -1,16 +1,16 @@
-import React, { cloneElement, useRef, Children, PropsWithChildren, ReactElement } from 'react';
-import { clsx } from '@equinor/fusion-react-styles';
-import { useStyles } from './style';
-import { StepKey } from './Stepper';
-import { getSteps } from './utils';
+import React, { cloneElement, useRef, Children, ReactElement, ReactNode } from 'react';
+import { useStepperContext } from './Stepper';
+import styled from 'styled-components';
 
-/** Define the props interface for StepPane component */
-type StepPaneProps = {
-  readonly onChange: (stepKey: string, allSteps: StepKey[]) => void;
-  readonly activeStepKey: string | null;
-  readonly activeStepPosition: number;
-  readonly forceOrder: boolean;
-  readonly verticalSteps?: boolean;
+const Styled = {
+  Container: styled.div`
+    flex: 1 1 auto;
+  `,
+  StepPane: styled.div<{ $vertical?: boolean }>`
+    display: flex;
+    flex-wrap: wrap;
+    ${(props) => props.$vertical && 'flex-direction: column;'}
+  `,
 };
 
 /** Define the props interface for StepPane component */
@@ -22,16 +22,9 @@ type StepPaneChildProps = {
 };
 
 /** Define the props interface for children components of StepPane */
-const StepPane = ({
-  children,
-  onChange,
-  activeStepKey,
-  activeStepPosition,
-  forceOrder,
-  verticalSteps,
-}: PropsWithChildren<StepPaneProps>): JSX.Element => {
-  const styles = useStyles();
+const StepPane = ({ children }: { children: ReactNode }): JSX.Element => {
   const stepPaneRef = useRef<HTMLDivElement | null>(null);
+  const { verticalSteps, activeStepPosition, forceOrder } = useStepperContext();
 
   const clonedChildren = Children.map(children, (child, index) => {
     if (React.isValidElement(child)) {
@@ -45,30 +38,22 @@ const StepPane = ({
 
       /** Clone the child element with modified props */
       return cloneElement(child as ReactElement, {
-        /** run onChange with current step key and all steps as array */
-        onChange: () => onChange(stepKey, getSteps(children)),
-        /** check if the current step is active step */
-        isCurrent: stepKey === activeStepKey,
         /** position of the step */
         position,
-        isClickable: !forceOrder,
         /** in case of forceOrder, follow previous step done rule, if not, step needs to be completed manually */
         done: forceOrder ? position < activeStepPosition : done,
         disabled: disabled === true,
         /** count of all steps */
         stepCount: Children.count(children),
-        verticalStep: verticalSteps,
         stepPaneRef: stepPaneRef,
       });
     }
   });
 
-  const stepPaneClasses = clsx(styles.stepPane, verticalSteps && styles.verticalSteps);
-
   return (
-    <div className={styles.stepPaneWrapper} ref={stepPaneRef}>
-      <div className={stepPaneClasses}>{clonedChildren}</div>
-    </div>
+    <Styled.Container ref={stepPaneRef}>
+      <Styled.StepPane $vertical={verticalSteps}>{clonedChildren}</Styled.StepPane>
+    </Styled.Container>
   );
 };
 
