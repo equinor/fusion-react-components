@@ -126,15 +126,15 @@ importers:
   packages/ag-grid-utils:
     dependencies:
       '@equinor/eds-core-react':
-        specifier: ^0.34.0
-        version: 0.34.0(react-dom@18.2.0)(react@18.2.0)(styled-components@6.1.8)
+        specifier: ^0.35.0
+        version: 0.35.1(react-dom@18.2.0)(react@18.2.0)(styled-components@6.1.8)
     devDependencies:
       '@ag-grid-community/core':
         specifier: ~30.2.0
         version: 30.2.1
       '@equinor/eds-icons':
-        specifier: ~0.19.3
-        version: 0.19.3
+        specifier: ~0.21.0
+        version: 0.21.0
       '@equinor/eds-tokens':
         specifier: ^0.9.2
         version: 0.9.2
@@ -195,8 +195,8 @@ importers:
   packages/errorboundary:
     dependencies:
       '@equinor/eds-core-react':
-        specifier: ^0.34.0
-        version: 0.34.0(react-dom@18.2.0)(react@18.2.0)(styled-components@6.1.8)
+        specifier: ^0.35.0
+        version: 0.35.1(react-dom@18.2.0)(react@18.2.0)(styled-components@6.1.8)
       '@equinor/fusion-react-styles':
         specifier: ^0.6.0
         version: link:../styles
@@ -208,8 +208,8 @@ importers:
         version: 4.0.12(react@18.2.0)
     devDependencies:
       '@equinor/eds-icons':
-        specifier: ~0.19.3
-        version: 0.19.3
+        specifier: ~0.21.0
+        version: 0.21.0
       '@equinor/eds-tokens':
         specifier: ^0.9.2
         version: 0.9.2
@@ -242,11 +242,11 @@ importers:
         version: 5.1.0
     devDependencies:
       '@equinor/eds-core-react':
-        specifier: ^0.34.0
-        version: 0.34.0(react-dom@18.2.0)(react@18.2.0)(styled-components@6.1.8)
+        specifier: ^0.35.0
+        version: 0.35.1(react-dom@18.2.0)(react@18.2.0)(styled-components@6.1.8)
       '@equinor/eds-icons':
-        specifier: ~0.19.3
-        version: 0.19.3
+        specifier: ~0.21.0
+        version: 0.21.0
       '@equinor/fusion-observable':
         specifier: ^8.1.2
         version: 8.1.5(@types/react@18.2.55)(react@18.2.0)
@@ -329,7 +329,7 @@ importers:
         specifier: ^2.1.0
         version: link:../utils
       '@equinor/fusion-wc-person':
-        specifier: ^2.3.2
+        specifier: ^2.5.1
         version: 2.5.1
     devDependencies:
       '@types/react':
@@ -381,11 +381,11 @@ importers:
         version: 6.9.11(react-dom@18.2.0)(react@18.2.0)
     devDependencies:
       '@equinor/eds-core-react':
-        specifier: ^0.34.0
-        version: 0.34.0(react-dom@18.2.0)(react@18.2.0)(styled-components@6.1.8)
+        specifier: ^0.35.0
+        version: 0.35.1(react-dom@18.2.0)(react@18.2.0)(styled-components@6.1.8)
       '@equinor/eds-icons':
-        specifier: ~0.19.3
-        version: 0.19.3
+        specifier: ~0.21.0
+        version: 0.21.0
       '@equinor/eds-tokens':
         specifier: ^0.9.2
         version: 0.9.2
@@ -515,11 +515,11 @@ importers:
         specifier: ^11.10.6
         version: 11.11.0(@emotion/react@11.11.3)(@types/react@17.0.75)(react@17.0.2)
       '@equinor/eds-core-react':
-        specifier: ^0.34.0
-        version: 0.34.0(react-dom@17.0.2)(react@17.0.2)(styled-components@5.3.11)
+        specifier: ^0.35.0
+        version: 0.35.1(react-dom@17.0.2)(react@17.0.2)(styled-components@5.3.11)
       '@equinor/eds-icons':
-        specifier: ~0.19.3
-        version: 0.19.3
+        specifier: ~0.21.0
+        version: 0.21.0
       '@equinor/eds-tokens':
         specifier: ^0.9.0
         version: 0.9.2
@@ -2748,8 +2748,8 @@ packages:
     resolution: {integrity: sha512-EsBwpc7hBUJWAsNPBmJy4hxWx12v6bshQsldrVmjxJoc3isbxhOrF2IcCpaXxfvq03NwkI7sbsOLXbYuqF/8Ww==}
     dev: false
 
-  /@equinor/eds-core-react@0.34.0(react-dom@17.0.2)(react@17.0.2)(styled-components@5.3.11):
-    resolution: {integrity: sha512-hkAuNhXk0/PylpEEtRobt3qeZyK7Hhu27pxMV6Y+StKi7ckuH7LJEisRAXxbUchFiv2tzNV7zxhdoPd5GjRp4w==}
+  /@equinor/eds-core-react@0.35.1(react-dom@17.0.2)(react@17.0.2)(styled-components@5.3.11):
+    resolution: {integrity: sha512-eGGpaIOfL873dsiPodHx6xTx7vKVIW+cQwZk8Q1cLjMIROMvQCGsIY4UDKi/b1V2TQy7YMmajTOfii9zPbU1HA==}
     engines: {node: '>=10.0.0', pnpm: '>=4'}
     peerDependencies:
       react: '>=16.8'
@@ -2757,7 +2757,7 @@ packages:
       styled-components: '>=4.2'
     dependencies:
       '@babel/runtime': 7.23.9
-      '@equinor/eds-icons': 0.19.3
+      '@equinor/eds-icons': 0.20.0
       '@equinor/eds-tokens': 0.9.2
       '@equinor/eds-utils': 0.8.3(react-dom@17.0.2)(react@17.0.2)(styled-components@5.3.11)
       '@floating-ui/react': 0.26.9(react-dom@17.0.2)(react@17.0.2)
@@ -2768,8 +2768,8 @@ packages:
       styled-components: 5.3.11(@babel/core@7.23.9)(react-dom@17.0.2)(react-is@18.2.0)(react@17.0.2)
     dev: false
 
-  /@equinor/eds-core-react@0.34.0(react-dom@18.2.0)(react@18.2.0)(styled-components@6.1.8):
-    resolution: {integrity: sha512-hkAuNhXk0/PylpEEtRobt3qeZyK7Hhu27pxMV6Y+StKi7ckuH7LJEisRAXxbUchFiv2tzNV7zxhdoPd5GjRp4w==}
+  /@equinor/eds-core-react@0.35.1(react-dom@18.2.0)(react@18.2.0)(styled-components@6.1.8):
+    resolution: {integrity: sha512-eGGpaIOfL873dsiPodHx6xTx7vKVIW+cQwZk8Q1cLjMIROMvQCGsIY4UDKi/b1V2TQy7YMmajTOfii9zPbU1HA==}
     engines: {node: '>=10.0.0', pnpm: '>=4'}
     peerDependencies:
       react: '>=16.8'
@@ -2777,7 +2777,7 @@ packages:
       styled-components: '>=4.2'
     dependencies:
       '@babel/runtime': 7.23.9
-      '@equinor/eds-icons': 0.19.3
+      '@equinor/eds-icons': 0.20.0
       '@equinor/eds-tokens': 0.9.2
       '@equinor/eds-utils': 0.8.3(react-dom@18.2.0)(react@18.2.0)(styled-components@6.1.8)
       '@floating-ui/react': 0.26.9(react-dom@18.2.0)(react@18.2.0)
@@ -2809,6 +2809,10 @@ packages:
 
   /@equinor/eds-icons@0.19.3:
     resolution: {integrity: sha512-Sh0W01PrwXPCi8/p9YKj0qKNtRU9R/xYJORinIzsNNRllpiu9wvuGAsQNE0gQaDDnrprsiRBH3+MdMSRXVs3Wg==}
+    engines: {node: '>=10.0.0', pnpm: '>=4'}
+
+  /@equinor/eds-icons@0.20.0:
+    resolution: {integrity: sha512-Xk+Ghx46iBBPHF1zmesPlmSqivoxdKlBEuwvo2v5c6T+quQ6twkkIri2qMqkCTuqe2bgmlAvsCw1iGpUoQlr3A==}
     engines: {node: '>=10.0.0', pnpm: '>=4'}
 
   /@equinor/eds-icons@0.21.0:
@@ -9463,6 +9467,7 @@ packages:
   /cross-spawn@6.0.5:
     resolution: {integrity: sha512-eTVLrBSt7fjbDygz805pMnstIs2VTBNkRm0qxZd+M7A5XDdxVRWO5MxGBXZhjY4cqLYLdtrGqRf8mBPmzwSpWQ==}
     engines: {node: '>=4.8'}
+    requiresBuild: true
     dependencies:
       nice-try: 1.0.5
       path-key: 2.0.1
@@ -13550,6 +13555,7 @@ packages:
   /is-stream@1.1.0:
     resolution: {integrity: sha512-uQPm8kcs47jx38atAcWTVxyltQYoPT68y9aWYdV6yWXSyW8mzSat0TL6CiWdZeCdF3KrAvpVtnHbTv4RN+rqdQ==}
     engines: {node: '>=0.10.0'}
+    requiresBuild: true
 
   /is-stream@2.0.0:
     resolution: {integrity: sha512-XCoy+WlUr7d1+Z8GgSuXmpuUFC9fOhRXglJMx+dwLKTkL44Cjd4W1Z5P+BQZpr+cR93aGP4S/s7Ftw6Nd/kiEw==}
@@ -15814,6 +15820,7 @@ packages:
   /npm-run-path@2.0.2:
     resolution: {integrity: sha512-lJxZYlT4DW/bRUtFh1MQIWqmLwQfAxnqWG4HhEdjMlkrJYnJn0Jrr2u3mgxqaWsdiBc76TYkTG/mhrnYTuzfHw==}
     engines: {node: '>=4'}
+    requiresBuild: true
     dependencies:
       path-key: 2.0.1
 
@@ -19191,6 +19198,7 @@ packages:
   /strip-eof@1.0.0:
     resolution: {integrity: sha512-7FCwGGmx8mD5xQd3RPUvnSpUXHM3BWuzjtpD4TXsfcZ9EL4azvVVUscFYwD9nx8Kh+uCBC00XBtAykoMHwTh8Q==}
     engines: {node: '>=0.10.0'}
+    requiresBuild: true
 
   /strip-final-newline@2.0.0:
     resolution: {integrity: sha512-BrpvfNAE3dcvq7ll3xVumzjKjZQ5tI1sEUIKr3Uoks0XUl45St3FlatVqef9prk4jRDzhW6WZg+3bk93y6pLjA==}
