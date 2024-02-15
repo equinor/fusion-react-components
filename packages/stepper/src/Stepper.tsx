@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, PropsWithChildren } from 'react';
+import { useState, useEffect, useCallback, PropsWithChildren, createContext, useContext } from 'react';
 import styled, { css } from 'styled-components';
 import { tokens } from '@equinor/eds-tokens';
 import { Button, Icon } from '@equinor/eds-core-react';
@@ -6,6 +6,7 @@ import { arrow_back, arrow_forward } from '@equinor/eds-icons';
 import StepPane from './StepPane';
 import StepContent from './StepContent';
 import { findNextAvailable, findPrevAvailable, getSteps } from './utils';
+import StepperContent from './StepperContent';
 
 const Styled = {
   Container: styled.div<{ $vertical?: boolean }>`
@@ -21,7 +22,7 @@ const Styled = {
     height: 100%;
     ${(props) => (props.$vertical ? 'width:100%' : '')}
   `,
-  Stepper: styled.div<{ $vertical?: boolean; $horizontalTitle?: boolean }>`
+  Stepper: styled.div<{ $vertical?: boolean }>`
     display: flex;
     flex-direction: ${(props) => (props.$vertical ? 'column' : 'row')};
     align-items: ${(props) => (props.$vertical ? 'flex-start' : 'center')};
@@ -29,27 +30,6 @@ const Styled = {
     padding-bottom: ${tokens.spacings.comfortable.medium};
     ${(props) => (props.$vertical ? 'border-right:var(--stepper-divider)' : 'border-bottom:var(--stepper-divider)')};
     padding-right: ${(props) => (props.$vertical ? tokens.spacings.comfortable.medium : '0')};
-    ${(props) =>
-      !props.$vertical &&
-      props.$horizontalTitle &&
-      css`
-        & $step {
-          flex: 1 1 auto;
-          flex-direction: row;
-          align-items: flex-start;
-          padding-right: var(--spacing);
-          &:not(:last-child):after {
-            flex: 1;
-            order: 1;
-            left: 0;
-            width: calc(100% - var(--spacing));
-          }
-        }
-        & $content {
-          padding-top: 2px;
-          text-align: left;
-        }
-      `}
   `,
   StepContent: styled.div`
     flex: 1;
@@ -81,6 +61,29 @@ export type StepKey = {
 /** Define the type for StepDirection */
 type StepDirection = 'next' | 'prev';
 
+/** Create context for Stepper */
+type StepperContextType = {
+  verticalSteps?: boolean;
+  horizontalTitle?: boolean;
+  canPrev: boolean;
+  canNext: boolean;
+  forceOrder: boolean;
+  stepKeys: StepKey[];
+  currentStepKey: string;
+  activeStepPosition: number;
+  handleChange: (stepKey: string, allSteps: StepKey[]) => void;
+};
+
+const StepperContext = createContext<StepperContextType | undefined>(undefined);
+
+export const useStepperContext = () => {
+  const context = useContext(StepperContext);
+  if (!context) {
+    throw new Error('useStepperContext must be used within a StepperProvider');
+  }
+  return context;
+};
+
 export const Stepper = ({
   children,
   activeStepKey,
@@ -103,6 +106,7 @@ export const Stepper = ({
   useEffect(() => {
     const steps = getSteps(children);
     setStepKeys(steps);
+    
   }, [children]);
 
   /** Effect to update currentStepKey when activeStepKey changes */
@@ -124,22 +128,6 @@ export const Stepper = ({
     setCanPrev(checkPrevious);
   }, [stepKeys, currentStepKey]);
 
-  /** Callback to find the next or previous step key */
-  const findStepKey = useCallback(
-    (direction: StepDirection) => {
-      const current = stepKeys.find((sk) => sk.key === currentStepKey);
-      if (!current) return;
-
-      const nextNewPosition = findNextAvailable(current.position, stepKeys).step?.position;
-      const nextPrevPosition = findPrevAvailable(current.position, stepKeys).step?.position;
-
-      const newPosition = direction === 'next' ? nextNewPosition : nextPrevPosition;
-      const prevOrNext = stepKeys.find((sk) => sk.position === newPosition);
-      return prevOrNext;
-    },
-    [currentStepKey, stepKeys],
-  );
-
   /** Callback to handle step change */
   const handleChange = useCallback(
     (stepKey: string, allSteps: StepKey[]) => {
@@ -149,58 +137,22 @@ export const Stepper = ({
     [onChange],
   );
 
-  /** Callbacks to handle button clicks in navigation */
-  const handleClickPrev = useCallback(() => {
-    const prevKey = findStepKey('prev');
-    if (!prevKey) return;
-    handleChange(prevKey.key, getSteps(children));
-  }, [children, findStepKey, handleChange]);
-
-  const handleClickNext = useCallback(() => {
-    const nextKey = findStepKey('next');
-    if (!nextKey) return;
-    handleChange(nextKey.key, getSteps(children));
-  }, [children, findStepKey, handleChange]);
-
   return (
-    <Styled.Container $vertical={verticalSteps}>
-      <Styled.Stepper $vertical={verticalSteps} $horizontalTitle={horizontalTitle}>
-        {!hideNavButtons && (
-          <Styled.Navigation>
-            <Button
-              color="primary"
-              variant="ghost_icon"
-              onClick={handleClickPrev}
-              disabled={!canPrev}
-              aria-label="Stepper navigation button - previous step"
-            >
-              <Icon data={arrow_back} />
-            </Button>
-            <Button
-              color="primary"
-              variant="ghost_icon"
-              onClick={handleClickNext}
-              disabled={!canNext}
-              aria-label="Stepper navigation button - next step"
-            >
-              <Icon data={arrow_forward} />
-            </Button>
-          </Styled.Navigation>
-        )}
-        <StepPane
-          forceOrder={forceOrder || false}
-          activeStepKey={currentStepKey}
-          activeStepPosition={activeStepPosition}
-          onChange={handleChange}
-          verticalSteps={verticalSteps}
-        >
-          {children}
-        </StepPane>
-      </Styled.Stepper>
-      <Styled.StepContent>
-        <StepContent activeStepKey={currentStepKey}>{children}</StepContent>
-      </Styled.StepContent>
-    </Styled.Container>
+    <StepperContext.Provider
+      value={{
+        verticalSteps,
+        horizontalTitle,
+        canPrev,
+        canNext,
+        forceOrder: forceOrder || false,
+        stepKeys,
+        currentStepKey,
+        activeStepPosition,
+        handleChange,
+      }}
+    >
+      <StepperContent hideNavButtons={hideNavButtons}>{children}</StepperContent>
+    </StepperContext.Provider>
   );
 };
 
