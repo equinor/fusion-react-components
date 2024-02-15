@@ -2,7 +2,7 @@ import { Step, Stepper, StepperProps } from '@equinor/fusion-react-stepper';
 import { Meta, Story } from '@storybook/react';
 import { ReactNode, useState } from 'react';
 
-import {Button} from '@equinor/eds-core-react';
+import { Button } from '@equinor/eds-core-react';
 
 export default {
   title: 'Examples/Stepper',
@@ -59,7 +59,6 @@ const Item = (props: { readonly children: ReactNode }) => {
     <div
       style={{
         padding: '20px',
-        borderTop: '1px solid rgb(220, 220, 220)',
         boxSizing: 'border-box',
       }}
     >
