@@ -33,8 +33,8 @@ Name                      | Type                        | Default          | Des
 ```tsx
 import { PersonSelect } from '@equinor/fusion-react-person';
 
-<PersonSelect placeholder="Start to type to search..."
-  initialText="Start to type to search..."
+<PersonSelect 
+  placeholder="Start to type to search..."
   variant="page"
   dropdownHeight="300px"
   leadingIcon="search" />
@@ -46,20 +46,21 @@ import { PersonSelect } from '@equinor/fusion-react-person';
 
 ## PersonProvider
 
-The PersonProvider is provided by the Portal or CLI.
+The PersonProvider is provided by the Fusion Portal or fusion-framework-cli.
 
 You can define a custom [**PersonProvider**](?path=/docs/data-person-provider--page) wrapper for your PersonSearch component.
 
 
 ## Controlled component - selectedPerson
 
-To set selected person in component use the `selectedPerson` attribute.
+To set selected person in component use the `selectedPerson` property.
 
 You can select a person by supplying a persons `azureId` or `upn` (email) address or a complete `PersonInfo` object.
 
-To clear a selected person, supply `null` as value. This will also clear any future manual selection from the interface.
+To clear a currently selected person, supply `null` as value. 
+When selectedPerson is `null` the interface will not display the current selected user.
 
-Remove the attribute to return to a uncontrolled component state.
+Remove the property to return to a uncontrolled component state.
 
 see [examples](?path=/docs/examples-person-person-select--component).
 

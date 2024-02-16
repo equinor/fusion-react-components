@@ -6,7 +6,6 @@ import {
   PersonSearchResult,
 } from '@equinor/fusion-react-person';
 
-const fakeResponseTime = (delay = 0) => new Promise((res) => setTimeout(res, delay));
 
 const users = [
   {
@@ -175,8 +174,8 @@ const getUsers = (args: {
 type PersonPicture = PersonDetails & { pictureSrc: string };
 
 export const createResolve: PersonResolver = {
-  getDetails: (args) => fakeResponseTime().then(() => getUsers(args) as PersonDetails),
-  getInfo: (args) => fakeResponseTime().then(() => getUsers(args) as PersonInfo),
+  getDetails: (args) => getUsers(args) as PersonDetails,
+  getInfo: (args) => getUsers(args) as PersonInfo,
   getPhoto: (args) => Promise.resolve((getUsers(args) as PersonPicture).pictureSrc),
   search: (args) => getUsers(args) as PersonSearchResult,
 };

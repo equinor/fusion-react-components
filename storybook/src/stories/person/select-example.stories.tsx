@@ -14,7 +14,7 @@ export default {
     },
     variant: {
       type: 'string',
-      description: 'The type of Searchabledropdown to render, multiple variants for header or page usage',
+      description: 'The type of PersonSelect to render, multiple variants for header or page usage',
       control: 'select',
       options: ['page', 'page-outlined', 'page-dense', 'header', 'header-filled'],
     },
@@ -22,7 +22,7 @@ export default {
       description: 'The scroll height for dropdown result list',
     },
     label: {
-      description: 'Textinput label',
+      description: 'TextInput label',
     },
     value: {
       description: 'The selected value do display in TextInput',
