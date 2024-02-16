@@ -6,7 +6,7 @@ import {
   PersonSearchResult,
 } from '@equinor/fusion-react-person';
 
-const fakeResponseTime = (delay = 3000) => new Promise((res) => setTimeout(res, delay));
+const fakeResponseTime = (delay = 0) => new Promise((res) => setTimeout(res, delay));
 
 const users = [
   {
@@ -164,6 +164,7 @@ const getUsers = (args: {
       (u) =>
         u.name.toLocaleLowerCase().indexOf(search) > -1 ||
         u.mail.toLocaleLowerCase().indexOf(search) > -1 ||
+        u.azureId === search ||
         u.mobilePhone.toLocaleLowerCase().indexOf(search) > -1,
     ) as PersonSearchResult;
   } else if (args.random) {
@@ -177,5 +178,5 @@ export const createResolve: PersonResolver = {
   getDetails: (args) => fakeResponseTime().then(() => getUsers(args) as PersonDetails),
   getInfo: (args) => fakeResponseTime().then(() => getUsers(args) as PersonInfo),
   getPhoto: (args) => Promise.resolve((getUsers(args) as PersonPicture).pictureSrc),
-  search: (args) => fakeResponseTime(1000).then(() => getUsers(args) as PersonSearchResult),
+  search: (args) => getUsers(args) as PersonSearchResult,
 };

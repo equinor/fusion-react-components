@@ -1,5 +1,6 @@
+import { useState, useEffect } from 'react';
 import { Meta, Story } from '@storybook/react';
-import { PersonProvider, PersonSelect, PersonSelectProps } from '@equinor/fusion-react-person/src';
+import { PersonInfo, PersonProvider, PersonSelect, PersonSelectProps } from '@equinor/fusion-react-person/src';
 import { createResolve } from './resolve-mock/person-resolve-mock';
 import { PersonSelectEvent } from '../../../../packages/person/src/PersonSelect';
 
@@ -53,3 +54,71 @@ export const Component: Story<PersonSelectProps> = (props: PersonSelectProps) =>
     </div>
   </PersonProvider>
 );
+
+export const SelectedPersonNull: Story<PersonSelectProps> = (props: PersonSelectProps) => (
+  <PersonProvider resolve={createResolve}>
+    <div style={{ maxWidth: '420px', height: '350px', margin: '3em auto' }}>
+      <PersonSelect {...props} />
+    </div>
+  </PersonProvider>
+);
+SelectedPersonNull.args = {
+  selectedPerson: null,
+};
+
+export const SelectedPersonByUpn: Story<PersonSelectProps> = ({ selectedPerson: _, ...props }: PersonSelectProps) => {
+  const [selected, setSelected] = useState<PersonInfo | string | null | undefined>(undefined);
+
+  // set selectedPerson on next render to await resolver.
+  useEffect(() => {
+    setSelected('abby@sience.com');
+  }, [setSelected]);
+
+  return (
+    <PersonProvider resolve={createResolve}>
+      <div style={{ maxWidth: '420px', height: '350px', margin: '3em auto' }}>
+        <PersonSelect selectedPerson={selected} {...props} />
+      </div>
+    </PersonProvider>
+  );
+};
+
+export const SelectedPersonByAzureID: Story<PersonSelectProps> = ({
+  selectedPerson: _,
+  ...props
+}: PersonSelectProps) => {
+  const [selected, setSelected] = useState<PersonInfo | string | null | undefined>(undefined);
+
+  // set selectedPerson on next render to await resolver.
+  useEffect(() => {
+    setSelected('49132c24-6ea4-41fe-8221-112f314573f0');
+  }, [setSelected]);
+
+  return (
+    <PersonProvider resolve={createResolve}>
+      <div style={{ maxWidth: '420px', height: '350px', margin: '3em auto' }}>
+        <PersonSelect selectedPerson={selected} {...props} />
+      </div>
+    </PersonProvider>
+  );
+};
+
+export const SelectedPersonByPersonInfo: Story<PersonSelectProps> = ({
+  selectedPerson: _,
+  ...props
+}: PersonSelectProps) => {
+  const [selected, setSelected] = useState<PersonInfo | string | null | undefined>(undefined);
+
+  // set selectedPerson on next render to await resolver.
+  useEffect(() => {
+    setSelected({ azureId: '49132c24-6ea4-41fe-8221-112f314573f0' });
+  }, [setSelected]);
+
+  return (
+    <PersonProvider resolve={createResolve}>
+      <div style={{ maxWidth: '420px', height: '350px', margin: '3em auto' }}>
+        <PersonSelect selectedPerson={selected} {...props} />
+      </div>
+    </PersonProvider>
+  );
+};
