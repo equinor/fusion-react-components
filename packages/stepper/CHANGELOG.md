@@ -1,5 +1,15 @@
 # Change Log
 
+## 1.0.0
+
+### Major Changes
+
+- e090af2: ### Stepper major update
+  - Swap old style with styled-components
+  - Usage of EDS tokens
+  - Rework of stepper to use context for better passing of data
+  - **New feature:** Divider on stepper can be added/removed
+
 ## 0.4.4
 
 ### Patch Changes
