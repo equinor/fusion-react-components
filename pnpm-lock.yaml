@@ -587,8 +587,8 @@ importers:
         specifier: ^6.5.16
         version: 6.5.16(@babel/core@7.23.9)(@storybook/builder-webpack5@6.5.16)(eslint@8.56.0)(react-dom@17.0.2)(react@17.0.2)(typescript@4.9.5)(webpack@5.90.1)
       '@storybook/addon-links':
-        specifier: ^6.5.16
-        version: 6.5.16(react-dom@17.0.2)(react@17.0.2)
+        specifier: ^7.6.16
+        version: 7.6.16(react@17.0.2)
       '@storybook/addon-storysource':
         specifier: ^6.5.16
         version: 6.5.16(react-dom@17.0.2)(react@17.0.2)
@@ -5173,30 +5173,17 @@ packages:
       - webpack-command
     dev: false
 
-  /@storybook/addon-links@6.5.16(react-dom@17.0.2)(react@17.0.2):
-    resolution: {integrity: sha512-P/mmqK57NGXnR0i3d/T5B0rIt0Lg8Yq+qionRr3LK3AwG/4yGnYt4GNomLEknn/eEwABYq1Q/Z1aOpgIhNdq5A==}
+  /@storybook/addon-links@7.6.16(react@17.0.2):
+    resolution: {integrity: sha512-+582ePJxvweYZB5s133Uou6YRzZtnXGMRtKMJVovy/P5cWtq8FS5wzyMJPeK4z6ioR6BQJQVF2NV5lfrjoxpKQ==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
-      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
     peerDependenciesMeta:
       react:
         optional: true
-      react-dom:
-        optional: true
     dependencies:
-      '@storybook/addons': 6.5.16(react-dom@17.0.2)(react@17.0.2)
-      '@storybook/client-logger': 6.5.16
-      '@storybook/core-events': 6.5.16
-      '@storybook/csf': 0.0.2--canary.4566f4d.1
-      '@storybook/router': 6.5.16(react-dom@17.0.2)(react@17.0.2)
-      '@types/qs': 6.9.11
-      core-js: 3.36.0
-      global: 4.4.0
-      prop-types: 15.8.1
-      qs: 6.11.2
+      '@storybook/csf': 0.1.2
+      '@storybook/global': 5.0.0
       react: 17.0.2
-      react-dom: 17.0.2(react@17.0.2)
-      regenerator-runtime: 0.13.11
       ts-dedent: 2.2.0
     dev: false
 
@@ -5959,6 +5946,12 @@ packages:
       lodash: 4.17.21
     dev: false
 
+  /@storybook/csf@0.1.2:
+    resolution: {integrity: sha512-ePrvE/pS1vsKR9Xr+o+YwdqNgHUyXvg+1Xjx0h9LrVx7Zq4zNe06pd63F5EvzTbCbJsHj7GHr9tkiaqm7U8WRA==}
+    dependencies:
+      type-fest: 2.19.0
+    dev: false
+
   /@storybook/docs-tools@6.5.16(react-dom@17.0.2)(react@17.0.2):
     resolution: {integrity: sha512-o+rAWPRGifjBF5xZzTKOqnHN3XQWkl0QFJYVDIiJYJrVll7ExCkpEq/PahOGzIBBV+tpMstJgmKM3lr/lu/jmg==}
     dependencies:
@@ -5973,6 +5966,10 @@ packages:
       - react
       - react-dom
       - supports-color
+    dev: false
+
+  /@storybook/global@5.0.0:
+    resolution: {integrity: sha512-FcOqPAXACP0I3oJ/ws6/rrPT9WGhu915Cg8D02a9YxLo0DE9zI+a9A5gRGvmQ09fiWPukqI8ZAEoQEdWUKMQdQ==}
     dev: false
 
   /@storybook/manager-webpack4@6.5.16(eslint@8.56.0)(react-dom@17.0.2)(react@17.0.2)(typescript@4.9.5):
@@ -19945,6 +19942,11 @@ packages:
   /type-fest@0.8.1:
     resolution: {integrity: sha512-4dbzIzqvjtgiM5rw1k5rEHtBANKmdudhGyBEajN01fEyhaAIhsoKNy6y7+IN93IfpFtwY9iqi7kD+xwKhQsNJA==}
     engines: {node: '>=8'}
+
+  /type-fest@2.19.0:
+    resolution: {integrity: sha512-RAH822pAdBgcNMAfWnCBU3CFZcfZ/i1eZjwFU/dsLKumyuuP3niueg2UAukXYF0E2AAoc82ZSSf9J0WQBinzHA==}
+    engines: {node: '>=12.20'}
+    dev: false
 
   /type-fest@3.13.1:
     resolution: {integrity: sha512-tLq3bSNx+xSpwvAJnzrK0Ep5CLNWjvFTOp71URMaAEWBfRb9nnJiBoUe0tF8bI4ZFO3omgBR6NvnbzVUT3Ly4g==}
