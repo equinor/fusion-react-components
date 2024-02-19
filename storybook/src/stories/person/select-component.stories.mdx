@@ -12,23 +12,18 @@ import PersonSelect from '@equinor/fusion-react-person/src';
 
 Name                      | Type                        | Default          | Description
 ------------------------- | -------------------------   | --------------   | -----------
-`placeholder`             | `string`                    | `/`              | TextInput placeholder string
-`initialText`             | `string`                    | `/`              | First item in dropdown before any search is done
+`selectedPerson`          | `PersonInfo - string(upn - azureId) - null` | `undefined` | Select the defined person or clear any selected person by setting null as value. see [examples](?path=/docs/examples-person-person-select--component)
+`placeholder`             | `string`                    | `undefined`      | TextInput placeholder string
 `variant`                 | `variants*`                 | `page`           | The type of Searchabledropdown to render, multiple variants for header or page usage
-`dropdownHeight`          | `string`                    | `/`              | The scroll height for dropdown result list
-`leadingIcon`             | `string`                    | `/`              | Leading Icon to display in text input
+`dropdownHeight`          | `string`                    | `undefined`      | The scroll height for dropdown result list
+`leadingIcon`             | `string`                    | `undefined`      | Leading Icon to display in text input
 `autofocus`               | `boolean`                   | `false`          | Flag for setting focus on textInput on component mount
 `disabled`                | `boolean`                   | `false`          | Disable text input
-`graphic`                 | `string`                    | `/`              | A fwc-icon name to show BEFORE each list item. may also be set per result item.
-`label`                   | `string`                    | `/`              | Text input label
-`meta`                    | `string`                    | `/`              | A fwc-icon name to show AFTER each list item. may also be set per result item.
-`multiple`                | `string`                    | `/`              | Flag for selecting multiple items.
-`selectedId`              | `string`                    | `/`              | The pre-selected id to higlight
-`value`                   | `string`                    | `/`              | The selected value do display in TextInput
-`id`                      | `string`                    | `/`              | HTML ID for component
+`label`                   | `string`                    | `undefined`      | Text input label
+`value`                   | `string`                    | `undefined`      | The selected value do display in TextInput
 
 ---
-\*  available `variants` are:
+\*  available `variants` values are:
 ```ts
 'page' | 'page-outlined' | 'page-dense' | 'header' | 'header-filled';
 ```
@@ -38,72 +33,36 @@ Name                      | Type                        | Default          | Des
 ```tsx
 import { PersonSelect } from '@equinor/fusion-react-person';
 
-<PersonSelect placeholder="Start to type to search..."
-      initialText="The initial text result"
-      variant="header"
-      dropdownHeight="300px"
-      leadingIcon="search" />
+<PersonSelect 
+  placeholder="Start to type to search..."
+  variant="page"
+  dropdownHeight="300px"
+  leadingIcon="search" />
 ```
 
 ## Example
 
-<StoryExample storyId="examples-person-person-select--component" showSource />
+<StoryExample storyId="examples-person-person-select--component" />
 
 ## PersonProvider
 
-In order to use PersonSelect component you need to have [**PersonProvider**](?path=/docs/data-person-provider--page) wrapper.
+The PersonProvider is provided by the Fusion Portal or fusion-framework-cli.
 
-You can create your own [`<PersonProvider>`](?path=/docs/data-person-provider--page) if it's not already implemented, like in [fusion-framework](https://github.com/equinor/fusion-framework)
+You can define a custom [**PersonProvider**](?path=/docs/data-person-provider--page) wrapper for your PersonSearch component.
 
-### Properties/Attributes
 
-Name                      | Type                            | Description
-------------------------- | -----------------------------   | -----------
-`resolve`                 | `PersonResolver`                | Person resolver for a provider. 
+## Controlled component - selectedPerson
 
-### Methods in provider for PersonSelect
+To set selected person in component use the `selectedPerson` property.
 
-Name                                    | Return Type                     | Description
---------------------------------------  | -----------------------------   | -----------------------------
-`search()`                              | `PersonSearchResult**`          | Returns `PersonSearchResult` for unique search.
+You can select a person by supplying a persons `azureId` or `upn` (email) address or a complete `PersonInfo` object.
 
-Read on how to create your own ***custom search filter*** in [PersonProvider - Custom search](?path=/docs/data-person-provider--page#custom-search)
+To clear a currently selected person, supply `null` as value. 
+When selectedPerson is `null` the interface will not display the current selected user.
 
----
+Remove the property to return to a uncontrolled component state.
 
-\*\* `PersonSearchResult` is exported type.
-```ts
-type PersonSearchResult = Array<PersonInfo>;
-
-type PersonInfo = {
-    azureId: string;
-    name?: string;
-    jobTitle?: string;
-    department?: string;
-    mail?: string;
-    mobilePhone?: string;
-    accountType?: PersonAccountType;
-    officeLocation?: string;
-    managerAzureUniqueId?: string;
-};
-
-type Position = {
-    id: string;
-    name: string;
-    project: {
-        id: string;
-        name: string;
-    };
-};
-
-type Manager = {
-    azureUniqueId: string;
-    name?: string;
-    pictureSrc?: string;
-    department?: string;
-    accountType?: PersonAccountType;
-};
-```
+see [examples](?path=/docs/examples-person-person-select--component).
 
 ## Changelog
 
