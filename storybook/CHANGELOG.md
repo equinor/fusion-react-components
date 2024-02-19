@@ -1,5 +1,18 @@
 # Change Log
 
+## 2.21.5
+
+### Patch Changes
+
+- 3f20acf: Docs for PersonSelect attribute `selectedPerson`
+- e090af2: ### Stepper major update
+  - Swap old style with styled-components
+  - Usage of EDS tokens
+  - Rework of stepper to use context for better passing of data
+  - **New feature:** Divider on stepper can be added/removed
+- Updated dependencies [e090af2]
+  - @equinor/fusion-react-stepper@1.0.0
+
 ## 2.21.4
 
 ### Patch Changes
