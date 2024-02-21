@@ -34,7 +34,8 @@
     "url": "https://github.com/equinor/fusion-react-components/issues"
   },
   "dependencies": {
-    "re-resizable": "^6.9.11"
+    "re-resizable": "^6.9.11",
+    "react-keyed-flatten-children": "^3.0.0"
   },
   "devDependencies": {
     "@equinor/eds-core-react": "^0.36.0",
