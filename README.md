@@ -1,5 +1,6 @@
-<!--prettier-ignore-start-->
-# Fusion React-Components
+---
+title: Mono-repo for React-components used in fusion
+---
 
 > Mono-repo for React-components used in fusion
 
