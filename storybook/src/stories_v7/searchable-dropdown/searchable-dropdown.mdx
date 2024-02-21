@@ -1,0 +1,117 @@
+import { Meta, Markdown, ArgTypes, Canvas } from '@storybook/blocks';
+
+import readme from '#packages/searchable-dropdown/README.md?raw';
+import pkg from '#packages/searchable-dropdown/package.json';
+
+import changelogReact from '#packages/searchable-dropdown/CHANGELOG.md?raw';
+
+import { ChangeLog, PackageInfo } from '../../components';
+
+import * as stories from './searchable-dropdown.stories';
+
+
+<Meta of={stories} />
+
+<PackageInfo pkg={pkg} />
+
+<Markdown>{readme}</Markdown>
+
+<ArgTypes of={ stories.basic } />
+<Canvas of={ stories.basic } meta={stories} story={{height: '500px'}}/>
+
+## How to use
+
+The ``searchable-dropdown`` component is built up of 2 elements, ``dropdown`` and ``dropdownProvider``.
+
+Wrap the dropdown component in the provider and add a ref to the provider element by using the hook ``useDropdownProviderRef`` with your resolver as parameter.
+The resolver must be of type ``SearchableDropdownResolver``.
+
+if you need a ready made element and provider component check out the [ContextSelector](https://equinor.github.io/fusion-react-components/?path=/docs/data-contextselector) component.
+
+**Code example**
+
+```ts
+const myResolver: SearchableDropdownResolver = {
+  searchQuery: async (query: string) => {
+    // API call
+  },
+  initialResult: [
+    // pre search available results
+  ],
+  closeHandler: (e) => {
+    // callback after UI close dropdown list
+  },
+};
+const SearchableDropdown = (props) => {
+  const providerRef = useDropdownProviderRef(myResolver);
+  return (
+    <DropdownProvider ref={providerRef}>
+      <Dropdown {...props} />
+    </DropdownProvider>
+  );
+};
+```
+
+## Resolver methods
+
+**searchQuery**
+
+The resolver has a method ``searchQuery`` which is called on every keyup event with 250ms debounce from the textinput element. So place your API call on the resolvers searchQuery method.
+Your method should return a Promise which resolves to an array of type ``SearchabledropdownResult`` where each item is of type ``SearchableDropdownResultItem`` with the following properties.
+
+```typescript
+interface SearchableDropdownResultItem {
+  id: string;
+  title?: string;
+  subTitle?: string;
+  isDisabled?: boolean;
+  isSelected?: boolean;
+  isError?: boolean;
+  meta?: string;
+  graphic?: string;
+  graphicType?: IconType;
+  type?: 'section' | 'divider' | null;
+  children?: SearchableDropdownResult;
+}
+
+declare enum IconType {
+  EDS = 'eds',
+  SVG = 'svg',
+}
+
+```
+
+There is an example mapper function in this story for mapping a context api result.
+
+**initialResult**
+
+You can pass any ``SearchableDropdownResult`` to initialResult to show to the user before any search is performed. Use this for Favourites or most used context's.
+
+**closeHandler**
+
+The web-component has a handler for closing the list and clearing value in textinput field, but you can pass an additional callback to this handler. Use this for clearing context in your app. 
+
+## onSelect
+
+When the user selects an item from the result list the ``onSelect`` event gets triggered. The ``onSelect`` events detail object contains an array of the selected item, or items if multiple flag is set. 
+The event is of type ``SearchableDropdownSelectEvent``.
+
+
+
+Listen for the ``onSelect`` event and save the selected item in your context/state handler.
+
+## Composition
+
+SearchableDropdown consist of to components and a hook to attach a resolver to the controller.
+
+The components are ``Dropdown`` and ``DropdownProvider``, And the hook ``useDropdownProviderRef``.
+
+Se [Examples](?path=/docs/examples-searchable-dropdown--seperated-components) for usage.
+
+## Changelog
+
+<ChangeLog
+  changelogs={{
+    react: changelogReact,
+  }}
+/>
