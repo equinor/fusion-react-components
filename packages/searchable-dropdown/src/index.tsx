@@ -1,6 +1,14 @@
-export * from './Dropdown';
-export * from './DropdownProvider';
-export * from './useDropdownProviderRef';
+export {
+  Dropdown,
+  type DropdownProps,
+  IconType,
+  type SearchableDropdownResolver,
+  type SearchableDropdownResult,
+  type SearchableDropdownResultItem,
+  SearchableDropdownSelectEvent,
+} from './Dropdown';
+export { DropdownProvider } from './DropdownProvider';
+export { useDropdownProviderRef } from './useDropdownProviderRef';
 
 export { SearchableDropdown, SearchableDropdownProps } from './SearchableDropdown';
 
