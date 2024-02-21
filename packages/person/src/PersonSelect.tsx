@@ -24,6 +24,7 @@ type ElementAtts = PropsWithChildren<
       | 'selectedId'
       | 'value'
       | 'variant'
+      | 'selectedPerson'
     >
   >
 >;
