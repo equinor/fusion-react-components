@@ -30,5 +30,5 @@ export const PersonCard = ({ children, ...props }: PropsWithChildren<PersonCardP
   return <PersonCardComponent ref={cardRef}>{children}</PersonCardComponent>;
 };
 
-export { HTMLPersonCardCustomElement, PersonItemSize, CardData };
+export { HTMLPersonCardCustomElement, type PersonItemSize, type CardData };
 export default PersonCard;

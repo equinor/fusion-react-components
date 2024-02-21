@@ -35,5 +35,5 @@ export const PersonAvatar = ({ children, ...props }: PropsWithChildren<PersonAva
   return <PersonAvatarComponent ref={avatarRef}>{children}</PersonAvatarComponent>;
 };
 
-export { AvatarSize, AvatarData };
+export { AvatarSize, type AvatarData };
 export default PersonAvatar;
