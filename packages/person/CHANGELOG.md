@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.8.1
+
+### Patch Changes
+
+- 3c7521e: Updates fusion-wc-person
+
 ## 0.8.0
 
 ### Minor Changes
