@@ -38,13 +38,13 @@ export const disabled: Story = {
   },
 };
 
-// TODO - this does not seem to work, check web component
-// export const charCounter: Story = {
-//   args: {
-//     label: 'Character counter',
-//     charCounter: true,
-//   },
-// };
+export const charCounter: Story = {
+  args: {
+    label: 'Character counter',
+    charCounter: true,
+    maxLength: 200
+  },
+};
 
 export const withHelpText: Story = {
   render: (props) => (
