@@ -1,12 +1,20 @@
 {
   "extends": "../tsconfig.base.json",
   "compilerOptions": {
-    "rootDir": "./src",
-    "resolveJsonModule": true
+    "rootDir": "src",
+    "resolveJsonModule": true,
+    "paths": {
+      "@equinor/fusion-react-*": [
+        "../packages/*"
+      ],
+    },
+    "skipDefaultLibCheck": true,
+    "skipLibCheck": true,
+    "module": "ES6"
   },
   "exclude": [
     "./node_modules",
-    "./__tmp__"
+    "../packages/styles"
   ],
   "references": [
     {
@@ -14,9 +22,6 @@
     },
     {
       "path": "../packages/ag-grid-utils"
-    },
-    {
-      "path": "../packages/button"
     },
     {
       "path": "../packages/context-selector"
@@ -29,9 +34,6 @@
     },
     {
       "path": "../packages/filter"
-    },
-    {
-      "path": "../packages/icon"
     },
     {
       "path": "../packages/hanging-garden"
@@ -65,6 +67,9 @@
     },
     {
       "path": "../packages/side-sheet"
+    },
+    {
+      "path": "../packages/styles"
     }
   ]
 }

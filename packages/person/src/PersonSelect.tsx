@@ -10,7 +10,6 @@ type ElementAtts = PropsWithChildren<
   Partial<
     Pick<
       PersonSelectElementProps,
-      | 'selectedPerson'
       | 'autofocus'
       | 'disabled'
       | 'dropdownHeight'
@@ -22,6 +21,7 @@ type ElementAtts = PropsWithChildren<
       | 'multiple'
       | 'placeholder'
       | 'selectedId'
+      | 'selectedPerson'
       | 'value'
       | 'variant'
     >

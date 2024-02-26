@@ -1,0 +1,32 @@
+import { useState, useCallback } from 'react';
+
+import { Meta, Markdown, ArgTypes, Canvas } from '@storybook/blocks';
+
+import readme from '#packages/filter/README.md?raw';
+import pkg from '#packages/filter/package.json';
+
+import changelogReact from '#packages/filter/CHANGELOG.md?raw';
+
+import { ChangeLog, PackageInfo } from '../../components';
+
+import * as stories from './filter.stories';
+
+<Meta of={stories} />
+
+<PackageInfo pkg={pkg} />
+
+<Markdown>{readme}</Markdown>
+
+
+
+<ArgTypes of={stories.filter_panel_story } />
+
+<Canvas of={stories.filter_panel_story } />
+
+## Changelog
+
+<ChangeLog
+  changelogs={{
+    react: changelogReact,
+  }}
+/>

@@ -1,4 +1,4 @@
-import { Description } from '@storybook/addon-docs';
+import { Markdown } from '@storybook/blocks';
 
 import ReactIcon from './React.svg';
 import LitIcon from './Lit.svg';
@@ -10,7 +10,7 @@ type ChangeLogs = {
   webComponent?: string;
 };
 
-export const ChangeLog = ({ changelogs }: { changelogs: ChangeLogs }): React.ReactElement => {
+export const ChangeLog = ({ changelogs }: { readonly changelogs: ChangeLogs }): React.ReactElement => {
   const classes = useStyle();
   return (
     <>
@@ -18,7 +18,7 @@ export const ChangeLog = ({ changelogs }: { changelogs: ChangeLogs }): React.Rea
         <ReactIcon /> ReactComponent
       </h1>
       <div className={classes.changelog}>
-        <Description markdown={changelogs.react} />
+        <Markdown>{changelogs.react}</Markdown>
       </div>
       {changelogs.webComponent && (
         <>
@@ -26,7 +26,7 @@ export const ChangeLog = ({ changelogs }: { changelogs: ChangeLogs }): React.Rea
             <LitIcon /> WebComponent
           </h1>
           <div className={classes.changelog}>
-            <Description markdown={changelogs.webComponent} />
+            <Markdown>{changelogs.webComponent}</Markdown>
           </div>
         </>
       )}

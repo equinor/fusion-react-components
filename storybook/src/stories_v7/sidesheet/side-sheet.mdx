@@ -1,0 +1,26 @@
+import { Meta, Markdown, ArgTypes, Canvas } from '@storybook/blocks';
+
+import readme from '#packages/side-sheet/README.md?raw';
+import pkg from '#packages/side-sheet/package.json';
+
+import changelogReact from '#packages/side-sheet/CHANGELOG.md?raw';
+
+import { ChangeLog, PackageInfo } from '../../components';
+
+import * as stories from './side-sheet.stories';
+
+
+<Meta of={stories} />
+
+<PackageInfo pkg={pkg} />
+
+<Markdown>{readme}</Markdown>
+
+<ArgTypes of={ stories.basic } />
+<Canvas of={ stories.basic } meta={stories} story={{height: '500px'}}/>
+
+<ChangeLog
+  changelogs={{
+    react: changelogReact,
+  }}
+/>
