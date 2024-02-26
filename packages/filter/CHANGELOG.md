@@ -1,5 +1,12 @@
 # Change Log
 
+## 1.8.3
+
+### Patch Changes
+
+- d07f10a: - Exported various components and types from different files.
+  - Updated exports to use the `type` keyword for certain types.
+
 ## 1.8.2
 
 ### Patch Changes

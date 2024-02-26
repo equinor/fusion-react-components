@@ -1,5 +1,12 @@
 # Change Log
 
+## 0.5.1
+
+### Patch Changes
+
+- d07f10a: - Exported various components and types from different files.
+  - Updated exports to use the `type` keyword for certain types.
+
 ## 0.5.0
 
 ### Minor Changes
