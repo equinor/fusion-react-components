@@ -1,5 +1,33 @@
 # Change Log
 
+## 3.0.0
+
+### Major Changes
+
+- d07f10a: updated all stories to Storybook 7.
+
+  > [!NOTE]
+  > Since multiple PR has been submitted and merged since the start of upgrade, new stories are under the folder `stories_v7`
+  >
+  > Developers that has contributed and altered existing stories **must** refactor to the new storybook.
+  >
+  > When all stories has been migrated, the `stories` folder, must be deleted, and `stories_v7` have the suffix removed.
+
+  > [!IMPORTANT]
+  > Some stories might take too much effort to migrate _(like `Hanging garden`)_, these should be move to `__TODO__` folder, so it can be triage for later
+
+### Patch Changes
+
+- Updated dependencies [d07f10a]
+- Updated dependencies [d07f10a]
+  - @equinor/fusion-react-side-sheet@1.3.1
+  - @equinor/fusion-react-searchable-dropdown@0.5.1
+  - @equinor/fusion-react-context-selector@0.6.1
+  - @equinor/fusion-react-markdown@0.3.2
+  - @equinor/fusion-react-filter@1.8.3
+  - @equinor/fusion-react-person@0.8.2
+  - @equinor/fusion-react-ripple@0.4.2
+
 ## 2.21.6
 
 ### Patch Changes

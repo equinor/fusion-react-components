@@ -1,5 +1,14 @@
 # Change Log
 
+## 0.6.1
+
+### Patch Changes
+
+- d07f10a: - Exported various components and types from different files.
+  - Updated exports to use the `type` keyword for certain types.
+- Updated dependencies [d07f10a]
+  - @equinor/fusion-react-searchable-dropdown@0.5.1
+
 ## 0.6.0
 
 ### Minor Changes
