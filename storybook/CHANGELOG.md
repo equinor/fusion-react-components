@@ -1,5 +1,13 @@
 # Change Log
 
+## 3.0.1
+
+### Patch Changes
+
+- 549832a: Storybook PersonProvider support for searching by upn and azureId
+- Updated dependencies [498d0a9]
+  - @equinor/fusion-react-person@0.8.3
+
 ## 3.0.0
 
 ### Major Changes

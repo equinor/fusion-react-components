@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.8.3
+
+### Patch Changes
+
+- 498d0a9: Updates PersonSelect's web component to allow searching with azureId on `selectedPerson` property
+
 ## 0.8.2
 
 ### Patch Changes
