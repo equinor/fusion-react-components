@@ -1,4 +1,5 @@
 <!--prettier-ignore-start-->
+
 # @equinor/fusion-react-searchable-dropdown
 
 [![Published on npm](https://img.shields.io/npm/v/@equinor/fusion-react-searchable-dropdown.svg)](https://www.npmjs.com/package/@equinor/fusion-react-searchable-dropdown)
