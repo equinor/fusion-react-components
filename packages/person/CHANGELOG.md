@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.8.4
+
+### Patch Changes
+
+- 3931c44: Updates fusion-wc-person to get latest fixes for running multiple tasks
+
 ## 0.8.3
 
 ### Patch Changes
