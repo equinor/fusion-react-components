@@ -1,6 +1,5 @@
 import { Meta, Markdown, ArgTypes, Canvas } from '@storybook/blocks';
 
-import readme from '#packages/searchable-dropdown/README.md?raw';
 import pkg from '#packages/searchable-dropdown/package.json';
 
 import changelogReact from '#packages/searchable-dropdown/CHANGELOG.md?raw';
@@ -13,8 +12,6 @@ import * as stories from './searchable-dropdown.stories';
 <Meta of={stories} />
 
 <PackageInfo pkg={pkg} />
-
-<Markdown>{readme}</Markdown>
 
 <ArgTypes of={ stories.basic } />
 <Canvas of={ stories.basic } meta={stories} story={{height: '320px'}}/>
