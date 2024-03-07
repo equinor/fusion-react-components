@@ -1,5 +1,12 @@
 # Change Log
 
+## 0.6.2
+
+### Patch Changes
+
+- Updated dependencies [498d186]
+  - @equinor/fusion-react-searchable-dropdown@0.5.2
+
 ## 0.6.1
 
 ### Patch Changes

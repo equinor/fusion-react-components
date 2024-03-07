@@ -1,5 +1,14 @@
 # Change Log
 
+## 3.0.3
+
+### Patch Changes
+
+- 498d186: Maintenace, update of web component and other dependencies, to make disabled and error list item visible again
+- Updated dependencies [498d186]
+  - @equinor/fusion-react-searchable-dropdown@0.5.2
+  - @equinor/fusion-react-context-selector@0.6.2
+
 ## 3.0.2
 
 ### Patch Changes
