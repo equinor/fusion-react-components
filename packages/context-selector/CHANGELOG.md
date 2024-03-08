@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.6.3
+
+### Patch Changes
+
+- f0edb6e: Update of searchable dropdown web component in context selector
+
 ## 0.6.2
 
 ### Patch Changes
