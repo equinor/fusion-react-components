@@ -1,5 +1,12 @@
 # Change Log
 
+## 3.0.4
+
+### Patch Changes
+
+- Updated dependencies [f0edb6e]
+  - @equinor/fusion-react-context-selector@0.6.3
+
 ## 3.0.3
 
 ### Patch Changes
