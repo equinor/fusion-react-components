@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.6.4
+
+### Patch Changes
+
+- 944be6b: Removes react as peer dependencie
+
 ## 0.6.3
 
 ### Patch Changes
