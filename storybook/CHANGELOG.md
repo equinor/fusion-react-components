@@ -1,5 +1,14 @@
 # Change Log
 
+## 3.0.6
+
+### Patch Changes
+
+- Updated dependencies [1d3cff3]
+  - @equinor/fusion-react-styles@0.6.2
+  - @equinor/fusion-react-context-selector@0.6.5
+  - @equinor/fusion-react-hanging-garden@1.7.4
+
 ## 3.0.5
 
 ### Patch Changes

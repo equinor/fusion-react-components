@@ -1,5 +1,12 @@
 # Change Log
 
+## 0.6.5
+
+### Patch Changes
+
+- Updated dependencies [1d3cff3]
+  - @equinor/fusion-react-styles@0.6.2
+
 ## 0.6.4
 
 ### Patch Changes
