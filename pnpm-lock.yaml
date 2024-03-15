@@ -266,8 +266,8 @@ importers:
         specifier: 4.x
         version: 4.7.11
       date-fns:
-        specifier: 3.3.1
-        version: 3.3.1
+        specifier: 3.5.0
+        version: 3.5.0
       history:
         specifier: 4.x
         version: 4.10.1
@@ -9098,6 +9098,10 @@ packages:
 
   /date-fns@3.3.1:
     resolution: {integrity: sha512-y8e109LYGgoQDveiEBD3DYXKba1jWf5BA8YU1FL5Tvm0BTdEfy54WLCwnuYWZNnzzvALy/QQ4Hov+Q9RVRv+Zw==}
+    dev: false
+
+  /date-fns@3.5.0:
+    resolution: {integrity: sha512-a+DwyXn7NOfdJireCzAA0B9p7jIXEu/Q9JKCyMYvH6+0vPUNbQceA0neXrdfJ/xzl3mhOh5vibQQ3936Tssm6A==}
     dev: false
 
   /dateformat@3.0.3:
