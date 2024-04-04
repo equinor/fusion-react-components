@@ -590,8 +590,8 @@ importers:
         specifier: ^7.6.15
         version: 7.6.17(@types/react@18.2.64)(react-dom@18.2.0)(react@18.2.0)
       '@storybook/addon-links':
-        specifier: ^7.6.15
-        version: 7.6.17(react@18.2.0)
+        specifier: ^8.0.5
+        version: 8.0.5(react@18.2.0)
       '@storybook/addon-storysource':
         specifier: ^7.6.15
         version: 7.6.17
@@ -5775,8 +5775,8 @@ packages:
       '@storybook/global': 5.0.0
     dev: false
 
-  /@storybook/addon-links@7.6.17(react@18.2.0):
-    resolution: {integrity: sha512-iFUwKObRn0EKI0zMETsil2p9a/81rCuSMEWECsi+khkCAs1FUnD2cT6Ag5ydcNcBXsdtdfDJdtXQrkw+TSoStQ==}
+  /@storybook/addon-links@8.0.5(react@18.2.0):
+    resolution: {integrity: sha512-B5EAs0+LxgYH59GSVVAfgW8rAzGUmzdAAR3XJKbTXp3/d9e27uXwpLVYhi/VQHKLIsshDQRbc0s109APHs/SjQ==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
     peerDependenciesMeta:
