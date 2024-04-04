@@ -10166,7 +10166,7 @@ packages:
     peerDependencies:
       eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8
     dependencies:
-      '@babel/parser': 7.24.0
+      '@babel/parser': 7.24.1
       eslint: 8.57.0
       eslint-plugin-jsx-a11y: 6.8.0(eslint@8.57.0)
     dev: true
