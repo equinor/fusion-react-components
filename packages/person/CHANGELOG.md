@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.8.5
+
+### Patch Changes
+
+- cb48ef2: Update person component dependencies
+
 ## 0.8.4
 
 ### Patch Changes
