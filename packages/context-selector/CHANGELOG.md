@@ -1,5 +1,40 @@
 # Change Log
 
+## 0.6.5
+
+### Patch Changes
+
+- Updated dependencies [1d3cff3]
+  - @equinor/fusion-react-styles@0.6.2
+
+## 0.6.4
+
+### Patch Changes
+
+- 944be6b: Removes react as peer dependencie
+
+## 0.6.3
+
+### Patch Changes
+
+- f0edb6e: Update of searchable dropdown web component in context selector
+
+## 0.6.2
+
+### Patch Changes
+
+- Updated dependencies [498d186]
+  - @equinor/fusion-react-searchable-dropdown@0.5.2
+
+## 0.6.1
+
+### Patch Changes
+
+- d07f10a: - Exported various components and types from different files.
+  - Updated exports to use the `type` keyword for certain types.
+- Updated dependencies [d07f10a]
+  - @equinor/fusion-react-searchable-dropdown@0.5.1
+
 ## 0.6.0
 
 ### Minor Changes

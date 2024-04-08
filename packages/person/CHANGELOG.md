@@ -1,5 +1,30 @@
 # Change Log
 
+## 0.8.5
+
+### Patch Changes
+
+- cb48ef2: Update person component dependencies
+
+## 0.8.4
+
+### Patch Changes
+
+- 3931c44: Updates fusion-wc-person to get latest fixes for running multiple tasks
+
+## 0.8.3
+
+### Patch Changes
+
+- 498d0a9: Updates PersonSelect's web component to allow searching with azureId on `selectedPerson` property
+
+## 0.8.2
+
+### Patch Changes
+
+- d07f10a: - Exported various components and types from different files.
+  - Updated exports to use the `type` keyword for certain types.
+
 ## 0.8.1
 
 ### Patch Changes
