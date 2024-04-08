@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.3.1
+
+### Patch Changes
+
+- bc05316: Fixes isuue with github chromatic action for list component
+
 ## 0.3.0
 
 ### Minor Changes

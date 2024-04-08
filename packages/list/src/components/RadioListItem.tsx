@@ -1,5 +1,8 @@
 import { ComponentProps, createComponent } from '@equinor/fusion-react-utils';
-import HTMLRadioListItemCustomElement, { tag } from '@equinor/fusion-wc-list/lib/radio-list-item';
+import {
+  RadioListItemElement as HTMLRadioListItemCustomElement,
+  radioListItemTag as tag,
+} from '@equinor/fusion-wc-list';
 
 type ElementProps = React.PropsWithChildren<
   Partial<

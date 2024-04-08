@@ -1,0 +1,69 @@
+import { Meta, Markdown, ArgTypes, Canvas } from '@storybook/blocks';
+
+import readme from '#packages/person/README.md?raw';
+import pkg from '#packages/person/package.json';
+
+import changelogReact from '#packages/person/CHANGELOG.md?raw';
+
+import { ChangeLog, PackageInfo } from '../../components';
+
+import * as avatarStories from './avatar.stories';
+import * as cardStories from './card.stories';
+import * as selectStories from './select.stories';
+
+
+<Meta title="Person/Docs" />
+
+<PackageInfo pkg={pkg} />
+
+<Markdown>{readme}</Markdown>
+
+## Avatar
+<ArgTypes of={ avatarStories.basic } />
+
+### Basic
+<Canvas of={ avatarStories.basic } meta={avatarStories} story={{height: '350px'}}/>
+
+### Sizes
+<Canvas of={ avatarStories.sizes } meta={avatarStories} story={{height: '350px'}}/>
+
+### withDataSource
+<Canvas of={ avatarStories.withDataSource } meta={avatarStories}  story={{height: '350px'}}/>
+
+### Clickable
+<Canvas of={ avatarStories.clickable } meta={avatarStories} story={{height: '350px'}}/>
+
+### Trigger none
+<Canvas of={ avatarStories.disableCard } meta={avatarStories}/>
+
+### disabled
+<Canvas of={ avatarStories.disabled } meta={avatarStories} />
+
+## Card
+
+<ArgTypes of={ cardStories.basic } />
+
+### Basic
+<Canvas of={ cardStories.basic } meta={cardStories} />
+
+### Sizes
+<Canvas of={ cardStories.sizes } meta={cardStories} />
+
+### With data-source
+<Canvas of={ cardStories.withDataSource } meta={cardStories} />
+
+## Select
+
+<ArgTypes of={ selectStories } />
+
+### Basic
+<Canvas of={ selectStories.basic } meta={selectStories} story={{height: '350px'}}/>
+
+### Preserving output
+<Canvas of={ selectStories.custom } meta={selectStories} story={{height: '350px'}}/>
+
+<ChangeLog
+  changelogs={{
+    react: changelogReact,
+  }}
+/>

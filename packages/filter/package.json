@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-filter",
-  "version": "1.8.2",
+  "version": "1.8.3",
   "description": "component for Filtering data",
   "author": "",
   "homepage": "https://github.com/equinor/fusion-react-components/tree/master/packages/filter#readme",
@@ -44,19 +44,19 @@
     "@equinor/fusion-react-styles": "^0.6.0",
     "@equinor/fusion-react-utils": "^2.1.0",
     "@equinor/fusion-wc-chip": "^1.1.0",
-    "rxjs": "^7.4.0",
+    "rxjs": "^7.8.1",
     "typesafe-actions": "^5.1.0"
   },
   "devDependencies": {
-    "@equinor/eds-core-react": "^0.34.0",
-    "@equinor/eds-icons": "~0.19.3",
+    "@equinor/eds-core-react": "^0.36.0",
+    "@equinor/eds-icons": "~0.21.0",
     "@equinor/fusion-observable": "^8.1.2",
     "@types/react": "^18.2.24",
     "react": "^18.2.0"
   },
   "peerDependencies": {
-    "@equinor/eds-core-react": "^0.34.0",
-    "@equinor/eds-icons": "~0.19.3",
+    "@equinor/eds-core-react": "^0.36.0",
+    "@equinor/eds-icons": "~0.21.0",
     "@equinor/fusion-observable": "^8.1.2"
   }
 }

@@ -1,0 +1,37 @@
+import { useState, useCallback } from 'react';
+
+import { Meta, Markdown, Canvas, ArgTypes } from '@storybook/blocks';
+
+import readme from '#packages/date/README.md?raw';
+import pkg from '#packages/date/package.json';
+
+import changelogReact from '#packages/date/CHANGELOG.md?raw';
+import changelogWebComponent from '@equinor/fusion-wc-date/CHANGELOG.md?raw';
+
+import {ChangeLog, PackageInfo} from '../../components';
+
+import { date_range } from './daterange.stories';
+import { date_time } from './datetime.stories';
+
+<Meta title="data/Date"/>
+
+<PackageInfo pkg={pkg} />
+
+<Markdown>{readme}</Markdown>
+
+## DateTime
+<ArgTypes of={ date_time } />
+
+<Canvas of={ date_time } />
+
+## DateRange
+<ArgTypes of={ date_range } />
+
+<Canvas of={ date_range } />
+
+<ChangeLog
+  changelogs={{
+    react: changelogReact,
+    webComponent: changelogWebComponent
+  }}
+/>

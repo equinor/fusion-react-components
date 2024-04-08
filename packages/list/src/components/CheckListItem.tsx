@@ -1,5 +1,8 @@
 import { ComponentProps, createComponent } from '@equinor/fusion-react-utils';
-import HTMLCheckListItemCustomElement, { tag } from '@equinor/fusion-wc-list/lib/check-list-item';
+import {
+  CheckListItemElement as HTMLCheckListItemCustomElement,
+  checkListItemTag as tag,
+} from '@equinor/fusion-wc-list';
 
 type ElementProps = React.PropsWithChildren<
   Partial<

@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.6.2
+
+### Patch Changes
+
+- 1d3cff3: Updating fusion-web-theme dependencie
+
 ## 0.6.1
 
 ### Patch Changes

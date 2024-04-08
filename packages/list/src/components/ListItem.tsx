@@ -1,5 +1,5 @@
 import { ComponentProps, createComponent } from '@equinor/fusion-react-utils';
-import HTMLListItemCustomElement, { tag } from '@equinor/fusion-wc-list/lib/list-item';
+import { ListItemElement as HTMLListItemCustomElement, listItemTag as tag } from '@equinor/fusion-wc-list';
 
 export type ElementProps = React.PropsWithChildren<
   Partial<
