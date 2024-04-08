@@ -1,5 +1,51 @@
 # Change Log
 
+## 3.0.7
+
+### Patch Changes
+
+- Updated dependencies [cb48ef2]
+  - @equinor/fusion-react-person@0.8.5
+
+## 3.0.6
+
+### Patch Changes
+
+- Updated dependencies [1d3cff3]
+  - @equinor/fusion-react-styles@0.6.2
+  - @equinor/fusion-react-context-selector@0.6.5
+  - @equinor/fusion-react-hanging-garden@1.7.4
+
+## 3.0.5
+
+### Patch Changes
+
+- Updated dependencies [944be6b]
+  - @equinor/fusion-react-context-selector@0.6.4
+
+## 3.0.4
+
+### Patch Changes
+
+- Updated dependencies [f0edb6e]
+  - @equinor/fusion-react-context-selector@0.6.3
+
+## 3.0.3
+
+### Patch Changes
+
+- 498d186: Maintenace, update of web component and other dependencies, to make disabled and error list item visible again
+- Updated dependencies [498d186]
+  - @equinor/fusion-react-searchable-dropdown@0.5.2
+  - @equinor/fusion-react-context-selector@0.6.2
+
+## 3.0.2
+
+### Patch Changes
+
+- Updated dependencies [3931c44]
+  - @equinor/fusion-react-person@0.8.4
+
 ## 3.0.1
 
 ### Patch Changes

@@ -1,6 +1,5 @@
 import { Meta, Markdown, ArgTypes, Canvas } from '@storybook/blocks';
 
-import readme from '#packages/searchable-dropdown/README.md?raw';
 import pkg from '#packages/searchable-dropdown/package.json';
 
 import changelogReact from '#packages/searchable-dropdown/CHANGELOG.md?raw';
@@ -14,10 +13,8 @@ import * as stories from './searchable-dropdown.stories';
 
 <PackageInfo pkg={pkg} />
 
-<Markdown>{readme}</Markdown>
-
 <ArgTypes of={ stories.basic } />
-<Canvas of={ stories.basic } meta={stories} story={{height: '500px'}}/>
+<Canvas of={ stories.basic } meta={stories} story={{height: '320px'}}/>
 
 ## How to use
 
@@ -69,14 +66,13 @@ interface SearchableDropdownResultItem {
   isError?: boolean;
   meta?: string;
   graphic?: string;
-  graphicType?: IconType;
+  graphicType?: IconType | "inline-svg" | "inline-html";
   type?: 'section' | 'divider' | null;
   children?: SearchableDropdownResult;
 }
 
 declare enum IconType {
-  EDS = 'eds',
-  SVG = 'svg',
+  EDS = 'eds'
 }
 
 ```
@@ -106,7 +102,7 @@ SearchableDropdown consist of to components and a hook to attach a resolver to t
 
 The components are ``Dropdown`` and ``DropdownProvider``, And the hook ``useDropdownProviderRef``.
 
-Se [Examples](?path=/docs/examples-searchable-dropdown--seperated-components) for usage.
+Se [Basic](?path=/docs/data-searchable-dropdown--basic) for usage.
 
 ## Changelog
 
