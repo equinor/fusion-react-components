@@ -296,9 +296,6 @@ importers:
       '@equinor/fusion-wc-list':
         specifier: ^1.1.1
         version: 1.1.1
-      '@lit-labs/react':
-        specifier: ^1.0.1
-        version: 1.2.1
     devDependencies:
       '@types/react':
         specifier: ^18.2.24
@@ -3601,10 +3598,6 @@ packages:
     resolution: {integrity: sha512-eZb5+W9Cb0e/Y5m1DNxBSGTvGB2TAVTGMnTxL/IzFhPQEcZIAHewW1eVBhN8W07A5tirRaAmmF6fGL1V20p3gQ==}
     dependencies:
       '@lit/reactive-element': 2.0.4
-    dev: false
-
-  /@lit-labs/react@1.2.1:
-    resolution: {integrity: sha512-DiZdJYFU0tBbdQkfwwRSwYyI/mcWkg3sWesKRsHUd4G+NekTmmeq9fzsurvcKTNVa0comNljwtg4Hvi1ds3V+A==}
     dev: false
 
   /@lit-labs/ssr-dom-shim@1.2.0:
