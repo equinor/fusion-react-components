@@ -1,6 +1,6 @@
 import {
   DropdownProps,
-  SearchableDropdownResultItem,
+  type SearchableDropdownResultItem,
   SearchableDropdownSelectEvent,
 } from '@equinor/fusion-react-searchable-dropdown';
 

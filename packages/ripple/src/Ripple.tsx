@@ -7,7 +7,7 @@ import HTMLRippleCustomElement, {
   RippleHandlers,
 } from '@equinor/fusion-wc-ripple';
 
-export { HTMLRippleCustomElement, RippleElement, RippleElementProps, RippleHandlers };
+export { HTMLRippleCustomElement, RippleElement, type RippleElementProps, RippleHandlers };
 
 type ElementProps = React.PropsWithChildren<
   Partial<Pick<HTMLRippleCustomElement, 'primary' | 'accent' | 'unbounded' | 'activated' | 'selected' | 'disabled'>>

@@ -29,5 +29,5 @@ export const PersonListItem = ({ children, ...props }: PropsWithChildren<PersonL
   return <PersonListItemComponent ref={avatarRef}>{children}</PersonListItemComponent>;
 };
 
-export { ListItemData };
+export { type ListItemData };
 export default PersonListItem;

@@ -2,7 +2,7 @@ import { Step, Stepper, StepperProps } from '@equinor/fusion-react-stepper';
 import { Meta, Story } from '@storybook/react';
 import { ReactNode, useState } from 'react';
 
-import {Button} from '@equinor/eds-core-react';
+import { Button } from '@equinor/eds-core-react';
 
 export default {
   title: 'Examples/Stepper',
@@ -46,6 +46,14 @@ export default {
         defaultValue: { summary: false },
       },
     },
+    divider: {
+      description: 'Add/remove divider from stepper',
+      type: { name: 'boolean' },
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+      },
+    },
     onChange: {
       table: {
         type: { summary: '(stepKey: string, allSteps: StepKey[]) => void' },
@@ -59,7 +67,6 @@ const Item = (props: { readonly children: ReactNode }) => {
     <div
       style={{
         padding: '20px',
-        borderTop: '1px solid rgb(220, 220, 220)',
         boxSizing: 'border-box',
       }}
     >
@@ -122,6 +129,7 @@ Component.args = {
   hideNavButtons: false,
   verticalSteps: false,
   horizontalTitle: false,
+  divider: true,
 };
 
 export const ForceOrder: Story<StepperProps> = (props: StepperProps) => {
@@ -236,4 +244,5 @@ Vertical.args = {
   forceOrder: false,
   hideNavButtons: false,
   verticalSteps: true,
+  divider: true,
 };

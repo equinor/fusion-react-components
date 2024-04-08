@@ -1,5 +1,49 @@
 # Change Log
 
+## 0.8.5
+
+### Patch Changes
+
+- cb48ef2: Update person component dependencies
+
+## 0.8.4
+
+### Patch Changes
+
+- 3931c44: Updates fusion-wc-person to get latest fixes for running multiple tasks
+
+## 0.8.3
+
+### Patch Changes
+
+- 498d0a9: Updates PersonSelect's web component to allow searching with azureId on `selectedPerson` property
+
+## 0.8.2
+
+### Patch Changes
+
+- d07f10a: - Exported various components and types from different files.
+  - Updated exports to use the `type` keyword for certain types.
+
+## 0.8.1
+
+### Patch Changes
+
+- 3c7521e: Updates fusion-wc-person
+
+## 0.8.0
+
+### Minor Changes
+
+- 947df08: - bump @equinor/fusion-wc-person from 2.4.0 to 2.5.1
+  - Add attribute `selectedPerson` to PersonSelect from @equinor/fusion-wc-person
+
+## 0.7.0
+
+### Minor Changes
+
+- 1445e4e: bump @equinor/fusion-wc-person from 2.3.2 to 2.4.0
+
 ## 0.6.6
 
 ### Patch Changes

@@ -13,6 +13,7 @@ import { Title } from './Title';
 
 import { SideSheetBase, type SideSheetProps } from './SideSheetBase';
 import styled from 'styled-components';
+import flattenChildren from 'react-keyed-flatten-children';
 
 const StyledFlexBox = styled.div`
   display: flex;
@@ -62,31 +63,24 @@ export const SideSheet = (props: PropsWithChildren<PortalSideSheet>) => {
     }
   }, [ref]);
 
-  const components: SideSheetComponents = {
-    indicator: undefined,
-    title: undefined,
-    subTitle: undefined,
-    actions: undefined,
-    content: undefined,
-  };
-
-  React.Children.forEach(children, (child) => {
-    if (!React.isValidElement(child)) return;
+  const components = flattenChildren(children).reduce((acc, child) => {
+    if (!React.isValidElement(child)) return acc;
     if (child.type === Indicator) {
-      components.indicator = child;
+      acc.indicator = child;
     } else if (child.type === Title) {
-      components.title = child;
+      acc.title = child;
     } else if (child.type === SubTitle) {
-      components.subTitle = child;
+      acc.subTitle = child;
     } else if (child.type === Content) {
-      components.content = child;
+      acc.content = child;
     } else if (child.type === Actions) {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      components.actions = React.cloneElement(child as React.ReactElement<any>);
+      acc.actions = React.cloneElement(child as React.ReactElement<any>);
     } else {
       throw Error(`unsupported child ${child.type} in SideSheet component`);
     }
-  });
+    return acc;
+  }, {} as SideSheetComponents);
 
   if (!components.title) {
     throw Error('Title Component is required child');
