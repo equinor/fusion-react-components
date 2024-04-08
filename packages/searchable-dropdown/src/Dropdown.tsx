@@ -8,9 +8,9 @@ import {
 } from '@equinor/fusion-wc-searchable-dropdown';
 
 export {
-  SearchableDropdownResult,
-  SearchableDropdownResultItem,
-  SearchableDropdownResolver,
+  type SearchableDropdownResult,
+  type SearchableDropdownResultItem,
+  type SearchableDropdownResolver,
 } from '@equinor/fusion-wc-searchable-dropdown';
 
 export { IconType } from '@equinor/fusion-wc-icon';

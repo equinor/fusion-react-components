@@ -1,0 +1,36 @@
+import { Meta, Markdown, ArgTypes, Canvas } from '@storybook/blocks';
+
+import readme from '#packages/skeleton/README.md?raw';
+import pkg from '#packages/skeleton/package.json';
+
+import changelogReact from '#packages/skeleton/CHANGELOG.md?raw';
+
+import { ChangeLog, PackageInfo } from '../../components';
+
+import * as stories from './skeleton.stories';
+
+<Meta of={stories} />
+
+<PackageInfo pkg={pkg} />
+
+<Markdown>{readme}</Markdown>
+
+<ArgTypes of={ stories } />
+
+### Basic
+<Canvas of={ stories.basic } meta={stories}/>
+
+### Sizes
+<Canvas of={ stories.sizes } meta={stories}/>
+
+### Variant
+<Canvas of={ stories.variant } meta={stories}/>
+
+### Custom colors
+<Canvas of={ stories.customColor } meta={stories}/>
+
+<ChangeLog
+  changelogs={{
+    react: changelogReact,
+  }}
+/>

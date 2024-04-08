@@ -1,0 +1,34 @@
+import { Meta, Markdown, ArgTypes, Canvas } from '@storybook/blocks';
+
+import readme from '#packages/stepper/README.md?raw';
+import pkg from '#packages/stepper/package.json';
+
+import changelogReact from '#packages/stepper/CHANGELOG.md?raw';
+
+import { ChangeLog, PackageInfo } from '../../components';
+
+import * as stories from './stepper.stories';
+
+
+<Meta of={stories} />
+
+<PackageInfo pkg={pkg} />
+
+<Markdown>{readme}</Markdown>
+
+<ArgTypes of={ stories.basic } />
+
+## basic
+<Canvas of={ stories.basic } meta={stories} />
+
+## vertical
+<Canvas of={ stories.vertical } meta={stories} />
+
+## controlled
+<Canvas of={ stories.controlled } meta={stories} />
+
+<ChangeLog
+  changelogs={{
+    react: changelogReact,
+  }}
+/>

@@ -1,0 +1,32 @@
+import { useState, useCallback } from 'react';
+
+import { Meta, Markdown, ArgTypes, Canvas } from '@storybook/blocks';
+
+import readme from '#packages/errorboundary/README.md?raw';
+import pkg from '#packages/errorboundary/package.json';
+
+import changelogReact from '#packages/errorboundary/CHANGELOG.md?raw';
+
+import { ChangeLog, PackageInfo } from '../../components';
+
+import * as stories from './error-boundary.stories';
+
+<Meta of={stories} />
+
+<PackageInfo pkg={pkg} />
+
+<Markdown>{readme}</Markdown>
+
+
+
+<ArgTypes of={stories.error_boundary } />
+
+<Canvas of={stories.error_boundary } />
+
+## Changelog
+
+<ChangeLog
+  changelogs={{
+    react: changelogReact,
+  }}
+/>

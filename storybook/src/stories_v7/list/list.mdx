@@ -1,0 +1,46 @@
+import { useState, useCallback } from 'react';
+
+import { Meta, Markdown, ArgTypes, Canvas } from '@storybook/blocks';
+
+import readme from '#packages/list/README.md?raw';
+import pkg from '#packages/list/package.json';
+
+import changelogReact from '#packages/list/CHANGELOG.md?raw';
+
+import { ListItem } from '#packages/list/src/components/ListItem';
+
+import { ChangeLog, PackageInfo } from '../../components';
+
+import * as listStories from './list.stories';
+
+<Meta of={listStories} />
+
+<PackageInfo pkg={pkg} />
+
+<Markdown>{readme}</Markdown>
+
+## List
+
+<ArgTypes of={ listStories } />
+<Canvas of={ listStories.simple } />
+
+## List item
+
+<ArgTypes of={ ListItem } />
+
+<Canvas of={ listStories.multiline } />
+<Canvas of={ listStories.withIcon } />
+
+### Checklist
+<Canvas of={ listStories.withCheck } />
+
+### Radiolist
+<Canvas of={ listStories.withRadio } />
+
+## Changelog
+
+<ChangeLog
+  changelogs={{
+    react: changelogReact,
+  }}
+/>

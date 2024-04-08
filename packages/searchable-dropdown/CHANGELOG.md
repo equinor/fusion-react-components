@@ -1,5 +1,18 @@
 # Change Log
 
+## 0.5.2
+
+### Patch Changes
+
+- 498d186: Maintenace, update of web component and other dependencies, to make disabled and error list item visible again
+
+## 0.5.1
+
+### Patch Changes
+
+- d07f10a: - Exported various components and types from different files.
+  - Updated exports to use the `type` keyword for certain types.
+
 ## 0.5.0
 
 ### Minor Changes

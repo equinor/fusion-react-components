@@ -3,12 +3,13 @@ import { ComponentProps, createComponent } from '@equinor/fusion-react-utils';
 import HTMLPersonSelectCustomElement, {
   tag,
   PersonSelectEvent as HTMLPersonSelectEvent,
+  PersonSelectElementProps,
 } from '@equinor/fusion-wc-person/select';
 
 type ElementAtts = PropsWithChildren<
   Partial<
     Pick<
-      HTMLPersonSelectCustomElement,
+      PersonSelectElementProps,
       | 'autofocus'
       | 'disabled'
       | 'dropdownHeight'
@@ -20,6 +21,7 @@ type ElementAtts = PropsWithChildren<
       | 'multiple'
       | 'placeholder'
       | 'selectedId'
+      | 'selectedPerson'
       | 'value'
       | 'variant'
     >
