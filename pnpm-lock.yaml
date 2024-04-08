@@ -3965,6 +3965,7 @@ packages:
 
   /@material/mwc-textarea@0.27.0:
     resolution: {integrity: sha512-4srpZ+//Ce0A+OZ3NVjv/YIDDxnpStmpZwTGICMCGsQzQqHyGDX17NhL5mGP8xGguma/ZIgcY6gm7+UQWaTx4g==}
+    deprecated: MWC beta is longer supported. Please upgrade to @material/web
     dependencies:
       '@material/mwc-base': 0.27.0
       '@material/mwc-textfield': 0.27.0
