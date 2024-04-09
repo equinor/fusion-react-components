@@ -27,12 +27,14 @@ const scssTask = () => {
                 {
                   loader: 'postcss-loader',
                   options: {
-                    syntax: 'postcss-scss',
-                    plugins: [
-                      autoprefixer({
-                        flexbox: true,
-                      }),
-                    ],
+                    postcssOptions: {
+                      syntax: 'postcss-scss',
+                      plugins: [
+                        autoprefixer({
+                          flexbox: true,
+                        }),
+                      ],
+                    },
                   },
                 },
                 {
