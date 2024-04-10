@@ -642,8 +642,8 @@ importers:
         version: 4.3.1(typescript@5.4.2)(vite@5.1.5)
     devDependencies:
       '@ag-grid-community/client-side-row-model':
-        specifier: ~31.1.1
-        version: 31.1.1
+        specifier: ~31.2.1
+        version: 31.2.1
       '@ag-grid-community/core':
         specifier: ~31.1.1
         version: 31.1.1
@@ -691,10 +691,11 @@ packages:
     engines: {node: '>=0.10.0'}
     dev: true
 
-  /@ag-grid-community/client-side-row-model@31.1.1:
-    resolution: {integrity: sha512-KBSPaEJ1q97xooJd7U6W8PUfzUDecnsvE+Y05Xg/s6i61fLKyDTxDVJB/kETxdST0+T8FgjFMaPjY0hAZBOhWg==}
+  /@ag-grid-community/client-side-row-model@31.2.1:
+    resolution: {integrity: sha512-EwW2Sj3DGboZ7kv1uvbVUVyumfzRMFCo3qgLwONwWNeLkQP+9EooUsDQmyzWT8nn1lBkSFyvolpxFfyS05pL2A==}
     dependencies:
-      '@ag-grid-community/core': 31.1.1
+      '@ag-grid-community/core': 31.2.1
+      tslib: 2.6.2
     dev: true
 
   /@ag-grid-community/core@30.2.1:
@@ -703,6 +704,12 @@ packages:
 
   /@ag-grid-community/core@31.1.1:
     resolution: {integrity: sha512-WFN3yXpFR0uMJQZak6x4kzLl7nJPrrorUWf/KWH4ToP6PMZcc6cKT3jge3bJ0SBkzs2m7oQGnmi8rfTaHuXI4Q==}
+    dev: true
+
+  /@ag-grid-community/core@31.2.1:
+    resolution: {integrity: sha512-tTDt8c6KykR+Y0cNwwbpokkhMmD1L1WVILPwZ0Z3lsSxSkmzGbTKSD2jOSvlw9vpPuAJpU0R5tMe1dfsEXO1YA==}
+    dependencies:
+      tslib: 2.6.2
     dev: true
 
   /@ag-grid-community/react@31.1.1(@ag-grid-community/core@31.1.1)(react-dom@18.2.0)(react@18.2.0):
