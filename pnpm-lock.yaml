@@ -130,8 +130,8 @@ importers:
         version: 0.35.1(react-dom@18.2.0)(react@18.2.0)(styled-components@6.1.8)
     devDependencies:
       '@ag-grid-community/core':
-        specifier: ~30.2.0
-        version: 30.2.1
+        specifier: ~31.2.0
+        version: 31.2.0
       '@equinor/eds-icons':
         specifier: ~0.21.0
         version: 0.21.0
@@ -645,11 +645,11 @@ importers:
         specifier: ~31.1.1
         version: 31.1.1
       '@ag-grid-community/core':
-        specifier: ~31.1.1
-        version: 31.1.1
+        specifier: ~31.2.0
+        version: 31.2.0
       '@ag-grid-community/react':
         specifier: ~31.1.1
-        version: 31.1.1(@ag-grid-community/core@31.1.1)(react-dom@18.2.0)(react@18.2.0)
+        version: 31.1.1(@ag-grid-community/core@31.2.0)(react-dom@18.2.0)(react@18.2.0)
       '@babel/preset-env':
         specifier: ^7.23.9
         version: 7.24.0(@babel/core@7.24.0)
@@ -697,22 +697,24 @@ packages:
       '@ag-grid-community/core': 31.1.1
     dev: true
 
-  /@ag-grid-community/core@30.2.1:
-    resolution: {integrity: sha512-jGRBfRFsLwxch8GJGjbVI2FVbB+/fy1s4mm8//+kOkcPFlq4BbLFELvU4Kupwk1YkhduxUC50GTYyFzmF0rSIQ==}
-    dev: true
-
   /@ag-grid-community/core@31.1.1:
     resolution: {integrity: sha512-WFN3yXpFR0uMJQZak6x4kzLl7nJPrrorUWf/KWH4ToP6PMZcc6cKT3jge3bJ0SBkzs2m7oQGnmi8rfTaHuXI4Q==}
     dev: true
 
-  /@ag-grid-community/react@31.1.1(@ag-grid-community/core@31.1.1)(react-dom@18.2.0)(react@18.2.0):
+  /@ag-grid-community/core@31.2.0:
+    resolution: {integrity: sha512-297AR2Z0i6zdpo+d1riWE9TpbsQ956Sd3rkgnjDaFzgGClsdy0SwInBs2281CHjaLQAhPzFelZ5XwcDTxHl4Tw==}
+    dependencies:
+      tslib: 2.6.2
+    dev: true
+
+  /@ag-grid-community/react@31.1.1(@ag-grid-community/core@31.2.0)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-b2htrkndkCx86Ze0LppG+Oc7em/19nMKvzaLzi0hO6lFGueL+xW24ALLu2nSyqsgAePSZLZpUNyM3BnhrTcFwQ==}
     peerDependencies:
       '@ag-grid-community/core': 31.1.1
       react: ^16.3.0 || ^17.0.0 || ^18.0.0
       react-dom: ^16.3.0 || ^17.0.0 || ^18.0.0
     dependencies:
-      '@ag-grid-community/core': 31.1.1
+      '@ag-grid-community/core': 31.2.0
       prop-types: 15.8.1
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
