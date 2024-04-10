@@ -578,8 +578,8 @@ importers:
         specifier: ^4.11.5
         version: 4.11.5(@types/react@18.2.64)(react-dom@18.2.0)(react@18.2.0)
       '@storybook/addon-actions':
-        specifier: ^7.6.15
-        version: 7.6.17
+        specifier: ^8.0.6
+        version: 8.0.6
       '@storybook/addon-docs':
         specifier: ^7.6.15
         version: 7.6.17(@types/react@18.2.64)(react-dom@18.2.0)(react@18.2.0)
@@ -5677,6 +5677,17 @@ packages:
     resolution: {integrity: sha512-TBphs4v6LRfyTpFo/WINF0TkMaE3rrNog7wW5mbz6n0j8o53kDN4o9ZEcygSL5zQX43CAaghQTeDCss7ueG7ZQ==}
     dependencies:
       '@storybook/core-events': 7.6.17
+      '@storybook/global': 5.0.0
+      '@types/uuid': 9.0.8
+      dequal: 2.0.3
+      polished: 4.3.1
+      uuid: 9.0.1
+    dev: false
+
+  /@storybook/addon-actions@8.0.6:
+    resolution: {integrity: sha512-3R/d2Td6+yeR+UnyCAeZ4tuiRGSm+6gKUQP9vB1bvEFQGuFBrV+zs3eakcYegOqZu3IXuejgaB0Knq987gUL5A==}
+    dependencies:
+      '@storybook/core-events': 8.0.6
       '@storybook/global': 5.0.0
       '@types/uuid': 9.0.8
       dequal: 2.0.3
