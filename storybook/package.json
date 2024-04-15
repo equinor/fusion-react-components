@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-components-stories",
-  "version": "3.0.6",
+  "version": "3.0.7",
   "description": "",
   "private": true,
   "scripts": {
@@ -60,9 +60,9 @@
     "vite-tsconfig-paths": "^4.3.1"
   },
   "devDependencies": {
-    "@ag-grid-community/client-side-row-model": "~31.1.1",
-    "@ag-grid-community/core": "~31.1.1",
-    "@ag-grid-community/react": "~31.1.1",
+    "@ag-grid-community/client-side-row-model": "31.2.0",
+    "@ag-grid-community/core": "31.2.0",
+    "@ag-grid-community/react": "31.2.0",
     "@babel/preset-env": "^7.23.9",
     "@babel/preset-react": "^7.23.3",
     "@babel/preset-typescript": "^7.23.3",
