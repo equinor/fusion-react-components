@@ -1,5 +1,11 @@
 # Change Log
 
+## 31.2.0
+
+### Minor Changes
+
+- 43978ba: Aligning aggrid version with framework
+
 ## 30.2.2
 
 ### Patch Changes

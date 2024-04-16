@@ -1,5 +1,15 @@
 # Change Log
 
+## 31.2.0
+
+### Minor Changes
+
+- 43978ba: Aligning aggrid version with framework
+
+### Patch Changes
+
+- 5e6301d: Updating postcss-loader to v8 and adjusting config for that version
+
 ## 30.2.0
 
 ### Minor Changes

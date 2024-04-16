@@ -1,5 +1,17 @@
 # Change Log
 
+## 3.0.8
+
+### Patch Changes
+
+- 43978ba: Aligning aggrid version with framework
+- Updated dependencies [f6f1697]
+- Updated dependencies [5e6301d]
+- Updated dependencies [43978ba]
+  - @equinor/fusion-react-list@0.3.2
+  - @equinor/fusion-react-ag-grid-styles@31.2.0
+  - @equinor/fusion-react-ag-grid-utils@31.2.0
+
 ## 3.0.7
 
 ### Patch Changes
