@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.3.2
+
+### Patch Changes
+
+- f6f1697: Removing unused dep @lit-labs/react
+
 ## 0.3.1
 
 ### Patch Changes
