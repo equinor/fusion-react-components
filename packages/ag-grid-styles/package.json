@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-ag-grid-styles",
-  "version": "30.2.0",
+  "version": "31.1.0",
   "description": "React addons for ag-grid styles",
   "keywords": [
     "ag-grid",
@@ -35,14 +35,14 @@
     "url": "https://github.com/equinor/fusion-react-components/issues"
   },
   "devDependencies": {
-    "@ag-grid-community/styles": "~30.2.0",
+    "@ag-grid-community/styles": "31.2.0",
     "@equinor/fusion-react-styles": "^0.6.0",
     "@types/gulp": "^4.0.9",
     "@types/react": "^18.2.24",
     "@types/webpack-stream": "^3.2.12",
-    "autoprefixer": "^9.8.8",
+    "autoprefixer": "^10.4.19",
     "css-loader": "^6.7.1",
-    "gulp": "^4.0.2",
+    "gulp": "^5.0.0",
     "gulp-rename": "^2.0.0",
     "image-webpack-loader": "^8.1.0",
     "jss-cli": "^6.0.2",
@@ -61,7 +61,7 @@
     "webpack-stream": "^7.0.0"
   },
   "peerDependencies": {
-    "@ag-grid-community/styles": "~29.3.4",
+    "@ag-grid-community/styles": "31.2.0",
     "@equinor/fusion-react-styles": "^0.6.0"
   }
 }
