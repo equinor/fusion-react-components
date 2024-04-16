@@ -990,14 +990,6 @@ packages:
     dependencies:
       '@babel/types': 7.24.0
 
-  /@babel/parser@7.24.1:
-    resolution: {integrity: sha512-Zo9c7N3xdOIQrNip7Lc9wvRPzlRtovHVE4lkz8WEDr7uYh/GMQhSiIgFxGIArRHYdJE5kxtZjAf8rT0xhdLCzg==}
-    engines: {node: '>=6.0.0'}
-    hasBin: true
-    dependencies:
-      '@babel/types': 7.24.0
-    dev: true
-
   /@babel/parser@7.24.4:
     resolution: {integrity: sha512-zTvEBcghmeBma9QIGunWevvBAp4/Qu9Bdq+2k0Ot4fVMD6v3dsC9WOcRSKk7tRRyBM/53yKMJko9xOatGQAwSg==}
     engines: {node: '>=6.0.0'}
@@ -6208,7 +6200,7 @@ packages:
       ts-dedent: 2.2.0
       util: 0.12.5
       util-deprecate: 1.0.2
-      watchpack: 2.4.0
+      watchpack: 2.4.1
       ws: 8.16.0
     transitivePeerDependencies:
       - bufferutil
@@ -10027,7 +10019,7 @@ packages:
     peerDependencies:
       eslint: ^3 || ^4 || ^5 || ^6 || ^7 || ^8
     dependencies:
-      '@babel/parser': 7.24.1
+      '@babel/parser': 7.24.4
       eslint: 8.57.0
       eslint-plugin-jsx-a11y: 6.8.0(eslint@8.57.0)
     dev: true
@@ -18400,6 +18392,7 @@ packages:
     dependencies:
       glob-to-regexp: 0.4.1
       graceful-fs: 4.2.11
+    dev: true
 
   /watchpack@2.4.1:
     resolution: {integrity: sha512-8wrBCMtVhqcXP2Sup1ctSkga6uc2Bx0IIvKyT7yTFier5AXHooSI+QyQQAtTb7+E0IUCCKyTFmXqdqgum2XWGg==}
