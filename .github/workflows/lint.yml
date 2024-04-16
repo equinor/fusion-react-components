@@ -1,8 +1,8 @@
 name: Lint project files
 
-on: 
-  pull_request: 
-    types: 
+on:
+  pull_request_target:
+    types:
       - ready_for_review
       - opened
       - reopened
@@ -19,6 +19,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
 
       - name: Setup node and install deps
         uses: ./.github/workflows/actions/node-setup
