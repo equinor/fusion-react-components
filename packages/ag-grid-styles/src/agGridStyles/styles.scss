@@ -6,6 +6,73 @@
 .ag-theme-alpine-fusion {
   font-family: "Equinor", sans-serif;
 
+  --filter-value: #ffffff;
+  --filter-colunm: #dcdcdc;
+  --filter-join: #f7f7f7;
+  --filter-option: #d5eaf4;
+  --ag-border-radius: 4px;
+  --ag-font-size: 14px;
+  --ag-borders-critical: #ffffff;
+  --ag-header-cell-hover-background-color: rgba(255, 255, 255, 0.0000);
+  --ag-borders-secondary: #ffffff;
+  --ag-value-change-delta-down-color: #e53935;
+  --ag-value-change-delta-up-color: #43a047;
+  --ag-value-change-value-highlight-background-color: rgba(22, 160, 133, 0.5000);
+  --ag-range-selection-chart-background-color: rgba(0, 112, 121, 0.1000);
+  --ag-range-selection-chart-category-background-color: rgba(0, 255, 132, 0.1000);
+  --ag-subheader-toolbar-background-color: rgba(255, 255, 255, 0.0000);
+  --ag-side-button-selected-background-color: rgba(0, 0, 0, 0.0000);
+  --ag-checkbox-unchecked-color: #007079;
+  --ag-invalid-color: #eb0000;
+  --ag-range-selection-background-color-4: rgba(230, 250, 236, 0.5900);
+  --ag-range-selection-background-color-3: rgba(230, 250, 236, 0.4900);
+  --ag-range-selection-background-color-2: #c3f3d2;
+  --ag-range-selection-background-color: rgba(230, 250, 236, 0.2000);
+  --ag-input-focus-border-color: #007079;
+  --ag-column-hover-color: #e6faec;
+  --ag-selected-row-background-color: #e6faec;
+  --ag-alpine-active-color: #007079;
+  --ag-data-color: #3d3d3d;
+  --ag-row-hover-color: #deedee;
+  --ag-input-disabled-border-color: rgba(186, 191, 199, 0.3000);
+  --ag-chip-background-color: rgba(24, 29, 31, 0.0700);
+  --ag-disabled-foreground-color: rgba(24, 29, 31, 0.1500);
+  --ag-input-disabled-background-color: #f7f7f7;
+  --ag-subheader-background-color: #f7f7f7;
+  --ag-control-panel-background-color: #f7f7f7;
+  --ag-alpine-active: #007079;
+  --ag-tooltip-background-color: #000000;
+  --ag-modal-overlay-background-color: rgba(255, 255, 255, 0.6600);
+  --ag-odd-row-background-color: #f7f7f7;
+  --ag-header-background-color: #f7f7f7;
+  --ag-secondary-border-color: #dcdcdc;
+  --ag-border-color: #dcdcdc;
+  --ag-background-color: #ffffff;
+  --ag-foreground-color: #3d3d3d;
+  --ag-card-radius: var(--ag-border-radius);
+  --ag-checkbox-border-radius: var(--ag-border-radius);
+  --ag-set-filter-indent-size: var(--ag-icon-size);
+  --ag-column-select-indent-size: var(--ag-icon-size);
+  --ag-toggle-button-switch-background-color: var(--ag-background-color);
+  --ag-toggle-button-off-border-color: var(--ag-checkbox-unchecked-color);
+  --ag-checkbox-indeterminate-color: var(--ag-checkbox-unchecked-color);
+  --ag-toggle-button-off-background-color: var(--ag-checkbox-unchecked-color);
+  --ag-header-column-resize-handle-color: var(--ag-secondary-border-color);
+  --ag-header-column-separator-color: var(--ag-secondary-border-color);
+  --ag-borders-input: var(--ag-borders-secondary);
+  --ag-row-border-color: var(--ag-secondary-border-color);
+  --ag-selected-tab-underline-color: var(--ag-alpine-active-color);
+  --ag-input-border-color-invalid: var(--ag-invalid-color);
+  --ag-secondary-foreground-color: var(--ag-foreground-color);
+  --ag-range-selection-border-color: var(--ag-alpine-active-color);
+  --ag-checkbox-background-color: var(--ag-background-color);
+  --ag-input-border-color: var(--ag-border-color);
+  --ag-range-selection-highlight-color: var(--ag-range-selection-border-color);
+  --ag-header-foreground-color: var(--ag-secondary-foreground-color);
+  --ag-checkbox-checked-color: var(--ag-checkbox-background-color);
+  --ag-toggle-button-on-border-color: var(--ag-checkbox-checked-color);
+  --ag-toggle-button-on-background-color: var(--ag-checkbox-checked-color);
+
   .ag-icon,
   .ag-checkbox-input-wrapper,
   .ag-radio-button-input-wrapper,
