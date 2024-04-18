@@ -1,23 +1,19 @@
 import type { StorybookConfig } from '@storybook/react-vite';
 import path from 'path';
-import vite from 'vite';
+import { mergeConfig } from 'vite';
 import tsconfigPaths from 'vite-tsconfig-paths';
 
 const repoRoot = path.resolve(__dirname, '../..');
 
 const config: StorybookConfig = {
   stories: [
-    '../src/stories_v7/**/*.stories.tsx', 
-    '../src/stories_v7/**/*.mdx',
+    '../src/**/*.mdx',
+    '../src/stories/**/*.stories.@(js|jsx|tsx|ts)', 
   ],
-
   framework: '@storybook/react-vite',
-  core: {
-    builder: '@storybook/builder-vite', 
-  },
   async viteFinal(config, _options){
     
-    return vite.mergeConfig(config, {
+    return mergeConfig(config, {
       resolve: {
         alias: [
           {
@@ -39,18 +35,13 @@ const config: StorybookConfig = {
       ],
     })
   },
-  
 
   typescript: {
     check: false,
     reactDocgen: 'react-docgen-typescript',
     reactDocgenTypescriptOptions: {
-      propFilter: (test) => {
-        if(!test.parent?.fileName.includes('@types')){
-          return true;
-        }
-        return false;
-      }
+      shouldExtractLiteralValuesFromEnum: true,
+      propFilter: (prop) => (prop.parent ? !/node_modules/.test(prop.parent.fileName) : true),
     },
   },
 

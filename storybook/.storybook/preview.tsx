@@ -18,7 +18,6 @@ window.customElements.define = (name, cl, conf) => {
 
 const preview: Preview = {
   parameters: {
-    actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
       matchers: {
         color: /(background|color)$/i,
@@ -45,7 +44,5 @@ const preview: Preview = {
     ),
   ]
 }; 
-
-
 
 export default preview;
