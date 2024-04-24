@@ -1,0 +1,15 @@
+import { Meta, Markdown, ArgTypes, Canvas } from '@storybook/blocks';
+
+import readme from '#packages/markdown/README.md?raw';
+import pkg from '#packages/markdown/package.json';
+
+import changelogReact from '#packages/markdown/CHANGELOG.md?raw';
+
+import { ChangeLog, PackageInfo } from '../../components';
+
+<Meta title="Data/Markdown/Docs" />
+
+<PackageInfo pkg={pkg} />
+
+<Markdown>{readme}</Markdown>
+
