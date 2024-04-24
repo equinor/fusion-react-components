@@ -53,12 +53,3 @@ export const editor: Story = {
     menuItems: ['strong', 'em', 'bullet_list', 'ordered_list', 'h1', 'h2'],
   },
 };
-const shit = () => {
-  if (positions.length) {
-    return [...new Set(
-      projectId
-        ? positions.filter((position) => position.project.id === projectId && position.obs?.length).map((i) => i.obs)
-        : positions.filter((p) => p.obs?.length).map((i) => i.obs),
-    )];
-  }
-}
