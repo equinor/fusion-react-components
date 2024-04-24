@@ -28,7 +28,7 @@ export default meta;
 faker.seed(0);
 
 export const ChangeHandler = () => {
-  useAgGridStyles();
+  const styles = useAgGridStyles();
   const rowdData = Array.from({ length: 10 }, () =>
     addInitialProps({
       name: faker.person.firstName(),
@@ -56,16 +56,18 @@ export const ChangeHandler = () => {
       >
         Add row
       </button>
-      <div className="ag-theme-alpine-fusion" style={{ width: '1080px', height: '500px' }}>
-        <AgGridReact
-          ref={gridRef}
-          rowData={rowdData}
-          columnDefs={columnDefs}
-          defaultColDef={{
-            valueSetter: defaultValueSetter,
-            valueGetter: defaultValueGetter,
-          }}
-        ></AgGridReact>
+      <div className={styles.root}>
+        <div className="ag-theme-alpine-fusion" style={{ width: '1080px', height: '500px' }}>
+          <AgGridReact
+            ref={gridRef}
+            rowData={rowdData}
+            columnDefs={columnDefs}
+            defaultColDef={{
+              valueSetter: defaultValueSetter,
+              valueGetter: defaultValueGetter,
+            }}
+          ></AgGridReact>
+        </div>
       </div>
     </>
   );
