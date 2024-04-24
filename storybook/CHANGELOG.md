@@ -1,5 +1,11 @@
 # Change Log
 
+## 4.0.0
+
+### Major Changes
+
+- f63ddce: Update to storybook v8 and align all stories with the new version.
+
 ## 3.0.8
 
 ### Patch Changes
