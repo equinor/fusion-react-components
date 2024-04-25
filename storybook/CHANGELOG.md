@@ -1,5 +1,12 @@
 # Change Log
 
+## 4.0.1
+
+### Patch Changes
+
+- Updated dependencies [aff7950]
+  - @equinor/fusion-react-ag-grid-styles@31.2.1
+
 ## 4.0.0
 
 ### Major Changes
