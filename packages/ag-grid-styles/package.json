@@ -25,10 +25,10 @@
     "url": "git+https://github.com/equinor/fusion-react-components.git"
   },
   "scripts": {
-    "build": "npm run build:css && tsc -b",
+    "build": "pnpm run build:css && tsc -b",
     "lint": "eslint --ext .ts,.tsx,.js src/",
     "lint:fix": "eslint --ext .ts,.tsx,.js src/ --fix",
-    "prepack": "npm run build",
+    "prepack": "pnpm run build",
     "build:css": "gulp scss-to-css"
   },
   "bugs": {
