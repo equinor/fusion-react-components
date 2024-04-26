@@ -1,5 +1,11 @@
 # Change Log
 
+## 31.2.1
+
+### Patch Changes
+
+- aff7950: ignore generated jss json
+
 ## 31.2.0
 
 ### Minor Changes
