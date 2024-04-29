@@ -64,7 +64,7 @@ export const resolver: PersonResolver = {
   getPhoto: (args: { azureId?: string; upn?: string }) => {
     args.azureId && faker.seed(uuid2number(args.azureId));
     const src = faker.image.urlLoremFlickr({ height: 64, width: 120, category: 'people' });
-    const failed = args.azureId === '30dd35ef-7196-4c58-974f-3c1abd732ce1';
+    const failed = args.azureId === faker.string.uuid();
     return new Promise((resolve, reject) => {
       setTimeout(
         () => {
@@ -85,7 +85,7 @@ export const resolver: PersonResolver = {
           .map((x) => x.charCodeAt(0))
           .reduce((acc, item) => (acc += item), 0) + i,
       );
-      return generatePerson({ azureId: String(faker.string.uuid()) });
+      return generatePerson({ azureId: faker.string.uuid() });
     });
   },
 };

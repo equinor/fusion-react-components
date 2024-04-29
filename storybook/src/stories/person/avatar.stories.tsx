@@ -2,11 +2,14 @@
 import { Meta, StoryObj } from '@storybook/react';
 
 import { PersonAvatar } from '@equinor/fusion-react-person/src/PersonAvatar';
-import { AvatarSize } from '@equinor/fusion-react-person/src/index';
+import { AvatarSize, PersonDetails } from '@equinor/fusion-react-person/src/index';
 import { PersonProvider } from '@equinor/fusion-react-person/src/PersonProvider';
 import { Theme } from '../../components/Theme';
 
 import { resolver } from './person-provider';
+
+import { faker } from '@faker-js/faker';
+faker.seed(123);
 
 const meta: Meta<typeof PersonAvatar> = {
   title: 'person/Avatar',
@@ -28,7 +31,7 @@ export const basic: Story = {
     ),
   ],
   args: {
-    azureId: '49132c24-6ea4-41fe-8221-112f314573f0',
+    azureId: faker.string.uuid(),
   },
 };
 
@@ -46,8 +49,7 @@ export const sizes: Story = {
 export const withDataSource: Story = {
   ...basic,
   args: {
-    // @ts-expect-error
-    dataSource: resolver.getInfo({ azureId: basic.args?.azureId }),
+    dataSource: resolver.getInfo ? (resolver.getInfo({ azureId: faker.string.uuid() }) as PersonDetails) : undefined,
   },
 };
 
