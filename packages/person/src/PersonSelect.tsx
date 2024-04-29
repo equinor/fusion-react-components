@@ -45,10 +45,7 @@ export const PersonSelectComponent = createComponent<HTMLPersonSelectCustomEleme
   { events: { onSelect: 'select', onDropdownClosed: 'dropdownClosed' } },
 );
 
-export const PersonSelect: React.FC<PersonSelectProps> = ({
-  children,
-  ...props
-}: PropsWithChildren<PersonSelectProps>) => {
+export const PersonSelect = ({ children, ...props }: PropsWithChildren<PersonSelectProps>) => {
   return <PersonSelectComponent {...props}>{children}</PersonSelectComponent>;
 };
 
