@@ -55,24 +55,54 @@ const getSections = (len: number, kids: number) => {
  * Takes the query string to search for and return matching example projects.
  * Query string min length to start "http request" is 2 chars.
  */
-const apiItems = (query: string): SearchableDropdownResult => {
+/* counter to show no match for example */
+let attempts = 0;
+const apiItems = (query: string): SearchableDropdownResult | Error => {
+  attempts++;
   /* min length of query string */
-  const min = 2;
-  if (!query || query.length < 2) {
-    return [{ id: faker.string.uuid(), title: `Need ${min - query.length} more chars`, isDisabled: true }];
+  const min = 3;
+  if (!query || query.length < min) {
+    throw new Error(`Need ${min - query.length} more chars`, { cause: 'length' });
   }
 
+  /* If there is no match throw error with cause nomatch */
+  if (attempts % 4 === 0) {
+    throw new Error('No matches found', { cause: 'nomatch' });
+  }
+
+  /* return faker result with sections */
   return getSections(3, 5);
 };
 
-/* Example resolver for lit controller task */
+/* Example resolver for controller task */
 export const _exampleResolver: SearchableDropdownResolver = {
-  searchQuery: async (query: string) => {
+  searchQuery: (query: string) => {
+    let items: SearchableDropdownResult = [];
     try {
-      return apiItems(query);
+      const apiResult = apiItems(query);
+      if (!(apiResult instanceof Error)) {
+        items = apiResult;
+      }
     } catch (e) {
-      return [{ id: faker.string.uuid(), title: 'API Error', isDisabled: true, isError: true }];
+      const err = e as Error;
+      const opts: Partial<SearchableDropdownResultItem> = {};
+      switch (err.cause) {
+        case 'nomatch':
+          opts.subTitle = `matching: ${query}`;
+          opts.graphic = 'close';
+          break;
+        case 'length':
+          opts.graphic = 'edit';
+          break;
+        default:
+          opts.isError = true;
+      }
+
+      // error item
+      items = [Object.assign({ id: faker.string.uuid(), title: err.message, isDisabled: true }, opts)];
     }
+
+    return items;
   },
   initialResult: getSections(1, 10),
   closeHandler: (e: Event) => {
