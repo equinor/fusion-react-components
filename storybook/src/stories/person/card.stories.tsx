@@ -1,11 +1,14 @@
 import { Meta, StoryObj } from '@storybook/react';
 
 import { PersonCard } from '@equinor/fusion-react-person/src/PersonCard';
-import { type PersonItemSize } from '@equinor/fusion-react-person/src/index';
+import { PersonDetails, type PersonItemSize } from '@equinor/fusion-react-person/src/index';
 import { PersonProvider } from '@equinor/fusion-react-person/src/PersonProvider';
 import { Theme } from '../../components/Theme';
 
 import { resolver } from './person-provider';
+
+import { faker } from '@faker-js/faker';
+faker.seed(123);
 
 const meta: Meta<typeof PersonCard> = {
   title: 'person/Card',
@@ -27,7 +30,7 @@ export const basic: Story = {
     ),
   ],
   args: {
-    azureId: '49132c24-6ea4-41fe-8221-112f314573f0',
+    azureId: faker.string.uuid(),
   },
 };
 
@@ -45,6 +48,8 @@ export const sizes: Story = {
 export const withDataSource: Story = {
   ...basic,
   args: {
-    dataSource: resolver.getDetails({ azureId: '94d83327-93fd-4340-9120-3f1fa90d41fe' }),
+    dataSource: resolver.getDetails
+      ? (resolver.getDetails({ azureId: faker.string.uuid() }) as PersonDetails)
+      : undefined,
   },
 };
