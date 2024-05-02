@@ -65,7 +65,7 @@ const apiItems = (query: string): SearchableDropdownResult | Error => {
     throw new Error(`Need ${min - query.length} more chars`, { cause: 'length' });
   }
 
-  /* If there is no match throw error with cause nomatch */
+  /* Since faker always return a result show "no match" on every 4th call to the resolver */
   if (attempts % 4 === 0) {
     throw new Error('No matches found', { cause: 'nomatch' });
   }
