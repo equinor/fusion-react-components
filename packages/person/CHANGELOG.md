@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.8.6
+
+### Patch Changes
+
+- 9b060db: Return type of PersonProvider and PersonSelect, Person story cleanup of user data.
+
 ## 0.8.5
 
 ### Patch Changes

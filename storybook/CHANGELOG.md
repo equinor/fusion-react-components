@@ -1,5 +1,19 @@
 # Change Log
 
+## 4.0.2
+
+### Patch Changes
+
+- cd87cca: Updating @equinor/eds-core-react to 0.37.0
+- 24c0c16: Searchabledropdown uses faker data in provider
+- 9b060db: Return type of PersonProvider and PersonSelect, Person story cleanup of user data.
+- Updated dependencies [cd87cca]
+- Updated dependencies [9b060db]
+  - @equinor/fusion-react-side-sheet@1.3.2
+  - @equinor/fusion-react-stepper@1.0.1
+  - @equinor/fusion-react-filter@1.8.4
+  - @equinor/fusion-react-person@0.8.6
+
 ## 4.0.1
 
 ### Patch Changes
