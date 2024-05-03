@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.0.1
+
+### Patch Changes
+
+- cd87cca: Updating @equinor/eds-core-react to 0.37.0
+
 ## 1.0.0
 
 ### Major Changes
