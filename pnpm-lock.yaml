@@ -243,7 +243,7 @@ importers:
     devDependencies:
       '@equinor/eds-core-react':
         specifier: ^0.37.0
-        version: 0.37.0(react-dom@18.2.0)(react@18.2.0)(styled-components@6.1.8)
+        version: 0.37.0(react-dom@18.2.0)(react@18.2.0)(styled-components@6.1.9)
       '@equinor/eds-icons':
         specifier: ~0.21.0
         version: 0.21.0
@@ -2484,7 +2484,6 @@ packages:
 
   /@emotion/unitless@0.8.1:
     resolution: {integrity: sha512-KOEGMu6dmJZtpadb476IsZBclKvILjopjUii3V+7MnXIQCYh8W3NgNcgwo21n9LXZX6EDIKvqfjYxXebDwxKmQ==}
-    dev: false
 
   /@emotion/use-insertion-effect-with-fallbacks@1.0.1(react@18.2.0):
     resolution: {integrity: sha512-jT/qyKZ9rzLErtrjGgdkMBn2OP8wl0G3sQlBb3YPryvKHsjvINUhVaPFfP+fpBcOkmrVOVEEHQFJ7nbj2TH2gw==}
@@ -2546,6 +2545,32 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
       styled-components: 6.1.8(react-dom@18.2.0)(react@18.2.0)
 
+  /@equinor/eds-core-react@0.37.0(react-dom@18.2.0)(react@18.2.0)(styled-components@6.1.9):
+    resolution: {integrity: sha512-0do7Dnb0nkANjEhJvrmpnDWWt3ESpckrQXDr3gJVdZwffkzNj74TgYJ7bGQlQuAs6nFOxDWOnjlar43N5rwtrg==}
+    engines: {node: '>=10.0.0', pnpm: '>=4'}
+    peerDependencies:
+      react: '>=16.8'
+      react-dom: '>=16.8'
+      styled-components: '>=4.2'
+    dependencies:
+      '@babel/runtime': 7.24.0
+      '@equinor/eds-icons': 0.21.0
+      '@equinor/eds-tokens': 0.9.2
+      '@equinor/eds-utils': 0.8.4(react-dom@18.2.0)(react@18.2.0)(styled-components@6.1.9)
+      '@floating-ui/react': 0.26.9(react-dom@18.2.0)(react@18.2.0)
+      '@internationalized/date': 3.5.2
+      '@react-aria/utils': 3.23.2(react@18.2.0)
+      '@react-stately/calendar': 3.4.4(react@18.2.0)
+      '@react-stately/datepicker': 3.9.2(react@18.2.0)
+      '@react-types/shared': 3.22.1(react@18.2.0)
+      '@tanstack/react-virtual': 3.2.0(react-dom@18.2.0)(react@18.2.0)
+      downshift: 9.0.4(react@18.2.0)
+      react: 18.2.0
+      react-aria: 3.32.1(react-dom@18.2.0)(react@18.2.0)
+      react-dom: 18.2.0(react@18.2.0)
+      styled-components: 6.1.9(react-dom@18.2.0)(react@18.2.0)
+    dev: true
+
   /@equinor/eds-icons@0.19.3:
     resolution: {integrity: sha512-Sh0W01PrwXPCi8/p9YKj0qKNtRU9R/xYJORinIzsNNRllpiu9wvuGAsQNE0gQaDDnrprsiRBH3+MdMSRXVs3Wg==}
     engines: {node: '>=10.0.0', pnpm: '>=4'}
@@ -2591,6 +2616,21 @@ packages:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       styled-components: 6.1.8(react-dom@18.2.0)(react@18.2.0)
+
+  /@equinor/eds-utils@0.8.4(react-dom@18.2.0)(react@18.2.0)(styled-components@6.1.9):
+    resolution: {integrity: sha512-njvqXd3Hzfy5vkEqnx+uEBAu00vnG/5R+gDgWCReVDjjUoHdQNcrqfjBLsGF2UungtO0LbYV8YuBP+9l4V7ywQ==}
+    engines: {node: '>=10.0.0', pnpm: '>=4'}
+    peerDependencies:
+      react: '>=16.8'
+      react-dom: '>=16.8'
+      styled-components: '>=4.2'
+    dependencies:
+      '@babel/runtime': 7.24.0
+      '@equinor/eds-tokens': 0.9.2
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      styled-components: 6.1.9(react-dom@18.2.0)(react@18.2.0)
+    dev: true
 
   /@equinor/eslint-config-fusion-react@2.1.0(@equinor/eslint-config-fusion@2.2.0)(eslint@8.57.0):
     resolution: {integrity: sha512-A7sQn+u5bdmPb8lMYPTA9FXLKBclnCznf82uUZTXUSjz/olq/XRsP7mQNU77Cvlk50GDPOgv48SUxVtw0brLog==}
@@ -17717,6 +17757,26 @@ packages:
       shallowequal: 1.1.0
       stylis: 4.3.1
       tslib: 2.5.0
+
+  /styled-components@6.1.9(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-aBOqs0uMsYufFXSE4q6cA6Ty1fwZuMk4BJRHfiGSna59F1otnxiDelwhN4fEwmBtIymmF0ZqXHnpSigr2ps9Cg==}
+    engines: {node: '>= 16'}
+    peerDependencies:
+      react: '>= 16.8.0'
+      react-dom: '>= 16.8.0'
+    dependencies:
+      '@emotion/is-prop-valid': 1.2.1
+      '@emotion/unitless': 0.8.1
+      '@types/stylis': 4.2.0
+      css-to-react-native: 3.2.0
+      csstype: 3.1.2
+      postcss: 8.4.31
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      shallowequal: 1.1.0
+      stylis: 4.3.1
+      tslib: 2.5.0
+    dev: true
 
   /stylis@4.2.0:
     resolution: {integrity: sha512-Orov6g6BB1sDfYgzWfTHDOxamtX1bE/zo104Dh9e6fqJ3PooipYyfJ0pUmrZO2wAvO8YbEyeFrkV91XTsGMSrw==}
