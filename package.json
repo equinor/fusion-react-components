@@ -9,9 +9,9 @@
     "node": "^16 || ^18 || ^20",
     "npm": "please-use-pnpm",
     "yarn": "please-use-pnpm",
-    "pnpm": ">=4"
+    "pnpm": ">=9"
   },
-  "packageManager": "pnpm@8.14.0",
+  "packageManager": "pnpm@9.1.1",
   "scripts": {
     "test": "lerna run --no-bail test",
     "start": "pnpm run storybook",
