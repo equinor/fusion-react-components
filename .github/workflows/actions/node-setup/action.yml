@@ -1,14 +1,17 @@
 name: Setup Node
-Description: General setup of node
+description: General setup of node
 inputs:
   node-version:  
-    default: 18
+    description: 'Setting node version'
+    default: '20'
 
 runs:
   using: composite
   steps:
 
-    - uses: pnpm/action-setup@v2
+    - uses: pnpm/action-setup@v4
+      with:
+        version: 9
 
     - uses: actions/setup-node@v4
       with:
