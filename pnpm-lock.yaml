@@ -627,7 +627,7 @@ importers:
         version: 8.0.9(@babel/preset-env@7.24.0(@babel/core@7.24.0))(encoding@0.1.13)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       storybook-addon-react-docgen:
         specifier: ^1.2.44
-        version: 1.2.44(@storybook/addons@7.6.17(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@storybook/components@8.0.9(@types/react@18.2.64)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@storybook/core-events@8.0.9)(react@18.2.0)
+        version: 1.2.44(@storybook/addons@7.6.17(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@storybook/components@8.0.9(@types/react@18.2.64)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@storybook/core-events@8.0.10)(react@18.2.0)
       styled-components:
         specifier: ^6.1.8
         version: 6.1.8(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -3302,6 +3302,9 @@ packages:
 
   '@storybook/core-events@7.6.17':
     resolution: {integrity: sha512-AriWMCm/k1cxlv10f+jZ1wavThTRpLaN3kY019kHWbYT9XgaSuLU67G7GPr3cGnJ6HuA6uhbzu8qtqVCd6OfXA==}
+
+  '@storybook/core-events@8.0.10':
+    resolution: {integrity: sha512-TuHPS6p5ZNr4vp4butLb4R98aFx0NRYCI/7VPhJEUH5rPiqNzE3PZd8DC8rnVxavsJ+jO1/y+egNKXRYkEcoPQ==}
 
   '@storybook/core-events@8.0.9':
     resolution: {integrity: sha512-DxSUx7wG9Qe3OFUBnv3OrYq48J8UWNo2DUR5/JecJCtp3n++L4fAEW3J0IF5FfxpQDMQSp1yTNjZ2PaWCMd2ag==}
@@ -14378,6 +14381,10 @@ snapshots:
     dependencies:
       ts-dedent: 2.2.0
 
+  '@storybook/core-events@8.0.10':
+    dependencies:
+      ts-dedent: 2.2.0
+
   '@storybook/core-events@8.0.9':
     dependencies:
       ts-dedent: 2.2.0
@@ -21562,11 +21569,11 @@ snapshots:
 
   store2@2.14.3: {}
 
-  storybook-addon-react-docgen@1.2.44(@storybook/addons@7.6.17(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@storybook/components@8.0.9(@types/react@18.2.64)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@storybook/core-events@8.0.9)(react@18.2.0):
+  storybook-addon-react-docgen@1.2.44(@storybook/addons@7.6.17(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@storybook/components@8.0.9(@types/react@18.2.64)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@storybook/core-events@8.0.10)(react@18.2.0):
     dependencies:
       '@storybook/addons': 7.6.17(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@storybook/components': 8.0.9(@types/react@18.2.64)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
-      '@storybook/core-events': 8.0.9
+      '@storybook/core-events': 8.0.10
       nested-object-assign: 1.0.4
       prop-types: 15.8.1
       react: 18.2.0
