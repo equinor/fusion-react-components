@@ -811,6 +811,10 @@ packages:
     resolution: {integrity: sha512-xjNLDopRzW2o6ba0gKbkZq5YWEBaK3PCyTOY1K2P/O07LGMhMqlMXPxwN4S5/RhWuCobT8z0jrlKGlYmeR1OhQ==}
     engines: {node: '>=6.9.0'}
 
+  '@babel/helper-plugin-utils@7.24.6':
+    resolution: {integrity: sha512-MZG/JcWfxybKwsA9N9PmtF2lOSFSEMVCpIRrbxccZFLJPrJciJdG/UhSh5W96GEteJI2ARqm5UAHxISwRDLSNg==}
+    engines: {node: '>=6.9.0'}
+
   '@babel/helper-remap-async-to-generator@7.22.20':
     resolution: {integrity: sha512-pBGyV4uBqOns+0UvhsTO8qgl8hO89PmiDYv+/COyp1aeMcmfrfruz+/nCMFiYyFF/Knn0yfrC85ZzNFjembFTw==}
     engines: {node: '>=6.9.0'}
@@ -10075,6 +10079,8 @@ snapshots:
 
   '@babel/helper-plugin-utils@7.24.5': {}
 
+  '@babel/helper-plugin-utils@7.24.6': {}
+
   '@babel/helper-remap-async-to-generator@7.22.20(@babel/core@7.24.0)':
     dependencies:
       '@babel/core': 7.24.0
@@ -10161,27 +10167,27 @@ snapshots:
   '@babel/plugin-syntax-async-generators@7.8.4(@babel/core@7.24.0)':
     dependencies:
       '@babel/core': 7.24.0
-      '@babel/helper-plugin-utils': 7.24.5
+      '@babel/helper-plugin-utils': 7.24.6
 
   '@babel/plugin-syntax-class-properties@7.12.13(@babel/core@7.24.0)':
     dependencies:
       '@babel/core': 7.24.0
-      '@babel/helper-plugin-utils': 7.24.5
+      '@babel/helper-plugin-utils': 7.24.6
 
   '@babel/plugin-syntax-class-static-block@7.14.5(@babel/core@7.24.0)':
     dependencies:
       '@babel/core': 7.24.0
-      '@babel/helper-plugin-utils': 7.24.5
+      '@babel/helper-plugin-utils': 7.24.6
 
   '@babel/plugin-syntax-dynamic-import@7.8.3(@babel/core@7.24.0)':
     dependencies:
       '@babel/core': 7.24.0
-      '@babel/helper-plugin-utils': 7.24.5
+      '@babel/helper-plugin-utils': 7.24.6
 
   '@babel/plugin-syntax-export-namespace-from@7.8.3(@babel/core@7.24.0)':
     dependencies:
       '@babel/core': 7.24.0
-      '@babel/helper-plugin-utils': 7.24.5
+      '@babel/helper-plugin-utils': 7.24.6
 
   '@babel/plugin-syntax-flow@7.23.3(@babel/core@7.24.0)':
     dependencies:
@@ -10201,12 +10207,12 @@ snapshots:
   '@babel/plugin-syntax-import-meta@7.10.4(@babel/core@7.24.0)':
     dependencies:
       '@babel/core': 7.24.0
-      '@babel/helper-plugin-utils': 7.24.5
+      '@babel/helper-plugin-utils': 7.24.6
 
   '@babel/plugin-syntax-json-strings@7.8.3(@babel/core@7.24.0)':
     dependencies:
       '@babel/core': 7.24.0
-      '@babel/helper-plugin-utils': 7.24.5
+      '@babel/helper-plugin-utils': 7.24.6
 
   '@babel/plugin-syntax-jsx@7.23.3(@babel/core@7.24.0)':
     dependencies:
@@ -10216,27 +10222,27 @@ snapshots:
   '@babel/plugin-syntax-logical-assignment-operators@7.10.4(@babel/core@7.24.0)':
     dependencies:
       '@babel/core': 7.24.0
-      '@babel/helper-plugin-utils': 7.24.5
+      '@babel/helper-plugin-utils': 7.24.6
 
   '@babel/plugin-syntax-nullish-coalescing-operator@7.8.3(@babel/core@7.24.0)':
     dependencies:
       '@babel/core': 7.24.0
-      '@babel/helper-plugin-utils': 7.24.5
+      '@babel/helper-plugin-utils': 7.24.6
 
   '@babel/plugin-syntax-numeric-separator@7.10.4(@babel/core@7.24.0)':
     dependencies:
       '@babel/core': 7.24.0
-      '@babel/helper-plugin-utils': 7.24.5
+      '@babel/helper-plugin-utils': 7.24.6
 
   '@babel/plugin-syntax-object-rest-spread@7.8.3(@babel/core@7.24.0)':
     dependencies:
       '@babel/core': 7.24.0
-      '@babel/helper-plugin-utils': 7.24.5
+      '@babel/helper-plugin-utils': 7.24.6
 
   '@babel/plugin-syntax-optional-catch-binding@7.8.3(@babel/core@7.24.0)':
     dependencies:
       '@babel/core': 7.24.0
-      '@babel/helper-plugin-utils': 7.24.5
+      '@babel/helper-plugin-utils': 7.24.6
 
   '@babel/plugin-syntax-optional-chaining@7.8.3(@babel/core@7.24.0)':
     dependencies:
@@ -10246,12 +10252,12 @@ snapshots:
   '@babel/plugin-syntax-private-property-in-object@7.14.5(@babel/core@7.24.0)':
     dependencies:
       '@babel/core': 7.24.0
-      '@babel/helper-plugin-utils': 7.24.5
+      '@babel/helper-plugin-utils': 7.24.6
 
   '@babel/plugin-syntax-top-level-await@7.14.5(@babel/core@7.24.0)':
     dependencies:
       '@babel/core': 7.24.0
-      '@babel/helper-plugin-utils': 7.24.5
+      '@babel/helper-plugin-utils': 7.24.6
 
   '@babel/plugin-syntax-typescript@7.23.3(@babel/core@7.24.0)':
     dependencies:
@@ -10262,7 +10268,7 @@ snapshots:
     dependencies:
       '@babel/core': 7.24.0
       '@babel/helper-create-regexp-features-plugin': 7.22.15(@babel/core@7.24.0)
-      '@babel/helper-plugin-utils': 7.24.5
+      '@babel/helper-plugin-utils': 7.24.6
 
   '@babel/plugin-transform-arrow-functions@7.23.3(@babel/core@7.24.0)':
     dependencies:
@@ -10701,7 +10707,7 @@ snapshots:
   '@babel/preset-modules@0.1.6-no-external-plugins(@babel/core@7.24.0)':
     dependencies:
       '@babel/core': 7.24.0
-      '@babel/helper-plugin-utils': 7.24.5
+      '@babel/helper-plugin-utils': 7.24.6
       '@babel/types': 7.24.5
       esutils: 2.0.3
 
