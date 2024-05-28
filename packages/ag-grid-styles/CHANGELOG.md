@@ -1,5 +1,11 @@
 # Change Log
 
+## 31.2.2
+
+### Patch Changes
+
+- 5399cea: Updating aggrid to latest licenced version
+
 ## 31.2.1
 
 ### Patch Changes

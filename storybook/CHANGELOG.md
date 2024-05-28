@@ -1,5 +1,14 @@
 # Change Log
 
+## 4.0.3
+
+### Patch Changes
+
+- 5399cea: Updating aggrid to latest licenced version
+- Updated dependencies [5399cea]
+  - @equinor/fusion-react-ag-grid-styles@31.2.2
+  - @equinor/fusion-react-ag-grid-utils@31.2.1
+
 ## 4.0.2
 
 ### Patch Changes
