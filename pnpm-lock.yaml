@@ -59,7 +59,7 @@ importers:
         version: 31.3.2
       '@equinor/fusion-react-styles':
         specifier: ^0.6.2
-        version: 0.6.2(@types/react@18.2.64)(react-dom@18.3.1(react@18.2.0))(react@18.2.0)
+        version: link:../styles
       '@types/gulp':
         specifier: ^4.0.9
         version: 4.0.17

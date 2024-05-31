@@ -2,7 +2,9 @@
 
 @include ag.grid-styles((theme: alpine-fusion,
     extend-theme: alpine,
-    alpine-active-color: #007079,
+    alpine-active-color: $active-color,
+    --ag-background-color: $background-color,
+    --ag-header-background-color: $header-color
     ));
 
 .ag-theme-alpine-fusion {
