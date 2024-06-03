@@ -5,6 +5,7 @@ export const useStyles = makeStyles(
   () =>
     createStyles({
       ...styles,
+      root: () => ({}),
     }),
   { name: 'fusion-ag-grid-styles' },
 ) as () => ClassNameMap;
