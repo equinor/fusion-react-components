@@ -8,11 +8,16 @@ const named = require('vinyl-named');
 const through2 = require('through2');
 const RemoveEmptyScriptsPlugin = require('webpack-remove-empty-scripts');
 const jssCli = require('jss-cli');
+const { tokens } = require('@equinor/eds-tokens');
+
+const primaryColor = tokens.colors.interactive.primary__resting.hex;
+const backgroundColor = tokens.colors.interactive.table__cell__fill_resting.hex;
+const headerColor = tokens.colors.interactive.table__header__fill_resting.hex;
 
 // Start of scss/css related tasks
 const scssTask = () => {
   return gulp
-    .src('./src/agGridStyles/*.scss')
+    .src('./src/agGridStyles/styles.scss')
     .pipe(named())
     .pipe(
       webpackStream({
@@ -40,8 +45,7 @@ const scssTask = () => {
                 {
                   loader: 'sass-loader',
                   options: {
-                    additionalData:
-                      '$ag-compatibility-mode: false;\n$ag-suppress-all-theme-deprecation-warnings: true;',
+                    additionalData: `$active-color: ${primaryColor};\n$background-color: ${backgroundColor};\n$header-color: ${headerColor};\n$ag-compatibility-mode: false;\n$ag-suppress-all-theme-deprecation-warnings: true;`,
                   },
                 },
               ],
@@ -79,7 +83,7 @@ const scssTask = () => {
           ],
         },
         plugins: [new RemoveEmptyScriptsPlugin(), new MiniCssExtractPlugin({ filename: '[name].jss.json' })],
-      })
+      }),
     )
     .pipe(
       through2.obj(function (file, _, cb) {
@@ -95,7 +99,7 @@ const scssTask = () => {
         }
 
         cb(null, file);
-      })
+      }),
     )
     .pipe(gulp.dest('./src/agGridStyles/'));
 };
