@@ -17,7 +17,6 @@ You do not need any other styles from the ag-grid package or other fusion packag
 
 ## Usage
 
-- Add the `root` item from the hook to set up required variables in your scope.
 - And set the theme name to `ag-theme-alpine-fusion`
 
 ```tsx
@@ -28,7 +27,7 @@ const MyComponent = (): JSX.Element => {
   const styles = useStyles();
 
   return (
-    <div className={`${styles.root} ag-theme-alpine-fusion`}>
+    <div className="ag-theme-alpine-fusion">
       <AgGridReact {...props} />
     </div>
   );
