@@ -4038,6 +4038,9 @@ packages:
   '@storybook/csf@0.1.7':
     resolution: {integrity: sha512-53JeLZBibjQxi0Ep+/AJTfxlofJlxy1jXcSKENlnKxHjWEYyHQCumMP5yTFjf7vhNnMjEpV3zx6t23ssFiGRyw==}
 
+  '@storybook/csf@0.1.8':
+    resolution: {integrity: sha512-Ntab9o7LjBCbFIao5l42itFiaSh/Qu+l16l/r/9qmV9LnYZkO+JQ7tzhdlwpgJfhs+B5xeejpdAtftDRyXNajw==}
+
   '@storybook/docs-mdx@3.1.0-next.0':
     resolution: {integrity: sha512-t4syFIeSyufieNovZbLruPt2DmRKpbwL4fERCZ1MifWDRIORCKLc4NCEHy+IqvIqd71/SJV2k4B51nF7vlJfmQ==}
 
@@ -5233,6 +5236,10 @@ packages:
     resolution: {integrity: sha512-p3KULyQg4S7NIHixdwbGX+nFHkoBiA4YQmyWtjb8XngSKV124nJmRysgAeujbUVb15vh+RvFUfCPqU7rXk+hZg==}
     engines: {node: '>=6.0'}
 
+  chrome-trace-event@1.0.4:
+    resolution: {integrity: sha512-rNjApaLzuwaOTjCiT8lSDdGN1APCiqkChLMJxJPWLunPAt5fy8xgU9/jNOchV84wfIxrA0lRQB7oCT8jrn/wrQ==}
+    engines: {node: '>=6.0'}
+
   ci-info@3.9.0:
     resolution: {integrity: sha512-NIxF55hv4nSqQswkAeiOi1r83xy8JldOFDTWiug55KBu9Jnblncd2U6ViHmYgHf01TPZS77NJBhBMKdWj9HQMQ==}
     engines: {node: '>=8'}
@@ -5903,8 +5910,8 @@ packages:
     resolution: {integrity: sha512-3d3JRbwsCLJsYgvb6NuWEG44jjPSOMuS73L/6+7BZuoKm3W+qXnSoIYVHi8dG7Qcg4inAY4jbzkZ7MnskePeDg==}
     engines: {node: '>=10.13.0'}
 
-  enhanced-resolve@5.16.1:
-    resolution: {integrity: sha512-4U5pNsuDl0EhuZpq46M5xPslstkviJuhrdobaRDBk2Jy2KO37FDAJl4lb2KlNabxT0m4MTK2UHNrsAcphE8nyw==}
+  enhanced-resolve@5.17.0:
+    resolution: {integrity: sha512-dwDPwZL0dmye8Txp2gzFmA6sxALaSvdRDjPH0viLcKrtlOL3tw62nWWweVD1SdILDTJrbrL6tdWVN58Wo6U3eA==}
     engines: {node: '>=10.13.0'}
 
   enquirer@2.3.6:
@@ -16291,7 +16298,7 @@ snapshots:
       '@babel/core': 7.24.6
       '@babel/preset-env': 7.24.6(@babel/core@7.24.6)
       '@babel/types': 7.24.6
-      '@storybook/csf': 0.1.7
+      '@storybook/csf': 0.1.8
       '@storybook/csf-tools': 8.1.5
       '@storybook/node-logger': 8.1.5
       '@storybook/types': 8.1.5
@@ -16311,7 +16318,7 @@ snapshots:
       '@radix-ui/react-dialog': 1.0.5(@types/react@18.2.64)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@radix-ui/react-slot': 1.0.2(@types/react@18.2.64)(react@18.2.0)
       '@storybook/client-logger': 8.1.5
-      '@storybook/csf': 0.1.7
+      '@storybook/csf': 0.1.8
       '@storybook/global': 5.0.0
       '@storybook/icons': 1.2.9(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@storybook/theming': 8.1.5(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -16329,7 +16336,7 @@ snapshots:
       '@radix-ui/react-dialog': 1.0.5(@types/react@18.2.74)(react-dom@18.3.1(react@18.2.0))(react@18.2.0)
       '@radix-ui/react-slot': 1.0.2(@types/react@18.2.74)(react@18.2.0)
       '@storybook/client-logger': 8.1.5
-      '@storybook/csf': 0.1.7
+      '@storybook/csf': 0.1.8
       '@storybook/global': 5.0.0
       '@storybook/icons': 1.2.9(react-dom@18.3.1(react@18.2.0))(react@18.2.0)
       '@storybook/theming': 8.1.5(react-dom@18.3.1(react@18.2.0))(react@18.2.0)
@@ -16347,7 +16354,7 @@ snapshots:
       '@radix-ui/react-dialog': 1.0.5(@types/react@18.2.64)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@radix-ui/react-slot': 1.0.2(@types/react@18.2.64)(react@18.2.0)
       '@storybook/client-logger': 8.1.6
-      '@storybook/csf': 0.1.7
+      '@storybook/csf': 0.1.8
       '@storybook/global': 5.0.0
       '@storybook/icons': 1.2.9(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@storybook/theming': 8.1.6(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -16403,12 +16410,12 @@ snapshots:
 
   '@storybook/core-events@8.1.5':
     dependencies:
-      '@storybook/csf': 0.1.7
+      '@storybook/csf': 0.1.8
       ts-dedent: 2.2.0
 
   '@storybook/core-events@8.1.6':
     dependencies:
-      '@storybook/csf': 0.1.7
+      '@storybook/csf': 0.1.8
       ts-dedent: 2.2.0
 
   '@storybook/core-server@8.1.5(encoding@0.1.13)(prettier@3.3.1)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
@@ -16421,7 +16428,7 @@ snapshots:
       '@storybook/channels': 8.1.5
       '@storybook/core-common': 8.1.5(encoding@0.1.13)(prettier@3.3.1)
       '@storybook/core-events': 8.1.5
-      '@storybook/csf': 0.1.7
+      '@storybook/csf': 0.1.8
       '@storybook/csf-tools': 8.1.5
       '@storybook/docs-mdx': 3.1.0-next.0
       '@storybook/global': 5.0.0
@@ -16481,7 +16488,7 @@ snapshots:
       '@babel/parser': 7.24.6
       '@babel/traverse': 7.24.6
       '@babel/types': 7.24.6
-      '@storybook/csf': 0.1.7
+      '@storybook/csf': 0.1.8
       '@storybook/types': 8.1.5
       fs-extra: 11.2.0
       recast: 0.23.5
@@ -16490,6 +16497,10 @@ snapshots:
       - supports-color
 
   '@storybook/csf@0.1.7':
+    dependencies:
+      type-fest: 2.19.0
+
+  '@storybook/csf@0.1.8':
     dependencies:
       type-fest: 2.19.0
 
@@ -16537,7 +16548,7 @@ snapshots:
       '@storybook/channels': 7.6.17
       '@storybook/client-logger': 7.6.17
       '@storybook/core-events': 7.6.17
-      '@storybook/csf': 0.1.7
+      '@storybook/csf': 0.1.8
       '@storybook/global': 5.0.0
       '@storybook/router': 7.6.17
       '@storybook/theming': 7.6.17(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -16603,7 +16614,7 @@ snapshots:
       '@storybook/channels': 7.6.17
       '@storybook/client-logger': 7.6.17
       '@storybook/core-events': 7.6.17
-      '@storybook/csf': 0.1.7
+      '@storybook/csf': 0.1.8
       '@storybook/global': 5.0.0
       '@storybook/types': 7.6.17
       '@types/qs': 6.9.15
@@ -16620,7 +16631,7 @@ snapshots:
       '@storybook/channels': 8.1.5
       '@storybook/client-logger': 8.1.5
       '@storybook/core-events': 8.1.5
-      '@storybook/csf': 0.1.7
+      '@storybook/csf': 0.1.8
       '@storybook/global': 5.0.0
       '@storybook/types': 8.1.5
       '@types/qs': 6.9.15
@@ -16715,7 +16726,7 @@ snapshots:
 
   '@storybook/source-loader@8.1.5':
     dependencies:
-      '@storybook/csf': 0.1.7
+      '@storybook/csf': 0.1.8
       '@storybook/types': 8.1.5
       estraverse: 5.3.0
       lodash: 4.17.21
@@ -18138,6 +18149,8 @@ snapshots:
 
   chrome-trace-event@1.0.3: {}
 
+  chrome-trace-event@1.0.4: {}
+
   ci-info@3.9.0: {}
 
   citty@0.1.6:
@@ -18883,7 +18896,7 @@ snapshots:
       graceful-fs: 4.2.11
       tapable: 2.2.1
 
-  enhanced-resolve@5.16.1:
+  enhanced-resolve@5.17.0:
     dependencies:
       graceful-fs: 4.2.11
       tapable: 2.2.1
@@ -24799,8 +24812,8 @@ snapshots:
       acorn: 8.11.3
       acorn-import-assertions: 1.9.0(acorn@8.11.3)
       browserslist: 4.23.0
-      chrome-trace-event: 1.0.3
-      enhanced-resolve: 5.16.1
+      chrome-trace-event: 1.0.4
+      enhanced-resolve: 5.17.0
       es-module-lexer: 1.5.3
       eslint-scope: 5.1.1
       events: 3.3.0
