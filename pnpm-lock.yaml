@@ -631,7 +631,7 @@ importers:
         version: 8.1.5(@babel/preset-env@7.24.0(@babel/core@7.24.0))(encoding@0.1.13)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       storybook-addon-react-docgen:
         specifier: ^1.2.44
-        version: 1.2.44(@storybook/addons@7.6.17(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@storybook/components@8.1.6(@types/react@18.2.64)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@storybook/core-events@8.1.6)(react@18.2.0)
+        version: 1.2.44(@storybook/addons@7.6.17(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@storybook/components@8.1.6(@types/react@18.2.64)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@storybook/core-events@8.1.9)(react@18.2.0)
       styled-components:
         specifier: ^6.1.8
         version: 6.1.8(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -4036,6 +4036,9 @@ packages:
 
   '@storybook/core-events@8.1.6':
     resolution: {integrity: sha512-DaIVe4TUp/7uQdSJYGmJv9S/S364tSgZ3S3dZ1vsf1rgoUbCp5kTBtcd/fcqgukMPREgCgO9oDhmemI3SLAqzw==}
+
+  '@storybook/core-events@8.1.9':
+    resolution: {integrity: sha512-c8MnBqUtTvIBNoDBBQQrFEy8pNAagcDryh5FM+T1SPBsH6j3fRSZwXMc6vvW2BYkQxJ67kpd7xrH7uapqhNEcg==}
 
   '@storybook/core-server@8.1.5':
     resolution: {integrity: sha512-y16W2sg5KIHG6qgbd+a0nBUYHAgiUpPDFF7cdcIpbeOIoqFn+6ECp93MVefukumiSj3sQiJFU/tSm2A8apGltw==}
@@ -16339,7 +16342,7 @@ snapshots:
       '@babel/core': 7.24.6
       '@babel/preset-env': 7.24.6(@babel/core@7.24.6)
       '@babel/types': 7.24.6
-      '@storybook/csf': 0.1.7
+      '@storybook/csf': 0.1.8
       '@storybook/csf-tools': 8.1.5
       '@storybook/node-logger': 8.1.5
       '@storybook/types': 8.1.5
@@ -16359,7 +16362,7 @@ snapshots:
       '@radix-ui/react-dialog': 1.0.5(@types/react@18.2.64)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@radix-ui/react-slot': 1.0.2(@types/react@18.2.64)(react@18.2.0)
       '@storybook/client-logger': 8.1.5
-      '@storybook/csf': 0.1.7
+      '@storybook/csf': 0.1.8
       '@storybook/global': 5.0.0
       '@storybook/icons': 1.2.9(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@storybook/theming': 8.1.5(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -16377,7 +16380,7 @@ snapshots:
       '@radix-ui/react-dialog': 1.0.5(@types/react@18.2.74)(react-dom@18.3.1(react@18.2.0))(react@18.2.0)
       '@radix-ui/react-slot': 1.0.2(@types/react@18.2.74)(react@18.2.0)
       '@storybook/client-logger': 8.1.5
-      '@storybook/csf': 0.1.7
+      '@storybook/csf': 0.1.8
       '@storybook/global': 5.0.0
       '@storybook/icons': 1.2.9(react-dom@18.3.1(react@18.2.0))(react@18.2.0)
       '@storybook/theming': 8.1.5(react-dom@18.3.1(react@18.2.0))(react@18.2.0)
@@ -16451,10 +16454,15 @@ snapshots:
 
   '@storybook/core-events@8.1.5':
     dependencies:
-      '@storybook/csf': 0.1.7
+      '@storybook/csf': 0.1.8
       ts-dedent: 2.2.0
 
   '@storybook/core-events@8.1.6':
+    dependencies:
+      '@storybook/csf': 0.1.8
+      ts-dedent: 2.2.0
+
+  '@storybook/core-events@8.1.9':
     dependencies:
       '@storybook/csf': 0.1.8
       ts-dedent: 2.2.0
@@ -16469,7 +16477,7 @@ snapshots:
       '@storybook/channels': 8.1.5
       '@storybook/core-common': 8.1.5(encoding@0.1.13)(prettier@3.3.2)
       '@storybook/core-events': 8.1.5
-      '@storybook/csf': 0.1.7
+      '@storybook/csf': 0.1.8
       '@storybook/csf-tools': 8.1.5
       '@storybook/docs-mdx': 3.1.0-next.0
       '@storybook/global': 5.0.0
@@ -16529,7 +16537,7 @@ snapshots:
       '@babel/parser': 7.24.6
       '@babel/traverse': 7.24.6
       '@babel/types': 7.24.6
-      '@storybook/csf': 0.1.7
+      '@storybook/csf': 0.1.8
       '@storybook/types': 8.1.5
       fs-extra: 11.2.0
       recast: 0.23.5
@@ -16672,7 +16680,7 @@ snapshots:
       '@storybook/channels': 8.1.5
       '@storybook/client-logger': 8.1.5
       '@storybook/core-events': 8.1.5
-      '@storybook/csf': 0.1.7
+      '@storybook/csf': 0.1.8
       '@storybook/global': 5.0.0
       '@storybook/types': 8.1.5
       '@types/qs': 6.9.15
@@ -16767,7 +16775,7 @@ snapshots:
 
   '@storybook/source-loader@8.1.5':
     dependencies:
-      '@storybook/csf': 0.1.7
+      '@storybook/csf': 0.1.8
       '@storybook/types': 8.1.5
       estraverse: 5.3.0
       lodash: 4.17.21
@@ -23914,11 +23922,11 @@ snapshots:
 
   store2@2.14.3: {}
 
-  storybook-addon-react-docgen@1.2.44(@storybook/addons@7.6.17(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@storybook/components@8.1.6(@types/react@18.2.64)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@storybook/core-events@8.1.6)(react@18.2.0):
+  storybook-addon-react-docgen@1.2.44(@storybook/addons@7.6.17(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@storybook/components@8.1.6(@types/react@18.2.64)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@storybook/core-events@8.1.9)(react@18.2.0):
     dependencies:
       '@storybook/addons': 7.6.17(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@storybook/components': 8.1.6(@types/react@18.2.64)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
-      '@storybook/core-events': 8.1.6
+      '@storybook/core-events': 8.1.9
       nested-object-assign: 1.0.4
       prop-types: 15.8.1
       react: 18.2.0
