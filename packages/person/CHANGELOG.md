@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.8.7
+
+### Patch Changes
+
+- c1b0c41: Updating wc-person to resolve style issue with initial avatar
+
 ## 0.8.6
 
 ### Patch Changes
