@@ -13859,7 +13859,7 @@ snapshots:
   '@material/theme@14.0.0':
     dependencies:
       '@material/feature-targeting': 14.0.0
-      tslib: 2.6.2
+      tslib: 2.6.3
 
   '@material/theme@14.0.0-canary.53b3cad2f.0':
     dependencies:
@@ -21227,7 +21227,7 @@ snapshots:
     dependencies:
       '@lit-labs/ssr-dom-shim': 1.2.0
       '@lit/reactive-element': 2.0.4
-      lit-html: 3.1.2
+      lit-html: 3.1.4
 
   lit-element@4.0.6:
     dependencies:
@@ -21262,8 +21262,8 @@ snapshots:
   lit@3.1.2:
     dependencies:
       '@lit/reactive-element': 2.0.4
-      lit-element: 4.0.4
-      lit-html: 3.1.2
+      lit-element: 4.0.6
+      lit-html: 3.1.4
 
   lit@3.1.4:
     dependencies:
