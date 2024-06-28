@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 
-import { Button, Icon } from '@equinor/eds-core-react';
+import { Button, Icon, Tooltip } from '@equinor/eds-core-react';
 import { close as closeIcon } from '@equinor/eds-icons';
 import { tokens } from '@equinor/eds-tokens';
 import { type PropsWithChildren, useRef } from 'react';
@@ -108,13 +108,17 @@ export const SideSheet = (props: PropsWithChildren<PortalSideSheet>) => {
           <StyledFlexBox>
             {components.actions}
             {enableFullscreen && (
-              <Button variant="ghost_icon" onClick={handleFullscreenClick}>
-                <FullscreenIcon />
-              </Button>
+              <Tooltip title="Full screen" enterDelay={500}>
+                <Button variant="ghost_icon" onClick={handleFullscreenClick}>
+                  <FullscreenIcon />
+                </Button>
+              </Tooltip>
             )}
-            <Button variant="ghost_icon" onClick={onClose}>
-              <Icon name="close" />
-            </Button>
+            <Tooltip title="Close" enterDelay={500}>
+              <Button variant="ghost_icon" onClick={onClose}>
+                <Icon name="close" />
+              </Button>
+            </Tooltip>
           </StyledFlexBox>
         </StyledHeader>
         {components.content}
