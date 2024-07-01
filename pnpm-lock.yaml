@@ -646,8 +646,8 @@ importers:
         version: 4.3.1(typescript@5.4.2)(vite@5.1.5(@types/node@20.14.2)(sass@1.77.5)(terser@5.29.1))
     devDependencies:
       '@ag-grid-community/client-side-row-model':
-        specifier: 31.3.2
-        version: 31.3.2
+        specifier: 32.0.0
+        version: 32.0.0
       '@ag-grid-community/core':
         specifier: 31.3.2
         version: 31.3.2
@@ -700,11 +700,14 @@ packages:
   '@adobe/css-tools@4.3.3':
     resolution: {integrity: sha512-rE0Pygv0sEZ4vBWHlAgJLGDU7Pm8xoO6p3wsEceb7GYAjScrOHpEo8KK/eVkAcnSM+slAEtXjA2JpdjLp4fJQQ==}
 
-  '@ag-grid-community/client-side-row-model@31.3.2':
-    resolution: {integrity: sha512-XFzq4BvPPEjf5HtC1VpruBESqvsJYfIcY1EC5CaY1hqV1NRp1JVImFrMdoxUuw9NsoucGneDT/DOj42WHweFIg==}
+  '@ag-grid-community/client-side-row-model@32.0.0':
+    resolution: {integrity: sha512-J/soopC8OqAWe5J1nykzY442b5Z8SuTf6ew1RrEjAhSCz1X+kpNxZmLAZlVvigpsWogMeKNhfuO6KNTTHkSTaw==}
 
   '@ag-grid-community/core@31.3.2':
     resolution: {integrity: sha512-iab+xIPCvjzGkIBgo12IQNa9/ZGI4BmjsQz65+aipNXISbtGketkN5iO4OFQgafgf0f9JZVFOZ3EzCnMiVWLiQ==}
+
+  '@ag-grid-community/core@32.0.0':
+    resolution: {integrity: sha512-xBsDlua2CehOmVIYzaAJtoKjLtbv6o/w2lMwdlllfpZAiqnbJQiLJEARWCOGRn769HUnIWFNtrbzJlbuFj4Usw==}
 
   '@ag-grid-community/react@31.3.2':
     resolution: {integrity: sha512-pGxW60itcWAKNBKOfi5oi0R9z6fEPME7V7vajz6cPafZCJ25ylTWxW4XLO2391tYNqorUbR5U3rOpaXkCtFCRQ==}
@@ -4722,6 +4725,9 @@ packages:
   address@1.2.2:
     resolution: {integrity: sha512-4B/qKCfeE/ODUaAUpSwfzazo5x29WD4r3vXiWsB7I2mSDAihwEqKO+g8GELZUQSSAo5e1XTYh3ZVfLyxBc12nA==}
     engines: {node: '>= 10.0.0'}
+
+  ag-charts-types@10.0.0:
+    resolution: {integrity: sha512-jjiwrzydERou4yp9WHiJeVK237B7BUP3/4j6tdycyHag266YVWa/BMNtTOThWJKGku+m+TC2qfaujLYixgcbrQ==}
 
   agent-base@6.0.2:
     resolution: {integrity: sha512-RZNwNclF7+MS/8bDg70amg32dyeZGZxiDuQmZxKLAlQjr3jGyLx+4Kkk58UO7D2QdgFIQCovuSuZESne6RG6XQ==}
@@ -10734,14 +10740,19 @@ snapshots:
 
   '@adobe/css-tools@4.3.3': {}
 
-  '@ag-grid-community/client-side-row-model@31.3.2':
+  '@ag-grid-community/client-side-row-model@32.0.0':
     dependencies:
-      '@ag-grid-community/core': 31.3.2
-      tslib: 2.6.2
+      '@ag-grid-community/core': 32.0.0
+      tslib: 2.6.3
 
   '@ag-grid-community/core@31.3.2':
     dependencies:
       tslib: 2.6.2
+
+  '@ag-grid-community/core@32.0.0':
+    dependencies:
+      ag-charts-types: 10.0.0
+      tslib: 2.6.3
 
   '@ag-grid-community/react@31.3.2(@ag-grid-community/core@31.3.2)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
@@ -13749,7 +13760,7 @@ snapshots:
       '@material/mwc-radio': 0.27.0
       '@material/mwc-ripple': 0.27.0
       lit: 2.8.0
-      tslib: 2.6.2
+      tslib: 2.6.3
 
   '@material/mwc-notched-outline@0.27.0':
     dependencies:
@@ -13772,14 +13783,14 @@ snapshots:
       '@material/mwc-base': 0.27.0
       '@material/ripple': 14.0.0-canary.53b3cad2f.0
       lit: 2.8.0
-      tslib: 2.6.2
+      tslib: 2.6.3
 
   '@material/mwc-textarea@0.27.0':
     dependencies:
       '@material/mwc-base': 0.27.0
       '@material/mwc-textfield': 0.27.0
       lit: 2.8.0
-      tslib: 2.6.2
+      tslib: 2.6.3
 
   '@material/mwc-textfield@0.27.0':
     dependencies:
@@ -13791,7 +13802,7 @@ snapshots:
       '@material/mwc-notched-outline': 0.27.0
       '@material/textfield': 14.0.0-canary.53b3cad2f.0
       lit: 2.8.0
-      tslib: 2.6.2
+      tslib: 2.6.3
 
   '@material/notched-outline@14.0.0-canary.53b3cad2f.0':
     dependencies:
@@ -14052,7 +14063,7 @@ snapshots:
       nx: 18.0.7
       semver: 7.6.0
       tmp: 0.2.3
-      tslib: 2.6.2
+      tslib: 2.6.3
       yargs-parser: 21.1.1
 
   '@nx/nx-darwin-arm64@18.0.7':
@@ -17545,6 +17556,8 @@ snapshots:
 
   address@1.2.2: {}
 
+  ag-charts-types@10.0.0: {}
+
   agent-base@6.0.2:
     dependencies:
       debug: 4.3.4
@@ -18883,7 +18896,7 @@ snapshots:
       prop-types: 15.8.1
       react: 18.2.0
       react-is: 18.2.0
-      tslib: 2.6.2
+      tslib: 2.6.3
 
   downshift@9.0.4(react@18.2.0):
     dependencies:
@@ -18892,7 +18905,7 @@ snapshots:
       prop-types: 15.8.1
       react: 18.2.0
       react-is: 18.2.0
-      tslib: 2.6.2
+      tslib: 2.6.3
 
   duplexer3@0.1.5:
     optional: true
@@ -22232,7 +22245,7 @@ snapshots:
       tar-stream: 2.2.0
       tmp: 0.2.3
       tsconfig-paths: 4.2.0
-      tslib: 2.6.2
+      tslib: 2.6.3
       yargs: 17.7.2
       yargs-parser: 21.1.1
     optionalDependencies:
