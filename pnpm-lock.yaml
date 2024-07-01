@@ -652,8 +652,8 @@ importers:
         specifier: 31.3.2
         version: 31.3.2
       '@ag-grid-community/react':
-        specifier: 31.3.2
-        version: 31.3.2(@ag-grid-community/core@31.3.2)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+        specifier: 32.0.0
+        version: 32.0.0(@ag-grid-community/core@31.3.2)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@babel/preset-env':
         specifier: ^7.23.9
         version: 7.24.0(@babel/core@7.24.0)
@@ -706,10 +706,10 @@ packages:
   '@ag-grid-community/core@31.3.2':
     resolution: {integrity: sha512-iab+xIPCvjzGkIBgo12IQNa9/ZGI4BmjsQz65+aipNXISbtGketkN5iO4OFQgafgf0f9JZVFOZ3EzCnMiVWLiQ==}
 
-  '@ag-grid-community/react@31.3.2':
-    resolution: {integrity: sha512-pGxW60itcWAKNBKOfi5oi0R9z6fEPME7V7vajz6cPafZCJ25ylTWxW4XLO2391tYNqorUbR5U3rOpaXkCtFCRQ==}
+  '@ag-grid-community/react@32.0.0':
+    resolution: {integrity: sha512-ZS8PxUlcLNuu+Vny8LU32lYK3lBu7y5IuqyPcH9c20MSKESRXMmQKLix/WN99FNUS2+EdEz4+0RlE7wPiCr5lw==}
     peerDependencies:
-      '@ag-grid-community/core': 31.3.2
+      '@ag-grid-community/core': 32.0.0
       react: ^16.3.0 || ^17.0.0 || ^18.0.0
       react-dom: ^16.3.0 || ^17.0.0 || ^18.0.0
 
@@ -10743,7 +10743,7 @@ snapshots:
     dependencies:
       tslib: 2.6.2
 
-  '@ag-grid-community/react@31.3.2(@ag-grid-community/core@31.3.2)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
+  '@ag-grid-community/react@32.0.0(@ag-grid-community/core@31.3.2)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
       '@ag-grid-community/core': 31.3.2
       prop-types: 15.8.1
