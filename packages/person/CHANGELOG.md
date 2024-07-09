@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.8.8
+
+### Patch Changes
+
+- e63b6a5: Update @equinor/fusion-wc-person to 2.6.9
+
 ## 0.8.7
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.3.3
+
+### Patch Changes
+
+- b44a91b: Tooltip for full screen and close buttons
+
 ## 1.3.2
 
 ### Patch Changes
