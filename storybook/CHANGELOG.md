@@ -1,5 +1,14 @@
 # Change Log
 
+## 4.0.7
+
+### Patch Changes
+
+- Updated dependencies [b44a91b]
+- Updated dependencies [e63b6a5]
+  - @equinor/fusion-react-side-sheet@1.3.3
+  - @equinor/fusion-react-person@0.8.8
+
 ## 4.0.6
 
 ### Patch Changes
