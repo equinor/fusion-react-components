@@ -247,7 +247,7 @@ importers:
     devDependencies:
       '@equinor/eds-core-react':
         specifier: ^0.40.1
-        version: 0.40.1(react-dom@18.3.1(react@18.2.0))(react@18.2.0)(styled-components@6.1.11(react-dom@18.3.1(react@18.2.0))(react@18.2.0))
+        version: 0.40.1(react-dom@18.3.1(react@18.2.0))(react@18.2.0)(styled-components@6.1.12(react-dom@18.3.1(react@18.2.0))(react@18.2.0))
       '@equinor/eds-icons':
         specifier: ~0.21.0
         version: 0.21.0
@@ -9735,8 +9735,8 @@ packages:
     engines: {node: '>=4'}
     hasBin: true
 
-  styled-components@6.1.11:
-    resolution: {integrity: sha512-Ui0jXPzbp1phYij90h12ksljKGqF8ncGx+pjrNPsSPhbUUjWT2tD1FwGo2LF6USCnbrsIhNngDfodhxbegfEOA==}
+  styled-components@6.1.12:
+    resolution: {integrity: sha512-n/O4PzRPhbYI0k1vKKayfti3C/IGcPf+DqcrOB7O/ab9x4u/zjqraneT5N45+sIe87cxrCApXM8Bna7NYxwoTA==}
     engines: {node: '>= 16'}
     peerDependencies:
       react: '>= 16.8.0'
@@ -12633,12 +12633,12 @@ snapshots:
       react-dom: 18.2.0(react@18.2.0)
       styled-components: 6.1.8(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
 
-  '@equinor/eds-core-react@0.40.1(react-dom@18.3.1(react@18.2.0))(react@18.2.0)(styled-components@6.1.11(react-dom@18.3.1(react@18.2.0))(react@18.2.0))':
+  '@equinor/eds-core-react@0.40.1(react-dom@18.3.1(react@18.2.0))(react@18.2.0)(styled-components@6.1.12(react-dom@18.3.1(react@18.2.0))(react@18.2.0))':
     dependencies:
       '@babel/runtime': 7.24.8
       '@equinor/eds-icons': 0.21.0
       '@equinor/eds-tokens': 0.9.2
-      '@equinor/eds-utils': 0.8.5(react-dom@18.3.1(react@18.2.0))(react@18.2.0)(styled-components@6.1.11(react-dom@18.3.1(react@18.2.0))(react@18.2.0))
+      '@equinor/eds-utils': 0.8.5(react-dom@18.3.1(react@18.2.0))(react@18.2.0)(styled-components@6.1.12(react-dom@18.3.1(react@18.2.0))(react@18.2.0))
       '@floating-ui/react': 0.26.20(react-dom@18.3.1(react@18.2.0))(react@18.2.0)
       '@internationalized/date': 3.5.4
       '@react-aria/utils': 3.24.1(react@18.2.0)
@@ -12650,7 +12650,7 @@ snapshots:
       react: 18.2.0
       react-aria: 3.33.1(react-dom@18.3.1(react@18.2.0))(react@18.2.0)
       react-dom: 18.3.1(react@18.2.0)
-      styled-components: 6.1.11(react-dom@18.3.1(react@18.2.0))(react@18.2.0)
+      styled-components: 6.1.12(react-dom@18.3.1(react@18.2.0))(react@18.2.0)
 
   '@equinor/eds-core-react@0.40.1(react-dom@18.3.1(react@18.2.0))(react@18.2.0)(styled-components@6.1.8(react-dom@18.3.1(react@18.2.0))(react@18.2.0))':
     dependencies:
@@ -12703,13 +12703,13 @@ snapshots:
       react-dom: 18.2.0(react@18.2.0)
       styled-components: 6.1.8(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
 
-  '@equinor/eds-utils@0.8.5(react-dom@18.3.1(react@18.2.0))(react@18.2.0)(styled-components@6.1.11(react-dom@18.3.1(react@18.2.0))(react@18.2.0))':
+  '@equinor/eds-utils@0.8.5(react-dom@18.3.1(react@18.2.0))(react@18.2.0)(styled-components@6.1.12(react-dom@18.3.1(react@18.2.0))(react@18.2.0))':
     dependencies:
       '@babel/runtime': 7.24.8
       '@equinor/eds-tokens': 0.9.2
       react: 18.2.0
       react-dom: 18.3.1(react@18.2.0)
-      styled-components: 6.1.11(react-dom@18.3.1(react@18.2.0))(react@18.2.0)
+      styled-components: 6.1.12(react-dom@18.3.1(react@18.2.0))(react@18.2.0)
 
   '@equinor/eds-utils@0.8.5(react-dom@18.3.1(react@18.2.0))(react@18.2.0)(styled-components@6.1.8(react-dom@18.3.1(react@18.2.0))(react@18.2.0))':
     dependencies:
@@ -13624,7 +13624,7 @@ snapshots:
       '@material/mwc-radio': 0.27.0
       '@material/mwc-ripple': 0.27.0
       lit: 2.8.0
-      tslib: 2.6.2
+      tslib: 2.6.3
 
   '@material/mwc-notched-outline@0.27.0':
     dependencies:
@@ -13647,14 +13647,14 @@ snapshots:
       '@material/mwc-base': 0.27.0
       '@material/ripple': 14.0.0-canary.53b3cad2f.0
       lit: 2.8.0
-      tslib: 2.6.2
+      tslib: 2.6.3
 
   '@material/mwc-textarea@0.27.0':
     dependencies:
       '@material/mwc-base': 0.27.0
       '@material/mwc-textfield': 0.27.0
       lit: 2.8.0
-      tslib: 2.6.2
+      tslib: 2.6.3
 
   '@material/mwc-textfield@0.27.0':
     dependencies:
@@ -13666,7 +13666,7 @@ snapshots:
       '@material/mwc-notched-outline': 0.27.0
       '@material/textfield': 14.0.0-canary.53b3cad2f.0
       lit: 2.8.0
-      tslib: 2.6.2
+      tslib: 2.6.3
 
   '@material/notched-outline@14.0.0-canary.53b3cad2f.0':
     dependencies:
@@ -18718,7 +18718,7 @@ snapshots:
       prop-types: 15.8.1
       react: 18.2.0
       react-is: 18.2.0
-      tslib: 2.6.2
+      tslib: 2.6.3
 
   downshift@9.0.6(react@18.2.0):
     dependencies:
@@ -23779,7 +23779,7 @@ snapshots:
       minimist: 1.2.8
       through: 2.3.8
 
-  styled-components@6.1.11(react-dom@18.3.1(react@18.2.0))(react@18.2.0):
+  styled-components@6.1.12(react-dom@18.3.1(react@18.2.0))(react@18.2.0):
     dependencies:
       '@emotion/is-prop-valid': 1.2.2
       '@emotion/unitless': 0.8.1
