@@ -29,7 +29,6 @@
     "storybook:build": "pnpm run --dir ./storybook build",
     "lerna:update": "lernaupdate",
     "lerna:dedupe": "lernaupdate --dedupe",
-    "prepare": "husky install",
     "changeset:version": "changeset version && pnpm install --lockfile-only",
     "changeset:publish": "pnpm changeset tag && pnpm publish -r"
   },
