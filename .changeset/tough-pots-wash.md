@@ -2,4 +2,4 @@
 '@equinor/fusion-react-context-selector': patch
 ---
 
-Fixes clearing context exernally when using previewItem to display currentContext
+Adds event `ctx-selector-clear` to be able to clear the context-selectors state from outside the component.
