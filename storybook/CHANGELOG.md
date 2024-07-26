@@ -1,5 +1,17 @@
 # Change Log
 
+## 4.0.8
+
+### Patch Changes
+
+- b76ff35: build(deps-dev): bump the ag-grid group across 1 directory with 4 updates
+
+  Updating ag-grid to 32.0.2
+
+- Updated dependencies [b76ff35]
+  - @equinor/fusion-react-ag-grid-styles@31.2.4
+  - @equinor/fusion-react-ag-grid-utils@31.2.2
+
 ## 4.0.7
 
 ### Patch Changes
