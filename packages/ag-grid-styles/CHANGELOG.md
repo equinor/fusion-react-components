@@ -1,5 +1,13 @@
 # Change Log
 
+## 31.2.4
+
+### Patch Changes
+
+- b76ff35: build(deps-dev): bump the ag-grid group across 1 directory with 4 updates
+
+  Updating ag-grid to 32.0.2
+
 ## 31.2.3
 
 ### Patch Changes
