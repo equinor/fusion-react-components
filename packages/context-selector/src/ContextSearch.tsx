@@ -8,6 +8,21 @@ import { SearchableDropdownElement } from '@equinor/fusion-wc-searchable-dropdow
 import { IconElement } from '@equinor/fusion-wc-icon';
 IconElement;
 
+const ContextClearEventType = 'ctx-selector-clear';
+interface ContextClearEventDetails {
+  date?: number;
+}
+export class ContextClearEvent extends CustomEvent<ContextClearEventDetails> {
+  static readonly eventName = ContextClearEventType;
+  constructor(options: ContextClearEventDetails) {
+    super(ContextClearEvent.eventName, {
+      bubbles: true,
+      cancelable: true,
+      detail: options,
+    });
+  }
+}
+
 export type ContextSearchProps = ContextSelectorProps & {
   previewItem?: ContextResultItem;
   onClearContext?: (e: Event) => void;
@@ -143,6 +158,18 @@ export const ContextSearch = ({
       }
     };
   }, [elementRef]);
+
+  /**
+   * Add ctx-selector-clear event listener.
+   * Used when triggering clear context outside component
+   */
+  useMemo(() => {
+    const clearContextHandler = () => setCtx(defaultInitialItem);
+    document.addEventListener(ContextClearEventType, clearContextHandler);
+    return () => {
+      document.removeEventListener(ContextClearEventType, clearContextHandler);
+    };
+  }, []);
 
   useEffect(() => {
     if (sdd && gettingCtx) {
