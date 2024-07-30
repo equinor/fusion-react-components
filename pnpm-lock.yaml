@@ -10715,7 +10715,7 @@ snapshots:
       '@ampproject/remapping': 2.3.0
       '@babel/code-frame': 7.24.6
       '@babel/generator': 7.24.6
-      '@babel/helper-compilation-targets': 7.24.8
+      '@babel/helper-compilation-targets': 7.25.2
       '@babel/helper-module-transforms': 7.24.6(@babel/core@7.24.6)
       '@babel/helpers': 7.24.6
       '@babel/parser': 7.24.6
@@ -10847,7 +10847,7 @@ snapshots:
   '@babel/helper-define-polyfill-provider@0.5.0(@babel/core@7.24.0)':
     dependencies:
       '@babel/core': 7.24.0
-      '@babel/helper-compilation-targets': 7.24.8
+      '@babel/helper-compilation-targets': 7.25.2
       '@babel/helper-plugin-utils': 7.24.8
       debug: 4.3.4
       lodash.debounce: 4.0.8
@@ -11420,7 +11420,7 @@ snapshots:
     dependencies:
       '@babel/core': 7.24.6
       '@babel/helper-annotate-as-pure': 7.24.6
-      '@babel/helper-compilation-targets': 7.24.8
+      '@babel/helper-compilation-targets': 7.25.2
       '@babel/helper-environment-visitor': 7.24.6
       '@babel/helper-function-name': 7.24.6
       '@babel/helper-plugin-utils': 7.24.8
@@ -11536,7 +11536,7 @@ snapshots:
   '@babel/plugin-transform-function-name@7.24.6(@babel/core@7.24.6)':
     dependencies:
       '@babel/core': 7.24.6
-      '@babel/helper-compilation-targets': 7.24.8
+      '@babel/helper-compilation-targets': 7.25.2
       '@babel/helper-function-name': 7.24.6
       '@babel/helper-plugin-utils': 7.24.8
 
@@ -11703,7 +11703,7 @@ snapshots:
   '@babel/plugin-transform-object-rest-spread@7.24.6(@babel/core@7.24.6)':
     dependencies:
       '@babel/core': 7.24.6
-      '@babel/helper-compilation-targets': 7.24.8
+      '@babel/helper-compilation-targets': 7.25.2
       '@babel/helper-plugin-utils': 7.24.8
       '@babel/plugin-syntax-object-rest-spread': 7.8.3(@babel/core@7.24.6)
       '@babel/plugin-transform-parameters': 7.24.6(@babel/core@7.24.6)
@@ -12065,9 +12065,9 @@ snapshots:
 
   '@babel/preset-env@7.24.6(@babel/core@7.24.6)':
     dependencies:
-      '@babel/compat-data': 7.24.9
+      '@babel/compat-data': 7.25.2
       '@babel/core': 7.24.6
-      '@babel/helper-compilation-targets': 7.24.8
+      '@babel/helper-compilation-targets': 7.25.2
       '@babel/helper-plugin-utils': 7.24.8
       '@babel/helper-validator-option': 7.24.8
       '@babel/plugin-bugfix-firefox-class-in-computed-class-key': 7.24.6(@babel/core@7.24.6)
