@@ -740,6 +740,10 @@ packages:
     resolution: {integrity: sha512-e701mcfApCJqMMueQI0Fb68Amflj83+dvAvHawoBpAz+GDjCIyGHzNwnefjsWJ3xiYAqqiQFoWbspGYBdb2/ng==}
     engines: {node: '>=6.9.0'}
 
+  '@babel/compat-data@7.25.2':
+    resolution: {integrity: sha512-bYcppcpKBvX4znYaPEeFau03bp89ShqNMLs+rmdptMw+heSZh9+z84d2YG+K7cYLbWwzdjtDoW/uqZmPjulClQ==}
+    engines: {node: '>=6.9.0'}
+
   '@babel/core@7.24.0':
     resolution: {integrity: sha512-fQfkg0Gjkza3nf0c7/w6Xf34BW4YvzNfACRLmmb7XRLa6XHdR+K9AlJlxneFfWYf6uhOzuzZVTjF/8KfndZANw==}
     engines: {node: '>=6.9.0'}
@@ -778,6 +782,10 @@ packages:
 
   '@babel/helper-compilation-targets@7.24.8':
     resolution: {integrity: sha512-oU+UoqCHdp+nWVDkpldqIQL/i/bvAv53tRqLG/s+cOXxe66zOYLU7ar/Xs3LdmBihrUMEUhwu6dMZwbNOYDwvw==}
+    engines: {node: '>=6.9.0'}
+
+  '@babel/helper-compilation-targets@7.25.2':
+    resolution: {integrity: sha512-U2U5LsSaZ7TAt3cfaymQ8WHh0pxvdHoEk6HVpaexxixjyEquMh0L0YNJNM6CTGKMXV1iksi0iZkGw4AcFkPaaw==}
     engines: {node: '>=6.9.0'}
 
   '@babel/helper-create-class-features-plugin@7.24.0':
@@ -10677,6 +10685,8 @@ snapshots:
 
   '@babel/compat-data@7.24.9': {}
 
+  '@babel/compat-data@7.25.2': {}
+
   '@babel/core@7.24.0':
     dependencies:
       '@ampproject/remapping': 2.3.0
@@ -10763,6 +10773,14 @@ snapshots:
       lru-cache: 5.1.1
       semver: 6.3.1
 
+  '@babel/helper-compilation-targets@7.25.2':
+    dependencies:
+      '@babel/compat-data': 7.25.2
+      '@babel/helper-validator-option': 7.24.8
+      browserslist: 4.23.2
+      lru-cache: 5.1.1
+      semver: 6.3.1
+
   '@babel/helper-create-class-features-plugin@7.24.0(@babel/core@7.24.0)':
     dependencies:
       '@babel/core': 7.24.0
@@ -10837,7 +10855,7 @@ snapshots:
   '@babel/helper-define-polyfill-provider@0.6.2(@babel/core@7.24.6)':
     dependencies:
       '@babel/core': 7.24.6
-      '@babel/helper-compilation-targets': 7.24.8
+      '@babel/helper-compilation-targets': 7.25.2
       '@babel/helper-plugin-utils': 7.24.8
       debug: 4.3.4
       lodash.debounce: 4.0.8
@@ -17750,7 +17768,7 @@ snapshots:
 
   babel-plugin-polyfill-corejs2@0.4.11(@babel/core@7.24.6):
     dependencies:
-      '@babel/compat-data': 7.24.9
+      '@babel/compat-data': 7.25.2
       '@babel/core': 7.24.6
       '@babel/helper-define-polyfill-provider': 0.6.2(@babel/core@7.24.6)
       semver: 6.3.1
