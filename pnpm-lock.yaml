@@ -631,7 +631,7 @@ importers:
         version: 8.1.5(@babel/preset-env@7.24.0(@babel/core@7.24.0))(encoding@0.1.13)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       storybook-addon-react-docgen:
         specifier: ^1.2.44
-        version: 1.2.44(@storybook/addons@7.6.17(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@storybook/components@8.2.6(storybook@8.1.5(@babel/preset-env@7.24.0(@babel/core@7.24.0))(encoding@0.1.13)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)))(@storybook/core-events@8.1.9)(react@18.2.0)
+        version: 1.2.44(@storybook/addons@7.6.17(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@storybook/components@8.2.7(storybook@8.1.5(@babel/preset-env@7.24.0(@babel/core@7.24.0))(encoding@0.1.13)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)))(@storybook/core-events@8.1.9)(react@18.2.0)
       styled-components:
         specifier: ^6.1.8
         version: 6.1.8(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -4040,10 +4040,10 @@ packages:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0-beta
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0-beta
 
-  '@storybook/components@8.2.6':
-    resolution: {integrity: sha512-H8ckH1AnLkHtMtvJ3J8LxnmDtHxkJ7NJacGctHMRrsBIvdKTVwlT4su5nAVVJlan/PrEou+jESfw+OjjBYE5PA==}
+  '@storybook/components@8.2.7':
+    resolution: {integrity: sha512-FXhnoHl9S+tKSFc62iUG3EWplQP9ojGQaSMhqP4QTus6xmo53oSsPzuTPQilKVHkGxFQW8eGgKKsfHw3G2NT2g==}
     peerDependencies:
-      storybook: ^8.2.6
+      storybook: ^8.2.7
 
   '@storybook/core-common@8.1.5':
     resolution: {integrity: sha512-1QDOT6KPZ9KV7Gs1yyqzvSwGBmNSUB33gckUldSBF4aqP+tZ7W5JIQ6/YTtp3V02sEokZGdL9Ud4LczQxTgy3A==}
@@ -10715,7 +10715,7 @@ snapshots:
       '@ampproject/remapping': 2.3.0
       '@babel/code-frame': 7.24.6
       '@babel/generator': 7.24.6
-      '@babel/helper-compilation-targets': 7.24.8
+      '@babel/helper-compilation-targets': 7.25.2
       '@babel/helper-module-transforms': 7.24.6(@babel/core@7.24.6)
       '@babel/helpers': 7.24.6
       '@babel/parser': 7.24.6
@@ -10847,7 +10847,7 @@ snapshots:
   '@babel/helper-define-polyfill-provider@0.5.0(@babel/core@7.24.0)':
     dependencies:
       '@babel/core': 7.24.0
-      '@babel/helper-compilation-targets': 7.24.8
+      '@babel/helper-compilation-targets': 7.25.2
       '@babel/helper-plugin-utils': 7.24.8
       debug: 4.3.4
       lodash.debounce: 4.0.8
@@ -11420,7 +11420,7 @@ snapshots:
     dependencies:
       '@babel/core': 7.24.6
       '@babel/helper-annotate-as-pure': 7.24.6
-      '@babel/helper-compilation-targets': 7.24.8
+      '@babel/helper-compilation-targets': 7.25.2
       '@babel/helper-environment-visitor': 7.24.6
       '@babel/helper-function-name': 7.24.6
       '@babel/helper-plugin-utils': 7.24.8
@@ -11536,7 +11536,7 @@ snapshots:
   '@babel/plugin-transform-function-name@7.24.6(@babel/core@7.24.6)':
     dependencies:
       '@babel/core': 7.24.6
-      '@babel/helper-compilation-targets': 7.24.8
+      '@babel/helper-compilation-targets': 7.25.2
       '@babel/helper-function-name': 7.24.6
       '@babel/helper-plugin-utils': 7.24.8
 
@@ -11703,7 +11703,7 @@ snapshots:
   '@babel/plugin-transform-object-rest-spread@7.24.6(@babel/core@7.24.6)':
     dependencies:
       '@babel/core': 7.24.6
-      '@babel/helper-compilation-targets': 7.24.8
+      '@babel/helper-compilation-targets': 7.25.2
       '@babel/helper-plugin-utils': 7.24.8
       '@babel/plugin-syntax-object-rest-spread': 7.8.3(@babel/core@7.24.6)
       '@babel/plugin-transform-parameters': 7.24.6(@babel/core@7.24.6)
@@ -12065,9 +12065,9 @@ snapshots:
 
   '@babel/preset-env@7.24.6(@babel/core@7.24.6)':
     dependencies:
-      '@babel/compat-data': 7.24.9
+      '@babel/compat-data': 7.25.2
       '@babel/core': 7.24.6
-      '@babel/helper-compilation-targets': 7.24.8
+      '@babel/helper-compilation-targets': 7.25.2
       '@babel/helper-plugin-utils': 7.24.8
       '@babel/helper-validator-option': 7.24.8
       '@babel/plugin-bugfix-firefox-class-in-computed-class-key': 7.24.6(@babel/core@7.24.6)
@@ -16379,7 +16379,7 @@ snapshots:
       - '@types/react'
       - '@types/react-dom'
 
-  '@storybook/components@8.2.6(storybook@8.1.5(@babel/preset-env@7.24.0(@babel/core@7.24.0))(encoding@0.1.13)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))':
+  '@storybook/components@8.2.7(storybook@8.1.5(@babel/preset-env@7.24.0(@babel/core@7.24.0))(encoding@0.1.13)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))':
     dependencies:
       storybook: 8.1.5(@babel/preset-env@7.24.0(@babel/core@7.24.0))(encoding@0.1.13)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
 
@@ -23703,10 +23703,10 @@ snapshots:
 
   store2@2.14.3: {}
 
-  storybook-addon-react-docgen@1.2.44(@storybook/addons@7.6.17(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@storybook/components@8.2.6(storybook@8.1.5(@babel/preset-env@7.24.0(@babel/core@7.24.0))(encoding@0.1.13)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)))(@storybook/core-events@8.1.9)(react@18.2.0):
+  storybook-addon-react-docgen@1.2.44(@storybook/addons@7.6.17(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@storybook/components@8.2.7(storybook@8.1.5(@babel/preset-env@7.24.0(@babel/core@7.24.0))(encoding@0.1.13)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)))(@storybook/core-events@8.1.9)(react@18.2.0):
     dependencies:
       '@storybook/addons': 7.6.17(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
-      '@storybook/components': 8.2.6(storybook@8.1.5(@babel/preset-env@7.24.0(@babel/core@7.24.0))(encoding@0.1.13)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))
+      '@storybook/components': 8.2.7(storybook@8.1.5(@babel/preset-env@7.24.0(@babel/core@7.24.0))(encoding@0.1.13)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))
       '@storybook/core-events': 8.1.9
       nested-object-assign: 1.0.4
       prop-types: 15.8.1
