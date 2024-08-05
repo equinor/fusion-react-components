@@ -29,7 +29,6 @@
     "storybook:build": "pnpm run --dir ./storybook build",
     "lerna:update": "lernaupdate",
     "lerna:dedupe": "lernaupdate --dedupe",
-    "prepare": "husky install",
     "changeset:version": "changeset version && pnpm install --lockfile-only",
     "changeset:publish": "pnpm changeset tag && pnpm publish -r"
   },
@@ -60,7 +59,7 @@
     "lerna-update-wizard": "^1.1.2",
     "lint-staged": "^15.0.1",
     "prettier": "^3.0.3",
-    "rimraf": "^5.0.1",
+    "rimraf": "^6.0.1",
     "typescript": "^5.3.3"
   },
   "lint-staged": {

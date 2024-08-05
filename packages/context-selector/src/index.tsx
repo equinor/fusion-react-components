@@ -1,6 +1,6 @@
 export { ContextProvider } from './ContextProvider';
 export { ContextSelector } from './ContextSelector';
-export { ContextSearch, type ContextSearchProps } from './ContextSearch';
+export { ContextSearch, type ContextSearchProps, ContextClearEvent } from './ContextSearch';
 export type {
   ContextProviderProps,
   ContextResolver,
