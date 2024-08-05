@@ -34,7 +34,7 @@ const columnDefs = useMemo<ColDef[]>(() => {
     agGridPersonCell({
       ...agCellData,
       field: 'fieldName', // The field name that holds person data
-      azureId: (data) => data, // Function to extract Azure ID from data
+      azureId: (data: string) => data, // Function to extract Azure ID from data
       heading: (person) => person.name, // Function to extract person's name as heading
       subHeading: (person) => person.mail, // Function to extract person's email as sub heading
       size: 'small', // Specifies the size of the component
@@ -68,6 +68,14 @@ You can configure the `azureId`, `upn` or `dataSource` property in the **agGridP
 For instance, if your data contains a nested object with the user's **upn**, you can access it and pass it to the **upn** prop.
 
 ```tsx
+// Driver type used in example
+type Driver = {
+  driverNumber: number;
+  personInfo: {
+    upn: string;
+  };
+};
+
 // Sample row data
 const rowsData = [...Array(5)].map((_, index) => ({
   ...rowsData,
@@ -85,7 +93,7 @@ const columnDefs = useMemo(() => [
   agGridPersonCell({
     ...agPersonCellData,
     field: 'driver',
-    upn: (data) => data.personInfo.upn, // Access UPN from nested object
+    upn: (data: Driver) => data.personInfo.upn, // Access UPN from nested object
     heading: (person) => person.name,
     subHeading: (person) => person.jobTitle
   })

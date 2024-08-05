@@ -3,21 +3,21 @@ import { TableCellData, PersonTableCell, PersonItemSize } from '@equinor/fusion-
 import { personTooltip } from './personTooltip';
 import { personSortComparator } from './personSort';
 
-type CustomRenderParams = {
-  azureId?: (data: any) => string;
-  upn?: (data: any) => string;
-  dataSource?: (data: any) => TableCellData;
-  heading?: <T extends TableCellData>(person: T) => string | undefined;
-  subHeading?: <T extends TableCellData>(person: T) => string | undefined;
+type CustomRenderParams<T> = {
+  azureId?: (data: T) => string;
+  upn?: (data: T) => string;
+  dataSource?: (data: T) => TableCellData;
+  heading?: <P extends TableCellData>(person: P) => string | undefined;
+  subHeading?: <P extends TableCellData>(person: P) => string | undefined;
   showAvatar?: boolean;
   size?: PersonItemSize;
 };
 
-type PersonColDef = CustomRenderParams & {
-  dataToSort?: (data: any) => string | undefined;
+type PersonColDef<T> = CustomRenderParams<T> & {
+  dataToSort?: (data: T) => string | undefined;
 };
 
-const renderPersonCell = (params: ICellRendererParams & CustomRenderParams) => {
+const renderPersonCell = <T,>(params: ICellRendererParams & CustomRenderParams<T>) => {
   const { heading, subHeading, azureId, upn, dataSource, showAvatar, value, size } = params;
   const azureResult = azureId ? azureId(value) : undefined;
   const upnResult = upn ? upn(value) : undefined;
@@ -36,7 +36,7 @@ const renderPersonCell = (params: ICellRendererParams & CustomRenderParams) => {
   );
 };
 
-export const agGridPersonCell = (col: ColDef & PersonColDef): ColDef => {
+export const agGridPersonCell = <T,>(col: ColDef & PersonColDef<T>): ColDef => {
   const { azureId, upn, dataSource, dataToSort, heading, subHeading, showAvatar, size } = col;
 
   return {

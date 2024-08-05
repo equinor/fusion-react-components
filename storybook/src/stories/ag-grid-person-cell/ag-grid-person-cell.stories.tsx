@@ -62,7 +62,7 @@ export const basic: Story = {
         agGridPersonCell({
           flex: 1.4,
           field: 'driver',
-          azureId: (data) => data,
+          azureId: (data: string) => data,
           heading: (person) => person.name,
           subHeading: (person) => person.mail,
           dataToSort(data) {
@@ -95,7 +95,7 @@ export const showAvatar: Story = {
         agGridPersonCell({
           flex: 1.4,
           field: 'driver',
-          azureId: (data) => data,
+          azureId: (data: string) => data,
           heading: (person) => person.name,
           subHeading: (person) => person.mail,
           showAvatar: true,
@@ -126,7 +126,7 @@ export const customHeadings: Story = {
         agGridPersonCell({
           flex: 1.4,
           field: 'driver',
-          azureId: (data) => data,
+          azureId: (data: string) => data,
           heading: (person) => `<b>${person.jobTitle}</b>`,
           subHeading: (person) => `<a href=mailto:${person.mail}>${person.mail}</a>`,
           showAvatar: true,
@@ -149,6 +149,13 @@ export const customDataObject: Story = {
   render: () => {
     useStyles();
 
+    type Driver = {
+      driverNumber: number;
+      personInfo: {
+        upn: string;
+      };
+    };
+
     const rowsData = [...Array(5)].map((_, index) => ({
       number: index,
       manufacturer: faker.vehicle.manufacturer(),
@@ -170,7 +177,7 @@ export const customDataObject: Story = {
         agGridPersonCell({
           flex: 1.4,
           field: 'driver',
-          upn: (data) => data.personInfo.upn,
+          upn: (data: Driver) => data.personInfo.upn,
           heading: (person) => person.name,
           subHeading: (person) => person.jobTitle,
           showAvatar: true,

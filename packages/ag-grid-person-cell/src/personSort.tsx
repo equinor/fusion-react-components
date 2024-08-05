@@ -1,5 +1,5 @@
 export const personSortComparator =
-  <T,>(accessor: (data: T | null) => string | undefined) =>
+  <T,>(accessor: (data: T) => string | undefined) =>
   (_valueA: T, _valueB: T) => {
     const a = accessor(_valueA);
     const b = accessor(_valueB);

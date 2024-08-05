@@ -1,13 +1,13 @@
 import { CustomTooltipProps } from '@ag-grid-community/react';
 import { PersonCard, TableCellData } from '@equinor/fusion-react-person';
 
-type TooltipCard = {
-  azureId?: (data: any) => string;
-  upn?: (data: any) => string;
-  dataSource?: (data: any) => TableCellData;
+type TooltipCard<T> = {
+  azureId?: (data: T) => string;
+  upn?: (data: T) => string;
+  dataSource?: (data: T) => TableCellData;
 };
 
-export const personTooltip = (props: CustomTooltipProps & TooltipCard): JSX.Element => {
+export const personTooltip = <T,>(props: CustomTooltipProps & TooltipCard<T>): JSX.Element => {
   const { value, azureId, upn, dataSource } = props;
   const azureResult = azureId ? azureId(value) : undefined;
   const upnResult = upn ? upn(value) : undefined;
