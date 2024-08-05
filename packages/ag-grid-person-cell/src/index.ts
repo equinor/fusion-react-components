@@ -1,0 +1,1 @@
+export { agGridPersonCell } from './agPersonCell';
