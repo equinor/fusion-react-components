@@ -1,0 +1,103 @@
+import { Meta, Markdown, ArgTypes, Canvas } from '@storybook/blocks';
+
+import pkg from '#packages/ag-grid-person-cell/package.json';
+
+import changelogReact from '#packages/ag-grid-person-cell/CHANGELOG.md?raw';
+
+import { ChangeLog, PackageInfo } from '../../components';
+
+import * as stories from './ag-grid-person-cell.stories';
+
+<Meta title="Person/AgGrid Cell/Docs" />
+
+<PackageInfo pkg={pkg} />
+
+<ArgTypes of={ stories.basic } />
+
+## AgGrid Person Cell
+
+This component is used to render a person's details within an AgGrid cell. The cell displays a [Person Table Cell](./?path=/docs/person-docs--docs#basic-3) component, and when hovered, a tooltip provides additional information about the person in the form of [Person Card](./?path=/docs/person-docs--docs#basic-1) component.
+
+<Canvas of={ stories.basic } meta={stories} />
+
+### How to use
+
+When you have prepared the data that will populate your AgGrid, use the `agGridPersonCell` function to define a column that will render the component.
+To correctly map your data, pass in the relevant properties, such as `azureId`, `upn`, or `dataSource`. Additionally, you can change the cell's display by passing in optional props like `heading`, `subHeading`, `size`, and `showAvatar` to customize the appearance and content of the cell.
+
+#### Code example
+
+```tsx
+const columnDefs = useMemo<ColDef[]>(() => {
+  return [
+    ...agGridColumns,
+    agGridPersonCell({
+      ...agCellData,
+      field: 'fieldName', // The field name that holds person data
+      azureId: (data) => data, // Function to extract Azure ID from data
+      heading: (person) => person.name, // Function to extract person's name as heading
+      subHeading: (person) => person.mail, // Function to extract person's email as sub heading
+      size: 'small', // Specifies the size of the component
+      showAvatar: true, // Determines whether to show the avatar in the cell
+      dataToSort: (data) => data // Data to use for sorting
+    })
+  ];
+}, []);
+```
+
+#### Customizing heading and subHeading with HTML
+
+You can customize the content of the `heading` and `subHeading` in the component by passing functions that return HTML strings. This allows you to format the text or include additional elements like links.
+
+For example, you might want to display the **job title** in bold and the **email** as a **clickable link**.
+
+```tsx
+    agGridPersonCell({
+      ...agPersonCellData,
+      heading: (person) => `<b>${person.jobTitle}</b>`,  // Custom HTML for heading
+      subHeading: (person) => `<a href="mailto:${person.mail}">${person.mail}</a>`, // Custom HTML for subHeading
+    })
+```
+
+<Canvas of={ stories.customHeadings } meta={stories} />
+
+#### Using azureId/upn/dataSource through a custom object
+
+You can configure the `azureId`, `upn` or `dataSource` property in the **agGridPersonCell** to extract values from nested objects within your data. This allows you to easily map data from complex structures.
+
+For instance, if your data contains a nested object with the user's **upn**, you can access it and pass it to the **upn** prop.
+
+```tsx
+// Sample row data
+const rowsData = [...Array(5)].map((_, index) => ({
+  ...rowsData,
+  // Nested object example
+  driver: {
+    driverNumber: '23'
+    personInfo: {
+      upn: `userUpn@example.com`,
+    }
+  }
+}));
+
+const columnDefs = useMemo(() => [
+  ...agGridColumns,
+  agGridPersonCell({
+    ...agPersonCellData,
+    field: 'driver',
+    upn: (data) => data.personInfo.upn, // Access UPN from nested object
+    heading: (person) => person.name,
+    subHeading: (person) => person.jobTitle
+  })
+], []);
+```
+
+<Canvas of={ stories.customDataObject } meta={stories} />
+
+## Changelog
+
+<ChangeLog
+  changelogs={{
+    react: changelogReact,
+  }}
+/>
