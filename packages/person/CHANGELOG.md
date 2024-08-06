@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.9.0
+
+### Minor Changes
+
+- bb95029: New Person cell component. Available for displaying specified data in any table cell.
+
 ## 0.8.8
 
 ### Patch Changes
