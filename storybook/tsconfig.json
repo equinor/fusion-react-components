@@ -4,19 +4,17 @@
     "rootDir": "src",
     "resolveJsonModule": true,
     "paths": {
-      "@equinor/fusion-react-*": [
-        "../packages/*"
-      ],
+      "@equinor/fusion-react-*": ["../packages/*"]
     },
     "skipDefaultLibCheck": true,
     "skipLibCheck": true,
     "module": "ES6"
   },
-  "exclude": [
-    "./node_modules",
-    "../packages/styles"
-  ],
+  "exclude": ["./node_modules", "../packages/styles"],
   "references": [
+    {
+      "path": "../packages/ag-grid-person-cell"
+    },
     {
       "path": "../packages/ag-grid-styles"
     },

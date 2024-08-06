@@ -10,6 +10,7 @@ import { ChangeLog, PackageInfo } from '../../components';
 import * as avatarStories from './avatar.stories';
 import * as cardStories from './card.stories';
 import * as selectStories from './select.stories';
+import * as cellStories from './cell.stories';
 
 
 <Meta title="Person/Docs" />
@@ -62,8 +63,23 @@ import * as selectStories from './select.stories';
 ### Preserving output
 <Canvas of={ selectStories.custom } meta={selectStories} story={{height: '350px'}}/>
 
+## Cell
+<ArgTypes of={ cellStories } />
+
+### Basic
+<Canvas of={ cellStories.basic } meta={cellStories} />
+
+### Show Avatar
+<Canvas of={ cellStories.showAvatar } meta={cellStories} />
+
+### Custom Headings
+<Canvas of={ cellStories.customHeading } meta={cellStories} />
+
+### Sizes
+<Canvas of={ cellStories.sizes } meta={cellStories} />
+
 <ChangeLog
   changelogs={{
     react: changelogReact,
   }}
-/>
+/>./cell.stories
