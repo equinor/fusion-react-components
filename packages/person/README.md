@@ -18,6 +18,6 @@ npm install @equinor/fusion-react-person
 - [PersonCard](https://equinor.github.io/fusion-react-components/?path=/story/person-card--basic) - Use this component to display comprehensive information about a person,including their department, positions, tasks, and current manager
 - [PersonListItem](https://equinor.github.io/fusion-react-components/?path=/story/person-list-item--basic) - This component showcases basic information about a person, with the option to add additional buttons.
 - [PersonSelect](https://equinor.github.io/fusion-react-components/?path=/story/person-select--basic)
-- [TableCell](https://equinor.github.io/fusion-react-components/?path=/story/person-table-cell--basic)
+- [PersonCell](https://equinor.github.io/fusion-react-components/?path=/story/person-cell--basic)
 
 <!--prettier-ignore-end-->

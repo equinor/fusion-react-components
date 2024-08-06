@@ -2,7 +2,7 @@
 import { useMemo } from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 
-import { PersonTableCell } from '@equinor/fusion-react-person/src/PersonTableCell';
+import { PersonCell } from '@equinor/fusion-react-person/src/PersonCell';
 import { PersonProvider } from '@equinor/fusion-react-person/src/PersonProvider';
 import { Theme } from '../../components/Theme';
 
@@ -17,16 +17,16 @@ import { ClientSideRowModelModule } from '@ag-grid-community/client-side-row-mod
 import { ColDef, ModuleRegistry } from '@ag-grid-community/core';
 import useStyles from '@equinor/fusion-react-ag-grid-styles';
 
-const meta: Meta<typeof PersonTableCell> = {
-  title: 'person/AgGrid Cell',
-  component: PersonTableCell,
+const meta: Meta<typeof PersonCell> = {
+  title: 'ag-grid/Person Cell',
+  component: PersonCell,
 };
 
 ModuleRegistry.registerModules([ClientSideRowModelModule]);
 
 export default meta;
 
-type Story = StoryObj<typeof PersonTableCell>;
+type Story = StoryObj<typeof PersonCell>;
 
 const rowsData = [...Array(5)].map((_, index) => ({
   number: index,

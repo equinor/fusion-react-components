@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { Meta, StoryObj } from '@storybook/react';
 
-import { PersonTableCell, TableCellData } from '@equinor/fusion-react-person/src/PersonTableCell';
+import { PersonCell, PersonCellData } from '@equinor/fusion-react-person/src/PersonCell';
 import { PersonProvider } from '@equinor/fusion-react-person/src/PersonProvider';
 import { Theme } from '../../components/Theme';
 import { resolver } from './person-provider';
@@ -10,14 +10,14 @@ import { faker } from '@faker-js/faker';
 import { PersonItemSize } from '@equinor/fusion-react-person';
 faker.seed(123);
 
-const meta: Meta<typeof PersonTableCell> = {
-  title: 'person/Table Cell',
-  component: PersonTableCell,
+const meta: Meta<typeof PersonCell> = {
+  title: 'person/Cell',
+  component: PersonCell,
 };
 
 export default meta;
 
-type Story = StoryObj<typeof PersonTableCell>;
+type Story = StoryObj<typeof PersonCell>;
 
 export const basic: Story = {
   decorators: [
@@ -33,7 +33,7 @@ export const basic: Story = {
     azureId: '49132c24-6ea4-41fe-8221-112f314573f0',
   },
   render: (props) => {
-    return <PersonTableCell {...props} size="medium" />;
+    return <PersonCell {...props} size="medium" />;
   },
 };
 
@@ -43,17 +43,17 @@ export const showAvatar: Story = {
     ...basic.args,
     showAvatar: true,
   },
-  render: (props) => <PersonTableCell {...props} subHeading={(person: TableCellData) => person.mail} showAvatar />,
+  render: (props) => <PersonCell {...props} subHeading={(person: PersonCellData) => person.mail} showAvatar />,
 };
 
 export const customHeading: Story = {
   ...basic,
   args: {
     ...showAvatar.args,
-    heading: (person: TableCellData) => `<b>${person.jobTitle}</b>`,
-    subHeading: (person: TableCellData) => `<a href=mailto:${person.mail}>${person.mail}</a>`,
+    heading: (person: PersonCellData) => `<b>${person.jobTitle}</b>`,
+    subHeading: (person: PersonCellData) => `<a href=mailto:${person.mail}>${person.mail}</a>`,
   },
-  render: (props) => <PersonTableCell {...props} showAvatar />,
+  render: (props) => <PersonCell {...props} showAvatar />,
 };
 
 export const sizes: Story = {
@@ -61,11 +61,11 @@ export const sizes: Story = {
   render: (props) => (
     <div style={{ display: 'flex', flexDirection: 'column', rowGap: 20 }}>
       {(['small', 'medium', 'large'] as PersonItemSize[]).map((size) => (
-        <PersonTableCell
+        <PersonCell
           key={size}
           {...props}
           size={size}
-          subHeading={(person: TableCellData) => person.jobTitle}
+          subHeading={(person: PersonCellData) => person.jobTitle}
           showAvatar
         />
       ))}

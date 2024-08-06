@@ -1,14 +1,14 @@
 import { ColDef, ICellRendererParams } from '@ag-grid-community/core';
-import { TableCellData, PersonTableCell, PersonItemSize } from '@equinor/fusion-react-person';
+import { PersonCellData, PersonCell, PersonItemSize } from '@equinor/fusion-react-person';
 import { personTooltip } from './personTooltip';
 import { personSortComparator } from './personSort';
 
 type CustomRenderParams<T> = {
   azureId?: (data: T) => string;
   upn?: (data: T) => string;
-  dataSource?: (data: T) => TableCellData;
-  heading?: <P extends TableCellData>(person: P) => string | undefined;
-  subHeading?: <P extends TableCellData>(person: P) => string | undefined;
+  dataSource?: (data: T) => PersonCellData;
+  heading?: <P extends PersonCellData>(person: P) => string | undefined;
+  subHeading?: <P extends PersonCellData>(person: P) => string | undefined;
   showAvatar?: boolean;
   size?: PersonItemSize;
 };
@@ -24,7 +24,7 @@ const renderPersonCell = <T,>(params: ICellRendererParams & CustomRenderParams<T
   const dataSourceResult = dataSource ? dataSource(value) : undefined;
 
   return (
-    <PersonTableCell
+    <PersonCell
       size={size ?? 'small'}
       azureId={azureResult}
       upn={upnResult}
