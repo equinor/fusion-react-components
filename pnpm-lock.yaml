@@ -4424,9 +4424,6 @@ packages:
   '@types/node@22.0.0':
     resolution: {integrity: sha512-VT7KSYudcPOzP5Q0wfbowyNLaVR8QWUdw+088uFWwfvpY6uCWaXpqV6ieLAu9WBcnTa7H4Z5RLK8I5t2FuOcqw==}
 
-  '@types/node@22.0.2':
-    resolution: {integrity: sha512-yPL6DyFwY5PiMVEwymNeqUTKsDczQBJ/5T7W/46RwLU/VH+AA8aT5TZkvBviLKLbbm0hlfftEkGrNzfRk/fofQ==}
-
   '@types/node@22.1.0':
     resolution: {integrity: sha512-AOmuRF0R2/5j1knA3c6G3HOk523Ga+l+ZXltX8SF1+5oqcXijjfTd8fY3XRZqSihEu9XhtQnKYLmkFaoxgsJHw==}
 
@@ -17084,7 +17081,7 @@ snapshots:
 
   '@types/gulp@4.0.17':
     dependencies:
-      '@types/node': 22.0.2
+      '@types/node': 22.1.0
       '@types/undertaker': 1.2.11
       '@types/vinyl-fs': 3.0.5
       chokidar: 3.6.0
@@ -17136,10 +17133,6 @@ snapshots:
       undici-types: 5.26.5
 
   '@types/node@22.0.0':
-    dependencies:
-      undici-types: 6.11.1
-
-  '@types/node@22.0.2':
     dependencies:
       undici-types: 6.11.1
 
@@ -17249,7 +17242,7 @@ snapshots:
 
   '@types/webpack-stream@3.2.15':
     dependencies:
-      '@types/node': 22.0.2
+      '@types/node': 22.1.0
       '@types/webpack': 4.41.38
 
   '@types/webpack@4.41.38':
