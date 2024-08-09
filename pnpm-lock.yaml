@@ -676,8 +676,8 @@ importers:
         specifier: ^5.1.1
         version: 5.1.5(@types/node@22.1.0)(sass@1.77.8)(terser@5.29.1)
       vite-tsconfig-paths:
-        specifier: ^4.3.1
-        version: 4.3.1(typescript@5.4.2)(vite@5.1.5(@types/node@22.1.0)(sass@1.77.8)(terser@5.29.1))
+        specifier: ^5.0.1
+        version: 5.0.1(typescript@5.4.2)(vite@5.1.5(@types/node@22.1.0)(sass@1.77.8)(terser@5.29.1))
     devDependencies:
       '@ag-grid-community/client-side-row-model':
         specifier: 32.0.2
@@ -10087,8 +10087,8 @@ packages:
     resolution: {integrity: sha512-q5W7tVM71e2xjHZTlgfTDoPF/SmqKG5hddq9SzR49CH2hayqRKJtQ4mtRlSxKaJlR/+9rEM+mnBHf7I2/BQcpQ==}
     engines: {node: '>=6.10'}
 
-  tsconfck@3.0.2:
-    resolution: {integrity: sha512-6lWtFjwuhS3XI4HsX4Zg0izOI3FU/AI9EGVlPEUMDIhvLPMD4wkiof0WCoDgW7qY+Dy198g4d9miAqUHWHFH6Q==}
+  tsconfck@3.1.1:
+    resolution: {integrity: sha512-00eoI6WY57SvZEVjm13stEVE90VkEdJAFGgpFLTsZbJyW/LwFQ7uQxJHWpZ2hzSWgCPKc9AnBnNP+0X7o3hAmQ==}
     engines: {node: ^18 || >=20}
     hasBin: true
     peerDependencies:
@@ -10467,8 +10467,8 @@ packages:
     resolution: {integrity: sha512-rC2VRfAVVCGEgjnxHUnpIVh3AGuk62rP3tqVrn+yab0YH7UULisC085+NYH+mnqf3Wx4SpSi1RQMwudL89N03g==}
     engines: {node: '>=10.13.0'}
 
-  vite-tsconfig-paths@4.3.1:
-    resolution: {integrity: sha512-cfgJwcGOsIxXOLU/nELPny2/LUD/lcf1IbfyeKTv2bsupVbTH/xpFtdQlBmIP1GEK2CjjLxYhFfB+QODFAx5aw==}
+  vite-tsconfig-paths@5.0.1:
+    resolution: {integrity: sha512-yqwv+LstU7NwPeNqajZzLEBVpUFU6Dugtb2P84FXuvaoYA+/70l9MHE+GYfYAycVyPSDYZ7mjOFuYBRqlEpTig==}
     peerDependencies:
       vite: '*'
     peerDependenciesMeta:
@@ -24267,7 +24267,7 @@ snapshots:
 
   ts-dedent@2.2.0: {}
 
-  tsconfck@3.0.2(typescript@5.4.2):
+  tsconfck@3.1.1(typescript@5.4.2):
     optionalDependencies:
       typescript: 5.4.2
 
@@ -24667,11 +24667,11 @@ snapshots:
       replace-ext: 2.0.0
       teex: 1.0.1
 
-  vite-tsconfig-paths@4.3.1(typescript@5.4.2)(vite@5.1.5(@types/node@22.1.0)(sass@1.77.8)(terser@5.29.1)):
+  vite-tsconfig-paths@5.0.1(typescript@5.4.2)(vite@5.1.5(@types/node@22.1.0)(sass@1.77.8)(terser@5.29.1)):
     dependencies:
-      debug: 4.3.4
+      debug: 4.3.6
       globrex: 0.1.2
-      tsconfck: 3.0.2(typescript@5.4.2)
+      tsconfck: 3.1.1(typescript@5.4.2)
     optionalDependencies:
       vite: 5.1.5(@types/node@22.1.0)(sass@1.77.8)(terser@5.29.1)
     transitivePeerDependencies:
