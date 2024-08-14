@@ -49,7 +49,7 @@ export const basic: Story = {
 
 export const controlled: Story = {
   ...basic,
-  name: 'personSelect',
+  name: 'selectedPerson',
   render: (props) => {
     const [selected, setSelected] = useState<string | null>('winny@pooh.net');
 
