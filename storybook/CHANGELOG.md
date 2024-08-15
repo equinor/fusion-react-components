@@ -1,5 +1,15 @@
 # Change Log
 
+## 4.1.1
+
+### Patch Changes
+
+- f66e689: - Update fwc-person to v3.0.1
+  - Ads example in storybook for using person-select as controlled component
+- Updated dependencies [f66e689]
+  - @equinor/fusion-react-person@0.9.1
+  - @equinor/fusion-react-ag-grid-person-cell@1.0.1
+
 ## 4.1.0
 
 ### Minor Changes
