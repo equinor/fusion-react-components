@@ -1,5 +1,12 @@
 # Change Log
 
+## 0.9.1
+
+### Patch Changes
+
+- f66e689: - Update fwc-person to v3.0.1
+  - Ads example in storybook for using person-select as controlled component
+
 ## 0.9.0
 
 ### Minor Changes

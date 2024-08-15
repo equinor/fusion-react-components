@@ -1,5 +1,12 @@
 # Change Log
 
+## 1.0.1
+
+### Patch Changes
+
+- Updated dependencies [f66e689]
+  - @equinor/fusion-react-person@0.9.1
+
 ## 1.0.0
 
 ### Major Changes
