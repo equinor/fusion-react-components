@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import { useCallback, useMemo, useReducer } from 'react';
+import { useCallback, useState, useMemo, useReducer } from 'react';
 
 import { Meta, StoryObj } from '@storybook/react';
 
@@ -44,6 +44,20 @@ export const basic: Story = {
     leadingIcon: 'search',
     onSelect: (w) => console.log('onSelect', w),
     onDropdownClosed: (w) => console.log('onDropdownClosed', w),
+  },
+};
+
+export const controlled: Story = {
+  ...basic,
+  name: 'selectedPerson',
+  render: (props) => {
+    const [selected, setSelected] = useState<string | null>('winny@pooh.net');
+
+    const onSelect = useCallback((e: PersonSelectEvent) => {
+      setSelected(e.nativeEvent.detail.selected?.upn ?? null);
+    }, []);
+
+    return <PersonSelect {...props} selectedPerson={selected} onSelect={onSelect} />;
   },
 };
 
