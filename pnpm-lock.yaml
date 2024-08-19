@@ -665,7 +665,7 @@ importers:
         version: 8.1.5(@babel/preset-env@7.24.0(@babel/core@7.24.0))(encoding@0.1.13)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       storybook-addon-react-docgen:
         specifier: ^1.2.44
-        version: 1.2.44(@storybook/addons@7.6.17(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@storybook/components@8.2.8(storybook@8.1.5(@babel/preset-env@7.24.0(@babel/core@7.24.0))(encoding@0.1.13)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)))(@storybook/core-events@8.1.9)(react@18.2.0)
+        version: 1.2.44(@storybook/addons@7.6.17(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@storybook/components@8.2.9(storybook@8.1.5(@babel/preset-env@7.24.0(@babel/core@7.24.0))(encoding@0.1.13)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)))(@storybook/core-events@8.1.9)(react@18.2.0)
       styled-components:
         specifier: ^6.1.8
         version: 6.1.8(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -4546,10 +4546,10 @@ packages:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0-beta
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0-beta
 
-  '@storybook/components@8.2.8':
-    resolution: {integrity: sha512-d4fI7Clogx4rgLAM7vZVr9L2EFtAkGXvpkZFuB0H0eyYaxZSbuZYvDCzRglQGQGsqD8IA8URTgPVSXC3L3k6Bg==}
+  '@storybook/components@8.2.9':
+    resolution: {integrity: sha512-OkkcZ/f/6o3GdFEEK9ZHKIGHWUHmavZUYs5xaSgU64bOrA2aqEFtfeWWitZYTv3Euhk8MVLWfyEMDfez0AlvDg==}
     peerDependencies:
-      storybook: ^8.2.8
+      storybook: ^8.2.9
 
   '@storybook/core-common@8.1.5':
     resolution: {integrity: sha512-1QDOT6KPZ9KV7Gs1yyqzvSwGBmNSUB33gckUldSBF4aqP+tZ7W5JIQ6/YTtp3V02sEokZGdL9Ud4LczQxTgy3A==}
@@ -10995,6 +10995,10 @@ packages:
 
   watchpack@2.4.1:
     resolution: {integrity: sha512-8wrBCMtVhqcXP2Sup1ctSkga6uc2Bx0IIvKyT7yTFier5AXHooSI+QyQQAtTb7+E0IUCCKyTFmXqdqgum2XWGg==}
+    engines: {node: '>=10.13.0'}
+
+  watchpack@2.4.2:
+    resolution: {integrity: sha512-TnbFSbcOCcDgjZ4piURLCbJ3nJhznVh9kw6F6iokjiFPl8ONxe9A6nMDVXDiNbrSfLILs6vB07F7wLBrwPYzJw==}
     engines: {node: '>=10.13.0'}
 
   wcwidth@1.0.1:
@@ -17788,7 +17792,7 @@ snapshots:
       - '@types/react'
       - '@types/react-dom'
 
-  '@storybook/components@8.2.8(storybook@8.1.5(@babel/preset-env@7.24.0(@babel/core@7.24.0))(encoding@0.1.13)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))':
+  '@storybook/components@8.2.9(storybook@8.1.5(@babel/preset-env@7.24.0(@babel/core@7.24.0))(encoding@0.1.13)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))':
     dependencies:
       storybook: 8.1.5(@babel/preset-env@7.24.0(@babel/core@7.24.0))(encoding@0.1.13)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
 
@@ -25196,10 +25200,10 @@ snapshots:
 
   store2@2.14.3: {}
 
-  storybook-addon-react-docgen@1.2.44(@storybook/addons@7.6.17(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@storybook/components@8.2.8(storybook@8.1.5(@babel/preset-env@7.24.0(@babel/core@7.24.0))(encoding@0.1.13)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)))(@storybook/core-events@8.1.9)(react@18.2.0):
+  storybook-addon-react-docgen@1.2.44(@storybook/addons@7.6.17(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@storybook/components@8.2.9(storybook@8.1.5(@babel/preset-env@7.24.0(@babel/core@7.24.0))(encoding@0.1.13)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)))(@storybook/core-events@8.1.9)(react@18.2.0):
     dependencies:
       '@storybook/addons': 7.6.17(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
-      '@storybook/components': 8.2.8(storybook@8.1.5(@babel/preset-env@7.24.0(@babel/core@7.24.0))(encoding@0.1.13)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))
+      '@storybook/components': 8.2.9(storybook@8.1.5(@babel/preset-env@7.24.0(@babel/core@7.24.0))(encoding@0.1.13)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))
       '@storybook/core-events': 8.1.9
       nested-object-assign: 1.0.4
       prop-types: 15.8.1
@@ -26073,6 +26077,11 @@ snapshots:
       glob-to-regexp: 0.4.1
       graceful-fs: 4.2.11
 
+  watchpack@2.4.2:
+    dependencies:
+      glob-to-regexp: 0.4.1
+      graceful-fs: 4.2.11
+
   wcwidth@1.0.1:
     dependencies:
       defaults: 1.0.4
@@ -26155,7 +26164,7 @@ snapshots:
       schema-utils: 3.3.0
       tapable: 2.2.1
       terser-webpack-plugin: 5.3.10(esbuild@0.19.12)(webpack@5.93.0(esbuild@0.19.12))
-      watchpack: 2.4.1
+      watchpack: 2.4.2
       webpack-sources: 3.2.3
     transitivePeerDependencies:
       - '@swc/core'
