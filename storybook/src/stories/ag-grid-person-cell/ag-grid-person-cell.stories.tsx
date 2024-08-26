@@ -5,7 +5,7 @@ import { PersonCell } from '@equinor/fusion-react-person/src/PersonCell';
 import { PersonProvider } from '@equinor/fusion-react-person/src/PersonProvider';
 import { Theme } from '../../components/Theme';
 
-import { agGridPersonCell } from '@equinor/fusion-react-ag-grid-person-cell/src/agPersonCell';
+import { agGridPersonCell } from '@equinor/fusion-react-ag-grid-person-cell';
 
 import { resolver } from '../person/person-provider';
 import { faker } from '@faker-js/faker';
@@ -19,6 +19,26 @@ import useStyles from '@equinor/fusion-react-ag-grid-styles';
 const meta: Meta<typeof PersonCell> = {
   title: 'ag-grid/Person Cell',
   component: PersonCell,
+  argTypes: {
+    azureId: {
+      description: 'Unique person Azure ID',
+      table: {
+        type: { summary: '(data: T) => string | undefined' }, // Change the type here
+      },
+    },
+    upn: {
+      description: 'Unique person email(upn)',
+      table: {
+        type: { summary: '(data: T) => string | undefined' }, // Change the type here
+      },
+    },
+    dataSource: {
+      description: 'Custom person data source',
+      table: {
+        type: { summary: '(data: T) => PersonInfo | undefined' }, // Change the type here
+      },
+    },
+  },
 };
 
 ModuleRegistry.registerModules([ClientSideRowModelModule]);
