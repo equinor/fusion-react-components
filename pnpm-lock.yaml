@@ -1841,6 +1841,9 @@ packages:
   '@equinor/fusion-wc-checkbox@1.1.2':
     resolution: {integrity: sha512-lAD6yh4cvuTCNisiYjyB1BvGg566YkQFa9m+/hzIVIlQRk0UQn9/FHa8BB/DnAj9O/K6IrgRx7tabrXIDrzHUg==}
 
+  '@equinor/fusion-wc-checkbox@1.1.2':
+    resolution: {integrity: sha512-lAD6yh4cvuTCNisiYjyB1BvGg566YkQFa9m+/hzIVIlQRk0UQn9/FHa8BB/DnAj9O/K6IrgRx7tabrXIDrzHUg==}
+
   '@equinor/fusion-wc-chip@1.2.0':
     resolution: {integrity: sha512-fGkI4wfqO2FN2b5aM9O4W2X4yvbUaA7WUQ6qSvPaozhWxPQxSnA3iUQke0PXxW2opQD40VD1rdVT7OLnSbF5iw==}
 
@@ -1856,6 +1859,9 @@ packages:
   '@equinor/fusion-wc-divider@1.1.2':
     resolution: {integrity: sha512-kb5kmq8S+aMqe+91RNHmJtjCg8ecrnB5DYrcm6RzucLicxL0NTwlLAJfy49xDR5kzt2laoyq6XsQ+4MqnlTbyw==}
 
+  '@equinor/fusion-wc-divider@1.1.2':
+    resolution: {integrity: sha512-kb5kmq8S+aMqe+91RNHmJtjCg8ecrnB5DYrcm6RzucLicxL0NTwlLAJfy49xDR5kzt2laoyq6XsQ+4MqnlTbyw==}
+
   '@equinor/fusion-wc-icon@2.3.0':
     resolution: {integrity: sha512-CRyIHnvmZ/WOzZwhsoxNL3DkN30wk7jskEa6i+YsiqFkV1xAGgMPQJjhmXI1jhewRoT4o09WcUjnLaYQ6CUdsQ==}
 
@@ -1864,6 +1870,9 @@ packages:
 
   '@equinor/fusion-wc-list@1.1.1':
     resolution: {integrity: sha512-+pBtqfGLvOEA2Fs4rw/A2r7onaRKl44y92upFdPq5mH4EOKuCe1Pzose1njVNxnmNhBbADwjWRsya47QlKlLZg==}
+
+  '@equinor/fusion-wc-list@1.1.3':
+    resolution: {integrity: sha512-eKzpPA1/8k6uQu6/5ozfywJWHUBPcwOzcZbHz4/Rzu1fb5b932Eot/yUsacDRhnSigbgBvsOqU0phDp2OuV6yA==}
 
   '@equinor/fusion-wc-list@1.1.3':
     resolution: {integrity: sha512-eKzpPA1/8k6uQu6/5ozfywJWHUBPcwOzcZbHz4/Rzu1fb5b932Eot/yUsacDRhnSigbgBvsOqU0phDp2OuV6yA==}
@@ -1882,6 +1891,9 @@ packages:
 
   '@equinor/fusion-wc-radio@1.1.0':
     resolution: {integrity: sha512-ZyFnylCMU/YqT9vnrltTv7bqVW7zOhe5z8Q1xKhquLPtfUehzzRNKxDBIg+W1LgIJiNxzgxvgSjracrjUXGmfQ==}
+
+  '@equinor/fusion-wc-radio@1.1.2':
+    resolution: {integrity: sha512-XO0rGD74dVQTtyI4GIjg1CuINbQ7DUUiNohvBWsYoLdG6TmvnCuO+2KfRNMdlwVTyog7Nm6qIl9agjQUOHQS0Q==}
 
   '@equinor/fusion-wc-radio@1.1.2':
     resolution: {integrity: sha512-XO0rGD74dVQTtyI4GIjg1CuINbQ7DUUiNohvBWsYoLdG6TmvnCuO+2KfRNMdlwVTyog7Nm6qIl9agjQUOHQS0Q==}
@@ -11763,6 +11775,13 @@ snapshots:
       '@material/mwc-checkbox': 0.27.0
       lit: 3.2.0
 
+  '@equinor/fusion-wc-checkbox@1.1.2':
+    dependencies:
+      '@equinor/fusion-wc-core': 2.0.0
+      '@equinor/fusion-web-theme': 0.1.10
+      '@material/mwc-checkbox': 0.27.0
+      lit: 3.2.0
+
   '@equinor/fusion-wc-chip@1.2.0':
     dependencies:
       '@equinor/fusion-wc-core': 2.0.0
@@ -11792,6 +11811,12 @@ snapshots:
       '@equinor/fusion-web-theme': 0.1.10
       lit: 3.2.0
 
+  '@equinor/fusion-wc-divider@1.1.2':
+    dependencies:
+      '@equinor/fusion-wc-core': 2.0.0
+      '@equinor/fusion-web-theme': 0.1.10
+      lit: 3.2.0
+
   '@equinor/fusion-wc-icon@2.3.0':
     dependencies:
       '@equinor/eds-icons': 0.19.3
@@ -11814,6 +11839,17 @@ snapshots:
       '@equinor/fusion-web-theme': 0.1.10
       '@material/mwc-list': 0.27.0
       lit: 3.0.2
+
+  '@equinor/fusion-wc-list@1.1.3':
+    dependencies:
+      '@equinor/fusion-wc-checkbox': 1.1.2
+      '@equinor/fusion-wc-core': 2.0.0
+      '@equinor/fusion-wc-divider': 1.1.2
+      '@equinor/fusion-wc-icon': 2.3.1
+      '@equinor/fusion-wc-radio': 1.1.2
+      '@equinor/fusion-web-theme': 0.1.10
+      '@material/mwc-list': 0.27.0
+      lit: 3.2.0
 
   '@equinor/fusion-wc-list@1.1.3':
     dependencies:
@@ -11876,6 +11912,13 @@ snapshots:
       '@equinor/fusion-web-theme': 0.1.10
       '@material/mwc-radio': 0.27.0
       lit: 3.0.2
+
+  '@equinor/fusion-wc-radio@1.1.2':
+    dependencies:
+      '@equinor/fusion-wc-core': 2.0.0
+      '@equinor/fusion-web-theme': 0.1.10
+      '@material/mwc-radio': 0.27.0
+      lit: 3.2.0
 
   '@equinor/fusion-wc-radio@1.1.2':
     dependencies:
