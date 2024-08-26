@@ -23,19 +23,19 @@ const meta: Meta<typeof PersonCell> = {
     azureId: {
       description: 'Unique person Azure ID',
       table: {
-        type: { summary: '(data: T) => string | undefined' },
+        type: { summary: '(data: T) => string | undefined' }, // Change the type here
       },
     },
     upn: {
       description: 'Unique person email(upn)',
       table: {
-        type: { summary: '(data: T) => string | undefined' },
+        type: { summary: '(data: T) => string | undefined' }, // Change the type here
       },
     },
     dataSource: {
       description: 'Custom person data source',
       table: {
-        type: { summary: '(data: T) => PersonInfo | undefined' },
+        type: { summary: '(data: T) => PersonInfo | undefined' }, // Change the type here
       },
     },
   },
