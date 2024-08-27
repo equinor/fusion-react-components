@@ -4,8 +4,8 @@ import { personTooltip } from './personTooltip';
 import { personSortComparator } from './personSort';
 
 type CustomRenderParams<T> = {
-  azureId?: (data: T) => string;
-  upn?: (data: T) => string;
+  azureId?: (data: T) => string | undefined;
+  upn?: (data: T) => string | undefined;
   dataSource?: (data: T) => PersonCellData;
   heading?: <P extends PersonCellData>(person: P) => string | undefined;
   subHeading?: <P extends PersonCellData>(person: P) => string | undefined;

@@ -1,12 +1,11 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { useMemo } from 'react';
 import { Meta, StoryObj } from '@storybook/react';
 
 import { PersonCell } from '@equinor/fusion-react-person/src/PersonCell';
 import { PersonProvider } from '@equinor/fusion-react-person/src/PersonProvider';
 import { Theme } from '../../components/Theme';
 
-import { agGridPersonCell } from '@equinor/fusion-react-ag-grid-person-cell/src/agPersonCell';
+import { agGridPersonCell } from '@equinor/fusion-react-ag-grid-person-cell';
 
 import { resolver } from '../person/person-provider';
 import { faker } from '@faker-js/faker';
@@ -20,6 +19,23 @@ import useStyles from '@equinor/fusion-react-ag-grid-styles';
 const meta: Meta<typeof PersonCell> = {
   title: 'ag-grid/Person Cell',
   component: PersonCell,
+  argTypes: {
+    azureId: {
+      table: {
+        type: { summary: '(data: T) => string | undefined' },
+      },
+    },
+    upn: {
+      table: {
+        type: { summary: '(data: T) => string | undefined' },
+      },
+    },
+    dataSource: {
+      table: {
+        type: { summary: '(data: T) => PersonInfo | undefined' },
+      },
+    },
+  },
 };
 
 ModuleRegistry.registerModules([ClientSideRowModelModule]);
@@ -54,24 +70,22 @@ export const basic: Story = {
   render: () => {
     useStyles();
 
-    const columnDefs = useMemo<ColDef[]>(() => {
-      return [
-        { field: 'number', headerName: '#', maxWidth: 50 },
-        { field: 'manufacturer' },
-        { field: 'model' },
-        agGridPersonCell({
-          flex: 1.4,
-          field: 'driver',
-          azureId: (data: string) => data,
-          heading: (person) => person.name,
-          subHeading: (person) => person.mail,
-          dataToSort(data) {
-            return data;
-          },
-        }),
-        { field: 'price' },
-      ];
-    }, []);
+    const columnDefs = [
+      { field: 'number', headerName: '#', maxWidth: 50 },
+      { field: 'manufacturer' },
+      { field: 'model' },
+      agGridPersonCell({
+        flex: 1.4,
+        field: 'driver',
+        azureId: (data: string) => data,
+        heading: (person) => person.name,
+        subHeading: (person) => person.mail,
+        dataToSort(data) {
+          return data;
+        },
+      }),
+      { field: 'price' },
+    ] as ColDef[];
 
     return (
       <div className="ag-theme-alpine-fusion" style={{ height: 320 }}>
@@ -87,22 +101,20 @@ export const showAvatar: Story = {
   render: () => {
     useStyles();
 
-    const columnDefs = useMemo<ColDef[]>(() => {
-      return [
-        { field: 'number', headerName: '#', maxWidth: 50 },
-        { field: 'manufacturer' },
-        { field: 'model' },
-        agGridPersonCell({
-          flex: 1.4,
-          field: 'driver',
-          azureId: (data: string) => data,
-          heading: (person) => person.name,
-          subHeading: (person) => person.mail,
-          showAvatar: true,
-        }),
-        { field: 'price' },
-      ];
-    }, []);
+    const columnDefs = [
+      { field: 'number', headerName: '#', maxWidth: 50 },
+      { field: 'manufacturer' },
+      { field: 'model' },
+      agGridPersonCell({
+        flex: 1.4,
+        field: 'driver',
+        azureId: (data: string) => data,
+        heading: (person) => person.name,
+        subHeading: (person) => person.mail,
+        showAvatar: true,
+      }),
+      { field: 'price' },
+    ] as ColDef[];
 
     return (
       <div className="ag-theme-alpine-fusion" style={{ height: 320 }}>
@@ -118,22 +130,20 @@ export const customHeadings: Story = {
   render: () => {
     useStyles();
 
-    const columnDefs = useMemo<ColDef[]>(() => {
-      return [
-        { field: 'number', headerName: '#', maxWidth: 50 },
-        { field: 'manufacturer' },
-        { field: 'model' },
-        agGridPersonCell({
-          flex: 1.4,
-          field: 'driver',
-          azureId: (data: string) => data,
-          heading: (person) => `<b>${person.jobTitle}</b>`,
-          subHeading: (person) => `<a href=mailto:${person.mail}>${person.mail}</a>`,
-          showAvatar: true,
-        }),
-        { field: 'price' },
-      ];
-    }, []);
+    const columnDefs = [
+      { field: 'number', headerName: '#', maxWidth: 50 },
+      { field: 'manufacturer' },
+      { field: 'model' },
+      agGridPersonCell({
+        flex: 1.4,
+        field: 'driver',
+        azureId: (data: string) => data,
+        heading: (person) => `<b>${person.jobTitle}</b>`,
+        subHeading: (person) => `<a href=mailto:${person.mail}>${person.mail}</a>`,
+        showAvatar: true,
+      }),
+      { field: 'price' },
+    ] as ColDef[];
 
     return (
       <div className="ag-theme-alpine-fusion" style={{ height: 320 }}>
@@ -169,22 +179,20 @@ export const customDataObject: Story = {
       price: faker.string.numeric(6),
     }));
 
-    const columnDefs = useMemo<ColDef[]>(() => {
-      return [
-        { field: 'number', headerName: '#', maxWidth: 50 },
-        { field: 'manufacturer' },
-        { field: 'model' },
-        agGridPersonCell({
-          flex: 1.4,
-          field: 'driver',
-          upn: (data: Driver) => data.personInfo.upn,
-          heading: (person) => person.name,
-          subHeading: (person) => person.jobTitle,
-          showAvatar: true,
-        }),
-        { field: 'price' },
-      ];
-    }, []);
+    const columnDefs = [
+      { field: 'number', headerName: '#', maxWidth: 50 },
+      { field: 'manufacturer' },
+      { field: 'model' },
+      agGridPersonCell({
+        flex: 1.4,
+        field: 'driver',
+        upn: (data: Driver) => data.personInfo.upn,
+        heading: (person) => person.name,
+        subHeading: (person) => person.jobTitle,
+        showAvatar: true,
+      }),
+      { field: 'price' },
+    ] as ColDef[];
 
     return (
       <div className="ag-theme-alpine-fusion" style={{ height: 320 }}>
