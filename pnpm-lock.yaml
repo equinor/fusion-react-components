@@ -9438,6 +9438,9 @@ packages:
   prosemirror-model@1.19.4:
     resolution: {integrity: sha512-RPmVXxUfOhyFdayHawjuZCxiROsm9L4FCUA6pWI+l7n2yCBsWy9VpdE1hpDHUS8Vad661YLY9AzqfjLhAKQ4iQ==}
 
+  prosemirror-model@1.22.3:
+    resolution: {integrity: sha512-V4XCysitErI+i0rKFILGt/xClnFJaohe/wrrlT2NSZ+zk8ggQfDH4x2wNK7Gm0Hp4CIoWizvXFP7L9KMaCuI0Q==}
+
   prosemirror-schema-basic@1.2.2:
     resolution: {integrity: sha512-/dT4JFEGyO7QnNTe9UaKUhjDXbTNkiWTq/N4VpKaF79bBjSExVV2NXmJpcM7z/gD7mbqNjxbmWW5nf1iNSSGnw==}
 
@@ -9452,6 +9455,9 @@ packages:
 
   prosemirror-view@1.33.1:
     resolution: {integrity: sha512-62qkYgSJIkwIMMCpuGuPzc52DiK1Iod6TWoIMxP4ja6BTD4yO8kCUL64PZ/WhH/dJ9fW0CDO39FhH1EMyhUFEg==}
+
+  prosemirror-view@1.34.1:
+    resolution: {integrity: sha512-KS2xmqrAM09h3SLu1S2pNO/ZoIP38qkTJ6KFd7+BeSfmX/ek0n5yOfGuiTZjFNTC8GOsEIUa1tHxt+2FMu3yWQ==}
 
   proto-list@1.2.4:
     resolution: {integrity: sha512-vtK/94akxsTMhe0/cbfpR+syPuszcuwhqVjJq26CuNDgFGj682oRBXOP5MJpv2r7JtE8MsiepGIqvvOTBwn2vA==}
@@ -24190,6 +24196,10 @@ snapshots:
     dependencies:
       orderedmap: 2.1.1
 
+  prosemirror-model@1.22.3:
+    dependencies:
+      orderedmap: 2.1.1
+
   prosemirror-schema-basic@1.2.2:
     dependencies:
       prosemirror-model: 1.19.4
@@ -24202,17 +24212,23 @@ snapshots:
 
   prosemirror-state@1.4.3:
     dependencies:
-      prosemirror-model: 1.19.4
+      prosemirror-model: 1.22.3
       prosemirror-transform: 1.8.0
-      prosemirror-view: 1.33.1
+      prosemirror-view: 1.34.1
 
   prosemirror-transform@1.8.0:
     dependencies:
-      prosemirror-model: 1.19.4
+      prosemirror-model: 1.22.3
 
   prosemirror-view@1.33.1:
     dependencies:
       prosemirror-model: 1.19.4
+      prosemirror-state: 1.4.3
+      prosemirror-transform: 1.8.0
+
+  prosemirror-view@1.34.1:
+    dependencies:
+      prosemirror-model: 1.22.3
       prosemirror-state: 1.4.3
       prosemirror-transform: 1.8.0
 
