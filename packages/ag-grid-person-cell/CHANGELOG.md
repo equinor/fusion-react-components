@@ -1,5 +1,17 @@
 # Change Log
 
+## 1.0.2
+
+### Patch Changes
+
+- 49389d4: AgGrid person cell update of:
+
+  - Storybook
+  - Dependencies
+
+- Updated dependencies [49389d4]
+  - @equinor/fusion-react-person@0.9.2
+
 ## 1.0.1
 
 ### Patch Changes

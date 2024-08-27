@@ -1,5 +1,14 @@
 # Change Log
 
+## 0.9.2
+
+### Patch Changes
+
+- 49389d4: AgGrid person cell update of:
+
+  - Storybook
+  - Dependencies
+
 ## 0.9.1
 
 ### Patch Changes
