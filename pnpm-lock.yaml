@@ -665,7 +665,7 @@ importers:
         version: 8.1.5(@babel/preset-env@7.24.0(@babel/core@7.24.0))(encoding@0.1.13)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       storybook-addon-react-docgen:
         specifier: ^1.2.44
-        version: 1.2.44(@storybook/addons@7.6.17(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@storybook/components@8.2.9(storybook@8.1.5(@babel/preset-env@7.24.0(@babel/core@7.24.0))(encoding@0.1.13)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)))(@storybook/core-events@8.1.9)(react@18.2.0)
+        version: 1.2.44(@storybook/addons@7.6.17(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@storybook/components@8.3.0(storybook@8.1.5(@babel/preset-env@7.24.0(@babel/core@7.24.0))(encoding@0.1.13)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)))(@storybook/core-events@8.1.9)(react@18.2.0)
       styled-components:
         specifier: ^6.1.8
         version: 6.1.8(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -2307,6 +2307,7 @@ packages:
 
   '@equinor/fusion@3.4.15':
     resolution: {integrity: sha512-1mVcFe29BoihIn63t7SDCLoppYXDigRExOu+xNJPC5OUVU11E28TiHh8rq6U7guBpfp9x+9T1PQEiPJA/TROKw==}
+    deprecated: Package no longer supported. Contact Support at https://www.npmjs.com/support for more info.
 
   '@esbuild/aix-ppc64@0.19.12':
     resolution: {integrity: sha512-bmoCYyWdEL3wDQIVbcyzRyeKLgk2WtWLTWz1ZIAZF/EGbNOwSA6ew3PftJ1PqMiOOGu0OyFMzG53L0zqIpPeNA==}
@@ -4556,10 +4557,10 @@ packages:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0-beta
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0-beta
 
-  '@storybook/components@8.2.9':
-    resolution: {integrity: sha512-OkkcZ/f/6o3GdFEEK9ZHKIGHWUHmavZUYs5xaSgU64bOrA2aqEFtfeWWitZYTv3Euhk8MVLWfyEMDfez0AlvDg==}
+  '@storybook/components@8.3.0':
+    resolution: {integrity: sha512-SO/iTkmWp3aYCIy8DEhRMoOn6K7lcKTPNC/YjTvOFFzwq/CLq86WNqz6aX+wV5n6MvWTs7evSwMoz7lp4Lc4sw==}
     peerDependencies:
-      storybook: ^8.2.9
+      storybook: ^8.3.0
 
   '@storybook/core-common@8.1.5':
     resolution: {integrity: sha512-1QDOT6KPZ9KV7Gs1yyqzvSwGBmNSUB33gckUldSBF4aqP+tZ7W5JIQ6/YTtp3V02sEokZGdL9Ud4LczQxTgy3A==}
@@ -4929,6 +4930,9 @@ packages:
 
   '@types/qs@6.9.15':
     resolution: {integrity: sha512-uXHQKES6DQKKCLh441Xv/dwxOq1TVS3JPUMlEqoEglvlhR6Mxnlew/Xq/LRVHpLyk7iK3zODe1qYHIMltO7XGg==}
+
+  '@types/qs@6.9.16':
+    resolution: {integrity: sha512-7i+zxXdPD0T4cKDuxCUXJ4wHcsJLwENa6Z3dCu8cfCK743OGy5Nu1RmAGqDPsoTDINVEcdXKRvR/zre+P2Ku1A==}
 
   '@types/range-parser@1.2.7':
     resolution: {integrity: sha512-hKormJbkJqzQGhziax5PItDUTMAM9uE2XXQmM37dyd4hVM+5aVl7oVxMVUiVQn2oCQFN/LKCZdvSM0pFRqbSmQ==}
@@ -10131,6 +10135,10 @@ packages:
 
   source-map-js@1.2.0:
     resolution: {integrity: sha512-itJW8lvSA0TXEphiRoawsCksnlf8SyvmFzIhltqAHluXd88pkCd+cXJVHTDwdCr0IzwptSm035IHQktUu1QUMg==}
+    engines: {node: '>=0.10.0'}
+
+  source-map-js@1.2.1:
+    resolution: {integrity: sha512-UXWMKhLOwVKb728IUtQPXxfYU+usdybtUrK/8uGE8CQMvrhOpwvzDBwj0QhSL7MQc7vIsISBG8VQ8+IDQxpfQA==}
     engines: {node: '>=0.10.0'}
 
   source-map-resolve@0.5.3:
@@ -17818,7 +17826,7 @@ snapshots:
       - '@types/react'
       - '@types/react-dom'
 
-  '@storybook/components@8.2.9(storybook@8.1.5(@babel/preset-env@7.24.0(@babel/core@7.24.0))(encoding@0.1.13)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))':
+  '@storybook/components@8.3.0(storybook@8.1.5(@babel/preset-env@7.24.0(@babel/core@7.24.0))(encoding@0.1.13)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))':
     dependencies:
       storybook: 8.1.5(@babel/preset-env@7.24.0(@babel/core@7.24.0))(encoding@0.1.13)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
 
@@ -18072,7 +18080,7 @@ snapshots:
       '@storybook/csf': 0.1.11
       '@storybook/global': 5.0.0
       '@storybook/types': 7.6.17
-      '@types/qs': 6.9.15
+      '@types/qs': 6.9.16
       dequal: 2.0.3
       lodash: 4.17.21
       memoizerific: 1.11.3
@@ -18358,11 +18366,11 @@ snapshots:
   '@types/body-parser@1.19.5':
     dependencies:
       '@types/connect': 3.4.38
-      '@types/node': 22.4.1
+      '@types/node': 22.5.0
 
   '@types/connect@3.4.38':
     dependencies:
-      '@types/node': 22.4.1
+      '@types/node': 22.5.0
 
   '@types/conventional-commits-parser@5.0.0':
     dependencies:
@@ -18370,7 +18378,7 @@ snapshots:
 
   '@types/cross-spawn@6.0.6':
     dependencies:
-      '@types/node': 22.4.1
+      '@types/node': 22.5.0
 
   '@types/debug@4.1.12':
     dependencies:
@@ -18408,8 +18416,8 @@ snapshots:
 
   '@types/express-serve-static-core@4.17.43':
     dependencies:
-      '@types/node': 22.4.1
-      '@types/qs': 6.9.15
+      '@types/node': 22.5.0
+      '@types/qs': 6.9.16
       '@types/range-parser': 1.2.7
       '@types/send': 0.17.4
 
@@ -18417,21 +18425,21 @@ snapshots:
     dependencies:
       '@types/body-parser': 1.19.5
       '@types/express-serve-static-core': 4.17.43
-      '@types/qs': 6.9.15
+      '@types/qs': 6.9.16
       '@types/serve-static': 1.15.5
 
   '@types/find-cache-dir@3.2.1': {}
 
   '@types/glob-stream@8.0.2':
     dependencies:
-      '@types/node': 22.4.1
+      '@types/node': 22.5.0
       '@types/picomatch': 2.3.3
       '@types/streamx': 2.9.5
 
   '@types/glob@7.2.0':
     dependencies:
       '@types/minimatch': 5.1.2
-      '@types/node': 22.4.1
+      '@types/node': 22.5.0
 
   '@types/gulp@4.0.17':
     dependencies:
@@ -18457,7 +18465,7 @@ snapshots:
 
   '@types/keyv@3.1.4':
     dependencies:
-      '@types/node': 22.4.1
+      '@types/node': 22.5.0
     optional: true
 
   '@types/lodash@4.14.202': {}
@@ -18510,6 +18518,8 @@ snapshots:
 
   '@types/qs@6.9.15': {}
 
+  '@types/qs@6.9.16': {}
+
   '@types/range-parser@1.2.7': {}
 
   '@types/react@18.2.64':
@@ -18527,7 +18537,7 @@ snapshots:
 
   '@types/responselike@1.0.3':
     dependencies:
-      '@types/node': 22.4.1
+      '@types/node': 22.5.0
     optional: true
 
   '@types/scheduler@0.16.8': {}
@@ -18537,19 +18547,19 @@ snapshots:
   '@types/send@0.17.4':
     dependencies:
       '@types/mime': 1.3.5
-      '@types/node': 22.4.1
+      '@types/node': 22.5.0
 
   '@types/serve-static@1.15.5':
     dependencies:
       '@types/http-errors': 2.0.4
       '@types/mime': 3.0.4
-      '@types/node': 22.4.1
+      '@types/node': 22.5.0
 
   '@types/source-list-map@0.1.6': {}
 
   '@types/streamx@2.9.5':
     dependencies:
-      '@types/node': 22.4.1
+      '@types/node': 22.5.0
 
   '@types/styled-components@5.1.34':
     dependencies:
@@ -18573,7 +18583,7 @@ snapshots:
 
   '@types/undertaker@1.2.11':
     dependencies:
-      '@types/node': 22.4.1
+      '@types/node': 22.5.0
       '@types/undertaker-registry': 1.0.4
       async-done: 1.3.2
 
@@ -18586,17 +18596,17 @@ snapshots:
   '@types/vinyl-fs@3.0.5':
     dependencies:
       '@types/glob-stream': 8.0.2
-      '@types/node': 22.4.1
+      '@types/node': 22.5.0
       '@types/vinyl': 2.0.11
 
   '@types/vinyl@2.0.11':
     dependencies:
       '@types/expect': 1.20.4
-      '@types/node': 22.4.1
+      '@types/node': 22.5.0
 
   '@types/webpack-sources@3.2.3':
     dependencies:
-      '@types/node': 22.4.1
+      '@types/node': 22.5.0
       '@types/source-list-map': 0.1.6
       source-map: 0.7.4
 
@@ -18607,7 +18617,7 @@ snapshots:
 
   '@types/webpack@4.41.38':
     dependencies:
-      '@types/node': 22.4.1
+      '@types/node': 22.5.0
       '@types/tapable': 1.0.12
       '@types/uglify-js': 3.17.5
       '@types/webpack-sources': 3.2.3
@@ -22144,7 +22154,7 @@ snapshots:
 
   jest-worker@27.5.1:
     dependencies:
-      '@types/node': 22.4.1
+      '@types/node': 22.5.0
       merge-stream: 2.0.0
       supports-color: 8.1.1
 
@@ -24966,7 +24976,7 @@ snapshots:
     dependencies:
       chokidar: 3.6.0
       immutable: 4.3.7
-      source-map-js: 1.2.0
+      source-map-js: 1.2.1
     optional: true
 
   scheduler@0.23.0:
@@ -25165,6 +25175,9 @@ snapshots:
 
   source-map-js@1.2.0: {}
 
+  source-map-js@1.2.1:
+    optional: true
+
   source-map-resolve@0.5.3:
     dependencies:
       atob: 2.1.2
@@ -25238,10 +25251,10 @@ snapshots:
 
   store2@2.14.3: {}
 
-  storybook-addon-react-docgen@1.2.44(@storybook/addons@7.6.17(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@storybook/components@8.2.9(storybook@8.1.5(@babel/preset-env@7.24.0(@babel/core@7.24.0))(encoding@0.1.13)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)))(@storybook/core-events@8.1.9)(react@18.2.0):
+  storybook-addon-react-docgen@1.2.44(@storybook/addons@7.6.17(react-dom@18.2.0(react@18.2.0))(react@18.2.0))(@storybook/components@8.3.0(storybook@8.1.5(@babel/preset-env@7.24.0(@babel/core@7.24.0))(encoding@0.1.13)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)))(@storybook/core-events@8.1.9)(react@18.2.0):
     dependencies:
       '@storybook/addons': 7.6.17(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
-      '@storybook/components': 8.2.9(storybook@8.1.5(@babel/preset-env@7.24.0(@babel/core@7.24.0))(encoding@0.1.13)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))
+      '@storybook/components': 8.3.0(storybook@8.1.5(@babel/preset-env@7.24.0(@babel/core@7.24.0))(encoding@0.1.13)(react-dom@18.2.0(react@18.2.0))(react@18.2.0))
       '@storybook/core-events': 8.1.9
       nested-object-assign: 1.0.4
       prop-types: 15.8.1
