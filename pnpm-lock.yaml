@@ -274,8 +274,8 @@ importers:
         version: 5.1.0
     devDependencies:
       '@equinor/eds-core-react':
-        specifier: ^0.41.0
-        version: 0.41.0(react-dom@18.3.1(react@18.2.0))(react@18.2.0)(styled-components@6.1.12(react-dom@18.3.1(react@18.2.0))(react@18.2.0))
+        specifier: ^0.42.0
+        version: 0.42.0(react-dom@18.3.1(react@18.2.0))(react@18.2.0)(styled-components@6.1.12(react-dom@18.3.1(react@18.2.0))(react@18.2.0))
       '@equinor/eds-icons':
         specifier: ~0.21.0
         version: 0.21.0
@@ -413,8 +413,8 @@ importers:
         version: 3.0.0(react@18.2.0)
     devDependencies:
       '@equinor/eds-core-react':
-        specifier: ^0.41.0
-        version: 0.41.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(styled-components@6.1.8(react-dom@18.2.0(react@18.2.0))(react@18.2.0))
+        specifier: ^0.42.0
+        version: 0.42.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(styled-components@6.1.8(react-dom@18.2.0(react@18.2.0))(react@18.2.0))
       '@equinor/eds-icons':
         specifier: ~0.21.0
         version: 0.21.0
@@ -469,8 +469,8 @@ importers:
         version: 6.1.8(react-dom@18.3.1(react@18.2.0))(react@18.2.0)
     devDependencies:
       '@equinor/eds-core-react':
-        specifier: ^0.41.0
-        version: 0.41.0(react-dom@18.3.1(react@18.2.0))(react@18.2.0)(styled-components@6.1.8(react-dom@18.3.1(react@18.2.0))(react@18.2.0))
+        specifier: ^0.42.0
+        version: 0.42.0(react-dom@18.3.1(react@18.2.0))(react@18.2.0)(styled-components@6.1.8(react-dom@18.3.1(react@18.2.0))(react@18.2.0))
       '@types/react':
         specifier: ^18.2.55
         version: 18.2.64
@@ -547,8 +547,8 @@ importers:
         specifier: ^11.11.0
         version: 11.11.0(@emotion/react@11.11.4(@types/react@18.2.64)(react@18.2.0))(@types/react@18.2.64)(react@18.2.0)
       '@equinor/eds-core-react':
-        specifier: ^0.41.0
-        version: 0.41.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(styled-components@6.1.8(react-dom@18.2.0(react@18.2.0))(react@18.2.0))
+        specifier: ^0.42.0
+        version: 0.42.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(styled-components@6.1.8(react-dom@18.2.0(react@18.2.0))(react@18.2.0))
       '@equinor/eds-icons':
         specifier: ~0.21.0
         version: 0.21.0
@@ -2132,8 +2132,8 @@ packages:
       react-dom: '>=16.8'
       styled-components: '>=5.1'
 
-  '@equinor/eds-core-react@0.41.0':
-    resolution: {integrity: sha512-i+s1/LgQNOvv7w+TMORAhcnY/gPaGI9D3rZyt+wBW91twyXdl9ktMd5SAmn7l7JbuL+IYl6qlKf1tmyrH+CZzg==}
+  '@equinor/eds-core-react@0.42.0':
+    resolution: {integrity: sha512-neu5dxT1p3wgNqAmUn4O7XtRqtQ28gVXZUzxYO5ftsOTKme08BpEdWNF2MngAlkVk8TT1hGwBbUu/OSyWFrjIQ==}
     peerDependencies:
       react: '>=16.8'
       react-dom: '>=16.8'
@@ -4705,14 +4705,14 @@ packages:
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
 
-  '@tanstack/react-virtual@3.5.0':
-    resolution: {integrity: sha512-rtvo7KwuIvqK9zb0VZ5IL7fiJAEnG+0EiFZz8FUOs+2mhGqdGmjKIaT1XU7Zq0eFqL0jonLlhbayJI/J2SA/Bw==}
+  '@tanstack/react-virtual@3.10.6':
+    resolution: {integrity: sha512-xaSy6uUxB92O8mngHZ6CvbhGuqxQ5lIZWCBy+FjhrbHmOwc6BnOnKkYm2FsB1/BpKw/+FVctlMbEtI+F6I1aJg==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
 
-  '@tanstack/react-virtual@3.8.4':
-    resolution: {integrity: sha512-Dq0VQr3QlTS2qL35g360QaJWBt7tCn/0xw4uZ0dHXPLO1Ak4Z4nVX4vuj1Npg1b/jqNMDToRtR5OIxM2NXRBWg==}
+  '@tanstack/react-virtual@3.5.0':
+    resolution: {integrity: sha512-rtvo7KwuIvqK9zb0VZ5IL7fiJAEnG+0EiFZz8FUOs+2mhGqdGmjKIaT1XU7Zq0eFqL0jonLlhbayJI/J2SA/Bw==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -4720,11 +4720,11 @@ packages:
   '@tanstack/virtual-core@3.0.0-beta.54':
     resolution: {integrity: sha512-jtkwqdP2rY2iCCDVAFuaNBH3fiEi29aTn2RhtIoky8DTTiCdc48plpHHreLwmv1PICJ4AJUUESaq3xa8fZH8+g==}
 
+  '@tanstack/virtual-core@3.10.6':
+    resolution: {integrity: sha512-1giLc4dzgEKLMx5pgKjL6HlG5fjZMgCjzlKAlpr7yoUtetVPELgER1NtephAI910nMwfPTHNyWKSFmJdHkz2Cw==}
+
   '@tanstack/virtual-core@3.5.0':
     resolution: {integrity: sha512-KnPRCkQTyqhanNC0K63GBG3wA8I+D1fQuVnAvcBF8f13akOKeQp1gSbu6f77zCxhEk727iV5oQnbHLYzHrECLg==}
-
-  '@tanstack/virtual-core@3.8.4':
-    resolution: {integrity: sha512-iO5Ujgw3O1yIxWDe9FgUPNkGjyT657b1WNX52u+Wv1DyBFEpdCdGkuVaky0M3hHFqNWjAmHWTn4wgj9rTr7ZQg==}
 
   '@testing-library/dom@9.3.4':
     resolution: {integrity: sha512-FlS4ZWlp97iiNWig0Muq8p+3rVDjRiYE+YKGbAqXOu9nwJFFOdL00kFpz42M+4huzYi86vAK1sOOfyOG45muIQ==}
@@ -6402,8 +6402,8 @@ packages:
     peerDependencies:
       react: '>=16.12.0'
 
-  downshift@9.0.7:
-    resolution: {integrity: sha512-B6JY4sJGEl9xBEJEvC/C+QYYYtPWN5RL+TlROJQfue9+ZFgrD/p1ZgGw73I0WSTNH9/h5q3LIKQA4FLd/N10vg==}
+  downshift@9.0.8:
+    resolution: {integrity: sha512-59BWD7+hSUQIM1DeNPLirNNnZIO9qMdIK5GQ/Uo8q34gT4B78RBlb9dhzgnh0HfQTJj4T/JKYD8KoLAlMWnTsA==}
     peerDependencies:
       react: '>=16.12.0'
 
@@ -13270,7 +13270,7 @@ snapshots:
       react-dom: 18.3.1(react@18.2.0)
       styled-components: 6.1.12(react-dom@18.3.1(react@18.2.0))(react@18.2.0)
 
-  '@equinor/eds-core-react@0.41.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(styled-components@6.1.8(react-dom@18.2.0(react@18.2.0))(react@18.2.0))':
+  '@equinor/eds-core-react@0.42.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(styled-components@6.1.8(react-dom@18.2.0(react@18.2.0))(react@18.2.0))':
     dependencies:
       '@babel/runtime': 7.25.0
       '@equinor/eds-icons': 0.21.0
@@ -13282,14 +13282,14 @@ snapshots:
       '@react-stately/calendar': 3.5.3(react@18.2.0)
       '@react-stately/datepicker': 3.10.1(react@18.2.0)
       '@react-types/shared': 3.24.1(react@18.2.0)
-      '@tanstack/react-virtual': 3.8.4(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
-      downshift: 9.0.7(react@18.2.0)
+      '@tanstack/react-virtual': 3.10.6(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+      downshift: 9.0.8(react@18.2.0)
       react: 18.2.0
       react-aria: 3.34.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react-dom: 18.2.0(react@18.2.0)
       styled-components: 6.1.8(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
 
-  '@equinor/eds-core-react@0.41.0(react-dom@18.3.1(react@18.2.0))(react@18.2.0)(styled-components@6.1.12(react-dom@18.3.1(react@18.2.0))(react@18.2.0))':
+  '@equinor/eds-core-react@0.42.0(react-dom@18.3.1(react@18.2.0))(react@18.2.0)(styled-components@6.1.12(react-dom@18.3.1(react@18.2.0))(react@18.2.0))':
     dependencies:
       '@babel/runtime': 7.25.0
       '@equinor/eds-icons': 0.21.0
@@ -13301,14 +13301,14 @@ snapshots:
       '@react-stately/calendar': 3.5.3(react@18.2.0)
       '@react-stately/datepicker': 3.10.1(react@18.2.0)
       '@react-types/shared': 3.24.1(react@18.2.0)
-      '@tanstack/react-virtual': 3.8.4(react-dom@18.3.1(react@18.2.0))(react@18.2.0)
-      downshift: 9.0.7(react@18.2.0)
+      '@tanstack/react-virtual': 3.10.6(react-dom@18.3.1(react@18.2.0))(react@18.2.0)
+      downshift: 9.0.8(react@18.2.0)
       react: 18.2.0
       react-aria: 3.34.1(react-dom@18.3.1(react@18.2.0))(react@18.2.0)
       react-dom: 18.3.1(react@18.2.0)
       styled-components: 6.1.12(react-dom@18.3.1(react@18.2.0))(react@18.2.0)
 
-  '@equinor/eds-core-react@0.41.0(react-dom@18.3.1(react@18.2.0))(react@18.2.0)(styled-components@6.1.8(react-dom@18.3.1(react@18.2.0))(react@18.2.0))':
+  '@equinor/eds-core-react@0.42.0(react-dom@18.3.1(react@18.2.0))(react@18.2.0)(styled-components@6.1.8(react-dom@18.3.1(react@18.2.0))(react@18.2.0))':
     dependencies:
       '@babel/runtime': 7.25.0
       '@equinor/eds-icons': 0.21.0
@@ -13320,8 +13320,8 @@ snapshots:
       '@react-stately/calendar': 3.5.3(react@18.2.0)
       '@react-stately/datepicker': 3.10.1(react@18.2.0)
       '@react-types/shared': 3.24.1(react@18.2.0)
-      '@tanstack/react-virtual': 3.8.4(react-dom@18.3.1(react@18.2.0))(react@18.2.0)
-      downshift: 9.0.7(react@18.2.0)
+      '@tanstack/react-virtual': 3.10.6(react-dom@18.3.1(react@18.2.0))(react@18.2.0)
+      downshift: 9.0.8(react@18.2.0)
       react: 18.2.0
       react-aria: 3.34.1(react-dom@18.3.1(react@18.2.0))(react@18.2.0)
       react-dom: 18.3.1(react@18.2.0)
@@ -14109,7 +14109,7 @@ snapshots:
 
   '@material-ui/styles@4.11.5(@types/react@18.2.64)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
-      '@babel/runtime': 7.24.0
+      '@babel/runtime': 7.25.0
       '@emotion/hash': 0.8.0
       '@material-ui/types': 5.1.0(@types/react@18.2.64)
       '@material-ui/utils': 4.11.3(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -18273,29 +18273,29 @@ snapshots:
       '@tanstack/virtual-core': 3.0.0-beta.54
       react: 18.2.0
 
+  '@tanstack/react-virtual@3.10.6(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
+    dependencies:
+      '@tanstack/virtual-core': 3.10.6
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+
+  '@tanstack/react-virtual@3.10.6(react-dom@18.3.1(react@18.2.0))(react@18.2.0)':
+    dependencies:
+      '@tanstack/virtual-core': 3.10.6
+      react: 18.2.0
+      react-dom: 18.3.1(react@18.2.0)
+
   '@tanstack/react-virtual@3.5.0(react-dom@18.3.1(react@18.2.0))(react@18.2.0)':
     dependencies:
       '@tanstack/virtual-core': 3.5.0
       react: 18.2.0
       react-dom: 18.3.1(react@18.2.0)
 
-  '@tanstack/react-virtual@3.8.4(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
-    dependencies:
-      '@tanstack/virtual-core': 3.8.4
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-
-  '@tanstack/react-virtual@3.8.4(react-dom@18.3.1(react@18.2.0))(react@18.2.0)':
-    dependencies:
-      '@tanstack/virtual-core': 3.8.4
-      react: 18.2.0
-      react-dom: 18.3.1(react@18.2.0)
-
   '@tanstack/virtual-core@3.0.0-beta.54': {}
 
-  '@tanstack/virtual-core@3.5.0': {}
+  '@tanstack/virtual-core@3.10.6': {}
 
-  '@tanstack/virtual-core@3.8.4': {}
+  '@tanstack/virtual-core@3.5.0': {}
 
   '@testing-library/dom@9.3.4':
     dependencies:
@@ -20268,7 +20268,7 @@ snapshots:
       react-is: 18.2.0
       tslib: 2.6.3
 
-  downshift@9.0.7(react@18.2.0):
+  downshift@9.0.8(react@18.2.0):
     dependencies:
       '@babel/runtime': 7.25.0
       compute-scroll-into-view: 3.1.0
