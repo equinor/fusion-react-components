@@ -298,8 +298,8 @@ importers:
         specifier: 4.x
         version: 4.7.11
       date-fns:
-        specifier: 3.6.0
-        version: 3.6.0
+        specifier: 4.1.0
+        version: 4.1.0
       history:
         specifier: 4.x
         version: 4.10.1
@@ -522,8 +522,8 @@ importers:
   packages/utils:
     dependencies:
       date-fns:
-        specifier: ^3.2.0
-        version: 3.3.1
+        specifier: ^4.1.0
+        version: 4.1.0
     devDependencies:
       '@types/react':
         specifier: ^18.2.24
@@ -6281,11 +6281,11 @@ packages:
     resolution: {integrity: sha512-fnULvOpxnC5/Vg3NCiWelDsLiUc9bRwAPs/+LfTLNvetFCtCTN+yQz15C/fs4AwX1R9K5GLtLfn8QW+dWisaAw==}
     engines: {node: '>=0.11'}
 
-  date-fns@3.3.1:
-    resolution: {integrity: sha512-y8e109LYGgoQDveiEBD3DYXKba1jWf5BA8YU1FL5Tvm0BTdEfy54WLCwnuYWZNnzzvALy/QQ4Hov+Q9RVRv+Zw==}
-
   date-fns@3.6.0:
     resolution: {integrity: sha512-fRHTG8g/Gif+kSh50gaGEdToemgfj74aRX3swtiouboip5JDLAyDE9F11nHMIcvOaXeOC6D7SpNhi7uFyB7Uww==}
+
+  date-fns@4.1.0:
+    resolution: {integrity: sha512-Ukq0owbQXxa/U3EGtsdVBkR1w7KOQ5gIBqdH2hkvknzZPYvBxb/aa6E8L7tmjFtkwZBu3UXBbjIgPo/Ez4xaNg==}
 
   dateformat@3.0.3:
     resolution: {integrity: sha512-jyCETtSl3VMZMWeRo7iY1FL19ges1t55hMo5yaam4Jrsm5EPL89UQkoQRyiI+Yf4k8r2ZpdngkV8hr1lIdjb3Q==}
@@ -20210,9 +20210,9 @@ snapshots:
     dependencies:
       '@babel/runtime': 7.25.0
 
-  date-fns@3.3.1: {}
-
   date-fns@3.6.0: {}
+
+  date-fns@4.1.0: {}
 
   dateformat@3.0.3: {}
 
