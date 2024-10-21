@@ -13975,7 +13975,7 @@ snapshots:
   '@floating-ui/react@0.26.22(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
       '@floating-ui/react-dom': 2.1.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
-      '@floating-ui/utils': 0.2.7
+      '@floating-ui/utils': 0.2.8
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       tabbable: 6.2.0
@@ -13983,7 +13983,7 @@ snapshots:
   '@floating-ui/react@0.26.22(react-dom@18.3.1(react@18.2.0))(react@18.2.0)':
     dependencies:
       '@floating-ui/react-dom': 2.1.1(react-dom@18.3.1(react@18.2.0))(react@18.2.0)
-      '@floating-ui/utils': 0.2.7
+      '@floating-ui/utils': 0.2.8
       react: 18.2.0
       react-dom: 18.3.1(react@18.2.0)
       tabbable: 6.2.0
