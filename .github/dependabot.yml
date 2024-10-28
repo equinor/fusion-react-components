@@ -15,9 +15,11 @@ updates:
         applies-to: version-updates
         patterns:
           - "@ag-grid-community/*"
+      fusion-wc:
+        applies-to: version-updates
+        patterns:
+          - "@equinor/fusion-wc-*"
   - package-ecosystem: "github-actions"
-    # Workflow files stored in the
-    # default location of `.github/workflows`
     directory: "/"
     schedule:
       interval: "weekly"
