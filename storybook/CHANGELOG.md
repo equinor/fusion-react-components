@@ -1,5 +1,15 @@
 # Change Log
 
+## 4.1.3
+
+### Patch Changes
+
+- Updated dependencies [6af9c2c]
+  - @equinor/fusion-react-hanging-garden@1.7.5
+  - @equinor/fusion-react-ag-grid-person-cell@1.0.3
+  - @equinor/fusion-react-context-selector@0.6.7
+  - @equinor/fusion-react-person@0.9.3
+
 ## 4.1.2
 
 ### Patch Changes
