@@ -1,5 +1,11 @@
 # Change Log
 
+## 2.1.2
+
+### Patch Changes
+
+- 6af9c2c: build(deps): bump date-fns from 3.3.1 to 4.1.0
+
 ## 2.1.1
 
 ### Patch Changes
