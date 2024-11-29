@@ -21,10 +21,10 @@ You do not need any other styles from the ag-grid package or other fusion packag
 
 ```tsx
 import AgGridReact from '@ag-grid-community/core';
-import useStyles from '@equinor/fusion-react-ag-grid-styles';
+import { useStyles } from '@equinor/fusion-react-ag-grid-styles';
 
 const MyComponent = (): JSX.Element => {
-  const styles = useStyles();
+  useStyles();
 
   return (
     <div className="ag-theme-alpine-fusion">

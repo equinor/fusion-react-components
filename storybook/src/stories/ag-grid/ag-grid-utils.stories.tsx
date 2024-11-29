@@ -9,7 +9,7 @@ import {
 
 import { AgGridReact } from '@ag-grid-community/react';
 
-import useAgGridStyles from '@equinor/fusion-react-ag-grid-styles';
+import { useStyles } from '@equinor/fusion-react-ag-grid-styles';
 
 import { ModuleRegistry } from '@ag-grid-community/core';
 import { ClientSideRowModelModule } from '@ag-grid-community/client-side-row-model';
@@ -28,7 +28,7 @@ export default meta;
 faker.seed(0);
 
 export const ChangeHandler = () => {
-  const styles = useAgGridStyles();
+  useStyles();
   const rowdData = Array.from({ length: 10 }, () =>
     addInitialProps({
       name: faker.person.firstName(),
@@ -37,8 +37,6 @@ export const ChangeHandler = () => {
       order: String(faker.number.int()),
     }),
   );
-
-  console.log(rowdData);
 
   const columnDefs = [
     { ...createStatusField() },
@@ -56,18 +54,16 @@ export const ChangeHandler = () => {
       >
         Add row
       </button>
-      <div className={styles.root}>
-        <div className="ag-theme-alpine-fusion" style={{ width: '1080px', height: '500px' }}>
-          <AgGridReact
-            ref={gridRef}
-            rowData={rowdData}
-            columnDefs={columnDefs}
-            defaultColDef={{
-              valueSetter: defaultValueSetter,
-              valueGetter: defaultValueGetter,
-            }}
-          ></AgGridReact>
-        </div>
+      <div className="ag-theme-alpine-fusion" style={{ width: '1080px', height: '500px' }}>
+        <AgGridReact
+          ref={gridRef}
+          rowData={rowdData}
+          columnDefs={columnDefs}
+          defaultColDef={{
+            valueSetter: defaultValueSetter,
+            valueGetter: defaultValueGetter,
+          }}
+        ></AgGridReact>
       </div>
     </>
   );
