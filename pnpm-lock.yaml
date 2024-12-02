@@ -83,8 +83,8 @@ importers:
         version: 0.9.2
     devDependencies:
       '@ag-grid-community/styles':
-        specifier: 32.2.2
-        version: 32.2.2
+        specifier: 32.3.3
+        version: 32.3.3
       '@equinor/fusion-react-styles':
         specifier: ^0.6.2
         version: 0.6.2(@types/react@18.2.64)(react-dom@18.3.1(react@18.2.0))(react@18.2.0)
@@ -162,8 +162,8 @@ importers:
         version: 0.35.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(styled-components@6.1.8(react-dom@18.2.0(react@18.2.0))(react@18.2.0))
     devDependencies:
       '@ag-grid-community/core':
-        specifier: 32.2.2
-        version: 32.2.2
+        specifier: 32.3.3
+        version: 32.3.3
       '@equinor/eds-icons':
         specifier: ~0.21.0
         version: 0.21.0
@@ -680,14 +680,14 @@ importers:
         version: 5.0.1(typescript@5.4.2)(vite@6.0.3(@types/node@22.10.2)(jiti@1.21.0)(sass@1.83.0)(terser@5.37.0)(yaml@2.6.1))
     devDependencies:
       '@ag-grid-community/client-side-row-model':
-        specifier: 32.2.2
-        version: 32.2.2
+        specifier: 32.3.3
+        version: 32.3.3
       '@ag-grid-community/core':
-        specifier: 32.2.2
-        version: 32.2.2
+        specifier: 32.3.3
+        version: 32.3.3
       '@ag-grid-community/react':
-        specifier: 32.2.2
-        version: 32.2.2(@ag-grid-community/core@32.2.2)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+        specifier: 32.3.3
+        version: 32.3.3(@ag-grid-community/core@32.3.3)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       '@babel/preset-env':
         specifier: ^7.23.9
         version: 7.24.0(@babel/core@7.24.0)
@@ -734,24 +734,24 @@ packages:
   '@adobe/css-tools@4.4.1':
     resolution: {integrity: sha512-12WGKBQzjUAI4ayyF4IAtfw2QR/IDoqk6jTddXDhtYTJF9ASmoE1zst7cVtP0aL/F1jUJL5r+JxKXKEgHNbEUQ==}
 
-  '@ag-grid-community/client-side-row-model@32.2.2':
-    resolution: {integrity: sha512-BenXaVRISOAlMwl59BWGAJ/RBRsc0eHR3i/pGRmjQc8eGgdTqjrePL4kDL7UXDAKoqqNsoGKK5TGHjCHAs1cHA==}
+  '@ag-grid-community/client-side-row-model@32.3.3':
+    resolution: {integrity: sha512-/6OFltj9qax/xfOcYMOKGFQRFTrPX8hrELfS2jChWwpo/+rpnnFqN2iUlIiAB1tDJZsi2ryl8S4UoFSTcEv/VA==}
 
   '@ag-grid-community/core@31.3.2':
     resolution: {integrity: sha512-iab+xIPCvjzGkIBgo12IQNa9/ZGI4BmjsQz65+aipNXISbtGketkN5iO4OFQgafgf0f9JZVFOZ3EzCnMiVWLiQ==}
 
-  '@ag-grid-community/core@32.2.2':
-    resolution: {integrity: sha512-8w++Q5DKbFKhee7ZZ3HCx6KkMTHVwtV+xNwN/RJZneQ3WkXJYvsnkgVWmiwtglEo1iuMArxTz6pqOz/p23TBxA==}
+  '@ag-grid-community/core@32.3.3':
+    resolution: {integrity: sha512-JMr5ahDjjl+pvQbBM1/VrfVFlioCVnMl1PKWc6MC1ENhpXT1+CPQdfhUEUw2VytOulQeQ4eeP0pFKPuBZ5Jn2g==}
 
-  '@ag-grid-community/react@32.2.2':
-    resolution: {integrity: sha512-stiWKeNO9sFjTzyssE+ZqPyiHB7wYY8qHgO4ykgEEzVQMU+8sNcagfR2eX4+zelpWUOpT3ku3KtCNy7GQWyXaA==}
+  '@ag-grid-community/react@32.3.3':
+    resolution: {integrity: sha512-YU8nOMZjvJsrbbW41PT1jFZQw67p1RGvTk3W7w1dFmtzXFOoXzpB2pWf2jMxREyLYGvz2P9TwmfeHEM50osSPQ==}
     peerDependencies:
-      '@ag-grid-community/core': 32.2.2
-      react: ^16.3.0 || ^17.0.0 || ^18.0.0
-      react-dom: ^16.3.0 || ^17.0.0 || ^18.0.0
+      '@ag-grid-community/core': 32.3.3
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+      react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
-  '@ag-grid-community/styles@32.2.2':
-    resolution: {integrity: sha512-YQm+Tb0yPUxxFmExrYtic+gMOU+00/brLZNVE8sB8/6SuxIKla6Vk7sC1aljtMtwaxO0H4gOL7vx4wYB4FtwBA==}
+  '@ag-grid-community/styles@32.3.3':
+    resolution: {integrity: sha512-QAJc1CPbmFsAAq5M/8r0IOm8HL4Fb3eVK6tZXKzV9zibIereBjUwvvJRaSJa8iwtTlgxCtaULAQyE2gJcctphA==}
 
   '@ampproject/remapping@2.3.0':
     resolution: {integrity: sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==}
@@ -4646,8 +4646,8 @@ packages:
   ag-charts-types@10.0.2:
     resolution: {integrity: sha512-Nxo5slHOXlaeg0gRIsVnovAosQzzlYfWJtdDy0Aq/VvpJru/PJ+5i2c9aCyEhgRxhBjImsoegwkgRj7gNOWV6Q==}
 
-  ag-charts-types@10.2.0:
-    resolution: {integrity: sha512-PUqH1QtugpYLnlbMdeSZVf5PpT1XZVsP69qN1JXhetLtQpVC28zaj7ikwu9CMA9N9b+dBboA9QcjUQUJZVUokQ==}
+  ag-charts-types@10.3.3:
+    resolution: {integrity: sha512-8rmyquaTkwfP4Lzei/W/cbkq9wwEl8+grIo3z97mtxrMIXh9sHJK1oJipd/u08MmBZrca5Jjtn5F1+UNPu/4fQ==}
 
   ag-grid-community@32.0.2:
     resolution: {integrity: sha512-vLJJUjnsG9hNK41GNuW2EHu1W264kxA/poOpcX4kmyrjU5Uzvelsbj3HdKAO9POV28iqyRdKGYfAWdn8QzA7KA==}
@@ -10168,28 +10168,28 @@ snapshots:
 
   '@adobe/css-tools@4.4.1': {}
 
-  '@ag-grid-community/client-side-row-model@32.2.2':
+  '@ag-grid-community/client-side-row-model@32.3.3':
     dependencies:
-      '@ag-grid-community/core': 32.2.2
+      '@ag-grid-community/core': 32.3.3
       tslib: 2.6.3
 
   '@ag-grid-community/core@31.3.2':
     dependencies:
       tslib: 2.6.3
 
-  '@ag-grid-community/core@32.2.2':
+  '@ag-grid-community/core@32.3.3':
     dependencies:
-      ag-charts-types: 10.2.0
+      ag-charts-types: 10.3.3
       tslib: 2.6.3
 
-  '@ag-grid-community/react@32.2.2(@ag-grid-community/core@32.2.2)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
+  '@ag-grid-community/react@32.3.3(@ag-grid-community/core@32.3.3)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
-      '@ag-grid-community/core': 32.2.2
+      '@ag-grid-community/core': 32.3.3
       prop-types: 15.8.1
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
-  '@ag-grid-community/styles@32.2.2': {}
+  '@ag-grid-community/styles@32.3.3': {}
 
   '@ampproject/remapping@2.3.0':
     dependencies:
@@ -16472,7 +16472,7 @@ snapshots:
 
   ag-charts-types@10.0.2: {}
 
-  ag-charts-types@10.2.0: {}
+  ag-charts-types@10.3.3: {}
 
   ag-grid-community@32.0.2:
     dependencies:
