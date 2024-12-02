@@ -26,7 +26,7 @@ const Styled = {
 };
 
 export type FallbackProps = {
-  readonly error: unknown;
+  readonly error: Error;
   readonly errorType?: ErrorType;
   readonly message?: React.ReactNode;
   readonly resourceName?: string;
@@ -64,11 +64,11 @@ export const Fallback = (props: FallbackProps): JSX.Element => {
   }, [resetBoundary, onTakeAction]);
   return (
     <Styled.root>
-      <>
+      <div>
         {props.icon ?? <FallbackIcon errorType={errorType} />}
         <Typography variant="h3">{title ?? generateTitle(errorType, resourceName)}</Typography>
         <Typography variant="ingress" token={{ color: tokens.colors.text.static_icons__tertiary.hex }}>
-          {message ?? (error as Error).message}
+          {message ?? error.message}
         </Typography>
 
         {action && (
@@ -81,12 +81,12 @@ export const Fallback = (props: FallbackProps): JSX.Element => {
             <Accordion.Item>
               <Accordion.Header style={{ height: 'auto' }}>Error details</Accordion.Header>
               <Accordion.Panel>
-                <Styled.stacktrace>{(error as Error).stack}</Styled.stacktrace>
+                <Styled.stacktrace>{error.stack}</Styled.stacktrace>
               </Accordion.Panel>
             </Accordion.Item>
           </Accordion>
         )}
-      </>
+      </div>
     </Styled.root>
   );
 };
