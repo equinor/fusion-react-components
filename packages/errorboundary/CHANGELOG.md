@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.0.3
+
+### Patch Changes
+
+- 9bb2fde: Updating error boundary to be compatible with typescript 5.7
+
 ## 1.0.2
 
 ### Patch Changes
