@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.9.4
+
+### Patch Changes
+
+- b20f7ec: Updating fusion-wc-person to 3.0.5
+
 ## 0.9.3
 
 ### Patch Changes

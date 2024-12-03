@@ -1,5 +1,20 @@
 # Change Log
 
+## 31.2.5
+
+### Patch Changes
+
+- c7315b8: ### Package `@equinor/fusion-react-ag-grid-styles`
+
+  Changed export statement
+
+  - `export { useStyles, useStyles as default } from './agGridStyles';`
+  - Renamed `useAgGridStyles.ts` to `index.ts` in `ag-grid-styles` package.
+
+  ### Storybook
+
+  Updated import paths and usage of `useAgGridStyles` to `useStyles` in `storybook` stories.
+
 ## 31.2.4
 
 ### Patch Changes

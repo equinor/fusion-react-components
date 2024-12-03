@@ -1,5 +1,28 @@
 # Change Log
 
+## 4.1.4
+
+### Patch Changes
+
+- c7315b8: ### Package `@equinor/fusion-react-ag-grid-styles`
+
+  Changed export statement
+
+  - `export { useStyles, useStyles as default } from './agGridStyles';`
+  - Renamed `useAgGridStyles.ts` to `index.ts` in `ag-grid-styles` package.
+
+  ### Storybook
+
+  Updated import paths and usage of `useAgGridStyles` to `useStyles` in `storybook` stories.
+
+- Updated dependencies [9bb2fde]
+- Updated dependencies [c7315b8]
+- Updated dependencies [b20f7ec]
+  - @equinor/fusion-react-errorboundary@1.0.3
+  - @equinor/fusion-react-ag-grid-styles@31.2.5
+  - @equinor/fusion-react-person@0.9.4
+  - @equinor/fusion-react-ag-grid-person-cell@1.0.4
+
 ## 4.1.3
 
 ### Patch Changes
