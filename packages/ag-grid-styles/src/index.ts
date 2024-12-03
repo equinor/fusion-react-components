@@ -1,1 +1,1 @@
-export { useStyles as default } from './agGridStyles/useAgGridStyles';
+export { useStyles, useStyles as default } from './agGridStyles';
