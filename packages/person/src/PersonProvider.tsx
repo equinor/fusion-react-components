@@ -1,5 +1,5 @@
-import { PropsWithChildren, useEffect, useRef } from 'react';
-import { PersonProviderElement, PersonResolver } from '@equinor/fusion-wc-person';
+import { type PropsWithChildren, useLayoutEffect, useRef } from 'react';
+import { type PersonProviderElement, type PersonResolver } from '@equinor/fusion-wc-person';
 
 /** Person porvider properties for the resolver */
 export type PersonProviderProps = {
@@ -17,7 +17,7 @@ export const PersonProvider = (props: PropsWithChildren<PersonProviderProps>) =>
   const { resolve, children } = props;
   const providerRef = useRef<PersonProviderElement>(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (providerRef.current) {
       providerRef.current.resolver = resolve;
     }

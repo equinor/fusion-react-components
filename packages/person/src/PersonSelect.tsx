@@ -6,7 +6,7 @@ import HTMLPersonSelectCustomElement, {
   PersonSelectElementProps,
 } from '@equinor/fusion-wc-person/select';
 
-type ElementAtts = PropsWithChildren<
+type ElementAttributes = PropsWithChildren<
   Partial<
     Pick<
       PersonSelectElementProps,
@@ -35,18 +35,14 @@ type ElementEvents = {
   onDropdownClosed?: (e: CustomEvent) => void;
 };
 
-type ElementProps = ElementAtts & ElementEvents;
+type ElementProps = ElementAttributes & ElementEvents;
 
 export type PersonSelectProps = ComponentProps<HTMLPersonSelectCustomElement, ElementProps>;
 
-export const PersonSelectComponent = createComponent<HTMLPersonSelectCustomElement, ElementProps>(
+export const PersonSelect = createComponent<HTMLPersonSelectCustomElement, ElementProps>(
   HTMLPersonSelectCustomElement,
   tag,
   { events: { onSelect: 'select', onDropdownClosed: 'dropdownClosed' } },
 );
-
-export const PersonSelect = ({ children, ...props }: PropsWithChildren<PersonSelectProps>) => {
-  return <PersonSelectComponent {...props}>{children}</PersonSelectComponent>;
-};
 
 export default PersonSelect;
