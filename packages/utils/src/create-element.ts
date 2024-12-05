@@ -27,7 +27,7 @@ const translateReactAttribute = (k: string) => {
     case 'className':
       return 'class';
   }
-  return k;
+  return k.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
 };
 
 /** @see @link [Data Types](https://www.programiz.com/javascript/data-types) */
@@ -66,6 +66,7 @@ export const createComponent = <E extends HTMLElement, P extends Record<string, 
   /** element native props which should be handled programmatically */
   const nativePropsName = new Set([...elementPropsNames, ...Object.keys(events)]);
 
+
   /** create reference component */
   const component = forwardRef((props?: ComponentProps, __ref?: Ref<E>) => {
     const ref = useForwardRef<E>(__ref);
@@ -79,6 +80,7 @@ export const createComponent = <E extends HTMLElement, P extends Record<string, 
     /** properties which React should handle */
     const reactProps = useMemo(() => {
       const entries = Object.entries(props || {});
+      console.log(entries);
       const reactEntries = entries.filter(([k]) => !nativePropsName.has(k));
       const nativeEntries = ref.current
         ? []
@@ -99,6 +101,8 @@ export const createComponent = <E extends HTMLElement, P extends Record<string, 
           .reduce((c, [k, v]) => Object.assign(c, { [k]: v }), { ref })
       );
     }, [ref, props]);
+
+    console.log('reactProps', reactProps);
 
     return createElement(tag, reactProps);
   });

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef } from 'react';
+import { useLayoutEffect, useMemo, useRef } from 'react';
 import type { EventHandler, ReactEventHandler, RefObject, SyntheticEvent } from 'react';
 
 import { createSyntheticEvent } from '../create-synthetic-event';
@@ -50,7 +50,7 @@ export const useElementEvents = <
    * the referenced callback. We also assume that when this component, the event target is also
    * unmounted and do not need teardown.
    */
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!handlers) return;
     const listeners = listenersRef.current;
     const propKeys = Object.keys(eventMap).filter((k) => k in handlers);

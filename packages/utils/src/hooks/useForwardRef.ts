@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useLayoutEffect, useRef } from 'react';
 
 import type { ForwardedRef, RefObject } from 'react';
 
@@ -10,7 +10,7 @@ export const useForwardRef = <E extends HTMLElement>(
   initial: E | null = null,
 ): RefObject<E> => {
   const ref = useRef<E>(initial);
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (typeof forwardRef === 'function') {
       (forwardRef as (e: E | null) => void)(ref.current);
     } else if (forwardRef) {

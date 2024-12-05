@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useEffect } from 'react';
+import { useLayoutEffect } from 'react';
 import type { RefObject } from 'react';
 
 type Constructor<T> = { new (): T };
@@ -37,7 +37,7 @@ export const useElementProps = <E extends HTMLElement>(
   props?: Partial<Record<string, any>>,
   propMap?: Set<keyof E>,
 ): void => {
-  useEffect(() => {
+  useLayoutEffect(() => {
     const el = ref.current;
     if (el && propMap && props) {
       const elementProps = Object.entries(props).filter(([k]) => propMap.has(k as keyof E));
