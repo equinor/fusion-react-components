@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useEffect, useMemo, useRef } from 'react';
+import { useLayoutEffect, useMemo, useRef } from 'react';
 import type { RefObject } from 'react';
 
 import { shallowEqual } from '../shallow-equal';
@@ -33,7 +33,7 @@ export const useElementFunctions = <E extends HTMLElement, EKey extends string =
     return hasChanged ? fns : fnsRef.current;
   }, [fnsRef, functions, functionMap]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const obj = ref.current;
     if (!obj || !fns) return;
 

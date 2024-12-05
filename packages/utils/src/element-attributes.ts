@@ -28,7 +28,6 @@ export const elementAttributes = <T extends Partial<Record<keyof T, unknown>> = 
       default:
         return value ? Object.assign(cur, { [key]: value }) : cur;
     }
-    return cur;
   }, {} as T);
 };
 
