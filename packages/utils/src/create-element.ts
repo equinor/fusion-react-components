@@ -80,7 +80,6 @@ export const createComponent = <E extends HTMLElement, P extends Record<string, 
     /** properties which React should handle */
     const reactProps = useMemo(() => {
       const entries = Object.entries(props || {});
-      console.log(entries);
       const reactEntries = entries.filter(([k]) => !nativePropsName.has(k));
       const nativeEntries = ref.current
         ? []
@@ -101,8 +100,6 @@ export const createComponent = <E extends HTMLElement, P extends Record<string, 
           .reduce((c, [k, v]) => Object.assign(c, { [k]: v }), { ref })
       );
     }, [ref, props]);
-
-    console.log('reactProps', reactProps);
 
     return createElement(tag, reactProps);
   });
