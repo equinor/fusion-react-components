@@ -2226,9 +2226,6 @@ packages:
   '@equinor/fusion-wc-checkbox@1.1.2':
     resolution: {integrity: sha512-lAD6yh4cvuTCNisiYjyB1BvGg566YkQFa9m+/hzIVIlQRk0UQn9/FHa8BB/DnAj9O/K6IrgRx7tabrXIDrzHUg==}
 
-  '@equinor/fusion-wc-checkbox@1.1.2':
-    resolution: {integrity: sha512-lAD6yh4cvuTCNisiYjyB1BvGg566YkQFa9m+/hzIVIlQRk0UQn9/FHa8BB/DnAj9O/K6IrgRx7tabrXIDrzHUg==}
-
   '@equinor/fusion-wc-chip@1.2.0':
     resolution: {integrity: sha512-fGkI4wfqO2FN2b5aM9O4W2X4yvbUaA7WUQ6qSvPaozhWxPQxSnA3iUQke0PXxW2opQD40VD1rdVT7OLnSbF5iw==}
 
@@ -2247,9 +2244,6 @@ packages:
   '@equinor/fusion-wc-divider@1.1.2':
     resolution: {integrity: sha512-kb5kmq8S+aMqe+91RNHmJtjCg8ecrnB5DYrcm6RzucLicxL0NTwlLAJfy49xDR5kzt2laoyq6XsQ+4MqnlTbyw==}
 
-  '@equinor/fusion-wc-divider@1.1.2':
-    resolution: {integrity: sha512-kb5kmq8S+aMqe+91RNHmJtjCg8ecrnB5DYrcm6RzucLicxL0NTwlLAJfy49xDR5kzt2laoyq6XsQ+4MqnlTbyw==}
-
   '@equinor/fusion-wc-icon@2.3.0':
     resolution: {integrity: sha512-CRyIHnvmZ/WOzZwhsoxNL3DkN30wk7jskEa6i+YsiqFkV1xAGgMPQJjhmXI1jhewRoT4o09WcUjnLaYQ6CUdsQ==}
 
@@ -2261,9 +2255,6 @@ packages:
 
   '@equinor/fusion-wc-list@1.1.2':
     resolution: {integrity: sha512-oY8P7t/h/BMkK8h0CNKqvbvRk02OiIKxKwd5o5HmA3IKmBDrY49PvlEEVyhP5yjshbEfolIPnhe8tSeigKVbYA==}
-
-  '@equinor/fusion-wc-list@1.1.3':
-    resolution: {integrity: sha512-eKzpPA1/8k6uQu6/5ozfywJWHUBPcwOzcZbHz4/Rzu1fb5b932Eot/yUsacDRhnSigbgBvsOqU0phDp2OuV6yA==}
 
   '@equinor/fusion-wc-list@1.1.3':
     resolution: {integrity: sha512-eKzpPA1/8k6uQu6/5ozfywJWHUBPcwOzcZbHz4/Rzu1fb5b932Eot/yUsacDRhnSigbgBvsOqU0phDp2OuV6yA==}
@@ -2285,9 +2276,6 @@ packages:
 
   '@equinor/fusion-wc-radio@1.1.1':
     resolution: {integrity: sha512-Id5krecYRBFbeaIn0S22RNZzHiJ8ZSJnsaeXcqgjy61u4w88bguDaVmwH2kBO0kCG31HBJiBilvrs2YwnxdqzA==}
-
-  '@equinor/fusion-wc-radio@1.1.2':
-    resolution: {integrity: sha512-XO0rGD74dVQTtyI4GIjg1CuINbQ7DUUiNohvBWsYoLdG6TmvnCuO+2KfRNMdlwVTyog7Nm6qIl9agjQUOHQS0Q==}
 
   '@equinor/fusion-wc-radio@1.1.2':
     resolution: {integrity: sha512-XO0rGD74dVQTtyI4GIjg1CuINbQ7DUUiNohvBWsYoLdG6TmvnCuO+2KfRNMdlwVTyog7Nm6qIl9agjQUOHQS0Q==}
@@ -13620,13 +13608,6 @@ snapshots:
       '@material/mwc-checkbox': 0.27.0
       lit: 3.2.0
 
-  '@equinor/fusion-wc-checkbox@1.1.2':
-    dependencies:
-      '@equinor/fusion-wc-core': 2.0.0
-      '@equinor/fusion-web-theme': 0.1.10
-      '@material/mwc-checkbox': 0.27.0
-      lit: 3.2.0
-
   '@equinor/fusion-wc-chip@1.2.0':
     dependencies:
       '@equinor/fusion-wc-core': 2.0.0
@@ -13655,12 +13636,6 @@ snapshots:
       '@equinor/fusion-wc-core': 2.0.0
       '@equinor/fusion-web-theme': 0.1.10
       lit: 3.1.2
-
-  '@equinor/fusion-wc-divider@1.1.2':
-    dependencies:
-      '@equinor/fusion-wc-core': 2.0.0
-      '@equinor/fusion-web-theme': 0.1.10
-      lit: 3.2.0
 
   '@equinor/fusion-wc-divider@1.1.2':
     dependencies:
@@ -13701,17 +13676,6 @@ snapshots:
       '@equinor/fusion-web-theme': 0.1.10
       '@material/mwc-list': 0.27.0
       lit: 3.1.2
-
-  '@equinor/fusion-wc-list@1.1.3':
-    dependencies:
-      '@equinor/fusion-wc-checkbox': 1.1.2
-      '@equinor/fusion-wc-core': 2.0.0
-      '@equinor/fusion-wc-divider': 1.1.2
-      '@equinor/fusion-wc-icon': 2.3.1
-      '@equinor/fusion-wc-radio': 1.1.2
-      '@equinor/fusion-web-theme': 0.1.10
-      '@material/mwc-list': 0.27.0
-      lit: 3.2.0
 
   '@equinor/fusion-wc-list@1.1.3':
     dependencies:
@@ -13781,13 +13745,6 @@ snapshots:
       '@equinor/fusion-web-theme': 0.1.10
       '@material/mwc-radio': 0.27.0
       lit: 3.1.2
-
-  '@equinor/fusion-wc-radio@1.1.2':
-    dependencies:
-      '@equinor/fusion-wc-core': 2.0.0
-      '@equinor/fusion-web-theme': 0.1.10
-      '@material/mwc-radio': 0.27.0
-      lit: 3.2.0
 
   '@equinor/fusion-wc-radio@1.1.2':
     dependencies:
@@ -14394,7 +14351,7 @@ snapshots:
 
   '@material-ui/styles@4.11.5(@types/react@18.2.64)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
-      '@babel/runtime': 7.25.0
+      '@babel/runtime': 7.24.0
       '@emotion/hash': 0.8.0
       '@material-ui/types': 5.1.0(@types/react@18.2.64)
       '@material-ui/utils': 4.11.3(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -25230,7 +25187,7 @@ snapshots:
     dependencies:
       chokidar: 3.6.0
       immutable: 4.3.7
-      source-map-js: 1.2.0
+      source-map-js: 1.2.1
     optional: true
 
   scheduler@0.23.0:
@@ -26449,7 +26406,7 @@ snapshots:
   webpack@5.93.0(esbuild@0.19.12):
     dependencies:
       '@types/eslint-scope': 3.7.7
-      '@types/estree': 1.0.5
+      '@types/estree': 1.0.6
       '@webassemblyjs/ast': 1.12.1
       '@webassemblyjs/wasm-edit': 1.12.1
       '@webassemblyjs/wasm-parser': 1.12.1
