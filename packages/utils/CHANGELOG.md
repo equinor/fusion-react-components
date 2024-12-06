@@ -1,5 +1,11 @@
 # Change Log
 
+## 2.2.0
+
+### Minor Changes
+
+- b3c5d1a: changed web-component to react brigde utility to attach before render
+
 ## 2.1.2
 
 ### Patch Changes
