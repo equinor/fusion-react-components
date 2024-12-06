@@ -51,8 +51,8 @@
     "@equinor/eds-core-react": "^0.42.0",
     "@equinor/eds-icons": "~0.21.0",
     "@equinor/fusion-observable": "^8.1.2",
-    "@types/react": "^18.2.24",
-    "react": "^18.2.0"
+    "@types/react": "^19.0.1",
+    "react": "^19.0.0"
   },
   "peerDependencies": {
     "@equinor/eds-core-react": "^0.42.0",
