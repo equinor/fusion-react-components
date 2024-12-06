@@ -8,3 +8,5 @@ AgGrid person cell update of:
 
 - Storybook
 - Dependencies
+
+Person update deps
