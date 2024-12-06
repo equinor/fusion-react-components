@@ -21,16 +21,19 @@ const meta: Meta<typeof PersonCell> = {
   component: PersonCell,
   argTypes: {
     azureId: {
+      description: 'Unique person Azure ID',
       table: {
         type: { summary: '(data: T) => string | undefined' },
       },
     },
     upn: {
+      description: 'Unique person email(upn)',
       table: {
         type: { summary: '(data: T) => string | undefined' },
       },
     },
     dataSource: {
+      description: 'Custom person data source',
       table: {
         type: { summary: '(data: T) => PersonInfo | undefined' },
       },
