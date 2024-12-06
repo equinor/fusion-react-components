@@ -1,5 +1,23 @@
 # Change Log
 
+## 0.10.0
+
+### Minor Changes
+
+- b3c5d1a: cleanup in person components, removed unnecessary property mapping
+
+### Patch Changes
+
+- 0a37ed6: AgGrid person cell update of:
+
+  - Storybook
+  - Dependencies
+
+  Person update deps
+
+- Updated dependencies [b3c5d1a]
+  - @equinor/fusion-react-utils@2.2.0
+
 ## 0.9.5
 
 ### Patch Changes

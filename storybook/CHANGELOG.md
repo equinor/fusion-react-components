@@ -1,5 +1,22 @@
 # Change Log
 
+## 4.1.6
+
+### Patch Changes
+
+- 0a37ed6: AgGrid person cell update of:
+
+  - Storybook
+  - Dependencies
+
+  Person update deps
+
+- Updated dependencies [b3c5d1a]
+- Updated dependencies [0a37ed6]
+  - @equinor/fusion-react-person@0.10.0
+  - @equinor/fusion-react-ag-grid-person-cell@1.0.6
+  - @equinor/fusion-react-context-selector@0.6.8
+
 ## 4.1.5
 
 ### Patch Changes
