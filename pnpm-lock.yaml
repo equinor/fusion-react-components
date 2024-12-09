@@ -16,7 +16,7 @@ importers:
         version: 19.4.0(@types/node@22.4.1)(typescript@5.5.4)
       '@commitlint/config-conventional':
         specifier: ^19.1.0
-        version: 19.2.2
+        version: 19.6.0
       '@equinor/eslint-config-fusion':
         specifier: ^2.1.5
         version: 2.3.0(@types/eslint@8.56.5)(eslint@8.57.0)(prettier@3.3.3)(typescript@5.5.4)
@@ -1592,8 +1592,8 @@ packages:
     engines: {node: '>=v18'}
     hasBin: true
 
-  '@commitlint/config-conventional@19.2.2':
-    resolution: {integrity: sha512-mLXjsxUVLYEGgzbxbxicGPggDuyWNkf25Ht23owXIH+zV2pv1eJuzLK3t1gDY5Gp6pxdE60jZnWUY5cvgL3ufw==}
+  '@commitlint/config-conventional@19.6.0':
+    resolution: {integrity: sha512-DJT40iMnTYtBtUfw9ApbsLZFke1zKh6llITVJ+x9mtpHD08gsNXaIRqHTmwTZL3dNX5+WoyK7pCN/5zswvkBCQ==}
     engines: {node: '>=v18'}
 
   '@commitlint/config-validator@19.0.3':
@@ -1654,6 +1654,10 @@ packages:
 
   '@commitlint/types@19.0.3':
     resolution: {integrity: sha512-tpyc+7i6bPG9mvaBbtKUeghfyZSDgWquIDfMgqYtTbmZ9Y9VzEm2je9EYcQ0aoz5o7NvGS+rcDec93yO08MHYA==}
+    engines: {node: '>=v18'}
+
+  '@commitlint/types@19.5.0':
+    resolution: {integrity: sha512-DSHae2obMSMkAtTBSOulg5X7/z+rGLxcXQIkg3OmWvY6wifojge5uVMydfhUvs7yQj+V7jNmRZ2Xzl8GJyqRgg==}
     engines: {node: '>=v18'}
 
   '@emotion/babel-plugin@11.11.0':
@@ -4526,6 +4530,7 @@ packages:
 
   acorn-import-assertions@1.9.0:
     resolution: {integrity: sha512-cmMwop9x+8KFhxvKrKfPYmN6/pKTYYHBqLa0DfvVZcKMJWNyWLnaqND7dx/qn66R7ewM1UX5XMaDVP5wlVTaVA==}
+    deprecated: package has been renamed to acorn-import-attributes
     peerDependencies:
       acorn: ^8
 
@@ -11114,19 +11119,19 @@ snapshots:
       - '@types/node'
       - typescript
 
-  '@commitlint/config-conventional@19.2.2':
+  '@commitlint/config-conventional@19.6.0':
     dependencies:
-      '@commitlint/types': 19.0.3
+      '@commitlint/types': 19.5.0
       conventional-changelog-conventionalcommits: 7.0.2
 
   '@commitlint/config-validator@19.0.3':
     dependencies:
-      '@commitlint/types': 19.0.3
+      '@commitlint/types': 19.5.0
       ajv: 8.12.0
 
   '@commitlint/ensure@19.0.3':
     dependencies:
-      '@commitlint/types': 19.0.3
+      '@commitlint/types': 19.5.0
       lodash.camelcase: 4.3.0
       lodash.kebabcase: 4.1.1
       lodash.snakecase: 4.1.1
@@ -11142,7 +11147,7 @@ snapshots:
 
   '@commitlint/is-ignored@19.2.2':
     dependencies:
-      '@commitlint/types': 19.0.3
+      '@commitlint/types': 19.5.0
       semver: 7.6.0
 
   '@commitlint/lint@19.2.2':
@@ -11172,7 +11177,7 @@ snapshots:
 
   '@commitlint/parse@19.0.3':
     dependencies:
-      '@commitlint/types': 19.0.3
+      '@commitlint/types': 19.5.0
       conventional-changelog-angular: 7.0.0
       conventional-commits-parser: 5.0.0
 
@@ -11187,7 +11192,7 @@ snapshots:
   '@commitlint/resolve-extends@19.1.0':
     dependencies:
       '@commitlint/config-validator': 19.0.3
-      '@commitlint/types': 19.0.3
+      '@commitlint/types': 19.5.0
       global-directory: 4.0.1
       import-meta-resolve: 4.0.0
       lodash.mergewith: 4.6.2
@@ -11198,7 +11203,7 @@ snapshots:
       '@commitlint/ensure': 19.0.3
       '@commitlint/message': 19.0.0
       '@commitlint/to-lines': 19.0.0
-      '@commitlint/types': 19.0.3
+      '@commitlint/types': 19.5.0
       execa: 8.0.1
 
   '@commitlint/to-lines@19.0.0': {}
@@ -11208,6 +11213,11 @@ snapshots:
       find-up: 7.0.0
 
   '@commitlint/types@19.0.3':
+    dependencies:
+      '@types/conventional-commits-parser': 5.0.0
+      chalk: 5.3.0
+
+  '@commitlint/types@19.5.0':
     dependencies:
       '@types/conventional-commits-parser': 5.0.0
       chalk: 5.3.0
