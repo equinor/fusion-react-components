@@ -42,7 +42,8 @@ const preview: Preview = {
         <Story />
       </Theme>
     ),
-  ]
-}; 
+  ],
+  tags: ['autodocs'],
+};
 
 export default preview;
