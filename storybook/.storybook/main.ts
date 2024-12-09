@@ -51,9 +51,7 @@ const config: StorybookConfig = {
     '@storybook/addon-storysource', 
   ],
 
-  docs: {
-    autodocs: "tag",
-  }
+  docs: {}
 };
 
 export default config;
