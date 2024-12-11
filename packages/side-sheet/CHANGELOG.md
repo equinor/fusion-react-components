@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.3.4
+
+### Patch Changes
+
+- f449132: Add `shouldAnimate` as allowed attribute.
+
 ## 1.3.3
 
 ### Patch Changes
