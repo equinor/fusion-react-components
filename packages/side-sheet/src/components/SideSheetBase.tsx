@@ -1,9 +1,11 @@
 import { Scrim } from '@equinor/eds-core-react';
 import { Resizable } from 're-resizable';
-import { PropsWithChildren, useMemo, useState } from 'react';
+import { PropsWithChildren, useState } from 'react';
 import styled from 'styled-components';
 
-const StyledScrim = styled(Scrim)<{ shouldAnimate: boolean }>`
+const StyledScrim = styled(Scrim).withConfig({
+  shouldForwardProp: (prop) => prop !== 'shouldAnimate',
+})<{ shouldAnimate: boolean }>`
   animation: ${({ shouldAnimate }) => (shouldAnimate ? 'ScrimAnimation ease 0.3s' : 'none')};
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
@@ -19,7 +21,9 @@ const StyledScrim = styled(Scrim)<{ shouldAnimate: boolean }>`
   }
 `;
 
-const StyledSideSheet = styled.div<{ shouldAnimate: boolean }>`
+const StyledSideSheet = styled.div.withConfig({
+  shouldForwardProp: (prop) => prop !== 'shouldAnimate',
+})<{ shouldAnimate: boolean }>`
   --side-sheet-height: calc(100vh - var(--header-height, 0));
   height: var(--custom-side-sheet-height, var(--side-sheet-height, 100%));
   position: fixed;
@@ -57,8 +61,8 @@ export const SideSheetBase = (props: PropsWithChildren<SideSheetProps>) => {
   const { isOpen, onClose, isDismissable, minWidth, children, animate } = props;
   const [width, setWidth] = useState(minWidth ?? MIN_WIDTH);
 
-  const shouldAnimate = useMemo(() => (animate === undefined ? true : animate), [animate]);
-  
+  const shouldAnimate = animate === undefined ? true : animate;
+
   return (
     <StyledScrim open={isOpen} onClose={onClose} isDismissable={isDismissable} shouldAnimate={shouldAnimate}>
       <StyledSideSheet shouldAnimate={shouldAnimate}>
