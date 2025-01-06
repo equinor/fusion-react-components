@@ -236,8 +236,8 @@ importers:
         specifier: ^2.1.0
         version: 2.1.1(react@18.2.0)
       react-error-boundary:
-        specifier: ^4.0.11
-        version: 4.0.13(react@18.2.0)
+        specifier: ^5.0.0
+        version: 5.0.0(react@18.2.0)
     devDependencies:
       '@equinor/eds-icons':
         specifier: ~0.21.0
@@ -8625,8 +8625,8 @@ packages:
     peerDependencies:
       react: ^18.3.1
 
-  react-error-boundary@4.0.13:
-    resolution: {integrity: sha512-b6PwbdSv8XeOSYvjt8LpgpKrZ0yGdtZokYwkwV2wlcZbxgopHX/hgPl5VgpnoVOWd868n1hktM8Qm4b+02MiLQ==}
+  react-error-boundary@5.0.0:
+    resolution: {integrity: sha512-tnjAxG+IkpLephNcePNA7v6F/QpWLH8He65+DmedchDwg162JZqx4NmbXj0mlAYVVEd81OW7aFhmbsScYfiAFQ==}
     peerDependencies:
       react: '>=16.13.1'
 
@@ -12418,7 +12418,7 @@ snapshots:
 
   '@material-ui/styles@4.11.5(@types/react@18.2.64)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
-      '@babel/runtime': 7.24.0
+      '@babel/runtime': 7.25.0
       '@emotion/hash': 0.8.0
       '@material-ui/types': 5.1.0(@types/react@18.2.64)
       '@material-ui/utils': 4.11.3(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -21525,9 +21525,9 @@ snapshots:
       react: 18.2.0
       scheduler: 0.23.2
 
-  react-error-boundary@4.0.13(react@18.2.0):
+  react-error-boundary@5.0.0(react@18.2.0):
     dependencies:
-      '@babel/runtime': 7.24.0
+      '@babel/runtime': 7.25.0
       react: 18.2.0
 
   react-is@16.13.1: {}
