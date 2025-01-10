@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.10.1
+
+### Patch Changes
+
+- f461f22: Person component dependencies update
+
 ## 0.10.0
 
 ### Minor Changes
