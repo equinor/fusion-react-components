@@ -1,5 +1,14 @@
 # Change Log
 
+## 4.1.8
+
+### Patch Changes
+
+- f461f22: Person component dependencies update
+- Updated dependencies [f461f22]
+  - @equinor/fusion-react-person@0.10.1
+  - @equinor/fusion-react-ag-grid-person-cell@1.0.7
+
 ## 4.1.7
 
 ### Patch Changes
