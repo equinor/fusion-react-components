@@ -44,6 +44,7 @@ const generatePerson = (args: { azureId?: string; upn?: string }): PersonDetails
       PersonAccountType.External,
       PersonAccountType.ExternalHire,
     ]),
+    accountClassification: faker.helpers.arrayElement(['Internal', 'External']),
     jobTitle: faker.person.jobTitle(),
     department: faker.commerce.department(),
     mail: fakeEquinorMail,
