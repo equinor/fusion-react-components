@@ -165,8 +165,8 @@ importers:
         specifier: 32.3.3
         version: 32.3.3
       '@equinor/eds-icons':
-        specifier: ~0.21.0
-        version: 0.21.0
+        specifier: ~0.22.0
+        version: 0.22.0
       '@equinor/eds-tokens':
         specifier: ^0.9.2
         version: 0.9.2
@@ -240,8 +240,8 @@ importers:
         version: 5.0.0(react@18.2.0)
     devDependencies:
       '@equinor/eds-icons':
-        specifier: ~0.21.0
-        version: 0.21.0
+        specifier: ~0.22.0
+        version: 0.22.0
       '@equinor/eds-tokens':
         specifier: ^0.9.2
         version: 0.9.2
@@ -277,8 +277,8 @@ importers:
         specifier: ^0.42.0
         version: 0.42.5(react-dom@18.3.1(react@18.2.0))(react@18.2.0)(styled-components@6.1.12(react-dom@18.3.1(react@18.2.0))(react@18.2.0))
       '@equinor/eds-icons':
-        specifier: ~0.21.0
-        version: 0.21.0
+        specifier: ~0.22.0
+        version: 0.22.0
       '@equinor/fusion-observable':
         specifier: ^8.1.2
         version: 8.1.5(@types/react@18.2.64)(react@18.2.0)
@@ -416,8 +416,8 @@ importers:
         specifier: ^0.42.0
         version: 0.42.5(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(styled-components@6.1.8(react-dom@18.2.0(react@18.2.0))(react@18.2.0))
       '@equinor/eds-icons':
-        specifier: ~0.21.0
-        version: 0.21.0
+        specifier: ~0.22.0
+        version: 0.22.0
       '@equinor/eds-tokens':
         specifier: ^0.9.2
         version: 0.9.2
@@ -459,8 +459,8 @@ importers:
   packages/stepper:
     dependencies:
       '@equinor/eds-icons':
-        specifier: ~0.21.0
-        version: 0.21.0
+        specifier: ~0.22.0
+        version: 0.22.0
       '@equinor/eds-tokens':
         specifier: ^0.9.2
         version: 0.9.2
@@ -550,8 +550,8 @@ importers:
         specifier: ^0.42.0
         version: 0.42.5(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(styled-components@6.1.8(react-dom@18.2.0(react@18.2.0))(react@18.2.0))
       '@equinor/eds-icons':
-        specifier: ~0.21.0
-        version: 0.21.0
+        specifier: ~0.22.0
+        version: 0.22.0
       '@equinor/eds-tokens':
         specifier: ^0.9.2
         version: 0.9.2
@@ -1764,6 +1764,9 @@ packages:
   '@equinor/eds-icons@0.21.0':
     resolution: {integrity: sha512-k2keACHou9h9D5QLfSBeojTApqbPCkHNBWplUA/B9FQv8FMCMSBbjJAo2L/3yAExMylQN9LdwKo81T2tijRXoA==}
     engines: {node: '>=10.0.0', pnpm: '>=4'}
+
+  '@equinor/eds-icons@0.22.0':
+    resolution: {integrity: sha512-4SmPT67rUbl6qFyOCiSsue68EERgEGaXl9Xx6DkScW46AMbM6OdX3New1hctx1MIb6YdNlkHc/WwXTc+MG9j9Q==}
 
   '@equinor/eds-tokens@0.9.2':
     resolution: {integrity: sha512-pDIFei0vsfN3GN12NKWqxskAkYBQd6+Dzjga2liuY81LfnlJs5g9NblamU9WY5w5YdVE5Z8FNjsMKDLs2JIWcw==}
@@ -11398,6 +11401,8 @@ snapshots:
   '@equinor/eds-icons@0.20.0': {}
 
   '@equinor/eds-icons@0.21.0': {}
+
+  '@equinor/eds-icons@0.22.0': {}
 
   '@equinor/eds-tokens@0.9.2': {}
 
