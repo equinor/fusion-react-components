@@ -1,5 +1,21 @@
 # Change Log
 
+## 4.1.9
+
+### Patch Changes
+
+- e277474: Implementing fixes from searchable-dropdown web component release [44aa0a8](https://github.com/equinor/fusion-web-components/commit/44aa0a8b744e873e19ee6fa9e92da0bd8c3031d8)
+
+  This fixes multiple selections in searchable-dropdown and adding support for using html as meta icons in the result set.
+
+  also fixes using attribute `selectedId` as preselected id, works best with initialItems from resolver.
+
+  Updating to major version to make sure nothing in production brakes.
+
+- Updated dependencies [e277474]
+  - @equinor/fusion-react-searchable-dropdown@1.0.0
+  - @equinor/fusion-react-context-selector@1.0.0
+
 ## 4.1.8
 
 ### Patch Changes
