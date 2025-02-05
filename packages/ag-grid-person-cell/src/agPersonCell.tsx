@@ -1,4 +1,4 @@
-import { ColDef, ICellRendererParams } from '@equinor/fusion-framework-module-ag-grid/src/community';
+import { ColDef, ICellRendererParams } from '@equinor/fusion-framework-module-ag-grid/community';
 import { PersonCellData, PersonCell, PersonItemSize } from '@equinor/fusion-react-person';
 import { personTooltip } from './personTooltip';
 import { personSortComparator } from './personSort';

@@ -3,7 +3,6 @@ import { Meta, StoryObj } from '@storybook/react';
 
 import { PersonCell } from '@equinor/fusion-react-person/src/PersonCell';
 import { PersonProvider } from '@equinor/fusion-react-person/src/PersonProvider';
-import { Theme } from '../../components/Theme';
 
 import { agGridPersonCell } from '@equinor/fusion-react-ag-grid-person-cell';
 
@@ -11,10 +10,14 @@ import { resolver } from '../person/person-provider';
 import { faker } from '@faker-js/faker';
 
 // AgGrid
-import { AgGridReact } from '@ag-grid-community/react';
-import { ClientSideRowModelModule } from '@ag-grid-community/client-side-row-model';
-import { ColDef, ModuleRegistry } from '@ag-grid-community/core';
-import useStyles from '@equinor/fusion-react-ag-grid-styles';
+import { AgGridReact } from 'ag-grid-react';
+import {
+  ClientSideRowModelModule,
+  ColDef,
+  ModuleRegistry,
+  themeAlpine,
+  TooltipModule,
+} from '@equinor/fusion-framework-module-ag-grid/community';
 
 const meta: Meta<typeof PersonCell> = {
   title: 'ag-grid/Person Cell',
@@ -41,7 +44,7 @@ const meta: Meta<typeof PersonCell> = {
   },
 };
 
-ModuleRegistry.registerModules([ClientSideRowModelModule]);
+ModuleRegistry.registerModules([ClientSideRowModelModule, TooltipModule]);
 
 export default meta;
 
@@ -62,17 +65,13 @@ const defaultCol = {
 export const basic: Story = {
   decorators: [
     (Story) => (
-      <Theme>
-        <PersonProvider resolve={resolver}>
-          <Story />
-        </PersonProvider>
-      </Theme>
+      <PersonProvider resolve={resolver}>
+        <Story />
+      </PersonProvider>
     ),
   ],
 
   render: () => {
-    useStyles();
-
     const columnDefs = [
       { field: 'number', headerName: '#', maxWidth: 50 },
       { field: 'manufacturer' },
@@ -92,7 +91,13 @@ export const basic: Story = {
 
     return (
       <div className="ag-theme-alpine-fusion" style={{ height: 320 }}>
-        <AgGridReact rowData={rowsData} columnDefs={columnDefs} defaultColDef={defaultCol} tooltipInteraction={true} />
+        <AgGridReact
+          theme={themeAlpine}
+          rowData={rowsData}
+          columnDefs={columnDefs}
+          defaultColDef={defaultCol}
+          tooltipInteraction={true}
+        />
       </div>
     );
   },
@@ -102,8 +107,6 @@ export const showAvatar: Story = {
   ...basic,
 
   render: () => {
-    useStyles();
-
     const columnDefs = [
       { field: 'number', headerName: '#', maxWidth: 50 },
       { field: 'manufacturer' },
@@ -121,7 +124,13 @@ export const showAvatar: Story = {
 
     return (
       <div className="ag-theme-alpine-fusion" style={{ height: 320 }}>
-        <AgGridReact rowData={rowsData} columnDefs={columnDefs} defaultColDef={defaultCol} tooltipInteraction={true} />
+        <AgGridReact
+          theme={themeAlpine}
+          rowData={rowsData}
+          columnDefs={columnDefs}
+          defaultColDef={defaultCol}
+          tooltipInteraction={true}
+        />
       </div>
     );
   },
@@ -131,8 +140,6 @@ export const customHeadings: Story = {
   ...basic,
 
   render: () => {
-    useStyles();
-
     const columnDefs = [
       { field: 'number', headerName: '#', maxWidth: 50 },
       { field: 'manufacturer' },
@@ -150,7 +157,13 @@ export const customHeadings: Story = {
 
     return (
       <div className="ag-theme-alpine-fusion" style={{ height: 320 }}>
-        <AgGridReact rowData={rowsData} columnDefs={columnDefs} defaultColDef={defaultCol} tooltipInteraction={true} />
+        <AgGridReact
+          theme={themeAlpine}
+          rowData={rowsData}
+          columnDefs={columnDefs}
+          defaultColDef={defaultCol}
+          tooltipInteraction={true}
+        />
       </div>
     );
   },
@@ -160,8 +173,6 @@ export const customDataObject: Story = {
   ...basic,
 
   render: () => {
-    useStyles();
-
     type Driver = {
       driverNumber: number;
       personInfo: {
@@ -199,7 +210,13 @@ export const customDataObject: Story = {
 
     return (
       <div className="ag-theme-alpine-fusion" style={{ height: 320 }}>
-        <AgGridReact rowData={rowsData} columnDefs={columnDefs} defaultColDef={defaultCol} tooltipInteraction={true} />
+        <AgGridReact
+          theme={themeAlpine}
+          rowData={rowsData}
+          columnDefs={columnDefs}
+          defaultColDef={defaultCol}
+          tooltipInteraction={true}
+        />
       </div>
     );
   },
