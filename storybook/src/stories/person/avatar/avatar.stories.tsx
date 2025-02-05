@@ -2,13 +2,14 @@
 import { Meta, StoryObj } from '@storybook/react';
 
 import { PersonAvatar } from '@equinor/fusion-react-person/src/PersonAvatar';
-import { AvatarSize, PersonDetails } from '@equinor/fusion-react-person/src/index';
+import { AvatarSize, AvatarData } from '@equinor/fusion-react-person/src/index';
 import { PersonProvider } from '@equinor/fusion-react-person/src/PersonProvider';
-import { Theme } from '../../components/Theme';
+import { Theme } from '../../../components/Theme';
 
-import { resolver } from './person-provider';
+import { resolver } from '../person-provider';
 
 import { faker } from '@faker-js/faker';
+import { Story } from '@storybook/blocks';
 faker.seed(123);
 
 const meta: Meta<typeof PersonAvatar> = {
@@ -46,10 +47,23 @@ export const sizes: Story = {
   ),
 };
 
+const person: AvatarData = resolver.getInfo
+  ? (resolver.getInfo({ azureId: faker.string.uuid() }) as AvatarData)
+  : {
+      name: faker.person.fullName(),
+      accountType: 'Employee',
+      accountClassification: 'Internal',
+    };
+
 export const withDataSource: Story = {
   ...basic,
   args: {
-    dataSource: resolver.getInfo ? (resolver.getInfo({ azureId: faker.string.uuid() }) as PersonDetails) : undefined,
+    dataSource: {
+      name: person.name,
+      accountType: person.accountType,
+      accountClassification: person.accountClassification,
+    },
+    trigger: 'none',
   },
 };
 
