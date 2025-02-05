@@ -4,11 +4,12 @@ import { Meta, StoryObj } from '@storybook/react';
 import { PersonAvatar } from '@equinor/fusion-react-person/src/PersonAvatar';
 import { AvatarSize, AvatarData } from '@equinor/fusion-react-person/src/index';
 import { PersonProvider } from '@equinor/fusion-react-person/src/PersonProvider';
-import { Theme } from '../../components/Theme';
+import { Theme } from '../../../components/Theme';
 
-import { resolver } from './person-provider';
+import { resolver } from '../person-provider';
 
 import { faker } from '@faker-js/faker';
+import { Story } from '@storybook/blocks';
 faker.seed(123);
 
 const meta: Meta<typeof PersonAvatar> = {
