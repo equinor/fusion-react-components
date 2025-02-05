@@ -1,5 +1,14 @@
 # Change Log
 
+## 2.0.0
+
+### Major Changes
+
+- 80f579c: **Major update:** AgGrid version 33, possible braking changes
+
+  - Updated types and dependencies to newest AgGrid version
+  - Now using and depended on _@equinor/fusion-framework-module-ag-grid_
+
 ## 1.0.7
 
 ### Patch Changes

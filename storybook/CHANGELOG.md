@@ -1,5 +1,13 @@
 # Change Log
 
+## 4.1.10
+
+### Patch Changes
+
+- 3262b56: Updating PersonAvatar story with dataSource
+- Updated dependencies [80f579c]
+  - @equinor/fusion-react-ag-grid-person-cell@2.0.0
+
 ## 4.1.9
 
 ### Patch Changes
