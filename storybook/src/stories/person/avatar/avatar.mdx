@@ -1,0 +1,31 @@
+import { Meta, Markdown, ArgTypes, Canvas } from '@storybook/blocks';
+import * as avatarStories from './avatar.stories';
+
+
+<Meta title="Person/Avatar" />
+
+## Avatar
+<ArgTypes of={ avatarStories.basic } />
+
+### Basic
+<Canvas of={ avatarStories.basic } meta={avatarStories} story={{height: '350px'}}/>
+
+### Sizes
+<Canvas of={ avatarStories.sizes } meta={avatarStories} story={{height: '350px'}}/>
+
+### withDataSource
+
+The avatar will not resolve any data about the user when using property `dataSource`, so the persons avatar will be the users initial as provided in `dataSource`.
+
+When using `dataSource` be sure to add the property `trigger="none"` to prevent the personCard from opening when hovering/clicking on the avatar since it will not resolve a user.
+
+<Canvas of={ avatarStories.withDataSource } meta={avatarStories}  story={{height: '350px'}}/>
+
+### Clickable
+<Canvas of={ avatarStories.clickable } meta={avatarStories} story={{height: '350px'}}/>
+
+### Trigger none
+<Canvas of={ avatarStories.disableCard } meta={avatarStories}/>
+
+### disabled
+<Canvas of={ avatarStories.disabled } meta={avatarStories} />

@@ -7,13 +7,13 @@ import changelogReact from '#packages/person/CHANGELOG.md?raw';
 
 import { ChangeLog, PackageInfo } from '../../components';
 
-import * as avatarStories from './avatar.stories';
+import * as avatarStories from './avatar/avatar.stories';
 import * as cardStories from './card.stories';
 import * as selectStories from './select.stories';
 import * as cellStories from './cell.stories';
 
 
-<Meta title="Person/Docs" />
+<Meta title="Person" />
 
 <PackageInfo pkg={pkg} />
 
@@ -29,6 +29,11 @@ import * as cellStories from './cell.stories';
 <Canvas of={ avatarStories.sizes } meta={avatarStories} story={{height: '350px'}}/>
 
 ### withDataSource
+
+The avatar will not resolve any data about the user when using property `dataSource`, so the persons avatar will be the users initial as provided in `dataSource`.
+
+When using `dataSource` be sure to add the property `trigger="none"` to prevent the personCard from opening when hovering/clicking on the avatar since it will not resolve a user.
+
 <Canvas of={ avatarStories.withDataSource } meta={avatarStories}  story={{height: '350px'}}/>
 
 ### Clickable
