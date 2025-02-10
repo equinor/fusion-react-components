@@ -281,7 +281,7 @@ importers:
         version: 0.22.0
       '@equinor/fusion-observable':
         specifier: ^8.1.2
-        version: 8.1.5(@types/react@18.2.64)(react@18.2.0)
+        version: 8.4.4(@types/react@18.2.64)(react@18.2.0)
       '@types/react':
         specifier: ^18.2.24
         version: 18.2.64
@@ -699,7 +699,7 @@ importers:
         version: 33.0.0(@equinor/fusion-framework-module@4.3.5)
       '@equinor/fusion-observable':
         specifier: ^8.1.5
-        version: 8.1.5(@types/react@18.2.64)(react@18.2.0)
+        version: 8.4.4(@types/react@18.2.64)(react@18.2.0)
       '@equinor/fusion-wc-avatar':
         specifier: ^3.2.0
         version: 3.2.3
@@ -1809,8 +1809,8 @@ packages:
       '@types/semver':
         optional: true
 
-  '@equinor/fusion-observable@8.1.5':
-    resolution: {integrity: sha512-uGXb2o7gMQRe5OCkt6qmSrjowHqQwuzw/drMkPh+rZljw+i6fLO17RpoubOLSuULr9i0MMHeZp+hMDQebiW7Qw==}
+  '@equinor/fusion-observable@8.4.4':
+    resolution: {integrity: sha512-jPWU7+XAqXNMLqvr+D7pWU8CH9QH8Z7YQRzbR0b3ZszgRlAuOJxlXDWDfoVnRCHwn8AHrkUsN8XTWlm1sy42gQ==}
     peerDependencies:
       '@types/react': "^17.0.0 ||\_^18.0.0"
       react: "^17.0.0 ||\_^18.0.0"
@@ -5104,8 +5104,8 @@ packages:
   caniuse-lite@1.0.30001646:
     resolution: {integrity: sha512-dRg00gudiBDDTmUhClSdv3hqRfpbOnU28IpI1T6PBTLWa+kOj0681C8uML3PifYfREuBrVjDGhL3adYpBT6spw==}
 
-  caniuse-lite@1.0.30001697:
-    resolution: {integrity: sha512-GwNPlWJin8E+d7Gxq96jxM6w0w+VFeyyXRsjU58emtkYqnbwHqXm5uT2uCmO0RQE9htWknOP4xtBlLmM/gWxvQ==}
+  caniuse-lite@1.0.30001699:
+    resolution: {integrity: sha512-b+uH5BakXZ9Do9iK+CkDmctUSEqZl+SP056vc5usa0PL+ev5OHw003rZXcnjNDv3L8P5j6rwT6C0BPKSikW08w==}
 
   caw@2.0.1:
     resolution: {integrity: sha512-Cg8/ZSBEa8ZVY9HspcGUYaK63d/bN7rqS3CYCzEGUxuYv6UlmcjzDUz2fCFFHyTvUW5Pk0I+3hkA3iXlIj6guA==}
@@ -5741,8 +5741,8 @@ packages:
   electron-to-chromium@1.5.4:
     resolution: {integrity: sha512-orzA81VqLyIGUEA77YkVA1D+N+nNfl2isJVjjmOyrlxuooZ19ynb+dOlaDTqd/idKRS9lDCSBmtzM+kyCsMnkA==}
 
-  electron-to-chromium@1.5.93:
-    resolution: {integrity: sha512-M+29jTcfNNoR9NV7la4SwUqzWAxEwnc7ThA5e1m6LRSotmpfpCpLcIfgtSCVL+MllNLgAyM/5ru86iMRemPzDQ==}
+  electron-to-chromium@1.5.96:
+    resolution: {integrity: sha512-8AJUW6dh75Fm/ny8+kZKJzI1pgoE8bKLZlzDU2W1ENd+DXKJrx7I7l9hb8UWR4ojlnb5OlixMt00QWiYJoVw1w==}
 
   emoji-regex@10.3.0:
     resolution: {integrity: sha512-QpLs9D9v9kArv4lfDEgg1X/gN5XLnf/A6l9cs8SPZLRZR3ZkY9+kwIQTxm+fsSej5UMYGE8fdoaZVIBlqG0XTw==}
@@ -9898,6 +9898,10 @@ packages:
     resolution: {integrity: sha512-8XkAphELsDnEGrDxUOHB3RGvXz6TeuYSGEZBOjtTtPm2lwhGBjLgOzLHB63IUWfBpNucQjND6d3AOudO+H3RWQ==}
     hasBin: true
 
+  uuid@11.0.5:
+    resolution: {integrity: sha512-508e6IcKLrhxKdBbcA2b4KQZlLVp2+J5UwQ6F7Drckkc5N9ZJwFa4TgWtsww9UG8fGHbm6gbV19TdM5pQ4GaIA==}
+    hasBin: true
+
   uuid@3.4.0:
     resolution: {integrity: sha512-HjSDRw6gZE5JMggctHBcjVak08+KEVhSIiDzFnT9S9aegmp85S/bReBVTb4QTFaRNptJ9kuYaNhnbNEOkbKb/A==}
     deprecated: Please upgrade  to version 7 or higher.  Older versions may use Math.random() in certain circumstances, which is known to be problematic.  See https://v8.dev/blog/math-random for details.
@@ -11727,12 +11731,12 @@ snapshots:
       rxjs: 7.8.1
       semver: 7.7.1
 
-  '@equinor/fusion-observable@8.1.5(@types/react@18.2.64)(react@18.2.0)':
+  '@equinor/fusion-observable@8.4.4(@types/react@18.2.64)(react@18.2.0)':
     dependencies:
       immer: 9.0.21
       react: 18.2.0
       rxjs: 7.8.1
-      uuid: 9.0.1
+      uuid: 11.0.5
     optionalDependencies:
       '@types/react': 18.2.64
 
@@ -16911,8 +16915,8 @@ snapshots:
 
   browserslist@4.24.4:
     dependencies:
-      caniuse-lite: 1.0.30001697
-      electron-to-chromium: 1.5.93
+      caniuse-lite: 1.0.30001699
+      electron-to-chromium: 1.5.96
       node-releases: 2.0.19
       update-browserslist-db: 1.1.2(browserslist@4.24.4)
 
@@ -17005,7 +17009,7 @@ snapshots:
 
   caniuse-lite@1.0.30001646: {}
 
-  caniuse-lite@1.0.30001697: {}
+  caniuse-lite@1.0.30001699: {}
 
   caw@2.0.1:
     dependencies:
@@ -17702,7 +17706,7 @@ snapshots:
 
   electron-to-chromium@1.5.4: {}
 
-  electron-to-chromium@1.5.93: {}
+  electron-to-chromium@1.5.96: {}
 
   emoji-regex@10.3.0: {}
 
@@ -22916,6 +22920,8 @@ snapshots:
       which-typed-array: 1.1.15
 
   uuid@10.0.0: {}
+
+  uuid@11.0.5: {}
 
   uuid@3.4.0:
     optional: true
