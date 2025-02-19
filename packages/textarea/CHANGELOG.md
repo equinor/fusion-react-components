@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.6.2
+
+### Patch Changes
+
+- 1e9192e: update fusion-wc-searchable-dropdown and fusion-wc-textarea deps
+
 ## 0.6.1
 
 ### Patch Changes
