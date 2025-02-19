@@ -1,5 +1,14 @@
 # Change Log
 
+## 4.1.11
+
+### Patch Changes
+
+- Updated dependencies [1e9192e]
+  - @equinor/fusion-react-searchable-dropdown@1.0.1
+  - @equinor/fusion-react-context-selector@1.0.1
+  - @equinor/fusion-react-textarea@0.6.2
+
 ## 4.1.10
 
 ### Patch Changes

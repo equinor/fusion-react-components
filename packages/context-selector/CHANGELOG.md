@@ -1,5 +1,13 @@
 # Change Log
 
+## 1.0.1
+
+### Patch Changes
+
+- 1e9192e: update fusion-wc-searchable-dropdown and fusion-wc-textarea deps
+- Updated dependencies [1e9192e]
+  - @equinor/fusion-react-searchable-dropdown@1.0.1
+
 ## 1.0.0
 
 ### Major Changes
