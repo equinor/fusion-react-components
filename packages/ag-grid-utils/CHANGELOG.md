@@ -1,5 +1,11 @@
 # Change Log
 
+## 31.2.3
+
+### Patch Changes
+
+- 2606cc9: Update eds-core-react deps
+
 ## 31.2.2
 
 ### Patch Changes
