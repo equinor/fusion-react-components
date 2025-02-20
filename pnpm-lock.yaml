@@ -158,8 +158,8 @@ importers:
   packages/ag-grid-utils:
     dependencies:
       '@equinor/eds-core-react':
-        specifier: ^0.35.0
-        version: 0.35.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(styled-components@6.1.15(react-dom@18.2.0(react@18.2.0))(react@18.2.0))
+        specifier: ^0.43.0
+        version: 0.43.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(styled-components@6.1.15(react-dom@18.2.0(react@18.2.0))(react@18.2.0))
     devDependencies:
       '@ag-grid-community/core':
         specifier: 32.3.3
@@ -227,8 +227,8 @@ importers:
   packages/errorboundary:
     dependencies:
       '@equinor/eds-core-react':
-        specifier: ^0.35.0
-        version: 0.35.1(react-dom@18.3.1(react@18.2.0))(react@18.2.0)(styled-components@6.1.15(react-dom@18.3.1(react@18.2.0))(react@18.2.0))
+        specifier: ^0.43.0
+        version: 0.43.0(react-dom@18.3.1(react@18.2.0))(react@18.2.0)(styled-components@6.1.15(react-dom@18.3.1(react@18.2.0))(react@18.2.0))
       '@equinor/fusion-react-styles':
         specifier: ^0.6.0
         version: 0.6.2(@types/react@18.2.64)(react-dom@18.3.1(react@18.2.0))(react@18.2.0)
@@ -1699,14 +1699,6 @@ packages:
   '@emotion/weak-memoize@0.3.1':
     resolution: {integrity: sha512-EsBwpc7hBUJWAsNPBmJy4hxWx12v6bshQsldrVmjxJoc3isbxhOrF2IcCpaXxfvq03NwkI7sbsOLXbYuqF/8Ww==}
 
-  '@equinor/eds-core-react@0.35.1':
-    resolution: {integrity: sha512-eGGpaIOfL873dsiPodHx6xTx7vKVIW+cQwZk8Q1cLjMIROMvQCGsIY4UDKi/b1V2TQy7YMmajTOfii9zPbU1HA==}
-    engines: {node: '>=10.0.0', pnpm: '>=4'}
-    peerDependencies:
-      react: '>=16.8'
-      react-dom: '>=16.8'
-      styled-components: '>=4.2'
-
   '@equinor/eds-core-react@0.39.0':
     resolution: {integrity: sha512-ThXw2WVj0S6HqzMWAEUm+BVuQptL6BMYa43hKoft0PPVzT/5RCddvuyQRW65DMV1QAAI7i9w3ERPcFIQnvMk1A==}
     engines: {node: '>=10.0.0', pnpm: '>=4'}
@@ -1722,10 +1714,6 @@ packages:
       react-dom: '>=16.8'
       styled-components: '>=5.1'
 
-  '@equinor/eds-icons@0.20.0':
-    resolution: {integrity: sha512-Xk+Ghx46iBBPHF1zmesPlmSqivoxdKlBEuwvo2v5c6T+quQ6twkkIri2qMqkCTuqe2bgmlAvsCw1iGpUoQlr3A==}
-    engines: {node: '>=10.0.0', pnpm: '>=4'}
-
   '@equinor/eds-icons@0.21.0':
     resolution: {integrity: sha512-k2keACHou9h9D5QLfSBeojTApqbPCkHNBWplUA/B9FQv8FMCMSBbjJAo2L/3yAExMylQN9LdwKo81T2tijRXoA==}
     engines: {node: '>=10.0.0', pnpm: '>=4'}
@@ -1736,14 +1724,6 @@ packages:
   '@equinor/eds-tokens@0.9.2':
     resolution: {integrity: sha512-pDIFei0vsfN3GN12NKWqxskAkYBQd6+Dzjga2liuY81LfnlJs5g9NblamU9WY5w5YdVE5Z8FNjsMKDLs2JIWcw==}
     engines: {node: '>=10.0.0', pnpm: '>=4'}
-
-  '@equinor/eds-utils@0.8.3':
-    resolution: {integrity: sha512-+Xm+BsXMUqlxZpPeGAJExhf27WqcQDHmKY9e4s6hfFP8D2vj5VcS0cglY86cmH4N3bDb4LmHL8V2FSX9xHr9+g==}
-    engines: {node: '>=10.0.0', pnpm: '>=4'}
-    peerDependencies:
-      react: '>=16.8'
-      react-dom: '>=16.8'
-      styled-components: '>=4.2'
 
   '@equinor/eds-utils@0.8.5':
     resolution: {integrity: sha512-4AwltyJg51rjBBB4a4g4dGh9JlR+9mc/1AvRsV+nJqdpjjUgDeVBXukLN8Dh2CgyX1+0q3iH3TWq7bwOzd7n5Q==}
@@ -2056,23 +2036,11 @@ packages:
     resolution: {integrity: sha512-85+k0AxaZSTowL0gXp8zYWDIrWclTbRPg/pm/V0dSFZ6W6D4lhcG3uuZl4zLsEKfEvs69xDbLN2cHQudwp95JA==}
     engines: {node: '>=18.0.0', npm: '>=9.0.0'}
 
-  '@floating-ui/core@1.6.7':
-    resolution: {integrity: sha512-yDzVT/Lm101nQ5TCVeK65LtdN7Tj4Qpr9RTXJ2vPFLqtLxwOrpoxAHAJI8J3yYWUc40J0BDBheaitK5SJmno2g==}
-
   '@floating-ui/core@1.6.9':
     resolution: {integrity: sha512-uMXCuQ3BItDUbAMhIXw7UPXRfAlOAvZzdK9BWpE60MCn+Svt3aLn9jsPTi/WNGlRUu2uI0v5S7JiIUsbsvh3fw==}
 
-  '@floating-ui/dom@1.6.12':
-    resolution: {integrity: sha512-NP83c0HjokcGVEMeoStg317VD9W7eDlGK7457dMBANbKA6GJZdc7rjujdgqzTaz93jkGgc5P/jeWbaCHnMNc+w==}
-
   '@floating-ui/dom@1.6.13':
     resolution: {integrity: sha512-umqzocjDgNRGTuO7Q8CU32dkHkECqI8ZdMZ5Swb6QAM0t5rnlrN3lGo1hdpscRd3WS8T6DKYK4ephgIH9iRh3w==}
-
-  '@floating-ui/react-dom@2.0.8':
-    resolution: {integrity: sha512-HOdqOt3R3OGeTKidaLvJKcgg75S6tibQ3Tif4eyd91QnIJWr0NLvoXFpJA/j8HqkFSL68GDca9AuyWEHlhyClw==}
-    peerDependencies:
-      react: '>=16.8.0'
-      react-dom: '>=16.8.0'
 
   '@floating-ui/react-dom@2.1.1':
     resolution: {integrity: sha512-4h84MJt3CHrtG18mGsXuLCHMrug49d7DFkU0RMIyshRveBeyV2hmV/pDaF2Uxtu8kgq5r46llp5E5FQiR0K2Yg==}
@@ -2092,20 +2060,11 @@ packages:
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
 
-  '@floating-ui/react@0.26.9':
-    resolution: {integrity: sha512-p86wynZJVEkEq2BBjY/8p2g3biQ6TlgT4o/3KgFKyTWoJLU1GZ8wpctwRqtkEl2tseYA+kw7dBAIDFcednfI5w==}
-    peerDependencies:
-      react: '>=16.8.0'
-      react-dom: '>=16.8.0'
-
   '@floating-ui/react@0.27.4':
     resolution: {integrity: sha512-05mXdkUiVh8NCEcYKQ2C9SV9IkZ9k/dFtYmaEIN2riLv80UHoXylgBM76cgPJYfLJM3dJz7UE5MOVH0FypMd2Q==}
     peerDependencies:
       react: '>=17.0.0'
       react-dom: '>=17.0.0'
-
-  '@floating-ui/utils@0.2.1':
-    resolution: {integrity: sha512-9TANp6GPoMtYzQdt54kfAyMmz1+osLlXdg2ENroU7zzrtflTLrrC/lgrIfaSe+Wu0b89GKccT7vxXA0MoAIO+Q==}
 
   '@floating-ui/utils@0.2.5':
     resolution: {integrity: sha512-sTcG+QZ6fdEUObICavU+aB3Mp8HY4n14wYHdxK4fXjPmv3PXZZeY5RaguJmGyeH/CJQhX3fqKUtS4qc1LoHwhQ==}
@@ -4227,11 +4186,6 @@ packages:
   '@swc/helpers@0.5.15':
     resolution: {integrity: sha512-JQ5TuMi45Owi4/BIMAJBoSQoOJu12oOk/gADqlcUL9JEdHB8vyjUSsxqeNXnmXHjYKMi2WcYtezGEEhqUI/E2g==}
 
-  '@tanstack/react-virtual@3.0.0-beta.54':
-    resolution: {integrity: sha512-D1mDMf4UPbrtHRZZriCly5bXTBMhylslm4dhcHqTtDJ6brQcgGmk8YD9JdWBGWfGSWPKoh2x1H3e7eh+hgPXtQ==}
-    peerDependencies:
-      react: ^16.8.0 || ^17.0.0 || ^18.0.0
-
   '@tanstack/react-virtual@3.11.2':
     resolution: {integrity: sha512-OuFzMXPF4+xZgx8UzJha0AieuMihhhaWG0tCqpp6tDzlFwOmNBPYMuLOtMJ1Tr4pXLHmgjcWhG6RlknY2oNTdQ==}
     peerDependencies:
@@ -4243,9 +4197,6 @@ packages:
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
-
-  '@tanstack/virtual-core@3.0.0-beta.54':
-    resolution: {integrity: sha512-jtkwqdP2rY2iCCDVAFuaNBH3fiEi29aTn2RhtIoky8DTTiCdc48plpHHreLwmv1PICJ4AJUUESaq3xa8fZH8+g==}
 
   '@tanstack/virtual-core@3.11.2':
     resolution: {integrity: sha512-vTtpNt7mKCiZ1pwU9hfKPhpdVO2sVzFQsxoVBGtOSHxlrRRzYr8iQ2TlwbAcRYCcEiZ9ECAM8kBzH0v2+VzfKw==}
@@ -5754,11 +5705,6 @@ packages:
   download@7.1.0:
     resolution: {integrity: sha512-xqnBTVd/E+GxJVrX5/eUJiLYjCGPwMpdL+jGhGU57BvtcA7wwhtHVbXBeUk51kOpW3S7Jn3BQbN9Q1R1Km2qDQ==}
     engines: {node: '>=6'}
-
-  downshift@8.4.0:
-    resolution: {integrity: sha512-feeqAR0s53NTIKaHxyFhdLo9UCHUwge4q/j+heIz7X8AaURgdcANOnMGLWffWQCoX9l4Vpw87nOrlX6uJceqjA==}
-    peerDependencies:
-      react: '>=16.12.0'
 
   downshift@9.0.4:
     resolution: {integrity: sha512-6XV/p6+4177d8e8dJ6PoLNSDG1bv52FL18yilKD06oZCb6dFG6f6dXcn3h0B1ggcrOkN3hIvL11Qt15Y5McbXw==}
@@ -11524,32 +11470,6 @@ snapshots:
 
   '@emotion/weak-memoize@0.3.1': {}
 
-  '@equinor/eds-core-react@0.35.1(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(styled-components@6.1.15(react-dom@18.2.0(react@18.2.0))(react@18.2.0))':
-    dependencies:
-      '@babel/runtime': 7.24.0
-      '@equinor/eds-icons': 0.20.0
-      '@equinor/eds-tokens': 0.9.2
-      '@equinor/eds-utils': 0.8.3(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(styled-components@6.1.15(react-dom@18.2.0(react@18.2.0))(react@18.2.0))
-      '@floating-ui/react': 0.26.9(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
-      '@tanstack/react-virtual': 3.0.0-beta.54(react@18.2.0)
-      downshift: 8.4.0(react@18.2.0)
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-      styled-components: 6.1.15(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
-
-  '@equinor/eds-core-react@0.35.1(react-dom@18.3.1(react@18.2.0))(react@18.2.0)(styled-components@6.1.15(react-dom@18.3.1(react@18.2.0))(react@18.2.0))':
-    dependencies:
-      '@babel/runtime': 7.24.0
-      '@equinor/eds-icons': 0.20.0
-      '@equinor/eds-tokens': 0.9.2
-      '@equinor/eds-utils': 0.8.3(react-dom@18.3.1(react@18.2.0))(react@18.2.0)(styled-components@6.1.15(react-dom@18.3.1(react@18.2.0))(react@18.2.0))
-      '@floating-ui/react': 0.26.9(react-dom@18.3.1(react@18.2.0))(react@18.2.0)
-      '@tanstack/react-virtual': 3.0.0-beta.54(react@18.2.0)
-      downshift: 8.4.0(react@18.2.0)
-      react: 18.2.0
-      react-dom: 18.3.1(react@18.2.0)
-      styled-components: 6.1.15(react-dom@18.3.1(react@18.2.0))(react@18.2.0)
-
   '@equinor/eds-core-react@0.39.0(react-dom@18.3.1(react@18.2.0))(react@18.2.0)(styled-components@6.1.15(react-dom@18.3.1(react@18.2.0))(react@18.2.0))':
     dependencies:
       '@babel/runtime': 7.24.8
@@ -11607,29 +11527,11 @@ snapshots:
       react-dom: 18.3.1(react@18.2.0)
       styled-components: 6.1.15(react-dom@18.3.1(react@18.2.0))(react@18.2.0)
 
-  '@equinor/eds-icons@0.20.0': {}
-
   '@equinor/eds-icons@0.21.0': {}
 
   '@equinor/eds-icons@0.22.0': {}
 
   '@equinor/eds-tokens@0.9.2': {}
-
-  '@equinor/eds-utils@0.8.3(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(styled-components@6.1.15(react-dom@18.2.0(react@18.2.0))(react@18.2.0))':
-    dependencies:
-      '@babel/runtime': 7.25.0
-      '@equinor/eds-tokens': 0.9.2
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-      styled-components: 6.1.15(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
-
-  '@equinor/eds-utils@0.8.3(react-dom@18.3.1(react@18.2.0))(react@18.2.0)(styled-components@6.1.15(react-dom@18.3.1(react@18.2.0))(react@18.2.0))':
-    dependencies:
-      '@babel/runtime': 7.25.0
-      '@equinor/eds-tokens': 0.9.2
-      react: 18.2.0
-      react-dom: 18.3.1(react@18.2.0)
-      styled-components: 6.1.15(react-dom@18.3.1(react@18.2.0))(react@18.2.0)
 
   '@equinor/eds-utils@0.8.5(react-dom@18.3.1(react@18.2.0))(react@18.2.0)(styled-components@6.1.15(react-dom@18.3.1(react@18.2.0))(react@18.2.0))':
     dependencies:
@@ -12016,35 +11918,14 @@ snapshots:
 
   '@faker-js/faker@9.4.0': {}
 
-  '@floating-ui/core@1.6.7':
-    dependencies:
-      '@floating-ui/utils': 0.2.9
-
   '@floating-ui/core@1.6.9':
     dependencies:
-      '@floating-ui/utils': 0.2.9
-
-  '@floating-ui/dom@1.6.12':
-    dependencies:
-      '@floating-ui/core': 1.6.7
       '@floating-ui/utils': 0.2.9
 
   '@floating-ui/dom@1.6.13':
     dependencies:
       '@floating-ui/core': 1.6.9
       '@floating-ui/utils': 0.2.9
-
-  '@floating-ui/react-dom@2.0.8(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
-    dependencies:
-      '@floating-ui/dom': 1.6.12
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-
-  '@floating-ui/react-dom@2.0.8(react-dom@18.3.1(react@18.2.0))(react@18.2.0)':
-    dependencies:
-      '@floating-ui/dom': 1.6.12
-      react: 18.2.0
-      react-dom: 18.3.1(react@18.2.0)
 
   '@floating-ui/react-dom@2.1.1(react-dom@18.3.1(react@18.2.0))(react@18.2.0)':
     dependencies:
@@ -12072,22 +11953,6 @@ snapshots:
       react-dom: 18.3.1(react@18.2.0)
       tabbable: 6.2.0
 
-  '@floating-ui/react@0.26.9(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
-    dependencies:
-      '@floating-ui/react-dom': 2.0.8(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
-      '@floating-ui/utils': 0.2.1
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
-      tabbable: 6.2.0
-
-  '@floating-ui/react@0.26.9(react-dom@18.3.1(react@18.2.0))(react@18.2.0)':
-    dependencies:
-      '@floating-ui/react-dom': 2.0.8(react-dom@18.3.1(react@18.2.0))(react@18.2.0)
-      '@floating-ui/utils': 0.2.1
-      react: 18.2.0
-      react-dom: 18.3.1(react@18.2.0)
-      tabbable: 6.2.0
-
   '@floating-ui/react@0.27.4(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
       '@floating-ui/react-dom': 2.1.2(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -12103,8 +11968,6 @@ snapshots:
       react: 18.2.0
       react-dom: 18.3.1(react@18.2.0)
       tabbable: 6.2.0
-
-  '@floating-ui/utils@0.2.1': {}
 
   '@floating-ui/utils@0.2.5': {}
 
@@ -16241,11 +16104,6 @@ snapshots:
     dependencies:
       tslib: 2.8.1
 
-  '@tanstack/react-virtual@3.0.0-beta.54(react@18.2.0)':
-    dependencies:
-      '@tanstack/virtual-core': 3.0.0-beta.54
-      react: 18.2.0
-
   '@tanstack/react-virtual@3.11.2(react-dom@18.2.0(react@18.2.0))(react@18.2.0)':
     dependencies:
       '@tanstack/virtual-core': 3.11.2
@@ -16263,8 +16121,6 @@ snapshots:
       '@tanstack/virtual-core': 3.5.0
       react: 18.2.0
       react-dom: 18.3.1(react@18.2.0)
-
-  '@tanstack/virtual-core@3.0.0-beta.54': {}
 
   '@tanstack/virtual-core@3.11.2': {}
 
@@ -18064,15 +17920,6 @@ snapshots:
       p-event: 2.3.1
       pify: 3.0.0
     optional: true
-
-  downshift@8.4.0(react@18.2.0):
-    dependencies:
-      '@babel/runtime': 7.25.0
-      compute-scroll-into-view: 3.1.0
-      prop-types: 15.8.1
-      react: 18.2.0
-      react-is: 18.2.0
-      tslib: 2.8.1
 
   downshift@9.0.4(react@18.2.0):
     dependencies:
