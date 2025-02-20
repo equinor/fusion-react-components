@@ -1,5 +1,15 @@
 # Change Log
 
+## 4.1.12
+
+### Patch Changes
+
+- 2606cc9: Update eds-core-react deps
+- Updated dependencies [2606cc9]
+  - @equinor/fusion-react-ag-grid-person-cell@2.0.1
+  - @equinor/fusion-react-ag-grid-utils@31.2.3
+  - @equinor/fusion-react-errorboundary@1.0.4
+
 ## 4.1.11
 
 ### Patch Changes
