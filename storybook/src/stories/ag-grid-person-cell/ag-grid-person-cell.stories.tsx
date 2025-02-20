@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { Meta, StoryObj } from '@storybook/react';
 
-import { PersonCell } from '@equinor/fusion-react-person/src/PersonCell';
-import { PersonProvider } from '@equinor/fusion-react-person/src/PersonProvider';
+import { PersonCell } from '@equinor/fusion-react-person';
+import { PersonProvider } from '@equinor/fusion-react-person';
 
 import { agGridPersonCell } from '@equinor/fusion-react-ag-grid-person-cell';
 
