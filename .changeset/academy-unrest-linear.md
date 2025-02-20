@@ -1,5 +1,6 @@
 ﻿---
 '@equinor/fusion-react-stepper': major
+'@equinor/fusion-react-components-stories': patch
 ---
 
 Changed implementation of the Stepper component from being uncontrolled to having a both an uncontrolled and controlled mode.
