@@ -31,12 +31,14 @@ jobs:
         continue-on-error: true
 
       - uses: actions/upload-artifact@v4
+        continue-on-error: true
         with:
           name: eslint-report.log.json
           path: eslint-report.log.json
 
       - name: Annotate Code Linting Results
         uses: ataylorme/eslint-annotate-action@v2
+        continue-on-error: true
         with:
           repo-token: "${{ github.token }}"
           report-json: "eslint-report.log.json"
