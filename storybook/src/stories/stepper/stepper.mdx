@@ -16,16 +16,19 @@ import * as stories from './stepper.stories';
 
 <Markdown>{readme}</Markdown>
 
-<ArgTypes of={ stories.basic } />
+<ArgTypes of={ stories.basicUncontrolled } />
 
-## basic
-<Canvas of={ stories.basic } meta={stories} />
+## Basic Uncontrolled
+<Canvas of={ stories.basicUncontrolled } meta={stories} />
 
-## vertical
-<Canvas of={ stories.vertical } meta={stories} />
+## Vertical Uncontrolled
+<Canvas of={ stories.verticalUncontrolled } meta={stories} />
 
-## controlled
+## Controlled
 <Canvas of={ stories.controlled } meta={stories} />
+
+## Controlled With External Buttons
+<Canvas of={ stories.controlledWithExternalButtons } meta={stories} />
 
 <ChangeLog
   changelogs={{
