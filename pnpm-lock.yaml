@@ -359,7 +359,7 @@ importers:
         version: link:../utils
       '@equinor/fusion-wc-person':
         specifier: ^3.1.1
-        version: 3.1.4
+        version: 3.1.5
     devDependencies:
       '@types/react':
         specifier: ^18.2.74
@@ -1837,8 +1837,8 @@ packages:
   '@equinor/fusion-wc-markdown@1.3.0':
     resolution: {integrity: sha512-9VlzNe8RCviFJ4gCrGjbhxwqU7ryQ/Bk1+7hB1GrDM2AhDbjH73dz9hVZUl/1LQmkWSTt3ugfCqFzgX4/JQrCg==}
 
-  '@equinor/fusion-wc-person@3.1.4':
-    resolution: {integrity: sha512-KnEkEkvRMl4wl5GkkJvZOtL2hsiIQAotEnQfLPN/kOWWeSuaykDlhreBuEXAbjLUUfaDiQ0iezEyu/wC8XeshQ==}
+  '@equinor/fusion-wc-person@3.1.5':
+    resolution: {integrity: sha512-QkjUEHtLAw7bn80yUFHup3q2Kl1uX3ApTxCdU2oKYI2HpErvoR4r6y1P6n9zpX0W04VO1M12SaBidlRGR8xnvg==}
 
   '@equinor/fusion-wc-picture@3.1.1':
     resolution: {integrity: sha512-TeZd46sjyg43HHlbE4h9Ebk9wCBnif5j9XGodIdVTCaC7rLz2YEd7C6RS7vj3nS+goFIZmowiUUmg6gZemzY4w==}
@@ -1857,9 +1857,6 @@ packages:
 
   '@equinor/fusion-wc-textarea@1.1.3':
     resolution: {integrity: sha512-ugg7de31jVxNX809pUZ6007EXQH6h+z/Y+bK9/Bxj4PCVJmwsRK6e7u7xB8A87RLaFEdpGqsi8xrPcA6YDAdlA==}
-
-  '@equinor/fusion-wc-textinput@1.1.2':
-    resolution: {integrity: sha512-ZnN3nCCIvSJnfN6aLiE6Zr2euC0gSQB9X6R/2RxQYRPK++vRfbMH5gkafCJDDyS89A1WU0orDL7Ulgkq1XowMw==}
 
   '@equinor/fusion-wc-textinput@1.1.3':
     resolution: {integrity: sha512-6oEjfn/WtAQjHhJlUnkGA5I6wahlvjIZIK1UFWSpA/5n4f/rdemtpoyJw/Ol+Y4Pg0bvYpPX5MSYqpbCKdIlfQ==}
@@ -2215,8 +2212,8 @@ packages:
     resolution: {integrity: sha512-kyrAc709xhf79Ci2qM+neMfe3IuT89kJyqdMe+YK16kkTNlXedmmQOSs2ARdlEqVVGCWu7M75Dt2VoCBZPnZ8g==}
     engines: {node: '>=18.0.0'}
 
-  '@lit-labs/observers@2.0.4':
-    resolution: {integrity: sha512-x95jhDPGb+HtYU3hEdqkcLxb6v2JBP3tcajaiOijs1F/ZmOgRT0pRPn0v+jhhk8mAAbEO12SZJjPCmuysunssQ==}
+  '@lit-labs/observers@2.0.5':
+    resolution: {integrity: sha512-DYHc3XhNgfl9RoDFMz99OvnElWIU7ncNga1tYd/9Wez4NOsMDRXsSD6LjFfpHCVfzZic6MdlVfB7+iIuWXl5Ng==}
 
   '@lit-labs/ssr-dom-shim@1.2.0':
     resolution: {integrity: sha512-yWJKmpGE6lUURKAaIltoPIE/wrbY3TEkqQt+X0m+7fQNnAv0keydnYvbiJFP1PnMhizmIWRWOG5KLhYyc/xl+g==}
@@ -11742,7 +11739,7 @@ snapshots:
       prosemirror-state: 1.4.3
       prosemirror-view: 1.37.2
 
-  '@equinor/fusion-wc-person@3.1.4':
+  '@equinor/fusion-wc-person@3.1.5':
     dependencies:
       '@equinor/fusion-wc-avatar': 3.2.3
       '@equinor/fusion-wc-badge': 1.3.2
@@ -11751,10 +11748,10 @@ snapshots:
       '@equinor/fusion-wc-icon': 2.3.1
       '@equinor/fusion-wc-list': 1.1.3
       '@equinor/fusion-wc-skeleton': 2.1.2
-      '@equinor/fusion-wc-textinput': 1.1.2
+      '@equinor/fusion-wc-textinput': 1.1.3
       '@equinor/fusion-web-theme': 0.1.10
       '@floating-ui/dom': 1.6.13
-      '@lit-labs/observers': 2.0.4
+      '@lit-labs/observers': 2.0.5
       '@lit-labs/task': 3.1.0
       lit: 3.2.1
 
@@ -11801,14 +11798,6 @@ snapshots:
       '@equinor/fusion-wc-textinput': 1.1.3
       '@material/mwc-textarea': 0.27.0
       lit: 3.2.1
-
-  '@equinor/fusion-wc-textinput@1.1.2':
-    dependencies:
-      '@equinor/fusion-wc-core': 2.0.0
-      '@equinor/fusion-wc-icon': 2.3.1
-      '@equinor/fusion-web-theme': 0.1.10
-      '@material/mwc-textfield': 0.27.0
-      lit: 3.2.0
 
   '@equinor/fusion-wc-textinput@1.1.3':
     dependencies:
@@ -12249,7 +12238,7 @@ snapshots:
       - supports-color
       - typescript
 
-  '@lit-labs/observers@2.0.4':
+  '@lit-labs/observers@2.0.5':
     dependencies:
       '@lit/reactive-element': 2.0.4
       lit-html: 3.2.1
@@ -20107,7 +20096,7 @@ snapshots:
     dependencies:
       '@lit-labs/ssr-dom-shim': 1.2.0
       '@lit/reactive-element': 2.0.4
-      lit-html: 3.2.1
+      lit-html: 3.1.2
 
   lit-element@4.1.1:
     dependencies:
