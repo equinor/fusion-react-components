@@ -1,14 +1,14 @@
 import {
-    useState,
-    useEffect,
-    useCallback,
-    PropsWithChildren,
-    createContext,
-    useContext,
-    Children,
-    ReactElement
+  useState,
+  useEffect,
+  useCallback,
+  PropsWithChildren,
+  createContext,
+  useContext,
+  Children,
+  ReactElement,
 } from 'react';
-import {findNextAvailable, findPrevAvailable, getSteps} from './utils';
+import { findNextAvailable, findPrevAvailable, getSteps } from './utils';
 import StepperContent from './StepperContent';
 
 /** Define the props interface for Stepper component */
@@ -30,6 +30,8 @@ export type StepKey = {
   disabled: boolean;
   done: boolean;
 };
+
+export type StepKeys = StepKey[];
 
 /** Create context for Stepper */
 type StepperContextType = {
@@ -68,7 +70,9 @@ export const Stepper = ({
   /** State to manage step keys, current step key, and active step position */
   const [stepKeys, setStepKeys] = useState<StepKey[]>([]);
   /** Fallback to key of first step if stepKey/initialStepKey is not set */
-  const [currentStepKey, setCurrentStepKey] = useState<string>(stepKey ?? initialStepKey ?? (Children.toArray(children)[0] as ReactElement).props.stepKey);
+  const [currentStepKey, setCurrentStepKey] = useState<string>(
+    stepKey ?? initialStepKey ?? (Children.toArray(children)[0] as ReactElement).props.stepKey,
+  );
   const [activeStepPosition, setActiveStepPosition] = useState<number>(0);
 
   /** State to manage navigation button availability */
@@ -103,11 +107,11 @@ export const Stepper = ({
   /** Callback to handle step change */
   const handleChange = useCallback(
     (newStepKey: string, allSteps: StepKey[]) => {
-      /** If stepKey is undefined we call setCurrentStepKey here since it is then an uncontrolled component */  
+      /** If stepKey is undefined we call setCurrentStepKey here since it is then an uncontrolled component */
       !stepKey && setCurrentStepKey(newStepKey);
       onChange && onChange(newStepKey, allSteps);
     },
-    [onChange],
+    [onChange, stepKey],
   );
 
   return (

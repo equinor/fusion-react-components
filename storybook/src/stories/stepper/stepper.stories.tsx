@@ -4,8 +4,7 @@ import { useState } from 'react';
 
 import { Meta, StoryObj } from '@storybook/react';
 
-import {StepKey, Stepper} from '@equinor/fusion-react-stepper/src/Stepper';
-import { Step } from '@equinor/fusion-react-stepper/src/Step';
+import { StepKeys, Stepper, Step } from '@equinor/fusion-react-stepper';
 
 import { Button } from '@equinor/eds-core-react';
 import { faker } from '@faker-js/faker';
@@ -54,23 +53,23 @@ export const controlled: Story = {
   },
   render: (props) => {
     const [activeStep, setActiveStep] = useState<string>('0');
-    const onChangeStep = (stepKey: string, allSteps: StepKey[]) => {
-      console.log('active: ', stepKey, ' keys: ', allSteps)
+    const onChangeStep = (stepKey: string, allSteps: StepKeys) => {
+      console.log('active: ', stepKey, ' keys: ', allSteps);
       if (activeStep !== stepKey) {
         setActiveStep(String(stepKey));
       }
     };
     faker.seed(1);
     return (
-        <Stepper {...props} stepKey={activeStep} onChange={onChangeStep}>
-          {[...Array(5)].map((_, index) => (
-              <Step key={index} title={faker.lorem.word()} description={faker.lorem.words()} stepKey={String(index)}>
-                <div style={{ padding: 10 }}>
-                  <p>{faker.lorem.paragraphs()}</p>
-                </div>
-              </Step>
-          ))}
-        </Stepper>
+      <Stepper {...props} stepKey={activeStep} onChange={onChangeStep}>
+        {[...Array(5)].map((_, index) => (
+          <Step key={index} title={faker.lorem.word()} description={faker.lorem.words()} stepKey={String(index)}>
+            <div style={{ padding: 10 }}>
+              <p>{faker.lorem.paragraphs()}</p>
+            </div>
+          </Step>
+        ))}
+      </Stepper>
     );
   },
 };

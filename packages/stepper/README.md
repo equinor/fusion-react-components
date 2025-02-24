@@ -1,5 +1,5 @@
 <!--prettier-ignore-start-->
-# @equinor/fusion-react-stepper 
+# @equinor/fusion-react-stepper
 
 [![Published on npm](https://img.shields.io/npm/v/@equinor/fusion-react-stepper.svg)](https://www.npmjs.com/package/@equinor/fusion-react-stepper)
 
@@ -22,15 +22,15 @@ Name                      | Type                          | Default             
 
 Name                      | Type                            | Default                         | Description
 ------------------------- | -----------------------------   | -----------------------------   | -----------
-`stepKey`                 | `string`                        | `/`                             | Step key of step. Used for *** activeStepKey ***. `required`
+`stepKey`                 | `string`                        | `/`                             | Step key of step. Used for ***activeStepKey***. `required`
 `title`                   | `string`                        | `/`                             | Title of step
-`description`             | `string`                        | `/`                             | Description of step 
+`description`             | `string`                        | `/`                             | Description of step
 `disabled`                | `boolean`                       | `false`                         | Disable step. Can't be clicked, but can manually navigate to it
-
 
 ## Example Usage
 
-### Uncontrolled usage:
+### Uncontrolled usage
+
 ```tsx
 import { Stepper } from '@equinor/fusion-react-stepper';
 
@@ -47,7 +47,8 @@ import { Stepper } from '@equinor/fusion-react-stepper';
 </Stepper>
 ```
 
-### Controlled usage:
+### Controlled usage
+
 ```tsx
 import { Stepper } from '@equinor/fusion-react-stepper';
 
@@ -73,5 +74,3 @@ return (
     </Stepper>
 );
 ```
-
-<!--prettier-ignore-end-->
