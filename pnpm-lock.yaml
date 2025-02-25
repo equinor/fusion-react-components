@@ -83,8 +83,8 @@ importers:
         version: 0.9.2
     devDependencies:
       '@ag-grid-community/styles':
-        specifier: 32.3.3
-        version: 32.3.3
+        specifier: 33.0.3
+        version: 33.0.3
       '@equinor/fusion-react-styles':
         specifier: ^0.6.2
         version: 0.6.2(@types/react@18.2.64)(react-dom@18.3.1(react@18.2.0))(react@18.2.0)
@@ -750,8 +750,8 @@ packages:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
-  '@ag-grid-community/styles@32.3.3':
-    resolution: {integrity: sha512-QAJc1CPbmFsAAq5M/8r0IOm8HL4Fb3eVK6tZXKzV9zibIereBjUwvvJRaSJa8iwtTlgxCtaULAQyE2gJcctphA==}
+  '@ag-grid-community/styles@33.0.3':
+    resolution: {integrity: sha512-1bXrYoVj5TIpLvyjgXHvKnYrC0/JvrdGDdJ3mYfT58GulDt1iNQqhjxMnZB+sxMdQoOc681jmKTGcWzOEDE1Dw==}
 
   '@ampproject/remapping@2.3.0':
     resolution: {integrity: sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==}
@@ -10227,7 +10227,7 @@ snapshots:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
 
-  '@ag-grid-community/styles@32.3.3': {}
+  '@ag-grid-community/styles@33.0.3': {}
 
   '@ampproject/remapping@2.3.0':
     dependencies:
