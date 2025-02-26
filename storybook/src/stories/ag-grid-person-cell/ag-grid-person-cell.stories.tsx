@@ -11,13 +11,7 @@ import { faker } from '@faker-js/faker';
 
 // AgGrid
 import { AgGridReact } from 'ag-grid-react';
-import {
-  ClientSideRowModelModule,
-  ColDef,
-  ModuleRegistry,
-  themeAlpine,
-  TooltipModule,
-} from '@equinor/fusion-framework-module-ag-grid/community';
+import { type ColDef, ClientSideRowModelModule, ModuleRegistry, themeAlpine, TooltipModule } from 'ag-grid-community';
 
 const meta: Meta<typeof PersonCell> = {
   title: 'ag-grid/Person Cell',
@@ -44,6 +38,7 @@ const meta: Meta<typeof PersonCell> = {
   },
 };
 
+// @AndrejNikolicEq - Theme is missing
 ModuleRegistry.registerModules([ClientSideRowModelModule, TooltipModule]);
 
 export default meta;
