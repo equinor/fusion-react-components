@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.10.2
+
+### Patch Changes
+
+- 0d6c000: update wc-components to latest
+- Updated dependencies [bdbd574]
+  - @equinor/fusion-react-utils@2.2.1
+
 ## 0.10.1
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.4.3
+
+### Patch Changes
+
+- 0d6c000: update wc-components to latest
+
 ## 0.4.2
 
 ### Patch Changes

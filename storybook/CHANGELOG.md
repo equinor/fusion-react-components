@@ -1,5 +1,28 @@
 # Change Log
 
+## 4.1.14
+
+### Patch Changes
+
+- 167c674: removed `@equinor/fusion-react-ag-grid-styles`
+- a1c95c3: fixed deps for ag-grid
+- 0d6c000: fix deps of ag-grid
+- Updated dependencies [a1c95c3]
+- Updated dependencies [0d6c000]
+  - @equinor/fusion-react-ag-grid-person-cell@2.0.2
+  - @equinor/fusion-react-searchable-dropdown@1.0.2
+  - @equinor/fusion-react-context-selector@1.0.2
+  - @equinor/fusion-react-markdown@0.3.3
+  - @equinor/fusion-react-skeleton@0.3.1
+  - @equinor/fusion-react-textarea@0.6.3
+  - @equinor/fusion-react-filter@1.8.5
+  - @equinor/fusion-react-person@0.10.2
+  - @equinor/fusion-react-ripple@0.4.3
+  - @equinor/fusion-react-styles@0.6.3
+  - @equinor/fusion-react-date@0.5.2
+  - @equinor/fusion-react-list@0.3.3
+  - @equinor/fusion-react-hanging-garden@1.7.6
+
 ## 4.1.13
 
 ### Patch Changes
