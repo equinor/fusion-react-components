@@ -3,7 +3,7 @@ description: General setup of node
 inputs:
   node-version:  
     description: 'Setting node version'
-    default: '20'
+    default: '22'
 
 runs:
   using: composite
