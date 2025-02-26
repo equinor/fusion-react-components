@@ -61,13 +61,9 @@
     "vite-tsconfig-paths": "^5.0.1"
   },
   "devDependencies": {
-    "@ag-grid-community/client-side-row-model": "32.3.3",
-    "@ag-grid-community/core": "32.3.3",
-    "@ag-grid-community/react": "32.3.3",
     "@babel/preset-env": "^7.23.9",
     "@babel/preset-react": "^7.23.3",
     "@babel/preset-typescript": "^7.23.3",
-    "@equinor/fusion-framework-module-ag-grid": "^33.0.0",
     "@equinor/fusion-observable": "^8.1.5",
     "@equinor/fusion-wc-avatar": "^3.2.0",
     "@equinor/fusion-wc-icon": "^2.3.0",
@@ -76,7 +72,7 @@
     "@storybook/blocks": "^8.4.7",
     "@storybook/builder-vite": "^8.4.7",
     "@types/react": "^18.2.55",
-    "ag-grid-react": "^33.0.4",
-    "namor": "^3.0.1"
+    "ag-grid-community": "33.1.1",
+    "ag-grid-react": "33.1.1"
   }
 }
