@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.0.5
+
+### Patch Changes
+
+- f989cb4: re-release, no changes
+
 ## 1.0.4
 
 ### Patch Changes

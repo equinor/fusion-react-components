@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.10.3
+
+### Patch Changes
+
+- f989cb4: re-release, no changes
+- Updated dependencies [f989cb4]
+  - @equinor/fusion-react-utils@2.2.2
+
 ## 0.10.2
 
 ### Patch Changes

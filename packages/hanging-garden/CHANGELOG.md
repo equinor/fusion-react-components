@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.7.7
+
+### Patch Changes
+
+- f989cb4: re-release, no changes
+
 ## 1.7.6
 
 ## 1.7.5
