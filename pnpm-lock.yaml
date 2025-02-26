@@ -696,7 +696,7 @@ importers:
         version: 7.23.3(@babel/core@7.26.9)
       '@equinor/fusion-framework-module-ag-grid':
         specifier: ^33.0.0
-        version: 33.0.0(@equinor/fusion-framework-module@4.3.5)
+        version: 33.1.1(@equinor/fusion-framework-module@4.3.5)(ag-grid-community@33.1.1)(ag-grid-enterprise@33.0.4)
       '@equinor/fusion-observable':
         specifier: ^8.1.5
         version: 8.4.4(@types/react@18.2.64)(react@18.2.0)
@@ -1765,10 +1765,12 @@ packages:
       prettier: '*'
       typescript: 4.x || 5.x
 
-  '@equinor/fusion-framework-module-ag-grid@33.0.0':
-    resolution: {integrity: sha512-hldcI7KJmahGAO3XwHxUvZZboa/sQ3FC47/eOfhO+7nBjPHvJMpsCnEk8rhMuN1yRWr6CCR4LyzOmemCUd1LrQ==}
+  '@equinor/fusion-framework-module-ag-grid@33.1.1':
+    resolution: {integrity: sha512-RvYyiJClDenrZ/WUhM1vXAyQA7eARPgKIfXU+K+WieHjuZVE2+uf5jGOjAvxln8W7JAkTfi0N1MVnucA7eiQuQ==}
     peerDependencies:
-      '@equinor/fusion-framework-module': ^4.3.5
+      '@equinor/fusion-framework-module': ^4.3.6
+      ag-grid-community: '>=33.0.3'
+      ag-grid-enterprise: '>=33.0.3'
 
   '@equinor/fusion-framework-module@4.3.5':
     resolution: {integrity: sha512-sgQr6NQSHRniMd8gSnP9cZIZVdg9/vmXWJlZpJndV7tsirG1ohv+EZtGc/q1PPi54I/Kv+sIwj2p+eUJzYr5lQ==}
@@ -11616,7 +11618,7 @@ snapshots:
       - '@types/eslint'
       - supports-color
 
-  '@equinor/fusion-framework-module-ag-grid@33.0.0(@equinor/fusion-framework-module@4.3.5)':
+  '@equinor/fusion-framework-module-ag-grid@33.1.1(@equinor/fusion-framework-module@4.3.5)(ag-grid-community@33.1.1)(ag-grid-enterprise@33.0.4)':
     dependencies:
       '@equinor/fusion-framework-module': 4.3.5
       ag-grid-community: 33.1.1
