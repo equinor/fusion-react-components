@@ -9,7 +9,6 @@ import {
 
 import { AgGridReact } from '@ag-grid-community/react';
 
-import { useStyles } from '@equinor/fusion-react-ag-grid-styles';
 
 import { ModuleRegistry } from '@ag-grid-community/core';
 import { ClientSideRowModelModule } from '@ag-grid-community/client-side-row-model';
@@ -28,7 +27,6 @@ export default meta;
 faker.seed(0);
 
 export const ChangeHandler = () => {
-  useStyles();
   const rowdData = Array.from({ length: 10 }, () =>
     addInitialProps({
       name: faker.person.firstName(),
