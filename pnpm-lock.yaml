@@ -56,9 +56,6 @@ importers:
       '@equinor/eds-tokens':
         specifier: ^0.9.2
         version: 0.9.2
-      '@equinor/fusion-framework-module-ag-grid':
-        specifier: ^33.0.0
-        version: 33.0.0(@equinor/fusion-framework-module@4.3.5)
       '@equinor/fusion-react-person':
         specifier: workspace:^
         version: link:../person
@@ -72,6 +69,9 @@ importers:
       '@types/react':
         specifier: ^18.2.74
         version: 18.2.74
+      ag-grid-community:
+        specifier: 33.1.1
+        version: 33.1.1
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -4691,8 +4691,14 @@ packages:
   ag-charts-types@11.0.4:
     resolution: {integrity: sha512-K/Mi7FXvSCoABLSrqQ70k1QrIL5R6RNCt2NAppOxMEir+DVFPqKZtghruobc2MGVUUKkT9MCn6Dun+fL6yZjfA==}
 
+  ag-charts-types@11.1.1:
+    resolution: {integrity: sha512-bRmUcf5VVhEEekhX8Vk0NSwa8Te8YM/zchjyYKR2CX4vDYiwoohM1Jg9RFvbIhVbLC1S6QrPEbx5v2C6RDfpSA==}
+
   ag-grid-community@33.0.4:
     resolution: {integrity: sha512-iBD8g8bNIl95w9CzCQpDid+eTdmOoT39204sPUOhE9eE50vfoDHIaF5U4fRYQHbLsT4bwbXfQYdsqBAOLJL24w==}
+
+  ag-grid-community@33.1.1:
+    resolution: {integrity: sha512-CNubIro0ipj4nfQ5WJPG9Isp7UI6MMDvNzrPdHNf3W+IoM8Uv3RUhjEn7xQqpQHuu6o/tMjrqpacipMUkhzqnw==}
 
   ag-grid-enterprise@33.0.4:
     resolution: {integrity: sha512-Ig4mBWanf2NAJWF1DDiRJAMwbxaxqhIf4rvr/ub5iFksHyvtk5GNrDHsT5PGGZX7xMjOqZoyFYBNJtK0OfUFWQ==}
@@ -11613,7 +11619,7 @@ snapshots:
   '@equinor/fusion-framework-module-ag-grid@33.0.0(@equinor/fusion-framework-module@4.3.5)':
     dependencies:
       '@equinor/fusion-framework-module': 4.3.5
-      ag-grid-community: 33.0.4
+      ag-grid-community: 33.1.1
       ag-grid-enterprise: 33.0.4
 
   '@equinor/fusion-framework-module@4.3.5':
@@ -16770,9 +16776,15 @@ snapshots:
 
   ag-charts-types@11.0.4: {}
 
+  ag-charts-types@11.1.1: {}
+
   ag-grid-community@33.0.4:
     dependencies:
       ag-charts-types: 11.0.4
+
+  ag-grid-community@33.1.1:
+    dependencies:
+      ag-charts-types: 11.1.1
 
   ag-grid-enterprise@33.0.4:
     dependencies:
