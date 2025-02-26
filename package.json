@@ -30,7 +30,7 @@
     "lerna:update": "lernaupdate",
     "lerna:dedupe": "lernaupdate --dedupe",
     "changeset:version": "changeset version && pnpm install --lockfile-only",
-    "changeset:publish": "pnpm changeset tag && pnpm publish -r"
+    "changeset:publish": "pnpm changeset tag && pnpm publish -r --no-git-checks"
   },
   "repository": {
     "type": "git",
