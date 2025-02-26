@@ -52,7 +52,6 @@ export const createComponent = <E extends HTMLElement, P extends Record<string, 
     displayName?: string;
   } = {},
 ): WebComponent<E, P> => {
-  type ComponentProps = PropsWithoutRef<ComponentAttributes<E> & P>;
   type EventProps = Partial<Record<keyof E, EventHandler<SyntheticEvent<E, Event>>>>;
 
   const { events = {}, functions = new Set(), displayName = elementClass.name } = options;
@@ -66,9 +65,8 @@ export const createComponent = <E extends HTMLElement, P extends Record<string, 
   /** element native props which should be handled programmatically */
   const nativePropsName = new Set([...elementPropsNames, ...Object.keys(events)]);
 
-
   /** create reference component */
-  const component = forwardRef((props?: ComponentProps, __ref?: Ref<E>) => {
+  const component = forwardRef((props, __ref?: Ref<E>) => {
     const ref = useForwardRef<E>(__ref);
 
     /** bind native properties and function */
