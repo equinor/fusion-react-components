@@ -1,5 +1,16 @@
 # Change Log
 
+## 1.0.2
+
+### Patch Changes
+
+- 0d6c000: update wc-components to latest
+- Updated dependencies [bdbd574]
+- Updated dependencies [0d6c000]
+  - @equinor/fusion-react-utils@2.2.1
+  - @equinor/fusion-react-searchable-dropdown@1.0.2
+  - @equinor/fusion-react-styles@0.6.3
+
 ## 1.0.1
 
 ### Patch Changes

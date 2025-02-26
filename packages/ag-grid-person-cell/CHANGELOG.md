@@ -1,5 +1,15 @@
 # Change Log
 
+## 2.0.2
+
+### Patch Changes
+
+- a1c95c3: fixed deps for ag-grid
+- Updated dependencies [bdbd574]
+- Updated dependencies [0d6c000]
+  - @equinor/fusion-react-utils@2.2.1
+  - @equinor/fusion-react-person@0.10.2
+
 ## 2.0.1
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # Change Log
 
+## 2.2.1
+
+### Patch Changes
+
+- bdbd574: fix typing in `create-element`
+
 ## 2.2.0
 
 ### Minor Changes
