@@ -1,5 +1,15 @@
 # Change Log
 
+## 1.0.3
+
+### Patch Changes
+
+- f989cb4: re-release, no changes
+- Updated dependencies [f989cb4]
+  - @equinor/fusion-react-searchable-dropdown@1.0.3
+  - @equinor/fusion-react-styles@0.6.4
+  - @equinor/fusion-react-utils@2.2.2
+
 ## 1.0.2
 
 ### Patch Changes

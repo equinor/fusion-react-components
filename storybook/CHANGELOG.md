@@ -1,5 +1,29 @@
 # Change Log
 
+## 4.1.15
+
+### Patch Changes
+
+- f989cb4: re-release, no changes
+- Updated dependencies [f989cb4]
+  - @equinor/fusion-react-ag-grid-person-cell@2.0.3
+  - @equinor/fusion-react-ag-grid-utils@31.2.4
+  - @equinor/fusion-react-context-selector@1.0.3
+  - @equinor/fusion-react-date@0.5.3
+  - @equinor/fusion-react-errorboundary@1.0.5
+  - @equinor/fusion-react-filter@1.8.6
+  - @equinor/fusion-react-hanging-garden@1.7.7
+  - @equinor/fusion-react-list@0.3.4
+  - @equinor/fusion-react-markdown@0.3.4
+  - @equinor/fusion-react-person@0.10.3
+  - @equinor/fusion-react-ripple@0.4.4
+  - @equinor/fusion-react-searchable-dropdown@1.0.3
+  - @equinor/fusion-react-side-sheet@1.3.5
+  - @equinor/fusion-react-skeleton@0.3.2
+  - @equinor/fusion-react-stepper@2.0.1
+  - @equinor/fusion-react-styles@0.6.4
+  - @equinor/fusion-react-textarea@0.6.4
+
 ## 4.1.14
 
 ### Patch Changes
