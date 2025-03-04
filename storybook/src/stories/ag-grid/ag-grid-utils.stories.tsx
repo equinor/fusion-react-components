@@ -7,15 +7,19 @@ import {
   AGGridDataStatus,
 } from '@equinor/fusion-react-ag-grid-utils';
 
-import { AgGridReact } from '@ag-grid-community/react';
+import { AgGridReact } from 'ag-grid-react';
 
+import {
+  ModuleRegistry,
+  ClientSideRowModelModule,
+  TextEditorModule,
+  ClientSideRowModelApiModule,
+} from 'ag-grid-community';
 
-import { ModuleRegistry } from '@ag-grid-community/core';
-import { ClientSideRowModelModule } from '@ag-grid-community/client-side-row-model';
 import { faker } from '@faker-js/faker';
 import { useRef } from 'react';
 
-ModuleRegistry.registerModules([ClientSideRowModelModule]);
+ModuleRegistry.registerModules([ClientSideRowModelModule, TextEditorModule, ClientSideRowModelApiModule]);
 
 const meta: Meta<typeof AGGridDataStatus> = {
   tags: ['autodocs'],

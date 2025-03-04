@@ -82,9 +82,6 @@ importers:
         specifier: ^0.43.0
         version: 0.43.0(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(styled-components@6.1.15(react-dom@18.2.0(react@18.2.0))(react@18.2.0))
     devDependencies:
-      '@ag-grid-community/core':
-        specifier: 32.3.3
-        version: 32.3.3
       '@equinor/eds-icons':
         specifier: ~0.22.0
         version: 0.22.0
@@ -94,6 +91,9 @@ importers:
       '@types/react':
         specifier: ^18.2.24
         version: 18.2.64
+      ag-grid-community:
+        specifier: 33.1.1
+        version: 33.1.1
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -642,9 +642,6 @@ packages:
 
   '@adobe/css-tools@4.4.1':
     resolution: {integrity: sha512-12WGKBQzjUAI4ayyF4IAtfw2QR/IDoqk6jTddXDhtYTJF9ASmoE1zst7cVtP0aL/F1jUJL5r+JxKXKEgHNbEUQ==}
-
-  '@ag-grid-community/core@32.3.3':
-    resolution: {integrity: sha512-JMr5ahDjjl+pvQbBM1/VrfVFlioCVnMl1PKWc6MC1ENhpXT1+CPQdfhUEUw2VytOulQeQ4eeP0pFKPuBZ5Jn2g==}
 
   '@ampproject/remapping@2.3.0':
     resolution: {integrity: sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==}
@@ -4415,9 +4412,6 @@ packages:
   add-stream@1.0.0:
     resolution: {integrity: sha512-qQLMr+8o0WC4FZGQTcJiKBVC59JylcPSrTtk6usvmIDFUOCKegapy1VHQwRbFMOFyb/inzUVqHs+eMYKDM1YeQ==}
 
-  ag-charts-types@10.3.3:
-    resolution: {integrity: sha512-8rmyquaTkwfP4Lzei/W/cbkq9wwEl8+grIo3z97mtxrMIXh9sHJK1oJipd/u08MmBZrca5Jjtn5F1+UNPu/4fQ==}
-
   ag-charts-types@11.1.1:
     resolution: {integrity: sha512-bRmUcf5VVhEEekhX8Vk0NSwa8Te8YM/zchjyYKR2CX4vDYiwoohM1Jg9RFvbIhVbLC1S6QrPEbx5v2C6RDfpSA==}
 
@@ -8171,9 +8165,6 @@ packages:
   tslib@2.6.2:
     resolution: {integrity: sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==}
 
-  tslib@2.6.3:
-    resolution: {integrity: sha512-xNvxJEOUiWPGhUuUdQgAJPKOOJfGnIyKySOc09XkKsgdUV/3E2zvwZYdejjmRgPCgcym1juLH3226yA7sEFJKQ==}
-
   tslib@2.8.1:
     resolution: {integrity: sha512-oJFu94HQb+KVduSUQL7wnpmqnfmLsOA/nAh6b6EH0wCEoK0/mPeXU6c3wKDV83MkOuHPRHtSXKKU99IBazS/2w==}
 
@@ -8611,11 +8602,6 @@ snapshots:
   '@aashutoshrathi/word-wrap@1.2.6': {}
 
   '@adobe/css-tools@4.4.1': {}
-
-  '@ag-grid-community/core@32.3.3':
-    dependencies:
-      ag-charts-types: 10.3.3
-      tslib: 2.6.3
 
   '@ampproject/remapping@2.3.0':
     dependencies:
@@ -14937,8 +14923,6 @@ snapshots:
 
   add-stream@1.0.0: {}
 
-  ag-charts-types@10.3.3: {}
-
   ag-charts-types@11.1.1: {}
 
   ag-grid-community@33.1.1:
@@ -19602,8 +19586,6 @@ snapshots:
   tslib@1.14.1: {}
 
   tslib@2.6.2: {}
-
-  tslib@2.6.3: {}
 
   tslib@2.8.1: {}
 

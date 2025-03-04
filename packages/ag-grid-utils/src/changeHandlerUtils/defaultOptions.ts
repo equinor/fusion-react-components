@@ -1,4 +1,4 @@
-import { ColDef, GetRowIdParams, ValueGetterParams, ValueSetterParams } from '@ag-grid-community/core';
+import { ColDef, GetRowIdParams, ValueGetterParams, ValueSetterParams } from 'ag-grid-community';
 import { AGGridDataStatus } from './constants';
 import { checkForChanges } from './dataManipulators';
 import { StatusComponent } from './StatusComponent';
@@ -57,6 +57,6 @@ export const createStatusField = (customDefs?: ColDef): ColDef => ({
   cellRenderer: StatusComponent,
   /** rerender when the status of the row changes */
   valueGetter: (params: ValueGetterParams) => params.data.status,
-  suppressCellFlash: true,
+  enableCellChangeFlash: false,
   ...customDefs,
 });
