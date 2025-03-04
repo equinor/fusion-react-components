@@ -1,5 +1,11 @@
 # Change Log
 
+## 32.0.0
+
+### Major Changes
+
+- 8a5ddb6: Update 'ag-grid-utils' to AG-Grid 33
+
 ## 31.2.4
 
 ### Patch Changes
