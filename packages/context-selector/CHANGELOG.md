@@ -1,5 +1,13 @@
 # Change Log
 
+## 1.0.4
+
+### Patch Changes
+
+- c4c7db2: Update deps @equinor/fusion-wc-searchable-dropdown to 4.0.3
+- Updated dependencies [c4c7db2]
+  - @equinor/fusion-react-searchable-dropdown@1.0.4
+
 ## 1.0.3
 
 ### Patch Changes

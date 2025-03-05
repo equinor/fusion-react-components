@@ -1,5 +1,19 @@
 # Change Log
 
+## 4.2.0
+
+### Minor Changes
+
+- 8a5ddb6: Update 'ag-grid-utils' to AG-Grid 33
+
+### Patch Changes
+
+- Updated dependencies [c4c7db2]
+- Updated dependencies [8a5ddb6]
+  - @equinor/fusion-react-searchable-dropdown@1.0.4
+  - @equinor/fusion-react-context-selector@1.0.4
+  - @equinor/fusion-react-ag-grid-utils@32.0.0
+
 ## 4.1.15
 
 ### Patch Changes
