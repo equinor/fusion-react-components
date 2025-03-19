@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.3.6
+
+### Patch Changes
+
+- 267dd50: Add custom variables for side sheet header height and padding
+
 ## 1.3.5
 
 ### Patch Changes
