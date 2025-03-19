@@ -29,9 +29,9 @@ const StyledContainerWrapper = styled(StyledFlexColumn)`
 `;
 
 const StyledHeader = styled(StyledFlexBox)`
-  height: 3rem;
+  height: var(--side-sheet-header-height, 3rem);
   justify-content: space-between;
-  padding: 1rem;
+  padding: var(--side-sheet-header-padding, 1rem);
 `;
 
 type PortalSideSheet = SideSheetProps & {
