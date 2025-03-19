@@ -13,7 +13,7 @@ importers:
         version: 2.27.12
       '@commitlint/cli':
         specifier: ^19.2.1
-        version: 19.7.1(@types/node@22.13.1)(typescript@5.5.4)
+        version: 19.7.1(@types/node@22.13.10)(typescript@5.5.4)
       '@commitlint/config-conventional':
         specifier: ^19.1.0
         version: 19.7.1
@@ -328,7 +328,7 @@ importers:
     dependencies:
       re-resizable:
         specifier: ^6.9.11
-        version: 6.9.11(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
+        version: 6.11.2(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       react-keyed-flatten-children:
         specifier: ^3.0.0
         version: 3.0.0(react@18.2.0)
@@ -7385,11 +7385,11 @@ packages:
   randombytes@2.1.0:
     resolution: {integrity: sha512-vYl3iOX+4CKUWuxGi9Ukhie6fsqXqS9FE2Zaic4tNFD2N2QQaXOMFbuKK4QmDHC0JO6B1Zp41J0LpT0oR68amQ==}
 
-  re-resizable@6.9.11:
-    resolution: {integrity: sha512-a3hiLWck/NkmyLvGWUuvkAmN1VhwAz4yOhS6FdMTaxCUVN9joIWkT11wsO68coG/iEYuwn+p/7qAmfQzRhiPLQ==}
+  re-resizable@6.11.2:
+    resolution: {integrity: sha512-2xI2P3OHs5qw7K0Ud1aLILK6MQxW50TcO+DetD9eIV58j84TqYeHoZcL9H4GXFXXIh7afhH8mv5iUCXII7OW7A==}
     peerDependencies:
-      react: ^16.13.1 || ^17.0.0 || ^18.0.0
-      react-dom: ^16.13.1 || ^17.0.0 || ^18.0.0
+      react: ^16.13.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
+      react-dom: ^16.13.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
   react-aria@3.33.1:
     resolution: {integrity: sha512-hFC3K/UA+90Krlx2IgRTgzFbC6FSPi4pUwHT+STperPLK+cTEHkI+3Lu0YYwQSBatkgxnIv9+GtFuVbps2kROw==}
@@ -9622,11 +9622,11 @@ snapshots:
       human-id: 1.0.2
       prettier: 2.8.8
 
-  '@commitlint/cli@19.7.1(@types/node@22.13.1)(typescript@5.5.4)':
+  '@commitlint/cli@19.7.1(@types/node@22.13.10)(typescript@5.5.4)':
     dependencies:
       '@commitlint/format': 19.5.0
       '@commitlint/lint': 19.7.1
-      '@commitlint/load': 19.6.1(@types/node@22.13.1)(typescript@5.5.4)
+      '@commitlint/load': 19.6.1(@types/node@22.13.10)(typescript@5.5.4)
       '@commitlint/read': 19.5.0
       '@commitlint/types': 19.5.0
       tinyexec: 0.3.2
@@ -9673,7 +9673,7 @@ snapshots:
       '@commitlint/rules': 19.6.0
       '@commitlint/types': 19.5.0
 
-  '@commitlint/load@19.6.1(@types/node@22.13.1)(typescript@5.5.4)':
+  '@commitlint/load@19.6.1(@types/node@22.13.10)(typescript@5.5.4)':
     dependencies:
       '@commitlint/config-validator': 19.5.0
       '@commitlint/execute-rule': 19.5.0
@@ -9681,7 +9681,7 @@ snapshots:
       '@commitlint/types': 19.5.0
       chalk: 5.4.1
       cosmiconfig: 9.0.0(typescript@5.5.4)
-      cosmiconfig-typescript-loader: 6.1.0(@types/node@22.13.1)(cosmiconfig@9.0.0(typescript@5.5.4))(typescript@5.5.4)
+      cosmiconfig-typescript-loader: 6.1.0(@types/node@22.13.10)(cosmiconfig@9.0.0(typescript@5.5.4))(typescript@5.5.4)
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       lodash.uniq: 4.5.0
@@ -15569,9 +15569,9 @@ snapshots:
 
   core-util-is@1.0.3: {}
 
-  cosmiconfig-typescript-loader@6.1.0(@types/node@22.13.1)(cosmiconfig@9.0.0(typescript@5.5.4))(typescript@5.5.4):
+  cosmiconfig-typescript-loader@6.1.0(@types/node@22.13.10)(cosmiconfig@9.0.0(typescript@5.5.4))(typescript@5.5.4):
     dependencies:
-      '@types/node': 22.13.1
+      '@types/node': 22.13.10
       cosmiconfig: 9.0.0(typescript@5.5.4)
       jiti: 2.4.2
       typescript: 5.5.4
@@ -18597,7 +18597,7 @@ snapshots:
     dependencies:
       safe-buffer: 5.2.1
 
-  re-resizable@6.9.11(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
+  re-resizable@6.11.2(react-dom@18.2.0(react@18.2.0))(react@18.2.0):
     dependencies:
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
