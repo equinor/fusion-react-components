@@ -17,6 +17,7 @@ import flattenChildren from 'react-keyed-flatten-children';
 
 const StyledFlexBox = styled.div`
   display: flex;
+  z-index: 10;
 `;
 
 const StyledFlexColumn = styled(StyledFlexBox)`
