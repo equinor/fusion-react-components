@@ -1,5 +1,12 @@
 # Change Log
 
+## 4.2.2
+
+### Patch Changes
+
+- Updated dependencies [eab8811]
+  - @equinor/fusion-react-side-sheet@1.3.7
+
 ## 4.2.1
 
 ### Patch Changes
