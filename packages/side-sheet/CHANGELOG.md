@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.3.7
+
+### Patch Changes
+
+- eab8811: Added z-index to buttons
+
 ## 1.3.6
 
 ### Patch Changes
