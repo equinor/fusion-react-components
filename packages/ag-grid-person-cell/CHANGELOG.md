@@ -1,5 +1,12 @@
 # Change Log
 
+## 2.0.4
+
+### Patch Changes
+
+- Updated dependencies [dcaa3e6]
+  - @equinor/fusion-react-person@0.10.4
+
 ## 2.0.3
 
 ### Patch Changes
