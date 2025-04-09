@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.10.4
+
+### Patch Changes
+
+- dcaa3e6: Update deps @equinor/fusion-wc-person to 3.1.7
+
 ## 0.10.3
 
 ### Patch Changes
