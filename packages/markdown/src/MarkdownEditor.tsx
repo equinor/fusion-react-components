@@ -1,19 +1,18 @@
 import { PropsWithChildren } from 'react';
 import { ComponentProps, createComponent } from '@equinor/fusion-react-utils';
-import HTMLMarkdownEditorCustomElement, { tag as MarkdownEditorTag } from '@equinor/fusion-wc-markdown/markdown-editor';
-import { MenuSizes } from '@equinor/fusion-wc-markdown';
+import { MarkdownEditorElement, markdownEditorTag, MenuSizes } from '@equinor/fusion-wc-markdown';
 
 type ElementProps = PropsWithChildren<
-  Partial<Pick<HTMLMarkdownEditorCustomElement, 'menuItems' | 'minHeight' | 'value' | 'menuSize'>>
+  Partial<Pick<MarkdownEditorElement, 'menuItems' | 'minHeight' | 'value' | 'menuSize'>>
 >;
 
-export type MarkdownEditorProps = ComponentProps<HTMLMarkdownEditorCustomElement, ElementProps>;
-export const MarkdownEditor = createComponent<HTMLMarkdownEditorCustomElement, ElementProps>(
-  HTMLMarkdownEditorCustomElement,
-  MarkdownEditorTag,
+export type MarkdownEditorProps = ComponentProps<MarkdownEditorElement, ElementProps>;
+export const MarkdownEditor = createComponent<MarkdownEditorElement, ElementProps>(
+  MarkdownEditorElement,
+  markdownEditorTag,
   { events: { onInput: 'markdownEvent' } },
 );
 
-export { HTMLMarkdownEditorCustomElement, type MenuSizes };
+export { MarkdownEditorElement as HTMLMarkdownEditorCustomElement, type MenuSizes };
 
 export default MarkdownEditor;
