@@ -13,7 +13,7 @@ importers:
         version: 2.29.3
       '@commitlint/cli':
         specifier: ^19.2.1
-        version: 19.7.1(@types/node@22.15.3)(typescript@5.5.4)
+        version: 19.7.1(@types/node@22.15.12)(typescript@5.5.4)
       '@commitlint/config-conventional':
         specifier: ^19.1.0
         version: 19.7.1
@@ -202,7 +202,7 @@ importers:
         version: 0.22.0
       '@equinor/fusion-observable':
         specifier: ^8.1.2
-        version: 8.4.4(@types/react@18.2.64)(react@18.2.0)
+        version: 8.4.8(@types/react@18.2.64)(react@18.2.0)
       '@types/react':
         specifier: ^18.2.24
         version: 18.2.64
@@ -247,8 +247,8 @@ importers:
         specifier: ^2.1.0
         version: 2.1.1(react@18.2.0)
       '@equinor/fusion-wc-list':
-        specifier: ^1.1.3
-        version: 1.1.3
+        specifier: ^1.1.4
+        version: 1.1.4
     devDependencies:
       '@types/react':
         specifier: ^18.2.24
@@ -263,8 +263,8 @@ importers:
         specifier: ^2.1.0
         version: 2.1.1(react@18.2.0)
       '@equinor/fusion-wc-markdown':
-        specifier: ^1.3.0
-        version: 1.3.0
+        specifier: ^1.3.1
+        version: 1.3.1
     devDependencies:
       '@types/react':
         specifier: ^18.2.24
@@ -553,7 +553,7 @@ importers:
         version: 8.4.7(@storybook/test@8.4.7(storybook@8.4.7(prettier@3.5.0)))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(storybook@8.4.7(prettier@3.5.0))(typescript@5.4.2)
       '@storybook/react-vite':
         specifier: ^8.4.7
-        version: 8.4.7(@storybook/test@8.4.7(storybook@8.4.7(prettier@3.5.0)))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(rollup@4.40.1)(storybook@8.4.7(prettier@3.5.0))(typescript@5.4.2)(vite@6.3.5(@types/node@22.15.3)(jiti@2.4.2)(sass@1.84.0)(terser@5.39.0)(yaml@2.7.1))
+        version: 8.4.7(@storybook/test@8.4.7(storybook@8.4.7(prettier@3.5.0)))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(rollup@4.40.1)(storybook@8.4.7(prettier@3.5.0))(typescript@5.4.2)(vite@6.3.5(@types/node@22.15.12)(jiti@2.4.2)(sass@1.84.0)(terser@5.39.0)(yaml@2.7.1))
       '@storybook/test':
         specifier: ^8.4.7
         version: 8.4.7(storybook@8.4.7(prettier@3.5.0))
@@ -562,7 +562,7 @@ importers:
         version: 8.4.7(storybook@8.4.7(prettier@3.5.0))
       '@vitejs/plugin-react':
         specifier: ^4.2.1
-        version: 4.4.1(vite@6.3.5(@types/node@22.15.3)(jiti@2.4.2)(sass@1.84.0)(terser@5.39.0)(yaml@2.7.1))
+        version: 4.4.1(vite@6.3.5(@types/node@22.15.12)(jiti@2.4.2)(sass@1.84.0)(terser@5.39.0)(yaml@2.7.1))
       babel-loader:
         specifier: ^9.1.3
         version: 9.1.3(@babel/core@7.27.1)(webpack@5.97.1(esbuild@0.24.2))
@@ -589,10 +589,10 @@ importers:
         version: 5.4.2
       vite:
         specifier: ^6.0.2
-        version: 6.3.5(@types/node@22.15.3)(jiti@2.4.2)(sass@1.84.0)(terser@5.39.0)(yaml@2.7.1)
+        version: 6.3.5(@types/node@22.15.12)(jiti@2.4.2)(sass@1.84.0)(terser@5.39.0)(yaml@2.7.1)
       vite-tsconfig-paths:
         specifier: ^5.0.1
-        version: 5.0.1(typescript@5.4.2)(vite@6.3.5(@types/node@22.15.3)(jiti@2.4.2)(sass@1.84.0)(terser@5.39.0)(yaml@2.7.1))
+        version: 5.0.1(typescript@5.4.2)(vite@6.3.5(@types/node@22.15.12)(jiti@2.4.2)(sass@1.84.0)(terser@5.39.0)(yaml@2.7.1))
     devDependencies:
       '@babel/preset-env':
         specifier: ^7.23.9
@@ -605,7 +605,7 @@ importers:
         version: 7.27.1(@babel/core@7.27.1)
       '@equinor/fusion-observable':
         specifier: ^8.1.5
-        version: 8.4.4(@types/react@18.2.64)(react@18.2.0)
+        version: 8.4.8(@types/react@18.2.64)(react@18.2.0)
       '@equinor/fusion-wc-avatar':
         specifier: ^3.2.0
         version: 3.2.3
@@ -623,7 +623,7 @@ importers:
         version: 8.4.7(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(storybook@8.4.7(prettier@3.5.0))
       '@storybook/builder-vite':
         specifier: ^8.4.7
-        version: 8.4.7(storybook@8.4.7(prettier@3.5.0))(vite@6.3.5(@types/node@22.15.3)(jiti@2.4.2)(sass@1.84.0)(terser@5.39.0)(yaml@2.7.1))
+        version: 8.4.7(storybook@8.4.7(prettier@3.5.0))(vite@6.3.5(@types/node@22.15.12)(jiti@2.4.2)(sass@1.84.0)(terser@5.39.0)(yaml@2.7.1))
       '@types/react':
         specifier: ^18.2.55
         version: 18.2.64
@@ -1508,8 +1508,8 @@ packages:
       prettier: '*'
       typescript: 4.x || 5.x
 
-  '@equinor/fusion-observable@8.4.4':
-    resolution: {integrity: sha512-jPWU7+XAqXNMLqvr+D7pWU8CH9QH8Z7YQRzbR0b3ZszgRlAuOJxlXDWDfoVnRCHwn8AHrkUsN8XTWlm1sy42gQ==}
+  '@equinor/fusion-observable@8.4.8':
+    resolution: {integrity: sha512-xYPhsJNYxjszaOCztyAZzyL/oTqFvMLeWE0YLvfHLy8ZLkDwCrBnKqSjQZXS6clskFlI6dAxbZe/UjHY9T5MQg==}
     peerDependencies:
       '@types/react': "^17.0.0 ||\_^18.0.0"
       react: "^17.0.0 ||\_^18.0.0"
@@ -1564,8 +1564,11 @@ packages:
   '@equinor/fusion-wc-list@1.1.3':
     resolution: {integrity: sha512-eKzpPA1/8k6uQu6/5ozfywJWHUBPcwOzcZbHz4/Rzu1fb5b932Eot/yUsacDRhnSigbgBvsOqU0phDp2OuV6yA==}
 
-  '@equinor/fusion-wc-markdown@1.3.0':
-    resolution: {integrity: sha512-9VlzNe8RCviFJ4gCrGjbhxwqU7ryQ/Bk1+7hB1GrDM2AhDbjH73dz9hVZUl/1LQmkWSTt3ugfCqFzgX4/JQrCg==}
+  '@equinor/fusion-wc-list@1.1.4':
+    resolution: {integrity: sha512-IZyG+Jyv7vJzQyYJg8RsIlars0q8Ix2LT+Vh1E26p70rBdZZzmU2q1KATOyyEr8vWJSX9HlFMuYTg+N26Mxtdg==}
+
+  '@equinor/fusion-wc-markdown@1.3.1':
+    resolution: {integrity: sha512-9126Kg+sm4MUbAbRzmUPr95+bnKdjY6ySKgqlOPJtoLeJJ4Wwv/dlOEDRENlnUYfhUQQpILnzsVsR0oK9Pd5Jg==}
 
   '@equinor/fusion-wc-person@3.1.8':
     resolution: {integrity: sha512-sgRGVjLfvCk4upvmlDn5FQLyuvt/VAq7uNF/X5DlXUs5jQBQ76yXQDd3BAKQ0IHexYd5dnG4R8z/KOjfKUy8rA==}
@@ -4783,8 +4786,8 @@ packages:
   '@types/node@22.13.1':
     resolution: {integrity: sha512-jK8uzQlrvXqEU91UxiK5J7pKHyzgnI1Qnl0QDHIgVGuolJhRb9EEl28Cj9b3rGR8B2lhFCtvIm5os8lFnO/1Ew==}
 
-  '@types/node@22.15.3':
-    resolution: {integrity: sha512-lX7HFZeHf4QG/J7tBZqrCAXwz9J5RD56Y6MpP0eJkka8p+K0RY/yBTW7CYFJ4VGCclxqOLKmiGP5juQc6MKgcw==}
+  '@types/node@22.15.12':
+    resolution: {integrity: sha512-K0fpC/ZVeb8G9rm7bH7vI0KAec4XHEhBam616nVJCV51bKzJ6oA3luG4WdKoaztxe70QaNjS/xBmcDLmr4PiGw==}
 
   '@types/normalize-package-data@2.4.4':
     resolution: {integrity: sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==}
@@ -6485,8 +6488,8 @@ packages:
   immer@9.0.21:
     resolution: {integrity: sha512-bc4NBHqOqSfRW7POMkHd51LvClaeMXpm8dx0e8oE2GORbq5aRK7Bxl4FyzVLdGtLmvLKL7BTDBG5ACQm4HWjTA==}
 
-  immutable@5.1.1:
-    resolution: {integrity: sha512-3jatXi9ObIsPGr3N5hGw/vWWcTkq6hUYhpQz4k0wLC+owqWi/LiugIw9x0EdNZ2yGedKN/HzePiBvaJRXa0Ujg==}
+  immutable@5.1.2:
+    resolution: {integrity: sha512-qHKXW1q6liAk1Oys6umoaZbDRqjcjgSrbnrifHsfsttza7zcvRAsL7mMV6xWcyhwQy7Xj5v4hhbr6b+iDYwlmQ==}
 
   import-fresh@3.3.0:
     resolution: {integrity: sha512-veYYhQa+D1QBKznvhUHxb8faxlrwUnxseDAbAp457E0wLNio2bOSKnjYDhMj+YiAq61xrMGhQk9iXVk5FzgQMw==}
@@ -6984,6 +6987,9 @@ packages:
   lit-element@4.1.1:
     resolution: {integrity: sha512-HO9Tkkh34QkTeUmEdNYhMT8hzLid7YlMlATSi1q4q17HE5d9mrrEHJ/o8O2D0cMi182zK1F3v7x0PWFjrhXFew==}
 
+  lit-element@4.2.0:
+    resolution: {integrity: sha512-MGrXJVAI5x+Bfth/pU9Kst1iWID6GHDLEzFEnyULB/sFiRLgkd8NPK/PeeXxktA3T6EIIaq8U3KcbTU5XFcP2Q==}
+
   lit-html@2.8.0:
     resolution: {integrity: sha512-o9t+MQM3P4y7M7yNzqAyjp7z+mQGa4NS4CxiyLqFPyFWyc4O+nodLrkrxSaCTrla6M5YOLaT3RpbbqjszB5g3Q==}
 
@@ -7004,6 +7010,9 @@ packages:
 
   lit@3.2.1:
     resolution: {integrity: sha512-1BBa1E/z0O9ye5fZprPtdqnc0BFzxIxTTOO/tQFmyC/hj1O3jL4TfmLBw0WEwjAokdLwpclkvGgDJwTIh0/22w==}
+
+  lit@3.3.0:
+    resolution: {integrity: sha512-DGVsqsOIHBww2DqnuZzW7QsuCdahp50ojuDaBPC7jUDRpYoH0z7kHBBYZewRzer75FwtrkmkKk7iOAwSaWdBmw==}
 
   load-json-file@4.0.0:
     resolution: {integrity: sha512-Kx8hMakjX03tiGTLAIdJ+lL0htKnXjEZN6hk/tozf/WOuYGdZBJrZ+rCJRbVCugsjB3jMLn9746NsQIf5VjBMw==}
@@ -7929,29 +7938,29 @@ packages:
   prop-types@15.8.1:
     resolution: {integrity: sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==}
 
-  prosemirror-commands@1.6.2:
-    resolution: {integrity: sha512-0nDHH++qcf/BuPLYvmqZTUUsPJUCPBUXt0J1ErTcDIS369CTp773itzLGIgIXG4LJXOlwYCr44+Mh4ii6MP1QA==}
+  prosemirror-commands@1.7.1:
+    resolution: {integrity: sha512-rT7qZnQtx5c0/y/KlYaGvtG411S97UaL6gdp6RIZ23DLHanMYLyfGBV5DtSnZdthQql7W+lEVbpSfwtO8T+L2w==}
 
   prosemirror-history@1.4.1:
     resolution: {integrity: sha512-2JZD8z2JviJrboD9cPuX/Sv/1ChFng+xh2tChQ2X4bB2HeK+rra/bmJ3xGntCcjhOqIzSDG6Id7e8RJ9QPXLEQ==}
 
-  prosemirror-inputrules@1.4.0:
-    resolution: {integrity: sha512-6ygpPRuTJ2lcOXs9JkefieMst63wVJBgHZGl5QOytN7oSZs3Co/BYbc3Yx9zm9H37Bxw8kVzCnDsihsVsL4yEg==}
+  prosemirror-inputrules@1.5.0:
+    resolution: {integrity: sha512-K0xJRCmt+uSw7xesnHmcn72yBGTbY45vm8gXI4LZXbx2Z0jwh5aF9xrGQgrVPu0WbyFVFF3E/o9VhJYz6SQWnA==}
 
-  prosemirror-keymap@1.2.2:
-    resolution: {integrity: sha512-EAlXoksqC6Vbocqc0GtzCruZEzYgrn+iiGnNjsJsH4mrnIGex4qbLdWWNza3AW5W36ZRrlBID0eM6bdKH4OStQ==}
+  prosemirror-keymap@1.2.3:
+    resolution: {integrity: sha512-4HucRlpiLd1IPQQXNqeo81BGtkY8Ai5smHhKW9jjPKRc2wQIxksg7Hl1tTI2IfT2B/LgX6bfYvXxEpJl7aKYKw==}
 
-  prosemirror-markdown@1.13.1:
-    resolution: {integrity: sha512-Sl+oMfMtAjWtlcZoj/5L/Q39MpEnVZ840Xo330WJWUvgyhNmLBLN7MsHn07s53nG/KImevWHSE6fEj4q/GihHw==}
+  prosemirror-markdown@1.13.2:
+    resolution: {integrity: sha512-FPD9rHPdA9fqzNmIIDhhnYQ6WgNoSWX9StUZ8LEKapaXU9i6XgykaHKhp6XMyXlOWetmaFgGDS/nu/w9/vUc5g==}
 
-  prosemirror-model@1.24.1:
-    resolution: {integrity: sha512-YM053N+vTThzlWJ/AtPtF1j0ebO36nvbmDy4U7qA2XQB8JVaQp1FmB9Jhrps8s+z+uxhhVTny4m20ptUvhk0Mg==}
+  prosemirror-model@1.25.1:
+    resolution: {integrity: sha512-AUvbm7qqmpZa5d9fPKMvH1Q5bqYQvAZWOGRvxsB6iFLyycvC9MwNemNVjHVrWgjaoxAfY8XVg7DbvQ/qxvI9Eg==}
 
-  prosemirror-schema-basic@1.2.3:
-    resolution: {integrity: sha512-h+H0OQwZVqMon1PNn0AG9cTfx513zgIG2DY00eJ00Yvgb3UD+GQ/VlWW5rcaxacpCGT1Yx8nuhwXk4+QbXUfJA==}
+  prosemirror-schema-basic@1.2.4:
+    resolution: {integrity: sha512-ELxP4TlX3yr2v5rM7Sb70SqStq5NvI15c0j9j/gjsrO5vaw+fnnpovCLEGIcpeGfifkuqJwl4fon6b+KdrODYQ==}
 
-  prosemirror-schema-list@1.5.0:
-    resolution: {integrity: sha512-gg1tAfH1sqpECdhIHOA/aLg2VH3ROKBWQ4m8Qp9mBKrOxQRW61zc+gMCI8nh22gnBzd1t2u1/NPLmO3nAa3ssg==}
+  prosemirror-schema-list@1.5.1:
+    resolution: {integrity: sha512-927lFx/uwyQaGwJxLWCZRkjXG0p48KpMj6ueoYiu4JX05GGuGcgzAy62dfiV8eFZftgyBUvLx76RsMe20fJl+Q==}
 
   prosemirror-state@1.4.3:
     resolution: {integrity: sha512-goFKORVbvPuAQaXhpbemJFRKJ2aixr+AZMGiquiqKxaucC6hlpHNZHWgz5R7dS4roHiwq9vDctE//CZ++o0W1Q==}
@@ -7959,8 +7968,8 @@ packages:
   prosemirror-transform@1.10.2:
     resolution: {integrity: sha512-2iUq0wv2iRoJO/zj5mv8uDUriOHWzXRnOTVgCzSXnktS/2iQRa3UUQwVlkBlYZFtygw6Nh1+X4mGqoYBINn5KQ==}
 
-  prosemirror-view@1.37.2:
-    resolution: {integrity: sha512-ApcyrfV/cRcaL65on7TQcfWElwLyOgIjnIynfAuV+fIdlpbSvSWRwfuPaH7T5mo4AbO/FID29qOtjiDIKGWyog==}
+  prosemirror-view@1.39.2:
+    resolution: {integrity: sha512-BmOkml0QWNob165gyUxXi5K5CVUgVPpqMEAAml/qzgKn9boLUWVPzQ6LtzXw8Cn1GtRQX4ELumPxqtLTDaAKtg==}
 
   protocols@2.0.2:
     resolution: {integrity: sha512-hHVTzba3wboROl0/aWRRG9dMytgH6ow//STBZh43l/wQgmMhYhOFi0EHWAPtoCz9IAUymsyP0TSBHkhgMEGNnQ==}
@@ -8976,8 +8985,8 @@ packages:
     resolution: {integrity: sha512-8XkAphELsDnEGrDxUOHB3RGvXz6TeuYSGEZBOjtTtPm2lwhGBjLgOzLHB63IUWfBpNucQjND6d3AOudO+H3RWQ==}
     hasBin: true
 
-  uuid@11.0.5:
-    resolution: {integrity: sha512-508e6IcKLrhxKdBbcA2b4KQZlLVp2+J5UwQ6F7Drckkc5N9ZJwFa4TgWtsww9UG8fGHbm6gbV19TdM5pQ4GaIA==}
+  uuid@11.1.0:
+    resolution: {integrity: sha512-0/A9rDy9P7cJ+8w1c9WD9V//9Wj15Ce2MPz8Ri6032usz+NfePxx5AcN3bN+r6ZL6jEo066/yNYB3tn4pQEx+A==}
     hasBin: true
 
   uuid@8.3.2:
@@ -10125,11 +10134,11 @@ snapshots:
       human-id: 4.1.1
       prettier: 2.8.8
 
-  '@commitlint/cli@19.7.1(@types/node@22.15.3)(typescript@5.5.4)':
+  '@commitlint/cli@19.7.1(@types/node@22.15.12)(typescript@5.5.4)':
     dependencies:
       '@commitlint/format': 19.5.0
       '@commitlint/lint': 19.7.1
-      '@commitlint/load': 19.6.1(@types/node@22.15.3)(typescript@5.5.4)
+      '@commitlint/load': 19.6.1(@types/node@22.15.12)(typescript@5.5.4)
       '@commitlint/read': 19.5.0
       '@commitlint/types': 19.5.0
       tinyexec: 0.3.2
@@ -10176,7 +10185,7 @@ snapshots:
       '@commitlint/rules': 19.6.0
       '@commitlint/types': 19.5.0
 
-  '@commitlint/load@19.6.1(@types/node@22.15.3)(typescript@5.5.4)':
+  '@commitlint/load@19.6.1(@types/node@22.15.12)(typescript@5.5.4)':
     dependencies:
       '@commitlint/config-validator': 19.5.0
       '@commitlint/execute-rule': 19.5.0
@@ -10184,7 +10193,7 @@ snapshots:
       '@commitlint/types': 19.5.0
       chalk: 5.4.1
       cosmiconfig: 9.0.0(typescript@5.5.4)
-      cosmiconfig-typescript-loader: 6.1.0(@types/node@22.15.3)(cosmiconfig@9.0.0(typescript@5.5.4))(typescript@5.5.4)
+      cosmiconfig-typescript-loader: 6.1.0(@types/node@22.15.12)(cosmiconfig@9.0.0(typescript@5.5.4))(typescript@5.5.4)
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       lodash.uniq: 4.5.0
@@ -10540,12 +10549,12 @@ snapshots:
       - '@types/eslint'
       - supports-color
 
-  '@equinor/fusion-observable@8.4.4(@types/react@18.2.64)(react@18.2.0)':
+  '@equinor/fusion-observable@8.4.8(@types/react@18.2.64)(react@18.2.0)':
     dependencies:
       immer: 9.0.21
       react: 18.2.0
       rxjs: 7.8.1
-      uuid: 11.0.5
+      uuid: 11.1.0
     optionalDependencies:
       '@types/react': 18.2.64
 
@@ -10637,22 +10646,33 @@ snapshots:
       '@material/mwc-list': 0.27.0
       lit: 3.2.0
 
-  '@equinor/fusion-wc-markdown@1.3.0':
+  '@equinor/fusion-wc-list@1.1.4':
+    dependencies:
+      '@equinor/fusion-wc-checkbox': 1.1.2
+      '@equinor/fusion-wc-core': 2.0.0
+      '@equinor/fusion-wc-divider': 1.1.2
+      '@equinor/fusion-wc-icon': 2.3.1
+      '@equinor/fusion-wc-radio': 1.1.2
+      '@equinor/fusion-web-theme': 0.1.10
+      '@material/mwc-list': 0.27.0
+      lit: 3.3.0
+
+  '@equinor/fusion-wc-markdown@1.3.1':
     dependencies:
       '@equinor/fusion-wc-core': 2.0.0
       '@equinor/fusion-wc-icon': 2.3.1
       '@equinor/fusion-web-theme': 0.1.10
-      lit: 3.2.0
-      prosemirror-commands: 1.6.2
+      lit: 3.3.0
+      prosemirror-commands: 1.7.1
       prosemirror-history: 1.4.1
-      prosemirror-inputrules: 1.4.0
-      prosemirror-keymap: 1.2.2
-      prosemirror-markdown: 1.13.1
-      prosemirror-model: 1.24.1
-      prosemirror-schema-basic: 1.2.3
-      prosemirror-schema-list: 1.5.0
+      prosemirror-inputrules: 1.5.0
+      prosemirror-keymap: 1.2.3
+      prosemirror-markdown: 1.13.2
+      prosemirror-model: 1.25.1
+      prosemirror-schema-basic: 1.2.4
+      prosemirror-schema-list: 1.5.1
       prosemirror-state: 1.4.3
-      prosemirror-view: 1.37.2
+      prosemirror-view: 1.39.2
 
   '@equinor/fusion-wc-person@3.1.8':
     dependencies:
@@ -11171,11 +11191,11 @@ snapshots:
     dependencies:
       '@sinclair/typebox': 0.27.8
 
-  '@joshwooding/vite-plugin-react-docgen-typescript@0.4.2(typescript@5.4.2)(vite@6.3.5(@types/node@22.15.3)(jiti@2.4.2)(sass@1.84.0)(terser@5.39.0)(yaml@2.7.1))':
+  '@joshwooding/vite-plugin-react-docgen-typescript@0.4.2(typescript@5.4.2)(vite@6.3.5(@types/node@22.15.12)(jiti@2.4.2)(sass@1.84.0)(terser@5.39.0)(yaml@2.7.1))':
     dependencies:
       magic-string: 0.27.0
       react-docgen-typescript: 2.2.2(typescript@5.4.2)
-      vite: 6.3.5(@types/node@22.15.3)(jiti@2.4.2)(sass@1.84.0)(terser@5.39.0)(yaml@2.7.1)
+      vite: 6.3.5(@types/node@22.15.12)(jiti@2.4.2)(sass@1.84.0)(terser@5.39.0)(yaml@2.7.1)
     optionalDependencies:
       typescript: 5.4.2
 
@@ -16460,13 +16480,13 @@ snapshots:
       react: 18.2.0
       react-dom: 18.3.1(react@18.2.0)
 
-  '@storybook/builder-vite@8.4.7(storybook@8.4.7(prettier@3.5.0))(vite@6.3.5(@types/node@22.15.3)(jiti@2.4.2)(sass@1.84.0)(terser@5.39.0)(yaml@2.7.1))':
+  '@storybook/builder-vite@8.4.7(storybook@8.4.7(prettier@3.5.0))(vite@6.3.5(@types/node@22.15.12)(jiti@2.4.2)(sass@1.84.0)(terser@5.39.0)(yaml@2.7.1))':
     dependencies:
       '@storybook/csf-plugin': 8.4.7(storybook@8.4.7(prettier@3.5.0))
       browser-assert: 1.2.1
       storybook: 8.4.7(prettier@3.5.0)
       ts-dedent: 2.2.0
-      vite: 6.3.5(@types/node@22.15.3)(jiti@2.4.2)(sass@1.84.0)(terser@5.39.0)(yaml@2.7.1)
+      vite: 6.3.5(@types/node@22.15.12)(jiti@2.4.2)(sass@1.84.0)(terser@5.39.0)(yaml@2.7.1)
 
   '@storybook/channels@7.6.17':
     dependencies:
@@ -16602,11 +16622,11 @@ snapshots:
       react-dom: 18.3.1(react@18.2.0)
       storybook: 8.4.7(prettier@3.5.0)
 
-  '@storybook/react-vite@8.4.7(@storybook/test@8.4.7(storybook@8.4.7(prettier@3.5.0)))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(rollup@4.40.1)(storybook@8.4.7(prettier@3.5.0))(typescript@5.4.2)(vite@6.3.5(@types/node@22.15.3)(jiti@2.4.2)(sass@1.84.0)(terser@5.39.0)(yaml@2.7.1))':
+  '@storybook/react-vite@8.4.7(@storybook/test@8.4.7(storybook@8.4.7(prettier@3.5.0)))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(rollup@4.40.1)(storybook@8.4.7(prettier@3.5.0))(typescript@5.4.2)(vite@6.3.5(@types/node@22.15.12)(jiti@2.4.2)(sass@1.84.0)(terser@5.39.0)(yaml@2.7.1))':
     dependencies:
-      '@joshwooding/vite-plugin-react-docgen-typescript': 0.4.2(typescript@5.4.2)(vite@6.3.5(@types/node@22.15.3)(jiti@2.4.2)(sass@1.84.0)(terser@5.39.0)(yaml@2.7.1))
+      '@joshwooding/vite-plugin-react-docgen-typescript': 0.4.2(typescript@5.4.2)(vite@6.3.5(@types/node@22.15.12)(jiti@2.4.2)(sass@1.84.0)(terser@5.39.0)(yaml@2.7.1))
       '@rollup/pluginutils': 5.1.0(rollup@4.40.1)
-      '@storybook/builder-vite': 8.4.7(storybook@8.4.7(prettier@3.5.0))(vite@6.3.5(@types/node@22.15.3)(jiti@2.4.2)(sass@1.84.0)(terser@5.39.0)(yaml@2.7.1))
+      '@storybook/builder-vite': 8.4.7(storybook@8.4.7(prettier@3.5.0))(vite@6.3.5(@types/node@22.15.12)(jiti@2.4.2)(sass@1.84.0)(terser@5.39.0)(yaml@2.7.1))
       '@storybook/react': 8.4.7(@storybook/test@8.4.7(storybook@8.4.7(prettier@3.5.0)))(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(storybook@8.4.7(prettier@3.5.0))(typescript@5.4.2)
       find-up: 5.0.0
       magic-string: 0.30.8
@@ -16616,7 +16636,7 @@ snapshots:
       resolve: 1.22.8
       storybook: 8.4.7(prettier@3.5.0)
       tsconfig-paths: 4.2.0
-      vite: 6.3.5(@types/node@22.15.3)(jiti@2.4.2)(sass@1.84.0)(terser@5.39.0)(yaml@2.7.1)
+      vite: 6.3.5(@types/node@22.15.12)(jiti@2.4.2)(sass@1.84.0)(terser@5.39.0)(yaml@2.7.1)
     transitivePeerDependencies:
       - '@storybook/test'
       - rollup
@@ -16798,11 +16818,11 @@ snapshots:
   '@types/body-parser@1.19.5':
     dependencies:
       '@types/connect': 3.4.38
-      '@types/node': 22.15.3
+      '@types/node': 22.15.12
 
   '@types/connect@3.4.38':
     dependencies:
-      '@types/node': 22.15.3
+      '@types/node': 22.15.12
 
   '@types/conventional-commits-parser@5.0.1':
     dependencies:
@@ -16830,7 +16850,7 @@ snapshots:
 
   '@types/express-serve-static-core@4.19.6':
     dependencies:
-      '@types/node': 22.15.3
+      '@types/node': 22.15.12
       '@types/qs': 6.9.18
       '@types/range-parser': 1.2.7
       '@types/send': 0.17.4
@@ -16886,7 +16906,7 @@ snapshots:
     dependencies:
       undici-types: 6.20.0
 
-  '@types/node@22.15.3':
+  '@types/node@22.15.12':
     dependencies:
       undici-types: 6.21.0
 
@@ -16918,12 +16938,12 @@ snapshots:
   '@types/send@0.17.4':
     dependencies:
       '@types/mime': 1.3.5
-      '@types/node': 22.15.3
+      '@types/node': 22.15.12
 
   '@types/serve-static@1.15.7':
     dependencies:
       '@types/http-errors': 2.0.4
-      '@types/node': 22.15.3
+      '@types/node': 22.15.12
       '@types/send': 0.17.4
 
   '@types/styled-components@5.1.34':
@@ -17025,14 +17045,14 @@ snapshots:
 
   '@ungap/structured-clone@1.2.0': {}
 
-  '@vitejs/plugin-react@4.4.1(vite@6.3.5(@types/node@22.15.3)(jiti@2.4.2)(sass@1.84.0)(terser@5.39.0)(yaml@2.7.1))':
+  '@vitejs/plugin-react@4.4.1(vite@6.3.5(@types/node@22.15.12)(jiti@2.4.2)(sass@1.84.0)(terser@5.39.0)(yaml@2.7.1))':
     dependencies:
       '@babel/core': 7.27.1
       '@babel/plugin-transform-react-jsx-self': 7.27.1(@babel/core@7.27.1)
       '@babel/plugin-transform-react-jsx-source': 7.27.1(@babel/core@7.27.1)
       '@types/babel__core': 7.20.5
       react-refresh: 0.17.0
-      vite: 6.3.5(@types/node@22.15.3)(jiti@2.4.2)(sass@1.84.0)(terser@5.39.0)(yaml@2.7.1)
+      vite: 6.3.5(@types/node@22.15.12)(jiti@2.4.2)(sass@1.84.0)(terser@5.39.0)(yaml@2.7.1)
     transitivePeerDependencies:
       - supports-color
 
@@ -17767,9 +17787,9 @@ snapshots:
 
   core-util-is@1.0.3: {}
 
-  cosmiconfig-typescript-loader@6.1.0(@types/node@22.15.3)(cosmiconfig@9.0.0(typescript@5.5.4))(typescript@5.5.4):
+  cosmiconfig-typescript-loader@6.1.0(@types/node@22.15.12)(cosmiconfig@9.0.0(typescript@5.5.4))(typescript@5.5.4):
     dependencies:
-      '@types/node': 22.15.3
+      '@types/node': 22.15.12
       cosmiconfig: 9.0.0(typescript@5.5.4)
       jiti: 2.4.2
       typescript: 5.5.4
@@ -18905,7 +18925,7 @@ snapshots:
 
   immer@9.0.21: {}
 
-  immutable@5.1.1:
+  immutable@5.1.2:
     optional: true
 
   import-fresh@3.3.0:
@@ -19231,7 +19251,7 @@ snapshots:
 
   jest-worker@27.5.1:
     dependencies:
-      '@types/node': 22.15.3
+      '@types/node': 22.15.12
       merge-stream: 2.0.0
       supports-color: 8.1.1
 
@@ -19537,6 +19557,12 @@ snapshots:
       '@lit/reactive-element': 2.0.4
       lit-html: 3.2.1
 
+  lit-element@4.2.0:
+    dependencies:
+      '@lit-labs/ssr-dom-shim': 1.3.0
+      '@lit/reactive-element': 2.1.0
+      lit-html: 3.3.0
+
   lit-html@2.8.0:
     dependencies:
       '@types/trusted-types': 2.0.7
@@ -19572,6 +19598,12 @@ snapshots:
       '@lit/reactive-element': 2.0.4
       lit-element: 4.1.1
       lit-html: 3.2.1
+
+  lit@3.3.0:
+    dependencies:
+      '@lit/reactive-element': 2.1.0
+      lit-element: 4.2.0
+      lit-html: 3.3.0
 
   load-json-file@4.0.0:
     dependencies:
@@ -20763,9 +20795,9 @@ snapshots:
       object-assign: 4.1.1
       react-is: 16.13.1
 
-  prosemirror-commands@1.6.2:
+  prosemirror-commands@1.7.1:
     dependencies:
-      prosemirror-model: 1.24.1
+      prosemirror-model: 1.25.1
       prosemirror-state: 1.4.3
       prosemirror-transform: 1.10.2
 
@@ -20773,52 +20805,52 @@ snapshots:
     dependencies:
       prosemirror-state: 1.4.3
       prosemirror-transform: 1.10.2
-      prosemirror-view: 1.37.2
+      prosemirror-view: 1.39.2
       rope-sequence: 1.3.4
 
-  prosemirror-inputrules@1.4.0:
+  prosemirror-inputrules@1.5.0:
     dependencies:
       prosemirror-state: 1.4.3
       prosemirror-transform: 1.10.2
 
-  prosemirror-keymap@1.2.2:
+  prosemirror-keymap@1.2.3:
     dependencies:
       prosemirror-state: 1.4.3
       w3c-keyname: 2.2.8
 
-  prosemirror-markdown@1.13.1:
+  prosemirror-markdown@1.13.2:
     dependencies:
       '@types/markdown-it': 14.1.2
       markdown-it: 14.1.0
-      prosemirror-model: 1.24.1
+      prosemirror-model: 1.25.1
 
-  prosemirror-model@1.24.1:
+  prosemirror-model@1.25.1:
     dependencies:
       orderedmap: 2.1.1
 
-  prosemirror-schema-basic@1.2.3:
+  prosemirror-schema-basic@1.2.4:
     dependencies:
-      prosemirror-model: 1.24.1
+      prosemirror-model: 1.25.1
 
-  prosemirror-schema-list@1.5.0:
+  prosemirror-schema-list@1.5.1:
     dependencies:
-      prosemirror-model: 1.24.1
+      prosemirror-model: 1.25.1
       prosemirror-state: 1.4.3
       prosemirror-transform: 1.10.2
 
   prosemirror-state@1.4.3:
     dependencies:
-      prosemirror-model: 1.24.1
+      prosemirror-model: 1.25.1
       prosemirror-transform: 1.10.2
-      prosemirror-view: 1.37.2
+      prosemirror-view: 1.39.2
 
   prosemirror-transform@1.10.2:
     dependencies:
-      prosemirror-model: 1.24.1
+      prosemirror-model: 1.25.1
 
-  prosemirror-view@1.37.2:
+  prosemirror-view@1.39.2:
     dependencies:
-      prosemirror-model: 1.24.1
+      prosemirror-model: 1.25.1
       prosemirror-state: 1.4.3
       prosemirror-transform: 1.10.2
 
@@ -21456,7 +21488,7 @@ snapshots:
   sass@1.84.0:
     dependencies:
       chokidar: 4.0.3
-      immutable: 5.1.1
+      immutable: 5.1.2
       source-map-js: 1.2.1
     optionalDependencies:
       '@parcel/watcher': 2.5.1
@@ -22175,7 +22207,7 @@ snapshots:
 
   uuid@10.0.0: {}
 
-  uuid@11.0.5: {}
+  uuid@11.1.0: {}
 
   uuid@8.3.2:
     optional: true
@@ -22202,18 +22234,18 @@ snapshots:
       unist-util-stringify-position: 4.0.0
       vfile-message: 4.0.2
 
-  vite-tsconfig-paths@5.0.1(typescript@5.4.2)(vite@6.3.5(@types/node@22.15.3)(jiti@2.4.2)(sass@1.84.0)(terser@5.39.0)(yaml@2.7.1)):
+  vite-tsconfig-paths@5.0.1(typescript@5.4.2)(vite@6.3.5(@types/node@22.15.12)(jiti@2.4.2)(sass@1.84.0)(terser@5.39.0)(yaml@2.7.1)):
     dependencies:
       debug: 4.3.6
       globrex: 0.1.2
       tsconfck: 3.1.1(typescript@5.4.2)
     optionalDependencies:
-      vite: 6.3.5(@types/node@22.15.3)(jiti@2.4.2)(sass@1.84.0)(terser@5.39.0)(yaml@2.7.1)
+      vite: 6.3.5(@types/node@22.15.12)(jiti@2.4.2)(sass@1.84.0)(terser@5.39.0)(yaml@2.7.1)
     transitivePeerDependencies:
       - supports-color
       - typescript
 
-  vite@6.3.5(@types/node@22.15.3)(jiti@2.4.2)(sass@1.84.0)(terser@5.39.0)(yaml@2.7.1):
+  vite@6.3.5(@types/node@22.15.12)(jiti@2.4.2)(sass@1.84.0)(terser@5.39.0)(yaml@2.7.1):
     dependencies:
       esbuild: 0.25.3
       fdir: 6.4.4(picomatch@4.0.2)
@@ -22222,7 +22254,7 @@ snapshots:
       rollup: 4.40.1
       tinyglobby: 0.2.13
     optionalDependencies:
-      '@types/node': 22.15.3
+      '@types/node': 22.15.12
       fsevents: 2.3.3
       jiti: 2.4.2
       sass: 1.84.0

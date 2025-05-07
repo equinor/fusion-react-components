@@ -1,15 +1,15 @@
 import { PropsWithChildren } from 'react';
 import { ComponentProps, createComponent } from '@equinor/fusion-react-utils';
-import HTMLMarkdownViewerCustomElement, { tag as MarkdownViewerTag } from '@equinor/fusion-wc-markdown/markdown-viewer';
+import { MarkdownViewerElement, markdownViewerTag } from '@equinor/fusion-wc-markdown';
 
-type ElementProps = PropsWithChildren<Partial<Pick<HTMLMarkdownViewerCustomElement, 'value'>>>;
+type ElementProps = PropsWithChildren<Partial<Pick<MarkdownViewerElement, 'value'>>>;
 
-export type MarkdownViewerProps = ComponentProps<HTMLMarkdownViewerCustomElement, ElementProps>;
-export const MarkdownViewer = createComponent<HTMLMarkdownViewerCustomElement, ElementProps>(
-  HTMLMarkdownViewerCustomElement,
-  MarkdownViewerTag,
+export type MarkdownViewerProps = ComponentProps<MarkdownViewerElement, ElementProps>;
+export const MarkdownViewer = createComponent<MarkdownViewerElement, ElementProps>(
+  MarkdownViewerElement,
+  markdownViewerTag,
 );
 
-export { HTMLMarkdownViewerCustomElement };
+export { MarkdownViewerElement as HTMLMarkdownViewerCustomElement };
 
 export default MarkdownViewer;
