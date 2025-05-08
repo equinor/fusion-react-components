@@ -1,5 +1,11 @@
 # Change Log
 
+## 4.2.5
+
+### Patch Changes
+
+- 87e1f2c: Fixes storybook build issues with @react-aria
+
 ## 4.2.4
 
 ### Patch Changes
