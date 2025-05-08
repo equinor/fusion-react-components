@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.0.6
+
+### Patch Changes
+
+- 0ed5abc: Updating to react-error-boundary@6.0.0
+
 ## 1.0.5
 
 ### Patch Changes

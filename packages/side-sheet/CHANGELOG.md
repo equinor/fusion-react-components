@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.3.8
+
+### Patch Changes
+
+- 2123709: Updating dependency react-keyed-flatten-children@5.0.0 to new major version
+
 ## 1.3.7
 
 ### Patch Changes

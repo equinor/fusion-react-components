@@ -1,5 +1,14 @@
 # Change Log
 
+## 4.2.4
+
+### Patch Changes
+
+- Updated dependencies [0ed5abc]
+- Updated dependencies [2123709]
+  - @equinor/fusion-react-errorboundary@1.0.6
+  - @equinor/fusion-react-side-sheet@1.3.8
+
 ## 4.2.3
 
 ### Patch Changes
