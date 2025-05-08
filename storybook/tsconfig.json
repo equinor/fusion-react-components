@@ -5,9 +5,10 @@
     "resolveJsonModule": true,
     "paths": {
       "@equinor/fusion-react-*": ["../packages/*"]
-    },
-    "skipDefaultLibCheck": true,
-    "skipLibCheck": true,
-    "module": "ES6"
-  }
+    }
+  },
+  "exclude": [
+    "node_modules",
+    "dist"
+  ],
 }
