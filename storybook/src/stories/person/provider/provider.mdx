@@ -1,0 +1,70 @@
+import { Meta, Markdown, ArgTypes, Canvas } from '@storybook/blocks';
+import { PersonProvider, PersonSelect } from '@equinor/fusion-react-person';
+
+import * as stories from './provider.stories';
+
+<Meta title="Person/Provider" />
+
+## PersonProvider
+
+If you wish to customize the person results in person-components, you can create a custom resolver and attach it to the `PersonProvider`component.
+
+This is useful when you want to limit the search results to a specific set of users or when you want to customize the way the data is fetched.
+
+### Usecases
+
+- When you want to limit the search results to a specific set of users. for ex. users belonging to a department.
+- When you want to customize the way the data is sorted or filtered.
+- When you want to use a different API to fetch the data, or combine api results.
+
+### Example
+
+Wrap your person-component of choise with the `PersonProvider` component and pass your custom resolver to the provider using the `resolve` attribute.
+
+**Resolver methods:** 
+
+- `search` - This method is used to search for people. It takes a search string and returns an array of people that match the search string.
+- `getDetails` - This method is used to get the details of a person. It takes an azureId|upn and returns the details of the person.
+- `getInfo` - This method is used to get the info of a person. It takes an azureId|upn and returns the info of the person.
+- `getPhoto` - This method is used to get the avatar photo. It takes an azureId|upn and returns the photo of the person.
+
+You only need to define the methods you need in a custom resolver, The component will look for the provider supplied by the portal and get the missing methods in your custom resolver.
+
+Here is a simple resolver to search for people in a specific organisation using the PersonSelect component.
+
+```typescript
+const resolver: PersonResolver = {
+  search: ({ search }) => {
+    // perform a http request to people api or similar
+    const data = peopleClient.json(`persons?search=${search}&api-version=2.0`);
+
+    // process the data
+    const people = [...data];
+    
+    // only return people where orgUnitId is 123456
+    return people.filter((person) => person.orgUnitId === '123456');
+  },
+};
+
+const PersonOrgSelect = () => {
+  return (
+    <PersonProvider resolve={resolver}>
+      <PersonSelect />
+    </PersonProvider>
+  );
+};
+```
+
+In the example above we only provide our resolver with the `search` method, the other methods will be used from the default resolver, like getting the persons avatar. 
+
+### Gotchas
+
+Beware that person-components will use the closest parent `PersonProvider` component. So plan well where you place your custom provider.
+
+### Working Example with custom resolver
+
+Here you should only get a maximum of 3 results when searching our faker data.
+
+<Canvas of={ stories.customProvider } meta={stories} story={{height: '350px'}}/>
+
+<ArgTypes of={ stories.customProvider } />
