@@ -1,5 +1,11 @@
 # Change Log
 
+## 4.2.6
+
+### Patch Changes
+
+- 7893f55: Example story for PersonProvider
+
 ## 4.2.5
 
 ### Patch Changes
