@@ -1,9 +1,9 @@
 import { type PropsWithChildren, useLayoutEffect, useRef } from 'react';
 import { type PersonProviderElement, type PersonResolver } from '@equinor/fusion-wc-person';
 
-/** Person porvider properties for the resolver */
+/** Person provider properties for the resolver */
 export type PersonProviderProps = {
-  /** Person resolver interface that contains getPresence and getDetails functions */
+  /** Person resolver interface that contains search, getDetails, getInfo and getPhoto functions */
   readonly resolve: PersonResolver;
 };
 
@@ -12,7 +12,6 @@ export type PersonProviderProps = {
  * @param props resolver and children
  * @returns wrapped fusion web-components person provider with its reference around children
  */
-
 export const PersonProvider = (props: PropsWithChildren<PersonProviderProps>) => {
   const { resolve, children } = props;
   const providerRef = useRef<PersonProviderElement>(null);
