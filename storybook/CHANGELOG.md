@@ -1,5 +1,11 @@
 # Change Log
 
+## 4.2.7
+
+### Patch Changes
+
+- bb8d6ca: Updates person provider story
+
 ## 4.2.6
 
 ### Patch Changes
