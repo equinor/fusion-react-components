@@ -13,7 +13,7 @@ importers:
         version: 2.29.4
       '@commitlint/cli':
         specifier: ^19.2.1
-        version: 19.8.1(@types/node@22.15.17)(typescript@5.8.3)
+        version: 19.8.1(@types/node@22.15.21)(typescript@5.8.3)
       '@commitlint/config-conventional':
         specifier: ^19.1.0
         version: 19.8.1
@@ -202,7 +202,7 @@ importers:
         version: 0.22.0
       '@equinor/fusion-observable':
         specifier: ^8.1.2
-        version: 8.4.8(@types/react@18.2.64)(react@18.2.0)
+        version: 8.4.9(@types/react@18.2.64)(react@18.2.0)
       '@types/react':
         specifier: ^18.2.24
         version: 18.2.64
@@ -605,7 +605,7 @@ importers:
         version: 7.27.1(@babel/core@7.27.1)
       '@equinor/fusion-observable':
         specifier: ^8.1.5
-        version: 8.4.8(@types/react@18.2.64)(react@18.2.0)
+        version: 8.4.9(@types/react@18.2.64)(react@18.2.0)
       '@equinor/fusion-wc-avatar':
         specifier: ^3.2.0
         version: 3.2.3
@@ -1507,8 +1507,8 @@ packages:
       prettier: '*'
       typescript: 4.x || 5.x
 
-  '@equinor/fusion-observable@8.4.8':
-    resolution: {integrity: sha512-xYPhsJNYxjszaOCztyAZzyL/oTqFvMLeWE0YLvfHLy8ZLkDwCrBnKqSjQZXS6clskFlI6dAxbZe/UjHY9T5MQg==}
+  '@equinor/fusion-observable@8.4.9':
+    resolution: {integrity: sha512-vTJ67mo8ERF6cikxpYzKKyiSkwPUrBkzy1qymEShxppXO0PirtR7m279dpM56EShpBzPMaRdzFhziBnOajOkDQ==}
     peerDependencies:
       '@types/react': "^17.0.0 ||\_^18.0.0"
       react: "^17.0.0 ||\_^18.0.0"
@@ -8419,8 +8419,8 @@ packages:
   webidl-conversions@3.0.1:
     resolution: {integrity: sha512-2JAn3z8AR6rjK8Sm8orRC0h/bcl/DqL7tRPdGZ4I1CjdF+EaMLmYxBHyXuKL849eucPFhvBoxMsflfOb8kxaeQ==}
 
-  webpack-sources@3.2.3:
-    resolution: {integrity: sha512-/DyMEOrDgLKKIG0fmvtz+4dUX/3Ghozwgm6iPp8KRhvn+eQf9+Q7GWxVNMk3+uCPWfdXYC4ExGBckIXdFEfH1w==}
+  webpack-sources@3.3.0:
+    resolution: {integrity: sha512-77R0RDmJfj9dyv5p3bM5pOHa+X8/ZkO9c7kpDstigkC4nIDobadsfSGCwB4bKhMVxqAok8tajaoR8rirM7+VFQ==}
     engines: {node: '>=10.13.0'}
 
   webpack-virtual-modules@0.6.2:
@@ -9495,11 +9495,11 @@ snapshots:
       human-id: 4.1.1
       prettier: 2.8.8
 
-  '@commitlint/cli@19.8.1(@types/node@22.15.17)(typescript@5.8.3)':
+  '@commitlint/cli@19.8.1(@types/node@22.15.21)(typescript@5.8.3)':
     dependencies:
       '@commitlint/format': 19.8.1
       '@commitlint/lint': 19.8.1
-      '@commitlint/load': 19.8.1(@types/node@22.15.17)(typescript@5.8.3)
+      '@commitlint/load': 19.8.1(@types/node@22.15.21)(typescript@5.8.3)
       '@commitlint/read': 19.8.1
       '@commitlint/types': 19.8.1
       tinyexec: 1.0.1
@@ -9546,7 +9546,7 @@ snapshots:
       '@commitlint/rules': 19.8.1
       '@commitlint/types': 19.8.1
 
-  '@commitlint/load@19.8.1(@types/node@22.15.17)(typescript@5.8.3)':
+  '@commitlint/load@19.8.1(@types/node@22.15.21)(typescript@5.8.3)':
     dependencies:
       '@commitlint/config-validator': 19.8.1
       '@commitlint/execute-rule': 19.8.1
@@ -9554,7 +9554,7 @@ snapshots:
       '@commitlint/types': 19.8.1
       chalk: 5.4.1
       cosmiconfig: 9.0.0(typescript@5.8.3)
-      cosmiconfig-typescript-loader: 6.1.0(@types/node@22.15.17)(cosmiconfig@9.0.0(typescript@5.8.3))(typescript@5.8.3)
+      cosmiconfig-typescript-loader: 6.1.0(@types/node@22.15.21)(cosmiconfig@9.0.0(typescript@5.8.3))(typescript@5.8.3)
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       lodash.uniq: 4.5.0
@@ -9856,7 +9856,7 @@ snapshots:
       - '@types/eslint'
       - supports-color
 
-  '@equinor/fusion-observable@8.4.8(@types/react@18.2.64)(react@18.2.0)':
+  '@equinor/fusion-observable@8.4.9(@types/react@18.2.64)(react@18.2.0)':
     dependencies:
       immer: 9.0.21
       react: 18.2.0
@@ -15462,9 +15462,9 @@ snapshots:
 
   core-util-is@1.0.3: {}
 
-  cosmiconfig-typescript-loader@6.1.0(@types/node@22.15.17)(cosmiconfig@9.0.0(typescript@5.8.3))(typescript@5.8.3):
+  cosmiconfig-typescript-loader@6.1.0(@types/node@22.15.21)(cosmiconfig@9.0.0(typescript@5.8.3))(typescript@5.8.3):
     dependencies:
-      '@types/node': 22.15.17
+      '@types/node': 22.15.21
       cosmiconfig: 9.0.0(typescript@5.8.3)
       jiti: 2.4.2
       typescript: 5.8.3
@@ -19794,7 +19794,7 @@ snapshots:
 
   webidl-conversions@3.0.1: {}
 
-  webpack-sources@3.2.3: {}
+  webpack-sources@3.3.0: {}
 
   webpack-virtual-modules@0.6.2: {}
 
@@ -19822,7 +19822,7 @@ snapshots:
       tapable: 2.2.2
       terser-webpack-plugin: 5.3.14(esbuild@0.25.4)(webpack@5.97.1(esbuild@0.25.4))
       watchpack: 2.4.4
-      webpack-sources: 3.2.3
+      webpack-sources: 3.3.0
     transitivePeerDependencies:
       - '@swc/core'
       - esbuild
