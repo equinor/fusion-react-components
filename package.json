@@ -6,12 +6,12 @@
   "description": "monorepo of fusion react components",
   "main": "index.js",
   "engines": {
-    "node": "^18 || ^20 || ^22",
+    "node": ">=20",
     "npm": "please-use-pnpm",
     "yarn": "please-use-pnpm",
     "pnpm": ">=9"
   },
-  "packageManager": "pnpm@10.5.1",
+  "packageManager": "pnpm@9.1.0",
   "scripts": {
     "test": "lerna run --no-bail test",
     "start": "pnpm run storybook",
@@ -57,7 +57,7 @@
     "husky": "^9.0.11",
     "lerna": "^8.0.2",
     "lerna-update-wizard": "^1.1.2",
-    "lint-staged": "^15.0.1",
+    "lint-staged": "^16.0.0",
     "prettier": "^3.0.3",
     "rimraf": "^6.0.1",
     "typescript": "^5.3.3"
