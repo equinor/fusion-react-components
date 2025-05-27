@@ -1,7 +1,7 @@
 import {
   createGenerateClassName,
   StylesProvider as BaseStylesProvider,
-  StylesProviderProps,
+  type StylesProviderProps,
 } from '@material-ui/styles';
 
 import Element from '@equinor/fusion-wc-theme';

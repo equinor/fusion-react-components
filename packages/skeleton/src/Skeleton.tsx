@@ -1,4 +1,4 @@
-import { ComponentProps, createComponent } from '@equinor/fusion-react-utils';
+import { type ComponentProps, createComponent } from '@equinor/fusion-react-utils';
 
 import HTMLSkeletonCustomElement, { tag, SkeletonVariant, SkeletonSize } from '@equinor/fusion-wc-skeleton';
 

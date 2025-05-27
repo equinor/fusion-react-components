@@ -1,4 +1,4 @@
-import { Fragment, Children, ReactElement, cloneElement, PropsWithChildren } from 'react';
+import { Fragment, Children, type ReactElement, cloneElement, type PropsWithChildren } from 'react';
 
 /** Define the props interface for StepContent component */
 type StepContentProps = {

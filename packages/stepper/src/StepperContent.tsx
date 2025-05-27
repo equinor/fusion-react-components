@@ -1,4 +1,4 @@
-import { PropsWithChildren } from 'react';
+import type { PropsWithChildren } from 'react';
 import { tokens } from '@equinor/eds-tokens';
 import styled from 'styled-components';
 import StepPane from './StepPane';

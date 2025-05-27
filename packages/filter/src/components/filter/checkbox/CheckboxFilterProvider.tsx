@@ -2,7 +2,7 @@ import { useMemo } from 'react';
 
 import { FilterOptionProvider } from '../../../options/FilterOptionProvider';
 import { propertySelector } from '../../../options/create-options';
-import { FilterOptionBuilder, FilterOptionSelector } from '../../../options/types';
+import type { FilterOptionBuilder, FilterOptionSelector } from '../../../options/types';
 
 import type { CheckboxOption } from './types';
 import type { FilterFn } from '../../../types';

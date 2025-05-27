@@ -1,4 +1,4 @@
-import { ColDef, GetRowIdParams, ValueGetterParams, ValueSetterParams } from 'ag-grid-community';
+import type { ColDef, GetRowIdParams, ValueGetterParams, ValueSetterParams } from 'ag-grid-community';
 import { AGGridDataStatus } from './constants';
 import { checkForChanges } from './dataManipulators';
 import { StatusComponent } from './StatusComponent';

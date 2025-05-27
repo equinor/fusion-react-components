@@ -1,4 +1,4 @@
-import { ComponentProps, createComponent } from '@equinor/fusion-react-utils';
+import { type ComponentProps, createComponent } from '@equinor/fusion-react-utils';
 import {
   CheckListItemElement as HTMLCheckListItemCustomElement,
   checkListItemTag as tag,

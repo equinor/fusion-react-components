@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { combineLatest, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { useObservableSubscription } from '@equinor/fusion-observable/react';
-import Chip, { ChipElement, ChipElementProps } from '@equinor/fusion-wc-chip';
+import Chip, { type ChipElement, type ChipElementProps } from '@equinor/fusion-wc-chip';
 import { useFilterContext } from '../../hooks';
 import { actions } from '../../actions';
 import { clsx, createStyles, makeStyles } from '@equinor/fusion-react-styles';

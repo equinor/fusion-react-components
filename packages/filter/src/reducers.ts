@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 
-import { createReducer, ActionType } from 'typesafe-actions';
+import { createReducer, type ActionType } from 'typesafe-actions';
 
 import { actions } from './actions';
 import type { Filter } from './types';

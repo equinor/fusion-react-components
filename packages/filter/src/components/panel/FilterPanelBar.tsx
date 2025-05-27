@@ -2,7 +2,7 @@ import { Button, Icon } from '@equinor/eds-core-react';
 import { chevron_up, chevron_down, refresh } from '@equinor/eds-icons';
 
 import { clsx, createStyles, makeStyles } from '@equinor/fusion-react-styles';
-import { FilterFn } from '../../types';
+import type { FilterFn } from '../../types';
 import { SearchFilter } from '../filter';
 import { ClearFilterButton } from '../misc';
 import { useFilterPanelContext } from './FilterPanelProvider';

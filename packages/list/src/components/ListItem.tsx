@@ -1,4 +1,4 @@
-import { ComponentProps, createComponent } from '@equinor/fusion-react-utils';
+import { type ComponentProps, createComponent } from '@equinor/fusion-react-utils';
 import { ListItemElement as HTMLListItemCustomElement, listItemTag as tag } from '@equinor/fusion-wc-list';
 
 export type ElementProps = React.PropsWithChildren<

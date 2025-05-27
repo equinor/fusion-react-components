@@ -1,6 +1,6 @@
-import { PropsWithChildren } from 'react';
-import { ComponentProps, createComponent } from '@equinor/fusion-react-utils';
-import { MarkdownEditorElement, markdownEditorTag, MenuSizes } from '@equinor/fusion-wc-markdown';
+import type { PropsWithChildren } from 'react';
+import { type ComponentProps, createComponent } from '@equinor/fusion-react-utils';
+import { MarkdownEditorElement, markdownEditorTag, type MenuSizes } from '@equinor/fusion-wc-markdown';
 
 type ElementProps = PropsWithChildren<
   Partial<Pick<MarkdownEditorElement, 'menuItems' | 'minHeight' | 'value' | 'menuSize'>>

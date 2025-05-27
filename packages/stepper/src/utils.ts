@@ -1,5 +1,5 @@
-import { ReactElement, ReactNode, Children } from 'react';
-import { StepKey } from './Stepper';
+import { type ReactElement, type ReactNode, Children } from 'react';
+import type { StepKey } from './Stepper';
 
 type NextAvailableStep = {
   step: StepKey | undefined;

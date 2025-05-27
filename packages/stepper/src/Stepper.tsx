@@ -2,11 +2,11 @@ import {
   useState,
   useEffect,
   useCallback,
-  PropsWithChildren,
+  type PropsWithChildren,
   createContext,
   useContext,
   Children,
-  ReactElement,
+  type ReactElement,
 } from 'react';
 import { findNextAvailable, findPrevAvailable, getSteps } from './utils';
 import StepperContent from './StepperContent';

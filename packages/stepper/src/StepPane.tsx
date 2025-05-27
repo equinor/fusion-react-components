@@ -1,4 +1,4 @@
-import React, { cloneElement, useRef, Children, ReactElement, ReactNode } from 'react';
+import React, { cloneElement, useRef, Children, type ReactElement, type ReactNode } from 'react';
 import { useStepperContext } from './Stepper';
 import styled from 'styled-components';
 

@@ -1,5 +1,5 @@
-import { clsx, createStyles, makeStyles, theme } from '@equinor/fusion-react-styles';
-import React from 'react';
+import { clsx, createStyles, makeStyles, type theme } from '@equinor/fusion-react-styles';
+import type React from 'react';
 
 const useStyles = makeStyles(
   (theme) =>

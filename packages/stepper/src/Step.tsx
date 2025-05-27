@@ -1,4 +1,4 @@
-import { useEffect, useRef, MutableRefObject, PropsWithChildren } from 'react';
+import { useEffect, useRef, type MutableRefObject, type PropsWithChildren } from 'react';
 import { Badge } from './StepBadge';
 import styled, { css } from 'styled-components';
 import { tokens } from '@equinor/eds-tokens';

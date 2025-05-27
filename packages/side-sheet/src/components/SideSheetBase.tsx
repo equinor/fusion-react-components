@@ -1,6 +1,6 @@
 import { Scrim } from '@equinor/eds-core-react';
 import { Resizable } from 're-resizable';
-import { PropsWithChildren, useState } from 'react';
+import { type PropsWithChildren, useState } from 'react';
 import styled from 'styled-components';
 
 const StyledScrim = styled(Scrim).withConfig({

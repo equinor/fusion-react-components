@@ -1,12 +1,12 @@
-import { Children, ReactElement } from 'react';
-import { FilterComponent } from '../filter';
+import { Children, type ReactElement } from 'react';
+import type { FilterComponent } from '../filter';
 import { FilterPanelProvider, FilterPanelConsumer } from './FilterPanelProvider';
 import { FilterPanelFilters } from './FilterPanelFilters';
 import { FilterPanelBar } from './FilterPanelBar';
 import { SelectionChips } from '../misc';
 import FilterPanelSelector from './FilterPanelSelector';
 import { clsx, createStyles, makeStyles } from '@equinor/fusion-react-styles';
-import { FilterFn } from '../../types';
+import type { FilterFn } from '../../types';
 
 const useStyles = makeStyles(
   (theme) =>
