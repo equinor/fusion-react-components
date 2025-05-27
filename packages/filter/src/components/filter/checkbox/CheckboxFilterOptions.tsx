@@ -4,7 +4,7 @@ import { useObservableRef, useObservableState } from '@equinor/fusion-observable
 
 import { useCheckboxFilterOptionContext } from './context';
 
-import { CheckboxFilterOption, CheckboxFilterOptionProps } from './CheckboxFilterOption';
+import { CheckboxFilterOption, type CheckboxFilterOptionProps } from './CheckboxFilterOption';
 
 const defaultSortFn = <T extends { label: string }>(a: T, b: T) => a.label.localeCompare(b.label);
 

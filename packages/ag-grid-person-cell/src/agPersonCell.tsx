@@ -1,5 +1,5 @@
-import { type ColDef, type ICellRendererParams } from 'ag-grid-community';
-import { PersonCellData, PersonCell, PersonItemSize } from '@equinor/fusion-react-person';
+import type { ColDef, ICellRendererParams } from 'ag-grid-community';
+import { type PersonCellData, PersonCell, type PersonItemSize } from '@equinor/fusion-react-person';
 import { personTooltip } from './personTooltip';
 import { personSortComparator } from './personSort';
 

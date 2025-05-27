@@ -1,6 +1,6 @@
 import {
   ErrorBoundary as ReactErrorBoundary,
-  ErrorBoundaryProps as ReactReactErrorBoundary,
+  type ErrorBoundaryProps as ReactReactErrorBoundary,
 } from 'react-error-boundary';
 import { fallbackRender } from './fallbackRender';
 

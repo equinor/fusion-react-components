@@ -1,4 +1,4 @@
-import { ComponentProps, createComponent } from '@equinor/fusion-react-utils';
+import { type ComponentProps, createComponent } from '@equinor/fusion-react-utils';
 import { DateTimeElement as HTMLDateTimeCustomElement, dateTimeTag } from '@equinor/fusion-wc-date';
 
 type ElementProps = React.PropsWithChildren<Partial<Pick<HTMLDateTimeCustomElement, 'date' | 'format' | 'locale'>>>;

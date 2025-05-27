@@ -1,6 +1,6 @@
-import { ClassNameMap, makeStyles as makeStylesWithoutDefault } from '@material-ui/styles';
+import { type ClassNameMap, makeStyles as makeStylesWithoutDefault } from '@material-ui/styles';
 
-import { FusionTheme, theme as defaultTheme } from './theme';
+import { type FusionTheme, theme as defaultTheme } from './theme';
 import type { Styles } from './types';
 
 export const makeStyles = <

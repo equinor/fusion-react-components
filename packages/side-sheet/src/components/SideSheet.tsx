@@ -7,7 +7,7 @@ import { type PropsWithChildren, useRef } from 'react';
 import { Actions } from './Actions';
 import { Content } from './Content';
 import { FullscreenIcon } from './icon/FullscreenIcon';
-import { HEXString, Indicator } from './Indicator';
+import { type HEXString, Indicator } from './Indicator';
 import { SubTitle } from './SubTitle';
 import { Title } from './Title';
 

@@ -1,4 +1,4 @@
-import { PersonCard, PersonCellData } from '@equinor/fusion-react-person';
+import { PersonCard, type PersonCellData } from '@equinor/fusion-react-person';
 
 type TooltipCard<T> = {
   value: T;

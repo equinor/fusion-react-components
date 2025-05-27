@@ -1,6 +1,6 @@
 import type { PropsWithChildren } from 'react';
 import { type ComponentProps, createComponent } from '@equinor/fusion-react-utils';
-import HTMLPersonListItemCustomElement, { tag, ListItemData } from '@equinor/fusion-wc-person/list-item';
+import HTMLPersonListItemCustomElement, { tag, type ListItemData } from '@equinor/fusion-wc-person/list-item';
 
 type ElementProps = PropsWithChildren<
   Partial<Pick<HTMLPersonListItemCustomElement, 'azureId' | 'upn' | 'dataSource' | 'size' | 'clickable'>>

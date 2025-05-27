@@ -1,4 +1,4 @@
-import { FormEvent, useLayoutEffect, useRef, useState } from 'react';
+import { type FormEvent, useLayoutEffect, useRef, useState } from 'react';
 
 import { useObservableState, useObservableSelector } from '@equinor/fusion-observable/react';
 import { TextField, Icon } from '@equinor/eds-core-react';

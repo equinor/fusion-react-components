@@ -1,8 +1,8 @@
-import { type PropsWithChildren } from 'react';
+import type { PropsWithChildren } from 'react';
 import { type ComponentProps, createComponent } from '@equinor/fusion-react-utils';
 import HTMLPersonCellCustomElement, {
   tag,
-  TableCellData as PersonCellData,
+  type TableCellData as PersonCellData,
 } from '@equinor/fusion-wc-person/table-cell';
 
 type ElementProps = PropsWithChildren<

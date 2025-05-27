@@ -3,7 +3,7 @@ import { createComponent } from '@equinor/fusion-react-utils';
 import HTMLRippleCustomElement, {
   tag,
   RippleElement,
-  RippleElementProps,
+  type RippleElementProps,
   RippleHandlers,
 } from '@equinor/fusion-wc-ripple';
 

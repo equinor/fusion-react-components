@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { clsx } from '@equinor/fusion-react-styles';
 import { ContextSelector } from './ContextSelector';
-import { ContextSelectorProps, ContextResultItem, ContextSelectEvent } from './types';
+import type { ContextSelectorProps, ContextResultItem, ContextSelectEvent } from './types';
 import { useStyles } from './ContextSearch.styles';
-import { SearchableDropdownElement } from '@equinor/fusion-wc-searchable-dropdown';
+import type { SearchableDropdownElement } from '@equinor/fusion-wc-searchable-dropdown';
 
 import { IconElement } from '@equinor/fusion-wc-icon';
 IconElement;

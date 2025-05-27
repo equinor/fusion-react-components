@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable @typescript-eslint/ban-types */
 
-import { CSSProperties as ReactCSSProperties } from 'react';
-import { StyleProperty, CSSProperties } from '@equinor/fusion-web-theme';
+import type { CSSProperties as ReactCSSProperties } from 'react';
+import type { StyleProperty, CSSProperties } from '@equinor/fusion-web-theme';
 
 export interface StyleCSSProperties extends ReactCSSProperties {
   [k: string]: unknown | CSSProperties | ReactCSSProperties | StyleProperty;
