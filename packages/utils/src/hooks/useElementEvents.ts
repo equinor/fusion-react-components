@@ -25,7 +25,9 @@ export const useElementEvents = <
   const listenersRef = useRef<Partial<Record<K, EventListener>>>({} as Record<K, EventListener>);
 
   /** keep a reference of all registered event handler */
-  const handlersRef = useRef<Partial<Record<K, ReactEventHandler>>>({} as Record<K, ReactEventHandler>);
+  const handlersRef = useRef<Partial<Record<K, ReactEventHandler>>>(
+    {} as Record<K, ReactEventHandler>,
+  );
 
   /** memorize provided event handlers provided by component properties */
   const handlers = useMemo<Partial<Record<K, ReactEventHandler>>>(() => {
@@ -42,7 +44,7 @@ export const useElementEvents = <
 
     /** only return if event handlers has changes */
     return hasChanged ? handlers : handlersRef.current;
-  }, [handlersRef, eventMap, eventHandlers]);
+  }, [eventMap, eventHandlers]);
 
   /**
    * Check for changes in event handlers as an side effect
@@ -60,7 +62,7 @@ export const useElementEvents = <
         /** internal callback that generate synthetic event that reference provided callback  */
         const eventListener = (e: Event) => {
           const handler = handlersRef.current[propKey as K];
-          handler && handler(createSyntheticEvent(e));
+          handler?.(createSyntheticEvent(e));
         };
 
         console.debug(`adding event listener [${propKey}]`, ref.current);
@@ -86,7 +88,7 @@ export const useElementEvents = <
     /** assign indexes to reference */
     listenersRef.current = listeners;
     handlersRef.current = handlers;
-  }, [eventMap, ref, handlersRef, listenersRef, handlers]);
+  }, [eventMap, ref, handlers]);
 };
 
 export default useElementEvents;

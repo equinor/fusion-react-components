@@ -12,26 +12,32 @@ const noFns = {};
  * @param functions
  * @param functionMap
  */
-export const useElementFunctions = <E extends HTMLElement, EKey extends string = Extract<keyof E, string>>(
+export const useElementFunctions = <
+  E extends HTMLElement,
+  EKey extends string = Extract<keyof E, string>,
+>(
   ref: RefObject<E | null>,
+  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
   functions?: Partial<Record<EKey, any>>,
   functionMap?: Set<keyof E>,
 ): void => {
-  const fnsRef = useRef<Record<EKey, any>>({} as Record<EKey, any>);
+  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+  type ERecord = Record<EKey, any>;
+  const fnsRef = useRef<ERecord>({} as ERecord);
 
   const fns = useMemo(() => {
     /** early escaping no-op */
-    if (!functions || !functionMap) return noFns as Record<EKey, any>;
+    if (!functions || !functionMap) return noFns as ERecord;
 
     // extract allowed functions
     const fns = [...functionMap.values()]
       .filter((k) => k in functions)
-      .reduce((c, v) => Object.assign(c, { [v]: functions[v as EKey] }), {} as Record<EKey, any>);
+      .reduce((c, v) => Object.assign(c, { [v]: functions[v as EKey] }), {} as ERecord);
 
     /** compare functions with existing */
     const hasChanged = !shallowEqual(fnsRef.current, fns);
     return hasChanged ? fns : fnsRef.current;
-  }, [fnsRef, functions, functionMap]);
+  }, [functions, functionMap]);
 
   useLayoutEffect(() => {
     const obj = ref.current;
@@ -41,5 +47,5 @@ export const useElementFunctions = <E extends HTMLElement, EKey extends string =
       obj[fnKey as keyof E] = fns[fnKey];
     }
     fnsRef.current = fns;
-  }, [ref, fns, functionMap]);
+  }, [ref, fns]);
 };
