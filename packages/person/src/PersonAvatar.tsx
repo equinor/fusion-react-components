@@ -1,6 +1,10 @@
 import type { PropsWithChildren } from 'react';
 import { type ComponentProps, createComponent } from '@equinor/fusion-react-utils';
-import HTMLPersonAvatarCustomElement, { tag, AvatarSize, type AvatarData } from '@equinor/fusion-wc-person/avatar';
+import HTMLPersonAvatarCustomElement, {
+  tag,
+  AvatarSize,
+  type AvatarData,
+} from '@equinor/fusion-wc-person/avatar';
 
 type ElementProps = PropsWithChildren<
   Partial<

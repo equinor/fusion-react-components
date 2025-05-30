@@ -47,7 +47,12 @@ export const FilterPanelBar = <TData,>(props: FilterPanelBarProps<TData>): JSX.E
 
   return (
     <div {...args} className={clsx(className, styles.root)}>
-      <SearchFilter filterKey="global" label="Search all" className={styles.searchInput} filterFn={searchFn} />
+      <SearchFilter
+        filterKey="global"
+        label="Search all"
+        className={styles.searchInput}
+        filterFn={searchFn}
+      />
       <div className={styles.actions}>
         <ClearFilterButton className={styles.resetBtn} variant="ghost">
           Reset Filters

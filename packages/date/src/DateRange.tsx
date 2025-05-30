@@ -1,11 +1,22 @@
 import { type ComponentProps, createComponent } from '@equinor/fusion-react-utils';
-import { DateRangeElement as HTMLDateRangeCustomElement, dateRangeTag } from '@equinor/fusion-wc-date';
+import {
+  DateRangeElement as HTMLDateRangeCustomElement,
+  dateRangeTag,
+} from '@equinor/fusion-wc-date';
 
 type ElementProps = React.PropsWithChildren<
   Partial<
     Pick<
       HTMLDateRangeCustomElement,
-      'from' | 'to' | 'format' | 'suffix' | 'variant' | 'locale' | 'seconds' | 'weekstart' | 'capitalize'
+      | 'from'
+      | 'to'
+      | 'format'
+      | 'suffix'
+      | 'variant'
+      | 'locale'
+      | 'seconds'
+      | 'weekstart'
+      | 'capitalize'
     >
   >
 >;

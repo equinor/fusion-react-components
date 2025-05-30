@@ -1,4 +1,8 @@
-export { FilterOptionProvider, type FilterComponentProviderProps, default } from './FilterOptionProvider';
+export {
+  FilterOptionProvider,
+  type FilterComponentProviderProps,
+  default,
+} from './FilterOptionProvider';
 export { useFilterOptionSearch } from './search';
 
 export * from './types';

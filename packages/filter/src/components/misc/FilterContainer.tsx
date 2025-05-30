@@ -25,7 +25,9 @@ export type FilterContainerProps = JSX.IntrinsicElements['div'] & StyleProps;
 /**
  *  Components for displaying filters
  */
-export const FilterContainer = (props: React.PropsWithChildren<FilterContainerProps>): JSX.Element => {
+export const FilterContainer = (
+  props: React.PropsWithChildren<FilterContainerProps>,
+): JSX.Element => {
   const { children, className, spacing, ...args } = props;
   const styles = useStyles({ spacing });
   return (

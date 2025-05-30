@@ -23,7 +23,10 @@ export const FilterProvider: <
   TData extends Record<string, any> = Record<string, any>,
 >(
   props: React.PropsWithChildren<FilterProviderProps<TSelections, TData>>,
-) => JSX.Element = <TSelections extends Record<string, any>, TData extends Record<string, any> = Record<string, any>>(
+) => JSX.Element = <
+  TSelections extends Record<string, any>,
+  TData extends Record<string, any> = Record<string, any>,
+>(
   props: React.PropsWithChildren<FilterProviderProps<TSelections, TData>>,
 ): JSX.Element => {
   const {
@@ -36,7 +39,10 @@ export const FilterProvider: <
   const selection$ = useObservable(createSelectionReducer(initialSelection), initialSelection);
   const filter$ = useObservable(createFilterReducer({}), initialFilters);
 
-  const filterData$ = useMemo(() => filterData(source$, filter$, selection$), [source$, filter$, selection$]);
+  const filterData$ = useMemo(
+    () => filterData(source$, filter$, selection$),
+    [source$, filter$, selection$],
+  );
 
   const [data$] = useState(new BehaviorSubject<TData[]>(data));
 

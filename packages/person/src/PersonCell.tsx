@@ -15,7 +15,10 @@ type ElementProps = PropsWithChildren<
 >;
 
 export type PersonCellProps = ComponentProps<HTMLPersonCellCustomElement, ElementProps>;
-export const PersonCell = createComponent<HTMLPersonCellCustomElement, ElementProps>(HTMLPersonCellCustomElement, tag);
+export const PersonCell = createComponent<HTMLPersonCellCustomElement, ElementProps>(
+  HTMLPersonCellCustomElement,
+  tag,
+);
 
 export type { PersonCellData, HTMLPersonCellCustomElement };
 export default PersonCell;
