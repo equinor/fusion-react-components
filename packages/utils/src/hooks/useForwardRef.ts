@@ -16,7 +16,7 @@ export const useForwardRef = <E extends HTMLElement>(
     } else if (forwardRef) {
       (forwardRef as { current: E | null }).current = ref.current;
     }
-  }, [forwardRef, ref]);
+  }, [forwardRef]);
   return ref;
 };
 

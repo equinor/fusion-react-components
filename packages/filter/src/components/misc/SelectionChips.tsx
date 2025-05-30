@@ -10,6 +10,7 @@ import { clsx, createStyles, makeStyles } from '@equinor/fusion-react-styles';
 Chip;
 
 /** method for extracting selection to array */
+// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 const formatSelection = (selection: any): string[] => {
   switch (true) {
     case selection === undefined:
@@ -90,7 +91,7 @@ export const SelectionChips = (props: SelectionChipsProps): JSX.Element => {
       el.addEventListener('remove', handler);
       return () => el.removeEventListener('remove', handler);
     }
-  }, [ref, selection$]);
+  }, [selection$]);
 
   const styles = useStyles();
 

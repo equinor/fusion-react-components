@@ -61,7 +61,7 @@ export const ContextSearch = ({
   }, [gettingCtx]);
 
   const keyUpGettingCtx = useCallback(
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    // biome-ignore lint/suspicious/noExplicitAny: <explanation>
     (e: any) => {
       if (e.key === 'Enter' || e.key === ' ') {
         toggleGettingCtx();
@@ -81,12 +81,12 @@ export const ContextSearch = ({
         onSelect(selected);
       }
     },
-    [setCtx, onSelect],
+    [onSelect],
   );
 
   /* Clear context button handler */
   const handleClearContext = useCallback(
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    // biome-ignore lint/suspicious/noExplicitAny: <explanation>
     (event: any) => {
       setCtx(defaultInitialItem);
 
@@ -133,9 +133,11 @@ export const ContextSearch = ({
   useEffect(() => {
     if (elementRef.current) {
       // sets the fwc node
-      setSdd(elementRef.current.querySelector<SearchableDropdownElement>('fwc-searchable-dropdown'));
+      setSdd(
+        elementRef.current.querySelector<SearchableDropdownElement>('fwc-searchable-dropdown'),
+      );
     }
-  }, [gettingCtx, elementRef, sdd]);
+  }, []);
 
   useEffect(() => {
     const ref = elementRef.current;
@@ -157,7 +159,7 @@ export const ContextSearch = ({
         ref.removeEventListener('dropdownClosed', () => null);
       }
     };
-  }, [elementRef]);
+  }, []);
 
   /**
    * Add ctx-selector-clear event listener.
@@ -182,16 +184,21 @@ export const ContextSearch = ({
       <div className={clsx(gettingCtx && styles.hidden)}>
         {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions, jsx-a11y/no-static-element-interactions */}
         <div className={styles.context} onKeyUp={() => handleKeyup}>
-          <div className={styles.icon}>{ctx?.graphic && <fwc-icon icon={ctx.graphic}></fwc-icon>}</div>
-          {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions, jsx-a11y/no-static-element-interactions, jsx-a11y/no-noninteractive-tabindex */}
-          <div tabIndex={0} className={styles.titleBlock} onClick={toggleGettingCtx} onKeyDown={keyUpGettingCtx}>
+          <div className={styles.icon}>{ctx?.graphic && <fwc-icon icon={ctx.graphic} />}</div>
+          <div
+            // biome-ignore lint/a11y/noNoninteractiveTabindex: <explanation>
+            tabIndex={0}
+            className={styles.titleBlock}
+            onClick={toggleGettingCtx}
+            onKeyDown={keyUpGettingCtx}
+          >
             <span className={styles.title}>{ctx?.title}</span>
             <span className={styles.subTitle}>{ctx?.subTitle}</span>
           </div>
           <div className={styles.icon}>
             {ctx && !ctx.isDisabled && (
-              <button className={clsx(styles.closeBtn)} onClick={handleClearContext}>
-                <fwc-icon icon="close"></fwc-icon>
+              <button type="button" className={clsx(styles.closeBtn)} onClick={handleClearContext}>
+                <fwc-icon icon="close" />
               </button>
             )}
           </div>

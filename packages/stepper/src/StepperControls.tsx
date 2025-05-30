@@ -39,13 +39,13 @@ export const StepperControls = (): JSX.Element => {
     const prevKey = findStepKey('prev');
     if (!prevKey) return;
     handleChange(prevKey.key, stepKeys);
-  }, [findStepKey, handleChange]);
+  }, [findStepKey, stepKeys, handleChange]);
 
   const handleClickNext = useCallback(() => {
     const nextKey = findStepKey('next');
     if (!nextKey) return;
     handleChange(nextKey.key, stepKeys);
-  }, [findStepKey, handleChange]);
+  }, [findStepKey, stepKeys, handleChange]);
 
   return (
     <Styled.Navigation>
