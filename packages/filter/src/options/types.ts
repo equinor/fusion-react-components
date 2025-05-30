@@ -1,5 +1,5 @@
 import type { Observable, FlowSubject } from '@equinor/fusion-observable';
-import type { Actions } from './actions';
+import { Actions } from './actions';
 
 export type FilterOption = {
   label?: string;

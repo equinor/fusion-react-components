@@ -21,7 +21,7 @@ export const selectionChanges = <TSelection = any>(
     map(([selections, filters]) => {
       return Object.values(filters).reduce((acc, filter) => {
         const selection = selections[filter.key];
-        const changed = filter.hasChanged?.(selection, filter.initial);
+        const changed = filter.hasChanged && filter.hasChanged(selection, filter.initial);
         return changed ? Object.assign(acc, { [filter.key]: selection }) : acc;
       }, {});
     }),
@@ -29,10 +29,7 @@ export const selectionChanges = <TSelection = any>(
   );
 };
 
-export const useClearFilter = (): {
-  clear: VoidFunction;
-  changed$: Observable<Record<string, any>>;
-} => {
+export const useClearFilter = (): { clear: VoidFunction; changed$: Observable<Record<string, any>> } => {
   const { selection$, filter$ } = useFilterContext();
   const clear = useCallback(() => {
     selection$.next(actions.selection.clear());

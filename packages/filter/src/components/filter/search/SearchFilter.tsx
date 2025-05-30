@@ -1,8 +1,8 @@
-import { type InputHTMLAttributes, useCallback, useMemo, useRef } from 'react';
+import { InputHTMLAttributes, useCallback, useMemo, useRef } from 'react';
 
 import { useObservableSelector } from '@equinor/fusion-observable/react';
 
-import { TextField, type TextFieldProps, Icon } from '@equinor/eds-core-react';
+import { TextField, TextFieldProps, Icon } from '@equinor/eds-core-react';
 
 import { useFilter, useFilterSelection } from '../../../hooks';
 
@@ -63,7 +63,6 @@ export const SearchFilter = <TData,>(props: SearchFilterProps<TData>): JSX.Eleme
     /** create an observable selection for filter  */
     useFilterSelection<string>(props.filterKey),
     /** update value of text input when selection changes */
-    // biome-ignore lint/suspicious/noExplicitAny: <explanation>
     useCallback((query: any) => {
       if (inputRef.current) {
         inputRef.current.value = query || '';
