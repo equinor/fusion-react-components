@@ -2,19 +2,14 @@ import type { Observable, FlowSubject } from '@equinor/fusion-observable';
 
 export type FilterData<TValue = unknown> = Record<string, TValue>;
 
-export type FilterContext<
-  TSelection = unknown,
-  TData extends Record<string, any> = Record<string, any>,
-> = {
+export type FilterContext<TSelection = unknown, TData extends Record<string, any> = Record<string, any>> = {
   source$: FlowSubject<TData[]>;
   selection$: FlowSubject<Record<string, TSelection>>;
   filter$: FlowSubject<Record<string, Filter<TData, TSelection>>>;
   data$: Observable<TData[]>;
 };
 
-export type FilterContextDataType<T extends FilterContext> = T extends FilterContext<any, infer D>
-  ? D
-  : never;
+export type FilterContextDataType<T extends FilterContext> = T extends FilterContext<any, infer D> ? D : never;
 
 /**
  * @param data The dataset to be filtered, this passes through the all the filter functions
@@ -23,11 +18,7 @@ export type FilterContextDataType<T extends FilterContext> = T extends FilterCon
  *
  * @returns return the filtered set of data.
  */
-export type FilterFn<TData, TSelection> = (
-  data: TData[],
-  selection: TSelection,
-  allData?: TData[],
-) => TData[];
+export type FilterFn<TData, TSelection> = (data: TData[], selection: TSelection, allData?: TData[]) => TData[];
 
 /**
  * Filter definition for Registering Filters.
@@ -60,10 +51,7 @@ export type FilterFunctions<TData, TSelection> = Record<string, FilterFn<TData, 
 /**
  * Holds settings for all registered filters. Even if they are currently inactive.
  */
-export type FilterSettings<TData = any, TSelection = any> = Record<
-  string,
-  Filter<TData, TSelection>
->;
+export type FilterSettings<TData = any, TSelection = any> = Record<string, Filter<TData, TSelection>>;
 
 // TODO use filter-option values
 export type SelectionValues<TValue = unknown> = Record<string, TValue>;

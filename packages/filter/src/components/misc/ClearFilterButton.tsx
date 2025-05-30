@@ -23,10 +23,8 @@ export const ClearFilterButton = (props: ClearFilterButtonProps): JSX.Element =>
   useObservableSubscription(
     changed$,
     useCallback(
-      (changed: object) => {
-        if (ref.current) {
-          ref.current.disabled = !Object.keys(changed).length;
-        }
+      (changed: any) => {
+        ref.current && (ref.current.disabled = !Object.keys(changed).length);
       },
       [ref],
     ),

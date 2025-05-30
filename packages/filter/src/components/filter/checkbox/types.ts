@@ -1,4 +1,4 @@
-import type { FilterOption } from '../../../options';
+import { FilterOption } from '../../../options';
 
 export type CheckboxOption = FilterOption & {
   label: string;
