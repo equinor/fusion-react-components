@@ -53,11 +53,7 @@
         "noImplicitAnyLet": "warn"
       }
     },
-    "ignore": [
-      "node_modules",
-      "**/dist/**",
-      "packages/hanging-garden"
-    ]
+    "ignore": ["node_modules", "**/dist/**", "packages/hanging-garden"]
   },
   "javascript": {
     "formatter": {

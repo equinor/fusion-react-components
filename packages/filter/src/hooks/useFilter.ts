@@ -9,7 +9,9 @@ import type { Filter } from '../types';
  * Hook for attaching a filter to the current context
  * Must be used within {@link FilterProvider}
  */
-export const useFilter = <TData, TSelection>(filter: Filter<TData, TSelection>): ((value: TSelection) => void) => {
+export const useFilter = <TData, TSelection>(
+  filter: Filter<TData, TSelection>,
+): ((value: TSelection) => void) => {
   const context = useFilterContext();
   const { key } = filter;
   useLayoutEffect(() => {

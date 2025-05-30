@@ -39,7 +39,8 @@ export const CheckboxFilterOptions = ({ sortFn }: CheckboxFilterOptionsProps): J
           name: key,
           label: value.label,
           checked: !!value.selected,
-          count: value.count === value.totalCount ? value.count : `${value.count} / ${value.totalCount}`,
+          count:
+            value.count === value.totalCount ? value.count : `${value.count} / ${value.totalCount}`,
           inactive: !value.count,
           hide: value.hide,
         }) as CheckboxFilterOptionProps,

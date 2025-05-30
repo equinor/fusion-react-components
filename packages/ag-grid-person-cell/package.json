@@ -23,9 +23,7 @@
   "directories": {
     "dist": "dist"
   },
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "publishConfig": {
     "access": "public"
   },

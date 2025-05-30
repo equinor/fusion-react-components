@@ -13,7 +13,9 @@ export const personTooltip = <T,>(props: TooltipCard<T>): JSX.Element => {
   const upnResult = upn ? upn(value) : undefined;
   const dataSourceResult = dataSource ? dataSource(value) : undefined;
 
-  return <PersonCard size="medium" azureId={azureResult} upn={upnResult} dataSource={dataSourceResult} />;
+  return (
+    <PersonCard size="medium" azureId={azureResult} upn={upnResult} dataSource={dataSourceResult} />
+  );
 };
 
 export default personTooltip;

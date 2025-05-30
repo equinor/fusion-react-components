@@ -10,7 +10,9 @@ export const makeStyles = <
 >(
   stylesOrCreator: Styles<Theme, Props, ClassKey>,
   options = {},
-): keyof Props extends never ? (props?: Props) => ClassNameMap<ClassKey> : (props: Props) => ClassNameMap<ClassKey> =>
+): keyof Props extends never
+  ? (props?: Props) => ClassNameMap<ClassKey>
+  : (props: Props) => ClassNameMap<ClassKey> =>
   // TODO
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore

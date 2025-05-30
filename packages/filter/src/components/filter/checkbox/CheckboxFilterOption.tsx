@@ -17,7 +17,18 @@ export type CheckboxFilterOptionProps = JSX.IntrinsicElements['div'] &
   };
 
 export const CheckboxFilterOption = (props: CheckboxFilterOptionProps): JSX.Element => {
-  const { name, label, count, checked, indeterminate, inactive, hide, onOptionChange, className, ...args } = props;
+  const {
+    name,
+    label,
+    count,
+    checked,
+    indeterminate,
+    inactive,
+    hide,
+    onOptionChange,
+    className,
+    ...args
+  } = props;
   const onCheckboxInput = useCallback(
     ({ currentTarget: { name, checked } }: React.FormEvent<HTMLInputElement>) => {
       return onOptionChange({ name, selected: checked });
@@ -28,8 +39,17 @@ export const CheckboxFilterOption = (props: CheckboxFilterOptionProps): JSX.Elem
   return (
     // TODO
     // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
-    <div {...args} className={clsx(className, styles.root, inactive && styles.inactive, hide && styles.hide)}>
-      <Checkbox name={name} checked={checked} onChange={onCheckboxInput} indeterminate={indeterminate} label={label} />
+    <div
+      {...args}
+      className={clsx(className, styles.root, inactive && styles.inactive, hide && styles.hide)}
+    >
+      <Checkbox
+        name={name}
+        checked={checked}
+        onChange={onCheckboxInput}
+        indeterminate={indeterminate}
+        label={label}
+      />
       <span className={styles.counter}>{count}</span>
     </div>
   );

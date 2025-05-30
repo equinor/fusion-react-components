@@ -18,7 +18,10 @@ type ElementProps = React.PropsWithChildren<
   >
 >;
 
-export const List = createComponent<HTMLListCustomElement, ElementProps>(HTMLListCustomElement, tag);
+export const List = createComponent<HTMLListCustomElement, ElementProps>(
+  HTMLListCustomElement,
+  tag,
+);
 export type ListProps = ComponentProps<HTMLListCustomElement, ElementProps>;
 
 export { HTMLListCustomElement };

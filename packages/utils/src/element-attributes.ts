@@ -14,7 +14,9 @@ const objectToString = (object: Object) => {
  * Utility to remove empty attributes from properties, JSX does not comply with the W3 standard
  * [W3](https://www.w3.org/TR/2008/WD-html5-20080610/semantics.html#boolean)
  */
-export const elementAttributes = <T extends Partial<Record<keyof T, unknown>> = Record<string, unknown>>(
+export const elementAttributes = <
+  T extends Partial<Record<keyof T, unknown>> = Record<string, unknown>,
+>(
   props: Partial<T>,
 ): T => {
   return Object.keys(props).reduce((cur, key) => {
@@ -24,7 +26,9 @@ export const elementAttributes = <T extends Partial<Record<keyof T, unknown>> = 
         return Object.assign(cur, { [key]: value });
       case 'object':
         // eslint-disable-next-line @typescript-eslint/ban-types
-        return Object.assign(cur, { [key]: key === 'style' ? value : objectToString(value as Object) });
+        return Object.assign(cur, {
+          [key]: key === 'style' ? value : objectToString(value as Object),
+        });
       default:
         return value ? Object.assign(cur, { [key]: value }) : cur;
     }
