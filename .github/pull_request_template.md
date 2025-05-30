@@ -43,7 +43,7 @@
 - [ ] Create stories
 - [ ] Create snapshots *(evaluate if needed)*
 - [ ] Remove unused imports and commented code
-- [ ] Lint code with EsLint (and follow best practises for [code quality](https://docs.fusion-dev.net/development/frontend/code-quality/)
+- [ ] Lint code with Biome (and follow best practises for [code quality](https://docs.fusion-dev.net/development/frontend/code-quality/)
   
 #### Create Pull Request
 

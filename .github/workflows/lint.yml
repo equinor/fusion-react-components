@@ -9,7 +9,7 @@ on:
       - synchronize
 
 jobs:
-  eslint:
+  biome:
     runs-on: ubuntu-latest
     permissions:
       pull-requests: write
