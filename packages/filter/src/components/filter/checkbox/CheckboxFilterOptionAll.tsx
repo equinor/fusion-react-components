@@ -1,6 +1,10 @@
 import { useCallback } from 'react';
 
-import { useObservableRef, useObservableState, useObservableSelector } from '@equinor/fusion-observable/react';
+import {
+  useObservableRef,
+  useObservableState,
+  useObservableSelector,
+} from '@equinor/fusion-observable/react';
 
 import { useCheckboxFilterOptionContext } from './context';
 import CheckboxFilterOption from './CheckboxFilterOption';

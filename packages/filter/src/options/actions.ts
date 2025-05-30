@@ -1,4 +1,4 @@
-import { createAction, ActionType } from 'typesafe-actions';
+import { createAction, type ActionType } from 'typesafe-actions';
 import type { FilterOption } from './types';
 
 export const actions = {
