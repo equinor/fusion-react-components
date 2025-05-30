@@ -1,8 +1,11 @@
-import { ComponentProps } from '@equinor/fusion-react-utils';
-import { SearchableDropdownElement, SearchableDropdownResolver } from '@equinor/fusion-wc-searchable-dropdown';
+import type { ComponentProps } from '@equinor/fusion-react-utils';
+import type {
+  SearchableDropdownElement,
+  SearchableDropdownResolver,
+} from '@equinor/fusion-wc-searchable-dropdown';
 
 import DropdownProvider from './DropdownProvider';
-import { Dropdown, DropdownProps } from './Dropdown';
+import { Dropdown, type DropdownProps } from './Dropdown';
 import { useDropdownProviderRef } from './useDropdownProviderRef';
 
 type ElementProps = DropdownProps & { resolver?: SearchableDropdownResolver };

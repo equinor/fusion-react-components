@@ -1,6 +1,6 @@
-import { FC } from 'react';
+import type { FC } from 'react';
 
-import { ICellRendererParams } from 'ag-grid-community';
+import type { ICellRendererParams } from 'ag-grid-community';
 
 import { styled } from 'styled-components';
 

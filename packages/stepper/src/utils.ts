@@ -1,5 +1,5 @@
-import { ReactElement, ReactNode, Children } from 'react';
-import { StepKey } from './Stepper';
+import { type ReactElement, type ReactNode, Children } from 'react';
+import type { StepKey } from './Stepper';
 
 type NextAvailableStep = {
   step: StepKey | undefined;
@@ -27,7 +27,9 @@ export const getSteps = (children: ReactNode): StepKey[] => {
 export const findNextAvailable = (currentPosition: number, steps: StepKey[]): NextAvailableStep => {
   const current = steps.find((sk) => sk.position === currentPosition);
   if (current) {
-    const nextAvailableStep = steps.find((sk) => sk.position > current.position && sk.disabled === false);
+    const nextAvailableStep = steps.find(
+      (sk) => sk.position > current.position && sk.disabled === false,
+    );
 
     return nextAvailableStep
       ? {
@@ -49,7 +51,9 @@ export const findNextAvailable = (currentPosition: number, steps: StepKey[]): Ne
 export const findPrevAvailable = (currentPosition: number, steps: StepKey[]): PrevAvailableStep => {
   const current = steps.find((sk) => sk.position === currentPosition);
   if (current) {
-    const prevAvailableSteps = steps.filter((sk) => sk.position < current.position && sk.disabled === false);
+    const prevAvailableSteps = steps.filter(
+      (sk) => sk.position < current.position && sk.disabled === false,
+    );
     const prevAvailableStep = prevAvailableSteps
       .reverse()
       .find((sk) => sk.position < current.position && sk.disabled === false);

@@ -1,5 +1,5 @@
 import { type PropsWithChildren, useLayoutEffect, useRef } from 'react';
-import { type PersonProviderElement, type PersonResolver } from '@equinor/fusion-wc-person';
+import type { PersonProviderElement, PersonResolver } from '@equinor/fusion-wc-person';
 
 /** Person provider properties for the resolver */
 export type PersonProviderProps = {
@@ -20,7 +20,7 @@ export const PersonProvider = (props: PropsWithChildren<PersonProviderProps>) =>
     if (providerRef.current) {
       providerRef.current.resolver = resolve;
     }
-  }, [providerRef, resolve]);
+  }, [resolve]);
 
   return <fwc-person-provider ref={providerRef}>{children}</fwc-person-provider>;
 };

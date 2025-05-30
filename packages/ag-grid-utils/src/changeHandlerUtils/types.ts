@@ -1,4 +1,4 @@
-import { AGGridDataStatus } from './constants';
+import type { AGGridDataStatus } from './constants';
 
 export type AGGridData<T extends Record<string, unknown> = Record<string, unknown>> = {
   initial: T;

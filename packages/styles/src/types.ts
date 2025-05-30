@@ -1,14 +1,16 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable @typescript-eslint/ban-types */
 
-import { CSSProperties as ReactCSSProperties } from 'react';
-import { StyleProperty, CSSProperties } from '@equinor/fusion-web-theme';
+import type { CSSProperties as ReactCSSProperties } from 'react';
+import type { StyleProperty, CSSProperties } from '@equinor/fusion-web-theme';
 
 export interface StyleCSSProperties extends ReactCSSProperties {
   [k: string]: unknown | CSSProperties | ReactCSSProperties | StyleProperty;
 }
 
-export type BaseCreateCSSProperties<Props extends Record<string, unknown> = Record<string, unknown>> = {
+export type BaseCreateCSSProperties<
+  Props extends Record<string, unknown> = Record<string, unknown>,
+> = {
   [P in keyof CSSProperties]:
     | CSSProperties[P]
     // @ts-ignore
@@ -18,10 +20,13 @@ export type BaseCreateCSSProperties<Props extends Record<string, unknown> = Reco
     | PropsFunc<Props, ReactCSSProperties[P]>;
 };
 
-export interface CreateCSSProperties<Props extends Record<string, unknown> = Record<string, unknown>>
-  extends BaseCreateCSSProperties<Props> {
+export interface CreateCSSProperties<
+  Props extends Record<string, unknown> = Record<string, unknown>,
+> extends BaseCreateCSSProperties<Props> {
   // Allow pseudo selectors and media queries
-  [k: string]: BaseCreateCSSProperties<Props>[keyof BaseCreateCSSProperties<Props>] | CreateCSSProperties<Props>;
+  [k: string]:
+    | BaseCreateCSSProperties<Props>[keyof BaseCreateCSSProperties<Props>]
+    | CreateCSSProperties<Props>;
 }
 
 export type PropsFunc<Props extends Record<string, unknown>, T> = (props: Props) => T;
@@ -43,9 +48,11 @@ export type StyleRules<
   | PropsFunc<Props, CreateCSSProperties<Props>>
 >;
 
-export type StyleRulesCallback<Theme, Props extends Record<string, unknown>, ClassKey extends string = string> = (
-  theme: Theme,
-) => StyleRules<Props, ClassKey>;
+export type StyleRulesCallback<
+  Theme,
+  Props extends Record<string, unknown>,
+  ClassKey extends string = string,
+> = (theme: Theme) => StyleRules<Props, ClassKey>;
 
 export type Styles<Theme, Props extends Record<string, unknown>, ClassKey extends string = string> =
   | StyleRules<Props, ClassKey>

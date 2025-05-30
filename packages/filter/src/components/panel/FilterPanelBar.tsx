@@ -2,7 +2,7 @@ import { Button, Icon } from '@equinor/eds-core-react';
 import { chevron_up, chevron_down, refresh } from '@equinor/eds-icons';
 
 import { clsx, createStyles, makeStyles } from '@equinor/fusion-react-styles';
-import { FilterFn } from '../../types';
+import type { FilterFn } from '../../types';
 import { SearchFilter } from '../filter';
 import { ClearFilterButton } from '../misc';
 import { useFilterPanelContext } from './FilterPanelProvider';
@@ -47,7 +47,12 @@ export const FilterPanelBar = <TData,>(props: FilterPanelBarProps<TData>): JSX.E
 
   return (
     <div {...args} className={clsx(className, styles.root)}>
-      <SearchFilter filterKey="global" label="Search all" className={styles.searchInput} filterFn={searchFn} />
+      <SearchFilter
+        filterKey="global"
+        label="Search all"
+        className={styles.searchInput}
+        filterFn={searchFn}
+      />
       <div className={styles.actions}>
         <ClearFilterButton className={styles.resetBtn} variant="ghost">
           Reset Filters

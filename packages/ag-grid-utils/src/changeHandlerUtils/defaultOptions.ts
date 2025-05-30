@@ -1,4 +1,9 @@
-import { ColDef, GetRowIdParams, ValueGetterParams, ValueSetterParams } from 'ag-grid-community';
+import type {
+  ColDef,
+  GetRowIdParams,
+  ValueGetterParams,
+  ValueSetterParams,
+} from 'ag-grid-community';
 import { AGGridDataStatus } from './constants';
 import { checkForChanges } from './dataManipulators';
 import { StatusComponent } from './StatusComponent';
@@ -28,7 +33,9 @@ export const defaultValueSetter = (params: ValueSetterParams): boolean => {
   }
   params.data.current[field] = params.newValue;
   if (params.data.status !== AGGridDataStatus.NEW) {
-    params.data.status = checkForChanges(params.data) ? AGGridDataStatus.PATCHED : AGGridDataStatus.FETCHED;
+    params.data.status = checkForChanges(params.data)
+      ? AGGridDataStatus.PATCHED
+      : AGGridDataStatus.FETCHED;
   }
   return true;
 };

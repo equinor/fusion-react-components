@@ -1,4 +1,4 @@
-import { PropsWithChildren } from 'react';
+import type { PropsWithChildren } from 'react';
 import { tokens } from '@equinor/eds-tokens';
 import styled from 'styled-components';
 import StepPane from './StepPane';
@@ -28,7 +28,11 @@ const Styled = {
     padding-bottom: ${tokens.spacings.comfortable.medium};
     ${(props) =>
       props.$divider &&
-      (props.$vertical ? 'border-right:var(--stepper-divider)' : 'border-bottom:var(--stepper-divider)')};
+      (
+        props.$vertical
+          ? 'border-right:var(--stepper-divider)'
+          : 'border-bottom:var(--stepper-divider)'
+      )};
     padding-right: ${(props) => (props.$vertical ? tokens.spacings.comfortable.medium : '0')};
   `,
   StepContent: styled.div`

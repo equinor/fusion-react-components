@@ -1,6 +1,6 @@
 import { Scrim } from '@equinor/eds-core-react';
 import { Resizable } from 're-resizable';
-import { PropsWithChildren, useState } from 'react';
+import { type PropsWithChildren, useState } from 'react';
 import styled from 'styled-components';
 
 const StyledScrim = styled(Scrim).withConfig({
@@ -64,7 +64,12 @@ export const SideSheetBase = (props: PropsWithChildren<SideSheetProps>) => {
   const shouldAnimate = animate === undefined ? true : animate;
 
   return (
-    <StyledScrim open={isOpen} onClose={onClose} isDismissable={isDismissable} shouldAnimate={shouldAnimate}>
+    <StyledScrim
+      open={isOpen}
+      onClose={onClose}
+      isDismissable={isDismissable}
+      shouldAnimate={shouldAnimate}
+    >
       <StyledSideSheet shouldAnimate={shouldAnimate}>
         <Resizable
           size={{ width, height: '100%' }}
@@ -77,7 +82,14 @@ export const SideSheetBase = (props: PropsWithChildren<SideSheetProps>) => {
           }}
           handleComponent={{
             left: (
-              <svg width="14" height="25" viewBox="0 0 14 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <svg
+                width="14"
+                height="25"
+                viewBox="0 0 14 25"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <title>Icon</title>
                 <rect
                   x="7.21924"
                   y="21.274"

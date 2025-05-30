@@ -1,4 +1,4 @@
-import { ThemeProvider as BaseThemeProvider, ThemeProviderProps } from '@material-ui/styles';
+import { ThemeProvider as BaseThemeProvider, type ThemeProviderProps } from '@material-ui/styles';
 import { styles as defaultTheme } from '@equinor/fusion-web-theme';
 
 import Element from '@equinor/fusion-wc-theme';

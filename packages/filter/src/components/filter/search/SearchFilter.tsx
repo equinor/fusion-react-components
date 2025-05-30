@@ -1,8 +1,8 @@
-import { InputHTMLAttributes, useCallback, useMemo, useRef } from 'react';
+import { type InputHTMLAttributes, useCallback, useMemo, useRef } from 'react';
 
 import { useObservableSelector } from '@equinor/fusion-observable/react';
 
-import { TextField, TextFieldProps, Icon } from '@equinor/eds-core-react';
+import { TextField, type TextFieldProps, Icon } from '@equinor/eds-core-react';
 
 import { useFilter, useFilterSelection } from '../../../hooks';
 

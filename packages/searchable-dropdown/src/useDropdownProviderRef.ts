@@ -1,5 +1,8 @@
-import { useRef, useEffect, MutableRefObject } from 'react';
-import { SearchableDropdownProviderElement, SearchableDropdownResolver } from '@equinor/fusion-wc-searchable-dropdown';
+import { useRef, useEffect, type MutableRefObject } from 'react';
+import type {
+  SearchableDropdownProviderElement,
+  SearchableDropdownResolver,
+} from '@equinor/fusion-wc-searchable-dropdown';
 
 export const useDropdownProviderRef = (
   resolver?: SearchableDropdownResolver,
@@ -13,7 +16,7 @@ export const useDropdownProviderRef = (
         current.removeResolver();
       };
     }
-  }, [providerRef, resolver]);
+  }, [resolver]);
 
   return providerRef;
 };

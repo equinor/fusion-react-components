@@ -7,7 +7,7 @@ import { type PropsWithChildren, useRef } from 'react';
 import { Actions } from './Actions';
 import { Content } from './Content';
 import { FullscreenIcon } from './icon/FullscreenIcon';
-import { HEXString, Indicator } from './Indicator';
+import { type HEXString, Indicator } from './Indicator';
 import { SubTitle } from './SubTitle';
 import { Title } from './Title';
 
@@ -41,11 +41,23 @@ type PortalSideSheet = SideSheetProps & {
 };
 
 type SideSheetComponents = {
-  indicator?: React.ReactElement<unknown, string | React.JSXElementConstructor<{ color: HEXString }>>;
+  indicator?: React.ReactElement<
+    unknown,
+    string | React.JSXElementConstructor<{ color: HEXString }>
+  >;
   title?: React.ReactElement<unknown, string | React.JSXElementConstructor<{ title: string }>>;
-  subTitle?: React.ReactElement<unknown, string | React.JSXElementConstructor<{ subTitle: string }>>;
-  actions?: React.ReactElement<unknown, string | React.JSXElementConstructor<PropsWithChildren<unknown>>>;
-  content?: React.ReactElement<unknown, string | React.JSXElementConstructor<PropsWithChildren<unknown>>>;
+  subTitle?: React.ReactElement<
+    unknown,
+    string | React.JSXElementConstructor<{ subTitle: string }>
+  >;
+  actions?: React.ReactElement<
+    unknown,
+    string | React.JSXElementConstructor<PropsWithChildren<unknown>>
+  >;
+  content?: React.ReactElement<
+    unknown,
+    string | React.JSXElementConstructor<PropsWithChildren<unknown>>
+  >;
 };
 
 Icon.add({
@@ -62,7 +74,7 @@ export const SideSheet = (props: PropsWithChildren<PortalSideSheet>) => {
     } else {
       ref.current?.requestFullscreen();
     }
-  }, [ref]);
+  }, []);
 
   const components = flattenChildren(children).reduce((acc, child) => {
     if (!React.isValidElement(child)) return acc;

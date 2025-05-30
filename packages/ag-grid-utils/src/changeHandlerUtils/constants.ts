@@ -1,5 +1,5 @@
 export enum AGGridDataStatus {
-  NEW,
-  FETCHED,
-  PATCHED,
+  NEW = 0,
+  FETCHED = 1,
+  PATCHED = 2,
 }

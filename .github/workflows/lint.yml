@@ -9,12 +9,11 @@ on:
       - synchronize
 
 jobs:
-  eslint:
+  biome:
     runs-on: ubuntu-latest
     permissions:
       pull-requests: write
       contents: read
-      id-token: write
       checks: write
 
     steps:
@@ -25,21 +24,9 @@ jobs:
 
       - name: Build project
         run: pnpm build
+    
+      - name: Setup Biome CLI
+        uses: biomejs/setup-biome@v2
 
-      - name: Save Code Linting Report JSON
-        run: pnpm lint:report
-        continue-on-error: true
-
-      - uses: actions/upload-artifact@v4
-        continue-on-error: true
-        with:
-          name: eslint-report.log.json
-          path: eslint-report.log.json
-
-      - name: Annotate Code Linting Results
-        uses: ataylorme/eslint-annotate-action@v2
-        continue-on-error: true
-        with:
-          repo-token: "${{ github.token }}"
-          report-json: "eslint-report.log.json"
-          markdown-report-on-step-summary: true
+      - name: Run Biome
+        run: biome ci

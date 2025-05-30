@@ -2,11 +2,11 @@ import {
   useState,
   useEffect,
   useCallback,
-  PropsWithChildren,
+  type PropsWithChildren,
   createContext,
   useContext,
   Children,
-  ReactElement,
+  type ReactElement,
 } from 'react';
 import { findNextAvailable, findPrevAvailable, getSteps } from './utils';
 import StepperContent from './StepperContent';
@@ -109,7 +109,7 @@ export const Stepper = ({
     (newStepKey: string, allSteps: StepKey[]) => {
       /** If stepKey is undefined we call setCurrentStepKey here since it is then an uncontrolled component */
       !stepKey && setCurrentStepKey(newStepKey);
-      onChange && onChange(newStepKey, allSteps);
+      onChange?.(newStepKey, allSteps);
     },
     [onChange, stepKey],
   );

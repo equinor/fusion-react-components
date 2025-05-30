@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import type { FC } from 'react';
 
 import { AGGridDataStatus } from './constants';
 
@@ -20,7 +20,9 @@ export const StatusIcon: FC<StatusIconProps> = ({ status }) => {
     case AGGridDataStatus.NEW:
       return <Icon name="new_label" color={tokens.colors.interactive.success__text.hex} />;
     case AGGridDataStatus.PATCHED:
-      return <Icon name="check_circle_outlined" color={tokens.colors.interactive.warning__text.hex} />;
+      return (
+        <Icon name="check_circle_outlined" color={tokens.colors.interactive.warning__text.hex} />
+      );
     case AGGridDataStatus.FETCHED:
       return <Icon name="check" color={tokens.colors.interactive.success__text.hex} />;
   }
