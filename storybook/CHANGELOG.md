@@ -1,5 +1,28 @@
 # Change Log
 
+## 4.2.8
+
+### Patch Changes
+
+- Updated dependencies [63b7e92]
+  - @equinor/fusion-react-ag-grid-person-cell@2.0.5
+  - @equinor/fusion-react-searchable-dropdown@1.0.5
+  - @equinor/fusion-react-context-selector@1.0.5
+  - @equinor/fusion-react-ag-grid-utils@32.0.1
+  - @equinor/fusion-react-errorboundary@1.0.7
+  - @equinor/fusion-react-side-sheet@1.3.9
+  - @equinor/fusion-react-markdown@0.3.5
+  - @equinor/fusion-react-skeleton@0.3.3
+  - @equinor/fusion-react-textarea@0.6.5
+  - @equinor/fusion-react-stepper@2.0.2
+  - @equinor/fusion-react-filter@1.8.7
+  - @equinor/fusion-react-person@0.10.5
+  - @equinor/fusion-react-ripple@0.4.5
+  - @equinor/fusion-react-styles@0.6.5
+  - @equinor/fusion-react-date@0.5.4
+  - @equinor/fusion-react-list@0.3.5
+  - @equinor/fusion-react-hanging-garden@1.7.8
+
 ## 4.2.7
 
 ### Patch Changes
@@ -129,10 +152,14 @@
   ### Uncontrolled usage:
 
   ```tsx
-  import { Stepper } from '@equinor/fusion-react-stepper';
+  import { Stepper } from "@equinor/fusion-react-stepper";
 
   /** initialStepKey here is optional. If not set it defaults to the first step ('step1') */
-  <Stepper initialStepKey="step1" onChange={(e, k) => console.log('active: ', e, ' keys: ', k)} props>
+  <Stepper
+    initialStepKey="step1"
+    onChange={(e, k) => console.log("active: ", e, " keys: ", k)}
+    props
+  >
     <Step title="Title 1" stepKey="step1" props>
       Step content 1
     </Step>
@@ -148,11 +175,11 @@
   ### Controlled usage:
 
   ```tsx
-  import { Stepper } from '@equinor/fusion-react-stepper';
+  import { Stepper } from "@equinor/fusion-react-stepper";
 
-  const [activeStep, setActiveStep] = useState<string>('step1');
+  const [activeStep, setActiveStep] = useState<string>("step1");
   const onChangeStep = (stepKey: string, allSteps: StepKey[]) => {
-    console.log('active: ', stepKey, ' keys: ', allSteps);
+    console.log("active: ", stepKey, " keys: ", allSteps);
     if (activeStep !== stepKey) {
       setActiveStep(String(stepKey));
     }

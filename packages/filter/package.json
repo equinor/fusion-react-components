@@ -1,10 +1,16 @@
 {
   "name": "@equinor/fusion-react-filter",
-  "version": "1.8.6",
+  "version": "1.8.7",
   "description": "component for Filtering data",
   "author": "",
   "homepage": "https://github.com/equinor/fusion-react-components/tree/master/packages/filter#readme",
-  "keywords": ["Filter", "Filter panel", "react", "fusion", "equinor"],
+  "keywords": [
+    "Filter",
+    "Filter panel",
+    "react",
+    "fusion",
+    "equinor"
+  ],
   "license": "ISC",
   "private": false,
   "publishConfig": {
@@ -19,7 +25,11 @@
   "directories": {
     "dist": "dist"
   },
-  "files": ["dist", "components", "options"],
+  "files": [
+    "dist",
+    "components",
+    "options"
+  ],
   "scripts": {
     "build": "tsc -b",
     "watch": "tsc -w",

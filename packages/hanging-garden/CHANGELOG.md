@@ -1,5 +1,7 @@
 # Change Log
 
+## 1.7.8
+
 ## 1.7.7
 
 ### Patch Changes

@@ -1,15 +1,22 @@
 {
   "name": "@equinor/fusion-react-textarea",
-  "version": "0.6.4",
+  "version": "0.6.5",
   "description": "component for displaying text area",
-  "keywords": ["text area", "react", "fusion", "equinor"],
+  "keywords": [
+    "text area",
+    "react",
+    "fusion",
+    "equinor"
+  ],
   "homepage": "https://github.com/equinor/fusion-react-components/tree/master/packages/textarea#readme",
   "license": "ISC",
   "main": "dist/index.js",
   "directories": {
     "dist": "dist"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "publishConfig": {
     "access": "public"
   },
