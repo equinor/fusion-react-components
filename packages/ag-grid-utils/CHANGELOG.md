@@ -1,5 +1,11 @@
 # Change Log
 
+## 32.0.1
+
+### Patch Changes
+
+- 63b7e92: Change to biome linting rules
+
 ## 32.0.0
 
 ### Major Changes

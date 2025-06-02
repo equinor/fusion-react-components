@@ -1,5 +1,15 @@
 # Change Log
 
+## 1.0.5
+
+### Patch Changes
+
+- 63b7e92: Change to biome linting rules
+- Updated dependencies [63b7e92]
+  - @equinor/fusion-react-searchable-dropdown@1.0.5
+  - @equinor/fusion-react-styles@0.6.5
+  - @equinor/fusion-react-utils@2.2.3
+
 ## 1.0.4
 
 ### Patch Changes

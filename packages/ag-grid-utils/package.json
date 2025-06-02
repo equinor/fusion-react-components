@@ -1,15 +1,22 @@
 {
   "name": "@equinor/fusion-react-ag-grid-utils",
-  "version": "32.0.0",
+  "version": "32.0.1",
   "description": "React addons for ag-grid utilities",
-  "keywords": ["ag-grid", "react", "fusion", "equinor"],
+  "keywords": [
+    "ag-grid",
+    "react",
+    "fusion",
+    "equinor"
+  ],
   "homepage": "https://github.com/equinor/fusion-react-components/tree/master/packages/ag-grid-utils#readme",
   "license": "ISC",
   "main": "dist/index.js",
   "directories": {
     "dist": "dist"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "publishConfig": {
     "access": "public"
   },

@@ -1,15 +1,22 @@
 {
   "name": "@equinor/fusion-react-date",
-  "version": "0.5.3",
+  "version": "0.5.4",
   "description": "component for formatting and displaying dates",
-  "keywords": ["date", "react", "fusion", "equinor"],
+  "keywords": [
+    "date",
+    "react",
+    "fusion",
+    "equinor"
+  ],
   "homepage": "https://github.com/equinor/fusion-react-components/tree/master/packages/date#readme",
   "license": "ISC",
   "main": "dist/index.js",
   "directories": {
     "dist": "dist"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "publishConfig": {
     "access": "public"
   },

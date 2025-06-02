@@ -1,5 +1,11 @@
 # Change Log
 
+## 2.0.2
+
+### Patch Changes
+
+- 63b7e92: Change to biome linting rules
+
 ## 2.0.1
 
 ### Patch Changes
@@ -25,10 +31,14 @@
   ### Uncontrolled usage:
 
   ```tsx
-  import { Stepper } from '@equinor/fusion-react-stepper';
+  import { Stepper } from "@equinor/fusion-react-stepper";
 
   /** initialStepKey here is optional. If not set it defaults to the first step ('step1') */
-  <Stepper initialStepKey="step1" onChange={(e, k) => console.log('active: ', e, ' keys: ', k)} props>
+  <Stepper
+    initialStepKey="step1"
+    onChange={(e, k) => console.log("active: ", e, " keys: ", k)}
+    props
+  >
     <Step title="Title 1" stepKey="step1" props>
       Step content 1
     </Step>
@@ -44,11 +54,11 @@
   ### Controlled usage:
 
   ```tsx
-  import { Stepper } from '@equinor/fusion-react-stepper';
+  import { Stepper } from "@equinor/fusion-react-stepper";
 
-  const [activeStep, setActiveStep] = useState<string>('step1');
+  const [activeStep, setActiveStep] = useState<string>("step1");
   const onChangeStep = (stepKey: string, allSteps: StepKey[]) => {
-    console.log('active: ', stepKey, ' keys: ', allSteps);
+    console.log("active: ", stepKey, " keys: ", allSteps);
     if (activeStep !== stepKey) {
       setActiveStep(String(stepKey));
     }

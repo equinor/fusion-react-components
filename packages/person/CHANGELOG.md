@@ -1,5 +1,13 @@
 # Change Log
 
+## 0.10.5
+
+### Patch Changes
+
+- 63b7e92: Change to biome linting rules
+- Updated dependencies [63b7e92]
+  - @equinor/fusion-react-utils@2.2.3
+
 ## 0.10.4
 
 ### Patch Changes
