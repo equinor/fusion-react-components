@@ -1,8 +1,13 @@
 {
   "name": "@equinor/fusion-react-styles",
-  "version": "0.6.4",
+  "version": "0.6.5",
   "description": "style lib inspired by @material-ui/styles",
-  "keywords": ["styling", "react", "fusion", "equinor"],
+  "keywords": [
+    "styling",
+    "react",
+    "fusion",
+    "equinor"
+  ],
   "author": "odin thomas rochmann <odin.rochmann@gmail.com>",
   "homepage": "https://github.com/equinor/fusion-react-components/tree/master/packages/styles#readme",
   "license": "ISC",
@@ -10,7 +15,9 @@
   "directories": {
     "dist": "dist"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "publishConfig": {
     "access": "public"
   },
