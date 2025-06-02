@@ -22,7 +22,8 @@ export const createOptionBuilder =
   (source: TData[], selection?: Set<TValue>, data?: TData[]): TOptions => {
     const hasEntry = (value: unknown) => data && !!data.find((x) => selector(x).value === value);
     const srcCount = (value: unknown) => source.filter((x) => selector(x).value === value).length;
-    const dataCount = (value: unknown) => (data || []).filter((x) => selector(x).value === value).length;
+    const dataCount = (value: unknown) =>
+      (data || []).filter((x) => selector(x).value === value).length;
     const options = source.reduce((acc, item) => {
       const { key, value, label } = selector(item);
       if (acc[key as keyof typeof acc]) {
@@ -35,7 +36,9 @@ export const createOptionBuilder =
         count: dataCount(value),
         totalCount: srcCount(value),
       };
-      return { ...acc, [key]: option };
+      // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+      (acc as any)[key] = option;
+      return acc;
     }, {} as TOptions);
 
     return options;

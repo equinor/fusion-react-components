@@ -1,4 +1,4 @@
-import { FormEvent, useLayoutEffect, useRef, useState } from 'react';
+import { type FormEvent, useLayoutEffect, useRef, useState } from 'react';
 
 import { useObservableState, useObservableSelector } from '@equinor/fusion-observable/react';
 import { TextField, Icon } from '@equinor/eds-core-react';
@@ -62,7 +62,9 @@ export const FilterOptionHeader = (props: FilterHeaderProps): JSX.Element => {
   const searchRef = useRef<HTMLInputElement>(null);
   const { options$, selection$ } = useFilterOptionContext();
   const optionCount = Object.keys(useObservableState(options$).value || {}).length;
-  const { value: selectedCount } = useObservableState(useObservableSelector(selection$, (x) => x && x.size));
+  const { value: selectedCount } = useObservableState(
+    useObservableSelector(selection$, (x) => (x ?? new Set()).size > 0),
+  );
   const styles = useStyles();
   const onIconClick = () => {
     if (showSearch) {
@@ -73,9 +75,11 @@ export const FilterOptionHeader = (props: FilterHeaderProps): JSX.Element => {
     setShowSearch(!showSearch);
   };
   useLayoutEffect(() => {
-    const subscription = query$.subscribe((x) => searchRef.current && (searchRef.current.value = x));
+    const subscription = query$.subscribe(
+      (x) => searchRef.current && (searchRef.current.value = x),
+    );
     return () => subscription.unsubscribe();
-  }, [searchRef, query$]);
+  }, [query$]);
 
   return (
     <div className={styles.root}>
@@ -98,7 +102,12 @@ export const FilterOptionHeader = (props: FilterHeaderProps): JSX.Element => {
           <span>)</span>
         </span>
       </header>
-      <Icon className={styles.iconBtn} name={showSearch ? 'chevron_right' : 'search'} size={16} onClick={onIconClick} />
+      <Icon
+        className={styles.iconBtn}
+        name={showSearch ? 'chevron_right' : 'search'}
+        size={16}
+        onClick={onIconClick}
+      />
     </div>
   );
 };

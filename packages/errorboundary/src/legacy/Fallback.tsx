@@ -43,7 +43,7 @@ const generateTitle = (errorType?: ErrorType, resourceName = '<unknown resource>
     case 'notFound':
       return `The ${resourceName} could not be found`;
     case 'noData':
-      return `Unfortunately, we could not find any data for this component`;
+      return 'Unfortunately, we could not find any data for this component';
     case 'failedDependency': // 424
       return `Unfortunately, we had problem with communicate with dependent system, ${resourceName}`;
     case 'throttle': // 429
@@ -67,7 +67,10 @@ export const Fallback = (props: FallbackProps): JSX.Element => {
       <div>
         {props.icon ?? <FallbackIcon errorType={errorType} />}
         <Typography variant="h3">{title ?? generateTitle(errorType, resourceName)}</Typography>
-        <Typography variant="ingress" token={{ color: tokens.colors.text.static_icons__tertiary.hex }}>
+        <Typography
+          variant="ingress"
+          token={{ color: tokens.colors.text.static_icons__tertiary.hex }}
+        >
           {message ?? error.message}
         </Typography>
 

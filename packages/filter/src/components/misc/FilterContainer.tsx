@@ -1,5 +1,5 @@
-import { clsx, createStyles, makeStyles, theme } from '@equinor/fusion-react-styles';
-import React from 'react';
+import { clsx, createStyles, makeStyles, type theme } from '@equinor/fusion-react-styles';
+import type React from 'react';
 
 const useStyles = makeStyles(
   (theme) =>
@@ -25,7 +25,9 @@ export type FilterContainerProps = JSX.IntrinsicElements['div'] & StyleProps;
 /**
  *  Components for displaying filters
  */
-export const FilterContainer = (props: React.PropsWithChildren<FilterContainerProps>): JSX.Element => {
+export const FilterContainer = (
+  props: React.PropsWithChildren<FilterContainerProps>,
+): JSX.Element => {
   const { children, className, spacing, ...args } = props;
   const styles = useStyles({ spacing });
   return (

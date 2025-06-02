@@ -1,7 +1,7 @@
 import { tag, TextAreaElement } from '@equinor/fusion-wc-textarea';
-import { TextAreaInvalidHandler } from './types';
+import type { TextAreaInvalidHandler } from './types';
 
-import { ComponentProps, createComponent } from '@equinor/fusion-react-utils';
+import { type ComponentProps, createComponent } from '@equinor/fusion-react-utils';
 
 type ElementFunctions = Partial<Pick<TextAreaElement, 'validityTransform'>>;
 

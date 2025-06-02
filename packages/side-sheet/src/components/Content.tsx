@@ -1,4 +1,4 @@
-import { type PropsWithChildren } from 'react';
+import type { PropsWithChildren } from 'react';
 import styled from 'styled-components';
 
 const StyledContentContainer = styled.div`

@@ -1,0 +1,71 @@
+{
+  "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+  "vcs": {
+    "enabled": true,
+    "clientKind": "git",
+    "useIgnoreFile": true
+  },
+  "files": {
+    "ignoreUnknown": false,
+    "ignore": ["./storybook", "./packages/hanging-garden"]
+  },
+  "formatter": {
+    "enabled": true,
+    "lineWidth": 100,
+    "useEditorconfig": true,
+    "indentStyle": "space"
+  },
+  "organizeImports": {
+    "enabled": false
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true,
+      "complexity": {
+        "noBannedTypes": "warn",
+        "useLiteralKeys": "error",
+        "useOptionalChain": "error"
+      },
+      "performance": {
+        "noAccumulatingSpread": "error"
+      },
+      "style": {
+        "noParameterAssign": "warn",
+        "useShorthandFunctionType": "warn",
+        "noUselessElse": "warn",
+        "useExportType": "warn",
+        "useLiteralEnumMembers": "warn",
+        "noNonNullAssertion": "warn",
+        "noUnusedTemplateLiteral": "warn",
+        "noCommaOperator": "warn",
+        "useNodejsImportProtocol": "warn",
+        "useTemplate": "warn",
+        "noInferrableTypes": "warn"
+      },
+      "suspicious": {
+        "noExplicitAny": "warn",
+        "noEmptyBlockStatements": "warn",
+        "noConfusingVoidType": "warn",
+        "noGlobalIsNan": "warn",
+        "noDoubleEquals": "warn",
+        "noAssignInExpressions": "warn",
+        "noImplicitAnyLet": "warn"
+      }
+    },
+    "ignore": ["node_modules", "**/dist/**", "packages/hanging-garden"]
+  },
+  "javascript": {
+    "formatter": {
+      "jsxQuoteStyle": "double",
+      "quoteProperties": "asNeeded",
+      "trailingCommas": "all",
+      "semicolons": "always",
+      "arrowParentheses": "always",
+      "bracketSameLine": false,
+      "quoteStyle": "single",
+      "attributePosition": "auto",
+      "bracketSpacing": true
+    }
+  }
+}

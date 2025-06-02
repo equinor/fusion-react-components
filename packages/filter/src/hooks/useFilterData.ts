@@ -33,7 +33,10 @@ export const filterSelection = (
   );
 };
 
-export const filterData = <TInn extends Record<string, any>, TOut extends Record<string, any> = TInn>(
+export const filterData = <
+  TInn extends Record<string, any>,
+  TOut extends Record<string, any> = TInn,
+>(
   source$: Observable<TInn[]>,
   filter$: Observable<Record<string, Filter<TInn>>>,
   selection$: Observable<Record<string, any>>,
@@ -52,7 +55,9 @@ export const filterData = <TInn extends Record<string, any>, TOut extends Record
   );
 };
 
-export const useFilterData = <TData extends Record<string, any>>(args?: useFilterDataArgs): Observable<TData[]> => {
+export const useFilterData = <TData extends Record<string, any>>(
+  args?: useFilterDataArgs,
+): Observable<TData[]> => {
   const { exclude } = args || {};
   const { source$, filter$, selection$ } = useFilterContext();
 
@@ -60,7 +65,10 @@ export const useFilterData = <TData extends Record<string, any>>(args?: useFilte
   const selectedFilter$ = useMemo(() => filterSelection(filter$, exclude), [filter$, exclude]);
 
   /** create observable filtered data */
-  return useMemo(() => filterData(source$, selectedFilter$, selection$), [source$, selectedFilter$, selection$]);
+  return useMemo(
+    () => filterData(source$, selectedFilter$, selection$),
+    [source$, selectedFilter$, selection$],
+  );
 };
 
 export default useFilterData;

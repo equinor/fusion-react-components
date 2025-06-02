@@ -1,4 +1,4 @@
-import { TextAreaElement } from '@equinor/fusion-wc-textarea';
+import type { TextAreaElement } from '@equinor/fusion-wc-textarea';
 
 // #region Events
 

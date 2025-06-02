@@ -17,7 +17,9 @@ export const defaultCompareFunc: RowCompareFunc = (value1, value2) => value1 !==
  */
 export const checkForChanges = (dataRow: AGGridData, rowCompareFunc?: RowCompareFunc): boolean => {
   const compareFunction = rowCompareFunc ?? defaultCompareFunc;
-  return Object.entries(dataRow.initial).some(([key, value]) => compareFunction(dataRow.current[key], value));
+  return Object.entries(dataRow.initial).some(([key, value]) =>
+    compareFunction(dataRow.current[key], value),
+  );
 };
 
 /**

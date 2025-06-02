@@ -1,4 +1,4 @@
-import { useEffect, useRef, MutableRefObject, PropsWithChildren } from 'react';
+import { useEffect, useRef, type MutableRefObject, type PropsWithChildren } from 'react';
 import { Badge } from './StepBadge';
 import styled, { css } from 'styled-components';
 import { tokens } from '@equinor/eds-tokens';
@@ -129,7 +129,8 @@ export const Step = ({
   stepKey,
 }: PropsWithChildren<StepProps>): JSX.Element => {
   const stepRef = useRef<HTMLAnchorElement>(null);
-  const { verticalSteps, horizontalTitle, currentStepKey, handleChange, stepKeys, forceOrder } = useStepperContext();
+  const { verticalSteps, horizontalTitle, currentStepKey, handleChange, stepKeys, forceOrder } =
+    useStepperContext();
 
   const isClickable = !forceOrder;
   const isCurrent = stepKey === currentStepKey;
@@ -138,7 +139,7 @@ export const Step = ({
     if (isCurrent) {
       handleChange(stepKey, stepKeys);
     }
-  }, [done]);
+  }, [isCurrent, handleChange, stepKeys, stepKey]);
 
   /** Handle scrolling to the current step when it is not fully visible */
   useEffect(() => {
@@ -152,7 +153,7 @@ export const Step = ({
       }
       pane.scrollTo(stepRef.current.offsetLeft - stepRef.current.offsetWidth, 0);
     }
-  }, [isCurrent, stepPaneRef, stepRef]);
+  }, [isCurrent, stepPaneRef]);
 
   /** Render the component */
   return (
@@ -173,14 +174,26 @@ export const Step = ({
           $current={isCurrent}
           group="paragraph"
           variant="body_short"
-          color={isCurrent ? 'primary' : disabled ? 'disabled' : tokens.colors.text.static_icons__default.hex}
+          color={
+            isCurrent
+              ? 'primary'
+              : disabled
+                ? 'disabled'
+                : tokens.colors.text.static_icons__default.hex
+          }
         >
           {title}
         </Styled.Title>
         <Styled.Description
           group="paragraph"
           variant="caption"
-          color={isCurrent ? 'primary' : disabled ? 'disabled' : tokens.colors.text.static_icons__tertiary.hex}
+          color={
+            isCurrent
+              ? 'primary'
+              : disabled
+                ? 'disabled'
+                : tokens.colors.text.static_icons__tertiary.hex
+          }
         >
           {description}
         </Styled.Description>

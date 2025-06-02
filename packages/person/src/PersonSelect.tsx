@@ -1,9 +1,9 @@
-import { BaseSyntheticEvent, PropsWithChildren } from 'react';
-import { ComponentProps, createComponent } from '@equinor/fusion-react-utils';
+import type { BaseSyntheticEvent, PropsWithChildren } from 'react';
+import { type ComponentProps, createComponent } from '@equinor/fusion-react-utils';
 import HTMLPersonSelectCustomElement, {
   tag,
-  PersonSelectEvent as HTMLPersonSelectEvent,
-  PersonSelectElementProps,
+  type PersonSelectEvent as HTMLPersonSelectEvent,
+  type PersonSelectElementProps,
 } from '@equinor/fusion-wc-person/select';
 
 type ElementAttributes = PropsWithChildren<

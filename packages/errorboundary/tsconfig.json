@@ -6,8 +6,5 @@
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
   "exclude": ["node_modules"],
-  "references": [
-    { "path": "../utils" },
-    { "path": "../styles" }
-  ]
+  "references": [{ "path": "../utils" }, { "path": "../styles" }]
 }

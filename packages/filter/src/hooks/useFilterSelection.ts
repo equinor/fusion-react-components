@@ -9,6 +9,9 @@ import { useFilterContext } from '../context';
  * @returns {Observable<TSelection>}
  */
 export const useFilterSelection = <TSelection>(filterKey: string): Observable<Set<TSelection>> =>
-  useObservableSelector(useFilterContext().selection$ as Observable<Record<string, any>>, filterKey);
+  useObservableSelector(
+    useFilterContext().selection$ as Observable<Record<string, any>>,
+    filterKey,
+  );
 
 export default useFilterSelection;

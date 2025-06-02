@@ -1,4 +1,4 @@
-import { createAction, ActionType } from 'typesafe-actions';
+import { createAction, type ActionType } from 'typesafe-actions';
 import type { Filter } from './types';
 
 export type SelectionValues<TValue = unknown> = Record<string, TValue>;

@@ -1,8 +1,10 @@
-import { ErrorBoundaryProps } from 'react-error-boundary';
+import type { ErrorBoundaryProps } from 'react-error-boundary';
 
-import { Fallback, FallbackProps } from './Fallback';
+import { Fallback, type FallbackProps } from './Fallback';
 
-export const fallbackRender: ErrorBoundaryProps['fallbackRender'] = (props) => <Fallback error={props.error} />;
+export const fallbackRender: ErrorBoundaryProps['fallbackRender'] = (props) => (
+  <Fallback error={props.error} />
+);
 
 export const createFallbackRender =
   (args?: Omit<FallbackProps, 'error'>): ErrorBoundaryProps['fallbackRender'] =>

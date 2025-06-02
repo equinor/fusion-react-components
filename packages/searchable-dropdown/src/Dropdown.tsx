@@ -1,16 +1,16 @@
-import { BaseSyntheticEvent } from 'react';
-import { ComponentProps, createComponent } from '@equinor/fusion-react-utils';
+import type { BaseSyntheticEvent } from 'react';
+import { type ComponentProps, createComponent } from '@equinor/fusion-react-utils';
 
 import {
   SearchableDropdownElement,
-  SearchableDropdownProps,
-  SearchableDropdownSelectEvent as HTMLSearchableDropdownSelectEvent,
+  type SearchableDropdownProps,
+  type SearchableDropdownSelectEvent as HTMLSearchableDropdownSelectEvent,
 } from '@equinor/fusion-wc-searchable-dropdown';
 
-export {
-  type SearchableDropdownResult,
-  type SearchableDropdownResultItem,
-  type SearchableDropdownResolver,
+export type {
+  SearchableDropdownResult,
+  SearchableDropdownResultItem,
+  SearchableDropdownResolver,
 } from '@equinor/fusion-wc-searchable-dropdown';
 
 export { IconType } from '@equinor/fusion-wc-icon';

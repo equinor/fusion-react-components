@@ -1,11 +1,11 @@
-import { type FlowSubject } from '@equinor/fusion-observable';
+import type { FlowSubject } from '@equinor/fusion-observable';
 import { useObservable } from '@equinor/fusion-observable/react';
-import { ReactElement, createContext, useContext, useState } from 'react';
+import { type ReactElement, createContext, useContext, useState } from 'react';
 
-import { FilterComponent } from '../filter';
-import FilterPanelSelector from './FilterPanelSelector';
+import type { FilterComponent } from '../filter';
+import type FilterPanelSelector from './FilterPanelSelector';
 
-import { createAction, createReducer, ActionType } from 'typesafe-actions';
+import { createAction, createReducer, type ActionType } from 'typesafe-actions';
 
 export type FilterPanelProviderContext = {
   filters$: FlowSubject<State, Actions>;
