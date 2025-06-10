@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.3.9
+
+### Patch Changes
+
+- 63b7e92: Change to biome linting rules
+
 ## 1.3.8
 
 ### Patch Changes
