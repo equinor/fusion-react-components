@@ -2,12 +2,7 @@
   "name": "@equinor/fusion-react-utils",
   "version": "2.2.3",
   "description": "Helper and util functions for React",
-  "keywords": [
-    "utils",
-    "react",
-    "fusion",
-    "equinor"
-  ],
+  "keywords": ["utils", "react", "fusion", "equinor"],
   "homepage": "https://github.com/equinor/fusion-react-components/tree/master/packages/switch#readme",
   "license": "ISC",
   "main": "dist/esm/index.js",
@@ -18,9 +13,7 @@
   "directories": {
     "dist": "dist"
   },
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "publishConfig": {
     "access": "public"
   },

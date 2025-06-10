@@ -2,12 +2,7 @@
   "name": "@equinor/fusion-react-errorboundary",
   "version": "1.0.7",
   "description": "React component for error boundary",
-  "keywords": [
-    "error-boundary",
-    "react",
-    "fusion",
-    "equinor"
-  ],
+  "keywords": ["error-boundary", "react", "fusion", "equinor"],
   "homepage": "https://github.com/equinor/fusion-react-components/tree/master/packages/errorboundary#readme",
   "license": "ISC",
   "main": "dist/index.js",
@@ -21,17 +16,13 @@
   "types": "dist/index.d.ts",
   "typesVersions": {
     "*": {
-      "legacy": [
-        "dist/legacy/index.d.ts"
-      ]
+      "legacy": ["dist/legacy/index.d.ts"]
     }
   },
   "directories": {
     "dist": "dist"
   },
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "publishConfig": {
     "access": "public"
   },

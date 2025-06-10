@@ -2,21 +2,14 @@
   "name": "@equinor/fusion-react-ripple",
   "version": "0.4.5",
   "description": "React component for displaying a ripple effect",
-  "keywords": [
-    "ripple",
-    "react",
-    "fusion",
-    "equinor"
-  ],
+  "keywords": ["ripple", "react", "fusion", "equinor"],
   "homepage": "https://github.com/equinor/fusion-react-components/tree/master/packages/ripple#readme",
   "license": "ISC",
   "main": "dist/index.js",
   "directories": {
     "dist": "dist"
   },
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "publishConfig": {
     "access": "public"
   },
