@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-vite';
 
 import { PersonCard } from '@equinor/fusion-react-person/src/PersonCard';
 import { PersonDetails, type PersonItemSize } from '@equinor/fusion-react-person/src/index';

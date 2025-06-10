@@ -2,7 +2,7 @@
 /* eslint-disable react/no-array-index-key */
 import { useState } from 'react';
 
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-vite';
 
 import { StepKeys, Stepper, Step } from '@equinor/fusion-react-stepper';
 

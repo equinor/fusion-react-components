@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import { useCallback, useState, useMemo, useReducer } from 'react';
 
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-vite';
 
 import { Button, Icon, Typography } from '@equinor/eds-core-react';
 import { delete_to_trash } from '@equinor/eds-icons';

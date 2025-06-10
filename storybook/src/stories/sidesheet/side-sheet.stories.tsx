@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-vite';
 
 import { SideSheet } from '@equinor/fusion-react-side-sheet/src/components/SideSheet';
 

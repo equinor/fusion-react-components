@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { useMemo, useState } from 'react';
 
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-vite';
 
 import { PersonListItem } from '@equinor/fusion-react-person/src/PersonListItem';
 import { PersonItemSize } from '@equinor/fusion-react-person/src/index';

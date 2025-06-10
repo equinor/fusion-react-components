@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { MarkdownEditor } from '@equinor/fusion-react-markdown/src/MarkdownEditor';
 

@@ -1,5 +1,5 @@
 /* eslint-disable react/no-array-index-key */
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { List, ListProps } from '@equinor/fusion-react-list/src/components/List';
 import { ListItem } from '@equinor/fusion-react-list/src/components/ListItem';

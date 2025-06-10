@@ -1,4 +1,4 @@
-import { Markdown } from '@storybook/blocks';
+import { Markdown } from '@storybook/addon-docs/blocks';
 
 import ReactIcon from './React.svg';
 import LitIcon from './Lit.svg';

@@ -45,11 +45,7 @@ const config: StorybookConfig = {
     },
   },
 
-  addons: [
-    '@storybook/addon-essentials',
-    '@storybook/addon-docs',
-    '@storybook/addon-storysource', 
-  ],
+  addons: ['@storybook/addon-docs'],
 
   docs: {}
 };
