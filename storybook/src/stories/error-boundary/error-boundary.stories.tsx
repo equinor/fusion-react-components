@@ -1,6 +1,6 @@
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-vite';
 
-import { userEvent, within } from '@storybook/test';
+import { userEvent, within } from 'storybook/test';
 
 import { ErrorBoundary } from '@equinor/fusion-react-errorboundary/legacy';
 import { useErrorBoundary } from '@equinor/fusion-react-errorboundary';

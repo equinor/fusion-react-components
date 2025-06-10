@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-vite';
 
 import { PersonCell, PersonCellData } from '@equinor/fusion-react-person/src/PersonCell';
 import { PersonProvider } from '@equinor/fusion-react-person/src/PersonProvider';

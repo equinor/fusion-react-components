@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/rules-of-hooks */
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-vite';
 
 import { SearchableDropdown } from '@equinor/fusion-react-searchable-dropdown/src/SearchableDropdown';
 

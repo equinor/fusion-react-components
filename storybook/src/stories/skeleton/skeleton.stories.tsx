@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-vite';
 
 import { Skeleton, SkeletonSize, SkeletonVariant } from '@equinor/fusion-react-skeleton/src/Skeleton';
 

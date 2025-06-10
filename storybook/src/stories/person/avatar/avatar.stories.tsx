@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { Meta, StoryObj } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react-vite';
 
 import { PersonAvatar } from '@equinor/fusion-react-person/src/PersonAvatar';
 import { AvatarSize, AvatarData } from '@equinor/fusion-react-person/src/index';
@@ -9,7 +9,7 @@ import { Theme } from '../../../components/Theme';
 import { resolver } from '../person-provider';
 
 import { faker } from '@faker-js/faker';
-import { Story } from '@storybook/blocks';
+import { Story } from '@storybook/addon-docs/blocks';
 faker.seed(123);
 
 const meta: Meta<typeof PersonAvatar> = {

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { type Preview } from '@storybook/react';
+import { type Preview } from '@storybook/react-vite';
 
 import {Theme} from '../src/components/Theme'
 
@@ -33,6 +33,8 @@ const preview: Preview = {
       source: {
         language: 'tsx'
       },
+
+      codePanel: true
     },
   },
  
