@@ -34,7 +34,7 @@ runs:
       env:
         NPM_AUTH_TOKEN: ${{ inputs.npm-token }}
 
-    - uses: actions/upload-artifact@v4
+    - uses: actions/upload-artifact@v3
       if: ${{ steps.status.outputs.releases > 0 }}
       with:
         name: changeset-status
