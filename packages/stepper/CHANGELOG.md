@@ -1,5 +1,12 @@
 # Change Log
 
+## 2.0.3
+
+### Patch Changes
+
+- 0a46182: - Updated workflows `actions/upload-artifact` version
+  - Updated `useEffect` dependencies and logic for step change and scroll handling.
+
 ## 2.0.2
 
 ### Patch Changes
