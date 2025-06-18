@@ -135,13 +135,14 @@ export const Step = ({
   const isClickable = !forceOrder;
   const isCurrent = stepKey === currentStepKey;
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies:
   useEffect(() => {
     if (isCurrent) {
       handleChange(stepKey, stepKeys);
     }
-  }, [isCurrent, handleChange, stepKeys, stepKey]);
+  }, [done]);
 
-  /** Handle scrolling to the current step when it is not fully visible */
+  // biome-ignore lint/correctness/useExhaustiveDependencies:
   useEffect(() => {
     if (stepPaneRef && stepRef.current && stepPaneRef.current && isCurrent) {
       if (!stepPaneRef.current || !stepRef) {
@@ -153,7 +154,7 @@ export const Step = ({
       }
       pane.scrollTo(stepRef.current.offsetLeft - stepRef.current.offsetWidth, 0);
     }
-  }, [isCurrent, stepPaneRef]);
+  }, [isCurrent, stepPaneRef, stepRef]);
 
   /** Render the component */
   return (
