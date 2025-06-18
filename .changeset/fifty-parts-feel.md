@@ -2,4 +2,4 @@
 "@equinor/fusion-react-stepper": patch
 ---
 
-Test version
+Updated `useEffect` dependencies and logic for step change and scroll handling.
