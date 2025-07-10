@@ -1,5 +1,5 @@
-import { Children, Fragment, type ReactNode, isValidElement } from "react";
-import { Tab } from "../components/Tab";
+import { Children, Fragment, type ReactNode, isValidElement } from 'react';
+import { Tab } from '../components/Tab';
 
 /**
  * Represents a tab object used in the application.

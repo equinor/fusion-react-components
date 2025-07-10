@@ -1,6 +1,6 @@
-import type { FlowSubject, Observable } from "@equinor/fusion-observable";
-import { type Actions, actions } from "./TabsProvider.actions";
-import { type TabsRouterState, createState } from "./TabsProvider.state";
+import type { FlowSubject, Observable } from '@equinor/fusion-observable';
+import { type Actions, actions } from './TabsProvider.actions';
+import { type TabsRouterState, createState } from './TabsProvider.state';
 
 /**
  * Interface representing a Tabs Provider.
@@ -47,14 +47,14 @@ export interface ITabsProvider {
   initialize(href: string): void;
 }
 
-export const ROUTER_TAB_KEY = "tab";
+export const ROUTER_TAB_KEY = 'tab';
 
 export const createTabRouterKey = (id: string) => `${ROUTER_TAB_KEY}[${id}]`;
 
 export class TabsProvider implements ITabsProvider {
   #state: FlowSubject<TabsRouterState, Actions>;
 
-  constructor(init: Omit<TabsRouterState, "activeTabIndex" | "tabsIds">, location: Location) {
+  constructor(init: Omit<TabsRouterState, 'activeTabIndex' | 'tabsIds'>, location: Location) {
     this.#state = createState({ ...init, activeTabIndex: 0, tabsIds: [] }, { location });
   }
 

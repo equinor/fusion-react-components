@@ -1,6 +1,6 @@
-import { Children, Fragment, type ReactNode, isValidElement } from "react";
+import { Children, Fragment, type ReactNode, isValidElement } from 'react';
 
-import { Tab } from "../components/Tab";
+import { Tab } from '../components/Tab';
 
 /**
  * Validates if the given children are all of type `Tab`.
@@ -31,6 +31,6 @@ export function validateChildrenAsTabs(children: ReactNode): boolean {
   // Check if all children are of type
   return Children.toArray(children)
     .filter(isValidElement)
-    .map((child) => (child.type === Tab ? "tab" : "unknown"))
-    .every((type) => type === "tab");
+    .map((child) => (child.type === Tab ? 'tab' : 'unknown'))
+    .every((type) => type === 'tab');
 }

@@ -20,12 +20,8 @@
   },
   "typesVersions": {
     "*": {
-      ".": [
-        "dist/esm/index.d.ts"
-      ],
-      "hooks": [
-        "dist/esm/hooks/index.d.ts"
-      ]
+      ".": ["dist/esm/index.d.ts"],
+      "hooks": ["dist/esm/hooks/index.d.ts"]
     }
   },
   "author": "Christopher Hove (@noggling)",

@@ -1,10 +1,10 @@
-import type { ActionInstance, Effect } from "@equinor/fusion-observable";
+import type { ActionInstance, Effect } from '@equinor/fusion-observable';
 
-import { updateCurrentUrlParams } from "../utils/update-current-url-params";
-import { createTabRouterKey } from "./TabsProvider";
-import type { actions } from "./TabsProvider.actions";
-import type { FlowOptions } from "./TabsProvider.flows";
-import type { TabsRouterState } from "./TabsProvider.state";
+import { updateCurrentUrlParams } from '../utils/update-current-url-params';
+import { createTabRouterKey } from './TabsProvider';
+import type { actions } from './TabsProvider.actions';
+import type { FlowOptions } from './TabsProvider.flows';
+import type { TabsRouterState } from './TabsProvider.state';
 
 export const handleSetActiveTab =
   ({
@@ -15,7 +15,7 @@ export const handleSetActiveTab =
     const url = new URL(location.href);
     if (action.payload && url.searchParams.get(routerTabKey) !== action.payload) {
       url.searchParams.set(routerTabKey, action.payload);
-      history.replaceState(null, "", url);
+      history.replaceState(null, '', url);
     }
   };
 export const handleSetActiveTabByIndex =
@@ -33,6 +33,6 @@ export const handleSetActiveTabByIndex =
 
     if (index !== action.payload) {
       const newUrl = updateCurrentUrlParams({ [routerTabKey]: stateParm });
-      history.replaceState(null, "", newUrl);
+      history.replaceState(null, '', newUrl);
     }
   };

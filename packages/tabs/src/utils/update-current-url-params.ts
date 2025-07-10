@@ -43,7 +43,7 @@ export const updateCurrentUrlParams = (
   // Construct the unencoded query string from the updated searchParams
   const unencodedQuery = Array.from(searchParams.entries())
     .map(([key, value]) => `${key}=${value}`)
-    .join("&");
+    .join('&');
 
   // Construct the new URL with the updated query string
   const newUrl = new URL(window.location.href);

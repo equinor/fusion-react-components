@@ -1,1 +1,1 @@
-export { useInitializeTabsProvider } from "./use-initialize-tabs-provider";
+export { useInitializeTabsProvider } from './use-initialize-tabs-provider';

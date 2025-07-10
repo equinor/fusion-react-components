@@ -1,7 +1,7 @@
-import { createReducer } from "@equinor/fusion-observable";
+import { createReducer } from '@equinor/fusion-observable';
 
-import { actions } from "./TabsProvider.actions";
-import type { TabsRouterState } from "./TabsProvider.state";
+import { actions } from './TabsProvider.actions';
+import type { TabsRouterState } from './TabsProvider.state';
 
 /**
  * Retrieves the index of the active tab based on the provided tab ID.
@@ -11,7 +11,7 @@ import type { TabsRouterState } from "./TabsProvider.state";
  * @returns The index of the active tab, or -1 if the tab is not found.
  */
 function getActiveTabIndex(state: TabsRouterState, tabId?: string): number {
-  return state.tabsIds.findIndex((tab) => tab.replace(/\s+/g, "-").toLowerCase() === tabId);
+  return state.tabsIds.findIndex((tab) => tab.replace(/\s+/g, '-').toLowerCase() === tabId);
 }
 
 export const makeReducer = (value: TabsRouterState) =>
@@ -34,7 +34,7 @@ export const makeReducer = (value: TabsRouterState) =>
         state.activeTab = state.tabsIds[action.payload];
       })
       .addCase(actions.setTabs, (state, action) => {
-        state.tabsIds = action.payload.map((tab) => tab.replace(/\s+/g, "-").toLowerCase());
+        state.tabsIds = action.payload.map((tab) => tab.replace(/\s+/g, '-').toLowerCase());
       });
   });
 

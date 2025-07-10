@@ -1,6 +1,6 @@
-import { type ReactNode, useLayoutEffect, useMemo } from "react";
-import { useTabsProvider } from "../providers/TabsProvider.context";
-import { type TabObject, mapChildrenToTabs } from "../utils/map-children-to-tabs";
+import { type ReactNode, useLayoutEffect, useMemo } from 'react';
+import { useTabsProvider } from '../providers/TabsProvider.context';
+import { type TabObject, mapChildrenToTabs } from '../utils/map-children-to-tabs';
 
 /**
  * Custom hook that processes and memoizes an array of tabs based on the provided children.

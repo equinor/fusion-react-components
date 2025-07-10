@@ -1,12 +1,12 @@
-import { Tabs as EdsTabs } from "@equinor/eds-core-react";
-import { tokens } from "@equinor/eds-tokens";
-import type { PropsWithChildren } from "react";
-import { useCallback } from "react";
-import { styled } from "styled-components";
-import { useActiveTab } from "../hooks/use-active-tab";
-import { useTabs } from "../hooks/use-tabs";
+import { Tabs as EdsTabs } from '@equinor/eds-core-react';
+import { tokens } from '@equinor/eds-tokens';
+import type { PropsWithChildren } from 'react';
+import { useCallback } from 'react';
+import { styled } from 'styled-components';
+import { useActiveTab } from '../hooks/use-active-tab';
+import { useTabs } from '../hooks/use-tabs';
 
-export type Variants = "fullWidth" | "minWidth" | "";
+export type Variants = 'fullWidth' | 'minWidth' | '';
 
 // This is to allow for the use of margin-left: auto on the right tabs
 const EdsList = styled(EdsTabs.List)`
@@ -16,9 +16,9 @@ const EdsList = styled(EdsTabs.List)`
 // This is to allow for the use of height on the panels and will default to auto if no height is provided
 // and will provide a scroll bar if the content is too large
 const EdsPanels = styled(EdsTabs.Panels)<{ height?: string | number }>` 
-  ${({ height }) => (height ? "overflow-x: hidden" : "")};
-  ${({ height }) => (height ? "overflow-y: auto" : "")};
-  height: ${({ height }) => (height ? (typeof height === "string" ? height : `${height}px`) : "auto")};
+  ${({ height }) => (height ? 'overflow-x: hidden' : '')};
+  ${({ height }) => (height ? 'overflow-y: auto' : '')};
+  height: ${({ height }) => (height ? (typeof height === 'string' ? height : `${height}px`) : 'auto')};
 `;
 
 const Line = styled.div`
@@ -91,7 +91,7 @@ export const Tabs = ({
           <EdsTabs.Tab key={`${tab.id}-tab`}>{tab.title}</EdsTabs.Tab>
         ))}
         {right.map((tab, idx) => (
-          <EdsTabs.Tab style={idx === 0 ? { marginLeft: "auto" } : {}} key={`${tab.id}-tab`}>
+          <EdsTabs.Tab style={idx === 0 ? { marginLeft: 'auto' } : {}} key={`${tab.id}-tab`}>
             {tab.title}
           </EdsTabs.Tab>
         ))}

@@ -1,8 +1,8 @@
-import { FlowSubject } from "@equinor/fusion-observable";
-import { type Actions, actions } from "./TabsProvider.actions";
-import { handleSetActiveTab, handleSetActiveTabByIndex } from "./TabsProvider.effect";
-import { type FlowOptions, handleClear, handleInitial } from "./TabsProvider.flows";
-import { makeReducer } from "./TabsProvider.reducer";
+import { FlowSubject } from '@equinor/fusion-observable';
+import { type Actions, actions } from './TabsProvider.actions';
+import { handleSetActiveTab, handleSetActiveTabByIndex } from './TabsProvider.effect';
+import { type FlowOptions, handleClear, handleInitial } from './TabsProvider.flows';
+import { makeReducer } from './TabsProvider.reducer';
 
 export type TabsRouterState = {
   activeTabIndex: number;

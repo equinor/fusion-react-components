@@ -1,6 +1,6 @@
-import { useObservableState } from "@equinor/fusion-observable/react";
-import { useCallback, useMemo } from "react";
-import { useTabsProvider } from "../providers/TabsProvider.context";
+import { useObservableState } from '@equinor/fusion-observable/react';
+import { useCallback, useMemo } from 'react';
+import { useTabsProvider } from '../providers/TabsProvider.context';
 
 type UseActiveTab = {
   activeTab: number | undefined;
