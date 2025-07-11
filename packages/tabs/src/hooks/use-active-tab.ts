@@ -2,7 +2,7 @@ import { useObservableState } from '@equinor/fusion-observable/react';
 import { useCallback, useMemo } from 'react';
 import { useTabsProvider } from '../providers/TabsProvider.context';
 
-type UseActiveTab = {
+export type UseActiveTab = {
   activeTab: number | undefined;
   setActiveTabIndex: (tabIndex: number) => void;
   setActiveTab: (tabId: string) => void;

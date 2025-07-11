@@ -62,7 +62,7 @@ export class TabsProvider implements ITabsProvider {
     return this.#state.select((state) => state.activeTabIndex);
   }
 
-  initialize = (href: string) => {
+  initialize(href: string): void {
     const url = new URL(href);
     this.#state.next(
       actions.initialize({
@@ -70,25 +70,25 @@ export class TabsProvider implements ITabsProvider {
         initialTab: url.searchParams.get(createTabRouterKey(this.#state.value.id)),
       }),
     );
-  };
+  }
 
-  registerTabs = (id: string, tabs: string[], activeTab?: string) => {
+  registerTabs(id: string, tabs: string[], activeTab?: string): void {
     this.#state.next(actions.registerTabs({ id, tabs, activeTab }));
-  };
+  }
 
-  setActiveTab = (tabId?: string) => {
+  setActiveTab(tabId?: string): void {
     this.#state.next(actions.setActiveTab(tabId));
-  };
+  }
 
-  setActiveTabIndex = (index: number) => {
+  setActiveTabIndex(index: number): void {
     this.#state.next(actions.setActiveTabIndex(index));
-  };
+  }
 
-  setTabs = (tabs: string[]) => {
+  setTabs(tabs: string[]): void {
     this.#state.next(actions.setTabs(tabs));
-  };
+  }
 
-  clear = () => {
+  clear(): void {
     this.#state.next(actions.clear(this.#state.value.id));
-  };
+  }
 }

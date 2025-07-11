@@ -4,6 +4,7 @@ import type { PropsWithChildren, ReactNode } from 'react';
  *
  * @property title - The title of the tab.
  * @property component - An optional ReactNode to be rendered within the tab.
+ * @property right - An optional boolean indicating if the tab should be aligned to the right.
  */
 type TabProps = {
   readonly title: string | ReactNode;
@@ -18,5 +19,5 @@ type TabProps = {
  */
 export const Tab = (props: PropsWithChildren<TabProps>): ReactNode => {
   const Component = props.component;
-  return Component;
+  return Component ? Component : props.children;
 };

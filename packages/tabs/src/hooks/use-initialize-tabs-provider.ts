@@ -7,7 +7,7 @@ export const useInitializeTabsProvider = (
   location: Location,
 ) => {
   //Creates a new TabsProvider instance with the given id.
-  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
+  // biome-ignore lint/correctness/useExhaustiveDependencies: Only 'id' is used to create a new TabsProvider instance. 'location' is assumed to be stable and does not need to trigger recreation.
   const provider = useMemo(
     () =>
       new TabsProvider(

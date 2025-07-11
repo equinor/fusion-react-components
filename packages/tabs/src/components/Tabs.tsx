@@ -29,7 +29,7 @@ const Line = styled.div`
   background-color: ${tokens.colors.ui.background__medium.rgba};
 `;
 
-type TabsProps = {
+export type TabsProps = {
   displayLine?: boolean;
   height?: string | number;
   variant?: Variants;
