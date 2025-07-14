@@ -1,6 +1,25 @@
 import { useLayoutEffect, useMemo } from 'react';
 import { TabsProvider } from '../providers/TabsProvider';
 
+/**
+ * Custom React hook for initializing and managing a TabsProvider instance.
+ *
+ * This hook creates a new TabsProvider for a given tab group ID and location.
+ * It also synchronizes the active tab with the provider whenever the `activeTab` value changes.
+ *
+ * Intended for managing tab state and routing.
+ * Returns the initialized TabsProvider instance for further interaction.
+ *
+ * @param {string} id - Unique identifier for the tab group.
+ * @param {string | undefined} activeTab - The currently active tab ID.
+ * @param {Location} location - The location object.
+ * @returns {TabsProvider} The initialized TabsProvider instance.
+ *
+ * @example
+ * const provider = useInitializeTabsProvider('my-tabs', 'tab1', window.location);
+ * provider.setTabs(['tab1', 'tab2']);
+ * provider.setActiveTab('tab2');
+ */
 export const useInitializeTabsProvider = (
   id: string,
   activeTab: string | undefined,
