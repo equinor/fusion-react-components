@@ -1,0 +1,55 @@
+import { Meta, Markdown, ArgTypes, Canvas } from '@storybook/addon-docs/blocks';
+
+import readme from '#packages/tabs/README.md?raw';
+import pkg from '#packages/tabs/package.json';
+import changelogReact from '#packages/tabs/CHANGELOG.md?raw';
+
+import { ChangeLog, PackageInfo } from '../../components';
+
+import * as stories from './tabs.stories';
+
+<Meta of={stories} />
+
+<PackageInfo pkg={pkg} />
+
+<Markdown>{readme}</Markdown>
+
+<ArgTypes of={ stories.basicUncontrolled } />
+
+## Basic Uncontrolled
+This shows the default usage of the `TabProvider` with internal state management.
+
+<Canvas of={ stories.basicUncontrolled } meta={stories} />
+
+## Controlled Tabs
+This example uses the `useActiveTab` hook to control which tab is currently active. 
+In this case, each tab contains a button that switches the tab.
+
+Useful for:
+- Custom navigation controls inside tab content.
+- Conditional logic for navigating between steps/tabs.
+
+Important Notes:
+- `useActiveTab` must be called **inside a component that’s rendered within TabProvider**.
+- You can use it to both read and change the active tab with tab id or index:
+  - **activeTab**, 
+  - **setActiveTab**, 
+  - **setActiveTabIndex**
+
+<Canvas of={ stories.controlledTabs } meta={stories} />
+
+## Scrollable Height + No Line
+This demonstrates vertical height limit and scrollbar, with the underline visually removed.
+
+<Canvas of={ stories.scrollableHeight } meta={stories} />
+
+## Right-Aligned Tabs
+This showcases the floating tab behavior, where some tabs are aligned to the right side.
+
+<Canvas of={ stories.rightAlignedTabs } meta={stories} />
+
+<ChangeLog
+  changelogs={{
+    react: changelogReact,
+  }}
+/>
