@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-tabs",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "",
   "main": "src/index.ts",
   "scripts": {
@@ -20,8 +20,12 @@
   },
   "typesVersions": {
     "*": {
-      ".": ["dist/esm/index.d.ts"],
-      "hooks": ["dist/esm/hooks/index.d.ts"]
+      ".": [
+        "dist/esm/index.d.ts"
+      ],
+      "hooks": [
+        "dist/esm/hooks/index.d.ts"
+      ]
     }
   },
   "author": "Christopher Hove (@noggling)",

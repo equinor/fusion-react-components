@@ -1,5 +1,29 @@
 # Change Log
 
+## 4.2.10
+
+### Patch Changes
+
+- 6158e18: ## Fusion React Tabs
+
+  Add new `@equinor/fusion-react-tabs` component to:
+
+  - Fusion React Components
+  - Storybook with examples
+
+  ### Features
+
+  - The ability to float the tabs to the right or left of the screen
+  - The ability to set a specific height for the tabs and provide a scroll bar if the tabs exceed the height
+  - Default behavior of line under the tabs, and can be disabled. This is just a visual design change, and does not affect the functionality of the tabs
+  - Exposed internal hook for use in custom tabs
+
+- ca2debc: - Fixed display of URL when tab id contains symbols like `&`
+  - Storybook alignment
+- Updated dependencies [6158e18]
+- Updated dependencies [ca2debc]
+  - @equinor/fusion-react-tabs@1.0.0
+
 ## 4.2.9
 
 ### Patch Changes
