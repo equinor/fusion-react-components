@@ -2,17 +2,14 @@ import type { StorybookConfig } from '@storybook/react-vite';
 import path from 'path';
 import { mergeConfig } from 'vite';
 import tsconfigPaths from 'vite-tsconfig-paths';
+import remarkGfm from 'remark-gfm';
 
 const repoRoot = path.resolve(__dirname, '../..');
 
 const config: StorybookConfig = {
-  stories: [
-    '../src/**/*.mdx',
-    '../src/stories/**/*.stories.@(js|jsx|tsx|ts)', 
-  ],
+  stories: ['../src/**/*.mdx', '../src/stories/**/*.stories.@(js|jsx|tsx|ts)'],
   framework: '@storybook/react-vite',
-  async viteFinal(config, _options){
-    
+  async viteFinal(config, _options) {
     return mergeConfig(config, {
       resolve: {
         alias: [
@@ -20,10 +17,10 @@ const config: StorybookConfig = {
             find: '#packages',
             replacement: path.resolve(repoRoot, 'packages'),
           },
-        ]
+        ],
       },
       optimizeDeps: {
-        exclude: ['@equinor/fusion-react-*']
+        exclude: ['@equinor/fusion-react-*'],
       },
       plugins: [
         tsconfigPaths({
@@ -33,7 +30,7 @@ const config: StorybookConfig = {
           loose: true,
         }),
       ],
-    })
+    });
   },
 
   typescript: {
@@ -45,9 +42,20 @@ const config: StorybookConfig = {
     },
   },
 
-  addons: ['@storybook/addon-docs'],
+  addons: [
+    {
+      name: '@storybook/addon-docs',
+      options: {
+        mdxPluginOptions: {
+          mdxCompileOptions: {
+            remarkPlugins: [remarkGfm],
+          },
+        },
+      },
+    },
+  ],
 
-  docs: {}
+  docs: {},
 };
 
 export default config;
