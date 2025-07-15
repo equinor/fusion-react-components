@@ -14,7 +14,7 @@ export const handleSetActiveTab =
     const routerTabKey = createTabRouterKey(state.id);
     const url = new URL(location.href);
     if (action.payload && url.searchParams.get(routerTabKey) !== action.payload) {
-      url.searchParams.set(routerTabKey, action.payload);
+      url.searchParams.set(routerTabKey, encodeURIComponent(action.payload));
       history.replaceState(null, '', url);
     }
   };
@@ -32,7 +32,7 @@ export const handleSetActiveTabByIndex =
     const index = state.tabsIds.findIndex((tab) => tab === parm);
 
     if (index !== action.payload) {
-      const newUrl = updateCurrentUrlParams({ [routerTabKey]: stateParm });
+      const newUrl = updateCurrentUrlParams({ [routerTabKey]: encodeURIComponent(stateParm) });
       history.replaceState(null, '', newUrl);
     }
   };

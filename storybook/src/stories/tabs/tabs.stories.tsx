@@ -7,6 +7,29 @@ import { Button } from '@equinor/eds-core-react';
 const meta: Meta<typeof TabProvider> = {
   title: 'ui/Tabs',
   component: TabProvider,
+  argTypes: {
+    id: {
+      description: 'Unique identifier for the Tabs component',
+    },
+    activeTab: {
+      description: 'Initial active tab ID',
+    },
+    height: {
+      description:
+        'Height of the tab panels, can be a string (e.g., "10vh") or a number (in pixels)',
+      table: {
+        type: { summary: 'string | number' },
+        defaultValue: { summary: 'auto' },
+      },
+    },
+    displayLine: {
+      description: 'Whether to display a line under tabs',
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'true' },
+      },
+    },
+  },
 };
 
 export default meta;

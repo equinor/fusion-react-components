@@ -1,4 +1,4 @@
-# Fusion React Components Tabs
+# Fusion React Tabs
 
 This package provides a simple tab router. It handles active tab state, and renders the correct tab components as well as managing the URL state as query parameters. This allows for deep linking to specific tabs, useful for sharing links and state between users.
 
@@ -16,9 +16,9 @@ This package provides a simple tab router. It handles active tab state, and rend
 import {  TabProvider } from '@equinor/fusion-react-components-tabs';
 
 const MyComponent = () => (
-   <TabProvider id="my-component" activeTab="tab1">
-    <TabProvider.Tab title="tab1" > tab1 content</TabProvider.Tab>
-    <TabProvider.Tab title="tab2" > tab2 content</TabProvider.Tab>  
+   <TabProvider id="my-component" activeTab="tab-1">
+    <TabProvider.Tab id="tab-1" title="Tab 1" > Tab 1 content</TabProvider.Tab>
+    <TabProvider.Tab id="tab-2" title="Tab 2" > Tab 2 content</TabProvider.Tab>  
   </TabProvider> 
 );
 ```

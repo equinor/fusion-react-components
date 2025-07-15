@@ -16,6 +16,15 @@ import * as stories from './tabs.stories';
 
 <ArgTypes of={ stories.basicUncontrolled } />
 
+## Properties/Attributes for single Tab
+The `TabProvider.Tab` component is used to define individual tabs within the `TabProvider`.
+
+| Name         | Type     | Default | Description                                                                                                                     |
+|--------------|----------|---------|---------------------------------------------------------------------------------------------------------------------------------|
+| id           | string   | /       | A unique key used to identify the tab within the tab group. This key is also used when seting active tab and for building URL structure for showing selected tab.   |
+| title        | string   | /       | The text displayed in the tab header.                                        |
+| right        | boolean  | false   | If set to true, this tab will be visually aligned to the right side of the tab header area.     |
+
 ## Basic Uncontrolled
 This shows the default usage of the `TabProvider` with internal state management.
 
