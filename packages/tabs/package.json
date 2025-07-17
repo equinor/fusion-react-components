@@ -1,13 +1,26 @@
 {
   "name": "@equinor/fusion-react-tabs",
   "version": "1.0.0",
-  "description": "",
-  "main": "src/index.ts",
+  "description": "Component for displaying and using tabs",
+  "keywords": ["tabs", "react", "component", "fusion", "equinor"],
+  "homepage": "https://github.com/equinor/fusion-react-components/tree/master/packages/tabs#readme",
+  "main": "dist/index.js",
+  "directories": {
+    "dist": "dist"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/equinor/fusion-react-components.git"
+  },
   "scripts": {
     "build": "tsc -b",
+    "lint": "eslint --ext .ts,.tsx,.js src/",
+    "lint:fix": "eslint --ext .ts,.tsx,.js src/ --fix",
     "prepack": "npm run build"
   },
-  "keywords": [],
   "exports": {
     ".": {
       "import": "./dist/esm/index.js",
@@ -35,7 +48,8 @@
     "react-dom": "^18.3.1",
     "rxjs": "^7.8.2",
     "styled-components": "^6.1.16",
-    "typescript": "^5.8.3"
+    "typescript": "^5.8.3",
+    "vitest": "^3.2.4"
   },
   "peerDependencies": {
     "@equinor/eds-core-react": "^0.47.0",
@@ -51,8 +65,5 @@
     "react-dom": {
       "optional": true
     }
-  },
-  "dependencies": {
-    "vitest": "^3.2.4"
   }
 }
