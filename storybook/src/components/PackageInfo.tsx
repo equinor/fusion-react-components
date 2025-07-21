@@ -71,7 +71,7 @@ export const PackageInfo = ({ pkg }: { readonly pkg: Package }): React.ReactElem
         </>
       ): null}
       <b>Install</b>
-      <Source language="sh" code={`npm i ${pkg.name}`} />
+      <Source language="bash" code={`npm i ${pkg.name}`} />
     </div>
   );
 };
