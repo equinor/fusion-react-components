@@ -20,7 +20,7 @@ jobs:
     # Job steps
     steps:
       # requires v1 @see https://www.chromatic.com/docs/github-actions
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
