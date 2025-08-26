@@ -25,7 +25,7 @@ import { MarkdownEditor } from '@equinor/fusion-react-markdown';
 ```
 
 #### Usage
-```tsx 
+```tsx
 import { MarkdownEditor } from '@equinor/fusion-react-markdown';
 
 const markdown = "# my heading here";
@@ -52,7 +52,8 @@ type MdMenuItemType =
   | 'blockquote'
   | 'h1'
   | 'h2'
-  | 'h3';
+  | 'h3'
+  | 'tx';
 ```
 
 \*  `MenuSizes` type imported from markdown component.
