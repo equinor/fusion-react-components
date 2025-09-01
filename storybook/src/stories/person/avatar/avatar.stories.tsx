@@ -1,15 +1,14 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { Meta, StoryObj } from '@storybook/react-vite';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { PersonAvatar } from '@equinor/fusion-react-person/src/PersonAvatar';
-import { AvatarSize, AvatarData } from '@equinor/fusion-react-person/src/index';
+import { AvatarSize, type AvatarData } from '@equinor/fusion-react-person/src/index';
 import { PersonProvider } from '@equinor/fusion-react-person/src/PersonProvider';
 import { Theme } from '../../../components/Theme';
 
 import { resolver } from '../person-provider';
 
 import { faker } from '@faker-js/faker';
-import { Story } from '@storybook/addon-docs/blocks';
 faker.seed(123);
 
 const meta: Meta<typeof PersonAvatar> = {
@@ -19,9 +18,9 @@ const meta: Meta<typeof PersonAvatar> = {
 
 export default meta;
 
-type Story = StoryObj<typeof PersonAvatar>;
+type AvatarStory = StoryObj<typeof PersonAvatar>;
 
-export const basic: Story = {
+export const basic: AvatarStory = {
   decorators: [
     (Story) => (
       <Theme>
@@ -36,7 +35,7 @@ export const basic: Story = {
   },
 };
 
-export const sizes: Story = {
+export const sizes: AvatarStory = {
   ...basic,
   render: (props) => (
     <div style={{ display: 'flex', flexDirection: 'row', columnGap: 30 }}>
@@ -47,6 +46,14 @@ export const sizes: Story = {
   ),
 };
 
+export const letter: AvatarStory = {
+  ...basic,
+  args: {
+    ...basic.args,
+    showLetter: true,
+  },
+};
+
 const person: AvatarData = resolver.getInfo
   ? (resolver.getInfo({ azureId: faker.string.uuid() }) as AvatarData)
   : {
@@ -55,7 +62,7 @@ const person: AvatarData = resolver.getInfo
       accountClassification: 'Internal',
     };
 
-export const withDataSource: Story = {
+export const withDataSource: AvatarStory = {
   ...basic,
   args: {
     dataSource: {
@@ -67,7 +74,7 @@ export const withDataSource: Story = {
   },
 };
 
-export const clickable: Story = {
+export const clickable: AvatarStory = {
   ...basic,
   args: {
     ...basic.args,
@@ -75,7 +82,7 @@ export const clickable: Story = {
   },
 };
 
-export const disableCard: Story = {
+export const disableCard: AvatarStory = {
   ...basic,
   args: {
     ...basic.args,
@@ -83,7 +90,7 @@ export const disableCard: Story = {
   },
 };
 
-export const disabled: Story = {
+export const disabled: AvatarStory = {
   ...basic,
   args: {
     ...basic.args,

@@ -10,7 +10,15 @@ type ElementProps = PropsWithChildren<
   Partial<
     Pick<
       HTMLPersonAvatarCustomElement,
-      'azureId' | 'upn' | 'dataSource' | 'size' | 'clickable' | 'disabled' | 'trigger'
+      | 'azureId'
+      | 'upn'
+      | 'dataSource'
+      | 'pictureSrc'
+      | 'showLetter'
+      | 'size'
+      | 'clickable'
+      | 'disabled'
+      | 'trigger'
     >
   >
 >;
