@@ -57,7 +57,7 @@ const rowsData = [...Array(5)].map((_, index) => ({
   model: faker.vehicle.model(),
   driver: faker.string.uuid(),
   price: faker.string.numeric(6),
-  team: Array.from({ length: 5 }, () => faker.string.uuid()),
+  team: Array.from({ length: 4 }, () => faker.string.uuid()),
 }));
 
 const defaultCol = {
