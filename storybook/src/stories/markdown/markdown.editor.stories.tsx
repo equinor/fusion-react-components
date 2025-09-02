@@ -20,7 +20,7 @@ const meta: Meta<typeof MarkdownEditor> = {
     menuItems: {
       description: 'List of visible menu buttons',
       control: 'check',
-      options: ['strong', 'em', 'ordered_list', 'bullet_list', 'paragraph', 'blockquote', 'h1', 'h2', 'h3'],
+      options: ['strong', 'em', 'ordered_list', 'bullet_list', 'paragraph', 'blockquote', 'h1', 'h2', 'h3', 'tx'],
       table: {
         type: { summary: 'MdMenuItemType[]' },
         defaultValue: { summary: ['strong', 'em', 'bullet_list', 'ordered_list'] },
@@ -50,6 +50,6 @@ export const editor: Story = {
   args: {
     value: markdown,
     menuSize: 'small',
-    menuItems: ['strong', 'em', 'bullet_list', 'ordered_list', 'h1', 'h2'],
+    menuItems: ['strong', 'em', 'bullet_list', 'ordered_list', 'h1', 'h2', 'tx'],
   },
 };

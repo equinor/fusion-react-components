@@ -1,5 +1,13 @@
 # Change Log
 
+## 4.2.11
+
+### Patch Changes
+
+- ed0434d: Update Markdown Editor story to include 'tx' menu item
+- Updated dependencies [ed0434d]
+  - @equinor/fusion-react-markdown@0.3.6
+
 ## 4.2.10
 
 ### Patch Changes
@@ -7,12 +15,10 @@
 - 6158e18: ## Fusion React Tabs
 
   Add new `@equinor/fusion-react-tabs` component to:
-
   - Fusion React Components
   - Storybook with examples
 
   ### Features
-
   - The ability to float the tabs to the right or left of the screen
   - The ability to set a specific height for the tabs and provide a scroll bar if the tabs exceed the height
   - Default behavior of line under the tabs, and can be disabled. This is just a visual design change, and does not affect the functionality of the tabs
@@ -169,7 +175,6 @@
 ### Patch Changes
 
 - eba9cf6: Changed implementation of the Stepper component from being uncontrolled to having a both an uncontrolled and controlled mode.
-
   - Required 'activeStepKey' prop removed. Replaced with 'initialStepKey' and 'stepKey' (both optional)
   - If 'stepKey' is set, then the component becomes controlled by that prop.
   - If 'stepKey' is set and 'initialStepKey' is set, then the initial step will be that prop, but otherwise be uncontrolled.
@@ -298,7 +303,6 @@
 ### Patch Changes
 
 - 0a37ed6: AgGrid person cell update of:
-
   - Storybook
   - Dependencies
 
@@ -325,7 +329,6 @@
 - c7315b8: ### Package `@equinor/fusion-react-ag-grid-styles`
 
   Changed export statement
-
   - `export { useStyles, useStyles as default } from './agGridStyles';`
   - Renamed `useAgGridStyles.ts` to `index.ts` in `ag-grid-styles` package.
 
@@ -356,7 +359,6 @@
 ### Patch Changes
 
 - 49389d4: AgGrid person cell update of:
-
   - Storybook
   - Dependencies
 
@@ -381,7 +383,6 @@
 - bb95029: ### New component: `agGridPersonCell`
 
   React component for displaying person details in AgGrid cell and PersonCard on cell hover.
-
   - Introduced `agGridPersonCell` for integrating person details into AgGrid cells.
   - Customizable `heading`, `subHeading`, `size`, and `showAvatar` options.
   - Allows mapping complex data structures for fields like `azureId`, `upn`, and `dataSource`.
@@ -671,7 +672,6 @@
   - In the `storybook/src/stories/button/button.stories.tsx` file:
     - The import statement for `@equinor/fusion-react-icon` has been replaced with an import statement for `@equinor/fusion-wc-icon`.
 - cb99230: **@equinor/fusion-react-ag-grid-utils:**
-
   - Updated README
   - updated Ag Grid to `~30.2.0`
   - refactor compare function (lifted resolve of comparer)
@@ -680,7 +680,6 @@
   - replaced fusion icon with EDS icon
 
   **@equinor/fusion-react-storybook:**
-
   - added example for using change-handler and status component
   - cleaned up deps
 
@@ -710,12 +709,10 @@
 ### Patch Changes
 
 - 9b7ef80: Change to component.stories.mdx:
-
   - Modified the imports.
   - Updated the StoryExample calls.
 
   Change to examples.stories.tsx:
-
   - Modified the imports.
   - Updated the Component story to use SkeletonSize.Medium.
   - Added new stories for different variations of the Skeleton component:

@@ -7,7 +7,7 @@
   },
   "files": {
     "ignoreUnknown": false,
-    "ignore": ["./storybook", "./packages/hanging-garden"]
+    "ignore": ["./storybook", "./packages/hanging-garden", "**/package.json"]
   },
   "formatter": {
     "enabled": true,
