@@ -16,7 +16,7 @@ import * as stories from './ag-grid-person-cell.stories';
 
 ## AgGrid Person Cell
 
-This component is used to render a person's details within an AgGrid cell. The cell displays a [Person Cell](./?path=/docs/person-docs--docs#basic-3) component, and when hovered, a tooltip provides additional information about the person in the form of [Person Card](./?path=/docs/person-docs--docs#basic-1) component.
+This component is used to render a person's details within an AgGrid cell. The cell displays a [Person Cell](./?path=/docs/person-cell--docs) component, and when hovered, a tooltip provides additional information about the person in the form of [Person Card](./?path=/docs/person-card--docs) component.
 
 <Canvas of={ stories.basic } meta={stories} />
 
@@ -101,6 +101,57 @@ const columnDefs = useMemo(() => [
 ```
 
 <Canvas of={ stories.customDataObject } meta={stories} />
+
+#### Handling Array Data
+
+The **agGridPersonCell** component automatically detects when the field contains an array of person identifiers and adapts its behavior accordingly:
+
+- **AgGrid tooltips are disabled** for array fields. They are added as popover from EDS components for each element(person) added in a cell.
+- **Heading and subHeading functions are not applied** to array data, because there is no usage of heading/subheading when rendering multiple person cards in a single cell.
+- **Special CSS class** `personnel-table-cell` is applied for array fields vs `person-table-cell` for single person fields
+- **showAvatar** is automatically set to ***true*** for array fields, displaying images for each person in the array. If set to ***false***, only the first letter of the persons name will be shown.
+
+```tsx
+// Example with mixed data types
+const rowsData = [...Array(5)].map((_, index) => ({
+  number: index,
+  manufacturer: faker.vehicle.manufacturer(),
+  model: faker.vehicle.model(),
+  driver: faker.string.uuid(), // Single person ID
+  team: Array.from({ length: 5 }, () => faker.string.uuid()), // Array of person IDs
+}));
+
+const columnDefs = [
+  // Single person column
+  agGridPersonCell({
+    field: 'driver',
+    azureId: (data: string) => data,
+    heading: (person) => person.name, // Applied for single person
+    subHeading: (person) => person.mail, // Applied for single person
+  }),
+  
+  // Array of persons column
+  agGridPersonCell({
+    field: 'team',
+    azureId: (data: string) => data,
+    showAvatar: true,
+    // heading and subHeading are automatically ignored for arrays
+  }),
+];
+```
+
+<Canvas of={ stories.arrayData } meta={stories} />
+
+**Key behaviors for array data:**
+
+- ✅ **Automatic detection**: No configuration needed - arrays are detected automatically from field data
+- ✅ **Multiple tooltips**: Each person in the array gets its own tooltip (EDS Popover)
+- ✅ **Optimized rendering**: Cell renderer handles multiple persons efficiently
+- ✅ **Mixed columns**: You can have both single person and array person columns in the same grid
+
+#### Advanced Array Configuration
+
+For more complex array handling, you can customize how person data is extracted from each element, like in custom object configuration written above.
 
 ## Changelog
 
