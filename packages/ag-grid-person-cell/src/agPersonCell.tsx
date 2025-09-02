@@ -1,6 +1,6 @@
 import type { ColDef } from 'ag-grid-community';
 import { PersonTooltip } from './PersonTooltip';
-import { personSortComparator } from './PersonSort';
+import { personSortComparator } from './personSort';
 import { PersonCellRender } from './PersonCellRender';
 import type { PersonColDef } from './types';
 
