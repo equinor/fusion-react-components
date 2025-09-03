@@ -1,5 +1,21 @@
 # Change Log
 
+## 3.0.0
+
+### Major Changes
+
+- c20b0b0: feat: Add support for array data in agGridPersonCell
+  - The agGridPersonCell function now automatically detects when the field contains an array of person identifiers.
+  - Tooltips are disabled for array fields and now it's using tooltip from EDS.
+  - Heading and subHeading functions are not applied to array data.
+  - A special CSS class `personnel-table-cell` is applied for array fields, while `person-table-cell` is used for single person fields.
+  - Documentation updated to describe array handling in storybook.
+
+### Patch Changes
+
+- Updated dependencies [c20b0b0]
+  - @equinor/fusion-react-person@0.10.6
+
 ## 2.0.5
 
 ### Patch Changes
@@ -46,7 +62,6 @@
 ### Major Changes
 
 - 80f579c: **Major update:** AgGrid version 33, possible braking changes
-
   - Updated types and dependencies to newest AgGrid version
   - Now using and depended on _@equinor/fusion-framework-module-ag-grid_
 
@@ -62,7 +77,6 @@
 ### Patch Changes
 
 - 0a37ed6: AgGrid person cell update of:
-
   - Storybook
   - Dependencies
 
@@ -101,7 +115,6 @@
 ### Patch Changes
 
 - 49389d4: AgGrid person cell update of:
-
   - Storybook
   - Dependencies
 
@@ -122,7 +135,6 @@
 - bb95029: ### New component: `agGridPersonCell`
 
   React component for displaying person details in AgGrid cell and PersonCard on cell hover.
-
   - Introduced `agGridPersonCell` for integrating person details into AgGrid cells.
   - Customizable `heading`, `subHeading`, `size`, and `showAvatar` options.
   - Allows mapping complex data structures for fields like `azureId`, `upn`, and `dataSource`.

@@ -1,8 +1,14 @@
 {
   "name": "@equinor/fusion-react-tabs",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Component for displaying and using tabs",
-  "keywords": ["tabs", "react", "component", "fusion", "equinor"],
+  "keywords": [
+    "tabs",
+    "react",
+    "component",
+    "fusion",
+    "equinor"
+  ],
   "homepage": "https://github.com/equinor/fusion-react-components/tree/master/packages/tabs#readme",
   "main": "dist/index.js",
   "directories": {
@@ -33,8 +39,12 @@
   },
   "typesVersions": {
     "*": {
-      ".": ["dist/esm/index.d.ts"],
-      "hooks": ["dist/esm/hooks/index.d.ts"]
+      ".": [
+        "dist/esm/index.d.ts"
+      ],
+      "hooks": [
+        "dist/esm/hooks/index.d.ts"
+      ]
     }
   },
   "author": "Christopher Hove (@noggling)",

@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.10.6
+
+### Patch Changes
+
+- c20b0b0: Update component to newer web component and add new property `showLetter` available from the updated component
+
 ## 0.10.5
 
 ### Patch Changes
@@ -45,7 +51,6 @@
 ### Patch Changes
 
 - 0a37ed6: AgGrid person cell update of:
-
   - Storybook
   - Dependencies
 
@@ -78,7 +83,6 @@
 ### Patch Changes
 
 - 49389d4: AgGrid person cell update of:
-
   - Storybook
   - Dependencies
 
