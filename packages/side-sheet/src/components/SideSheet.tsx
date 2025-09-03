@@ -35,6 +35,11 @@ const StyledHeader = styled(StyledFlexBox)`
   padding: var(--side-sheet-header-padding, 1rem);
 `;
 
+const StyledHeaderNoTitle = styled(StyledFlexBox)`
+  justify-content: end;
+  height: 0;
+`;
+
 type PortalSideSheet = SideSheetProps & {
   readonly minWidth?: number;
   readonly enableFullscreen?: boolean;
@@ -95,21 +100,13 @@ export const SideSheet = (props: PropsWithChildren<PortalSideSheet>) => {
     return acc;
   }, {} as SideSheetComponents);
 
-  if (!components.title) {
-    throw Error('Title Component is required child');
-  }
-
-  if (!components.subTitle) {
-    throw Error('SubTitle Component is required child');
-  }
-
   if (!components.content) {
     throw Error('Content Component is required child');
   }
 
-  return (
-    <SideSheetBase {...props}>
-      <StyledContainerWrapper ref={ref}>
+  const Top = () => {
+    if (components.title || components.subTitle) {
+      return (
         <StyledHeader>
           <StyledFlexBox>
             {components.indicator}
@@ -134,6 +131,32 @@ export const SideSheet = (props: PropsWithChildren<PortalSideSheet>) => {
             </Tooltip>
           </StyledFlexBox>
         </StyledHeader>
+      );
+    }
+
+    return (
+      <StyledHeaderNoTitle>
+        {components.actions}
+        {enableFullscreen && (
+          <Tooltip title="Full screen" enterDelay={500}>
+            <Button variant="ghost_icon" onClick={handleFullscreenClick}>
+              <FullscreenIcon />
+            </Button>
+          </Tooltip>
+        )}
+        <Tooltip title="Close" enterDelay={500}>
+          <Button variant="ghost_icon" onClick={onClose}>
+            <Icon name="close" />
+          </Button>
+        </Tooltip>
+      </StyledHeaderNoTitle>
+    );
+  };
+
+  return (
+    <SideSheetBase {...props}>
+      <StyledContainerWrapper ref={ref}>
+        <Top />
         {components.content}
       </StyledContainerWrapper>
     </SideSheetBase>

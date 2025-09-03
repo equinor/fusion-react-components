@@ -24,10 +24,10 @@ const StyledScrim = styled(Scrim).withConfig({
 const StyledSideSheet = styled.div.withConfig({
   shouldForwardProp: (prop) => prop !== 'shouldAnimate',
 })<{ shouldAnimate: boolean }>`
-  --side-sheet-height: calc(100vh - var(--header-height, 0));
+  --side-sheet-height: calc(100vh - var(--header-height, 0px));
   height: var(--custom-side-sheet-height, var(--side-sheet-height, 100%));
   position: fixed;
-  top: var(--custom-header-height, var(--header-height, 0));
+  top: var(--custom-header-height, var(--header-height, 0px));
   transition: right 10s;
   animation: ${({ shouldAnimate }) => (shouldAnimate ? 'Animation ease 0.3s' : 'none')};
   right: 0px;

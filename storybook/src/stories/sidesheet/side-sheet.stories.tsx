@@ -43,7 +43,54 @@ export const basic: Story = {
             <Icon data={help_outline} />
           </Button>
         </SideSheet.Actions>
-        <SideSheet.Content>😎</SideSheet.Content>,
+        <SideSheet.Content>
+          😎
+          <div>
+            You can choose the content padding with css: <code>--side-sheet-content-padding: 0;</code>
+          </div>
+        </SideSheet.Content>,
+      </>
+    ),
+  },
+  render: (props) => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const [open, setOpen] = useState(false);
+    return (
+      <div>
+        <Button onClick={() => setOpen(true)}>Open Side Sheet</Button>
+        <SideSheet {...props} isOpen={open} onClose={() => setOpen(false)}></SideSheet>
+      </div>
+    );
+  },
+};
+
+export const withoutHeader: Story = {
+  args: {
+    isOpen: open,
+    onClose: () => {
+      open = false;
+    },
+    enableFullscreen: true,
+    minWidth: 400,
+    animate: true,
+    children: (
+      <>
+        <SideSheet.Actions>
+          <Button
+            variant="ghost_icon"
+            onClick={() => {
+              console.log('Custom Action Help button clicked');
+            }}
+          >
+            <Icon data={help_outline} />
+          </Button>
+        </SideSheet.Actions>
+        <SideSheet.Content>
+          😎
+          <div>
+            You can choose the content padding with css: <code>--side-sheet-content-padding: 0;</code>
+          </div>
+        </SideSheet.Content>,
       </>
     ),
   },
