@@ -73,8 +73,8 @@ export const Tabs = ({
    * @param {number} tab - The index of the selected tab.
    */
   const handleOnChange = useCallback(
-    (tab: number) => {
-      setActiveTabIndex(tab);
+    (tab: string | number) => {
+      setActiveTabIndex(Number(tab));
     },
     [setActiveTabIndex],
   );
