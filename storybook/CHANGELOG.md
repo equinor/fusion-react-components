@@ -1,5 +1,15 @@
 # Change Log
 
+## 4.2.13
+
+### Patch Changes
+
+- 93cae6b: Improve sidesheet component to work without title
+- Updated dependencies [015c8b6]
+- Updated dependencies [93cae6b]
+  - @equinor/fusion-react-ag-grid-person-cell@3.1.0
+  - @equinor/fusion-react-side-sheet@1.3.10
+
 ## 4.2.12
 
 ### Patch Changes

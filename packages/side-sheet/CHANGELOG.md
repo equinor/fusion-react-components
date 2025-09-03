@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.3.10
+
+### Patch Changes
+
+- 93cae6b: Improve sidesheet component to work without title
+
 ## 1.3.9
 
 ### Patch Changes
@@ -53,7 +59,6 @@
 ### Patch Changes
 
 - d07f10a: - Added a new dependency: `"react-keyed-flatten-children": "^3.0.0"` to `package.json`.
-
   - Imported the `flattenChildren` function from the `react-keyed-flatten-children` package in `SideSheet.tsx`.
   - Replaced the `React.Children.forEach` method with the `flattenChildren(children).reduce` method to iterate over the children of the `SideSheet` component.
   - Instead of assigning child components to the `components` object inside the `forEach` callback, you're now doing it inside the `reduce` callback and returning the accumulated object.
