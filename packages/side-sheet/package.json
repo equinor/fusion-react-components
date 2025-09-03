@@ -1,15 +1,22 @@
 {
   "name": "@equinor/fusion-react-side-sheet",
-  "version": "1.3.9",
+  "version": "1.3.10",
   "description": "React component for displaying a side-sheet",
-  "keywords": ["side-sheet", "react", "fusion", "equinor"],
+  "keywords": [
+    "side-sheet",
+    "react",
+    "fusion",
+    "equinor"
+  ],
   "homepage": "https://github.com/equinor/fusion-react-components/tree/master/packages/side-sheet#readme",
   "license": "ISC",
   "main": "dist/index.js",
   "directories": {
     "dist": "dist"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "publishConfig": {
     "access": "public"
   },
