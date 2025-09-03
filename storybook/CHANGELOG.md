@@ -1,5 +1,29 @@
 # Change Log
 
+## 4.2.12
+
+### Patch Changes
+
+- c20b0b0: feat: Add support for array data in agGridPersonCell
+  - The agGridPersonCell function now automatically detects when the field contains an array of person identifiers.
+  - Tooltips are disabled for array fields and now it's using tooltip from EDS.
+  - Heading and subHeading functions are not applied to array data.
+  - A special CSS class `personnel-table-cell` is applied for array fields, while `person-table-cell` is used for single person fields.
+  - Documentation updated to describe array handling in storybook.
+
+- ba9f00e: Update person provider mock resolver implementation
+  - Fixed import path to use published package instead of src path
+  - Updated faker image generation to use personPortrait instead of deprecated urlLoremFlickr
+  - Reduced photo loading timeout from max 1000ms to 100ms for better storybook performance
+  - Simplified reduce function syntax
+
+- Updated dependencies [c20b0b0]
+- Updated dependencies [c20b0b0]
+- Updated dependencies [4298847]
+  - @equinor/fusion-react-person@0.10.6
+  - @equinor/fusion-react-ag-grid-person-cell@3.0.0
+  - @equinor/fusion-react-tabs@1.0.2
+
 ## 4.2.11
 
 ### Patch Changes
