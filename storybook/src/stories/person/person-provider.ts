@@ -1,4 +1,8 @@
-import { type PersonResolver, PersonAccountType, type PersonDetails } from '@equinor/fusion-react-person/src/index';
+import {
+  type PersonResolver,
+  PersonAccountType,
+  type PersonDetails,
+} from '@equinor/fusion-react-person';
 import { faker } from '@faker-js/faker';
 
 faker.seed(123);
@@ -64,7 +68,7 @@ export const resolver: PersonResolver = {
   getInfo: generatePerson,
   getPhoto: (args: { azureId?: string; upn?: string }) => {
     args.azureId && faker.seed(uuid2number(args.azureId));
-    const src = faker.image.urlLoremFlickr({ height: 64, width: 120, category: 'people' });
+    const src = faker.image.personPortrait({ size: 128 });
     const failed = args.azureId === faker.string.uuid();
     return new Promise((resolve, reject) => {
       setTimeout(

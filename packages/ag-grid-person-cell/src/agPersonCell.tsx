@@ -1,40 +1,8 @@
-import type { ColDef, ICellRendererParams } from 'ag-grid-community';
-import { type PersonCellData, PersonCell, type PersonItemSize } from '@equinor/fusion-react-person';
-import { personTooltip } from './personTooltip';
+import type { ColDef } from 'ag-grid-community';
+import { PersonTooltip } from './PersonTooltip';
 import { personSortComparator } from './personSort';
-
-type CustomRenderParams<T> = {
-  azureId?: (data: T) => string | undefined;
-  upn?: (data: T) => string | undefined;
-  dataSource?: (data: T) => PersonCellData;
-  heading?: <P extends PersonCellData>(person: P) => string | undefined;
-  subHeading?: <P extends PersonCellData>(person: P) => string | undefined;
-  showAvatar?: boolean;
-  size?: PersonItemSize;
-};
-
-type PersonColDef<T> = CustomRenderParams<T> & {
-  dataToSort?: (data: T) => string | undefined;
-};
-
-const renderPersonCell = <T,>(params: ICellRendererParams & CustomRenderParams<T>) => {
-  const { heading, subHeading, azureId, upn, dataSource, showAvatar, value, size } = params;
-  const azureResult = azureId ? azureId(value) : undefined;
-  const upnResult = upn ? upn(value) : undefined;
-  const dataSourceResult = dataSource ? dataSource(value) : undefined;
-
-  return (
-    <PersonCell
-      size={size ?? 'small'}
-      azureId={azureResult}
-      upn={upnResult}
-      dataSource={dataSourceResult}
-      heading={heading}
-      subHeading={subHeading}
-      showAvatar={showAvatar}
-    />
-  );
-};
+import { PersonCellRender } from './PersonCellRender';
+import type { PersonColDef } from './types';
 
 export const agGridPersonCell = <T,>(col: ColDef & PersonColDef<T>): ColDef => {
   const { azureId, upn, dataSource, dataToSort, heading, subHeading, showAvatar, size } = col;
@@ -49,16 +17,19 @@ export const agGridPersonCell = <T,>(col: ColDef & PersonColDef<T>): ColDef => {
       showAvatar: showAvatar,
       size: size,
     },
-    cellRenderer: renderPersonCell,
+    cellRenderer: PersonCellRender,
     tooltipComponentParams: {
       azureId: azureId,
       upn: upn,
       dataSource: dataSource,
     },
-    tooltipComponent: personTooltip,
-    tooltipField: col.field,
+    tooltipComponent: PersonTooltip,
+    tooltipValueGetter: (params) => {
+      const fieldValue = params.value;
+      return Array.isArray(fieldValue) ? undefined : fieldValue;
+    },
     comparator: dataToSort ? personSortComparator(dataToSort) : undefined,
-    cellClass: 'person-table-cell',
+    cellClass: Array.isArray(col.field) ? 'personnel-table-cell' : 'person-table-cell',
     cellStyle: {
       display: 'flex',
       alignItems: 'center',

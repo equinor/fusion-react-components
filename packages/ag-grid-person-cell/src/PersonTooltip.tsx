@@ -7,7 +7,7 @@ type TooltipCard<T> = {
   dataSource?: (data: T) => PersonCellData;
 };
 
-export const personTooltip = <T,>(props: TooltipCard<T>): JSX.Element => {
+export const PersonTooltip = <T,>(props: TooltipCard<T>): JSX.Element => {
   const { value, azureId, upn, dataSource } = props;
   const azureResult = azureId ? azureId(value) : undefined;
   const upnResult = upn ? upn(value) : undefined;
@@ -18,4 +18,4 @@ export const personTooltip = <T,>(props: TooltipCard<T>): JSX.Element => {
   );
 };
 
-export default personTooltip;
+export default PersonTooltip;

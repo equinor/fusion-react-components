@@ -11,7 +11,13 @@ import { faker } from '@faker-js/faker';
 
 // AgGrid
 import { AgGridReact } from 'ag-grid-react';
-import { type ColDef, ClientSideRowModelModule, ModuleRegistry, themeAlpine, TooltipModule } from 'ag-grid-community';
+import {
+  type ColDef,
+  ClientSideRowModelModule,
+  ModuleRegistry,
+  themeAlpine,
+  TooltipModule,
+} from 'ag-grid-community';
 
 const meta: Meta<typeof PersonCell> = {
   title: 'ag-grid/Person Cell',
@@ -51,6 +57,7 @@ const rowsData = [...Array(5)].map((_, index) => ({
   model: faker.vehicle.model(),
   driver: faker.string.uuid(),
   price: faker.string.numeric(6),
+  team: Array.from({ length: 4 }, () => faker.string.uuid()),
 }));
 
 const defaultCol = {
@@ -72,7 +79,7 @@ export const basic: Story = {
       { field: 'manufacturer' },
       { field: 'model' },
       agGridPersonCell({
-        flex: 1.4,
+        flex: 1.2,
         field: 'driver',
         azureId: (data: string) => data,
         heading: (person) => person.name,
@@ -82,6 +89,12 @@ export const basic: Story = {
         },
       }),
       { field: 'price' },
+      agGridPersonCell({
+        flex: 1.4,
+        field: 'team',
+        azureId: (data: string) => data,
+        showAvatar: true,
+      }),
     ] as ColDef[];
 
     return (
@@ -201,6 +214,44 @@ export const customDataObject: Story = {
         showAvatar: true,
       }),
       { field: 'price' },
+    ] as ColDef[];
+
+    return (
+      <div className="ag-theme-alpine-fusion" style={{ height: 320 }}>
+        <AgGridReact
+          theme={themeAlpine}
+          rowData={rowsData}
+          columnDefs={columnDefs}
+          defaultColDef={defaultCol}
+          tooltipInteraction={true}
+        />
+      </div>
+    );
+  },
+};
+
+export const arrayData: Story = {
+  ...basic,
+
+  render: () => {
+    const columnDefs = [
+      { field: 'number', headerName: '#', maxWidth: 50 },
+      { field: 'manufacturer' },
+      { field: 'model' },
+      agGridPersonCell({
+        headerName: 'Team with images',
+        flex: 1.4,
+        field: 'team',
+        azureId: (data: string) => data,
+        showAvatar: true,
+      }),
+      agGridPersonCell({
+        headerName: 'Team with letters',
+        flex: 1.4,
+        field: 'team',
+        azureId: (data: string) => data,
+        showAvatar: false,
+      }),
     ] as ColDef[];
 
     return (
