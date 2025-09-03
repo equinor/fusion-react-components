@@ -68,7 +68,7 @@ export const resolver: PersonResolver = {
   getInfo: generatePerson,
   getPhoto: (args: { azureId?: string; upn?: string }) => {
     args.azureId && faker.seed(uuid2number(args.azureId));
-    const src = faker.image.personPortrait({ size: 128 });
+    const src = faker.image.personPortrait({ size: 64 });
     const failed = args.azureId === faker.string.uuid();
     return new Promise((resolve, reject) => {
       setTimeout(
@@ -78,7 +78,7 @@ export const resolver: PersonResolver = {
           }
           return resolve(src);
         },
-        faker.number.int({ min: 20, max: 1000 }),
+        faker.number.int({ min: 20, max: 100 }),
       );
     });
   },
@@ -88,7 +88,7 @@ export const resolver: PersonResolver = {
         args.search
           .split('')
           .map((x) => x.charCodeAt(0))
-          .reduce((acc, item) => (acc += item), 0) + i,
+          .reduce((acc, item) => acc + item, 0) + i,
       );
       return generatePerson({ azureId: faker.string.uuid() });
     });
