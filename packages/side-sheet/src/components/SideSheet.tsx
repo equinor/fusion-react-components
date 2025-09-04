@@ -38,6 +38,9 @@ const StyledHeader = styled(StyledFlexBox)`
 const StyledHeaderNoTitle = styled(StyledFlexBox)`
   justify-content: end;
   height: 0;
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
 `;
 
 type PortalSideSheet = SideSheetProps & {
