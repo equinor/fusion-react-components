@@ -1,5 +1,13 @@
 # Change Log
 
+## 1.3.11
+
+### Patch Changes
+
+- 8b87f49: Position action buttons when no title is used
+
+  Update storybook examples
+
 ## 1.3.10
 
 ### Patch Changes
