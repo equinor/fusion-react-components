@@ -1,5 +1,16 @@
 # Change Log
 
+## 4.2.14
+
+### Patch Changes
+
+- 8b87f49: Position action buttons when no title is used
+
+  Update storybook examples
+
+- Updated dependencies [8b87f49]
+  - @equinor/fusion-react-side-sheet@1.3.11
+
 ## 4.2.13
 
 ### Patch Changes
