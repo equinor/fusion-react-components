@@ -34,6 +34,10 @@ export const PersonCellRender = <T,>(params: ICellRendererParams & CustomRenderP
 
   const personData = usePersonCellData(azureResult, upnResult, dataSourceResult);
 
+  if (azureResult === undefined && upnResult === undefined && dataSourceResult === undefined) {
+    return null;
+  }
+
   if (personData.isArray) {
     return (
       <div style={{ display: 'flex', gap: '4px', flexWrap: 'wrap' }}>
