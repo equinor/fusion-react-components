@@ -1,5 +1,11 @@
 # Change Log
 
+## 3.1.1
+
+### Patch Changes
+
+- 0f86802: Fix person cell rendering when there is no data available.
+
 ## 3.1.0
 
 ### Minor Changes
