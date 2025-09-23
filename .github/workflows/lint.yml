@@ -17,7 +17,7 @@ jobs:
       checks: write
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Setup node and install deps
         uses: ./.github/workflows/actions/node-setup
