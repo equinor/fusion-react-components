@@ -1,12 +1,7 @@
-import { useRef, useState, useEffect, useCallback } from 'react';
+import { useRef, useState, useEffect, useCallback, type PropsWithChildren } from 'react';
 import { Popover } from '@equinor/eds-core-react';
 import { tokens } from '@equinor/eds-tokens';
-import {
-  PersonAvatar,
-  PersonCard,
-  type PersonCellData,
-  type PersonItemSize,
-} from '@equinor/fusion-react-person';
+import { PersonCard, type PersonCellData, type PersonItemSize } from '@equinor/fusion-react-person';
 import styled from 'styled-components';
 
 const Styled = {
@@ -22,9 +17,12 @@ const Styled = {
     justify-content: center;
     position: relative;
   `,
+  HoverArea: styled.div`
+    display: flex;
+  `,
 };
 
-type PersonnelAvatarProps = {
+type PersonPopoverProps = {
   azureId?: string;
   upn?: string;
   dataSource?: PersonCellData;
@@ -32,13 +30,12 @@ type PersonnelAvatarProps = {
   showAvatar?: boolean;
 };
 
-export const PersonnelAvatar = ({
+export const PersonPopover = ({
   azureId,
   upn,
   dataSource,
-  size,
-  showAvatar,
-}: PersonnelAvatarProps): JSX.Element => {
+  children,
+}: PropsWithChildren<PersonPopoverProps>): JSX.Element => {
   const [isOpen, setIsOpen] = useState(false);
   const anchorRef = useRef<HTMLDivElement>(null);
   const openTimeout = useRef<number | null>(null);
@@ -82,16 +79,9 @@ export const PersonnelAvatar = ({
         </Popover.Content>
       </Styled.Popover>
 
-      <div ref={anchorRef} aria-haspopup="true" aria-expanded={isOpen}>
-        <PersonAvatar
-          azureId={azureId}
-          upn={upn}
-          dataSource={dataSource}
-          showLetter={!showAvatar}
-          size={size ?? 'small'}
-          trigger="none"
-        />
-      </div>
+      <Styled.HoverArea ref={anchorRef} aria-haspopup="true" aria-expanded={isOpen}>
+        {children}
+      </Styled.HoverArea>
     </Styled.Container>
   );
 };

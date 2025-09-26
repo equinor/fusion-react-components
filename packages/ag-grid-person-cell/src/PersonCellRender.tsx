@@ -1,8 +1,23 @@
-import { PersonCell, type PersonCellData } from '@equinor/fusion-react-person';
+import { PersonAvatar, PersonCell, type PersonCellData } from '@equinor/fusion-react-person';
 import type { ICellRendererParams } from 'ag-grid-community';
 import type { CustomRenderParams } from './types';
-import { PersonnelAvatar } from './PersonnelAvatar';
 import { usePersonCellData } from './usePersonCellData';
+import { PersonPopover } from './PersonPopover';
+import styled from 'styled-components';
+
+const Styled = {
+  ArrayContainer: styled.div`
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    height: 100%;
+  `,
+  SingleContainer: styled.div`
+    display: flex;
+    align-items: center;
+    height: 100%;
+  `,
+};
 
 export const PersonCellRender = <T,>(params: ICellRendererParams & CustomRenderParams<T>) => {
   const { heading, subHeading, azureId, upn, dataSource, showAvatar, value, size } = params;
@@ -40,26 +55,36 @@ export const PersonCellRender = <T,>(params: ICellRendererParams & CustomRenderP
 
   if (personData.isArray) {
     return (
-      <div style={{ display: 'flex', gap: '4px', flexWrap: 'wrap' }}>
+      <Styled.ArrayContainer>
         {personData.items?.map((item, index) => (
-          <PersonnelAvatar
-            key={`person-${index}-${item.azureId || item.upn || 'unknown'}`}
-            size={size ?? 'small'}
-            showAvatar={showAvatar}
-            {...item}
-          />
+          <PersonPopover key={`person-${index}-${item.azureId || item.upn || 'unknown'}`} {...item}>
+            <PersonAvatar
+              showLetter={!showAvatar}
+              size={size ?? 'small'}
+              trigger="none"
+              {...item}
+            />
+          </PersonPopover>
         ))}
-      </div>
+      </Styled.ArrayContainer>
     );
   }
 
   return (
-    <PersonCell
-      size={size ?? 'small'}
-      heading={heading}
-      subHeading={subHeading}
-      showAvatar={showAvatar}
-      {...personData.single}
-    />
+    <Styled.SingleContainer>
+      <PersonPopover
+        azureId={personData.single?.azureId}
+        upn={personData.single?.upn}
+        dataSource={personData.single?.dataSource}
+      >
+        <PersonCell
+          size={size ?? 'small'}
+          heading={heading}
+          subHeading={subHeading}
+          showAvatar={showAvatar}
+          {...personData.single}
+        />
+      </PersonPopover>
+    </Styled.SingleContainer>
   );
 };
