@@ -261,7 +261,6 @@ export const arrayData: Story = {
           rowData={rowsData}
           columnDefs={columnDefs}
           defaultColDef={defaultCol}
-          tooltipInteraction={true}
         />
       </div>
     );
