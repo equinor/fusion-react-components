@@ -49,7 +49,7 @@
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
     "@changesets/cli": "^2.26.2",
-    "@commitlint/cli": "^19.2.1",
+    "@commitlint/cli": "^20.0.0",
     "@commitlint/config-conventional": "^19.1.0",
     "@equinor/eslint-config-fusion": "^2.1.5",
     "@equinor/eslint-config-fusion-react": "^2.0.2",
