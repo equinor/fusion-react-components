@@ -1,19 +1,21 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 import { useCallback, useState, useMemo, useReducer } from 'react';
 
-import { Meta, StoryObj } from '@storybook/react-vite';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { Button, Icon, Typography } from '@equinor/eds-core-react';
 import { delete_to_trash } from '@equinor/eds-icons';
 Icon.add({ delete_to_trash });
 
-import { PersonSelect, PersonSelectEvent } from '@equinor/fusion-react-person/src/PersonSelect';
+import {
+  PersonSelect,
+  type PersonSelectEvent,
+} from '@equinor/fusion-react-person/src/PersonSelect';
 import { PersonListItem } from '@equinor/fusion-react-person/src/PersonListItem';
 import { PersonProvider } from '@equinor/fusion-react-person/src/PersonProvider';
 import { Theme } from '../../components/Theme';
 
 import { resolver } from './person-provider';
-import { PersonInfo } from '@equinor/fusion-react-person';
+import type { PersonInfo } from '@equinor/fusion-react-person';
 
 import { createReducer, createAction } from '@equinor/fusion-observable';
 
@@ -86,7 +88,7 @@ export const custom: Story = {
         });
         builder.addCase(actions.clear, () => initial);
       });
-    }, []);
+    }, [actions]);
 
     const [selected, dispatch] = useReducer(reducer, reducer.getInitialState());
 
