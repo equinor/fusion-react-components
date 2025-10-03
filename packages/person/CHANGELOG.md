@@ -1,5 +1,15 @@
 # Change Log
 
+## 0.10.8
+
+### Patch Changes
+
+- a3cbec4: Updating wc-person in react-person to fix issue with long titles in PersonCard.
+
+  Reported by @Apalhagen
+
+  Closes https://github.com/equinor/fusion/issues/680
+
 ## 0.10.7
 
 ### Patch Changes

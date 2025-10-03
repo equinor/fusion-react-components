@@ -1,5 +1,14 @@
 # Change Log
 
+## 4.2.16
+
+### Patch Changes
+
+- a3cbec4: - Example of combining ag-grid-person-cell with the `onRowClicked` handler
+  - Fix TypeScript & lint error in ag-grid-person-cell stories.
+- Updated dependencies [a3cbec4]
+  - @equinor/fusion-react-person@0.10.8
+
 ## 4.2.15
 
 ### Patch Changes
