@@ -28,7 +28,7 @@
   },
   "scripts": {
     "build": "tsc -b",
-    "lint": "eslint --ext .ts,.tsx,.js src/",
+    "lint": "biome lint",
     "lint:fix": "eslint --ext .ts,.tsx,.js src/ --fix",
     "prepack": "npm run build"
   },
