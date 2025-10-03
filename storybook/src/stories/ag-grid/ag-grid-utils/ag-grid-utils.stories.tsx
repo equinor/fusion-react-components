@@ -1,4 +1,5 @@
 import type { Meta } from '@storybook/react-vite';
+
 import {
   createStatusField,
   defaultValueSetter,
@@ -7,14 +8,14 @@ import {
   AGGridDataStatus,
 } from '@equinor/fusion-react-ag-grid-utils';
 
-import { AgGridReact } from 'ag-grid-react';
+import { AgGridReact, fusionTheme } from '@equinor/fusion-framework-react-ag-grid';
 
 import {
   ModuleRegistry,
   ClientSideRowModelModule,
   TextEditorModule,
   ClientSideRowModelApiModule,
-} from 'ag-grid-community';
+} from '@equinor/fusion-framework-react-ag-grid/enterprise';
 
 import { faker } from '@faker-js/faker';
 import { useRef } from 'react';
@@ -65,8 +66,9 @@ export const ChangeHandler = () => {
       >
         Add row
       </button>
-      <div className="ag-theme-alpine-fusion" style={{ width: '1080px', height: '500px' }}>
+      <div style={{ width: '1080px', height: '500px' }}>
         <AgGridReact
+          theme={fusionTheme}
           ref={gridRef}
           rowData={rowdData}
           columnDefs={columnDefs}
