@@ -3,7 +3,7 @@ import type {
   GetRowIdParams,
   ValueGetterParams,
   ValueSetterParams,
-} from 'ag-grid-community';
+} from '@equinor/fusion-framework-react-ag-grid/enterprise';
 import { AGGridDataStatus } from './constants';
 import { checkForChanges } from './dataManipulators';
 import { StatusComponent } from './StatusComponent';
