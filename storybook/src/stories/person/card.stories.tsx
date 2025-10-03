@@ -1,8 +1,7 @@
-import { Meta, StoryObj } from '@storybook/react-vite';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { PersonCard } from '@equinor/fusion-react-person/src/PersonCard';
-import { PersonDetails, type PersonItemSize } from '@equinor/fusion-react-person/src/index';
-import { PersonProvider } from '@equinor/fusion-react-person/src/PersonProvider';
+import { PersonCard, PersonProvider } from '@equinor/fusion-react-person';
+import type { PersonDetails, PersonItemSize } from '@equinor/fusion-react-person';
 import { Theme } from '../../components/Theme';
 
 import { resolver } from './person-provider';
