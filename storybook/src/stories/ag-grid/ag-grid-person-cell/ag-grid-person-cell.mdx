@@ -4,7 +4,7 @@ import pkg from '#packages/ag-grid-person-cell/package.json';
 
 import changelogReact from '#packages/ag-grid-person-cell/CHANGELOG.md?raw';
 
-import { ChangeLog, PackageInfo } from '../../components';
+import { ChangeLog, PackageInfo } from '../../../components';
 
 import * as stories from './ag-grid-person-cell.stories';
 
@@ -152,6 +152,23 @@ const columnDefs = [
 #### Advanced Array Configuration
 
 For more complex array handling, you can customize how person data is extracted from each element, like in custom object configuration written above.
+
+#### Pittfall: Handling onRowClicked event
+
+When the ``onRowClicked`` is defined in the `AgGridReact` component, you need to be aware of the following pitfall:
+
+When the PersonCard is clicked, the `onRowClicked` event will also be triggered.
+
+You can check for this inside the `onRowClicked` event handler by checking the `event.target` property.
+
+```tsx
+onRowClicked={(data: RowClickedEvent) => {
+  if ((data.event?.target as Element)?.nodeName.toLowerCase() === 'fwc-person-card') {
+    console.log('Clicking on personCard, do not continue with normal row click behavior');
+    return;
+  }
+}}
+```
 
 ## Changelog
 

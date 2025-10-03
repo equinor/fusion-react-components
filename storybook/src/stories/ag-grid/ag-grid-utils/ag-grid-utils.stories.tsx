@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/react-vite';
+import type { Meta } from '@storybook/react-vite';
 import {
   createStatusField,
   defaultValueSetter,
@@ -19,11 +19,15 @@ import {
 import { faker } from '@faker-js/faker';
 import { useRef } from 'react';
 
-ModuleRegistry.registerModules([ClientSideRowModelModule, TextEditorModule, ClientSideRowModelApiModule]);
+ModuleRegistry.registerModules([
+  ClientSideRowModelModule,
+  TextEditorModule,
+  ClientSideRowModelApiModule,
+]);
 
 const meta: Meta<typeof AGGridDataStatus> = {
   tags: ['autodocs'],
-  title: 'ag-grid/utils',
+  title: 'ag-grid/Ag-Grid Utils',
 };
 
 export default meta;
@@ -52,7 +56,12 @@ export const ChangeHandler = () => {
   return (
     <>
       <button
-        onClick={() => gridRef.current?.api.applyTransaction({ add: [addInitialProps({}, AGGridDataStatus.NEW)] })}
+        type="button"
+        onClick={() =>
+          gridRef.current?.api.applyTransaction({
+            add: [addInitialProps({}, AGGridDataStatus.NEW)],
+          })
+        }
       >
         Add row
       </button>
@@ -65,7 +74,7 @@ export const ChangeHandler = () => {
             valueSetter: defaultValueSetter,
             valueGetter: defaultValueGetter,
           }}
-        ></AgGridReact>
+        />
       </div>
     </>
   );

@@ -1,12 +1,12 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { Meta, StoryObj } from '@storybook/react-vite';
+import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { PersonCell } from '@equinor/fusion-react-person';
 import { PersonProvider } from '@equinor/fusion-react-person';
 
 import { agGridPersonCell } from '@equinor/fusion-react-ag-grid-person-cell';
 
-import { resolver } from '../person/person-provider';
+import { resolver } from '../../person/person-provider';
 import { faker } from '@faker-js/faker';
 
 // AgGrid
@@ -15,6 +15,7 @@ import {
   type ColDef,
   ClientSideRowModelModule,
   ModuleRegistry,
+  type RowClickedEvent,
   themeAlpine,
   TooltipModule,
 } from 'ag-grid-community';
