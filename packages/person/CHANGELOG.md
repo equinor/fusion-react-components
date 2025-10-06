@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.10.9
+
+### Patch Changes
+
+- 0f219e1: Updating fwc-person to implement fix in PersonCard
+
 ## 0.10.8
 
 ### Patch Changes
