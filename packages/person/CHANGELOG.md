@@ -1,5 +1,11 @@
 # Change Log
 
+## 0.10.10
+
+### Patch Changes
+
+- a9ee05e: Fixing issue with long names in PersonCard by updating fusion-wc-person
+
 ## 0.10.9
 
 ### Patch Changes
