@@ -7,4 +7,4 @@ export * from './types';
 /** Common Components */
 
 export { FilterProvider, FilterProviderProps } from './FilterProvider';
-export { CheckboxFilter, FilterPanel } from './components';
+export { CheckboxFilter, FilterPanel, FilterPanelProps } from './components';

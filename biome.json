@@ -15,6 +15,7 @@
     "useEditorconfig": true,
     "indentStyle": "space"
   },
+  "assist": { "actions": { "source": { "organizeImports": "off" } } },
   "linter": {
     "enabled": true,
     "rules": {

@@ -135,11 +135,12 @@ export const Step = ({
   const isClickable = !forceOrder;
   const isCurrent = stepKey === currentStepKey;
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: done is needed to trigger the effect
   useEffect(() => {
     if (isCurrent) {
       handleChange(stepKey, stepKeys);
     }
-  }, [handleChange, stepKey, stepKeys, isCurrent]);
+  }, [done, handleChange, stepKey, stepKeys, isCurrent]);
 
   useEffect(() => {
     if (stepPaneRef && stepRef.current && stepPaneRef.current && isCurrent) {

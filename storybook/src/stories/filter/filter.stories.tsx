@@ -35,11 +35,15 @@ const DataLogger = () => {
       </thead>
       <tbody>
         {data.map((entry) => (
-          <tr key={entry.id}>
+          <tr key={entry.id.id}>
             {Object.entries(entry)
               .filter(([entryKey]) => entryKey !== 'id')
               .map(([entryKey, entryValue]) => (
-                <td key={entry.id + entryKey}>{entryValue}</td>
+                <td key={entry.id + entryKey}>
+                  {typeof entryValue === 'object' && entryValue !== null
+                    ? JSON.stringify(entryValue)
+                    : String(entryValue)}
+                </td>
               ))}
           </tr>
         ))}
