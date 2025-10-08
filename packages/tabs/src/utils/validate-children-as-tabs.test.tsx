@@ -2,15 +2,16 @@ import { describe, expect, it } from 'vitest';
 
 import { Tab } from '../components/Tab';
 import { validateChildrenAsTabs } from './validate-children-as-tabs';
+import { useId } from 'react';
 
 describe('validateChildrenAsTabs', () => {
   it('should return true when all children are of type Tab', () => {
     const children = (
       <>
-        <Tab title="" id="" />
-        <Tab title="" id="" />
-        <Tab title="" id="" />
-        <Tab title="" id="" />
+        <Tab title="" id={useId()} />
+        <Tab title="" id={useId()} />
+        <Tab title="" id={useId()} />
+        <Tab title="" id={useId()} />
       </>
     );
     expect(validateChildrenAsTabs(children)).toBe(true);
@@ -19,9 +20,9 @@ describe('validateChildrenAsTabs', () => {
   it('should return false when some children are not of type Tab', () => {
     const children = (
       <>
-        <Tab title="" id="" />
+        <Tab title="" id={useId()} />
         <div>Not a Tab</div>
-        <Tab title="" id="" />
+        <Tab title="" id={useId()} />
       </>
     );
     expect(validateChildrenAsTabs(children)).toBe(false);

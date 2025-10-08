@@ -17,11 +17,11 @@ export const useElementFunctions = <
   EKey extends string = Extract<keyof E, string>,
 >(
   ref: RefObject<E | null>,
-  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+  // biome-ignore lint/suspicious/noExplicitAny: we need any here to avoid type errors
   functions?: Partial<Record<EKey, any>>,
   functionMap?: Set<keyof E>,
 ): void => {
-  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+  // biome-ignore lint/suspicious/noExplicitAny: we need any here to avoid type errors
   type ERecord = Record<EKey, any>;
   const fnsRef = useRef<ERecord>({} as ERecord);
 
@@ -30,9 +30,12 @@ export const useElementFunctions = <
     if (!functions || !functionMap) return noFns as ERecord;
 
     // extract allowed functions
-    const fns = [...functionMap.values()]
-      .filter((k) => k in functions)
-      .reduce((c, v) => Object.assign(c, { [v]: functions[v as EKey] }), {} as ERecord);
+    const fns = {} as ERecord;
+    for (const key of functionMap.values()) {
+      if (key in functions) {
+        fns[key as EKey] = functions[key as EKey];
+      }
+    }
 
     /** compare functions with existing */
     const hasChanged = !shallowEqual(fnsRef.current, fns);

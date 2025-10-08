@@ -13,10 +13,10 @@ export type BaseCreateCSSProperties<
 > = {
   [P in keyof CSSProperties]:
     | CSSProperties[P]
-    // @ts-ignore
+    // @ts-expect-error
     | ReactCSSProperties[P]
     | PropsFunc<Props, CSSProperties[P]>
-    //@ts-ignore
+    //@ts-expect-error
     | PropsFunc<Props, ReactCSSProperties[P]>;
 };
 

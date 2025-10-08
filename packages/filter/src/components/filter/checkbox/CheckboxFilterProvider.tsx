@@ -16,6 +16,7 @@ const createFilterFn =
   };
 
 export type CheckboxFilterProviderProps<
+  // biome-ignore lint/suspicious/noExplicitAny: we need any here to avoid type errors
   TData extends Record<string, any>,
   TOption extends CheckboxOption = CheckboxOption,
 > = {
@@ -30,11 +31,13 @@ export type CheckboxFilterProviderProps<
 };
 
 export const CheckboxFilterProvider: <
+  // biome-ignore lint/suspicious/noExplicitAny: we need any here to avoid type errors
   TData extends Record<string, any>,
   TOptions extends CheckboxOption = CheckboxOption,
 >(
   props: React.PropsWithChildren<CheckboxFilterProviderProps<TData, TOptions>>,
 ) => JSX.Element = <
+  // biome-ignore lint/suspicious/noExplicitAny: we need any here to avoid type errors
   TData extends Record<string, any>,
   TOptions extends CheckboxOption = CheckboxOption,
 >(

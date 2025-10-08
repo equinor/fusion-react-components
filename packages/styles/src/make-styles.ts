@@ -14,11 +14,8 @@ export const makeStyles = <
   ? (props?: Props) => ClassNameMap<ClassKey>
   : (props: Props) => ClassNameMap<ClassKey> =>
   // TODO
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
+  // @ts-expect-error
   makeStylesWithoutDefault(stylesOrCreator, {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
     defaultTheme,
     ...options,
   });

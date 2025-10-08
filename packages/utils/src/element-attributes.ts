@@ -19,20 +19,26 @@ export const elementAttributes = <
 >(
   props: Partial<T>,
 ): T => {
-  return Object.keys(props).reduce((cur, key) => {
+  const result = {} as T;
+  for (const key of Object.keys(props)) {
     const value = props[key as keyof T];
     switch (typeof value) {
       case 'string':
-        return Object.assign(cur, { [key]: value });
+        result[key as keyof T] = value as T[keyof T];
+        break;
       case 'object':
-        // eslint-disable-next-line @typescript-eslint/ban-types
-        return Object.assign(cur, {
-          [key]: key === 'style' ? value : objectToString(value as Object),
-        });
+        result[key as keyof T] = (
+          key === 'style' ? value : objectToString(value as Record<string, unknown>)
+        ) as T[keyof T];
+        break;
       default:
-        return value ? Object.assign(cur, { [key]: value }) : cur;
+        if (value) {
+          result[key as keyof T] = value as T[keyof T];
+        }
+        break;
     }
-  }, {} as T);
+  }
+  return result;
 };
 
 export default elementAttributes;

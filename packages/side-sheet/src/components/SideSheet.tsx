@@ -72,6 +72,61 @@ Icon.add({
   close: closeIcon,
 });
 
+const Top = (props: {
+  components: SideSheetComponents;
+  enableFullscreen?: boolean;
+  handleFullscreenClick: () => void;
+  onClose: () => void;
+}): JSX.Element => {
+  const { components, enableFullscreen, handleFullscreenClick, onClose } = props;
+  if (components.title || components.subTitle) {
+    return (
+      <StyledHeader>
+        <StyledFlexBox>
+          {components.indicator}
+          <StyledFlexColumn>
+            {components.title}
+            {components.subTitle}
+          </StyledFlexColumn>
+        </StyledFlexBox>
+        <StyledFlexBox>
+          {components.actions}
+          {enableFullscreen && (
+            <Tooltip title="Full screen" enterDelay={500}>
+              <Button variant="ghost_icon" onClick={handleFullscreenClick}>
+                <FullscreenIcon />
+              </Button>
+            </Tooltip>
+          )}
+          <Tooltip title="Close" enterDelay={500}>
+            <Button variant="ghost_icon" onClick={onClose}>
+              <Icon name="close" />
+            </Button>
+          </Tooltip>
+        </StyledFlexBox>
+      </StyledHeader>
+    );
+  }
+
+  return (
+    <StyledHeaderNoTitle>
+      {components.actions}
+      {enableFullscreen && (
+        <Tooltip title="Full screen" enterDelay={500}>
+          <Button variant="ghost_icon" onClick={handleFullscreenClick}>
+            <FullscreenIcon />
+          </Button>
+        </Tooltip>
+      )}
+      <Tooltip title="Close" enterDelay={500}>
+        <Button variant="ghost_icon" onClick={onClose}>
+          <Icon name="close" />
+        </Button>
+      </Tooltip>
+    </StyledHeaderNoTitle>
+  );
+};
+
 export const SideSheet = (props: PropsWithChildren<PortalSideSheet>) => {
   const { onClose, children, enableFullscreen } = props;
 
@@ -107,59 +162,15 @@ export const SideSheet = (props: PropsWithChildren<PortalSideSheet>) => {
     throw Error('Content Component is required child');
   }
 
-  const Top = () => {
-    if (components.title || components.subTitle) {
-      return (
-        <StyledHeader>
-          <StyledFlexBox>
-            {components.indicator}
-            <StyledFlexColumn>
-              {components.title}
-              {components.subTitle}
-            </StyledFlexColumn>
-          </StyledFlexBox>
-          <StyledFlexBox>
-            {components.actions}
-            {enableFullscreen && (
-              <Tooltip title="Full screen" enterDelay={500}>
-                <Button variant="ghost_icon" onClick={handleFullscreenClick}>
-                  <FullscreenIcon />
-                </Button>
-              </Tooltip>
-            )}
-            <Tooltip title="Close" enterDelay={500}>
-              <Button variant="ghost_icon" onClick={onClose}>
-                <Icon name="close" />
-              </Button>
-            </Tooltip>
-          </StyledFlexBox>
-        </StyledHeader>
-      );
-    }
-
-    return (
-      <StyledHeaderNoTitle>
-        {components.actions}
-        {enableFullscreen && (
-          <Tooltip title="Full screen" enterDelay={500}>
-            <Button variant="ghost_icon" onClick={handleFullscreenClick}>
-              <FullscreenIcon />
-            </Button>
-          </Tooltip>
-        )}
-        <Tooltip title="Close" enterDelay={500}>
-          <Button variant="ghost_icon" onClick={onClose}>
-            <Icon name="close" />
-          </Button>
-        </Tooltip>
-      </StyledHeaderNoTitle>
-    );
-  };
-
   return (
     <SideSheetBase {...props}>
       <StyledContainerWrapper ref={ref}>
-        <Top />
+        <Top
+          components={components}
+          enableFullscreen={enableFullscreen}
+          handleFullscreenClick={handleFullscreenClick}
+          onClose={onClose}
+        />
         {components.content}
       </StyledContainerWrapper>
     </SideSheetBase>

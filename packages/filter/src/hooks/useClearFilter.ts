@@ -19,11 +19,15 @@ export const selectionChanges = <TSelection = any>(
 ): Observable<Record<string, TSelection>> => {
   return combineLatest([selection$, filter$]).pipe(
     map(([selections, filters]) => {
-      return Object.values(filters).reduce((acc, filter) => {
+      const result: Record<string, TSelection> = {};
+      for (const filter of Object.values(filters)) {
         const selection = selections[filter.key];
         const changed = filter.hasChanged?.(selection, filter.initial);
-        return changed ? Object.assign(acc, { [filter.key]: selection }) : acc;
-      }, {});
+        if (changed) {
+          result[filter.key] = selection;
+        }
+      }
+      return result;
     }),
     distinctUntilChanged(),
   );
@@ -41,11 +45,13 @@ export const useClearFilter = (): {
   const initial$ = useMemo(
     () =>
       filter$.pipe(
-        map((x) =>
-          Object.values(x).reduce((acc, filter) => {
-            return Object.assign(acc, { [filter.key]: filter.initial });
-          }, {}),
-        ),
+        map((x) => {
+          const result: Record<string, any> = {};
+          for (const filter of Object.values(x)) {
+            result[filter.key] = filter.initial;
+          }
+          return result;
+        }),
       ),
     [filter$],
   );

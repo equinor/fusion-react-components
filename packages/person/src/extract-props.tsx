@@ -1,9 +1,14 @@
 export const extractProps = <T extends Record<string, unknown>>(
   props: T | Record<string, unknown>,
-): T =>
-  Object.keys(props).reduce((acc, key) => {
+): T => {
+  const result: Record<string, unknown> = {};
+  for (const key of Object.keys(props)) {
     const value = props[key];
-    return value ? Object.assign(acc, { [key]: value }) : acc;
-  }, {}) as unknown as T;
+    if (value) {
+      result[key] = value;
+    }
+  }
+  return result as T;
+};
 
 export default extractProps;
