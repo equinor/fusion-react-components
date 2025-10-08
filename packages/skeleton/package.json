@@ -2,14 +2,21 @@
   "name": "@equinor/fusion-react-skeleton",
   "version": "0.3.3",
   "description": "React component for displaying a skeleton",
-  "keywords": ["skeleton", "react", "fusion", "equinor"],
+  "keywords": [
+    "skeleton",
+    "react",
+    "fusion",
+    "equinor"
+  ],
   "homepage": "https://github.com/equinor/fusion-react-components/tree/master/packages/skeleton#readme",
   "license": "ISC",
   "main": "dist/index.js",
   "directories": {
     "dist": "dist"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "publishConfig": {
     "access": "public"
   },
