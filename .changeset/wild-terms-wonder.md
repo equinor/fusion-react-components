@@ -10,7 +10,6 @@
 
 Refactor reduce with Object.assign to for loops for Biome linter compliance
 
-- Replace all instances of `reduce` with `Object.assign` on accumulators with `for` loops to comply with Biome linter rules
 - Fix useEffect dependencies in Stepper component
 - Refactor SideSheet Top component to fix linter warnings
 - Update Tab test to use unique IDs
