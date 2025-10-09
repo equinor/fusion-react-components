@@ -1,5 +1,15 @@
 # Change Log
 
+## 2.0.4
+
+### Patch Changes
+
+- 65d1b87: Refactor for Biome linter compliance
+  - Update Biome configuration to version 2.2.5
+  - Fix useEffect dependencies in Stepper component
+  - Refactor SideSheet Top component to fix linter warnings
+  - Add proper biome-ignore comments for necessary `any` types
+
 ## 2.0.3
 
 ### Patch Changes
@@ -24,7 +34,6 @@
 ### Major Changes
 
 - eba9cf6: Changed implementation of the Stepper component from being uncontrolled to having a both an uncontrolled and controlled mode.
-
   - Required 'activeStepKey' prop removed. Replaced with 'initialStepKey' and 'stepKey' (both optional)
   - If 'stepKey' is set, then the component becomes controlled by that prop.
   - If 'stepKey' is set and 'initialStepKey' is set, then the initial step will be that prop, but otherwise be uncontrolled.

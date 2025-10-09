@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.0.6
+
+### Patch Changes
+
+- 9c550a5: Update deps of `@equinor/fusion-wc-searchable-dropdown@4.0.5`
+
 ## 1.0.5
 
 ### Patch Changes
