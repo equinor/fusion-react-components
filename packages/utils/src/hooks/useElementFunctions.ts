@@ -30,12 +30,9 @@ export const useElementFunctions = <
     if (!functions || !functionMap) return noFns as ERecord;
 
     // extract allowed functions
-    const fns = {} as ERecord;
-    for (const key of functionMap.values()) {
-      if (key in functions) {
-        fns[key as EKey] = functions[key as EKey];
-      }
-    }
+    const fns = [...functionMap.values()]
+      .filter((k) => k in functions)
+      .reduce((c, v) => Object.assign(c, { [v]: functions[v as EKey] }), {} as ERecord);
 
     /** compare functions with existing */
     const hasChanged = !shallowEqual(fnsRef.current, fns);

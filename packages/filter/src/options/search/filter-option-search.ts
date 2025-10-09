@@ -6,14 +6,15 @@ export const filterOptionSearch =
   (options: Record<string, FilterOption>, query: string): Record<string, TOption> => {
     const match = matcher(query);
     let hasChanged = false;
-    const res: Record<string, FilterOption> = {};
-    for (const [key, value] of Object.entries(options)) {
+    const res = Object.entries(options).reduce((acc, [key, value]) => {
       const { hide, changed } = match(key, value as TOption);
+
       if (!hasChanged && changed) {
         hasChanged = true;
       }
-      res[key] = { ...value, hide };
-    }
+
+      return Object.assign(acc, { [key]: { ...value, hide } });
+    }, {});
 
     return (hasChanged ? res : options) as Record<string, TOption>;
   };

@@ -18,15 +18,11 @@ export const filterSelection = (
 ): Observable<Record<string, Filter>> => {
   return filter$.pipe(
     /** create a selection of filters base on provided args  */
-    map((x) => {
-      const result: Record<string, Filter> = {};
-      for (const [key, filter] of Object.entries(x)) {
-        if (!exclude || !exclude.includes(key)) {
-          result[key] = filter;
-        }
-      }
-      return result;
-    }),
+    map((x) =>
+      Object.entries(x)
+        .filter(([key]) => !exclude || !exclude.includes(key))
+        .reduce((acc, [key, filter]) => Object.assign(acc, { [key]: filter }), {}),
+    ),
     /** only update filters when filter function changes */
     distinctUntilChanged((a, b) => {
       const filterA = Object.values(a);

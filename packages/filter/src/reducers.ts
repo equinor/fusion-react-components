@@ -32,13 +32,9 @@ export const createSelectionReducer = <TSelections extends Record<string, unknow
     })
     .handleAction(actions.selection.remove, (state, { payload }) => {
       const keys = Array.isArray(payload) ? payload : [payload];
-      const result: Record<string, unknown> = {};
-      for (const [key, value] of Object.entries(state)) {
-        if (!keys.includes(key)) {
-          result[key] = value;
-        }
-      }
-      return result as TSelections;
+      return Object.entries(state).reduce((acc, [key, value]) => {
+        return keys.includes(key) ? acc : Object.assign(acc, { [key]: value });
+      }, {}) as TSelections;
     })
     .handleAction(actions.selection.clear, () => initial);
 

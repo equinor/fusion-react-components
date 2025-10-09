@@ -35,12 +35,9 @@ export const useElementEvents = <
     if (!eventHandlers) return noEvents;
 
     /** extract properties that are defined as custom event handlers */
-    const handlers: Partial<Record<K, ReactEventHandler>> = {};
-    for (const key of Object.keys(eventMap)) {
-      if (key in eventHandlers) {
-        handlers[key as K] = eventHandlers[key as keyof P];
-      }
-    }
+    const handlers = Object.keys(eventMap)
+      .filter((k) => k in eventHandlers)
+      .reduce((cur, key) => Object.assign(cur, { [key]: eventHandlers[key as keyof P] }), {});
 
     /** compare event handlers with existing */
     const hasChanged = !shallowEqual(handlersRef.current, handlers);

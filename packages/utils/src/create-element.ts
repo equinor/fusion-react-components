@@ -92,12 +92,14 @@ export const createComponent = <E extends HTMLElement, P extends Record<string, 
             .filter(([_, v]) => !!v);
 
       /** combine properties */
-      const result: Record<string, unknown> = { ref };
-      for (const [k, v] of [...reactEntries, ...nativeEntries]) {
-        /** translate property name to reactName */
-        result[translateReactAttribute(k)] = v;
-      }
-      return result;
+      return (
+        /** combine properties */
+        [...reactEntries, ...nativeEntries]
+          /** translate property name to reactName */
+          .map(([k, v]) => [translateReactAttribute(k), v] as [string, unknown])
+          /** build property object */
+          .reduce((c, [k, v]) => Object.assign(c, { [k]: v }), { ref })
+      );
     }, [ref, props]);
 
     return createElement(tag, reactProps);
