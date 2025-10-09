@@ -2,14 +2,23 @@
   "name": "@equinor/fusion-react-searchable-dropdown",
   "version": "1.0.5",
   "description": "component for displaying searchable dropdown",
-  "keywords": ["searchable dropdown", "text input", "list", "react", "fusion", "equinor"],
+  "keywords": [
+    "searchable dropdown",
+    "text input",
+    "list",
+    "react",
+    "fusion",
+    "equinor"
+  ],
   "homepage": "https://github.com/equinor/fusion-react-components/tree/master/packages/searchable-dropdown#readme",
   "license": "ISC",
   "main": "dist/index.js",
   "directories": {
     "dist": "dist"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "publishConfig": {
     "access": "public"
   },
@@ -29,7 +38,7 @@
   "dependencies": {
     "@equinor/fusion-react-utils": "^2.1.1",
     "@equinor/fusion-wc-icon": "^2.3.1",
-    "@equinor/fusion-wc-searchable-dropdown": "^4.0.3"
+    "@equinor/fusion-wc-searchable-dropdown": "^4.0.5"
   },
   "devDependencies": {
     "@types/react": "^18.2.64",
