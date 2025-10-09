@@ -17,7 +17,9 @@
   "directories": {
     "dist": "dist"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "publishConfig": {
     "access": "public"
   },
@@ -39,7 +41,7 @@
     "@equinor/fusion-react-styles": "workspace:^",
     "@equinor/fusion-react-utils": "workspace:^",
     "@equinor/fusion-wc-icon": "^2.3.1",
-    "@equinor/fusion-wc-searchable-dropdown": "^4.0.3"
+    "@equinor/fusion-wc-searchable-dropdown": "^4.0.5"
   },
   "devDependencies": {
     "@types/react": "^18.2.24",
