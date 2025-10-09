@@ -2,7 +2,7 @@ import { createContext, useContext } from 'react';
 
 import type { FilterOption, FilterOptionContext } from './types';
 
-// @ts-ignore
+// @ts-expect-error
 const context = createContext<FilterOptionContext>({});
 
 export const { Provider, Consumer } = context as { Provider: any; Consumer: any };

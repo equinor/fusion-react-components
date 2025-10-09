@@ -18,7 +18,7 @@ const useStyles = makeStyles(
         gap: 'var(--filter-panel-spacing)',
         padding: 'var(--filter-panel-spacing)',
         border: `1px solid ${theme.colors.interactive.disabled__border.getVariable('color')}`,
-        borderRadius: `0.5rem`,
+        borderRadius: '0.5rem',
         '&>*': {
           padding: '0 var(--filter-panel-spacing)',
           margin: '0 calc(var(--filter-panel-spacing) * -1)',

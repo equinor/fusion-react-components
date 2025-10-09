@@ -2,10 +2,10 @@ import { Meta, StoryObj } from '@storybook/react-vite';
 
 import { useObservableState } from '@equinor/fusion-observable/react';
 
-import { FilterProvider } from '@equinor/fusion-react-filter/src/FilterProvider';
-import { FilterPanel, FilterPanelProps } from '@equinor/fusion-react-filter/src/components/panel/FilterPanel';
-import { CheckboxFilter } from '@equinor/fusion-react-filter/src/components/filter/checkbox';
-import { useFilterContext } from '@equinor/fusion-react-filter/src/hooks';
+import { FilterProvider } from '@equinor/fusion-react-filter';
+import { FilterPanel, FilterPanelProps } from '@equinor/fusion-react-filter';
+import { CheckboxFilter } from '@equinor/fusion-react-filter';
+import { useFilterContext } from '@equinor/fusion-react-filter';
 
 import { generateData, DataType } from './generate-data';
 
@@ -35,11 +35,15 @@ const DataLogger = () => {
       </thead>
       <tbody>
         {data.map((entry) => (
-          <tr key={entry.id}>
+          <tr key={entry.id.id}>
             {Object.entries(entry)
               .filter(([entryKey]) => entryKey !== 'id')
               .map(([entryKey, entryValue]) => (
-                <td key={entry.id + entryKey}>{entryValue}</td>
+                <td key={entry.id + entryKey}>
+                  {typeof entryValue === 'object' && entryValue !== null
+                    ? JSON.stringify(entryValue)
+                    : String(entryValue)}
+                </td>
               ))}
           </tr>
         ))}

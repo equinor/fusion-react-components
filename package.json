@@ -39,7 +39,11 @@
     "type": "git",
     "url": "git+https://github.com/equinor/fusion-react-components.git"
   },
-  "keywords": ["react", "fusion", "components"],
+  "keywords": [
+    "react",
+    "fusion",
+    "components"
+  ],
   "author": "",
   "license": "ISC",
   "bugs": {
@@ -47,7 +51,7 @@
   },
   "homepage": "https://github.com/equinor/fusion-react-components#readme",
   "devDependencies": {
-    "@biomejs/biome": "1.9.4",
+    "@biomejs/biome": "2.2.5",
     "@changesets/cli": "^2.26.2",
     "@commitlint/cli": "^19.2.1",
     "@commitlint/config-conventional": "^19.1.0",

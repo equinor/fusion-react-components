@@ -91,6 +91,7 @@ export const createComponent = <E extends HTMLElement, P extends Record<string, 
             /** filter out empty properties */
             .filter(([_, v]) => !!v);
 
+      /** combine properties */
       return (
         /** combine properties */
         [...reactEntries, ...nativeEntries]

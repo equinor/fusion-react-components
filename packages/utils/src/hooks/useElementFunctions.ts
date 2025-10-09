@@ -17,11 +17,11 @@ export const useElementFunctions = <
   EKey extends string = Extract<keyof E, string>,
 >(
   ref: RefObject<E | null>,
-  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+  // biome-ignore lint/suspicious/noExplicitAny: we need any here to avoid type errors
   functions?: Partial<Record<EKey, any>>,
   functionMap?: Set<keyof E>,
 ): void => {
-  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+  // biome-ignore lint/suspicious/noExplicitAny: we need any here to avoid type errors
   type ERecord = Record<EKey, any>;
   const fnsRef = useRef<ERecord>({} as ERecord);
 

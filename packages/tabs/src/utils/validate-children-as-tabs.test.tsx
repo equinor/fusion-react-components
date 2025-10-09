@@ -7,10 +7,10 @@ describe('validateChildrenAsTabs', () => {
   it('should return true when all children are of type Tab', () => {
     const children = (
       <>
-        <Tab title="" id="" />
-        <Tab title="" id="" />
-        <Tab title="" id="" />
-        <Tab title="" id="" />
+        <Tab title="title1" id="id1" />
+        <Tab title="title2" id="id2" />
+        <Tab title="title3" id="id3" />
+        <Tab title="title4" id="id4" />
       </>
     );
     expect(validateChildrenAsTabs(children)).toBe(true);
@@ -19,9 +19,9 @@ describe('validateChildrenAsTabs', () => {
   it('should return false when some children are not of type Tab', () => {
     const children = (
       <>
-        <Tab title="" id="" />
+        <Tab title="title1" id="id1" />
         <div>Not a Tab</div>
-        <Tab title="" id="" />
+        <Tab title="title2" id="id2" />
       </>
     );
     expect(validateChildrenAsTabs(children)).toBe(false);

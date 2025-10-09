@@ -4,6 +4,7 @@ import type { Filter } from './types';
 export type SelectionValues<TValue = unknown> = Record<string, TValue>;
 
 export const filter = {
+  // biome-ignore lint/suspicious/noExplicitAny: we need any here to avoid type errors
   add: createAction('@FILTER/FILTERS_ADD')<Filter<any, any>>(),
   remove: createAction('@FILTER/FILTERS_REMOVE')<string>(),
 };

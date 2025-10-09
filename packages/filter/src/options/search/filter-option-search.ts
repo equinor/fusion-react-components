@@ -8,7 +8,11 @@ export const filterOptionSearch =
     let hasChanged = false;
     const res = Object.entries(options).reduce((acc, [key, value]) => {
       const { hide, changed } = match(key, value as TOption);
-      !hasChanged && changed && (hasChanged = true);
+
+      if (!hasChanged && changed) {
+        hasChanged = true;
+      }
+
       return Object.assign(acc, { [key]: { ...value, hide } });
     }, {});
 

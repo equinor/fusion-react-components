@@ -2,14 +2,21 @@
   "name": "@equinor/fusion-react-list",
   "version": "0.3.5",
   "description": "React components for displaying a list",
-  "keywords": ["list", "react", "fusion", "equinor"],
+  "keywords": [
+    "list",
+    "react",
+    "fusion",
+    "equinor"
+  ],
   "homepage": "https://github.com/equinor/fusion-react-components/tree/master/packages/list#readme",
   "license": "ISC",
   "main": "dist/index.js",
   "directories": {
     "dist": "dist"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "publishConfig": {
     "access": "public"
   },

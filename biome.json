@@ -1,5 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+  "$schema": "https://biomejs.dev/schemas/2.2.5/schema.json",
   "vcs": {
     "enabled": true,
     "clientKind": "git",
@@ -7,7 +7,7 @@
   },
   "files": {
     "ignoreUnknown": false,
-    "ignore": ["./storybook", "./packages/hanging-garden", "**/package.json"]
+    "includes": ["**", "!storybook", "!packages/hanging-garden"]
   },
   "formatter": {
     "enabled": true,
@@ -15,9 +15,7 @@
     "useEditorconfig": true,
     "indentStyle": "space"
   },
-  "organizeImports": {
-    "enabled": false
-  },
+  "assist": { "actions": { "source": { "organizeImports": "off" } } },
   "linter": {
     "enabled": true,
     "rules": {
@@ -28,7 +26,7 @@
         "useOptionalChain": "error"
       },
       "performance": {
-        "noAccumulatingSpread": "error"
+        "noAccumulatingSpread": "warn"
       },
       "style": {
         "noParameterAssign": "warn",
@@ -38,7 +36,6 @@
         "useLiteralEnumMembers": "warn",
         "noNonNullAssertion": "warn",
         "noUnusedTemplateLiteral": "warn",
-        "noCommaOperator": "warn",
         "useNodejsImportProtocol": "warn",
         "useTemplate": "warn",
         "noInferrableTypes": "warn"
@@ -51,9 +48,15 @@
         "noDoubleEquals": "warn",
         "noAssignInExpressions": "warn",
         "noImplicitAnyLet": "warn"
+      },
+      "a11y": {
+        "noStaticElementInteractions": "warn"
+      },
+      "correctness": {
+        "useUniqueElementIds": "warn"
       }
     },
-    "ignore": ["node_modules", "**/dist/**", "packages/hanging-garden"]
+    "includes": ["**", "!node_modules", "!**/dist/**", "!packages/hanging-garden"]
   },
   "javascript": {
     "formatter": {

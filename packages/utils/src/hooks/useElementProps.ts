@@ -34,7 +34,7 @@ export const extractElementProps = <E extends HTMLElement>(
  */
 export const useElementProps = <E extends HTMLElement>(
   ref: RefObject<E | null>,
-  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+  // biome-ignore lint/suspicious/noExplicitAny: we need any here to avoid type errors
   props?: Partial<Record<string, any>>,
   propMap?: Set<keyof E>,
 ): void => {

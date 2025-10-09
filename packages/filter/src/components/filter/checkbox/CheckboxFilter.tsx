@@ -11,6 +11,7 @@ import useStyles from './CheckboxFilter.style';
 import type { CheckboxOption } from './types';
 import type { FilterFn } from '../../../types';
 
+// biome-ignore lint/suspicious/noExplicitAny: we need any here to avoid type errors
 export type CheckboxFilterProps<TData extends Record<string, any> = Record<string, any>> =
   FilterComponent & {
     /** either name of property of data type or a function that selects value */
@@ -32,6 +33,7 @@ export type CheckboxFilterProps<TData extends Record<string, any> = Record<strin
 /**
  * Component for displaying multi-select filter with checkboxes
  */
+// biome-ignore lint/suspicious/noExplicitAny: we need any here to avoid type errors
 export const CheckboxFilter = <TData extends Record<string, any> = Record<string, any>>(
   props: CheckboxFilterProps<TData>,
 ): JSX.Element => {
