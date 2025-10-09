@@ -1,5 +1,15 @@
 # Change Log
 
+## 1.3.12
+
+### Patch Changes
+
+- 65d1b87: Refactor for Biome linter compliance
+  - Update Biome configuration to version 2.2.5
+  - Fix useEffect dependencies in Stepper component
+  - Refactor SideSheet Top component to fix linter warnings
+  - Add proper biome-ignore comments for necessary `any` types
+
 ## 1.3.11
 
 ### Patch Changes
