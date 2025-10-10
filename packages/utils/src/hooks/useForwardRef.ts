@@ -8,7 +8,7 @@ import type { ForwardedRef, RefObject } from 'react';
 export const useForwardRef = <E extends HTMLElement>(
   forwardRef?: ForwardedRef<E>,
   initial: E | null = null,
-): RefObject<E> => {
+): RefObject<E | null> => {
   const ref = useRef<E>(initial);
   useLayoutEffect(() => {
     if (typeof forwardRef === 'function') {

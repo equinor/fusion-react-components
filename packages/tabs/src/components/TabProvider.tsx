@@ -1,4 +1,4 @@
-import { type PropsWithChildren, useMemo } from 'react';
+import { type PropsWithChildren, type ReactElement, useMemo } from 'react';
 
 import { TabContext } from '../providers/TabsProvider.context';
 
@@ -25,13 +25,13 @@ type TabRouterProps = {
  * It ensures that only `Tab` components are accepted as children and initializes the tab provider.
  *
  * @param {PropsWithChildren<TabRouterProps>} props - The properties for the TabRouter component.
- * @param {React.ReactNode} props.children - The child components, which should be of type `Tab`.
+ * @param {ReactNode} props.children - The child components, which should be of type `Tab`.
  * @param {string} props.id - The unique identifier for the tab router.
  * @param {string} props.activeTab - The identifier for the currently active tab.
  *
  * @throws {Error} If any child component is not of type `Tab`.
  *
- * @returns {JSX.Element} The rendered TabRouter component with the provided context.
+ * @returns {ReactElement} The rendered TabRouter component with the provided context.
  */
 export const TabProvider = ({
   children,
@@ -39,7 +39,7 @@ export const TabProvider = ({
   activeTab,
   displayLine = true,
   height,
-}: PropsWithChildren<TabRouterProps>): JSX.Element => {
+}: PropsWithChildren<TabRouterProps>): ReactElement => {
   const provider = useInitializeTabsProvider(id, activeTab, window.location);
 
   /**

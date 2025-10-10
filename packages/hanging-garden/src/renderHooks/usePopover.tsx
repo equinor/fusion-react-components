@@ -1,16 +1,16 @@
-import { useCallback, useMemo, useState } from 'react';
+import { type ReactElement, useCallback, useMemo, useState } from 'react';
 import * as PIXI from 'pixi.js-legacy';
 import PopoverContainer from '../components/PopoverContainer';
 
 export type UsePopover = {
-  popover: JSX.Element | null;
-  addPopover: (hitContainer: PIXI.Container, hitArea: PIXI.Rectangle, renderPopover: () => JSX.Element) => void;
+  popover: ReactElement | null;
+  addPopover: (hitContainer: PIXI.Container, hitArea: PIXI.Rectangle, renderPopover: () => ReactElement) => void;
 };
 
 export type Popover = {
   top: number;
   left: number;
-  render: () => JSX.Element;
+  render: () => ReactElement;
 };
 
 /**
@@ -24,7 +24,7 @@ const usePopover = (delay?: number): UsePopover => {
   const [selectedPopover, setSelectedPopover] = useState<Popover | null>(null);
 
   const addPopover = useCallback(
-    (hitContainer: PIXI.Container, hitArea: PIXI.Rectangle, renderPopover: () => JSX.Element) => {
+    (hitContainer: PIXI.Container, hitArea: PIXI.Rectangle, renderPopover: () => ReactElement) => {
       const hitAreaContainer = new PIXI.Container();
       hitAreaContainer.interactive = true;
       hitAreaContainer.hitArea = hitArea;

@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { type ReactElement, useMemo } from 'react';
 
 import { Icon } from '@equinor/eds-core-react';
 import { tokens } from '@equinor/eds-tokens';
@@ -17,7 +17,7 @@ const Styled = {
   `,
 };
 
-export const FallbackIcon = (props: { readonly errorType?: ErrorType }): JSX.Element => {
+export const FallbackIcon = (props: { readonly errorType?: ErrorType }): ReactElement => {
   const name = useMemo((): IconName => {
     switch (props.errorType) {
       case 'accessDenied':

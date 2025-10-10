@@ -6,6 +6,7 @@ import type {
   PropsWithoutRef,
   Ref,
   RefAttributes,
+  RefObject,
   SyntheticEvent,
 } from 'react';
 
@@ -75,7 +76,7 @@ export const createComponent = <E extends HTMLElement, P extends Record<string, 
     useElementProps(ref, props, elementPropsNames);
 
     /** bind custom events */
-    useElementEvents(ref, props as EventProps, events);
+    useElementEvents(ref as RefObject<HTMLElement>, props as EventProps, events);
 
     /** properties which React should handle */
     const reactProps = useMemo(() => {

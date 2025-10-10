@@ -2,6 +2,7 @@ import { Icon } from '@equinor/eds-core-react';
 import { done as doneStepIcon } from '@equinor/eds-icons';
 import styled, { css } from 'styled-components';
 import { tokens } from '@equinor/eds-tokens';
+import type { ReactElement } from 'react';
 
 const Styled = {
   Badge: styled.div<{ $active?: boolean; $done?: boolean }>`
@@ -43,7 +44,7 @@ export type BadgeProps = {
   readonly done?: boolean;
 };
 
-export const Badge = ({ position, active, done }: BadgeProps): JSX.Element => {
+export const Badge = ({ position, active, done }: BadgeProps): ReactElement => {
   return (
     <Styled.Badge $active={active} $done={done}>
       {done ? <Icon data={doneStepIcon} /> : position}

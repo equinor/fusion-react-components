@@ -60,7 +60,7 @@ const useItem = <T extends HangingGardenColumnIndex>(): UseItem<T> => {
         graphics.drawRoundedRect(x, y, width - 2, height - 2, 4);
         graphics.endFill();
         cachedRect = PIXI.RenderTexture.create({ width, height });
-        pixiApp.current?.renderer.render(graphics, cachedRect);
+        pixiApp.current?.renderer.render(graphics, cachedRect as PIXI.IRendererRenderOptions);
         addTextureToCache('rects', key, cachedRect);
       }
 
@@ -69,7 +69,7 @@ const useItem = <T extends HangingGardenColumnIndex>(): UseItem<T> => {
     [pixiApp, getTextureFromCache, addTextureToCache],
   );
 
-  const clickRef = useRef<boolean>();
+  const clickRef = useRef<boolean | undefined>(undefined);
 
   const renderItem = useCallback(
     (item: T, index: number, columnIndex: number) => {
@@ -85,9 +85,8 @@ const useItem = <T extends HangingGardenColumnIndex>(): UseItem<T> => {
         renderedItem.y = y;
         renderedItem.width = itemWidth + padding;
         renderedItem.height = itemHeight + padding;
-        renderedItem.buttonMode = true;
         renderedItem.interactive = true;
-        renderedItem.on('pointerdown', (e: PIXI.InteractionEvent) => {
+        renderedItem.on('pointerdown', (e) => {
           clickRef.current = true;
           e.data.pointerType === 'touch' && setTimeout(() => (clickRef.current = false), 50);
         });
@@ -135,9 +134,13 @@ const useItem = <T extends HangingGardenColumnIndex>(): UseItem<T> => {
             renderedHighlightedItem.lineStyle(2, 0x007079);
             renderedHighlightedItem.moveTo(-POS, -POS);
 
+            // @ts-expect-error drawDashLine is a custom method
             renderedHighlightedItem.drawDashLine(itemWidth, -POS);
+            // @ts-expect-error drawDashLine is a custom method
             renderedHighlightedItem.drawDashLine(itemWidth, itemHeight);
+            // @ts-expect-error drawDashLine is a custom method
             renderedHighlightedItem.drawDashLine(-POS, itemHeight);
+            // @ts-expect-error drawDashLine is a custom method
             renderedHighlightedItem.drawDashLine(-POS, -POS);
           }
         }

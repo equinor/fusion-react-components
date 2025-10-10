@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import { type ReactElement, useCallback } from 'react';
 import { Button, Icon } from '@equinor/eds-core-react';
 import { arrow_back, arrow_forward } from '@equinor/eds-icons';
 import styled from 'styled-components';
@@ -15,7 +15,7 @@ const Styled = {
   `,
 };
 
-export const StepperControls = (): JSX.Element => {
+export const StepperControls = (): ReactElement => {
   const { canPrev, canNext, stepKeys, currentStepKey, handleChange } = useStepperContext();
 
   /** Callback to find the next or previous step key */

@@ -10,6 +10,7 @@ import {
 } from 'react';
 import { findNextAvailable, findPrevAvailable, getSteps } from './utils';
 import StepperContent from './StepperContent';
+import type { StepProps } from './Step';
 
 /** Define the props interface for Stepper component */
 export type StepperProps = {
@@ -66,12 +67,14 @@ export const Stepper = ({
   verticalSteps,
   horizontalTitle,
   divider,
-}: PropsWithChildren<StepperProps>): JSX.Element => {
+}: PropsWithChildren<StepperProps>): ReactElement => {
   /** State to manage step keys, current step key, and active step position */
   const [stepKeys, setStepKeys] = useState<StepKey[]>([]);
   /** Fallback to key of first step if stepKey/initialStepKey is not set */
   const [currentStepKey, setCurrentStepKey] = useState<string>(
-    stepKey ?? initialStepKey ?? (Children.toArray(children)[0] as ReactElement).props.stepKey,
+    stepKey ??
+      initialStepKey ??
+      (Children.toArray(children)[0] as ReactElement<StepProps>).props.stepKey,
   );
   const [activeStepPosition, setActiveStepPosition] = useState<number>(0);
 
