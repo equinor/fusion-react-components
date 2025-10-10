@@ -1,3 +1,4 @@
+import type { ReactElement } from 'react';
 import {
   DropdownProvider,
   type SearchableDropdownResolver,
@@ -9,7 +10,7 @@ import type { ContextProviderProps } from './types';
 export const ContextProvider = ({
   children,
   ...props
-}: React.PropsWithChildren<ContextProviderProps>): JSX.Element => {
+}: React.PropsWithChildren<ContextProviderProps>): ReactElement => {
   const contextResolverRef = useDropdownProviderRef(props.resolver as SearchableDropdownResolver);
   return <DropdownProvider ref={contextResolverRef}>{children}</DropdownProvider>;
 };

@@ -52,7 +52,7 @@ const useGroupHeader = <T extends HangingGardenColumnIndex>(): UseGroupHeader =>
         graphics.drawRoundedRect(x, y, width - 2, height - 2, 4);
         graphics.endFill();
         cachedRect = PIXI.RenderTexture.create({ width, height });
-        pixiApp.current?.renderer.render(graphics, cachedRect);
+        pixiApp.current?.renderer.render(graphics, cachedRect as PIXI.IRendererRenderOptions);
         addTextureToCache('rects', key, cachedRect);
       }
 

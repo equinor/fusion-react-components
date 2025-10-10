@@ -1,6 +1,6 @@
+import type { PropsWithChildren, ReactElement } from 'react';
 import { Tabs as EdsTabs } from '@equinor/eds-core-react';
 import { tokens } from '@equinor/eds-tokens';
-import type { PropsWithChildren } from 'react';
 import { useCallback } from 'react';
 import { styled } from 'styled-components';
 import { useActiveTab } from '../hooks/use-active-tab';
@@ -42,7 +42,7 @@ export type TabsProps = {
  * @param {PropsWithChildren} props - The properties passed to the component.
  * @param {ReactNode} props.children - The child elements, expected to be `Tab` components.
  *
- * @returns {JSX.Element} The rendered Tabs component.
+ * @returns {ReactElement} The rendered Tabs component.
  *
  * @example
  * ```tsx
@@ -60,7 +60,7 @@ export const Tabs = ({
   height,
   variant,
   scrollable,
-}: PropsWithChildren<TabsProps>): JSX.Element => {
+}: PropsWithChildren<TabsProps>): ReactElement => {
   const { activeTab, setActiveTabIndex } = useActiveTab();
 
   // Extracts the title, component, and children from each Tab element.

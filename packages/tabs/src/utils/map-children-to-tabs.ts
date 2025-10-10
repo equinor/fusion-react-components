@@ -41,19 +41,19 @@ export function mapChildrenToTabs(children: React.ReactNode): TabMap {
 
   const processChild = (child: ReactNode) => {
     if (!isValidElement(child)) return;
-
-    if (child.type === Fragment) {
-      Children.forEach(child.props.children, processChild);
+    const props = child.props as TabObject;
+    if (child.type === Fragment && props.children) {
+      Children.forEach(props.children, processChild);
     } else if (child.type === Tab) {
       const item: TabObject = {
-        id: child.props.id,
-        title: child.props.title,
-        component: child.props.component,
-        children: child.props.children,
-        right: child.props.right || false,
+        id: props.id,
+        title: props.title,
+        component: props.component,
+        children: props.children,
+        right: props.right || false,
       };
 
-      child.props.right ? right.push(item) : left.push(item);
+      props.right ? right.push(item) : left.push(item);
     }
   };
 

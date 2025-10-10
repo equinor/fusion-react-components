@@ -1,4 +1,10 @@
-import React, { useCallback } from 'react';
+import {
+  cloneElement,
+  isValidElement,
+  type JSXElementConstructor,
+  type ReactElement,
+  useCallback,
+} from 'react';
 
 import { Button, Icon, Tooltip } from '@equinor/eds-core-react';
 import { close as closeIcon } from '@equinor/eds-icons';
@@ -49,23 +55,11 @@ type PortalSideSheet = SideSheetProps & {
 };
 
 type SideSheetComponents = {
-  indicator?: React.ReactElement<
-    unknown,
-    string | React.JSXElementConstructor<{ color: HEXString }>
-  >;
-  title?: React.ReactElement<unknown, string | React.JSXElementConstructor<{ title: string }>>;
-  subTitle?: React.ReactElement<
-    unknown,
-    string | React.JSXElementConstructor<{ subTitle: string }>
-  >;
-  actions?: React.ReactElement<
-    unknown,
-    string | React.JSXElementConstructor<PropsWithChildren<unknown>>
-  >;
-  content?: React.ReactElement<
-    unknown,
-    string | React.JSXElementConstructor<PropsWithChildren<unknown>>
-  >;
+  indicator?: ReactElement<unknown, string | JSXElementConstructor<{ color: HEXString }>>;
+  title?: ReactElement<unknown, string | JSXElementConstructor<{ title: string }>>;
+  subTitle?: ReactElement<unknown, string | JSXElementConstructor<{ subTitle: string }>>;
+  actions?: ReactElement<unknown, string | JSXElementConstructor<PropsWithChildren<unknown>>>;
+  content?: ReactElement<unknown, string | JSXElementConstructor<PropsWithChildren<unknown>>>;
 };
 
 Icon.add({
@@ -77,7 +71,7 @@ const Top = (props: {
   enableFullscreen?: boolean;
   handleFullscreenClick: () => void;
   onClose: () => void;
-}): JSX.Element => {
+}): ReactElement => {
   const { components, enableFullscreen, handleFullscreenClick, onClose } = props;
   if (components.title || components.subTitle) {
     return (
@@ -140,7 +134,7 @@ export const SideSheet = (props: PropsWithChildren<PortalSideSheet>) => {
   }, []);
 
   const components = flattenChildren(children).reduce((acc, child) => {
-    if (!React.isValidElement(child)) return acc;
+    if (!isValidElement(child)) return acc;
     if (child.type === Indicator) {
       acc.indicator = child;
     } else if (child.type === Title) {
@@ -151,7 +145,7 @@ export const SideSheet = (props: PropsWithChildren<PortalSideSheet>) => {
       acc.content = child;
     } else if (child.type === Actions) {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      acc.actions = React.cloneElement(child as React.ReactElement<any>);
+      acc.actions = cloneElement(child as ReactElement<unknown>);
     } else {
       throw Error(`unsupported child ${child.type} in SideSheet component`);
     }

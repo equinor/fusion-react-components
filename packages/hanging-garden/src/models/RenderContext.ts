@@ -1,4 +1,5 @@
 import * as PIXI from 'pixi.js-legacy';
+import type { ReactElement } from 'react';
 
 export type Position = {
   x: number;
@@ -26,7 +27,7 @@ export type HeaderRenderContext = RenderContext & {
 export type ItemRenderContext = RenderContext & {
   createRect: (position: Position, size: Size, color: number) => void;
   addDot: (color: number, position: Position, borderColor?: number) => void;
-  addPopover: (hitArea: PIXI.Rectangle, renderPopover: () => JSX.Element) => void;
+  addPopover: (hitArea: PIXI.Rectangle, renderPopover: () => ReactElement) => void;
   enquedRender: (key: string, render: (context: ItemRenderContext) => void) => void;
 };
 

@@ -1,3 +1,4 @@
+import type { ReactElement } from 'react';
 import { makeStyles, createStyles } from '@equinor/fusion-react-styles';
 
 const useStyles = makeStyles(() =>
@@ -13,7 +14,7 @@ const useStyles = makeStyles(() =>
   }),
 );
 
-const Arrow = (): JSX.Element => {
+const Arrow = (): ReactElement => {
   const styles = useStyles();
   return (
     <svg

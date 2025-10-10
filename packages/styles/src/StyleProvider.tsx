@@ -1,3 +1,4 @@
+import type { ReactElement } from 'react';
 import {
   createGenerateClassName,
   StylesProvider as BaseStylesProvider,
@@ -11,7 +12,7 @@ export const StylesProvider = (
   props: StylesProviderProps & {
     readonly seed?: string;
   },
-): JSX.Element => {
+): ReactElement => {
   const { children, seed, ...args } = props;
   if (seed && !args.generateClassName) {
     args.generateClassName = createGenerateClassName({ seed });

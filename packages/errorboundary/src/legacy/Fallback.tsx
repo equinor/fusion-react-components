@@ -5,7 +5,7 @@ import { styled } from 'styled-components';
 
 import type { ErrorType } from './types';
 import { FallbackIcon } from './FallbackIcon';
-import { useCallback } from 'react';
+import { type ReactElement, useCallback } from 'react';
 import { useErrorBoundary } from 'react-error-boundary';
 
 const Styled = {
@@ -53,7 +53,7 @@ const generateTitle = (errorType?: ErrorType, resourceName = '<unknown resource>
   }
 };
 
-export const Fallback = (props: FallbackProps): JSX.Element => {
+export const Fallback = (props: FallbackProps): ReactElement => {
   const { errorType, resourceName, title, message, error, action, onTakeAction } = props;
   const { resetBoundary } = useErrorBoundary();
   const onClick = useCallback(() => {

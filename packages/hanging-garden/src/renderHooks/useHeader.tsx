@@ -101,6 +101,7 @@ const useHeader = <T extends HangingGardenColumnIndex>(): UseHeader => {
         const isHighlighted = highlightedColumnKey === key;
         const isExpanded = isHeaderExpanded(key, expandedColumns);
         renderedHeader = new PIXI.Container();
+        // @ts-expect-error buttonMode is not typed
         renderedHeader.buttonMode = true;
         renderedHeader.interactive = true;
         renderedHeader.on('click', () => onHeaderClick(key, index));

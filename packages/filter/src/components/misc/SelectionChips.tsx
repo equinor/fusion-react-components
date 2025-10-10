@@ -1,4 +1,11 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import {
+  type HTMLAttributes,
+  type ReactElement,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import { combineLatest, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import { useObservableSubscription } from '@equinor/fusion-observable/react';
@@ -46,11 +53,11 @@ const useStyles = makeStyles(
   { name: 'fusion-filter-selection-chips' },
 );
 
-export type SelectionChipsProps = JSX.IntrinsicElements['div'] & {
+export type SelectionChipsProps = HTMLAttributes<HTMLDivElement> & {
   readonly chips: Pick<ChipElementProps, 'variant'>;
 };
 
-export const SelectionChips = (props: SelectionChipsProps): JSX.Element => {
+export const SelectionChips = (props: SelectionChipsProps): ReactElement => {
   const { chips, className, ...args } = props;
   const { filter$, selection$ } = useFilterContext();
   const [items, setItems] = useState<SelectionItem[]>([]);
@@ -97,11 +104,13 @@ export const SelectionChips = (props: SelectionChipsProps): JSX.Element => {
   return (
     <div {...args} className={clsx(styles.root, className)} ref={ref}>
       {items?.map((x) => (
+        // @ts-expect-error fwc-chip is a valid HTML element
         <fwc-chip key={x.key} value={x.key} removable variant={chips.variant}>
           <span>{x.title} </span>
           <span slot="graphic" className={styles.chip}>
             {x.selection.length}
           </span>
+          {/* @ts-expect-error fwc-chip is a valid HTML element */}
         </fwc-chip>
       ))}
     </div>
