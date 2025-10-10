@@ -1,24 +1,18 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import type { Meta, StoryObj } from '@storybook/react-vite';
-
-import { PersonCell } from '@equinor/fusion-react-person';
-import { PersonProvider } from '@equinor/fusion-react-person';
-
-import { agGridPersonCell } from '@equinor/fusion-react-ag-grid-person-cell';
-
-import { resolver } from '../../person/person-provider';
 import { faker } from '@faker-js/faker';
 
+import { PersonCell, PersonProvider } from '@equinor/fusion-react-person';
+import { agGridPersonCell } from '@equinor/fusion-react-ag-grid-person-cell';
+import { AgGridReact, fusionTheme } from '@equinor/fusion-framework-react-ag-grid';
 // AgGrid
-import { AgGridReact } from 'ag-grid-react';
 import {
   type ColDef,
   ClientSideRowModelModule,
   ModuleRegistry,
-  type RowClickedEvent,
-  themeAlpine,
   TooltipModule,
-} from 'ag-grid-community';
+} from '@equinor/fusion-framework-react-ag-grid/enterprise';
+
+import { resolver } from '../../person/person-provider';
 
 const meta: Meta<typeof PersonCell> = {
   title: 'ag-grid/Person Cell',
@@ -45,7 +39,6 @@ const meta: Meta<typeof PersonCell> = {
   },
 };
 
-// @AndrejNikolicEq - Theme is missing
 ModuleRegistry.registerModules([ClientSideRowModelModule, TooltipModule]);
 
 export default meta;
@@ -99,9 +92,9 @@ export const basic: Story = {
     ] as ColDef[];
 
     return (
-      <div className="ag-theme-alpine-fusion" style={{ height: 320 }}>
+      <div style={{ height: 320 }}>
         <AgGridReact
-          theme={themeAlpine}
+          theme={fusionTheme}
           rowData={rowsData}
           columnDefs={columnDefs}
           defaultColDef={defaultCol}
@@ -132,9 +125,9 @@ export const showAvatar: Story = {
     ] as ColDef[];
 
     return (
-      <div className="ag-theme-alpine-fusion" style={{ height: 320 }}>
+      <div style={{ height: 320 }}>
         <AgGridReact
-          theme={themeAlpine}
+          theme={fusionTheme}
           rowData={rowsData}
           columnDefs={columnDefs}
           defaultColDef={defaultCol}
@@ -165,9 +158,9 @@ export const customHeadings: Story = {
     ] as ColDef[];
 
     return (
-      <div className="ag-theme-alpine-fusion" style={{ height: 320 }}>
+      <div style={{ height: 320 }}>
         <AgGridReact
-          theme={themeAlpine}
+          theme={fusionTheme}
           rowData={rowsData}
           columnDefs={columnDefs}
           defaultColDef={defaultCol}
@@ -218,9 +211,9 @@ export const customDataObject: Story = {
     ] as ColDef[];
 
     return (
-      <div className="ag-theme-alpine-fusion" style={{ height: 320 }}>
+      <div style={{ height: 320 }}>
         <AgGridReact
-          theme={themeAlpine}
+          theme={fusionTheme}
           rowData={rowsData}
           columnDefs={columnDefs}
           defaultColDef={defaultCol}
@@ -256,9 +249,9 @@ export const arrayData: Story = {
     ] as ColDef[];
 
     return (
-      <div className="ag-theme-alpine-fusion" style={{ height: 320 }}>
+      <div style={{ height: 320 }}>
         <AgGridReact
-          theme={themeAlpine}
+          theme={fusionTheme}
           rowData={rowsData}
           columnDefs={columnDefs}
           defaultColDef={defaultCol}
