@@ -1,3 +1,5 @@
+import type { HTMLAttributes, ReactElement } from 'react';
+
 import { Button, Icon } from '@equinor/eds-core-react';
 import { chevron_up, chevron_down, refresh } from '@equinor/eds-icons';
 
@@ -36,11 +38,11 @@ const useStyles = makeStyles(
   { name: 'fusion-filter-panel-bar' },
 );
 
-type FilterPanelBarProps<TData> = JSX.IntrinsicElements['div'] & {
+type FilterPanelBarProps<TData> = HTMLAttributes<HTMLDivElement> & {
   readonly searchFn?: FilterFn<TData, string>;
 };
 
-export const FilterPanelBar = <TData,>(props: FilterPanelBarProps<TData>): JSX.Element => {
+export const FilterPanelBar = <TData,>(props: FilterPanelBarProps<TData>): ReactElement => {
   const { className, searchFn, ...args } = props;
   const { showFilters, setShowFilters } = useFilterPanelContext();
   const styles = useStyles();

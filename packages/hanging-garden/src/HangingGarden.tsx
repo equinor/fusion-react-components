@@ -1,3 +1,4 @@
+import { useState, useRef, useEffect, type ReactElement, type RefObject } from 'react';
 import * as PIXI from 'pixi.js-legacy';
 import useTextureCaches from './renderHooks/useTextureCaches';
 import { HangingGardenColumnIndex, HangingGardenProps } from './models/HangingGarden';
@@ -8,7 +9,6 @@ import { ExpandedColumns } from './models/ExpandedColumn';
 import useScrolling from './renderHooks/useScrolling';
 import usePixiApp from './renderHooks/usePixiApp';
 import usePopover from './renderHooks/usePopover';
-import { useState, useRef, useEffect } from 'react';
 
 import { makeStyles, createStyles } from '@equinor/fusion-react-styles';
 
@@ -64,7 +64,7 @@ const HangingGarden = <T extends HangingGardenColumnIndex>({
   disableScrollToHighlightedItem = false,
   groupLevels = 0,
   padding = 0,
-}: HangingGardenProps<T>): JSX.Element => {
+}: HangingGardenProps<T>): ReactElement => {
   const [maxRowCount, setMaxRowCount] = useState(0);
   const [expandedColumns, setExpandedColumns] = useState<ExpandedColumns>({});
 
@@ -72,11 +72,11 @@ const HangingGarden = <T extends HangingGardenColumnIndex>({
   const canvas = useRef<HTMLCanvasElement>(null);
   const stage = useRef<PIXI.Container>(new PIXI.Container());
 
-  const scroll = useScrolling<T>(canvas, container, itemKeyProp, padding, disableScrollToHighlightedItem);
+  const scroll = useScrolling<T>(canvas as RefObject<HTMLCanvasElement>, container as RefObject<HTMLDivElement>, itemKeyProp, padding, disableScrollToHighlightedItem);
   const textureCaches = useTextureCaches();
   const popover = usePopover();
 
-  const { pixiApp } = usePixiApp(canvas, container, backgroundColor);
+  const { pixiApp } = usePixiApp(canvas as RefObject<HTMLCanvasElement>, container as RefObject<HTMLDivElement>, backgroundColor);
 
   useEffect(() => {
     textureCaches.clearItemTextureCaches();

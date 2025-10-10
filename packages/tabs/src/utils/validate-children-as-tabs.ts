@@ -1,6 +1,7 @@
 import { Children, Fragment, type ReactNode, isValidElement } from 'react';
 
 import { Tab } from '../components/Tab';
+import type { TabObject } from './map-children-to-tabs';
 
 /**
  * Validates if the given children are all of type `Tab`.
@@ -24,7 +25,7 @@ export function validateChildrenAsTabs(children: ReactNode): boolean {
     isValidElement(children) &&
     children.type === Fragment
   ) {
-    const fragmentChildren = children.props.children;
+    const fragmentChildren = (children.props as TabObject).children;
     return validateChildrenAsTabs(fragmentChildren);
   }
 

@@ -22,6 +22,7 @@ export const PersonProvider = (props: PropsWithChildren<PersonProviderProps>) =>
     }
   }, [resolve]);
 
+  /* @ts-expect-error fwc-person-provider is a web component */
   return <fwc-person-provider ref={providerRef}>{children}</fwc-person-provider>;
 };
 

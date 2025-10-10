@@ -1,4 +1,10 @@
-import { useEffect, useRef, type MutableRefObject, type PropsWithChildren } from 'react';
+import {
+  useEffect,
+  useRef,
+  type RefObject,
+  type PropsWithChildren,
+  type ReactElement,
+} from 'react';
 import { Badge } from './StepBadge';
 import styled, { css } from 'styled-components';
 import { tokens } from '@equinor/eds-tokens';
@@ -115,7 +121,7 @@ export type StepProps = {
   readonly disabled?: boolean;
   readonly position?: number;
   readonly done?: boolean;
-  readonly stepPaneRef?: MutableRefObject<HTMLElement>;
+  readonly stepPaneRef?: RefObject<HTMLElement>;
   readonly stepCount?: number;
 };
 
@@ -127,7 +133,7 @@ export const Step = ({
   done,
   stepPaneRef,
   stepKey,
-}: PropsWithChildren<StepProps>): JSX.Element => {
+}: PropsWithChildren<StepProps>): ReactElement => {
   const stepRef = useRef<HTMLAnchorElement>(null);
   const { verticalSteps, horizontalTitle, currentStepKey, handleChange, stepKeys, forceOrder } =
     useStepperContext();

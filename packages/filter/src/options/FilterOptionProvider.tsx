@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from 'react';
+import { type PropsWithChildren, type ReactElement, useEffect, useMemo } from 'react';
 
 import { combineLatest, of } from 'rxjs';
 import { switchMap, map } from 'rxjs/operators';
@@ -29,10 +29,10 @@ export const FilterOptionProvider: <
   TOption extends FilterOption,
   TValue,
 >(
-  props: React.PropsWithChildren<FilterComponentProviderProps<TData, TOption, TValue>>,
-) => JSX.Element = <TData extends Record<string, any>, TOption extends FilterOption, TValue>(
-  props: React.PropsWithChildren<FilterComponentProviderProps<TData, TOption, TValue>>,
-): JSX.Element => {
+  props: PropsWithChildren<FilterComponentProviderProps<TData, TOption, TValue>>,
+) => ReactElement = <TData extends Record<string, any>, TOption extends FilterOption, TValue>(
+  props: PropsWithChildren<FilterComponentProviderProps<TData, TOption, TValue>>,
+): ReactElement => {
   /** append change method if not provided */
   const filter = useMemo(() => {
     props.filter.hasChanged ??= (a, b) => a !== b;

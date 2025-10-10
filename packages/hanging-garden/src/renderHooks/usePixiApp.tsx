@@ -32,6 +32,7 @@ const usePixiApp = (
       backgroundColor,
       resolution: 1,
       antialias: true,
+      // @ts-expect-error transparent is not typed
       transparent: true,
       sharedTicker: true,
     });
@@ -39,7 +40,9 @@ const usePixiApp = (
 
   if (pixiApp.current) {
     pixiApp.current.renderer.plugins.interaction.autoPreventDefault = false;
-    pixiApp.current.renderer.view.style.touchAction = 'auto';
+    if (pixiApp.current.renderer.view.style) {
+      pixiApp.current.renderer.view.style.touchAction = 'auto';
+    }
   }
 
   return { pixiApp };

@@ -65,7 +65,7 @@ export const useHangingGardenData = <T,>(
   const [cacheDuration, setCacheDuration] = useState<number>(30);
   const [cacheAge, setCacheAge] = useState('');
   const [cacheIsInvalid, setCacheIsInvalid] = useState(true);
-  const cacheCheckTimerRef = useRef<NodeJS.Timeout>();
+  const cacheCheckTimerRef = useRef<NodeJS.Timeout | undefined>(undefined);
 
   const checkCacheValidity = useCallback(() => {
     setCacheAge(formatDistance(cacheAgeDate, new Date()));

@@ -1,4 +1,4 @@
-import { MutableRefObject, useEffect, useCallback, UIEvent } from 'react';
+import { type RefObject, useEffect, useCallback, type UIEvent, type ReactElement } from 'react';
 import { HangingGardenColumnIndex, HangingGardenColumn, GardenController } from './models/HangingGarden';
 import { getCalculatedWidth, getCalculatedHeight, GROUP_LEVEL_OFFSET } from './utils';
 import { useHangingGardenContext } from './renderHooks/useHangingGardenContext';
@@ -30,10 +30,10 @@ const useStyles = makeStyles(() =>
 );
 
 type GardenProps = {
-  readonly provideController?: MutableRefObject<GardenController | null>;
+  readonly provideController?: RefObject<GardenController | null>;
 };
 
-const Garden = <T extends HangingGardenColumnIndex>({ provideController }: GardenProps): JSX.Element => {
+const Garden = <T extends HangingGardenColumnIndex>({ provideController }: GardenProps): ReactElement => {
   const {
     pixiApp,
     container,

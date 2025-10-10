@@ -19,10 +19,13 @@ type StepPaneChildProps = {
   stepKey: string;
   disabled: boolean;
   done: boolean;
+  position?: number;
+  stepCount?: number;
+  stepPaneRef?: React.RefObject<HTMLDivElement | null>;
 };
 
 /** Define the props interface for children components of StepPane */
-const StepPane = ({ children }: { readonly children: ReactNode }): JSX.Element => {
+const StepPane = ({ children }: { readonly children: ReactNode }): ReactElement => {
   const stepPaneRef = useRef<HTMLDivElement | null>(null);
   const { verticalSteps, activeStepPosition, forceOrder } = useStepperContext();
 
@@ -37,7 +40,7 @@ const StepPane = ({ children }: { readonly children: ReactNode }): JSX.Element =
       const position: number = index + 1;
 
       /** Clone the child element with modified props */
-      return cloneElement(child as ReactElement, {
+      return cloneElement(child as ReactElement<StepPaneChildProps>, {
         /** position of the step */
         position,
         /** in case of forceOrder, follow previous step done rule, if not, step needs to be completed manually */

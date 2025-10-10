@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import { type ReactElement, useCallback } from 'react';
 
 import {
   useObservableRef,
@@ -9,7 +9,7 @@ import {
 import { useCheckboxFilterOptionContext } from './context';
 import CheckboxFilterOption from './CheckboxFilterOption';
 
-export const CheckboxFilterOptionAll = (): JSX.Element => {
+export const CheckboxFilterOptionAll = (): ReactElement => {
   const { options$, selection$, setSelection } = useCheckboxFilterOptionContext();
   const { value: options } = useObservableState(options$) || {};
   const optionKeysRef = useObservableRef(useObservableSelector(options$, (x) => Object.keys(x)));

@@ -1,3 +1,4 @@
+import type { ReactElement, PropsWithChildren } from 'react';
 import type { ComponentProps } from '@equinor/fusion-react-utils';
 import type {
   SearchableDropdownElement,
@@ -16,7 +17,7 @@ export const SearchableDropdown = ({
   children,
   resolver,
   ...props
-}: React.PropsWithChildren<SearchableDropdownProps>): JSX.Element => {
+}: PropsWithChildren<SearchableDropdownProps>): ReactElement => {
   const providerRef = useDropdownProviderRef(resolver);
   return (
     <DropdownProvider ref={providerRef}>

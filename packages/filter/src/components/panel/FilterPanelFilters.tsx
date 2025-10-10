@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { type HTMLAttributes, type ReactElement, useMemo } from 'react';
 import { useObservableState } from '@equinor/fusion-observable/react';
 import { useFilterPanelContext } from './FilterPanelProvider';
 
@@ -7,11 +7,11 @@ import { EdsProvider } from '@equinor/eds-core-react';
 import { map } from 'rxjs/operators';
 import { FilterContainer } from '../misc';
 
-type FilterPanelFiltersProps = JSX.IntrinsicElements['div'] & {
+type FilterPanelFiltersProps = HTMLAttributes<HTMLDivElement> & {
   readonly FilterSelector?: React.FC;
 };
 
-export const FilterPanelFilters = (props: FilterPanelFiltersProps): JSX.Element => {
+export const FilterPanelFilters = (props: FilterPanelFiltersProps): ReactElement => {
   const { FilterSelector, ...args } = props;
   const { filters$, showFilters } = useFilterPanelContext();
 

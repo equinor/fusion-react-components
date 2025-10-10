@@ -161,6 +161,7 @@ export const flattenColumn = <T extends HangingGardenColumnIndex>(
       )
     : column.data;
 
+// @ts-expect-error drawDashLine is a custom method
 PIXI.Graphics.prototype.drawDashLine = function (this: PIXI.Graphics, toX: number, toY: number, dash = 12, gap = 5) {
   const lastPosition = this.currentPath.points;
   const from = new Vector2(lastPosition[lastPosition.length - 2] || 0, lastPosition[lastPosition.length - 1] || 0);

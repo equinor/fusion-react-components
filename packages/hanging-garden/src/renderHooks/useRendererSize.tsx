@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useRef, useCallback, useEffect } from 'react';
 import { useHangingGardenContext } from './useHangingGardenContext';
 import useGarden from './useGarden';
 
@@ -23,10 +23,11 @@ type ResizeObserverArray = {
 const useRendererSize = (): void => {
   const { pixiApp, container } = useHangingGardenContext();
   const { renderGarden } = useGarden();
-  const resizeObserverRef = React.useRef<ResizeObserver>();
-  const checkRendererSizeAnimationframe = React.useRef(0);
+  const resizeObserverRef = useRef<ResizeObserver | undefined>(undefined);
+  const checkRendererSizeAnimationframe = useRef(0);
 
-  const resizeRenderer = React.useCallback(
+  const resizeRenderer = useCallback(
+    // @ts-expect-error PIXI.Application is a type
     (containerWidth: number, containerHeight: number, pixiApp: PIXI.Application | null) => {
       if (!pixiApp) return;
 
@@ -40,7 +41,7 @@ const useRendererSize = (): void => {
     [renderGarden],
   );
 
-  React.useEffect(() => {
+  useEffect(() => {
     renderGarden();
 
     resizeObserverRef.current = new ResizeObserver((arr: ResizeObserverArray[]) => {
