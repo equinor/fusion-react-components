@@ -27,7 +27,6 @@ const useRendererSize = (): void => {
   const checkRendererSizeAnimationframe = useRef(0);
 
   const resizeRenderer = useCallback(
-    // @ts-expect-error PIXI.Application is a type
     (containerWidth: number, containerHeight: number, pixiApp: PIXI.Application | null) => {
       if (!pixiApp) return;
 

@@ -73,7 +73,7 @@ const useRenderQueue = (): RenderQueue => {
           width: renderer.context.width,
           height: renderer.context.height,
         });
-        pixiApp.current?.renderer.render(graphics, graphicsContainer as PIXI.IRendererRenderOptions);
+        pixiApp.current?.renderer.render(graphics, graphicsContainer);
         addTextureToCache('graphics', renderer.key, graphicsContainer);
       }
 

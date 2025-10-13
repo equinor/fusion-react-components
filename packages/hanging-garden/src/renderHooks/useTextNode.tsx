@@ -65,7 +65,7 @@ const useTextNode = (): UseTextNode => {
         });
 
         const cachedParent = textContainer.enableTempParent();
-        pixiApp.current?.renderer.render(textContainer, cachedText as PIXI.IRendererRenderOptions);
+        pixiApp.current?.renderer.render(textContainer, cachedText);
         textContainer.disableTempParent(cachedParent);
 
         addTextureToCache('texts', text + color, cachedText);

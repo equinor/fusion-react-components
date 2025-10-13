@@ -32,7 +32,6 @@ const usePixiApp = (
       backgroundColor,
       resolution: 1,
       antialias: true,
-      // @ts-expect-error transparent is not typed
       transparent: true,
       sharedTicker: true,
     });
