@@ -1,5 +1,14 @@
 # Change Log
 
+## 4.2.17
+
+### Patch Changes
+
+- 83fb492: Remove ag-grid-community and use @equinor/fusion-framework-react-ag-grid instead
+- Updated dependencies [83fb492]
+  - @equinor/fusion-react-ag-grid-person-cell@3.2.1
+  - @equinor/fusion-react-ag-grid-utils@32.0.2
+
 ## 4.2.16
 
 ### Patch Changes

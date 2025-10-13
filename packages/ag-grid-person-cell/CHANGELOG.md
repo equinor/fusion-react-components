@@ -1,5 +1,11 @@
 # Change Log
 
+## 3.2.1
+
+### Patch Changes
+
+- 83fb492: Remove ag-grid-community and use @equinor/fusion-framework-react-ag-grid instead
+
 ## 3.2.0
 
 ### Minor Changes
