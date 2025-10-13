@@ -36,31 +36,22 @@
     "url": "https://github.com/equinor/fusion-react-components/issues"
   },
   "dependencies": {
-    "@equinor/fusion-react-styles": "^0.6.0",
-    "@types/history": "4.x",
+    "@equinor/fusion-react-styles": "workspace:^",
     "date-fns": "4.1.0",
     "history": "4.x",
     "pixi.js-legacy": "^5.3.7"
   },
   "devDependencies": {
     "@equinor/fusion": "^3.3.1",
+    "@types/history": "4.x",
     "@types/node": "^24.6.2",
     "@types/react": "^19.2.2",
     "react": "^19.2.0"
   },
   "peerDependencies": {
     "@equinor/fusion": "^3.3.1",
-    "@equinor/fusion-react-styles": "0.6.5",
-    "@types/history": "4.x",
     "date-fns": "4.1.0",
-    "history": "4.x"
-  },
-  "peerDependenciesMeta": {
-    "@types/history": {
-      "optional": true
-    },
-    "@types/react": {
-      "optional": true
-    }
+    "history": "4.x",
+    "react": "^18 || ^19"
   }
 }

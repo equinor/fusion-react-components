@@ -41,8 +41,8 @@
     "url": "https://github.com/equinor/fusion-react-components/issues"
   },
   "dependencies": {
-    "@equinor/fusion-react-styles": "^0.6.0",
-    "@equinor/fusion-react-utils": "^2.1.0",
+    "@equinor/fusion-react-styles": "workspace:^",
+    "@equinor/fusion-react-utils": "workspace:^",
     "@equinor/fusion-wc-chip": "^1.2.2",
     "rxjs": "^7.8.1",
     "typesafe-actions": "^5.1.0"
@@ -57,6 +57,8 @@
   "peerDependencies": {
     "@equinor/eds-core-react": "^0.45.0",
     "@equinor/eds-icons": "~0.22.0",
-    "@equinor/fusion-observable": "^8.1.2"
+    "@equinor/fusion-observable": "^8.1.2",
+    "react": "^18 || ^19",
+    "react-dom": "^18 || ^19"
   }
 }

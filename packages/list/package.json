@@ -34,11 +34,14 @@
     "url": "https://github.com/equinor/fusion-react-components/issues"
   },
   "dependencies": {
-    "@equinor/fusion-react-utils": "^2.1.0",
+    "@equinor/fusion-react-utils": "workspace:^",
     "@equinor/fusion-wc-list": "^1.1.4"
   },
   "devDependencies": {
     "@types/react": "^19.2.2",
     "react": "^19.2.0"
+  },
+  "peerDependencies": {
+    "react": "^18 || ^19"
   }
 }

@@ -41,20 +41,11 @@
     "@material-ui/styles": "^4.11.4",
     "clsx": "^2.1.0"
   },
-  "peerDependencies": {
-    "react": "^17.0.0 || ^18.0.0",
-    "react-dom": "^17.0.0 || ^18.0.0"
-  },
-  "peerDependenciesMeta": {
-    "@types/react": {
-      "optional": true
-    },
-    "react-dom": {
-      "optional": true
-    }
-  },
   "devDependencies": {
     "@types/react": "^19.2.2",
     "react": "^19.2.0"
+  },
+  "peerDependencies": {
+    "react": "^18 || ^19"
   }
 }
