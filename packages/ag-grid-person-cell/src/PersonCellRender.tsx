@@ -1,5 +1,5 @@
 import { PersonAvatar, PersonCell, type PersonCellData } from '@equinor/fusion-react-person';
-import type { ICellRendererParams } from 'ag-grid-community';
+import type { ICellRendererParams } from '@equinor/fusion-framework-react-ag-grid/enterprise';
 import type { CustomRenderParams } from './types';
 import { usePersonCellData } from './usePersonCellData';
 import { PersonPopover } from './PersonPopover';

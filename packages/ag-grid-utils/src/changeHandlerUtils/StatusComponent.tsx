@@ -1,6 +1,6 @@
 import type { FC } from 'react';
 
-import type { ICellRendererParams } from 'ag-grid-community';
+import type { ICellRendererParams } from '@equinor/fusion-framework-react-ag-grid/enterprise';
 
 import { styled } from 'styled-components';
 

@@ -1,4 +1,4 @@
-import type { ColDef } from 'ag-grid-community';
+import type { ColDef } from '@equinor/fusion-framework-react-ag-grid/enterprise';
 import { personSortComparator } from './personSort';
 import { PersonCellRender } from './PersonCellRender';
 import type { PersonColDef } from './types';
