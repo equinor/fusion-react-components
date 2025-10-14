@@ -1,7 +1,7 @@
 name: Setup Node
 description: General setup of node
 inputs:
-  node-version:  
+  node-version:
     description: 'Setting node version'
     default: '22'
 
@@ -19,4 +19,4 @@ runs:
 
     - name: Install Node Dependencies
       shell: bash
-      run: pnpm install
+      run: pnpm install --frozen-lockfile
