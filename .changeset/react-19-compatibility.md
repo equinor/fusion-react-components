@@ -1,23 +1,24 @@
 ---
-"@equinor/fusion-react-ag-grid-person-cell": patch
-"@equinor/fusion-react-ag-grid-utils": patch
-"@equinor/fusion-react-context-selector": patch
-"@equinor/fusion-react-date": patch
-"@equinor/fusion-react-errorboundary": patch
-"@equinor/fusion-react-filter": patch
-"@equinor/fusion-react-hanging-garden": patch
-"@equinor/fusion-react-list": patch
-"@equinor/fusion-react-markdown": patch
-"@equinor/fusion-react-person": patch
-"@equinor/fusion-react-ripple": patch
-"@equinor/fusion-react-searchable-dropdown": patch
-"@equinor/fusion-react-side-sheet": patch
-"@equinor/fusion-react-skeleton": patch
-"@equinor/fusion-react-stepper": patch
-"@equinor/fusion-react-styles": patch
-"@equinor/fusion-react-tabs": patch
-"@equinor/fusion-react-textarea": patch
-"@equinor/fusion-react-utils": patch
+"@equinor/fusion-react-ag-grid-person-cell": major
+"@equinor/fusion-react-ag-grid-utils": major
+"@equinor/fusion-react-context-selector": major
+"@equinor/fusion-react-date": major
+"@equinor/fusion-react-errorboundary": major
+"@equinor/fusion-react-filter": major
+"@equinor/fusion-react-hanging-garden": major
+"@equinor/fusion-react-list": major
+"@equinor/fusion-react-markdown": major
+"@equinor/fusion-react-person": major
+"@equinor/fusion-react-ripple": major
+"@equinor/fusion-react-searchable-dropdown": major
+"@equinor/fusion-react-side-sheet": major
+"@equinor/fusion-react-skeleton": major
+"@equinor/fusion-react-stepper": major
+"@equinor/fusion-react-styles": major
+"@equinor/fusion-react-tabs": major
+"@equinor/fusion-react-textarea": major
+"@equinor/fusion-react-utils": major
+"@equinor/fusion-react-components-stories": major
 ---
 
 React 19 compatibility fixes
