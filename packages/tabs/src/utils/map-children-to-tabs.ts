@@ -8,13 +8,13 @@ import { Tab } from '../components/Tab';
  * @property {string} title - The title of the tab.
  * @property {string} id - The id of the tab.
  * @property {ReactNode} [component] - An optional component to be rendered within the tab.
- * @property {React.ReactNode} children - The content to be displayed within the tab.
+ * @property {ReactNode} children - The content to be displayed within the tab.
  */
 export type TabObject = {
   id: string;
   title: string;
   component?: ReactNode;
-  children: React.ReactNode;
+  children: ReactNode;
   right: boolean;
 };
 
@@ -35,7 +35,7 @@ type TabMap = {
  * @param children - The React children elements to process.
  * @returns An object containing two arrays of tab objects, one for the left side and one for the right side.
  */
-export function mapChildrenToTabs(children: React.ReactNode): TabMap {
+export function mapChildrenToTabs(children: ReactNode): TabMap {
   const left = [] as TabObject[];
   const right = [] as TabObject[];
 

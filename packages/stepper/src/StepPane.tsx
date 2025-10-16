@@ -1,4 +1,12 @@
-import React, { cloneElement, useRef, Children, type ReactElement, type ReactNode } from 'react';
+import {
+  cloneElement,
+  useRef,
+  Children,
+  isValidElement,
+  type ReactElement,
+  type ReactNode,
+  type RefObject,
+} from 'react';
 import { useStepperContext } from './Stepper';
 import styled from 'styled-components';
 
@@ -21,7 +29,7 @@ type StepPaneChildProps = {
   done: boolean;
   position?: number;
   stepCount?: number;
-  stepPaneRef?: React.RefObject<HTMLDivElement | null>;
+  stepPaneRef?: RefObject<HTMLDivElement | null>;
 };
 
 /** Define the props interface for children components of StepPane */
@@ -30,7 +38,7 @@ const StepPane = ({ children }: { readonly children: ReactNode }): ReactElement 
   const { verticalSteps, activeStepPosition, forceOrder } = useStepperContext();
 
   const clonedChildren = Children.map(children, (child, index) => {
-    if (React.isValidElement(child)) {
+    if (isValidElement(child)) {
       const { title, stepKey, disabled, done } = child.props as StepPaneChildProps;
       if (!title || !stepKey) {
         return null;

@@ -1,3 +1,4 @@
+import type { SyntheticEvent } from 'react';
 import { FusionApiErrorMessage } from '@equinor/fusion';
 
 export type ErrorTypes = 'error' | 'accessDenied' | 'notFound' | 'noData' | 'failedDependency' | 'throttle';
@@ -11,7 +12,7 @@ export type ErrorMessageProps = {
   children?: unknown;
   icon?: unknown;
   action?: string;
-  onTakeAction?: (event?: React.SyntheticEvent<Element, Event>) => void;
+  onTakeAction?: (event?: SyntheticEvent<Element, Event>) => void;
 };
 
 export type GardenDataErrorTypes = ErrorTypes | 'noCache' | 'NoDataAccess' | 'UnexpectedError';

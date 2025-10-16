@@ -1,12 +1,12 @@
-import * as React from 'react';
+import { useCallback, useRef, type RefObject } from 'react';
 import * as PIXI from 'pixi.js-legacy';
 import { useHangingGardenContext } from './useHangingGardenContext';
-import { ItemRenderContext, RenderItem } from '..';
+import { type ItemRenderContext, type RenderItem } from '..';
 
 export type RenderQueue = {
   enqueueRenderer: (key: string, render: (context: ItemRenderContext) => void, context: ItemRenderContext) => void;
   processRenderQueue: () => void;
-  processRenderQueueAnimationFrame: React.MutableRefObject<number>;
+  processRenderQueueAnimationFrame: RefObject<number>;
 };
 
 /**
@@ -23,12 +23,12 @@ const useRenderQueue = (): RenderQueue => {
     textureCaches: { getTextureFromCache, addTextureToCache },
   } = useHangingGardenContext();
 
-  const renderQueue = React.useRef<RenderItem[]>([]);
-  const isRendering = React.useRef(false);
+  const renderQueue = useRef<RenderItem[]>([]);
+  const isRendering = useRef(false);
 
-  const processRenderQueueAnimationFrame = React.useRef(0);
+  const processRenderQueueAnimationFrame = useRef(0);
 
-  const enqueueRenderer = React.useCallback(
+  const enqueueRenderer = useCallback(
     (key: string, render: (context: ItemRenderContext) => void, context: ItemRenderContext) => {
       renderQueue.current.push({
         key,
@@ -40,7 +40,7 @@ const useRenderQueue = (): RenderQueue => {
     [renderQueue.current],
   );
 
-  const processRenderQueue = React.useCallback(async () => {
+  const processRenderQueue = useCallback(async () => {
     if (isRendering.current || !renderQueue.current.length) return;
 
     const queueLength = 50;
@@ -57,7 +57,7 @@ const useRenderQueue = (): RenderQueue => {
     });
   }, [isRendering, pixiApp, renderQueue]);
 
-  const processRenderer = React.useCallback(
+  const processRenderer = useCallback(
     async (renderer: RenderItem) => {
       let graphicsContainer = getTextureFromCache('graphics', renderer.key) as PIXI.RenderTexture;
 

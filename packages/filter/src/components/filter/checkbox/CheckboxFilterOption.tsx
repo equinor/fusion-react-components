@@ -1,4 +1,4 @@
-import { type ReactElement, type HTMLAttributes, useCallback } from 'react';
+import { useCallback, type ReactElement, type HTMLAttributes, type FormEvent } from 'react';
 
 import { Checkbox } from '@equinor/eds-core-react';
 
@@ -29,7 +29,7 @@ export const CheckboxFilterOption = (props: CheckboxFilterOptionProps): ReactEle
     ...args
   } = props;
   const onCheckboxInput = useCallback(
-    ({ currentTarget: { name, checked } }: React.FormEvent<HTMLInputElement>) => {
+    ({ currentTarget: { name, checked } }: FormEvent<HTMLInputElement>) => {
       return onOptionChange({ name, selected: checked });
     },
     [onOptionChange],

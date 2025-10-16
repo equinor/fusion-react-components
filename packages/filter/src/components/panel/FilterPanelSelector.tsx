@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import { useCallback, type FormEvent, type ReactElement } from 'react';
 
 import { Checkbox } from '@equinor/eds-core-react';
 
@@ -9,13 +9,13 @@ export type FilterPanelSelectorProps = {
   title?: string;
 };
 
-export const FilterPanelSelector: React.FC = () => {
+export const FilterPanelSelector = (): ReactElement => {
   const { filters$ } = useFilterPanelContext();
 
   const { filters, selectedFilters } = useObservableState(filters$).value || initialState;
 
   const onInput = useCallback(
-    (e: React.FormEvent<HTMLInputElement>) => {
+    (e: FormEvent<HTMLInputElement>) => {
       const key = e.currentTarget.value;
       const selected = e.currentTarget.checked;
       filters$.next(selected ? actions.remove(key) : actions.add(key));

@@ -1,21 +1,23 @@
-import { createElement, forwardRef, useMemo } from 'react';
-import type {
-  EventHandler,
-  ForwardRefExoticComponent,
-  HTMLAttributes,
-  PropsWithoutRef,
-  Ref,
-  RefAttributes,
-  RefObject,
-  SyntheticEvent,
+import {
+  createElement,
+  forwardRef,
+  useMemo,
+  type EventHandler,
+  type ForwardRefExoticComponent,
+  type HTMLAttributes,
+  type PropsWithoutRef,
+  type Ref,
+  type RefAttributes,
+  type RefObject,
+  type SyntheticEvent,
 } from 'react';
 
 import { extractElementProps, useElementEvents, useElementProps, useForwardRef } from './hooks';
 
-export type ComponentAttributes<T = HTMLHtmlElement> = Omit<React.HTMLAttributes<T>, 'children'>;
+export type ComponentAttributes<T = HTMLHtmlElement> = Omit<HTMLAttributes<T>, 'children'>;
 
 // eslint-disable-next-line @typescript-eslint/ban-types
-export type ComponentProps<E extends HTMLElement, P = {}> = HTMLAttributes<E> &
+export type ComponentProps<E extends HTMLElement, P = object> = HTMLAttributes<E> &
   P & { readonly ref?: Ref<E> };
 
 type Ctor<T> = { new (): T };
@@ -38,7 +40,7 @@ const SUPPORTED_REACT_PROP_TYPES = ['string', 'number', 'boolean', 'bigint'];
 export type WebComponent<
   E extends HTMLElement,
   P extends Record<string, unknown>,
-> = React.ForwardRefExoticComponent<PropsWithoutRef<ComponentAttributes<E> & P> & RefAttributes<E>>;
+> = ForwardRefExoticComponent<PropsWithoutRef<ComponentAttributes<E> & P> & RefAttributes<E>>;
 
 /**
  * Wraps a custom element as a React Component

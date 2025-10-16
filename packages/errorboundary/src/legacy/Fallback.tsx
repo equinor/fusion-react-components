@@ -1,3 +1,4 @@
+import type { ReactNode, SyntheticEvent } from 'react';
 import { Typography, Button, Accordion } from '@equinor/eds-core-react';
 import { tokens } from '@equinor/eds-tokens';
 
@@ -28,12 +29,12 @@ const Styled = {
 export type FallbackProps = {
   readonly error: Error;
   readonly errorType?: ErrorType;
-  readonly message?: React.ReactNode;
+  readonly message?: ReactNode;
   readonly resourceName?: string;
-  readonly title?: React.ReactNode;
-  readonly icon?: React.ReactNode;
+  readonly title?: ReactNode;
+  readonly icon?: ReactNode;
   readonly action?: string;
-  readonly onTakeAction?: (event?: React.SyntheticEvent<Element, Event>) => void;
+  readonly onTakeAction?: (event?: SyntheticEvent<Element, Event>) => void;
 };
 
 const generateTitle = (errorType?: ErrorType, resourceName = '<unknown resource>') => {

@@ -1,10 +1,11 @@
-import { type ComponentProps, createComponent } from '@equinor/fusion-react-utils';
+import type { PropsWithChildren } from 'react';
+import { createComponent, type ComponentProps } from '@equinor/fusion-react-utils';
 import {
   DateRangeElement as HTMLDateRangeCustomElement,
   dateRangeTag,
 } from '@equinor/fusion-wc-date';
 
-type ElementProps = React.PropsWithChildren<
+type ElementProps = PropsWithChildren<
   Partial<
     Pick<
       HTMLDateRangeCustomElement,

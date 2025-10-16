@@ -1,3 +1,4 @@
+import type { PropsWithChildren, ComponentProps } from 'react';
 import { createComponent } from '@equinor/fusion-react-utils';
 
 import HTMLRippleCustomElement, {
@@ -9,7 +10,7 @@ import HTMLRippleCustomElement, {
 
 export { HTMLRippleCustomElement, RippleElement, type RippleElementProps, RippleHandlers };
 
-type ElementProps = React.PropsWithChildren<
+type ElementProps = PropsWithChildren<
   Partial<
     Pick<
       HTMLRippleCustomElement,
@@ -23,6 +24,6 @@ export const Ripple = createComponent<HTMLRippleCustomElement, ElementProps>(
   tag,
 );
 
-export type RippleProps = React.ComponentProps<typeof Ripple>;
+export type RippleProps = ComponentProps<typeof Ripple>;
 
 export default Ripple;

@@ -1,4 +1,4 @@
-import { type HTMLAttributes, type ReactElement, useMemo } from 'react';
+import { useMemo, type HTMLAttributes, type ReactElement, type FC } from 'react';
 import { useObservableState } from '@equinor/fusion-observable/react';
 import { useFilterPanelContext } from './FilterPanelProvider';
 
@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
 import { FilterContainer } from '../misc';
 
 type FilterPanelFiltersProps = HTMLAttributes<HTMLDivElement> & {
-  readonly FilterSelector?: React.FC;
+  readonly FilterSelector?: FC;
 };
 
 export const FilterPanelFilters = (props: FilterPanelFiltersProps): ReactElement => {

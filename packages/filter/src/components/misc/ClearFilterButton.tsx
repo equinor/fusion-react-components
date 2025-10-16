@@ -1,4 +1,4 @@
-import { type ReactElement, useCallback } from 'react';
+import { useCallback, type ReactElement, type ForwardedRef, type PropsWithChildren } from 'react';
 
 import { useForwardRef } from '@equinor/fusion-react-utils';
 import { useObservableSubscription } from '@equinor/fusion-observable/react';
@@ -6,8 +6,8 @@ import { Button, type ButtonProps } from '@equinor/eds-core-react';
 
 import { useClearFilter } from '../../hooks/useClearFilter';
 
-export type ClearFilterButtonProps = React.PropsWithChildren<
-  Omit<ButtonProps, 'onClick'> & { ref?: React.ForwardedRef<HTMLButtonElement> }
+export type ClearFilterButtonProps = PropsWithChildren<
+  Omit<ButtonProps, 'onClick'> & { ref?: ForwardedRef<HTMLButtonElement> }
 >;
 
 /**

@@ -1,4 +1,12 @@
-import { type InputHTMLAttributes, type ReactElement, useCallback, useMemo, useRef } from 'react';
+import {
+  type ChangeEventHandler,
+  type InputHTMLAttributes,
+  type ReactElement,
+  type FormEvent,
+  useCallback,
+  useMemo,
+  useRef,
+} from 'react';
 
 import { useObservableSelector } from '@equinor/fusion-observable/react';
 
@@ -51,8 +59,8 @@ export const SearchFilter = <TData,>(props: SearchFilterProps<TData>): ReactElem
   const inputRef = useRef<HTMLInputElement>(null);
 
   /** update search selection when input value changes */
-  const onInput: React.ChangeEventHandler<HTMLInputElement> = useCallback(
-    (e: React.FormEvent<HTMLInputElement>) => {
+  const onInput: ChangeEventHandler<HTMLInputElement> = useCallback(
+    (e: FormEvent<HTMLInputElement>) => {
       setSelection(e.currentTarget.value);
     },
     [setSelection],

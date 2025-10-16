@@ -1,10 +1,12 @@
+import type { SyntheticEvent } from 'react';
+
 /**
  * Create a wrapper event for React
  * @param event Event - native/custom event
  */
 export const createSyntheticEvent = <T extends Element = HTMLElement, E extends Event = Event>(
   event: E,
-): React.SyntheticEvent<T, E> => {
+): SyntheticEvent<T, E> => {
   let isPropagationStopped = false;
   return {
     nativeEvent: event,
