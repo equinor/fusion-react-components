@@ -43,7 +43,7 @@
     "url": "https://github.com/equinor/fusion-react-components/issues"
   },
   "dependencies": {
-    "@equinor/eds-core-react": "^0.49.0",
+    "@equinor/eds-core-react": "^1.0.1",
     "@equinor/eds-tokens": "^0.10.0",
     "@equinor/fusion-react-person": "workspace:^",
     "@equinor/fusion-react-utils": "workspace:^",
