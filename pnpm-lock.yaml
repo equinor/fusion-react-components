@@ -42,8 +42,8 @@ importers:
         specifier: ^0.49.0
         version: 0.49.0(react-dom@18.3.1(react@18.2.0))(react@18.2.0)(styled-components@6.1.19(react-dom@18.3.1(react@18.2.0))(react@18.2.0))
       '@equinor/eds-tokens':
-        specifier: ^0.10.0
-        version: 0.10.0
+        specifier: ^1.1.2
+        version: 1.1.2
       '@equinor/fusion-react-person':
         specifier: workspace:^
         version: link:../person
@@ -74,8 +74,8 @@ importers:
         specifier: ~0.22.0
         version: 0.22.0
       '@equinor/eds-tokens':
-        specifier: ^0.9.2
-        version: 0.9.2
+        specifier: ^1.1.2
+        version: 1.1.2
       '@equinor/fusion-framework-react-ag-grid':
         specifier: ^34.2.1
         version: 34.2.1(@equinor/fusion-framework-module@5.0.2)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -152,8 +152,8 @@ importers:
         specifier: ~0.22.0
         version: 0.22.0
       '@equinor/eds-tokens':
-        specifier: ^0.9.2
-        version: 0.9.2
+        specifier: ^1.1.2
+        version: 1.1.2
       '@types/react':
         specifier: ^18.2.24
         version: 18.2.64
@@ -328,8 +328,8 @@ importers:
         specifier: ~0.22.0
         version: 0.22.0
       '@equinor/eds-tokens':
-        specifier: ^0.9.2
-        version: 0.9.2
+        specifier: ^1.1.2
+        version: 1.1.2
       '@types/react':
         specifier: ^18.2.29
         version: 18.2.64
@@ -371,8 +371,8 @@ importers:
         specifier: ~0.22.0
         version: 0.22.0
       '@equinor/eds-tokens':
-        specifier: ^0.9.2
-        version: 0.9.2
+        specifier: ^1.1.2
+        version: 1.1.2
       styled-components:
         specifier: ^6.1.8
         version: 6.1.19(react-dom@18.3.1(react@18.2.0))(react@18.2.0)
@@ -418,8 +418,8 @@ importers:
         specifier: ^0.48.0
         version: 0.48.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(styled-components@6.1.19(react-dom@18.3.1(react@18.3.1))(react@18.3.1))
       '@equinor/eds-tokens':
-        specifier: 0.9.2
-        version: 0.9.2
+        specifier: 1.1.2
+        version: 1.1.2
       '@equinor/fusion-observable':
         specifier: ^8.5.1
         version: 8.5.5(@types/react@18.3.23)(react@18.3.1)
@@ -495,8 +495,8 @@ importers:
         specifier: ~0.22.0
         version: 0.22.0
       '@equinor/eds-tokens':
-        specifier: ^0.9.2
-        version: 0.9.2
+        specifier: ^1.1.2
+        version: 1.1.2
       '@equinor/fusion-framework-react-ag-grid':
         specifier: ^34.2.1
         version: 34.2.1(@equinor/fusion-framework-module@5.0.2)(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
@@ -1529,6 +1529,9 @@ packages:
   '@equinor/eds-tokens@0.9.2':
     resolution: {integrity: sha512-pDIFei0vsfN3GN12NKWqxskAkYBQd6+Dzjga2liuY81LfnlJs5g9NblamU9WY5w5YdVE5Z8FNjsMKDLs2JIWcw==}
     engines: {node: '>=10.0.0', pnpm: '>=4'}
+
+  '@equinor/eds-tokens@1.1.2':
+    resolution: {integrity: sha512-aA1v9i+7vtdX47Utn3OajWc9XhkbfKtccHx65A+20h9TJi74LslkGHqg1jGIAVukZBk3kPhl9OASreZfcKaoOw==}
 
   '@equinor/eds-utils@0.8.7':
     resolution: {integrity: sha512-ra4yKMSr5/yseSYqEm7L9fGqR3b2IMaR9leOxlDs37FleOIPL1tI+PvVK+vYGluRmid/uD8X95N/pRQoWR21ow==}
@@ -10222,6 +10225,8 @@ snapshots:
   '@equinor/eds-tokens@0.10.0': {}
 
   '@equinor/eds-tokens@0.9.2': {}
+
+  '@equinor/eds-tokens@1.1.2': {}
 
   '@equinor/eds-utils@0.8.7(react-dom@18.2.0(react@18.2.0))(react@18.2.0)(styled-components@6.1.19(react-dom@18.2.0(react@18.2.0))(react@18.2.0))':
     dependencies:
