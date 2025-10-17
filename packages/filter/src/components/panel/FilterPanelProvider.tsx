@@ -1,6 +1,12 @@
+import {
+  type ReactElement,
+  type PropsWithChildren,
+  createContext,
+  useContext,
+  useState,
+} from 'react';
 import type { FlowSubject } from '@equinor/fusion-observable';
 import { useObservable } from '@equinor/fusion-observable/react';
-import { type ReactElement, createContext, useContext, useState } from 'react';
 
 import type { FilterComponent } from '../filter';
 import type FilterPanelSelector from './FilterPanelSelector';
@@ -47,14 +53,14 @@ const reducer = createReducer<State, Actions>(initialState)
     return { ...state, selected: new Set(state.selectedFilters) };
   });
 
-type FilterPanelProviderProps = React.PropsWithChildren<{
+type FilterPanelProviderProps = PropsWithChildren<{
   filters: ReactElement<FilterComponent>[];
   FilterSelector?: typeof FilterPanelSelector;
   initialSelectedFilters?: string[];
   showFilters?: boolean;
 }>;
 
-export const FilterPanelProvider = (props: FilterPanelProviderProps): JSX.Element => {
+export const FilterPanelProvider = (props: FilterPanelProviderProps): ReactElement => {
   const filters$ = useObservable(reducer, {
     selectedFilters: new Set(props.initialSelectedFilters),
     filters: props.filters,

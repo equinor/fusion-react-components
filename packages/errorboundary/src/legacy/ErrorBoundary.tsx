@@ -1,3 +1,4 @@
+import type { ReactElement } from 'react';
 import {
   ErrorBoundary as ReactErrorBoundary,
   type ErrorBoundaryProps as ReactReactErrorBoundary,
@@ -8,7 +9,7 @@ export type ErrorBoundaryProps = Partial<ReactReactErrorBoundary>;
 
 const reload = () => window.location.reload();
 
-export const ErrorBoundary = (props: ErrorBoundaryProps): JSX.Element => {
+export const ErrorBoundary = (props: ErrorBoundaryProps): ReactElement => {
   const args = { ...props };
   if (!args.fallbackRender && !args.FallbackComponent && !args.fallback) {
     args.fallbackRender = fallbackRender;

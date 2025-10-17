@@ -1,10 +1,11 @@
+import type { PropsWithChildren } from 'react';
 import { type ComponentProps, createComponent } from '@equinor/fusion-react-utils';
 import {
   RadioListItemElement as HTMLRadioListItemCustomElement,
   radioListItemTag as tag,
 } from '@equinor/fusion-wc-list';
 
-type ElementProps = React.PropsWithChildren<
+type ElementProps = PropsWithChildren<
   Partial<
     Pick<
       HTMLRadioListItemCustomElement,

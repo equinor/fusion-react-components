@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { type ReactElement, type PropsWithChildren, useMemo } from 'react';
 
 import { FilterOptionProvider } from '../../../options/FilterOptionProvider';
 import { propertySelector } from '../../../options/create-options';
@@ -35,14 +35,14 @@ export const CheckboxFilterProvider: <
   TData extends Record<string, any>,
   TOptions extends CheckboxOption = CheckboxOption,
 >(
-  props: React.PropsWithChildren<CheckboxFilterProviderProps<TData, TOptions>>,
-) => JSX.Element = <
+  props: PropsWithChildren<CheckboxFilterProviderProps<TData, TOptions>>,
+) => ReactElement = <
   // biome-ignore lint/suspicious/noExplicitAny: we need any here to avoid type errors
   TData extends Record<string, any>,
   TOptions extends CheckboxOption = CheckboxOption,
 >(
-  props: React.PropsWithChildren<CheckboxFilterProviderProps<TData, TOptions>>,
-): JSX.Element => {
+  props: PropsWithChildren<CheckboxFilterProviderProps<TData, TOptions>>,
+): ReactElement => {
   const { filterKey, selector = filterKey, title, initial, filter, children } = props;
   const selectorFn = useMemo(
     () =>

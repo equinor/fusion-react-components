@@ -69,7 +69,7 @@ const useItem = <T extends HangingGardenColumnIndex>(): UseItem<T> => {
     [pixiApp, getTextureFromCache, addTextureToCache],
   );
 
-  const clickRef = useRef<boolean>();
+  const clickRef = useRef<boolean | undefined>(undefined);
 
   const renderItem = useCallback(
     (item: T, index: number, columnIndex: number) => {
@@ -85,7 +85,6 @@ const useItem = <T extends HangingGardenColumnIndex>(): UseItem<T> => {
         renderedItem.y = y;
         renderedItem.width = itemWidth + padding;
         renderedItem.height = itemHeight + padding;
-        renderedItem.buttonMode = true;
         renderedItem.interactive = true;
         renderedItem.on('pointerdown', (e: PIXI.InteractionEvent) => {
           clickRef.current = true;
@@ -134,7 +133,6 @@ const useItem = <T extends HangingGardenColumnIndex>(): UseItem<T> => {
             const POS = 2;
             renderedHighlightedItem.lineStyle(2, 0x007079);
             renderedHighlightedItem.moveTo(-POS, -POS);
-
             renderedHighlightedItem.drawDashLine(itemWidth, -POS);
             renderedHighlightedItem.drawDashLine(itemWidth, itemHeight);
             renderedHighlightedItem.drawDashLine(-POS, itemHeight);

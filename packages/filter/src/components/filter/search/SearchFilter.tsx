@@ -1,4 +1,12 @@
-import { type InputHTMLAttributes, useCallback, useMemo, useRef } from 'react';
+import {
+  type ChangeEventHandler,
+  type InputHTMLAttributes,
+  type ReactElement,
+  type FormEvent,
+  useCallback,
+  useMemo,
+  useRef,
+} from 'react';
 
 import { useObservableSelector } from '@equinor/fusion-observable/react';
 
@@ -32,7 +40,7 @@ export type SearchFilterProps<TData> = Omit<TextFieldProps, 'onInput' | 'ref' | 
  * __NOTE__ if not `filterFn` provided, default will be created, this filter is brute and
  * `JSON.stringify` provided data object, this might not be optimal for heavy data sets.
  */
-export const SearchFilter = <TData,>(props: SearchFilterProps<TData>): JSX.Element => {
+export const SearchFilter = <TData,>(props: SearchFilterProps<TData>): ReactElement => {
   const { filterKey, filterFn, ...args } = props;
 
   /** create search filter */
@@ -51,8 +59,8 @@ export const SearchFilter = <TData,>(props: SearchFilterProps<TData>): JSX.Eleme
   const inputRef = useRef<HTMLInputElement>(null);
 
   /** update search selection when input value changes */
-  const onInput: React.ChangeEventHandler<HTMLInputElement> = useCallback(
-    (e: React.FormEvent<HTMLInputElement>) => {
+  const onInput: ChangeEventHandler<HTMLInputElement> = useCallback(
+    (e: FormEvent<HTMLInputElement>) => {
       setSelection(e.currentTarget.value);
     },
     [setSelection],
@@ -63,9 +71,9 @@ export const SearchFilter = <TData,>(props: SearchFilterProps<TData>): JSX.Eleme
     /** create an observable selection for filter  */
     useFilterSelection<string>(props.filterKey),
     /** update value of text input when selection changes */
-    useCallback((query: any) => {
+    useCallback((query?: Set<string>) => {
       if (inputRef.current) {
-        inputRef.current.value = query || '';
+        inputRef.current.value = query ? Array.from(query)[0] || '' : '';
       }
     }, []),
   );

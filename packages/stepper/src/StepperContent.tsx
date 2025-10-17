@@ -1,4 +1,4 @@
-import type { PropsWithChildren } from 'react';
+import type { PropsWithChildren, ReactElement } from 'react';
 import { tokens } from '@equinor/eds-tokens';
 import styled from 'styled-components';
 import StepPane from './StepPane';
@@ -45,7 +45,7 @@ type StepperContentProps = {
   readonly divider?: boolean;
 };
 
-export const StepperContent = (props: PropsWithChildren<StepperContentProps>): JSX.Element => {
+export const StepperContent = (props: PropsWithChildren<StepperContentProps>): ReactElement => {
   const { hideNavButtons, divider, children } = props;
   const { verticalSteps, currentStepKey } = useStepperContext();
 

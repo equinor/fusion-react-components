@@ -1,21 +1,21 @@
-import { createContext, useContext, MutableRefObject, Dispatch, SetStateAction } from 'react';
+import { createContext, useContext, type RefObject, type Dispatch, type SetStateAction, type Context } from 'react';
 import * as PIXI from 'pixi.js-legacy';
-import { Caches } from './useTextureCaches';
-import { ExpandedColumns, ExpandedColumn } from '../models/ExpandedColumn';
-import { ItemRenderContext, HeaderRenderContext } from '../models/RenderContext';
-import { Scroll } from './useScrolling';
-import { UsePopover } from './usePopover';
-import { ColorMode } from '../models/HangingGarden';
+import { type Caches } from './useTextureCaches';
+import { type ExpandedColumns, type ExpandedColumn } from '../models/ExpandedColumn';
+import { type ItemRenderContext, type HeaderRenderContext } from '../models/RenderContext';
+import { type Scroll } from './useScrolling';
+import { type UsePopover } from './usePopover';
+import { type ColorMode } from '../models/HangingGarden';
 
 export interface IHangingGardenContext {
-  container: MutableRefObject<HTMLDivElement | null>;
-  canvas: MutableRefObject<HTMLCanvasElement | null>;
-  stage: MutableRefObject<PIXI.Container>;
-  pixiApp: MutableRefObject<PIXI.Application | null>;
+  container: RefObject<HTMLDivElement | null>;
+  canvas: RefObject<HTMLCanvasElement | null>;
+  stage: RefObject<PIXI.Container>;
+  pixiApp: RefObject<PIXI.Application | null>;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   scroll: Scroll<any>;
   maxRowCount: number;
-  setMaxRowCount: Dispatch<React.SetStateAction<number>>;
+  setMaxRowCount: Dispatch<SetStateAction<number>>;
   expandedColumns: ExpandedColumns;
   setExpandedColumns: Dispatch<SetStateAction<Record<string, ExpandedColumn>>>;
   textureCaches: Caches;
@@ -40,7 +40,7 @@ export interface IHangingGardenContext {
   padding: number;
 }
 
-const HangingGardenContext: React.Context<IHangingGardenContext> = createContext<IHangingGardenContext>(
+const HangingGardenContext: Context<IHangingGardenContext> = createContext<IHangingGardenContext>(
   {} as IHangingGardenContext,
 );
 

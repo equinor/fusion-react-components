@@ -1,4 +1,10 @@
-import { useLayoutEffect, useMemo, useState } from 'react';
+import {
+  type PropsWithChildren,
+  type ReactElement,
+  useLayoutEffect,
+  useMemo,
+  useState,
+} from 'react';
 
 import { BehaviorSubject } from 'rxjs';
 
@@ -24,15 +30,15 @@ export const FilterProvider: <
   // biome-ignore lint/suspicious/noExplicitAny: we need any here to avoid type errors
   TData extends Record<string, any> = Record<string, any>,
 >(
-  props: React.PropsWithChildren<FilterProviderProps<TSelections, TData>>,
-) => JSX.Element = <
+  props: PropsWithChildren<FilterProviderProps<TSelections, TData>>,
+) => ReactElement = <
   // biome-ignore lint/suspicious/noExplicitAny: we need any here to avoid type errors
   TSelections extends Record<string, any>,
   // biome-ignore lint/suspicious/noExplicitAny: we need any here to avoid type errors
   TData extends Record<string, any> = Record<string, any>,
 >(
-  props: React.PropsWithChildren<FilterProviderProps<TSelections, TData>>,
-): JSX.Element => {
+  props: PropsWithChildren<FilterProviderProps<TSelections, TData>>,
+): ReactElement => {
   const {
     data,
     initialSelection = {} as TSelections,

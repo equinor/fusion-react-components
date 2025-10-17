@@ -1,4 +1,4 @@
-import { type FormEvent, useLayoutEffect, useRef, useState } from 'react';
+import { type FormEvent, type ReactElement, useLayoutEffect, useRef, useState } from 'react';
 
 import { useObservableState, useObservableSelector } from '@equinor/fusion-observable/react';
 import { TextField, Icon } from '@equinor/eds-core-react';
@@ -55,7 +55,7 @@ export const useStyles = makeStyles(
   { name: 'fusion-filter-header' },
 );
 
-export const FilterOptionHeader = (props: FilterHeaderProps): JSX.Element => {
+export const FilterOptionHeader = (props: FilterHeaderProps): ReactElement => {
   const { title } = props;
   const [showSearch, setShowSearch] = useState(false);
   const { setQuery, query$ } = useFilterOptionSearch();
@@ -75,9 +75,11 @@ export const FilterOptionHeader = (props: FilterHeaderProps): JSX.Element => {
     setShowSearch(!showSearch);
   };
   useLayoutEffect(() => {
-    const subscription = query$.subscribe(
-      (x) => searchRef.current && (searchRef.current.value = x),
-    );
+    const subscription = query$.subscribe((x) => {
+      if (searchRef.current) {
+        searchRef.current.value = x;
+      }
+    });
     return () => subscription.unsubscribe();
   }, [query$]);
 

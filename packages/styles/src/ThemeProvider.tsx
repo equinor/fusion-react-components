@@ -1,13 +1,15 @@
+import type { ReactElement } from 'react';
 import { ThemeProvider as BaseThemeProvider, type ThemeProviderProps } from '@material-ui/styles';
 import { styles as defaultTheme } from '@equinor/fusion-web-theme';
 
 import Element from '@equinor/fusion-wc-theme';
 Element;
 
-export const ThemeProvider = (props: ThemeProviderProps): JSX.Element => {
+export const ThemeProvider = (props: ThemeProviderProps): ReactElement => {
   const { children, ...args } = props;
   return (
     <BaseThemeProvider {...args} theme={args.theme ?? defaultTheme}>
+      {/* @ts-expect-error fwc-theme is a web component */}
       <fwc-theme>{children}</fwc-theme>
     </BaseThemeProvider>
   );

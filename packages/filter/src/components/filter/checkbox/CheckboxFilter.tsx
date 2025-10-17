@@ -1,3 +1,4 @@
+import type { ReactElement } from 'react';
 import type { FilterOptionBuilder, FilterOptionSelector } from '../../../options';
 
 import type { FilterComponent } from '../types';
@@ -36,7 +37,7 @@ export type CheckboxFilterProps<TData extends Record<string, any> = Record<strin
 // biome-ignore lint/suspicious/noExplicitAny: we need any here to avoid type errors
 export const CheckboxFilter = <TData extends Record<string, any> = Record<string, any>>(
   props: CheckboxFilterProps<TData>,
-): JSX.Element => {
+): ReactElement => {
   const { enableAll, sortFn, ...args } = props;
   const styles = useStyles({ layout: 'column' });
   return (

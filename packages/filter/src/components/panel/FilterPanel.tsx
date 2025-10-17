@@ -1,6 +1,10 @@
-import { Children, type ReactElement } from 'react';
+import { Children, type PropsWithChildren, type HTMLAttributes, type ReactElement } from 'react';
 import type { FilterComponent } from '../filter';
-import { FilterPanelProvider, FilterPanelConsumer } from './FilterPanelProvider';
+import {
+  FilterPanelProvider,
+  FilterPanelConsumer,
+  type FilterPanelProviderContext,
+} from './FilterPanelProvider';
 import { FilterPanelFilters } from './FilterPanelFilters';
 import { FilterPanelBar } from './FilterPanelBar';
 import { SelectionChips } from '../misc';
@@ -43,7 +47,7 @@ type StyleClasses = {
   filters: string;
 };
 
-export type FilterPanelProps<TData> = JSX.IntrinsicElements['div'] & {
+export type FilterPanelProps<TData> = HTMLAttributes<HTMLDivElement> & {
   /** Show filter bar */
   showBar?: boolean;
 
@@ -73,10 +77,8 @@ export type FilterPanelProps<TData> = JSX.IntrinsicElements['div'] & {
  * Base component for displaying filter components and controllers
  */
 export const FilterPanel: <TData>(
-  props: React.PropsWithChildren<FilterPanelProps<TData>>,
-) => JSX.Element = <TData,>(
-  props: React.PropsWithChildren<FilterPanelProps<TData>>,
-): JSX.Element => {
+  props: PropsWithChildren<FilterPanelProps<TData>>,
+) => ReactElement = <TData,>(props: PropsWithChildren<FilterPanelProps<TData>>): ReactElement => {
   const { showFilters, className, classes, children, showSelection, searchFn, ...args } = props;
   const filters = (Children.toArray(children) as ReactElement<FilterComponent>[]).filter(
     (x) => !!x.props.filterKey,
@@ -92,7 +94,7 @@ export const FilterPanel: <TData>(
           className={clsx(styles.filters, classes?.filters)}
         />
         <FilterPanelConsumer>
-          {(context: any) =>
+          {(context: FilterPanelProviderContext) =>
             showSelection &&
             !context?.showFilters && <SelectionChips chips={{ variant: 'outlined' }} />
           }

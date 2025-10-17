@@ -1,4 +1,11 @@
-import { useRef, useState, useEffect, useCallback, type PropsWithChildren } from 'react';
+import {
+  useRef,
+  useState,
+  useEffect,
+  useCallback,
+  type PropsWithChildren,
+  type ReactElement,
+} from 'react';
 import { Popover } from '@equinor/eds-core-react';
 import { tokens } from '@equinor/eds-tokens';
 import { PersonCard, type PersonCellData, type PersonItemSize } from '@equinor/fusion-react-person';
@@ -35,7 +42,7 @@ export const PersonPopover = ({
   upn,
   dataSource,
   children,
-}: PropsWithChildren<PersonPopoverProps>): JSX.Element => {
+}: PropsWithChildren<PersonPopoverProps>): ReactElement => {
   const [isOpen, setIsOpen] = useState(false);
   const anchorRef = useRef<HTMLDivElement>(null);
   const openTimeout = useRef<number | null>(null);

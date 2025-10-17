@@ -1,4 +1,4 @@
-import { useRef, useMemo } from 'react';
+import { useRef, useMemo, type RefObject } from 'react';
 import * as PIXI from 'pixi.js-legacy';
 
 /**
@@ -8,12 +8,12 @@ import * as PIXI from 'pixi.js-legacy';
  * outside the Garden component.
  */
 type UsePixiApp = {
-  pixiApp: React.MutableRefObject<PIXI.Application | null>;
+  pixiApp: RefObject<PIXI.Application | null>;
 };
 
 const usePixiApp = (
-  canvas: React.RefObject<HTMLCanvasElement> | null,
-  container: React.RefObject<HTMLDivElement> | null,
+  canvas: RefObject<HTMLCanvasElement> | null,
+  container: RefObject<HTMLDivElement> | null,
   backgroundColor: number,
 ): UsePixiApp => {
   PIXI.utils.skipHello(); // Don't output the pixi message to the console
@@ -39,7 +39,9 @@ const usePixiApp = (
 
   if (pixiApp.current) {
     pixiApp.current.renderer.plugins.interaction.autoPreventDefault = false;
-    pixiApp.current.renderer.view.style.touchAction = 'auto';
+    if (pixiApp.current.renderer.view.style) {
+      pixiApp.current.renderer.view.style.touchAction = 'auto';
+    }
   }
 
   return { pixiApp };

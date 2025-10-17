@@ -1,4 +1,5 @@
-import { ForwardedRef, forwardRef, ReactNode } from 'react';
+import { forwardRef } from 'react';
+import type { ForwardedRef, ForwardRefExoticComponent, PropsWithChildren, ReactNode, RefAttributes } from 'react';
 
 import { makeStyles, createStyles } from '@equinor/fusion-react-styles';
 
@@ -18,11 +19,11 @@ const useStyles = makeStyles(() =>
   }),
 );
 
-const PopoverContainer: React.ForwardRefExoticComponent<
+const PopoverContainer: ForwardRefExoticComponent<
   {
     children: ReactNode;
-  } & React.RefAttributes<HTMLDivElement>
-> = forwardRef((props: { readonly children: ReactNode }, ref: ForwardedRef<HTMLDivElement>) => {
+  } & RefAttributes<HTMLDivElement>
+> = forwardRef((props: PropsWithChildren<{ readonly children: ReactNode }>, ref: ForwardedRef<HTMLDivElement>) => {
   const { children } = props;
   const styles = useStyles();
   return (

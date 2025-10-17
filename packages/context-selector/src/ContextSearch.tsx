@@ -1,4 +1,12 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import {
+  type PropsWithChildren,
+  type ReactElement,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import { clsx } from '@equinor/fusion-react-styles';
 import { ContextSelector } from './ContextSelector';
 import type { ContextSelectorProps, ContextResultItem, ContextSelectEvent } from './types';
@@ -42,7 +50,7 @@ export const ContextSearch = ({
   previewItem,
   onClearContext,
   ...props
-}: React.PropsWithChildren<ContextSearchProps>): JSX.Element => {
+}: PropsWithChildren<ContextSearchProps>): ReactElement => {
   const initialItem = previewItem ?? defaultInitialItem;
   const elementRef = useRef<HTMLDivElement | null>(null);
   const [ctx, setCtx] = useState<ContextResultItem | null>(initialItem);
@@ -61,7 +69,6 @@ export const ContextSearch = ({
   }, [gettingCtx]);
 
   const keyUpGettingCtx = useCallback(
-    // biome-ignore lint/suspicious/noExplicitAny: <explanation>
     (e: any) => {
       if (e.key === 'Enter' || e.key === ' ') {
         toggleGettingCtx();
@@ -86,7 +93,6 @@ export const ContextSearch = ({
 
   /* Clear context button handler */
   const handleClearContext = useCallback(
-    // biome-ignore lint/suspicious/noExplicitAny: <explanation>
     (event: any) => {
       setCtx(defaultInitialItem);
 
@@ -182,15 +188,17 @@ export const ContextSearch = ({
   return (
     <div ref={elementRef} className={styles.root}>
       <div className={clsx(gettingCtx && styles.hidden)}>
-        {/* eslint-disable-next-line jsx-a11y/no-static-element-interactions, jsx-a11y/no-static-element-interactions */}
+        {/** biome-ignore lint/a11y/noStaticElementInteractions: will fix later */}
         <div className={styles.context} onKeyUp={() => handleKeyup}>
+          {/* @ts-expect-error fwc-icon is a custom element */}
           <div className={styles.icon}>{ctx?.graphic && <fwc-icon icon={ctx.graphic} />}</div>
+          {/** biome-ignore lint/a11y/noStaticElementInteractions: will fix later */}
           <div
-            // biome-ignore lint/a11y/noNoninteractiveTabindex: <explanation>
+            // biome-ignore lint/a11y/noNoninteractiveTabindex: will fix later
             tabIndex={0}
             className={styles.titleBlock}
             onClick={toggleGettingCtx}
-            onKeyDown={keyUpGettingCtx}
+            onKeyDown={(e) => keyUpGettingCtx(e)}
           >
             <span className={styles.title}>{ctx?.title}</span>
             <span className={styles.subTitle}>{ctx?.subTitle}</span>
@@ -198,6 +206,7 @@ export const ContextSearch = ({
           <div className={styles.icon}>
             {ctx && !ctx.isDisabled && (
               <button type="button" className={clsx(styles.closeBtn)} onClick={handleClearContext}>
+                {/* @ts-expect-error fwc-icon is a custom element */}
                 <fwc-icon icon="close" />
               </button>
             )}

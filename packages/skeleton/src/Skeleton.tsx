@@ -1,3 +1,4 @@
+import type { PropsWithChildren } from 'react';
 import { type ComponentProps, createComponent } from '@equinor/fusion-react-utils';
 
 import HTMLSkeletonCustomElement, {
@@ -6,7 +7,7 @@ import HTMLSkeletonCustomElement, {
   SkeletonSize,
 } from '@equinor/fusion-wc-skeleton';
 
-type ElementProps = React.PropsWithChildren<
+type ElementProps = PropsWithChildren<
   Partial<Pick<HTMLSkeletonCustomElement, 'size' | 'variant' | 'inactive' | 'fluid'>>
 >;
 

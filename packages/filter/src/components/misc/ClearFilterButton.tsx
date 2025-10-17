@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import { useCallback, type ReactElement, type ForwardedRef, type PropsWithChildren } from 'react';
 
 import { useForwardRef } from '@equinor/fusion-react-utils';
 import { useObservableSubscription } from '@equinor/fusion-observable/react';
@@ -6,15 +6,15 @@ import { Button, type ButtonProps } from '@equinor/eds-core-react';
 
 import { useClearFilter } from '../../hooks/useClearFilter';
 
-export type ClearFilterButtonProps = React.PropsWithChildren<
-  Omit<ButtonProps, 'onClick'> & { ref?: React.ForwardedRef<HTMLButtonElement> }
+export type ClearFilterButtonProps = PropsWithChildren<
+  Omit<ButtonProps, 'onClick'> & { ref?: ForwardedRef<HTMLButtonElement> }
 >;
 
 /**
  * Component for resetting filter values.
  * uses the `useClearFilter` hook
  */
-export const ClearFilterButton = (props: ClearFilterButtonProps): JSX.Element => {
+export const ClearFilterButton = (props: ClearFilterButtonProps): ReactElement => {
   const { children, ...args } = props;
   const { clear, changed$ } = useClearFilter();
   const ref = useForwardRef<HTMLButtonElement>(props.ref);
@@ -23,8 +23,10 @@ export const ClearFilterButton = (props: ClearFilterButtonProps): JSX.Element =>
   useObservableSubscription(
     changed$,
     useCallback(
-      (changed: any) => {
-        ref.current && (ref.current.disabled = !Object.keys(changed).length);
+      (changed: Record<string, unknown>) => {
+        if (ref.current) {
+          ref.current.disabled = !Object.keys(changed).length;
+        }
       },
       [ref],
     ),

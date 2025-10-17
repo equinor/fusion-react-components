@@ -1,5 +1,4 @@
-import type React from 'react';
-import { useCallback } from 'react';
+import { useCallback, type ReactElement, type HTMLAttributes, type FormEvent } from 'react';
 
 import { Checkbox } from '@equinor/eds-core-react';
 
@@ -7,7 +6,7 @@ import { clsx } from '@equinor/fusion-react-styles';
 import { useStyles } from './CheckboxFilterOption.style';
 import type { CheckboxOption } from './types';
 
-export type CheckboxFilterOptionProps = JSX.IntrinsicElements['div'] &
+export type CheckboxFilterOptionProps = Partial<HTMLAttributes<HTMLDivElement>> &
   Omit<CheckboxOption, 'totalCount'> & {
     readonly name: string;
     readonly checked?: boolean;
@@ -16,7 +15,7 @@ export type CheckboxFilterOptionProps = JSX.IntrinsicElements['div'] &
     readonly onOptionChange: (item: { name: string; selected?: boolean }) => void;
   };
 
-export const CheckboxFilterOption = (props: CheckboxFilterOptionProps): JSX.Element => {
+export const CheckboxFilterOption = (props: CheckboxFilterOptionProps): ReactElement => {
   const {
     name,
     label,
@@ -30,15 +29,13 @@ export const CheckboxFilterOption = (props: CheckboxFilterOptionProps): JSX.Elem
     ...args
   } = props;
   const onCheckboxInput = useCallback(
-    ({ currentTarget: { name, checked } }: React.FormEvent<HTMLInputElement>) => {
+    ({ currentTarget: { name, checked } }: FormEvent<HTMLInputElement>) => {
       return onOptionChange({ name, selected: checked });
     },
     [onOptionChange],
   );
   const styles = useStyles();
   return (
-    // TODO
-    // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
     <div
       {...args}
       className={clsx(className, styles.root, inactive && styles.inactive, hide && styles.hide)}

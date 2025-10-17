@@ -1,5 +1,6 @@
 import { type ReactElement, type ReactNode, Children } from 'react';
 import type { StepKey } from './Stepper';
+import type { StepProps } from './Step';
 
 type NextAvailableStep = {
   step: StepKey | undefined;
@@ -14,11 +15,12 @@ type PrevAvailableStep = {
 /** Map out all children as an array of objects that have key, position, disabled and done */
 export const getSteps = (children: ReactNode): StepKey[] => {
   return Children.toArray(children).map((child, i) => {
+    const { props } = child as ReactElement<StepProps>;
     return {
-      key: (child as ReactElement).props.stepKey,
+      key: props.stepKey,
       position: i + 1,
-      disabled: (child as ReactElement).props.disabled ?? false,
-      done: (child as ReactElement).props.done ?? false,
+      disabled: props.disabled ?? false,
+      done: props.done ?? false,
     };
   });
 };

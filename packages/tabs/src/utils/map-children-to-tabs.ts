@@ -8,13 +8,13 @@ import { Tab } from '../components/Tab';
  * @property {string} title - The title of the tab.
  * @property {string} id - The id of the tab.
  * @property {ReactNode} [component] - An optional component to be rendered within the tab.
- * @property {React.ReactNode} children - The content to be displayed within the tab.
+ * @property {ReactNode} children - The content to be displayed within the tab.
  */
 export type TabObject = {
   id: string;
   title: string;
   component?: ReactNode;
-  children: React.ReactNode;
+  children: ReactNode;
   right: boolean;
 };
 
@@ -35,25 +35,25 @@ type TabMap = {
  * @param children - The React children elements to process.
  * @returns An object containing two arrays of tab objects, one for the left side and one for the right side.
  */
-export function mapChildrenToTabs(children: React.ReactNode): TabMap {
+export function mapChildrenToTabs(children: ReactNode): TabMap {
   const left = [] as TabObject[];
   const right = [] as TabObject[];
 
   const processChild = (child: ReactNode) => {
     if (!isValidElement(child)) return;
-
-    if (child.type === Fragment) {
-      Children.forEach(child.props.children, processChild);
+    const props = child.props as TabObject;
+    if (child.type === Fragment && props.children) {
+      Children.forEach(props.children, processChild);
     } else if (child.type === Tab) {
       const item: TabObject = {
-        id: child.props.id,
-        title: child.props.title,
-        component: child.props.component,
-        children: child.props.children,
-        right: child.props.right || false,
+        id: props.id,
+        title: props.title,
+        component: props.component,
+        children: props.children,
+        right: props.right || false,
       };
 
-      child.props.right ? right.push(item) : left.push(item);
+      props.right ? right.push(item) : left.push(item);
     }
   };
 
