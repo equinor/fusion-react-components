@@ -1,5 +1,28 @@
 # Change Log
 
+## 1.0.0
+
+### Major Changes
+
+- fbc8188: React 19 compatibility fixes
+  - Fixed TypeScript errors related to React 19 type changes
+  - Updated `useRef` calls to provide initial values when type is explicitly specified
+  - Fixed `HTMLDivElement` type usage to use `Partial<HTMLAttributes<HTMLDivElement>>`
+  - Fixed `useFilterSelection` observable type handling for `Set<T>` return type
+  - Added proper type annotations for web components
+  - Updated component prop types to be compatible with React 19's stricter type checking
+
+  Reference https://github.com/equinor/fusion/issues/696
+
+  Devops: AB#65644
+
+  Thanks to @AndreasPrestHammer for reporting this issue!
+
+### Patch Changes
+
+- Updated dependencies [fbc8188]
+  - @equinor/fusion-react-utils@3.0.0
+
 ## 0.4.5
 
 ### Patch Changes
