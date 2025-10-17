@@ -1,5 +1,45 @@
 # Change Log
 
+## 5.0.0
+
+### Major Changes
+
+- fbc8188: React 19 compatibility fixes
+  - Fixed TypeScript errors related to React 19 type changes
+  - Updated `useRef` calls to provide initial values when type is explicitly specified
+  - Fixed `HTMLDivElement` type usage to use `Partial<HTMLAttributes<HTMLDivElement>>`
+  - Fixed `useFilterSelection` observable type handling for `Set<T>` return type
+  - Added proper type annotations for web components
+  - Updated component prop types to be compatible with React 19's stricter type checking
+
+  Reference https://github.com/equinor/fusion/issues/696
+
+  Devops: AB#65644
+
+  Thanks to @AndreasPrestHammer for reporting this issue!
+
+### Patch Changes
+
+- Updated dependencies [fbc8188]
+  - @equinor/fusion-react-ag-grid-person-cell@4.0.0
+  - @equinor/fusion-react-ag-grid-utils@33.0.0
+  - @equinor/fusion-react-context-selector@2.0.0
+  - @equinor/fusion-react-date@1.0.0
+  - @equinor/fusion-react-errorboundary@2.0.0
+  - @equinor/fusion-react-filter@2.0.0
+  - @equinor/fusion-react-hanging-garden@2.0.0
+  - @equinor/fusion-react-list@1.0.0
+  - @equinor/fusion-react-markdown@1.0.0
+  - @equinor/fusion-react-person@1.0.0
+  - @equinor/fusion-react-ripple@1.0.0
+  - @equinor/fusion-react-searchable-dropdown@2.0.0
+  - @equinor/fusion-react-side-sheet@2.0.0
+  - @equinor/fusion-react-skeleton@1.0.0
+  - @equinor/fusion-react-stepper@3.0.0
+  - @equinor/fusion-react-styles@1.0.0
+  - @equinor/fusion-react-tabs@2.0.0
+  - @equinor/fusion-react-textarea@1.0.0
+
 ## 4.2.17
 
 ### Patch Changes
