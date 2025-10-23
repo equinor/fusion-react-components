@@ -1,5 +1,13 @@
 # Change Log
 
+## 3.0.1
+
+### Patch Changes
+
+- 63af0ef: fix: remove unnecessary dependencies from useEffect in Step component
+
+  This fixes potential infinite re-renders by removing handleChange, stepKey, stepKeys, and isCurrent from the useEffect dependency array, keeping only the essential 'done' dependency.
+
 ## 3.0.0
 
 ### Major Changes
