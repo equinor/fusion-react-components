@@ -146,7 +146,7 @@ export const Step = ({
     if (isCurrent) {
       handleChange(stepKey, stepKeys);
     }
-  }, [done, handleChange, stepKey, stepKeys, isCurrent]);
+  }, [done]);
 
   useEffect(() => {
     if (stepPaneRef && stepRef.current && stepPaneRef.current && isCurrent) {
