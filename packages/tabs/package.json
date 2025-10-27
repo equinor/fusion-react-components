@@ -61,7 +61,7 @@
     "react-dom": "^19.2.0",
     "styled-components": "^6.1.16",
     "typescript": "^5.8.3",
-    "vitest": "^3.2.4"
+    "vitest": "^4.0.3"
   },
   "peerDependencies": {
     "@equinor/eds-core-react": "^0.48.0",
