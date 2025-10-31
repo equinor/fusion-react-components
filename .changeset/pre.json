@@ -1,0 +1,27 @@
+{
+  "mode": "pre",
+  "tag": "preview",
+  "initialVersions": {
+    "@equinor/fusion-react-ag-grid-person-cell": "4.0.0",
+    "@equinor/fusion-react-ag-grid-utils": "33.0.0",
+    "@equinor/fusion-react-context-selector": "2.0.0",
+    "@equinor/fusion-react-date": "1.0.0",
+    "@equinor/fusion-react-errorboundary": "2.0.0",
+    "@equinor/fusion-react-filter": "2.0.0",
+    "@equinor/fusion-react-hanging-garden": "2.0.0",
+    "@equinor/fusion-react-list": "1.0.0",
+    "@equinor/fusion-react-markdown": "1.0.0",
+    "@equinor/fusion-react-person": "1.0.0",
+    "@equinor/fusion-react-ripple": "1.0.0",
+    "@equinor/fusion-react-searchable-dropdown": "2.0.0",
+    "@equinor/fusion-react-side-sheet": "2.0.0",
+    "@equinor/fusion-react-skeleton": "1.0.0",
+    "@equinor/fusion-react-stepper": "3.0.1",
+    "@equinor/fusion-react-styles": "1.0.0",
+    "@equinor/fusion-react-tabs": "2.0.0",
+    "@equinor/fusion-react-textarea": "1.0.0",
+    "@equinor/fusion-react-utils": "3.0.0",
+    "@equinor/fusion-react-components-stories": "5.0.0"
+  },
+  "changesets": []
+}
