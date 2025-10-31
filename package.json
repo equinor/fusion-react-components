@@ -11,7 +11,7 @@
     "yarn": "please-use-pnpm",
     "pnpm": ">=9"
   },
-  "packageManager": "pnpm@9.1.0",
+  "packageManager": "pnpm@10.20.0",
   "scripts": {
     "test": "lerna run --no-bail test",
     "start": "pnpm run storybook",
