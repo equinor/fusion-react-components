@@ -30,7 +30,9 @@
     "build": "tsc -b",
     "lint": "biome lint",
     "format": "biome format",
-    "prepack": "npm run build"
+    "prepack": "npm run build",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "bugs": {
     "url": "https://github.com/equinor/fusion-react-components/issues"
@@ -38,12 +40,25 @@
   "dependencies": {
     "@equinor/fusion-wc-theme": "^1.1.2",
     "@equinor/fusion-web-theme": "^0.1.10",
-    "@material-ui/styles": "^4.11.4",
-    "clsx": "^2.1.0"
+    "clsx": "^2.1.0",
+    "hoist-non-react-statics": "^3.3.2",
+    "jss": "^10.5.1",
+    "jss-plugin-camel-case": "^10.5.1",
+    "jss-plugin-default-unit": "^10.5.1",
+    "jss-plugin-global": "^10.5.1",
+    "jss-plugin-nested": "^10.5.1",
+    "jss-plugin-props-sort": "^10.5.1",
+    "jss-plugin-rule-value-function": "^10.5.1",
+    "jss-plugin-vendor-prefixer": "^10.5.1"
   },
   "devDependencies": {
+    "@testing-library/react": "^16.3.0",
+    "@testing-library/react-hooks": "^8.0.1",
     "@types/react": "^19.2.2",
-    "react": "^19.2.0"
+    "@vitest/coverage-v8": "^4.0.6",
+    "jsdom": "^25.0.1",
+    "react": "^19.2.0",
+    "vitest": "^4.0.6"
   },
   "peerDependencies": {
     "react": "^18 || ^19"

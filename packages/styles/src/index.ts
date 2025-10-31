@@ -2,10 +2,11 @@ export * from './make-styles';
 export * from './create-styles';
 export * from './theme';
 
-export { withStyles, Styles, createGenerateClassName, ClassNameMap } from '@material-ui/styles';
+export { createGenerateClassName } from './utils/class-name-generator';
+export type { ClassNameMap } from './make-styles';
 
 export { default as clsx } from 'clsx';
 export { StylesProvider } from './StyleProvider';
-export { ThemeProvider } from './ThemeProvider';
+export { ThemeProvider, useTheme } from './ThemeProvider';
 
-export type { StyleRules, StyleCSSProperties } from './types';
+export type { StyleRules, StyleCSSProperties, Styles } from './types';
