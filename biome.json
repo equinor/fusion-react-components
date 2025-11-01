@@ -7,7 +7,7 @@
   },
   "files": {
     "ignoreUnknown": false,
-    "includes": ["**", "!storybook", "!packages/hanging-garden"]
+    "includes": ["**", "!storybook", "!packages/hanging-garden", "!.changeset"]
   },
   "formatter": {
     "enabled": true,

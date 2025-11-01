@@ -1,5 +1,12 @@
 # Change Log
 
+## 2.0.1-preview.0
+
+### Patch Changes
+
+- Updated dependencies [07a06d2]
+  - @equinor/fusion-react-styles@2.0.0-preview.0
+
 ## 2.0.0
 
 ### Major Changes
