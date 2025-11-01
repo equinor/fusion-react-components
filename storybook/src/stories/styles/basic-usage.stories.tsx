@@ -5,6 +5,7 @@ import {
   ThemeProvider,
   makeStyles,
   theme,
+  useTheme,
 } from '@equinor/fusion-react-styles';
 
 const meta: Meta = {
@@ -137,21 +138,20 @@ export const DynamicStyles: StoryObj = {
   },
 };
 
-// Theme-based styles
+// Theme-based styles using makeStyles with theme function
 const themeStyles = (themeValue: typeof theme) => ({
   root: {
-    color: '#000',
-    padding: '16px',
-    backgroundColor: '#fff',
+    color: themeValue.colors.text.static_icons__default.css,
+    padding: themeValue.spacing.comfortable.medium.css,
+    backgroundColor: themeValue.colors.ui.background__default.css,
     borderRadius: '8px',
-    border: '1px solid #ccc',
-    // Theme values can be accessed here - simplified for story
-    // In real usage: themeValue.colors.text.primary.getAttribute('color')
+    border: `1px solid ${themeValue.colors.ui.background__medium.css}`,
   },
   title: {
-    fontSize: '18px',
-    fontWeight: 'bold',
-    marginBottom: '8px',
+    fontSize: themeValue.typography.heading.h4.style.fontSize,
+    fontWeight: themeValue.typography.heading.h4.style.fontWeight,
+    marginBottom: themeValue.spacing.comfortable.small.css,
+    color: themeValue.colors.text.static_icons__default.css,
   },
 });
 
@@ -172,6 +172,55 @@ const ThemeComponent = () => {
   );
 };
 
+// Component using useTheme hook to access theme directly
+const UseThemeComponent = () => {
+  const currentTheme = useTheme();
+  
+  if (!currentTheme) {
+    return (
+      <div style={{ padding: '16px', border: '2px solid red', borderRadius: '8px' }}>
+        <strong>No theme available</strong> - ThemeProvider is not wrapping this component.
+      </div>
+    );
+  }
+
+  return (
+    <div
+      style={{
+        padding: currentTheme.spacing.comfortable.medium.css,
+        backgroundColor: currentTheme.colors.ui.background__default.css,
+        borderRadius: '8px',
+        border: `1px solid ${currentTheme.colors.ui.background__medium.css}`,
+      }}
+    >
+      <h3
+        style={{
+          fontSize: currentTheme.typography.heading.h4.style.fontSize,
+          fontWeight: currentTheme.typography.heading.h4.style.fontWeight,
+          marginBottom: currentTheme.spacing.comfortable.small.css,
+          color: currentTheme.colors.text.static_icons__default.css,
+        }}
+      >
+        Using useTheme Hook
+      </h3>
+      <p style={{ color: currentTheme.colors.text.static_icons__secondary.css }}>
+        This component accesses theme directly using the useTheme hook.
+      </p>
+      <p
+        style={{
+          fontSize: currentTheme.typography.paragraph.caption.style.fontSize,
+          color: currentTheme.colors.text.static_icons__tertiary.css,
+          marginTop: currentTheme.spacing.comfortable.small.css,
+        }}
+      >
+        Theme is available: {currentTheme ? '✓' : '✗'}
+        <br />
+        Theme colors, spacing, and typography are accessible via the theme object.
+      </p>
+    </div>
+  );
+};
+
 export const ThemeBasedStyles: StoryObj = {
   render: () => (
     <ThemeProvider theme={theme}>
@@ -181,6 +230,21 @@ export const ThemeBasedStyles: StoryObj = {
           <p>WHAT: Styles access theme values from ThemeProvider.</p>
           <p>WHY: Enables design system theming - components automatically use theme colors/spacing.</p>
           <ThemeComponent />
+        </div>
+      </StylesProvider>
+    </ThemeProvider>
+  ),
+};
+
+export const UseThemeHook: StoryObj = {
+  render: () => (
+    <ThemeProvider theme={theme}>
+      <StylesProvider>
+        <div style={{ padding: '24px' }}>
+          <h2>useTheme Hook</h2>
+          <p>WHAT: Hook to access theme directly from ThemeProvider context.</p>
+          <p>WHY: Components can access theme values without prop drilling or style functions.</p>
+          <UseThemeComponent />
         </div>
       </StylesProvider>
     </ThemeProvider>
