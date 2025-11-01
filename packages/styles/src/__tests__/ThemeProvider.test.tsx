@@ -15,14 +15,19 @@ import { render, screen, renderHook } from '@testing-library/react';
 import { useContext } from 'react';
 import { ThemeProvider, useTheme } from '../ThemeProvider';
 import { ThemeContext } from '../utils/contexts';
+import type { FusionTheme } from '../theme';
+import { createTheme, theme } from '../theme';
+import { makeStyles } from '../make-styles';
+import { ColorStyleProperty } from '@equinor/fusion-web-theme/dist/styles/colors';
 
 // Mock theme - simulates Fusion design system theme
-const mockTheme = {
+// Using createTheme to extend FusionTheme with custom colors
+const mockTheme = createTheme({
   colors: {
     primary: 'blue',
     secondary: 'red',
   },
-};
+});
 
 describe('ThemeProvider - Theme distribution', () => {
   it('should render child components normally', () => {
@@ -83,16 +88,27 @@ describe('ThemeProvider - Theme distribution', () => {
     // WHY: Enables theme composition - extend or override parent theme
     // EXAMPLE: Parent provides base theme, child extends it with custom colors
 
-    const themeFunction = (outerTheme: unknown) => {
-      return { ...mockTheme, outer: outerTheme };
+    const themeFunction = (outerTheme: unknown): FusionTheme => {
+      return { ...mockTheme, outer: outerTheme } as unknown as FusionTheme;
     };
 
+    const useStyles = makeStyles(
+      (theme: FusionTheme) => {
+        // Verify theme function was called and theme is available
+        expect(theme).toBeDefined();
+        expect(theme.outer).toBeDefined();
+        return {
+          root: {
+            color: 'blue',
+          },
+        };
+      },
+      { name: 'ThemeFunctionTest' },
+    );
+
     const TestComponent = () => {
-      const theme = useContext(ThemeContext);
-      // Verify theme function was called and returned theme
-      expect(theme).toBeDefined();
-      expect((theme as { outer: unknown }).outer).toBeDefined();
-      return <div>Test</div>;
+      const classes = useStyles({});
+      return <div className={classes.root}>Test</div>;
     };
 
     render(
@@ -107,14 +123,49 @@ describe('ThemeProvider - Theme distribution', () => {
     // WHY: Enables theme composition - child themes can extend parent
     // EXAMPLE: App theme defines colors, module theme extends with module-specific colors
 
-    const outerTheme = { outer: 'theme' };
-    const themeFunction = (outer: unknown) => {
+    const background__danger = new ColorStyleProperty('background__danger', {
+      hex: '#000000',
+      hsla: 'hsla(0, 0%, 0%, 1)',
+      rgba: 'rgba(0, 0, 0, 1)',
+    });
+
+    const outerTheme = createTheme();
+
+    const themeFunction = (providedTheme: FusionTheme | null): FusionTheme => {
       // Verify outer theme is passed correctly
-      expect(outer).toBe(outerTheme);
-      return { ...mockTheme, outer };
+      expect(providedTheme).toBe(outerTheme);
+      expect(providedTheme?.colors.ui.background__danger.value.hex).toBe(
+        theme?.colors.ui.background__danger.value.hex,
+      );
+      expect(providedTheme?.colors.ui.background__danger.value.hsla).toBe(
+        theme?.colors.ui.background__danger.value.hsla,
+      );
+      expect(providedTheme?.colors.ui.background__danger.value.rgba).toBe(
+        theme?.colors.ui.background__danger.value.rgba,
+      );
+
+      // Child theme extends outer theme with additional colors
+      // Pass outer theme as baseTheme to merge with outer theme instead of default theme
+      return createTheme(
+        {
+          colors: {
+            ui: {
+              background__danger: background__danger,
+            },
+          },
+        },
+        providedTheme ?? undefined,
+      );
     };
 
     const TestComponent = () => {
+      const componentTheme = useTheme();
+      // Verify the merged theme is available
+      expect(componentTheme).toBeDefined();
+      // Verify the custom background__danger was merged correctly
+      expect(componentTheme?.colors.ui.background__danger.css).toBe(background__danger.css);
+      // Verify other UI colors from base theme are still present
+      expect(componentTheme?.colors.ui.background__default).toBeDefined();
       return <div>Test</div>;
     };
 
@@ -188,7 +239,12 @@ describe('useTheme hook - Accessing theme from components', () => {
     // WHY: Type safety when accessing theme properties
     // EXAMPLE: useTheme<MyTheme>() gives typed access to theme.colors.primary
 
-    type CustomTheme = typeof mockTheme;
+    type CustomTheme = FusionTheme & {
+      colors: {
+        primary: string;
+        secondary: string;
+      };
+    };
 
     const wrapper = ({ children }: { children: React.ReactNode }) => (
       <ThemeProvider theme={mockTheme}>{children}</ThemeProvider>
@@ -198,8 +254,9 @@ describe('useTheme hook - Accessing theme from components', () => {
 
     // Verify typed theme is returned
     expect(result.current).toBe(mockTheme);
-    // TypeScript now knows theme structure
-    expect(result.current?.colors.primary).toBe('blue');
+    // TypeScript now knows theme structure - cast to access test-specific properties
+    const theme = result.current as unknown as { colors?: { primary?: string } };
+    expect(theme.colors?.primary).toBe('blue');
   });
 
   it('should update when theme changes', () => {
@@ -207,7 +264,11 @@ describe('useTheme hook - Accessing theme from components', () => {
     // WHY: Supports dynamic theming (e.g., switching light/dark mode)
     // EXAMPLE: User toggles theme, all components get new theme
 
-    const newTheme = { colors: { primary: 'green' } };
+    const newTheme = createTheme({
+      colors: {
+        primary: 'green',
+      },
+    });
 
     const wrapper = ({ children }: { children: React.ReactNode }) => (
       <ThemeProvider theme={newTheme}>{children}</ThemeProvider>

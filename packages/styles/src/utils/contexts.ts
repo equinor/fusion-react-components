@@ -2,14 +2,16 @@ import { createContext } from 'react';
 import type { Jss } from 'jss';
 import { defaultJss } from './jss-setup';
 import { defaultGenerateClassName } from './class-name-generator';
+import type { FusionTheme } from '../theme';
 
 /**
  * Theme context for providing theme values throughout the component tree
  *
  * This context is provided by ThemeProvider and consumed by makeStyles hooks.
  * It allows components to access the current theme without prop drilling.
+ * The context supports extended themes that extend FusionTheme.
  */
-export const ThemeContext = createContext<unknown>(null);
+export const ThemeContext = createContext<FusionTheme | null>(null);
 
 /**
  * Styles context value interface

@@ -22,7 +22,7 @@ export interface MakeStylesOptions {
  * This function returns a hook that generates CSS class names from style definitions.
  * Styles can be static objects or functions that receive theme/props and return styles.
  *
- * @template Theme - The theme type (defaults to FusionTheme)
+ * @template Theme - The theme type (defaults to FusionTheme, but can be extended)
  * @template Props - The props type for dynamic styles
  * @template ClassKey - The class key type (auto-inferred from styles)
  *
@@ -59,7 +59,7 @@ export interface MakeStylesOptions {
  * ```
  */
 export const makeStyles = <
-  Theme = FusionTheme,
+  Theme extends FusionTheme = FusionTheme,
   Props extends Record<string, unknown> = Record<string, unknown>,
   ClassKey extends string = string,
 >(

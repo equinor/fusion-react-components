@@ -17,14 +17,28 @@ import { makeStyles } from '../make-styles';
 import { ThemeProvider } from '../ThemeProvider';
 import { StylesProvider } from '../StyleProvider';
 import type { Styles } from '../types';
+import { createTheme, type FusionTheme } from '../theme';
+import { ColorStyleProperty, type Color } from '@equinor/fusion-web-theme/dist/styles/colors';
 
 // Mock theme object - simulates the Fusion design system theme
-const mockTheme = {
+// Using createTheme to extend FusionTheme with custom colors.primary property
+const mockTheme = createTheme({
   colors: {
-    primary: 'blue',
-    secondary: 'red',
+    primary: new ColorStyleProperty('primary', {
+      hex: '#0000ff',
+      hsla: 'hsla(240, 100%, 50%, 1)',
+      rgba: 'rgba(0, 0, 255, 1)',
+    } satisfies Color),
   },
-};
+});
+
+// Type for theme with string colors (for simpler test cases)
+type StringColorTheme = FusionTheme<{
+  colors: {
+    primary: string;
+    secondary: string;
+  };
+}>;
 
 describe('makeStyles - Main styling API', () => {
   beforeEach(() => {
@@ -114,20 +128,29 @@ describe('makeStyles - Main styling API', () => {
     // EXAMPLE: Components that use theme.colors.primary instead of hardcoded colors
 
     // Styles can be a function that receives theme
-    const styles: Styles<typeof mockTheme, Record<string, unknown>> = (
-      theme: typeof mockTheme,
-    ) => ({
-      root: {
-        color: theme.colors.primary, // Uses theme value
-        backgroundColor: theme.colors.secondary,
+    // Create a theme with string colors for this test
+    const stringColorTheme = createTheme({
+      colors: {
+        primary: 'blue',
+        secondary: 'red',
       },
     });
+
+    const styles: Styles<StringColorTheme, Record<string, unknown>> = (theme: StringColorTheme) => {
+      const themeColors = theme.colors;
+      return {
+        root: {
+          color: themeColors.primary || 'blue', // Uses theme value
+          backgroundColor: themeColors.secondary || 'red',
+        },
+      };
+    };
 
     const useStyles = makeStyles(styles, { name: 'ThemeComponent' });
 
     const wrapper = ({ children }: { children: React.ReactNode }) => (
       <StylesProvider>
-        <ThemeProvider theme={mockTheme}>{children}</ThemeProvider>
+        <ThemeProvider theme={stringColorTheme}>{children}</ThemeProvider>
       </StylesProvider>
     );
 

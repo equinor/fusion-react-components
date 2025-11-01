@@ -18,12 +18,13 @@ import { createGenerateClassName } from '../utils/class-name-generator';
 import { StylesContext } from '../utils/contexts';
 import { makeStyles } from '../make-styles';
 import { ThemeProvider } from '../ThemeProvider';
+import { createTheme } from '../theme';
 
-const mockTheme = {
+const mockTheme = createTheme({
   colors: {
     primary: 'blue',
   },
-};
+});
 
 beforeEach(() => {
   document.head.innerHTML = '';

@@ -60,8 +60,20 @@ export interface CreateCSSProperties<
 /**
  * Function type for prop-based style values
  *
- * @template Props - The props type
- * @template T - The return type
+ * Used to create dynamic styles that depend on component props.
+ * The function receives props and returns the computed style value.
+ *
+ * @template Props - The props type that will be passed to the function
+ * @template T - The return type of the function (typically a CSS property value)
+ *
+ * @example
+ * ```tsx
+ * const styles = {
+ *   root: (props: { color: string }) => ({
+ *     color: props.color // Dynamic color based on prop
+ *   })
+ * };
+ * ```
  */
 export type PropsFunc<Props extends Record<string, unknown>, T> = (props: Props) => T;
 
@@ -109,12 +121,59 @@ export type StyleRules<
   | PropsFunc<Props, CreateCSSProperties<Props>>
 >;
 
+/**
+ * Callback function type for theme-based style rules
+ *
+ * This function receives a theme object and returns style rules based on that theme.
+ * Used when styles need to access theme values (colors, spacing, typography, etc.).
+ *
+ * @template Theme - The theme type (defaults to FusionTheme)
+ * @template Props - The props type for dynamic styles
+ * @template ClassKey - The string literal type for class keys
+ *
+ * @param theme - The theme object from ThemeProvider
+ * @returns Style rules object based on the theme
+ *
+ * @example
+ * ```tsx
+ * const useStyles = makeStyles((theme) => ({
+ *   root: {
+ *     color: theme.colors.text.static_icons__primary.css,
+ *     padding: theme.spacing.comfortable.medium.css
+ *   }
+ * }));
+ * ```
+ */
 export type StyleRulesCallback<
   Theme,
   Props extends Record<string, unknown>,
   ClassKey extends string = string,
 > = (theme: Theme) => StyleRules<Props, ClassKey>;
 
+/**
+ * Union type for style definitions in makeStyles
+ *
+ * Styles can be either:
+ * - Static style rules (StyleRules)
+ * - A function that receives theme and returns style rules (StyleRulesCallback)
+ *
+ * @template Theme - The theme type (defaults to FusionTheme)
+ * @template Props - The props type for dynamic styles
+ * @template ClassKey - The string literal type for class keys
+ *
+ * @example
+ * ```tsx
+ * // Static styles
+ * const useStyles = makeStyles({
+ *   root: { color: 'red' }
+ * });
+ *
+ * // Theme-based styles
+ * const useStyles = makeStyles((theme) => ({
+ *   root: { color: theme.colors.text.static_icons__primary.css }
+ * }));
+ * ```
+ */
 export type Styles<Theme, Props extends Record<string, unknown>, ClassKey extends string = string> =
   | StyleRules<Props, ClassKey>
   | StyleRulesCallback<Theme, Props, ClassKey>;
