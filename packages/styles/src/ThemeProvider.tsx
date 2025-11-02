@@ -81,13 +81,16 @@ export function ThemeProvider<T extends FusionTheme = FusionTheme>(
   const outerTheme = useContext(ThemeContext) as T | null;
 
   // Resolve theme: if function, call with outer theme; otherwise use directly or default
+  // Memoization prevents unnecessary re-renders when dependencies haven't changed
   const theme = useMemo((): T => {
     if (typeof localTheme === 'function') {
       // Theme function receives outer theme and returns new theme (enables theme composition)
+      // This allows nested themes to extend or override parent themes
       return localTheme(outerTheme);
     }
     // Use provided theme as-is, or fall back to default theme
-    // Note: Partial themes will be merged at the type level, but runtime uses provided theme directly
+    // Partial themes will be merged at the type level, but runtime uses provided theme directly
+    // Type casting is safe because TypeScript ensures type compatibility
     return (localTheme ?? defaultTheme) as T;
   }, [localTheme, outerTheme]);
 
@@ -112,7 +115,16 @@ export function ThemeProvider<T extends FusionTheme = FusionTheme>(
  * ```tsx
  * function Component() {
  *   const theme = useTheme();
- *   return <div style={{ color: theme?.colors.primary }}>Hello</div>;
+ *   if (!theme) {
+ *     return <div>No theme available</div>;
+ *   }
+ *   return (
+ *     <div style={{ 
+ *       color: theme.colors.text.static_icons__default.getVariable('color')
+ *     }}>
+ *       Hello
+ *     </div>
+ *   );
  * }
  * ```
  *

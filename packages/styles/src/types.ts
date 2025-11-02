@@ -1,6 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-/* eslint-disable @typescript-eslint/ban-types */
-
 import type { CSSProperties as ReactCSSProperties } from 'react';
 import type { StyleProperty, CSSProperties } from '@equinor/fusion-web-theme';
 
@@ -138,10 +135,10 @@ export type StyleRules<
  * ```tsx
  * const useStyles = makeStyles((theme) => ({
  *   root: {
- *     color: theme.colors.text.static_icons__primary.css,
- *     padding: theme.spacing.comfortable.medium.css
+ *     color: theme.colors.text.static_icons__default.getVariable('color'),
+ *     padding: theme.spacing.comfortable.medium.getVariable('padding')
  *   }
- * }));
+ * }), { name: 'ThemedComponent' });
  * ```
  */
 export type StyleRulesCallback<
@@ -166,12 +163,14 @@ export type StyleRulesCallback<
  * // Static styles
  * const useStyles = makeStyles({
  *   root: { color: 'red' }
- * });
+ * }, { name: 'StaticComponent' });
  *
  * // Theme-based styles
  * const useStyles = makeStyles((theme) => ({
- *   root: { color: theme.colors.text.static_icons__primary.css }
- * }));
+ *   root: { 
+ *     color: theme.colors.text.static_icons__default.getVariable('color')
+ *   }
+ * }), { name: 'ThemedComponent' });
  * ```
  */
 export type Styles<Theme, Props extends Record<string, unknown>, ClassKey extends string = string> =

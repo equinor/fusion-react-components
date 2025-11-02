@@ -31,8 +31,7 @@ yarn add @equinor/fusion-react-styles
 ## Quick Start
 
 ```tsx
-import { makeStyles, ThemeProvider } from '@equinor/fusion-react-styles';
-import { theme } from '@equinor/fusion-react-styles';
+import { makeStyles, ThemeProvider, theme } from '@equinor/fusion-react-styles';
 
 const useStyles = makeStyles({
   root: {
@@ -43,7 +42,7 @@ const useStyles = makeStyles({
     fontSize: '24px',
     fontWeight: 'bold',
   },
-});
+}, { name: 'MyComponent' });
 
 function MyComponent() {
   const classes = useStyles();
@@ -68,7 +67,7 @@ function App() {
 
 ### 1. Creating Styles
 
-Use `makeStyles` to create a styles hook that generates CSS class names:
+Use `makeStyles` to create a styles hook that generates CSS class names. Always provide a `name` option for better performance and debugging:
 
 ```tsx
 import { makeStyles } from '@equinor/fusion-react-styles';
@@ -84,7 +83,7 @@ const useStyles = makeStyles({
       backgroundColor: 'darkblue',
     },
   },
-});
+}, { name: 'MyComponent' });
 ```
 
 ### 2. Using Styles in Components
@@ -105,7 +104,7 @@ function Component() {
 
 ### 3. Dynamic Styles with Props
 
-Styles can be functions that receive props:
+Styles can be functions that receive props. Pass props when calling the hook:
 
 ```tsx
 interface ComponentProps {
@@ -113,12 +112,12 @@ interface ComponentProps {
   size: 'small' | 'large';
 }
 
-const useStyles = makeStyles<ComponentProps>({
-  root: (props) => ({
+const useStyles = makeStyles({
+  root: (props: ComponentProps) => ({
     color: props.color,
     padding: props.size === 'large' ? '24px' : '12px',
   }),
-});
+}, { name: 'DynamicComponent' });
 
 function Component(props: ComponentProps) {
   const classes = useStyles(props);
@@ -131,53 +130,51 @@ function Component(props: ComponentProps) {
 Access theme values using theme functions. Theme properties are `StyleProperty` instances that require using the `getVariable()` method to extract CSS values:
 
 ```tsx
-import { makeStyles, createStyles } from '@equinor/fusion-react-styles';
+import { makeStyles, createStyles, theme } from '@equinor/fusion-react-styles';
 
-const useStyles = makeStyles((theme) =>
+const useStyles = makeStyles((themeValue) =>
   createStyles({
     root: {
-      color: theme.colors.text.static_icons__default.getVariable('color'),
-      padding: theme.spacing.comfortable.medium.getVariable('padding'),
-      ...theme.typography.paragraph.body_short.style,
+      color: themeValue.colors.text.static_icons__default.getVariable('color'),
+      padding: themeValue.spacing.comfortable.medium.getVariable('padding'),
+      backgroundColor: themeValue.colors.ui.background__default.getVariable('color'),
     },
     button: {
-      backgroundColor: theme.colors.ui.background__default.getVariable('color'),
+      backgroundColor: themeValue.colors.ui.background__default.getVariable('color'),
       '&:hover': {
-        backgroundColor: theme.colors.ui.background__hover.getVariable('color'),
+        backgroundColor: themeValue.colors.ui.background__hover.getVariable('color'),
       },
     },
-  })
+  }),
+  { name: 'ThemedComponent' }
 );
 ```
 
-**Important:** Theme properties (colors, spacing, etc.) are `StyleProperty` instances. Use `getVariable('color')` for colors and `getVariable('padding')` for spacing to get CSS variable strings.
-
-#### Working with Theme Properties
-
-The Fusion theme uses `StyleProperty` instances that require using the `getVariable()` method to extract CSS values:
-
+**Important:** Theme properties (colors, spacing, etc.) are `StyleProperty` instances:
 - **Colors**: Use `theme.colors.*.getVariable('color')` to get the color value as a CSS variable string
 - **Spacing**: Use `theme.spacing.*.getVariable('padding')` to get the spacing value as a CSS variable string  
 - **Typography**: Use `theme.typography.*.style.*` to access typography properties (e.g., `theme.typography.heading.h4.style.fontSize`)
 
 Example:
+
 ```tsx
-const useStyles = makeStyles((theme) =>
+const useStyles = makeStyles((themeValue) =>
   createStyles({
     container: {
       // Color property - use getVariable('color')
-      backgroundColor: theme.colors.ui.background__default.getVariable('color'),
-      color: theme.colors.text.static_icons__default.getVariable('color'),
+      backgroundColor: themeValue.colors.ui.background__default.getVariable('color'),
+      color: themeValue.colors.text.static_icons__default.getVariable('color'),
       
       // Spacing property - use getVariable('padding')
-      padding: theme.spacing.comfortable.medium.getVariable('padding'),
-      marginTop: theme.spacing.comfortable.small.getVariable('padding'),
+      padding: themeValue.spacing.comfortable.medium.getVariable('padding'),
+      marginTop: themeValue.spacing.comfortable.small.getVariable('padding'),
       
       // Typography - access style properties directly
-      fontSize: theme.typography.paragraph.body_short.style.fontSize,
-      fontWeight: theme.typography.heading.h4.style.fontWeight,
+      fontSize: themeValue.typography.paragraph.body_short.style.fontSize,
+      fontWeight: themeValue.typography.heading.h4.style.fontWeight,
     },
-  })
+  }),
+  { name: 'Container' }
 );
 ```
 
@@ -189,27 +186,31 @@ Creates a hook that generates CSS class names from style definitions.
 
 **Parameters:**
 - `stylesOrCreator`: Style rules object or a function `(theme) => StyleRules`
-- `options.name`: Optional name prefix for debugging (defaults to component name)
+- `options.name`: **Required** name prefix for debugging and performance. Without it, all instances share the same cache key, causing performance issues.
 
 **Returns:** A hook function that returns `Record<ClassKey, string>` where `ClassKey` is inferred from your style rules, providing type-safe access to class names.
 
-**Example:**
+**Examples:**
 
 ```tsx
 // Static styles
 const useStyles = makeStyles({
   root: { color: 'red' },
-});
+}, { name: 'MyComponent' });
 
 // Theme-based styles
 const useStyles = makeStyles((theme) => ({
-  root: { color: theme.colors.text.static_icons__default.getVariable('color') },
-}));
+  root: { 
+    color: theme.colors.text.static_icons__default.getVariable('color'),
+  },
+}), { name: 'ThemedComponent' });
 
-// With options
+// Dynamic styles with props
 const useStyles = makeStyles({
-  root: { color: 'red' },
-}, { name: 'MyComponent' });
+  root: (props: { color: string }) => ({
+    color: props.color,
+  }),
+}, { name: 'DynamicComponent' });
 ```
 
 ### `createStyles(styles?)`
@@ -221,9 +222,14 @@ import { createStyles, makeStyles } from '@equinor/fusion-react-styles';
 
 const useStyles = makeStyles((theme) =>
   createStyles({
-    root: { color: 'red' },
-    button: { padding: '10px' },
-  })
+    root: { 
+      color: theme.colors.text.static_icons__default.getVariable('color'),
+    },
+    button: { 
+      padding: theme.spacing.comfortable.medium.getVariable('padding'),
+    },
+  }),
+  { name: 'Component' }
 );
 
 function Component() {
@@ -285,8 +291,42 @@ function Component() {
     return <div>No theme available</div>;
   }
   
-  return <div style={{ color: theme.colors.text.static_icons__default.getVariable('color') }}>Hello</div>;
+  return (
+    <div style={{ 
+      color: theme.colors.text.static_icons__default.getVariable('color'),
+    }}>
+      Hello
+    </div>
+  );
 }
+```
+
+### `createTheme(customTheme?, baseTheme?)`
+
+Creates a new theme by merging custom properties with a base theme. Supports deep merging for nested properties like colors, typography, etc.
+
+```tsx
+import { createTheme, theme } from '@equinor/fusion-react-styles';
+import type { FusionTheme } from '@equinor/fusion-react-styles';
+
+interface ExtendedTheme extends FusionTheme {
+  app: {
+    borderRadius: string;
+    sidebarWidth: string;
+  };
+}
+
+const extendedTheme = createTheme<ExtendedTheme>({
+  app: {
+    borderRadius: '12px',
+    sidebarWidth: '300px',
+  },
+}, theme);
+
+// Use in ThemeProvider
+<ThemeProvider theme={extendedTheme}>
+  <App />
+</ThemeProvider>
 ```
 
 ### `StylesProvider`
@@ -297,7 +337,6 @@ Creates an isolated styling scope to prevent CSS class name collisions. Critical
 - `seed`: String prefix for class names (e.g., `"my-module"`)
 - `generateClassName`: Optional custom class name generator
 - `jss`: Optional custom JSS instance
-- `sheetsManager`: Optional custom sheets manager
 - `children`: React nodes
 
 **Example:**
@@ -314,6 +353,24 @@ import { StylesProvider } from '@equinor/fusion-react-styles';
 <StylesProvider seed="dynamic-module">
   <DynamicModule />
 </StylesProvider>
+```
+
+### `createGenerateClassName(seed?)`
+
+Creates a class name generator function with an optional seed prefix for isolation.
+
+```tsx
+import { createGenerateClassName, StylesProvider } from '@equinor/fusion-react-styles';
+
+const customGenerator = createGenerateClassName('my-app');
+
+function App() {
+  return (
+    <StylesProvider generateClassName={customGenerator}>
+      <YourApp />
+    </StylesProvider>
+  );
+}
 ```
 
 ### `clsx`
@@ -333,7 +390,7 @@ const className = clsx(classes.root, isActive && classes.active, 'custom-class')
 When building micro-frontends or dynamically loaded modules, use `StylesProvider` with unique seeds to prevent CSS collisions:
 
 ```tsx
-import { StylesProvider, makeStyles, ThemeProvider } from '@equinor/fusion-react-styles';
+import { StylesProvider, makeStyles, ThemeProvider, theme } from '@equinor/fusion-react-styles';
 
 // Shared styles
 const sharedStyles = {
@@ -381,6 +438,8 @@ Even though both modules use the same styles object, they'll generate different 
 Full support for CSS-in-JS nested selectors:
 
 ```tsx
+import { clsx } from '@equinor/fusion-react-styles';
+
 const useStyles = makeStyles({
   root: {
     color: 'blue',
@@ -395,7 +454,7 @@ const useStyles = makeStyles({
     },
   },
   disabled: {},
-});
+}, { name: 'NestedComponent' });
 
 function Component() {
   const classes = useStyles();
@@ -409,59 +468,67 @@ function Component() {
 }
 ```
 
-### Type-Safe Props
+### Type-Safe Props with Theme
 
-Use TypeScript to ensure type safety with dynamic styles:
+Use TypeScript to ensure type safety with dynamic styles and theme:
 
 ```tsx
+import { makeStyles, createStyles, theme } from '@equinor/fusion-react-styles';
+
 interface StyleProps {
   color: string;
-  background: keyof typeof theme.colors.ui;
 }
 
-const defaultStyleProps: StyleProps = {
-  background: 'background__default',
-  color: 'white',
-};
-
-const useStyles = makeStyles<StyleProps>((theme) =>
+const useStyles = makeStyles((themeValue) =>
   createStyles({
-    root: ({ background }: StyleProps) => ({
-      ...theme.typography.paragraph.body_short.style,
-      backgroundColor: theme.colors.ui[background].getVariable('color'),
+    root: (props: StyleProps) => ({
+      ...themeValue.typography.paragraph.body_short.style,
+      color: props.color,
+      padding: themeValue.spacing.comfortable.medium.getVariable('padding'),
+      backgroundColor: themeValue.colors.ui.background__default.getVariable('color'),
     }),
-    text: {
-      color: (props: StyleProps) => props.color,
-    },
   }),
   { name: 'MyComponent' }
 );
 
-function Component(props: Partial<StyleProps>) {
-  const classes = useStyles({ ...defaultStyleProps, ...props });
+function Component(props: StyleProps) {
+  const classes = useStyles(props);
   return <div className={classes.root}>Styled component</div>;
 }
 ```
 
-### Custom Class Name Generator
+### Extended Themes
 
-Create custom class name generators for advanced use cases:
+Extend the Fusion theme with custom properties:
 
 ```tsx
-import { createGenerateClassName, StylesProvider } from '@equinor/fusion-react-styles';
+import { createTheme, theme, makeStyles } from '@equinor/fusion-react-styles';
+import type { FusionTheme, StyleDefinition } from '@equinor/fusion-react-styles';
 
-const customGenerator = createGenerateClassName({
-  seed: 'my-app',
-  productionPrefix: 'app',
+interface AppTheme extends StyleDefinition {
+  app: {
+    borderRadius: string;
+    sidebarWidth: string;
+  };
+}
+
+const extendedTheme = createTheme<AppTheme>({
+  app: {
+    borderRadius: '12px',
+    sidebarWidth: '300px',
+  },
 });
 
-function App() {
-  return (
-    <StylesProvider generateClassName={customGenerator}>
-      <YourApp />
-    </StylesProvider>
-  );
-}
+// Use extended theme with makeStyles
+const useStyles = makeStyles((themeValue: typeof extendedTheme) =>
+  createStyles({
+    root: {
+      borderRadius: themeValue.app.borderRadius,
+      padding: themeValue.spacing.comfortable.medium.getVariable('padding'),
+    },
+  }),
+  { name: 'ExtendedThemeComponent' }
+);
 ```
 
 ## TypeScript Support
@@ -477,15 +544,20 @@ Type inference works automatically, and using `createStyles` provides even bette
 const useStyles = makeStyles({
   root: { color: 'red' },
   button: { padding: '10px' },
-});
+}, { name: 'Component' });
 const classes = useStyles(); // classes: Record<string, string>
 
 // With createStyles - ClassKey is inferred as literal union type
 const useStyles = makeStyles((theme) =>
   createStyles({
-    root: { color: theme.colors.text.static_icons__default.getVariable('color') },
-    button: { padding: theme.spacing.comfortable.medium.getVariable('padding') },
-  })
+    root: { 
+      color: theme.colors.text.static_icons__default.getVariable('color'),
+    },
+    button: { 
+      padding: theme.spacing.comfortable.medium.getVariable('padding'),
+    },
+  }),
+  { name: 'Component' }
 );
 const classes = useStyles(); // classes: Record<'root' | 'button', string>
 // TypeScript will error if you try to access classes.foo - it knows the exact keys!
@@ -493,14 +565,21 @@ const classes = useStyles(); // classes: Record<'root' | 'button', string>
 
 ### Theme Types
 
-```tsx
-import type { FusionTheme } from '@equinor/fusion-react-styles';
+The `FusionTheme` type can be extended with custom properties:
 
-const useStyles = makeStyles<Record<string, never>, FusionTheme>((theme) => ({
+```tsx
+import type { FusionTheme, StyleDefinition } from '@equinor/fusion-react-styles';
+
+interface MyAppTheme extends StyleDefinition {
+  customProperty: string;
+}
+
+const useStyles = makeStyles((theme: FusionTheme<MyAppTheme>) => ({
   root: {
-    color: theme.colors.text.static_icons__default.getVariable('color'), // Fully typed!
+    color: theme.colors.text.static_icons__default.getVariable('color'),
+    custom: theme.customProperty, // Fully typed!
   },
-}));
+}), { name: 'Component' });
 ```
 
 ### Type-Safe Class Access
@@ -519,6 +598,7 @@ This package provides a similar API to `@material-ui/styles` v4 but is built for
 2. **React 19 compatible** - No compatibility issues
 3. **Improved TypeScript types** - Better type inference
 4. **Scoped styles** - Enhanced `StylesProvider` with seed-based isolation
+5. **Required name option** - Always provide a `name` in `makeStyles` options for performance
 
 Most code should work with minimal changes:
 
@@ -528,11 +608,23 @@ import { makeStyles } from '@material-ui/styles';
 
 // After (this package)
 import { makeStyles } from '@equinor/fusion-react-styles';
+// Add name option to makeStyles
+const useStyles = makeStyles({ ... }, { name: 'ComponentName' });
 ```
 
 ## React 19 Compatibility
 
 This package is fully compatible with React 19 and has been tested extensively. The implementation uses React 19's new APIs and avoids deprecated patterns.
+
+## Performance Tips
+
+1. **Always provide a `name` option** - Without it, all instances share the same cache key, causing unnecessary re-renders and performance issues.
+
+2. **Use `createStyles` for better type safety** - While optional, it improves TypeScript inference and provides better autocompletion.
+
+3. **Memoize style objects when possible** - If creating styles inside components, consider moving them outside or memoizing them.
+
+4. **Leverage style caching** - The package automatically caches stylesheets based on styles, theme, and name, so identical style definitions are reused.
 
 ## Contributing
 

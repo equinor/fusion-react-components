@@ -10,10 +10,21 @@ export type { ClassNameMap };
  * Unique identifier for this module/runtime scope
  * Generated once when the module loads to ensure isolation between dynamically loaded apps
  * All makeStyles instances without a custom name will share this scope ID and reuse the same stylesheet
+ *
+ * @internal This is an internal implementation detail for scope isolation
  */
 const scopeId = Math.random().toString(36).substring(2, 15);
+
+/** @internal Counter for generating unique instance names when name is not provided */
 let instanceCounter = 0;
 
+/**
+ * Generates a unique instance name for a makeStyles hook
+ *
+ * @internal This is an internal utility function for creating unique cache keys
+ * @param name - Optional custom name for the instance
+ * @returns A unique instance name combining scopeId and name/counter
+ */
 const generateInstanceName = (name?: string) => {
   instanceCounter += 1;
   return `${scopeId}::${name ?? `style-${instanceCounter}`}`;
@@ -52,7 +63,7 @@ export interface MakeStylesOptions {
  * const useStyles = makeStyles({
  *   root: { color: 'red' },
  *   button: { padding: '10px' }
- * });
+ * }, { name: 'MyComponent' });
  *
  * function Component() {
  *   const classes = useStyles();
@@ -63,8 +74,11 @@ export interface MakeStylesOptions {
  * @example
  * ```tsx
  * const useStyles = makeStyles((theme) => ({
- *   root: { color: theme.colors.primary }
- * }));
+ *   root: { 
+ *     color: theme.colors.text.static_icons__default.getVariable('color'),
+ *     padding: theme.spacing.comfortable.medium.getVariable('padding')
+ *   }
+ * }), { name: 'ThemedComponent' });
  *
  * function Component() {
  *   const classes = useStyles();
@@ -73,12 +87,16 @@ export interface MakeStylesOptions {
  * ```
  */
 // Helper type to extract ClassKey from StyleRules
+// `any` is used here to extract ClassKey from StyleRules without caring about Props type
+// biome-ignore lint/suspicious/noExplicitAny: Need to use `any` for Props type to extract ClassKey via type inference without requiring specific Props type
 type ExtractClassKey<T> = T extends StyleRules<any, infer K> ? K : keyof T & string;
 
 // Overload for callback functions - TypeScript infers return type from createStyles
+// `any` in SR allows accepting any style object shape; type safety comes from inference
 export function makeStyles<
   Theme extends FusionTheme,
   Props extends Record<string, unknown> = Record<string, unknown>,
+  // biome-ignore lint/suspicious/noExplicitAny: SR needs to accept any style object shape for flexible type inference; type safety is maintained via ExtractClassKey
   SR extends Record<string, any> = Record<string, any>,
 >(
   stylesOrCreator: (theme: Theme) => SR,
@@ -87,9 +105,11 @@ export function makeStyles<
   ? (props?: Props) => Record<ExtractClassKey<SR>, string>
   : (props: Props) => Record<ExtractClassKey<SR>, string>;
 // Overload for direct StyleRules objects
+// Theme parameter is unused but kept for API symmetry with callback overload
 export function makeStyles<
   Theme extends FusionTheme = FusionTheme,
   Props extends Record<string, unknown> = Record<string, unknown>,
+  // biome-ignore lint/suspicious/noExplicitAny: SR needs to accept any style object shape for flexible type inference; type safety is maintained via ExtractClassKey
   SR extends Record<string, any> = Record<string, any>,
 >(
   stylesOrCreator: SR,
@@ -110,9 +130,11 @@ export function makeStyles<
   : (props: Props) => Record<ClassKey, string> {
   const { name, defaultTheme: optionsDefaultTheme = defaultTheme } = options;
 
-  if(!name) {
-    if(process.env.NODE_ENV === 'development') {
-      console.warn('No name provided for makeStyles. This can cause searious performance issues!');
+  if (!name) {
+    if (process.env.NODE_ENV === 'development') {
+      // Warn when name is missing to help developers avoid performance issues
+      // Without a name, all instances creates a unique cache key, causing unnecessary re-renders
+      console.warn('No name provided for makeStyles. This can cause serious performance issues!');
     }
   }
 
@@ -135,6 +157,7 @@ export function makeStyles<
     // Memoize class names to prevent unnecessary recalculations
     const classes = useMemo(() => {
       // Resolve styles: if it's a function, call it with theme; otherwise use directly
+      // Theme casting is safe because makeStyles ensures type compatibility
       const styles =
         typeof stylesOrCreator === 'function' ? stylesOrCreator(theme as Theme) : stylesOrCreator;
 
@@ -158,29 +181,35 @@ export function makeStyles<
         };
         isFirstRender.current = false;
       } else {
-        // On subsequent renders, only update dynamic sheet if props changed
-        // Clean up previous dynamic sheet if it exists
-        if (sheetInfoRef.current?.instanceId) {
-          defaultSheetManager.removeDynamicSheet(
-            sheetInfoRef.current.cacheKey,
-            sheetInfoRef.current.instanceId,
-          );
-        }
-        // Update instanceId for new dynamic sheet
-        if (sheetInfoRef.current) {
-          sheetInfoRef.current.instanceId = sheetResult.instanceId;
-        }
+      // On subsequent renders, only update dynamic sheet if props changed
+      // Clean up previous dynamic sheet to prevent memory leaks
+      // Each render creates a new dynamic sheet for the updated props
+      if (sheetInfoRef.current?.instanceId) {
+        defaultSheetManager.removeDynamicSheet(
+          sheetInfoRef.current.cacheKey,
+          sheetInfoRef.current.instanceId,
+        );
+      }
+      // Update instanceId for new dynamic sheet
+      // instanceId is only set if dynamic styles exist (from sheetResult)
+      if (sheetInfoRef.current) {
+        sheetInfoRef.current.instanceId = sheetResult.instanceId;
+      }
       }
 
       // Cast to Record<ClassKey, string> to preserve type information for createStyles
       // The ClassKey type is inferred from the styles object structure
+      // This type assertion is safe because JSS generates classes matching the style keys
       return sheetResult.classes as unknown as Record<ClassKey, string>;
     }, [theme, props, generateClassName, jss, stylesOrCreator]);
 
     // Cleanup on unmount - remove sheet reference
+    // Empty dependency array ensures cleanup only runs on unmount
+    // sheetInfoRef is stable and doesn't need to be in dependencies
     useEffect(() => {
       return () => {
         // Clean up stylesheet when component unmounts
+        // Decrement ref count and detach sheets to prevent memory leaks
         if (sheetInfoRef.current?.isMounted) {
           defaultSheetManager.removeSheet(
             sheetInfoRef.current.cacheKey,
@@ -195,7 +224,8 @@ export function makeStyles<
   };
 
   // Type assertion: Return type depends on whether Props is required or optional
-  // This allows TypeScript to infer the correct hook signature
+  // This conditional type allows TypeScript to infer the correct hook signature
+  // When Props is empty (never), props become optional; otherwise they're required
   // Return type preserves ClassKey for type-safe access via createStyles
   return useStyles as keyof Props extends never
     ? (props?: Props) => Record<ClassKey, string>

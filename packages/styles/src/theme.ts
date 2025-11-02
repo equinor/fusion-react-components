@@ -67,16 +67,19 @@ function deepMerge<T extends Record<string, unknown>>(target: T, source: Partial
       typeof targetValue === 'object' &&
       !Array.isArray(targetValue) &&
       // Check if it's not a StyleProperty instance (they have a 'value' property)
+      // StyleProperty instances should be replaced, not merged
       !('value' in targetValue && 'css' in targetValue && 'getAttributes' in targetValue)
     ) {
       // Both are objects - merge recursively
       // For Record types, this will spread existing entries and merge new ones
+      // Nested objects are merged deeply to allow partial theme extensions
       result[key] = deepMerge(
         targetValue as Record<string, unknown>,
         sourceValue as Record<string, unknown>,
       ) as T[Extract<keyof T, string>];
     } else {
       // Replace with source value (for primitives or StyleProperty instances)
+      // StyleProperty instances and primitives are replaced, not merged
       result[key] = sourceValue as T[Extract<keyof T, string>];
     }
   }

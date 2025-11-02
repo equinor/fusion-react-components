@@ -27,6 +27,7 @@ export function createGenerateClassName(seed = '') {
 
   return (rule: { key: string }, sheet?: unknown) => {
     // Extract classNamePrefix from sheet options (defaults to 'makeStyles')
+    // JSS passes sheet object with options, but type is unknown to avoid JSS dependency
     const sheetOptions = sheet as
       | { options?: { name?: string; link?: boolean; classNamePrefix?: string } }
       | undefined;
@@ -34,11 +35,13 @@ export function createGenerateClassName(seed = '') {
 
     if (process.env.NODE_ENV === 'production') {
       // Production: shorter class names for smaller bundle size
+      // Production builds prioritize bundle size over debuggability
       ruleCounter += 1;
       return `${seedPrefix}jss${ruleCounter}`;
     }
 
     // Development: descriptive class names for easier debugging
+    // Development builds include class key and prefix for easier CSS inspection
     ruleCounter += 1;
     return `${seedPrefix}${classNamePrefix}-${rule.key}-${ruleCounter}`;
   };

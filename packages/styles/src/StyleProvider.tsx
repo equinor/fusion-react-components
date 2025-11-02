@@ -68,21 +68,26 @@ export function StylesProvider(props: StylesProviderProps): ReactElement {
   } = props;
 
   // Get context from parent StylesProvider (if nested)
+  // Allows nested providers to inherit or override parent configuration
   const outerOptions = useContext(StylesContext);
 
   // Determine which class name generator to use (priority: provided > seed > parent)
+  // Memoization prevents recreating generator on every render
   const generateClassName = useMemo(() => {
     // If explicitly provided, use it
     if (providedGenerateClassName) return providedGenerateClassName;
     // If seed is provided, create a new generator with that seed (isolated scope)
+    // Seed creates isolated scope for class names, preventing collisions
     if (seed) return createGenerateClassName(seed);
     // Otherwise, inherit from parent context
     return outerOptions.generateClassName;
   }, [providedGenerateClassName, seed, outerOptions.generateClassName]);
 
   // Determine which JSS instance to use (priority: provided > parent > default)
+  // Allows custom JSS instances for testing or advanced use cases
   const jss = providedJss || outerOptions.jss || createJssInstance();
   // Use provided sheets manager or inherit from parent
+  // Sheets manager is kept for API compatibility, but currently unused
   const sheetsManager = providedSheetsManager || outerOptions.sheetsManager;
 
   // Create context value with resolved options

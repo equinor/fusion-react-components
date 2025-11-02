@@ -30,9 +30,11 @@ export function createJssInstance(): Jss {
       camelCase(), // Convert camelCase to kebab-case
       defaultUnit(), // Add default units: { padding: 10 } -> '10px'
       // Vendor prefixer only works in browser (not SSR)
+      // Check for window to skip vendor prefixer during SSR
       typeof window === 'undefined' ? null : vendorPrefixer(),
       propsSort(), // Sort CSS properties for consistent output
     ].filter(Boolean) as Plugin[], // Remove null values (vendorPrefixer in SSR)
+    // Type assertion is safe because filter removes null values
   });
 }
 
