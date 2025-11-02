@@ -36,6 +36,11 @@ jobs:
       - name: Setup node and install deps
         uses: ./.github/workflows/actions/node-setup
 
+      - name: Config npm auth
+        run: pnpm config set '//registry.npmjs.org/:_authToken' "${NPM_AUTH_TOKEN}"
+        env:
+          NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+
       - name: Create Release Pull Request or Publish to npm
         id: changesets
         uses: changesets/action@v1
