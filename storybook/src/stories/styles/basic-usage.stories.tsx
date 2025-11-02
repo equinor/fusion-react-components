@@ -141,17 +141,17 @@ export const DynamicStyles: StoryObj = {
 // Theme-based styles using makeStyles with theme function
 const themeStyles = (themeValue: typeof theme) => ({
   root: {
-    color: themeValue.colors.text.static_icons__default.css,
-    padding: themeValue.spacing.comfortable.medium.css,
-    backgroundColor: themeValue.colors.ui.background__default.css,
+    color: themeValue.colors.text.static_icons__default.getVariable('color'),
+    padding: themeValue.spacing.comfortable.medium.getVariable('padding'),
+    backgroundColor: themeValue.colors.ui.background__default.getVariable('color'),
     borderRadius: '8px',
-    border: `1px solid ${themeValue.colors.ui.background__medium.css}`,
+    border: `1px solid ${themeValue.colors.ui.background__medium.getVariable('color')}`,
   },
   title: {
     fontSize: themeValue.typography.heading.h4.style.fontSize,
     fontWeight: themeValue.typography.heading.h4.style.fontWeight,
-    marginBottom: themeValue.spacing.comfortable.small.css,
-    color: themeValue.colors.text.static_icons__default.css,
+    marginBottom: themeValue.spacing.comfortable.small.getVariable('padding'),
+    color: themeValue.colors.text.static_icons__default.getVariable('color'),
   },
 });
 
@@ -187,30 +187,30 @@ const UseThemeComponent = () => {
   return (
     <div
       style={{
-        padding: currentTheme.spacing.comfortable.medium.css,
-        backgroundColor: currentTheme.colors.ui.background__default.css,
+        padding: currentTheme.spacing.comfortable.medium.getVariable('padding'),
+        backgroundColor: currentTheme.colors.ui.background__default.getVariable('color'),
         borderRadius: '8px',
-        border: `1px solid ${currentTheme.colors.ui.background__medium.css}`,
+        border: `1px solid ${currentTheme.colors.ui.background__medium.getVariable('color')}`,
       }}
     >
       <h3
         style={{
           fontSize: currentTheme.typography.heading.h4.style.fontSize,
           fontWeight: currentTheme.typography.heading.h4.style.fontWeight,
-          marginBottom: currentTheme.spacing.comfortable.small.css,
-          color: currentTheme.colors.text.static_icons__default.css,
+          marginBottom: currentTheme.spacing.comfortable.small.getVariable('padding'),
+          color: currentTheme.colors.text.static_icons__default.getVariable('color'),
         }}
       >
         Using useTheme Hook
       </h3>
-      <p style={{ color: currentTheme.colors.text.static_icons__secondary.css }}>
+      <p style={{ color: currentTheme.colors.text.static_icons__secondary.getVariable('color') }}>
         This component accesses theme directly using the useTheme hook.
       </p>
       <p
         style={{
           fontSize: currentTheme.typography.paragraph.caption.style.fontSize,
-          color: currentTheme.colors.text.static_icons__tertiary.css,
-          marginTop: currentTheme.spacing.comfortable.small.css,
+          color: currentTheme.colors.text.static_icons__tertiary.getVariable('color'),
+          marginTop: currentTheme.spacing.comfortable.small.getVariable('padding'),
         }}
       >
         Theme is available: {currentTheme ? '✓' : '✗'}

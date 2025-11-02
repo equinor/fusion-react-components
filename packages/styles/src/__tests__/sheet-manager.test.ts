@@ -29,18 +29,22 @@ describe('SheetManager - Stylesheet caching', () => {
     const jss = createJssInstance();
     const generateClassName = createGenerateClassName();
 
-    const classes = defaultSheetManager.getOrCreateSheet(
+    const result = defaultSheetManager.getOrCreateSheet(
       styles,
       {},
       'TestComponent',
       jss,
       generateClassName,
+      {},
+      undefined,
+      true, // isFirstRender
     );
 
     // Verify: Class names are generated
-    expect(classes).toBeDefined();
-    expect(classes.root).toBeDefined();
-    expect(typeof classes.root).toBe('string');
+    expect(result).toBeDefined();
+    expect(result.classes).toBeDefined();
+    expect(result.classes.root).toBeDefined();
+    expect(typeof result.classes.root).toBe('string');
   });
 
   it('should reuse cached sheets for same styles and theme', () => {
@@ -57,24 +61,30 @@ describe('SheetManager - Stylesheet caching', () => {
     const generateClassName = createGenerateClassName();
     const theme = {};
 
-    const classes1 = defaultSheetManager.getOrCreateSheet(
+    const result1 = defaultSheetManager.getOrCreateSheet(
       styles,
       theme,
       'TestComponent',
       jss,
       generateClassName,
+      {},
+      undefined,
+      true, // isFirstRender
     );
 
-    const classes2 = defaultSheetManager.getOrCreateSheet(
+    const result2 = defaultSheetManager.getOrCreateSheet(
       styles,
       theme,
       'TestComponent',
       jss,
       generateClassName,
+      {},
+      undefined,
+      true, // isFirstRender
     );
 
     // Verify: Same class names (cached)
-    expect(classes1.root).toBe(classes2.root);
+    expect(result1.classes.root).toBe(result2.classes.root);
   });
 
   it('should handle dynamic styles based on props', () => {
@@ -90,27 +100,31 @@ describe('SheetManager - Stylesheet caching', () => {
     const jss = createJssInstance();
     const generateClassName = createGenerateClassName();
 
-    const classes1 = defaultSheetManager.getOrCreateSheet(
+    const result1 = defaultSheetManager.getOrCreateSheet(
       styles as StyleRules,
       {},
       'DynamicComponent',
       jss,
       generateClassName,
       { color: 'red' },
+      undefined,
+      true, // isFirstRender
     );
 
-    const classes2 = defaultSheetManager.getOrCreateSheet(
+    const result2 = defaultSheetManager.getOrCreateSheet(
       styles as StyleRules,
       {},
       'DynamicComponent',
       jss,
       generateClassName,
       { color: 'blue' },
+      undefined,
+      true, // isFirstRender
     );
 
     // Verify: Class names are generated
-    expect(classes1.root).toBeDefined();
-    expect(classes2.root).toBeDefined();
+    expect(result1.classes.root).toBeDefined();
+    expect(result2.classes.root).toBeDefined();
   });
 });
 
@@ -130,7 +144,7 @@ describe('SheetManager - Sheet lifecycle management', () => {
     const key = 'TestComponent-{}';
 
     // Create sheet (refs = 1)
-    manager.getOrCreateSheet(styles, {}, 'TestComponent', jss, generateClassName);
+    manager.getOrCreateSheet(styles, {}, 'TestComponent', jss, generateClassName, {}, undefined, true);
 
     // Remove reference (refs = 0, should delete)
     manager.removeSheet(key);
@@ -158,8 +172,8 @@ describe('SheetManager - Sheet lifecycle management', () => {
     const key = 'TestComponent-{}';
 
     // Create sheet twice (refs = 2)
-    manager.getOrCreateSheet(styles, {}, 'TestComponent', jss, generateClassName);
-    manager.getOrCreateSheet(styles, {}, 'TestComponent', jss, generateClassName);
+    manager.getOrCreateSheet(styles, {}, 'TestComponent', jss, generateClassName, {}, undefined, true);
+    manager.getOrCreateSheet(styles, {}, 'TestComponent', jss, generateClassName, {}, undefined, true);
 
     // Remove one reference (refs = 1, should still exist)
     manager.removeSheet(key);
@@ -184,8 +198,8 @@ describe('SheetManager - Sheet lifecycle management', () => {
     const generateClassName = createGenerateClassName();
 
     // Create some sheets
-    manager.getOrCreateSheet(styles, {}, 'Component1', jss, generateClassName);
-    manager.getOrCreateSheet(styles, {}, 'Component2', jss, generateClassName);
+    manager.getOrCreateSheet(styles, {}, 'Component1', jss, generateClassName, {}, undefined, true);
+    manager.getOrCreateSheet(styles, {}, 'Component2', jss, generateClassName, {}, undefined, true);
 
     // Clear all sheets
     manager.clear();

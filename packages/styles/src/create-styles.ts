@@ -20,6 +20,18 @@ import type { StyleRules } from './types';
  * });
  * ```
  */
-export const createStyles = <ClassKey extends string, Props extends {}>(
-  styles?: StyleRules<Props, ClassKey>,
-): StyleRules<Props, ClassKey> | never => styles as unknown as StyleRules<Props, ClassKey>;
+// Overload to preserve literal key types from object literals  
+export function createStyles<
+  T extends Record<string, any>,
+>(styles: T): T;
+// Fallback for dynamic styles with explicit Props type
+export function createStyles<
+  ClassKey extends string,
+  Props extends {} = {},
+>(styles?: StyleRules<Props, ClassKey>): StyleRules<Props, ClassKey> | never;
+export function createStyles<
+  ClassKey extends string,
+  Props extends {} = {},
+>(styles?: StyleRules<Props, ClassKey> | Record<string, any>): StyleRules<Props, ClassKey> | never {
+  return styles as unknown as StyleRules<Props, ClassKey>;
+}

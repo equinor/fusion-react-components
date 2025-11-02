@@ -70,29 +70,29 @@ const ExtendedThemeExample = () => {
   return (
     <div
       style={{
-        padding: currentTheme.spacing.comfortable.medium.css,
-        backgroundColor: currentTheme.colors.ui.background__default.css,
+        padding: currentTheme.spacing.comfortable.medium.getVariable('padding'),
+        backgroundColor: currentTheme.colors.ui.background__default.getVariable('color'),
         borderRadius: currentTheme.app.borderRadius,
-        border: `2px solid ${currentTheme.colors.ui.background__medium.css}`,
+        border: `2px solid ${currentTheme.colors.ui.background__medium.getVariable('color')}`,
       }}
     >
       <h3
         style={{
           fontSize: currentTheme.typography.heading.h4.style.fontSize,
           fontWeight: currentTheme.typography.heading.h4.style.fontWeight,
-          marginBottom: currentTheme.spacing.comfortable.small.css,
-          color: currentTheme.colors.text.static_icons__default.css,
+          marginBottom: currentTheme.spacing.comfortable.small.getVariable('padding'),
+          color: currentTheme.colors.text.static_icons__default.getVariable('color'),
         }}
       >
         Extended Theme Example
       </h3>
-      <p style={{ color: currentTheme.colors.text.static_icons__secondary.css, marginBottom: currentTheme.spacing.comfortable.small.css }}>
+      <p style={{ color: currentTheme.colors.text.static_icons__secondary.getVariable('color'), marginBottom: currentTheme.spacing.comfortable.small.getVariable('padding') }}>
         This component uses an extended theme with custom properties.
       </p>
-      <div style={{ display: 'flex', gap: currentTheme.spacing.comfortable.small.css, marginBottom: currentTheme.spacing.comfortable.small.css }}>
+      <div style={{ display: 'flex', gap: currentTheme.spacing.comfortable.small.getVariable('padding'), marginBottom: currentTheme.spacing.comfortable.small.getVariable('padding') }}>
         <div
           style={{
-            padding: currentTheme.spacing.comfortable.small.css,
+            padding: currentTheme.spacing.comfortable.small.getVariable('padding'),
             backgroundColor: currentTheme.colors.brand.primary,
             borderRadius: currentTheme.app.borderRadius,
             color: 'white',
@@ -103,7 +103,7 @@ const ExtendedThemeExample = () => {
         </div>
         <div
           style={{
-            padding: currentTheme.spacing.comfortable.small.css,
+            padding: currentTheme.spacing.comfortable.small.getVariable('padding'),
             backgroundColor: currentTheme.colors.brand.secondary,
             borderRadius: currentTheme.app.borderRadius,
             color: 'white',
@@ -114,7 +114,7 @@ const ExtendedThemeExample = () => {
         </div>
         <div
           style={{
-            padding: currentTheme.spacing.comfortable.small.css,
+            padding: currentTheme.spacing.comfortable.small.getVariable('padding'),
             backgroundColor: currentTheme.colors.brand.accent,
             borderRadius: currentTheme.app.borderRadius,
             color: 'white',
@@ -126,11 +126,11 @@ const ExtendedThemeExample = () => {
       </div>
       <div
         style={{
-          padding: currentTheme.spacing.comfortable.small.css,
-          backgroundColor: currentTheme.colors.ui.background__light.css,
+          padding: currentTheme.spacing.comfortable.small.getVariable('padding'),
+          backgroundColor: currentTheme.colors.ui.background__light.getVariable('color'),
           borderRadius: currentTheme.app.borderRadius,
           fontSize: currentTheme.typography.paragraph.caption.style.fontSize,
-          color: currentTheme.colors.text.static_icons__tertiary.css,
+          color: currentTheme.colors.text.static_icons__tertiary.getVariable('color'),
         }}
       >
         <strong>App Config:</strong> Header Height: {currentTheme.app.headerHeight}, Sidebar Width:{' '}
@@ -144,19 +144,19 @@ const ExtendedThemeWithStyles = () => {
   const styles = makeStyles<AppTheme>(
     (themeValue) => ({
       root: {
-        padding: themeValue.spacing.comfortable.medium.css,
-        backgroundColor: themeValue.colors.ui.background__default.css,
+        padding: themeValue.spacing.comfortable.medium.getVariable('padding'),
+        backgroundColor: themeValue.colors.ui.background__default.getVariable('color'),
         borderRadius: themeValue.app.borderRadius,
-        border: `2px solid ${themeValue.colors.ui.background__medium.css}`,
+        border: `2px solid ${themeValue.colors.ui.background__medium.getVariable('color')}`,
       },
       title: {
         fontSize: themeValue.typography.heading.h4.style.fontSize,
         fontWeight: themeValue.typography.heading.h4.style.fontWeight,
-        marginBottom: themeValue.spacing.comfortable.small.css,
-        color: themeValue.colors.text.static_icons__default.css,
+        marginBottom: themeValue.spacing.comfortable.small.getVariable('padding'),
+        color: themeValue.colors.text.static_icons__default.getVariable('color'),
       },
       brandButton: {
-        padding: `${themeValue.spacing.comfortable.small.css} ${themeValue.spacing.comfortable.medium.css}`,
+        padding: `${themeValue.spacing.comfortable.small.getVariable('padding')} ${themeValue.spacing.comfortable.medium.getVariable('padding')}`,
         backgroundColor: themeValue.colors.brand.primary,
         color: 'white',
         border: 'none',
@@ -176,7 +176,7 @@ const ExtendedThemeWithStyles = () => {
   return (
     <div className={classes.root}>
       <div className={classes.title}>Extended Theme with makeStyles</div>
-      <p style={{ color: theme.colors.text.static_icons__secondary.css }}>
+      <p style={{ color: theme.colors.text.static_icons__secondary.getVariable('color') }}>
         Using makeStyles with extended theme - custom properties are fully typed and accessible.
       </p>
       <button className={classes.brandButton} type="button">
@@ -301,34 +301,34 @@ const ThemeCompositionComponent = () => {
   return (
     <div
       style={{
-        padding: baseTheme.spacing.comfortable.medium.css,
-        border: `2px solid ${baseTheme.colors.ui.background__medium.css}`,
+        padding: baseTheme.spacing.comfortable.medium.getVariable('padding'),
+        border: `2px solid ${baseTheme.colors.ui.background__medium.getVariable('color')}`,
         borderRadius: '8px',
-        backgroundColor: baseTheme.colors.ui.background__default.css,
+        backgroundColor: baseTheme.colors.ui.background__default.getVariable('color'),
       }}
     >
       <h3
         style={{
           fontSize: baseTheme.typography.heading.h4.style.fontSize,
           fontWeight: baseTheme.typography.heading.h4.style.fontWeight,
-          marginBottom: baseTheme.spacing.comfortable.small.css,
-          color: baseTheme.colors.text.static_icons__default.css,
+          marginBottom: baseTheme.spacing.comfortable.small.getVariable('padding'),
+          color: baseTheme.colors.text.static_icons__default.getVariable('color'),
         }}
       >
         Theme Composition Example
       </h3>
-      <p style={{ color: baseTheme.colors.text.static_icons__secondary.css }}>
+      <p style={{ color: baseTheme.colors.text.static_icons__secondary.getVariable('color') }}>
         <strong>Current theme colors:</strong>
       </p>
-      <ul style={{ color: baseTheme.colors.text.static_icons__secondary.css }}>
+      <ul style={{ color: baseTheme.colors.text.static_icons__secondary.getVariable('color') }}>
         <li>Primary: {(baseTheme as ExtendedTheme)?.colors?.primary || 'N/A'}</li>
         <li>Secondary: {(baseTheme as ExtendedTheme)?.colors?.secondary || 'N/A'}</li>
       </ul>
       {baseTheme && 'custom' in baseTheme && (baseTheme as ExtendedTheme).custom && (
         <p
           style={{
-            marginTop: baseTheme.spacing.comfortable.small.css,
-            color: baseTheme.colors.text.static_icons__tertiary.css,
+            marginTop: baseTheme.spacing.comfortable.small.getVariable('padding'),
+            color: baseTheme.colors.text.static_icons__tertiary.getVariable('color'),
           }}
         >
           <em>Custom theme property detected!</em>
@@ -388,31 +388,31 @@ const UseThemeComponent = () => {
   return (
     <div
       style={{
-        padding: currentTheme.spacing.comfortable.medium.css,
-        border: `2px solid ${currentTheme.colors.ui.background__medium.css}`,
+        padding: currentTheme.spacing.comfortable.medium.getVariable('padding'),
+        border: `2px solid ${currentTheme.colors.ui.background__medium.getVariable('color')}`,
         borderRadius: '8px',
-        backgroundColor: currentTheme.colors.ui.background__default.css,
-        color: currentTheme.colors.text.static_icons__default.css,
+        backgroundColor: currentTheme.colors.ui.background__default.getVariable('color'),
+        color: currentTheme.colors.text.static_icons__default.getVariable('color'),
       }}
     >
       <h3
         style={{
           fontSize: currentTheme.typography.heading.h4.style.fontSize,
           fontWeight: currentTheme.typography.heading.h4.style.fontWeight,
-          marginBottom: currentTheme.spacing.comfortable.small.css,
-          color: currentTheme.colors.text.static_icons__default.css,
+          marginBottom: currentTheme.spacing.comfortable.small.getVariable('padding'),
+          color: currentTheme.colors.text.static_icons__default.getVariable('color'),
         }}
       >
         useTheme Hook Example
       </h3>
-      <p style={{ color: currentTheme.colors.text.static_icons__secondary.css }}>
+      <p style={{ color: currentTheme.colors.text.static_icons__secondary.getVariable('color') }}>
         This component accesses theme directly using the useTheme hook.
       </p>
       <p
         style={{
           fontSize: currentTheme.typography.paragraph.caption.style.fontSize,
-          marginTop: currentTheme.spacing.comfortable.small.css,
-          color: currentTheme.colors.text.static_icons__tertiary.css,
+          marginTop: currentTheme.spacing.comfortable.small.getVariable('padding'),
+          color: currentTheme.colors.text.static_icons__tertiary.getVariable('color'),
         }}
       >
         Theme object is available: {currentTheme ? '✓' : '✗'}
@@ -420,8 +420,8 @@ const UseThemeComponent = () => {
       <p
         style={{
           fontSize: currentTheme.typography.paragraph.caption.style.fontSize,
-          marginTop: currentTheme.spacing.comfortable.x_small.css,
-          color: currentTheme.colors.text.static_icons__tertiary.css,
+          marginTop: currentTheme.spacing.comfortable.x_small.getVariable('padding'),
+          color: currentTheme.colors.text.static_icons__tertiary.getVariable('color'),
         }}
       >
         Theme colors and spacing are available for direct use in inline styles or logic.

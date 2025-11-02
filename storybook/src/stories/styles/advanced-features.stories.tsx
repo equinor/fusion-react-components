@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite';
 import {
   StylesProvider,
   ThemeProvider,
+  createStyles,
   makeStyles,
   theme,
   useTheme,
@@ -14,42 +15,43 @@ const meta: Meta = {
 
 export default meta;
 
-// Nested selectors and pseudo-selectors
-const nestedStyles = (themeValue: typeof theme) => ({
+const useStyles = makeStyles((themeValue) => createStyles({
   root: {
-    color: themeValue.colors.text.static_icons__default.css,
-    padding: themeValue.spacing.comfortable.medium.css,
+    color: themeValue.colors.text.static_icons__default.getVariable('color'),
+    padding: themeValue.spacing.comfortable.medium.getVariable('padding'),
     borderRadius: '8px',
-    border: `2px solid ${themeValue.colors.interactive.primary__resting.css}`,
+    border: `2px solid ${themeValue.colors.interactive.primary__resting.getVariable('color')}`,
     transition: 'all 0.3s ease',
-    backgroundColor: themeValue.colors.ui.background__default.css,
+    backgroundColor: themeValue.colors.ui.background__default.getVariable('color'),
     // Pseudo-selector
     '&:hover': {
-      color: themeValue.colors.interactive.primary__hover.css,
-      borderColor: themeValue.colors.interactive.primary__hover.css,
+      color: themeValue.colors.interactive.primary__hover.getVariable('color'),
+      borderColor: themeValue.colors.interactive.primary__hover.getVariable('color'),
       transform: 'scale(1.05)',
-      backgroundColor: themeValue.colors.ui.background__light.css,
+      backgroundColor: themeValue.colors.ui.background__light.getVariable('color'),
     },
     '&:focus': {
-      outline: `2px solid ${themeValue.colors.interactive.focus.css}`,
+      outline: `2px solid ${themeValue.colors.interactive.focus.getVariable('color')}`,
       outlineOffset: '2px',
     },
     // Nested selector
     '& .nested': {
-      padding: themeValue.spacing.comfortable.small.css,
-      backgroundColor: themeValue.colors.ui.background__light.css,
-      marginTop: themeValue.spacing.comfortable.small.css,
+      padding: themeValue.spacing.comfortable.small.getVariable('padding'),
+      backgroundColor: themeValue.colors.ui.background__light.getVariable('color'),
+      marginTop: themeValue.spacing.comfortable.small.getVariable('padding'),
       borderRadius: '4px',
     },
     '& .nested:hover': {
-      backgroundColor: themeValue.colors.ui.background__medium.css,
+      backgroundColor: themeValue.colors.ui.background__medium.getVariable('color'),
     },
   },
-});
+  dummy: (props: { dummy: string }) => ({
+    color: props.dummy,
+  }),
+}), { name: 'NestedComponent' });
 
 const NestedComponent = () => {
-  const useStyles = makeStyles(nestedStyles, { name: 'NestedComponent' });
-  const classes = useStyles({});
+  const classes = useStyles({ dummy: 'red' });
 
   return (
     <div className={classes.root} tabIndex={0}>
@@ -68,7 +70,7 @@ const NestedComponent = () => {
 export const NestedSelectors: StoryObj = {
   render: () => (
     <ThemeProvider theme={theme}>
-      <StylesProvider>
+      <StylesProvider seed='nested-selectors'>
         <div style={{ padding: '24px' }}>
           <h2>Nested Selectors & Pseudo-Selectors</h2>
           <p>WHAT: Use CSS features like :hover, :focus, and nested child selectors.</p>
@@ -83,41 +85,41 @@ export const NestedSelectors: StoryObj = {
 // Multiple style rules
 const multipleStyles = (themeValue: typeof theme) => ({
   root: {
-    padding: themeValue.spacing.comfortable.large.css,
-    backgroundColor: themeValue.colors.ui.background__default.css,
+    padding: themeValue.spacing.comfortable.large.getVariable('padding'),
+    backgroundColor: themeValue.colors.ui.background__default.getVariable('color'),
     borderRadius: '8px',
-    border: `1px solid ${themeValue.colors.ui.background__medium.css}`,
+    border: `1px solid ${themeValue.colors.ui.background__medium.getVariable('color')}`,
   },
   header: {
     fontSize: themeValue.typography.heading.h3.style.fontSize,
     fontWeight: themeValue.typography.heading.h3.style.fontWeight,
-    marginBottom: themeValue.spacing.comfortable.medium.css,
-    color: themeValue.colors.text.static_icons__default.css,
+    marginBottom: themeValue.spacing.comfortable.medium.getVariable('padding'),
+    color: themeValue.colors.text.static_icons__default.getVariable('color'),
   },
   content: {
     fontSize: themeValue.typography.paragraph.body_short.style.fontSize,
-    color: themeValue.colors.text.static_icons__secondary.css,
+    color: themeValue.colors.text.static_icons__secondary.getVariable('color'),
     lineHeight: themeValue.typography.paragraph.body_short.style.lineHeight,
-    marginBottom: themeValue.spacing.comfortable.medium.css,
+    marginBottom: themeValue.spacing.comfortable.medium.getVariable('padding'),
   },
   button: {
-    padding: `${themeValue.spacing.comfortable.small.css} ${themeValue.spacing.comfortable.medium.css}`,
-    backgroundColor: themeValue.colors.interactive.primary__resting.css,
-    color: themeValue.colors.text.static_icons__primary_white.css,
+    padding: `${themeValue.spacing.comfortable.small.getVariable('padding')} ${themeValue.spacing.comfortable.medium.getVariable('padding')}`,
+    backgroundColor: themeValue.colors.interactive.primary__resting.getVariable('color'),
+    color: themeValue.colors.text.static_icons__primary_white.getVariable('color'),
     border: 'none',
     borderRadius: '4px',
     cursor: 'pointer',
     fontSize: themeValue.typography.paragraph.body_short.style.fontSize,
     '&:hover': {
-      backgroundColor: themeValue.colors.interactive.primary__hover.css,
+      backgroundColor: themeValue.colors.interactive.primary__hover.getVariable('color'),
     },
   },
   footer: {
-    marginTop: themeValue.spacing.comfortable.medium.css,
-    paddingTop: themeValue.spacing.comfortable.medium.css,
-    borderTop: `1px solid ${themeValue.colors.ui.background__medium.css}`,
+    marginTop: themeValue.spacing.comfortable.medium.getVariable('padding'),
+    paddingTop: themeValue.spacing.comfortable.medium.getVariable('padding'),
+    borderTop: `1px solid ${themeValue.colors.ui.background__medium.getVariable('color')}`,
     fontSize: themeValue.typography.paragraph.caption.style.fontSize,
-    color: themeValue.colors.text.static_icons__tertiary.css,
+    color: themeValue.colors.text.static_icons__tertiary.getVariable('color'),
   },
 });
 
@@ -163,11 +165,11 @@ export const MultipleStyleRules: StoryObj = {
 // Style caching demonstration
 const cachedStyles = (themeValue: typeof theme) => ({
   root: {
-    padding: themeValue.spacing.comfortable.medium.css,
-    backgroundColor: themeValue.colors.ui.background__info.css,
+    padding: themeValue.spacing.comfortable.medium.getVariable('padding'),
+    backgroundColor: themeValue.colors.ui.background__info.getVariable('color'),
     borderRadius: '8px',
-    border: `2px solid ${themeValue.colors.interactive.success__resting.css}`,
-    color: themeValue.colors.text.static_icons__default.css,
+    border: `2px solid ${themeValue.colors.interactive.success__resting.getVariable('color')}`,
+    color: themeValue.colors.text.static_icons__default.getVariable('color'),
   },
 });
 
@@ -200,25 +202,25 @@ const StyleCachingWrapper = () => {
   if (!currentTheme) return null;
 
   return (
-    <div style={{ padding: currentTheme.spacing.comfortable.large.css }}>
-      <h2 style={{ color: currentTheme.colors.text.static_icons__default.css }}>
+    <div style={{ padding: currentTheme.spacing.comfortable.large.getVariable('padding') }}>
+      <h2 style={{ color: currentTheme.colors.text.static_icons__default.getVariable('color') }}>
         Style Caching
       </h2>
-      <p style={{ color: currentTheme.colors.text.static_icons__secondary.css }}>
+      <p style={{ color: currentTheme.colors.text.static_icons__secondary.getVariable('color') }}>
         WHAT: Multiple components using the same styles share the same CSS stylesheet.
       </p>
-      <p style={{ color: currentTheme.colors.text.static_icons__secondary.css }}>
+      <p style={{ color: currentTheme.colors.text.static_icons__secondary.getVariable('color') }}>
         WHY: Performance optimization - avoids duplicate CSS in the DOM.
       </p>
-      <p style={{ color: currentTheme.colors.text.static_icons__secondary.css }}>
+      <p style={{ color: currentTheme.colors.text.static_icons__secondary.getVariable('color') }}>
         <strong>Example:</strong> 100 Buttons with same styles = 1 stylesheet, not 100.
       </p>
       <div
         style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(3, 1fr)',
-          gap: currentTheme.spacing.comfortable.medium.css,
-          marginTop: currentTheme.spacing.comfortable.medium.css,
+          gap: currentTheme.spacing.comfortable.medium.getVariable('padding'),
+          marginTop: currentTheme.spacing.comfortable.medium.getVariable('padding'),
         }}
       >
         <CachedComponent id="1" />
@@ -227,11 +229,11 @@ const StyleCachingWrapper = () => {
       </div>
       <div
         style={{
-          marginTop: currentTheme.spacing.comfortable.medium.css,
-          padding: currentTheme.spacing.comfortable.medium.css,
-          backgroundColor: currentTheme.colors.ui.background__warning.css,
+          marginTop: currentTheme.spacing.comfortable.medium.getVariable('padding'),
+          padding: currentTheme.spacing.comfortable.medium.getVariable('padding'),
+          backgroundColor: currentTheme.colors.ui.background__warning.getVariable('color'),
           borderRadius: '4px',
-          color: currentTheme.colors.text.static_icons__default.css,
+          color: currentTheme.colors.text.static_icons__default.getVariable('color'),
         }}
       >
         <strong>Notice:</strong> All three components share the same class name because they use the

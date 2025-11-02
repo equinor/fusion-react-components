@@ -27,7 +27,8 @@ Enhanced theme system with support for extending `FusionTheme` with custom prope
 - `createTheme` signature now accepts optional `baseTheme` parameter (backward compatible)
 - Improved type inference for extended themes in `ThemeProvider`, `useTheme`, and `makeStyles`
 - Better handling of nested theme composition when using theme functions in nested `ThemeProvider` components
-- **Storybook Stories Updated**: All stories now use theme CSS values (`theme.colors.*.css`, `theme.spacing.*.css`, `theme.typography.*.style.*`) instead of hardcoded custom CSS, ensuring proper integration with Fusion design system tokens
+- **Storybook Stories Updated**: All stories now use theme CSS values (`theme.colors.*.getVariable('color')`, `theme.spacing.*.getVariable('padding')`, `theme.typography.*.style.*`) instead of hardcoded custom CSS, ensuring proper integration with Fusion design system tokens
+- **README Updated**: Updated all documentation examples to use correct `getVariable()` API for theme properties
 
 ### Technical Details
 
@@ -35,4 +36,6 @@ Enhanced theme system with support for extending `FusionTheme` with custom prope
 - Theme composition works correctly with nested `ThemeProvider` components
 - All types are properly exported and documented with complete TSDoc comments
 - Typography properties accessed via `.style.fontSize`, `.style.fontWeight`, etc. for proper CSS value extraction
-- Color and spacing properties accessed via `.css` property for CSS variable or value string
+- Color properties accessed via `.getVariable('color')` method to get CSS variable strings
+- Spacing properties accessed via `.getVariable('padding')` method to get CSS variable strings
+- `makeStyles` now returns `Record<ClassKey, string>` where `ClassKey` is inferred from style rules, providing type-safe access to class names when using `createStyles`

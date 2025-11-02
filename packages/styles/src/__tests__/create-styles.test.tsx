@@ -99,9 +99,7 @@ describe('createStyles - Type-safe style helper', () => {
       </ThemeProvider>
     );
 
-    const { result } = renderHook(() => useStyles(), { wrapper });
-
-    console.log(result.current);
+    const { result } = renderHook(() => useStyles({}), { wrapper });
 
     // Verify that makeStyles generated class names from createStyles styles
     expect(result.current).toBeDefined();
@@ -176,7 +174,7 @@ describe('createStyles - Type-safe style helper', () => {
       { name: 'ThemeWithCreateStyles' },
     );
 
-    const { result } = renderHook(() => useStyles(), { wrapper });
+    const { result } = renderHook(() => useStyles({}), { wrapper });
 
     // Verify that makeStyles generated class names from createStyles wrapped in theme function
     expect(result.current).toBeDefined();

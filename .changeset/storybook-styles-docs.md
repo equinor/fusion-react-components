@@ -26,5 +26,5 @@ ref: https://github.com/equinor/fusion-framework/issues/3698
 
 - Storybook port updated to 3000
 - Removed `@material-ui/styles` dependency from Storybook package
-- **All stories now use Fusion theme CSS values**: Replaced hardcoded custom CSS with proper theme values (`theme.colors.*.css`, `theme.spacing.*.css`, `theme.typography.*.style.*`) for consistent design system integration
+- **All stories now use Fusion theme CSS values**: Replaced hardcoded custom CSS with proper theme values using `getVariable()` API (`theme.colors.*.getVariable('color')`, `theme.spacing.*.getVariable('padding')`, `theme.typography.*.style.*`) for consistent design system integration
 

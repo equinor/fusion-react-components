@@ -16,10 +16,14 @@ export interface ClassNameMap {
 interface SheetEntry {
   /** Reference count - tracks how many components are using this sheet */
   refs: number;
+  /** Static JSS stylesheet (shared across all instances using these styles) */
+  staticSheet: JssSheet;
   /** Static stylesheet classes (don't change based on props) */
-  staticSheet: ClassNameMap;
+  staticSheetClasses: ClassNameMap;
   /** Dynamic styles that need to be recalculated based on props */
   dynamicStyles: unknown;
+  /** Map of dynamic sheets keyed by instance ID (for tracking per-component dynamic sheets) */
+  dynamicSheets: Map<string, JssSheet>;
 }
 
 /**
@@ -28,6 +32,8 @@ interface SheetEntry {
 interface JssSheet {
   /** Attach the stylesheet to the DOM */
   attach: () => void;
+  /** Detach the stylesheet from the DOM */
+  detach: () => void;
   /** Update dynamic styles with new props */
   update: (props: Record<string, unknown>) => void;
   /** Generated class names map */
@@ -49,6 +55,18 @@ interface JssOptions {
 }
 
 /**
+ * Result of getting or creating a stylesheet
+ */
+export interface SheetResult {
+  /** Map of class names (rule key -> CSS class name) */
+  classes: ClassNameMap;
+  /** Instance ID for dynamic sheet cleanup (only present if dynamic styles exist) */
+  instanceId?: string;
+  /** Cache key used for this sheet */
+  cacheKey: string;
+}
+
+/**
  * Simple sheet manager for caching and reusing JSS stylesheets
  *
  * This manager implements a caching strategy to avoid recreating stylesheets
@@ -59,16 +77,19 @@ interface JssOptions {
  * - Reference counting for cleanup
  * - Separation of static and dynamic styles
  * - Caching based on name + theme combination
+ * - Automatic cleanup when sheets are no longer referenced
  */
 class SheetManager {
   /** Cache of stylesheets keyed by name-theme combination */
   private sheets = new Map<string, SheetEntry>();
+  /** Counter for generating unique instance IDs for dynamic sheets */
+  private instanceCounter = 0;
 
   /**
    * Gets or creates a JSS stylesheet for the given styles
    *
    * This method implements a caching strategy:
-   * 1. Creates a cache key from name + theme
+   * 1. Creates a cache key from cacheKey + theme (or name + theme if cacheKey not provided)
    * 2. If cached, increments reference count and returns cached classes
    * 3. If not cached, creates static sheet and extracts dynamic styles
    * 4. For dynamic styles, creates a linked sheet that updates with props
@@ -76,11 +97,13 @@ class SheetManager {
    *
    * @param styles - Style rules object
    * @param theme - Theme object
-   * @param name - Name prefix for the stylesheet
+   * @param name - Name prefix for the JSS stylesheet (used by JSS)
    * @param jss - JSS instance
    * @param generateClassName - Class name generator function
    * @param props - Props for dynamic styles (optional)
-   * @returns Map of class names (rule key -> CSS class name)
+   * @param cacheKey - Optional cache key (if not provided, uses name)
+   * @param isFirstRender - Whether this is the first render of the component (increments refs)
+   * @returns Result containing class names, instance ID (if dynamic), and cache key
    */
   getOrCreateSheet(
     styles: StyleRules,
@@ -89,10 +112,13 @@ class SheetManager {
     jss: Jss,
     generateClassName: (rule: { key: string }, sheet?: unknown) => string,
     props: Record<string, unknown> = {},
-  ): ClassNameMap {
-    // Create cache key from name and theme (stringified)
-    const key = `${name}-${JSON.stringify(theme)}`;
+    cacheKey?: string,
+    isFirstRender = false,
+  ): SheetResult {
+    // Create cache key from cacheKey (or name if not provided) and theme (stringified)
+    const key = `${cacheKey ?? name}-${JSON.stringify(theme)}`;
     let sheetEntry = this.sheets.get(key);
+    let instanceId: string | undefined;
 
     if (!sheetEntry) {
       // Create static sheet (styles that don't depend on props)
@@ -108,19 +134,26 @@ class SheetManager {
 
       sheetEntry = {
         refs: 0,
-        staticSheet: staticSheet.classes,
+        staticSheet,
+        staticSheetClasses: staticSheet.classes,
         // Extract dynamic styles (functions that depend on props)
         // @ts-expect-error JSS types don't match our StyleRules type exactly - this is safe
         dynamicStyles: getDynamicStyles(styles),
+        dynamicSheets: new Map(),
       };
       this.sheets.set(key, sheetEntry);
     }
 
-    // Increment reference count (multiple components can use the same sheet)
-    sheetEntry.refs += 1;
+    // Only increment reference count on first render (when component mounts)
+    if (isFirstRender) {
+      sheetEntry.refs += 1;
+    }
 
     // Handle dynamic styles (if any)
     if (sheetEntry.dynamicStyles) {
+      // Generate unique instance ID for this component's dynamic sheet
+      instanceId = `${this.instanceCounter++}`;
+      
       // Create linked sheet for dynamic styles (can be updated)
       const dynamicSheet = jss.createStyleSheet(sheetEntry.dynamicStyles, {
         link: true, // Linked sheets can be updated when props change
@@ -131,28 +164,87 @@ class SheetManager {
       // Update dynamic styles with current props
       dynamicSheet.update(props);
       dynamicSheet.attach();
+      
+      // Store the dynamic sheet for cleanup later
+      sheetEntry.dynamicSheets.set(instanceId, dynamicSheet);
 
       // Merge static and dynamic class names (dynamic takes precedence)
       return {
-        ...sheetEntry.staticSheet,
-        ...dynamicSheet.classes,
+        classes: {
+          ...sheetEntry.staticSheetClasses,
+          ...dynamicSheet.classes,
+        },
+        instanceId,
+        cacheKey: key,
       };
     }
 
     // No dynamic styles, return static classes only
-    return sheetEntry.staticSheet;
+    return {
+      classes: sheetEntry.staticSheetClasses,
+      cacheKey: key,
+    };
   }
 
   /**
-   * Removes a reference to a sheet
+   * Removes a dynamic sheet instance without decrementing ref count
+   * Used when component props change and a new dynamic sheet is created
+   * 
+   * @param key - Cache key for the stylesheet
+   * @param instanceId - Instance ID for the dynamic sheet to remove
    */
-  removeSheet(key: string): void {
+  removeDynamicSheet(key: string, instanceId: string): void {
     const sheetEntry = this.sheets.get(key);
-    if (sheetEntry) {
-      sheetEntry.refs -= 1;
-      if (sheetEntry.refs <= 0) {
-        this.sheets.delete(key);
+    if (!sheetEntry) {
+      return;
+    }
+
+    // Clean up dynamic sheet if it exists
+    if (sheetEntry.dynamicSheets.has(instanceId)) {
+      const dynamicSheet = sheetEntry.dynamicSheets.get(instanceId);
+      if (dynamicSheet) {
+        dynamicSheet.detach();
+        sheetEntry.dynamicSheets.delete(instanceId);
       }
+    }
+  }
+
+  /**
+   * Removes a reference to a sheet and cleans up if no longer needed
+   * 
+   * @param key - Cache key for the stylesheet
+   * @param instanceId - Optional instance ID for dynamic sheet cleanup
+   */
+  removeSheet(key: string, instanceId?: string): void {
+    const sheetEntry = this.sheets.get(key);
+    if (!sheetEntry) {
+      return;
+    }
+
+    // Clean up dynamic sheet if instance ID is provided
+    if (instanceId && sheetEntry.dynamicSheets.has(instanceId)) {
+      const dynamicSheet = sheetEntry.dynamicSheets.get(instanceId);
+      if (dynamicSheet) {
+        dynamicSheet.detach();
+        sheetEntry.dynamicSheets.delete(instanceId);
+      }
+    }
+
+    // Decrement reference count
+    sheetEntry.refs -= 1;
+
+    // If no more references, detach static sheet and remove from cache
+    if (sheetEntry.refs <= 0) {
+      // Detach static sheet from DOM
+      sheetEntry.staticSheet.detach();
+      
+      // Detach any remaining dynamic sheets (shouldn't happen, but safety check)
+      for (const dynamicSheet of sheetEntry.dynamicSheets.values()) {
+        dynamicSheet.detach();
+      }
+      
+      // Remove from cache
+      this.sheets.delete(key);
     }
   }
 

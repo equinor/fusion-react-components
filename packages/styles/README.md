@@ -128,7 +128,7 @@ function Component(props: ComponentProps) {
 
 ### 4. Theme-Based Styles
 
-Access theme values using theme functions:
+Access theme values using theme functions. Theme properties are `StyleProperty` instances that require using the `getVariable()` method to extract CSS values:
 
 ```tsx
 import { makeStyles, createStyles } from '@equinor/fusion-react-styles';
@@ -136,15 +136,46 @@ import { makeStyles, createStyles } from '@equinor/fusion-react-styles';
 const useStyles = makeStyles((theme) =>
   createStyles({
     root: {
-      color: theme.colors.text.primary,
-      padding: theme.spacing.medium,
-      ...theme.typography.paragraph.ingress.style,
+      color: theme.colors.text.static_icons__default.getVariable('color'),
+      padding: theme.spacing.comfortable.medium.getVariable('padding'),
+      ...theme.typography.paragraph.body_short.style,
     },
     button: {
-      backgroundColor: theme.colors.ui.background__default.getAttribute('color'),
+      backgroundColor: theme.colors.ui.background__default.getVariable('color'),
       '&:hover': {
-        backgroundColor: theme.colors.ui.background__hover.getAttribute('color'),
+        backgroundColor: theme.colors.ui.background__hover.getVariable('color'),
       },
+    },
+  })
+);
+```
+
+**Important:** Theme properties (colors, spacing, etc.) are `StyleProperty` instances. Use `getVariable('color')` for colors and `getVariable('padding')` for spacing to get CSS variable strings.
+
+#### Working with Theme Properties
+
+The Fusion theme uses `StyleProperty` instances that require using the `getVariable()` method to extract CSS values:
+
+- **Colors**: Use `theme.colors.*.getVariable('color')` to get the color value as a CSS variable string
+- **Spacing**: Use `theme.spacing.*.getVariable('padding')` to get the spacing value as a CSS variable string  
+- **Typography**: Use `theme.typography.*.style.*` to access typography properties (e.g., `theme.typography.heading.h4.style.fontSize`)
+
+Example:
+```tsx
+const useStyles = makeStyles((theme) =>
+  createStyles({
+    container: {
+      // Color property - use getVariable('color')
+      backgroundColor: theme.colors.ui.background__default.getVariable('color'),
+      color: theme.colors.text.static_icons__default.getVariable('color'),
+      
+      // Spacing property - use getVariable('padding')
+      padding: theme.spacing.comfortable.medium.getVariable('padding'),
+      marginTop: theme.spacing.comfortable.small.getVariable('padding'),
+      
+      // Typography - access style properties directly
+      fontSize: theme.typography.paragraph.body_short.style.fontSize,
+      fontWeight: theme.typography.heading.h4.style.fontWeight,
     },
   })
 );
@@ -160,7 +191,7 @@ Creates a hook that generates CSS class names from style definitions.
 - `stylesOrCreator`: Style rules object or a function `(theme) => StyleRules`
 - `options.name`: Optional name prefix for debugging (defaults to component name)
 
-**Returns:** A hook function that returns a `ClassNameMap` of class names.
+**Returns:** A hook function that returns `Record<ClassKey, string>` where `ClassKey` is inferred from your style rules, providing type-safe access to class names.
 
 **Example:**
 
@@ -172,7 +203,7 @@ const useStyles = makeStyles({
 
 // Theme-based styles
 const useStyles = makeStyles((theme) => ({
-  root: { color: theme.colors.text.primary },
+  root: { color: theme.colors.text.static_icons__default.getVariable('color') },
 }));
 
 // With options
@@ -183,16 +214,29 @@ const useStyles = makeStyles({
 
 ### `createStyles(styles?)`
 
-Type-safe helper for creating style rules. Improves TypeScript inference.
+Type-safe helper for creating style rules. Improves TypeScript inference for class keys, enabling type-safe access to class names.
 
 ```tsx
-import { createStyles } from '@equinor/fusion-react-styles';
+import { createStyles, makeStyles } from '@equinor/fusion-react-styles';
 
-const styles = createStyles({
-  root: { color: 'red' },
-  button: { padding: '10px' },
-});
+const useStyles = makeStyles((theme) =>
+  createStyles({
+    root: { color: 'red' },
+    button: { padding: '10px' },
+  })
+);
+
+function Component() {
+  const classes = useStyles();
+  // TypeScript will error if you try to access classes.foo - it knows the exact keys!
+  return <div className={classes.root}>...</div>;
+}
 ```
+
+**Benefits:**
+- Type-safe class key access - TypeScript knows exactly which class keys exist
+- Better autocompletion in IDEs
+- Catches typos at compile time
 
 ### `ThemeProvider`
 
@@ -241,7 +285,7 @@ function Component() {
     return <div>No theme available</div>;
   }
   
-  return <div style={{ color: theme.colors.text.primary }}>Hello</div>;
+  return <div style={{ color: theme.colors.text.static_icons__default.getVariable('color') }}>Hello</div>;
 }
 ```
 
@@ -383,8 +427,8 @@ const defaultStyleProps: StyleProps = {
 const useStyles = makeStyles<StyleProps>((theme) =>
   createStyles({
     root: ({ background }: StyleProps) => ({
-      ...theme.typography.paragraph.ingress.style,
-      backgroundColor: theme.colors.ui[background].getAttribute('color'),
+      ...theme.typography.paragraph.body_short.style,
+      backgroundColor: theme.colors.ui[background].getVariable('color'),
     }),
     text: {
       color: (props: StyleProps) => props.color,
@@ -424,25 +468,48 @@ function App() {
 
 This package is written in TypeScript and provides full type definitions. All APIs are fully typed with intelligent inference:
 
+### Automatic Type Inference
+
+Type inference works automatically, and using `createStyles` provides even better type safety:
+
 ```tsx
-// Type inference works automatically
+// Basic type inference - works, but ClassKey is inferred as string
 const useStyles = makeStyles({
   root: { color: 'red' },
   button: { padding: '10px' },
 });
+const classes = useStyles(); // classes: Record<string, string>
 
-// classes is typed as { root: string; button: string }
-const classes = useStyles();
+// With createStyles - ClassKey is inferred as literal union type
+const useStyles = makeStyles((theme) =>
+  createStyles({
+    root: { color: theme.colors.text.static_icons__default.getVariable('color') },
+    button: { padding: theme.spacing.comfortable.medium.getVariable('padding') },
+  })
+);
+const classes = useStyles(); // classes: Record<'root' | 'button', string>
+// TypeScript will error if you try to access classes.foo - it knows the exact keys!
+```
 
-// Theme types
+### Theme Types
+
+```tsx
 import type { FusionTheme } from '@equinor/fusion-react-styles';
 
 const useStyles = makeStyles<Record<string, never>, FusionTheme>((theme) => ({
   root: {
-    color: theme.colors.text.primary, // Fully typed!
+    color: theme.colors.text.static_icons__default.getVariable('color'), // Fully typed!
   },
 }));
 ```
+
+### Type-Safe Class Access
+
+When using `createStyles`, the return type is `Record<ClassKey, string>` where `ClassKey` is a literal union of your style keys. This provides:
+
+- **Compile-time safety**: TypeScript errors when accessing undefined class keys
+- **Better autocompletion**: IDEs show exactly which class names are available
+- **Refactoring support**: Rename class keys and TypeScript will catch all usages
 
 ## Migration from Material-UI v4
 
