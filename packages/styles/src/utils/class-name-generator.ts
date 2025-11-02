@@ -26,12 +26,11 @@ export function createGenerateClassName(seed = '') {
   const seedPrefix = seed ? `${seed}-` : '';
 
   return (rule: { key: string }, sheet?: unknown) => {
-    // Extract name from sheet options (check both 'name' and 'classNamePrefix' for compatibility)
-    // JSS may store it as either 'name' or 'classNamePrefix'
+    // Extract classNamePrefix from sheet options (defaults to 'makeStyles')
     const sheetOptions = sheet as
-      | { options?: { name?: string; classNamePrefix?: string; link?: boolean } }
+      | { options?: { name?: string; link?: boolean; classNamePrefix?: string } }
       | undefined;
-    const classNamePrefix = sheetOptions?.options?.name || sheetOptions?.options?.classNamePrefix || 'makeStyles';
+    const classNamePrefix = sheetOptions?.options?.classNamePrefix || 'makeStyles';
 
     if (process.env.NODE_ENV === 'production') {
       // Production: shorter class names for smaller bundle size

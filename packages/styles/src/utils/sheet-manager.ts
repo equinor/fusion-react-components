@@ -24,6 +24,10 @@ interface SheetEntry {
   dynamicStyles: unknown;
   /** Map of dynamic sheets keyed by instance ID (for tracking per-component dynamic sheets) */
   dynamicSheets: Map<string, JssSheet>;
+  /** Hash of the styles content for hot-reload detection (dev only) */
+  stylesHash?: string;
+  /** Original styles object reference for comparison (dev only) */
+  originalStyles?: StyleRules;
 }
 
 /**
@@ -67,6 +71,40 @@ export interface SheetResult {
 }
 
 /**
+ * Simple hash function for style content to detect changes during hot-reload
+ * Handles function-based styles by including function references in the hash
+ * Only used in development mode
+ */
+function hashStyles(styles: StyleRules): string | undefined {
+  if (process.env.NODE_ENV !== 'development') {
+    return undefined;
+  }
+  try {
+    // Create a replacer that handles functions
+    const replacer = (_key: string, value: unknown) => {
+      if (typeof value === 'function') {
+        // Include function reference in hash for function-based styles
+        // This ensures changes to function implementations are detected
+        return `__FUNCTION__${value.toString()}`;
+      }
+      return value;
+    };
+    // Create a normalized version of styles for hashing
+    // First sort the keys to ensure consistent hashing
+    const sortedKeys = Object.keys(styles).sort();
+    const sortedStyles: Record<string, unknown> = {};
+    for (const key of sortedKeys) {
+      sortedStyles[key] = styles[key];
+    }
+    const normalized = JSON.stringify(sortedStyles, replacer);
+    return normalized;
+  } catch {
+    // If JSON.stringify fails (e.g., circular references), fallback to object reference
+    return String(styles);
+  }
+}
+
+/**
  * Simple sheet manager for caching and reusing JSS stylesheets
  *
  * This manager implements a caching strategy to avoid recreating stylesheets
@@ -78,12 +116,16 @@ export interface SheetResult {
  * - Separation of static and dynamic styles
  * - Caching based on name + theme combination
  * - Automatic cleanup when sheets are no longer referenced
+ * - Hot-reload support: detects style changes and updates existing sheets
  */
 class SheetManager {
   /** Cache of stylesheets keyed by name-theme combination */
   private sheets = new Map<string, SheetEntry>();
   /** Counter for generating unique instance IDs for dynamic sheets */
   private instanceCounter = 0;
+  /** Map of style hashes to cache keys for hot-reload detection (dev only) */
+  private stylesHashToKey =
+    process.env.NODE_ENV === 'development' ? new Map<string, string>() : undefined;
 
   /**
    * Gets or creates a JSS stylesheet for the given styles
@@ -112,13 +154,74 @@ class SheetManager {
     jss: Jss,
     generateClassName: (rule: { key: string }, sheet?: unknown) => string,
     props: Record<string, unknown> = {},
-    cacheKey?: string,
     isFirstRender = false,
   ): SheetResult {
     // Create cache key from cacheKey (or name if not provided) and theme (stringified)
-    const key = `${cacheKey ?? name}-${JSON.stringify(theme)}`;
+    const key = `${name}-${JSON.stringify(theme)}`;
+    const stylesHash = hashStyles(styles);
     let sheetEntry = this.sheets.get(key);
-    let instanceId: string | undefined;
+
+    if (process.env.NODE_ENV === 'development' && stylesHash) {
+      // Development-only hot-reload detection logic
+      // Check if styles changed for existing entry (hot-reload scenario)
+      if (sheetEntry && sheetEntry.stylesHash !== stylesHash) {
+        // Styles changed during hot-reload - update the existing sheet
+        // Detach old static sheet
+        sheetEntry.staticSheet.detach();
+
+        // Clean up all dynamic sheets
+        for (const dynamicSheet of sheetEntry.dynamicSheets.values()) {
+          dynamicSheet.detach();
+        }
+        sheetEntry.dynamicSheets.clear();
+
+        // Create new static sheet with updated styles
+        // @ts-expect-error JSS types don't match our StyleRules type exactly - this is safe
+        const staticSheet = jss.createStyleSheet(styles, {
+          link: false,
+          generateId: generateClassName,
+          name,
+          theme,
+          meta: JSON.stringify({ name }),
+        } as JssOptions) as JssSheet;
+        staticSheet.attach();
+
+        // Update entry with new styles
+        sheetEntry.staticSheet = staticSheet;
+        sheetEntry.staticSheetClasses = staticSheet.classes;
+        // @ts-expect-error JSS types don't match our StyleRules type exactly - this is safe
+        sheetEntry.dynamicStyles = getDynamicStyles(styles);
+        sheetEntry.stylesHash = stylesHash;
+        sheetEntry.originalStyles = styles;
+
+        // Update hash mapping
+        this.stylesHashToKey?.set(stylesHash, key);
+      } else if (!sheetEntry) {
+        // Check if we have a sheet with the same styles but different key (hot-reload with new scopeId)
+        const existingKey = this.stylesHashToKey?.get(stylesHash);
+        if (existingKey && existingKey !== key) {
+          // Found existing sheet with same styles but different key
+          const existingEntry = this.sheets.get(existingKey);
+          if (existingEntry && existingEntry.stylesHash === stylesHash) {
+            // Create new entry that shares the same static sheet but has its own refs
+            // This handles the case where scopeId changes during hot-reload
+            // Both entries share the staticSheet, but each maintains its own ref count
+            sheetEntry = {
+              refs: 0,
+              staticSheet: existingEntry.staticSheet,
+              staticSheetClasses: existingEntry.staticSheetClasses,
+              dynamicStyles: existingEntry.dynamicStyles,
+              dynamicSheets: new Map(), // Each entry has its own dynamic sheets map
+              stylesHash,
+              originalStyles: styles,
+            };
+            this.sheets.set(key, sheetEntry);
+            // Update hash mapping to point to the new key (for future lookups)
+            this.stylesHashToKey?.set(stylesHash, key);
+          }
+        }
+      }
+    }
 
     if (!sheetEntry) {
       // Create static sheet (styles that don't depend on props)
@@ -129,6 +232,7 @@ class SheetManager {
         generateId: generateClassName,
         name,
         theme,
+        meta: JSON.stringify({ name }),
       } as JssOptions) as JssSheet;
       staticSheet.attach();
 
@@ -140,8 +244,14 @@ class SheetManager {
         // @ts-expect-error JSS types don't match our StyleRules type exactly - this is safe
         dynamicStyles: getDynamicStyles(styles),
         dynamicSheets: new Map(),
+        ...(process.env.NODE_ENV === 'development' && stylesHash
+          ? { stylesHash, originalStyles: styles }
+          : {}),
       };
       this.sheets.set(key, sheetEntry);
+      if (process.env.NODE_ENV === 'development' && stylesHash) {
+        this.stylesHashToKey?.set(stylesHash, key);
+      }
     }
 
     // Only increment reference count on first render (when component mounts)
@@ -152,19 +262,20 @@ class SheetManager {
     // Handle dynamic styles (if any)
     if (sheetEntry.dynamicStyles) {
       // Generate unique instance ID for this component's dynamic sheet
-      instanceId = `${this.instanceCounter++}`;
-      
+      const instanceId = `${this.instanceCounter++}`;
+
       // Create linked sheet for dynamic styles (can be updated)
       const dynamicSheet = jss.createStyleSheet(sheetEntry.dynamicStyles, {
         link: true, // Linked sheets can be updated when props change
         generateId: generateClassName,
         name,
         theme,
+        meta: `${name}-dynamic-${instanceId}`,
       } as JssOptions) as JssSheet;
       // Update dynamic styles with current props
       dynamicSheet.update(props);
       dynamicSheet.attach();
-      
+
       // Store the dynamic sheet for cleanup later
       sheetEntry.dynamicSheets.set(instanceId, dynamicSheet);
 
@@ -189,7 +300,7 @@ class SheetManager {
   /**
    * Removes a dynamic sheet instance without decrementing ref count
    * Used when component props change and a new dynamic sheet is created
-   * 
+   *
    * @param key - Cache key for the stylesheet
    * @param instanceId - Instance ID for the dynamic sheet to remove
    */
@@ -211,7 +322,7 @@ class SheetManager {
 
   /**
    * Removes a reference to a sheet and cleans up if no longer needed
-   * 
+   *
    * @param key - Cache key for the stylesheet
    * @param instanceId - Optional instance ID for dynamic sheet cleanup
    */
@@ -235,16 +346,45 @@ class SheetManager {
 
     // If no more references, detach static sheet and remove from cache
     if (sheetEntry.refs <= 0) {
-      // Detach static sheet from DOM
-      sheetEntry.staticSheet.detach();
-      
-      // Detach any remaining dynamic sheets (shouldn't happen, but safety check)
+      // Check if any other entries are sharing this static sheet before detaching
+      let hasOtherReferences = false;
+      for (const [otherKey, otherEntry] of this.sheets.entries()) {
+        if (otherKey !== key && otherEntry.staticSheet === sheetEntry.staticSheet) {
+          hasOtherReferences = true;
+          break;
+        }
+      }
+
+      // Only detach static sheet if no other entries are using it
+      if (!hasOtherReferences) {
+        sheetEntry.staticSheet.detach();
+      }
+
+      // Detach any remaining dynamic sheets (these are always per-entry, so safe to detach)
       for (const dynamicSheet of sheetEntry.dynamicSheets.values()) {
         dynamicSheet.detach();
       }
-      
+
       // Remove from cache
       this.sheets.delete(key);
+
+      // Clean up hash mapping if this was the last sheet with this hash (dev only)
+      if (process.env.NODE_ENV === 'development' && sheetEntry.stylesHash && this.stylesHashToKey) {
+        const hashKey = this.stylesHashToKey.get(sheetEntry.stylesHash);
+        if (hashKey === key) {
+          // Check if there are any other entries with the same hash before removing
+          let hasOtherHashEntries = false;
+          for (const otherEntry of this.sheets.values()) {
+            if (otherEntry.stylesHash === sheetEntry.stylesHash) {
+              hasOtherHashEntries = true;
+              break;
+            }
+          }
+          if (!hasOtherHashEntries) {
+            this.stylesHashToKey.delete(sheetEntry.stylesHash);
+          }
+        }
+      }
     }
   }
 
@@ -252,7 +392,17 @@ class SheetManager {
    * Clears all sheets
    */
   clear(): void {
+    // Detach all sheets before clearing
+    for (const sheetEntry of this.sheets.values()) {
+      sheetEntry.staticSheet.detach();
+      for (const dynamicSheet of sheetEntry.dynamicSheets.values()) {
+        dynamicSheet.detach();
+      }
+    }
     this.sheets.clear();
+    if (process.env.NODE_ENV === 'development') {
+      this.stylesHashToKey?.clear();
+    }
   }
 }
 

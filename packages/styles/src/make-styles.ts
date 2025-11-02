@@ -11,60 +11,13 @@ export type { ClassNameMap };
  * Generated once when the module loads to ensure isolation between dynamically loaded apps
  * All makeStyles instances without a custom name will share this scope ID and reuse the same stylesheet
  */
-const scopeId = `jss-${Date.now()}-${Math.random().toString(36).substring(2, 11)}`;
+const scopeId = Math.random().toString(36).substring(2, 15);
+let instanceCounter = 0;
 
-/**
- * Generate a simple hash from a string (for production mode)
- * Returns a short alphanumeric hash
- */
-function simpleHash(str: string): string {
-  let hash = 0;
-  for (let i = 0; i < str.length; i++) {
-    const char = str.charCodeAt(i);
-    hash = (hash << 5) - hash + char;
-    hash = hash & hash; // Convert to 32-bit integer
-  }
-  // Convert to base36 and take first 8 characters for shorter hash
-  return Math.abs(hash).toString(36).substring(0, 8);
-}
-
-/**
- * Generate a unique name for a makeStyles instance
- * Uses the scope ID to ensure isolation between different runtime scopes
- * When no custom name is provided, uses a simple default name for JSS
- * In production mode, returns a hash for shorter class names
- */
-function generateUniqueName(customName?: string): string {
-  if (process.env.NODE_ENV === 'production') {
-    // In production: return a hash of name + scopeId (or just scopeId if no name)
-    if (customName) {
-      return simpleHash(`${customName}-${scopeId}`);
-    }
-    // Use a simple default name in production to avoid JSS issues
-    return 'Styles';
-  }
-
-  // In development: return readable names
-  if (customName) {
-    return customName;
-  }
-  // Use a simple default name - JSS doesn't work well with long scopeIds as names
-  // The scopeId is still used in the cache key to ensure uniqueness
-  return 'Styles';
-}
-
-/**
- * Generate a cache key for stylesheet caching
- * Uses the scope ID to ensure isolation between different runtime scopes
- * This ensures that even without a custom name, different scopes get different cache entries
- */
-function generateCacheKey(customName?: string): string {
-  if (customName) {
-    return `${customName}-${scopeId}`;
-  }
-  // Use scope ID for cache key to ensure uniqueness even without custom name
-  return scopeId;
-}
+const generateInstanceName = (name?: string) => {
+  instanceCounter += 1;
+  return `${scopeId}::${name ?? `style-${instanceCounter}`}`;
+};
 
 /**
  * Options for configuring the makeStyles hook
@@ -133,7 +86,7 @@ export function makeStyles<
 ): keyof Props extends never
   ? (props?: Props) => Record<ExtractClassKey<SR>, string>
   : (props: Props) => Record<ExtractClassKey<SR>, string>;
-// Overload for direct StyleRules objects  
+// Overload for direct StyleRules objects
 export function makeStyles<
   Theme extends FusionTheme = FusionTheme,
   Props extends Record<string, unknown> = Record<string, unknown>,
@@ -156,11 +109,14 @@ export function makeStyles<
   ? (props?: Props) => Record<ClassKey, string>
   : (props: Props) => Record<ClassKey, string> {
   const { name, defaultTheme: optionsDefaultTheme = defaultTheme } = options;
-  // Generate a unique name for this instance (stored in closure for this scope)
-  // sheetName is used by JSS - should be simple to avoid issues
-  const sheetName = generateUniqueName(name);
-  // cacheKey is used for caching - includes scopeId for uniqueness
-  const cacheKey = generateCacheKey(name);
+
+  if(!name) {
+    if(process.env.NODE_ENV === 'development') {
+      console.warn('No name provided for makeStyles. This can cause searious performance issues!');
+    }
+  }
+
+  const instanceName = generateInstanceName(name);
 
   const useStyles = (props: Props = {} as Props): Record<ClassKey, string> => {
     // Get theme from context or use default
@@ -169,7 +125,11 @@ export function makeStyles<
     const { jss, generateClassName } = useContext(StylesContext);
 
     // Store sheet info for cleanup - track if this is the first render
-    const sheetInfoRef = useRef<{ cacheKey: string; instanceId?: string; isMounted: boolean } | null>(null);
+    const sheetInfoRef = useRef<{
+      cacheKey: string;
+      instanceId?: string;
+      isMounted: boolean;
+    } | null>(null);
     const isFirstRender = useRef(true);
 
     // Memoize class names to prevent unnecessary recalculations
@@ -182,11 +142,10 @@ export function makeStyles<
       const sheetResult = defaultSheetManager.getOrCreateSheet(
         styles as StyleRules,
         theme,
-        sheetName,
+        instanceName,
         jss,
         generateClassName,
         props,
-        cacheKey,
         isFirstRender.current, // Only increment refs on first render
       );
 
@@ -241,6 +200,6 @@ export function makeStyles<
   return useStyles as keyof Props extends never
     ? (props?: Props) => Record<ClassKey, string>
     : (props: Props) => Record<ClassKey, string>;
-};
+}
 
 export default makeStyles;
