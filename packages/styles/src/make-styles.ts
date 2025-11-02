@@ -7,6 +7,51 @@ import { defaultSheetManager, type ClassNameMap } from './utils/sheet-manager';
 export type { ClassNameMap };
 
 /**
+ * Unique identifier for this module/runtime scope
+ * Generated once when the module loads to ensure isolation between dynamically loaded apps
+ * All makeStyles instances without a custom name will share this scope ID and reuse the same stylesheet
+ */
+const scopeId = `jss-${Date.now()}-${Math.random().toString(36).substring(2, 11)}`;
+
+/**
+ * Generate a simple hash from a string (for production mode)
+ * Returns a short alphanumeric hash
+ */
+function simpleHash(str: string): string {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    const char = str.charCodeAt(i);
+    hash = (hash << 5) - hash + char;
+    hash = hash & hash; // Convert to 32-bit integer
+  }
+  // Convert to base36 and take first 8 characters for shorter hash
+  return Math.abs(hash).toString(36).substring(0, 8);
+}
+
+/**
+ * Generate a unique name for a makeStyles instance
+ * Uses the scope ID to ensure isolation between different runtime scopes
+ * When no custom name is provided, uses the scope ID so all instances share the same stylesheet
+ * In production mode, returns a hash for shorter class names
+ */
+function generateUniqueName(customName?: string): string {
+  if (process.env.NODE_ENV === 'production') {
+    // In production: return a hash of name + scopeId (or just scopeId if no name)
+    if (customName) {
+      return simpleHash(`${customName}-${scopeId}`);
+    }
+    return simpleHash(scopeId);
+  }
+
+  // In development: return readable names
+  if (customName) {
+    return customName;
+  }
+  // Use scope ID directly - all makeStyles calls without a name will share the same stylesheet
+  return scopeId;
+}
+
+/**
  * Options for configuring the makeStyles hook
  */
 export interface MakeStylesOptions {
@@ -66,7 +111,9 @@ export const makeStyles = <
   stylesOrCreator: Styles<Theme, Props, ClassKey>,
   options: MakeStylesOptions = {},
 ): keyof Props extends never ? (props?: Props) => ClassNameMap : (props: Props) => ClassNameMap => {
-  const { name = 'makeStyles', defaultTheme: optionsDefaultTheme = defaultTheme } = options;
+  const { name, defaultTheme: optionsDefaultTheme = defaultTheme } = options;
+  // Generate a unique name for this instance (stored in closure for this scope)
+  const sheetName = generateUniqueName(name);
 
   const useStyles = (props: Props = {} as Props): ClassNameMap => {
     // Get theme from context or use default
@@ -84,7 +131,7 @@ export const makeStyles = <
       return defaultSheetManager.getOrCreateSheet(
         styles as StyleRules,
         theme,
-        name,
+        sheetName,
         jss,
         generateClassName,
         props,
