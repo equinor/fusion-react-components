@@ -23,5 +23,9 @@
     "@equinor/fusion-react-utils": "3.0.0",
     "@equinor/fusion-react-components-stories": "5.0.0"
   },
-  "changesets": []
+  "changesets": [
+    "react-styles-remove-material-ui",
+    "react-styles-theme-extensions",
+    "storybook-styles-docs"
+  ]
 }
