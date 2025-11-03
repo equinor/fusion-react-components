@@ -1,5 +1,11 @@
 # Change Log
 
+## 6.0.0
+
+### Major Changes
+
+- d47a666: Updating to storybook 10
+
 ## 5.0.1
 
 ### Patch Changes
