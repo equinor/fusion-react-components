@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-components-stories",
-  "version": "5.0.1-preview.1",
+  "version": "5.0.0",
   "description": "",
   "private": true,
   "scripts": {
@@ -38,6 +38,7 @@
     "@equinor/fusion-react-styles": "workspace:^",
     "@equinor/fusion-react-tabs": "workspace:^",
     "@equinor/fusion-react-textarea": "workspace:^",
+    "@material-ui/styles": "^4.11.5",
     "@storybook/addon-docs": "^9.0.6",
     "@storybook/addon-links": "^9.0.6",
     "@storybook/react-vite": "^9.0.6",
