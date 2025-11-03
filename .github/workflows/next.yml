@@ -1,9 +1,11 @@
 name: Fusion React Components Pre-Release
 
 on:
-  push:
-    branches-ignore:
-      - main
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Release tag (PR)'     
+        required: true
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 permissions:
