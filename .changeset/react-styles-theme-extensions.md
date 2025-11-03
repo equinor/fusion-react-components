@@ -27,7 +27,7 @@ Enhanced theme system with support for extending `FusionTheme` with custom prope
 - `createTheme` signature now accepts optional `baseTheme` parameter (backward compatible)
 - Improved type inference for extended themes in `ThemeProvider`, `useTheme`, and `makeStyles`
 - Better handling of nested theme composition when using theme functions in nested `ThemeProvider` components
-- **Storybook Stories Updated**: All stories now use theme CSS values (`theme.colors.*.getVariable('color')`, `theme.spacing.*.getVariable('padding')`, `theme.typography.*.style.*`) instead of hardcoded custom CSS, ensuring proper integration with Fusion design system tokens
+- **Storybook Stories Updated**: All stories now consistently use the `.getVariable()` method for accessing theme CSS values (e.g., `theme.colors.*.getVariable('color')`, `theme.spacing.*.getVariable('padding')`). Direct usage of the `.css` property has been replaced to ensure proper integration with Fusion design system tokens and to match the documented API usage.
 - **README Updated**: Updated all documentation examples to use correct `getVariable()` API for theme properties
 
 ### Technical Details
