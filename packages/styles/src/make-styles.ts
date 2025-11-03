@@ -74,7 +74,7 @@ export interface MakeStylesOptions {
  * @example
  * ```tsx
  * const useStyles = makeStyles((theme) => ({
- *   root: { 
+ *   root: {
  *     color: theme.colors.text.static_icons__default.getVariable('color'),
  *     padding: theme.spacing.comfortable.medium.getVariable('padding')
  *   }
@@ -93,9 +93,11 @@ type ExtractClassKey<T> = T extends StyleRules<any, infer K> ? K : keyof T & str
 
 // Overload for callback functions - TypeScript infers return type from createStyles
 // `any` in SR allows accepting any style object shape; type safety comes from inference
+// biome-ignore lint: {} is needed as default to make keyof {} evaluate to never
 export function makeStyles<
   Theme extends FusionTheme,
-  Props extends Record<string, unknown> = Record<string, unknown>,
+  // biome-ignore lint: {} is needed as default to make keyof {} evaluate to never
+  Props extends Record<string, unknown> = {},
   // biome-ignore lint/suspicious/noExplicitAny: SR needs to accept any style object shape for flexible type inference; type safety is maintained via ExtractClassKey
   SR extends Record<string, any> = Record<string, any>,
 >(
@@ -108,7 +110,8 @@ export function makeStyles<
 // Theme parameter is unused but kept for API symmetry with callback overload
 export function makeStyles<
   Theme extends FusionTheme = FusionTheme,
-  Props extends Record<string, unknown> = Record<string, unknown>,
+  // biome-ignore lint/complexity/noBannedTypes: {} is needed as default to make keyof {} evaluate to never
+  Props extends Record<string, unknown> = {},
   // biome-ignore lint/suspicious/noExplicitAny: SR needs to accept any style object shape for flexible type inference; type safety is maintained via ExtractClassKey
   SR extends Record<string, any> = Record<string, any>,
 >(
@@ -120,7 +123,8 @@ export function makeStyles<
 // Implementation
 export function makeStyles<
   Theme extends FusionTheme = FusionTheme,
-  Props extends Record<string, unknown> = Record<string, unknown>,
+  // biome-ignore lint/complexity/noBannedTypes: {} is needed as default to make keyof {} evaluate to never
+  Props extends Record<string, unknown> = {},
   ClassKey extends string = string,
 >(
   stylesOrCreator: Styles<Theme, Props, ClassKey>,
@@ -181,20 +185,20 @@ export function makeStyles<
         };
         isFirstRender.current = false;
       } else {
-      // On subsequent renders, only update dynamic sheet if props changed
-      // Clean up previous dynamic sheet to prevent memory leaks
-      // Each render creates a new dynamic sheet for the updated props
-      if (sheetInfoRef.current?.instanceId) {
-        defaultSheetManager.removeDynamicSheet(
-          sheetInfoRef.current.cacheKey,
-          sheetInfoRef.current.instanceId,
-        );
-      }
-      // Update instanceId for new dynamic sheet
-      // instanceId is only set if dynamic styles exist (from sheetResult)
-      if (sheetInfoRef.current) {
-        sheetInfoRef.current.instanceId = sheetResult.instanceId;
-      }
+        // On subsequent renders, only update dynamic sheet if props changed
+        // Clean up previous dynamic sheet to prevent memory leaks
+        // Each render creates a new dynamic sheet for the updated props
+        if (sheetInfoRef.current?.instanceId) {
+          defaultSheetManager.removeDynamicSheet(
+            sheetInfoRef.current.cacheKey,
+            sheetInfoRef.current.instanceId,
+          );
+        }
+        // Update instanceId for new dynamic sheet
+        // instanceId is only set if dynamic styles exist (from sheetResult)
+        if (sheetInfoRef.current) {
+          sheetInfoRef.current.instanceId = sheetResult.instanceId;
+        }
       }
 
       // Cast to Record<ClassKey, string> to preserve type information for createStyles

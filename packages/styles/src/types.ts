@@ -167,7 +167,7 @@ export type StyleRulesCallback<
  *
  * // Theme-based styles
  * const useStyles = makeStyles((theme) => ({
- *   root: { 
+ *   root: {
  *     color: theme.colors.text.static_icons__default.getVariable('color')
  *   }
  * }), { name: 'ThemedComponent' });

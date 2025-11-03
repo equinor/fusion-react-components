@@ -144,7 +144,16 @@ describe('SheetManager - Sheet lifecycle management', () => {
     const key = 'TestComponent-{}';
 
     // Create sheet (refs = 1)
-    manager.getOrCreateSheet(styles, {}, 'TestComponent', jss, generateClassName, {}, undefined, true);
+    manager.getOrCreateSheet(
+      styles,
+      {},
+      'TestComponent',
+      jss,
+      generateClassName,
+      {},
+      undefined,
+      true,
+    );
 
     // Remove reference (refs = 0, should delete)
     manager.removeSheet(key);
@@ -172,8 +181,26 @@ describe('SheetManager - Sheet lifecycle management', () => {
     const key = 'TestComponent-{}';
 
     // Create sheet twice (refs = 2)
-    manager.getOrCreateSheet(styles, {}, 'TestComponent', jss, generateClassName, {}, undefined, true);
-    manager.getOrCreateSheet(styles, {}, 'TestComponent', jss, generateClassName, {}, undefined, true);
+    manager.getOrCreateSheet(
+      styles,
+      {},
+      'TestComponent',
+      jss,
+      generateClassName,
+      {},
+      undefined,
+      true,
+    );
+    manager.getOrCreateSheet(
+      styles,
+      {},
+      'TestComponent',
+      jss,
+      generateClassName,
+      {},
+      undefined,
+      true,
+    );
 
     // Remove one reference (refs = 1, should still exist)
     manager.removeSheet(key);

@@ -18,10 +18,10 @@ import type { StyleRules } from './types';
  *
  * const useStyles = makeStyles((theme) =>
  *   createStyles({
- *     root: { 
+ *     root: {
  *       color: theme.colors.text.static_icons__default.getVariable('color'),
  *     },
- *     button: { 
+ *     button: {
  *       padding: theme.spacing.comfortable.medium.getVariable('padding'),
  *     }
  *   }),
@@ -46,10 +46,9 @@ export function createStyles<
 >(styles: T): T;
 // Fallback for dynamic styles with explicit Props type
 // This overload handles StyleRules with explicit Props and ClassKey types
-export function createStyles<
-  ClassKey extends string,
-  Props extends {} = {},
->(styles?: StyleRules<Props, ClassKey>): StyleRules<Props, ClassKey> | never;
+export function createStyles<ClassKey extends string, Props extends {} = {}>(
+  styles?: StyleRules<Props, ClassKey>,
+): StyleRules<Props, ClassKey> | never;
 // Implementation
 // Type assertion is safe because StyleRules is compatible with Record<string, any>
 export function createStyles<

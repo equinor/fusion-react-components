@@ -119,7 +119,7 @@ export function ThemeProvider<T extends FusionTheme = FusionTheme>(
  *     return <div>No theme available</div>;
  *   }
  *   return (
- *     <div style={{ 
+ *     <div style={{
  *       color: theme.colors.text.static_icons__default.getVariable('color')
  *     }}>
  *       Hello

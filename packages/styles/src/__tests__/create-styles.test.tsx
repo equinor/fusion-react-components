@@ -140,7 +140,9 @@ describe('createStyles - Type-safe style helper', () => {
     expect(typeof resultPrimary.current.root).toBe('string');
 
     // Test with primary=false
-    const { result: resultSecondary } = renderHook(() => useStyles({ primary: false }), { wrapper });
+    const { result: resultSecondary } = renderHook(() => useStyles({ primary: false }), {
+      wrapper,
+    });
     expect(resultSecondary.current.root).toBeDefined();
     expect(typeof resultSecondary.current.root).toBe('string');
   });
