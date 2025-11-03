@@ -1,14 +1,14 @@
 // This file has been automatically migrated to valid ESM format by Storybook.
 import { fileURLToPath } from "node:url";
 import type { StorybookConfig } from '@storybook/react-vite';
-import path, { dirname } from 'path';
+import { dirname, resolve } from 'path';
 import { mergeConfig } from 'vite';
 import tsconfigPaths from 'vite-tsconfig-paths';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
-const repoRoot = path.resolve(__dirname, '../..');
+const repoRoot = resolve(__dirname, '../..');
 
 const config: StorybookConfig = {
   stories: ['../src/**/*.mdx', '../src/stories/**/*.stories.@(js|jsx|tsx|ts)'],
@@ -19,7 +19,7 @@ const config: StorybookConfig = {
         alias: [
           {
             find: '#packages',
-            replacement: path.resolve(repoRoot, 'packages'),
+            replacement: resolve(repoRoot, 'packages'),
           },
         ],
       },
@@ -49,13 +49,7 @@ const config: StorybookConfig = {
   addons: [
     {
       name: '@storybook/addon-docs',
-      options: {
-        // mdxPluginOptions: {
-        //   mdxCompileOptions: {
-        //     remarkPlugins: [remarkGfm],
-        //   },
-        // },
-      },
+      options: {},
     },
   ],
 
