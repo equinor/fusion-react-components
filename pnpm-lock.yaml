@@ -449,7 +449,7 @@ importers:
         version: 19.2.2
       '@vitest/coverage-v8':
         specifier: ^4.0.6
-        version: 4.0.6(vitest@4.0.6(@types/debug@4.1.12)(@types/node@24.10.0)(jiti@2.6.1)(jsdom@25.0.1)(sass@1.93.2)(terser@5.44.0)(yaml@2.8.1))
+        version: 4.0.7(vitest@4.0.6(@types/debug@4.1.12)(@types/node@24.10.0)(jiti@2.6.1)(jsdom@25.0.1)(sass@1.93.2)(terser@5.44.0)(yaml@2.8.1))
       jsdom:
         specifier: ^25.0.1
         version: 25.0.1
@@ -3789,11 +3789,11 @@ packages:
     peerDependencies:
       vite: ^4.2.0 || ^5.0.0 || ^6.0.0 || ^7.0.0
 
-  '@vitest/coverage-v8@4.0.6':
-    resolution: {integrity: sha512-cv6pFXj9/Otk7q1Ocoj8k3BUVVwnFr3jqcqpwYrU5LkKClU9DpaMEdX+zptx/RyIJS+/VpoxMWmfISXchmVDPQ==}
+  '@vitest/coverage-v8@4.0.7':
+    resolution: {integrity: sha512-MXc+kEA5EUwMMGmNt1S6CIOEl/iCmAhGZQq1QgMNC3/QpYSOxkysEi6pxWhkqJ7YT/RduoVEV5rxFxHG18V3LA==}
     peerDependencies:
-      '@vitest/browser': 4.0.6
-      vitest: 4.0.6
+      '@vitest/browser': 4.0.7
+      vitest: 4.0.7
     peerDependenciesMeta:
       '@vitest/browser':
         optional: true
@@ -3832,6 +3832,9 @@ packages:
   '@vitest/pretty-format@4.0.6':
     resolution: {integrity: sha512-4vptgNkLIA1W1Nn5X4x8rLJBzPiJwnPc+awKtfBE5hNMVsoAl/JCCPPzNrbf+L4NKgklsis5Yp2gYa+XAS442g==}
 
+  '@vitest/pretty-format@4.0.7':
+    resolution: {integrity: sha512-YY//yxqTmk29+/pK+Wi1UB4DUH3lSVgIm+M10rAJ74pOSMgT7rydMSc+vFuq9LjZLhFvVEXir8EcqMke3SVM6Q==}
+
   '@vitest/runner@4.0.6':
     resolution: {integrity: sha512-trPk5qpd7Jj+AiLZbV/e+KiiaGXZ8ECsRxtnPnCrJr9OW2mLB72Cb824IXgxVz/mVU3Aj4VebY+tDTPn++j1Og==}
 
@@ -3849,6 +3852,9 @@ packages:
 
   '@vitest/utils@4.0.6':
     resolution: {integrity: sha512-bG43VS3iYKrMIZXBo+y8Pti0O7uNju3KvNn6DrQWhQQKcLavMB+0NZfO1/QBAEbq0MaQ3QjNsnnXlGQvsh0Z6A==}
+
+  '@vitest/utils@4.0.7':
+    resolution: {integrity: sha512-HNrg9CM/Z4ZWB6RuExhuC6FPmLipiShKVMnT9JlQvfhwR47JatWLChA6mtZqVHqypE6p/z6ofcjbyWpM7YLxPQ==}
 
   '@webassemblyjs/ast@1.14.1':
     resolution: {integrity: sha512-nuBEDgQfm1ccRp/8bCQrx1frohyufl4JlbMMZ4P1wpeOfDhF6FQkxZJ1b/e+PLwr6X1Nhw6OLme5usuBWYBvuQ==}
@@ -11834,10 +11840,10 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@vitest/coverage-v8@4.0.6(vitest@4.0.6(@types/debug@4.1.12)(@types/node@24.10.0)(jiti@2.6.1)(jsdom@25.0.1)(sass@1.93.2)(terser@5.44.0)(yaml@2.8.1))':
+  '@vitest/coverage-v8@4.0.7(vitest@4.0.6(@types/debug@4.1.12)(@types/node@24.10.0)(jiti@2.6.1)(jsdom@25.0.1)(sass@1.93.2)(terser@5.44.0)(yaml@2.8.1))':
     dependencies:
       '@bcoe/v8-coverage': 1.0.2
-      '@vitest/utils': 4.0.6
+      '@vitest/utils': 4.0.7
       ast-v8-to-istanbul: 0.3.8
       debug: 4.4.3
       istanbul-lib-coverage: 3.2.2
@@ -11892,6 +11898,10 @@ snapshots:
     dependencies:
       tinyrainbow: 3.0.3
 
+  '@vitest/pretty-format@4.0.7':
+    dependencies:
+      tinyrainbow: 3.0.3
+
   '@vitest/runner@4.0.6':
     dependencies:
       '@vitest/utils': 4.0.6
@@ -11918,6 +11928,11 @@ snapshots:
   '@vitest/utils@4.0.6':
     dependencies:
       '@vitest/pretty-format': 4.0.6
+      tinyrainbow: 3.0.3
+
+  '@vitest/utils@4.0.7':
+    dependencies:
+      '@vitest/pretty-format': 4.0.7
       tinyrainbow: 3.0.3
 
   '@webassemblyjs/ast@1.14.1':
