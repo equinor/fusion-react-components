@@ -13,16 +13,16 @@ importers:
         version: 2.3.2
       '@changesets/cli':
         specifier: ^2.26.2
-        version: 2.29.8(@types/node@24.10.0)
+        version: 2.29.8(@types/node@24.10.1)
       '@commitlint/cli':
         specifier: ^20.1.0
-        version: 20.1.0(@types/node@24.10.0)(typescript@5.9.3)
+        version: 20.1.0(@types/node@24.10.1)(typescript@5.9.3)
       '@commitlint/config-conventional':
         specifier: ^20.0.0
         version: 20.0.0
       lerna:
         specifier: ^9.0.0
-        version: 9.0.0(@types/node@24.10.0)(babel-plugin-macros@3.1.0)
+        version: 9.0.0(@types/node@24.10.1)(babel-plugin-macros@3.1.0)
       lerna-update-wizard:
         specifier: ^1.1.2
         version: 1.1.2
@@ -56,7 +56,7 @@ importers:
         version: 0.10.0
       '@equinor/fusion-framework-react-ag-grid':
         specifier: ^34.2.1
-        version: 34.2.3(@equinor/eds-tokens@0.10.0)(@equinor/fusion-framework-module@5.0.3)(@equinor/fusion-framework-react-module@3.1.13(@types/react@19.2.2)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+        version: 34.3.0(@equinor/eds-tokens@0.10.0)(@equinor/fusion-framework-module@5.0.3)(@equinor/fusion-framework-react-module@3.1.13(@types/react@19.2.2)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@types/react':
         specifier: ^19.2.2
         version: 19.2.2
@@ -81,7 +81,7 @@ importers:
         version: 0.9.2
       '@equinor/fusion-framework-react-ag-grid':
         specifier: ^34.2.1
-        version: 34.2.3(@equinor/eds-tokens@0.9.2)(@equinor/fusion-framework-module@5.0.3)(@equinor/fusion-framework-react-module@3.1.13(@types/react@19.2.2)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+        version: 34.3.0(@equinor/eds-tokens@0.9.2)(@equinor/fusion-framework-module@5.0.3)(@equinor/fusion-framework-react-module@3.1.13(@types/react@19.2.2)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@types/react':
         specifier: ^19.2.2
         version: 19.2.2
@@ -548,7 +548,7 @@ importers:
         version: 0.9.2
       '@equinor/fusion-framework-react-ag-grid':
         specifier: ^34.2.1
-        version: 34.2.3(@equinor/eds-tokens@0.9.2)(@equinor/fusion-framework-module@5.0.3)(@equinor/fusion-framework-react-module@3.1.13(@types/react@19.2.2)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+        version: 34.3.0(@equinor/eds-tokens@0.9.2)(@equinor/fusion-framework-module@5.0.3)(@equinor/fusion-framework-react-module@3.1.13(@types/react@19.2.2)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
       '@equinor/fusion-react-ag-grid-person-cell':
         specifier: workspace:^
         version: link:../packages/ag-grid-person-cell
@@ -1595,8 +1595,8 @@ packages:
       react-dom: '>=16.8'
       styled-components: '>=5.1'
 
-  '@equinor/fusion-framework-module-ag-grid@34.2.2':
-    resolution: {integrity: sha512-tYPIsPerl0aIBKy9I2rd+8YARia2Pa/T1L7ie+CLJ5R0oIBFWE8BreBwl+fqlQDNrqr38+r9dbFYGFhebnoEmg==}
+  '@equinor/fusion-framework-module-ag-grid@34.3.0':
+    resolution: {integrity: sha512-FmJeT+0RTf2rRKSd+0Hu6Bkui2C+oSWf318eK2POdpJZ4+RQwqWgYdczN/4gY8UoqKHFZoEwQBqxZyFGVBzomw==}
     peerDependencies:
       '@equinor/eds-tokens': ^0.10.0
       '@equinor/fusion-framework-module': ^5.0.5
@@ -1615,8 +1615,8 @@ packages:
       '@types/semver':
         optional: true
 
-  '@equinor/fusion-framework-react-ag-grid@34.2.3':
-    resolution: {integrity: sha512-ms4SyOmEmzifHg+aaGfSR2GmrUYnnXqh0hBbBTTnUKAVr3h/t+KDENPgJik447rNQ/1TUGz6iONi0JS9e4s4OQ==}
+  '@equinor/fusion-framework-react-ag-grid@34.3.0':
+    resolution: {integrity: sha512-iByzFDDgs68saAFA5iNtSZ8z8QVzrzqVLZofnxVkDBm29rKb8H5FVvkPYm0c9y+V533HAlZP2fqZ/L/9no0SVg==}
     peerDependencies:
       '@equinor/fusion-framework-react-module': ^3.1.13
 
@@ -3737,9 +3737,6 @@ packages:
   '@types/node@12.20.55':
     resolution: {integrity: sha512-J8xLz7q2OFulZ2cyGTLE1TbbZcjpno7FaN6zdJNrgAdrJ+DZzh/uFR6YrTb4C+nXakvud8Q4+rbhoIWlYQbUFQ==}
 
-  '@types/node@24.10.0':
-    resolution: {integrity: sha512-qzQZRBqkFsYyaSWXuEHc2WR9c0a0CXwiE5FWUvn7ZM+vdy1uZLfCunD38UzhuB7YN/J11ndbDBcTmOdxJo9Q7A==}
-
   '@types/node@24.10.1':
     resolution: {integrity: sha512-GNWcUTRBgIRJD5zj+Tq0fKOJ5XZajIiBroOF0yvj2bSU1WvNdYS/dn9UxwsujGW4JX06dnHyjV2y9rRaybH0iQ==}
 
@@ -3941,29 +3938,29 @@ packages:
   add-stream@1.0.0:
     resolution: {integrity: sha512-qQLMr+8o0WC4FZGQTcJiKBVC59JylcPSrTtk6usvmIDFUOCKegapy1VHQwRbFMOFyb/inzUVqHs+eMYKDM1YeQ==}
 
-  ag-charts-community@12.2.0:
-    resolution: {integrity: sha512-j5IYDtePqOde5LdnmpcKGSkgqhWRCke4W3uJvIFRFDQrFmI+hrnIRFgoea6+QBmtsKcho2vv5N8FqHOwN/udOw==}
+  ag-charts-community@12.3.1:
+    resolution: {integrity: sha512-uRaUFmCl8e0Y3KxjaHUYlkCPS5OtwtfTChkdpoZuBKDXqerCPTjPu+uvlun3rYUSYxScwVf2LZCI0Hfw4Vc+WQ==}
 
-  ag-charts-core@12.2.0:
-    resolution: {integrity: sha512-3hTpW9MGJCyvonfHHOrIeN3VPW7Crses9Os2W/TFJzRqFD0O4Zf0lzIYTQFfPCQRhCLM8Ch211XvoCkX/Goo5g==}
+  ag-charts-core@12.3.1:
+    resolution: {integrity: sha512-711UJ0fXengb8+4PEW4nlzWDowmbYymPcjW2eJWHRzzvttUf14hnh+wP/l/s3EGVgYkEHe9vkXFwmeOJUlkC0Q==}
 
-  ag-charts-enterprise@12.2.0:
-    resolution: {integrity: sha512-GKboOSRIj14vBY68ueOBJJgSe/s76Ui8P0S0vU5xmfdi3xfnAC8xVIIEeMmJyZ2Z4NHsP/HxJlj1gXF/t4ZDWw==}
+  ag-charts-enterprise@12.3.1:
+    resolution: {integrity: sha512-2sQIwLfksRTcI4JVRjgQkyGq6z68UVTO/I91HKmtpukrQLsW/o0TzzHmgTtVJOXd9yO9gx2KWa2DMg0+FKdXEQ==}
 
-  ag-charts-locale@12.2.0:
-    resolution: {integrity: sha512-xwMTzoNi/SAV6EwApRuBXOc3K+Thi/ijsKIkIhaGPmc3VPkCVCWW/TcAontiZ3dXUgxsL3jXBNyarH7f+XzWkQ==}
+  ag-charts-locale@12.3.1:
+    resolution: {integrity: sha512-dCn7oHh3xLI576FT514aBedNQgtb5zwh/Gcj7jHvjOWYRnfH8kaekZzLzntITA6dF6E78okJfoI7CUCbYduQ4Q==}
 
-  ag-charts-types@12.2.0:
-    resolution: {integrity: sha512-d2qQrQirt9wP36YW5HPuOvXsiajyiFnr1CTsoCbs02bavPDz7Lk2jHp64+waM4YKgXb3GN7gafbBI9Qgk33BmQ==}
+  ag-charts-types@12.3.1:
+    resolution: {integrity: sha512-5216xYoawnvMXDFI6kTpPku+mH0Csiwu/FE7lsAm8Z22HEN6ciSG/V7g+IrpLWncELqksgENebCTP75PZ3CsHA==}
 
-  ag-grid-community@34.2.0:
-    resolution: {integrity: sha512-peS7THEMYwpIrwLQHmkRxw/TlOnddD/F5A88RqlBxf8j+WqVYRWMOOhU5TqymGcha7z2oZ8IoL9ROl3gvtdEjg==}
+  ag-grid-community@34.3.1:
+    resolution: {integrity: sha512-PwlrPudsFOzGumphi2y9ihWeaUlIwKhOra/MXu2LjeV2U8DgLLcYS8CartE5Hszhn1poJHawwI9HWrxlKliwdw==}
 
-  ag-grid-enterprise@34.2.0:
-    resolution: {integrity: sha512-ldQl5mB8dyzad3/z0fmtQRBP8+dGw8+8Po/WmkJOPDqtAQuMpRmp5+ICWGTlql0pMLKocll2jccQKJVbHDXfoA==}
+  ag-grid-enterprise@34.3.1:
+    resolution: {integrity: sha512-pee4Zh0gLeQED+RM+ofxNun9JSrYrE0ZVw90BibuBkhBCLXrtXtjGPiwM+Ylntl+GwJUuCXrTcVLXRHpdXVYbQ==}
 
-  ag-grid-react@34.2.0:
-    resolution: {integrity: sha512-dLKFw6hz75S0HLuZvtcwjm+gyiI4gXVzHEu7lWNafWAX0mb8DhogEOP5wbzAlsN6iCfi7bK/cgZImZFjenlqwg==}
+  ag-grid-react@34.3.1:
+    resolution: {integrity: sha512-1UTlBT+xJkjNZAuf7RxK61mgxKGTPB+6XR99oIHq7cYC89kJmLbWqhHt/1XqRWF5cAgSKk8u+HtOQaN8tAZStw==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
@@ -8173,7 +8170,7 @@ snapshots:
     dependencies:
       '@changesets/types': 6.1.0
 
-  '@changesets/cli@2.29.8(@types/node@24.10.0)':
+  '@changesets/cli@2.29.8(@types/node@24.10.1)':
     dependencies:
       '@changesets/apply-release-plan': 7.0.14
       '@changesets/assemble-release-plan': 6.0.9
@@ -8189,7 +8186,7 @@ snapshots:
       '@changesets/should-skip-package': 0.1.2
       '@changesets/types': 6.1.0
       '@changesets/write': 0.4.0
-      '@inquirer/external-editor': 1.0.3(@types/node@24.10.0)
+      '@inquirer/external-editor': 1.0.3(@types/node@24.10.1)
       '@manypkg/get-packages': 1.1.3
       ansi-colors: 4.1.3
       ci-info: 3.9.0
@@ -8288,11 +8285,11 @@ snapshots:
       human-id: 4.1.2
       prettier: 2.8.8
 
-  '@commitlint/cli@20.1.0(@types/node@24.10.0)(typescript@5.9.3)':
+  '@commitlint/cli@20.1.0(@types/node@24.10.1)(typescript@5.9.3)':
     dependencies:
       '@commitlint/format': 20.0.0
       '@commitlint/lint': 20.0.0
-      '@commitlint/load': 20.1.0(@types/node@24.10.0)(typescript@5.9.3)
+      '@commitlint/load': 20.1.0(@types/node@24.10.1)(typescript@5.9.3)
       '@commitlint/read': 20.0.0
       '@commitlint/types': 20.0.0
       tinyexec: 1.0.1
@@ -8339,7 +8336,7 @@ snapshots:
       '@commitlint/rules': 20.0.0
       '@commitlint/types': 20.0.0
 
-  '@commitlint/load@20.1.0(@types/node@24.10.0)(typescript@5.9.3)':
+  '@commitlint/load@20.1.0(@types/node@24.10.1)(typescript@5.9.3)':
     dependencies:
       '@commitlint/config-validator': 20.0.0
       '@commitlint/execute-rule': 20.0.0
@@ -8347,7 +8344,7 @@ snapshots:
       '@commitlint/types': 20.0.0
       chalk: 5.6.2
       cosmiconfig: 9.0.0(typescript@5.9.3)
-      cosmiconfig-typescript-loader: 6.2.0(@types/node@24.10.0)(cosmiconfig@9.0.0(typescript@5.9.3))(typescript@5.9.3)
+      cosmiconfig-typescript-loader: 6.2.0(@types/node@24.10.1)(cosmiconfig@9.0.0(typescript@5.9.3))(typescript@5.9.3)
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       lodash.uniq: 4.5.0
@@ -8621,51 +8618,51 @@ snapshots:
       react-dom: 19.2.0(react@19.2.0)
       styled-components: 6.1.19(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
 
-  '@equinor/fusion-framework-module-ag-grid@34.2.2(@equinor/eds-tokens@0.10.0)(@equinor/fusion-framework-module@5.0.3)(ag-charts-enterprise@12.2.0)(ag-grid-community@34.2.0)(ag-grid-enterprise@34.2.0)':
+  '@equinor/fusion-framework-module-ag-grid@34.3.0(@equinor/eds-tokens@0.10.0)(@equinor/fusion-framework-module@5.0.3)(ag-charts-enterprise@12.3.1)(ag-grid-community@34.3.1)(ag-grid-enterprise@34.3.1)':
     dependencies:
       '@equinor/eds-tokens': 0.10.0
       '@equinor/fusion-framework-module': 5.0.3
-      ag-grid-community: 34.2.0
-      ag-grid-enterprise: 34.2.0
+      ag-grid-community: 34.3.1
+      ag-grid-enterprise: 34.3.1
     optionalDependencies:
-      ag-charts-enterprise: 12.2.0
+      ag-charts-enterprise: 12.3.1
 
-  '@equinor/fusion-framework-module-ag-grid@34.2.2(@equinor/eds-tokens@0.9.2)(@equinor/fusion-framework-module@5.0.3)(ag-charts-enterprise@12.2.0)(ag-grid-community@34.2.0)(ag-grid-enterprise@34.2.0)':
+  '@equinor/fusion-framework-module-ag-grid@34.3.0(@equinor/eds-tokens@0.9.2)(@equinor/fusion-framework-module@5.0.3)(ag-charts-enterprise@12.3.1)(ag-grid-community@34.3.1)(ag-grid-enterprise@34.3.1)':
     dependencies:
       '@equinor/eds-tokens': 0.9.2
       '@equinor/fusion-framework-module': 5.0.3
-      ag-grid-community: 34.2.0
-      ag-grid-enterprise: 34.2.0
+      ag-grid-community: 34.3.1
+      ag-grid-enterprise: 34.3.1
     optionalDependencies:
-      ag-charts-enterprise: 12.2.0
+      ag-charts-enterprise: 12.3.1
 
   '@equinor/fusion-framework-module@5.0.3':
     dependencies:
       rxjs: 7.8.2
       semver: 7.7.3
 
-  '@equinor/fusion-framework-react-ag-grid@34.2.3(@equinor/eds-tokens@0.10.0)(@equinor/fusion-framework-module@5.0.3)(@equinor/fusion-framework-react-module@3.1.13(@types/react@19.2.2)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)':
+  '@equinor/fusion-framework-react-ag-grid@34.3.0(@equinor/eds-tokens@0.10.0)(@equinor/fusion-framework-module@5.0.3)(@equinor/fusion-framework-react-module@3.1.13(@types/react@19.2.2)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)':
     dependencies:
-      '@equinor/fusion-framework-module-ag-grid': 34.2.2(@equinor/eds-tokens@0.10.0)(@equinor/fusion-framework-module@5.0.3)(ag-charts-enterprise@12.2.0)(ag-grid-community@34.2.0)(ag-grid-enterprise@34.2.0)
+      '@equinor/fusion-framework-module-ag-grid': 34.3.0(@equinor/eds-tokens@0.10.0)(@equinor/fusion-framework-module@5.0.3)(ag-charts-enterprise@12.3.1)(ag-grid-community@34.3.1)(ag-grid-enterprise@34.3.1)
       '@equinor/fusion-framework-react-module': 3.1.13(@types/react@19.2.2)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
-      ag-charts-enterprise: 12.2.0
-      ag-grid-community: 34.2.0
-      ag-grid-enterprise: 34.2.0
-      ag-grid-react: 34.2.0(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+      ag-charts-enterprise: 12.3.1
+      ag-grid-community: 34.3.1
+      ag-grid-enterprise: 34.3.1
+      ag-grid-react: 34.3.1(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
     transitivePeerDependencies:
       - '@equinor/eds-tokens'
       - '@equinor/fusion-framework-module'
       - react
       - react-dom
 
-  '@equinor/fusion-framework-react-ag-grid@34.2.3(@equinor/eds-tokens@0.9.2)(@equinor/fusion-framework-module@5.0.3)(@equinor/fusion-framework-react-module@3.1.13(@types/react@19.2.2)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)':
+  '@equinor/fusion-framework-react-ag-grid@34.3.0(@equinor/eds-tokens@0.9.2)(@equinor/fusion-framework-module@5.0.3)(@equinor/fusion-framework-react-module@3.1.13(@types/react@19.2.2)(react-dom@19.2.0(react@19.2.0))(react@19.2.0))(react-dom@19.2.0(react@19.2.0))(react@19.2.0)':
     dependencies:
-      '@equinor/fusion-framework-module-ag-grid': 34.2.2(@equinor/eds-tokens@0.9.2)(@equinor/fusion-framework-module@5.0.3)(ag-charts-enterprise@12.2.0)(ag-grid-community@34.2.0)(ag-grid-enterprise@34.2.0)
+      '@equinor/fusion-framework-module-ag-grid': 34.3.0(@equinor/eds-tokens@0.9.2)(@equinor/fusion-framework-module@5.0.3)(ag-charts-enterprise@12.3.1)(ag-grid-community@34.3.1)(ag-grid-enterprise@34.3.1)
       '@equinor/fusion-framework-react-module': 3.1.13(@types/react@19.2.2)(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
-      ag-charts-enterprise: 12.2.0
-      ag-grid-community: 34.2.0
-      ag-grid-enterprise: 34.2.0
-      ag-grid-react: 34.2.0(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
+      ag-charts-enterprise: 12.3.1
+      ag-grid-community: 34.3.1
+      ag-grid-enterprise: 34.3.1
+      ag-grid-react: 34.3.1(react-dom@19.2.0(react@19.2.0))(react@19.2.0)
     transitivePeerDependencies:
       - '@equinor/eds-tokens'
       - '@equinor/fusion-framework-module'
@@ -9017,128 +9014,128 @@ snapshots:
 
   '@inquirer/ansi@1.0.1': {}
 
-  '@inquirer/checkbox@4.3.0(@types/node@24.10.0)':
+  '@inquirer/checkbox@4.3.0(@types/node@24.10.1)':
     dependencies:
       '@inquirer/ansi': 1.0.1
-      '@inquirer/core': 10.3.0(@types/node@24.10.0)
+      '@inquirer/core': 10.3.0(@types/node@24.10.1)
       '@inquirer/figures': 1.0.14
-      '@inquirer/type': 3.0.9(@types/node@24.10.0)
+      '@inquirer/type': 3.0.9(@types/node@24.10.1)
       yoctocolors-cjs: 2.1.3
     optionalDependencies:
-      '@types/node': 24.10.0
+      '@types/node': 24.10.1
 
-  '@inquirer/confirm@5.1.19(@types/node@24.10.0)':
+  '@inquirer/confirm@5.1.19(@types/node@24.10.1)':
     dependencies:
-      '@inquirer/core': 10.3.0(@types/node@24.10.0)
-      '@inquirer/type': 3.0.9(@types/node@24.10.0)
+      '@inquirer/core': 10.3.0(@types/node@24.10.1)
+      '@inquirer/type': 3.0.9(@types/node@24.10.1)
     optionalDependencies:
-      '@types/node': 24.10.0
+      '@types/node': 24.10.1
 
-  '@inquirer/core@10.3.0(@types/node@24.10.0)':
+  '@inquirer/core@10.3.0(@types/node@24.10.1)':
     dependencies:
       '@inquirer/ansi': 1.0.1
       '@inquirer/figures': 1.0.14
-      '@inquirer/type': 3.0.9(@types/node@24.10.0)
+      '@inquirer/type': 3.0.9(@types/node@24.10.1)
       cli-width: 4.1.0
       mute-stream: 2.0.0
       signal-exit: 4.1.0
       wrap-ansi: 6.2.0
       yoctocolors-cjs: 2.1.3
     optionalDependencies:
-      '@types/node': 24.10.0
+      '@types/node': 24.10.1
 
-  '@inquirer/editor@4.2.21(@types/node@24.10.0)':
+  '@inquirer/editor@4.2.21(@types/node@24.10.1)':
     dependencies:
-      '@inquirer/core': 10.3.0(@types/node@24.10.0)
-      '@inquirer/external-editor': 1.0.3(@types/node@24.10.0)
-      '@inquirer/type': 3.0.9(@types/node@24.10.0)
+      '@inquirer/core': 10.3.0(@types/node@24.10.1)
+      '@inquirer/external-editor': 1.0.3(@types/node@24.10.1)
+      '@inquirer/type': 3.0.9(@types/node@24.10.1)
     optionalDependencies:
-      '@types/node': 24.10.0
+      '@types/node': 24.10.1
 
-  '@inquirer/expand@4.0.21(@types/node@24.10.0)':
+  '@inquirer/expand@4.0.21(@types/node@24.10.1)':
     dependencies:
-      '@inquirer/core': 10.3.0(@types/node@24.10.0)
-      '@inquirer/type': 3.0.9(@types/node@24.10.0)
+      '@inquirer/core': 10.3.0(@types/node@24.10.1)
+      '@inquirer/type': 3.0.9(@types/node@24.10.1)
       yoctocolors-cjs: 2.1.3
     optionalDependencies:
-      '@types/node': 24.10.0
+      '@types/node': 24.10.1
 
-  '@inquirer/external-editor@1.0.3(@types/node@24.10.0)':
+  '@inquirer/external-editor@1.0.3(@types/node@24.10.1)':
     dependencies:
       chardet: 2.1.1
       iconv-lite: 0.7.0
     optionalDependencies:
-      '@types/node': 24.10.0
+      '@types/node': 24.10.1
 
   '@inquirer/figures@1.0.14': {}
 
-  '@inquirer/input@4.2.5(@types/node@24.10.0)':
+  '@inquirer/input@4.2.5(@types/node@24.10.1)':
     dependencies:
-      '@inquirer/core': 10.3.0(@types/node@24.10.0)
-      '@inquirer/type': 3.0.9(@types/node@24.10.0)
+      '@inquirer/core': 10.3.0(@types/node@24.10.1)
+      '@inquirer/type': 3.0.9(@types/node@24.10.1)
     optionalDependencies:
-      '@types/node': 24.10.0
+      '@types/node': 24.10.1
 
-  '@inquirer/number@3.0.21(@types/node@24.10.0)':
+  '@inquirer/number@3.0.21(@types/node@24.10.1)':
     dependencies:
-      '@inquirer/core': 10.3.0(@types/node@24.10.0)
-      '@inquirer/type': 3.0.9(@types/node@24.10.0)
+      '@inquirer/core': 10.3.0(@types/node@24.10.1)
+      '@inquirer/type': 3.0.9(@types/node@24.10.1)
     optionalDependencies:
-      '@types/node': 24.10.0
+      '@types/node': 24.10.1
 
-  '@inquirer/password@4.0.21(@types/node@24.10.0)':
-    dependencies:
-      '@inquirer/ansi': 1.0.1
-      '@inquirer/core': 10.3.0(@types/node@24.10.0)
-      '@inquirer/type': 3.0.9(@types/node@24.10.0)
-    optionalDependencies:
-      '@types/node': 24.10.0
-
-  '@inquirer/prompts@7.9.0(@types/node@24.10.0)':
-    dependencies:
-      '@inquirer/checkbox': 4.3.0(@types/node@24.10.0)
-      '@inquirer/confirm': 5.1.19(@types/node@24.10.0)
-      '@inquirer/editor': 4.2.21(@types/node@24.10.0)
-      '@inquirer/expand': 4.0.21(@types/node@24.10.0)
-      '@inquirer/input': 4.2.5(@types/node@24.10.0)
-      '@inquirer/number': 3.0.21(@types/node@24.10.0)
-      '@inquirer/password': 4.0.21(@types/node@24.10.0)
-      '@inquirer/rawlist': 4.1.9(@types/node@24.10.0)
-      '@inquirer/search': 3.2.0(@types/node@24.10.0)
-      '@inquirer/select': 4.4.0(@types/node@24.10.0)
-    optionalDependencies:
-      '@types/node': 24.10.0
-
-  '@inquirer/rawlist@4.1.9(@types/node@24.10.0)':
-    dependencies:
-      '@inquirer/core': 10.3.0(@types/node@24.10.0)
-      '@inquirer/type': 3.0.9(@types/node@24.10.0)
-      yoctocolors-cjs: 2.1.3
-    optionalDependencies:
-      '@types/node': 24.10.0
-
-  '@inquirer/search@3.2.0(@types/node@24.10.0)':
-    dependencies:
-      '@inquirer/core': 10.3.0(@types/node@24.10.0)
-      '@inquirer/figures': 1.0.14
-      '@inquirer/type': 3.0.9(@types/node@24.10.0)
-      yoctocolors-cjs: 2.1.3
-    optionalDependencies:
-      '@types/node': 24.10.0
-
-  '@inquirer/select@4.4.0(@types/node@24.10.0)':
+  '@inquirer/password@4.0.21(@types/node@24.10.1)':
     dependencies:
       '@inquirer/ansi': 1.0.1
-      '@inquirer/core': 10.3.0(@types/node@24.10.0)
-      '@inquirer/figures': 1.0.14
-      '@inquirer/type': 3.0.9(@types/node@24.10.0)
+      '@inquirer/core': 10.3.0(@types/node@24.10.1)
+      '@inquirer/type': 3.0.9(@types/node@24.10.1)
+    optionalDependencies:
+      '@types/node': 24.10.1
+
+  '@inquirer/prompts@7.9.0(@types/node@24.10.1)':
+    dependencies:
+      '@inquirer/checkbox': 4.3.0(@types/node@24.10.1)
+      '@inquirer/confirm': 5.1.19(@types/node@24.10.1)
+      '@inquirer/editor': 4.2.21(@types/node@24.10.1)
+      '@inquirer/expand': 4.0.21(@types/node@24.10.1)
+      '@inquirer/input': 4.2.5(@types/node@24.10.1)
+      '@inquirer/number': 3.0.21(@types/node@24.10.1)
+      '@inquirer/password': 4.0.21(@types/node@24.10.1)
+      '@inquirer/rawlist': 4.1.9(@types/node@24.10.1)
+      '@inquirer/search': 3.2.0(@types/node@24.10.1)
+      '@inquirer/select': 4.4.0(@types/node@24.10.1)
+    optionalDependencies:
+      '@types/node': 24.10.1
+
+  '@inquirer/rawlist@4.1.9(@types/node@24.10.1)':
+    dependencies:
+      '@inquirer/core': 10.3.0(@types/node@24.10.1)
+      '@inquirer/type': 3.0.9(@types/node@24.10.1)
       yoctocolors-cjs: 2.1.3
     optionalDependencies:
-      '@types/node': 24.10.0
+      '@types/node': 24.10.1
 
-  '@inquirer/type@3.0.9(@types/node@24.10.0)':
+  '@inquirer/search@3.2.0(@types/node@24.10.1)':
+    dependencies:
+      '@inquirer/core': 10.3.0(@types/node@24.10.1)
+      '@inquirer/figures': 1.0.14
+      '@inquirer/type': 3.0.9(@types/node@24.10.1)
+      yoctocolors-cjs: 2.1.3
     optionalDependencies:
-      '@types/node': 24.10.0
+      '@types/node': 24.10.1
+
+  '@inquirer/select@4.4.0(@types/node@24.10.1)':
+    dependencies:
+      '@inquirer/ansi': 1.0.1
+      '@inquirer/core': 10.3.0(@types/node@24.10.1)
+      '@inquirer/figures': 1.0.14
+      '@inquirer/type': 3.0.9(@types/node@24.10.1)
+      yoctocolors-cjs: 2.1.3
+    optionalDependencies:
+      '@types/node': 24.10.1
+
+  '@inquirer/type@3.0.9(@types/node@24.10.1)':
+    optionalDependencies:
+      '@types/node': 24.10.1
 
   '@internationalized/date@3.10.0':
     dependencies:
@@ -9219,7 +9216,7 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
 
-  '@lerna/create@9.0.0(@types/node@24.10.0)(babel-plugin-macros@3.1.0)(typescript@5.9.3)':
+  '@lerna/create@9.0.0(@types/node@24.10.1)(babel-plugin-macros@3.1.0)(typescript@5.9.3)':
     dependencies:
       '@npmcli/arborist': 9.1.4
       '@npmcli/package-json': 7.0.0
@@ -9246,7 +9243,7 @@ snapshots:
       has-unicode: 2.0.1
       ini: 1.3.8
       init-package-json: 8.2.2
-      inquirer: 12.9.6(@types/node@24.10.0)
+      inquirer: 12.9.6(@types/node@24.10.1)
       is-ci: 3.0.1
       is-stream: 2.0.0
       js-yaml: 4.1.0
@@ -11782,10 +11779,6 @@ snapshots:
 
   '@types/node@12.20.55': {}
 
-  '@types/node@24.10.0':
-    dependencies:
-      undici-types: 7.16.0
-
   '@types/node@24.10.1':
     dependencies:
       undici-types: 7.16.0
@@ -12045,39 +12038,39 @@ snapshots:
 
   add-stream@1.0.0: {}
 
-  ag-charts-community@12.2.0:
+  ag-charts-community@12.3.1:
     dependencies:
-      ag-charts-core: 12.2.0
-      ag-charts-locale: 12.2.0
-      ag-charts-types: 12.2.0
+      ag-charts-core: 12.3.1
+      ag-charts-locale: 12.3.1
+      ag-charts-types: 12.3.1
 
-  ag-charts-core@12.2.0:
+  ag-charts-core@12.3.1:
     dependencies:
-      ag-charts-types: 12.2.0
+      ag-charts-types: 12.3.1
 
-  ag-charts-enterprise@12.2.0:
+  ag-charts-enterprise@12.3.1:
     dependencies:
-      ag-charts-community: 12.2.0
-      ag-charts-core: 12.2.0
+      ag-charts-community: 12.3.1
+      ag-charts-core: 12.3.1
 
-  ag-charts-locale@12.2.0: {}
+  ag-charts-locale@12.3.1: {}
 
-  ag-charts-types@12.2.0: {}
+  ag-charts-types@12.3.1: {}
 
-  ag-grid-community@34.2.0:
+  ag-grid-community@34.3.1:
     dependencies:
-      ag-charts-types: 12.2.0
+      ag-charts-types: 12.3.1
 
-  ag-grid-enterprise@34.2.0:
+  ag-grid-enterprise@34.3.1:
     dependencies:
-      ag-grid-community: 34.2.0
+      ag-grid-community: 34.3.1
     optionalDependencies:
-      ag-charts-community: 12.2.0
-      ag-charts-enterprise: 12.2.0
+      ag-charts-community: 12.3.1
+      ag-charts-enterprise: 12.3.1
 
-  ag-grid-react@34.2.0(react-dom@19.2.0(react@19.2.0))(react@19.2.0):
+  ag-grid-react@34.3.1(react-dom@19.2.0(react@19.2.0))(react@19.2.0):
     dependencies:
-      ag-grid-community: 34.2.0
+      ag-grid-community: 34.3.1
       prop-types: 15.8.1
       react: 19.2.0
       react-dom: 19.2.0(react@19.2.0)
@@ -12505,9 +12498,9 @@ snapshots:
 
   core-util-is@1.0.3: {}
 
-  cosmiconfig-typescript-loader@6.2.0(@types/node@24.10.0)(cosmiconfig@9.0.0(typescript@5.9.3))(typescript@5.9.3):
+  cosmiconfig-typescript-loader@6.2.0(@types/node@24.10.1)(cosmiconfig@9.0.0(typescript@5.9.3))(typescript@5.9.3):
     dependencies:
-      '@types/node': 24.10.0
+      '@types/node': 24.10.1
       cosmiconfig: 9.0.0(typescript@5.9.3)
       jiti: 2.6.1
       typescript: 5.9.3
@@ -13223,17 +13216,17 @@ snapshots:
       run-async: 2.4.1
       rxjs: 6.6.7
 
-  inquirer@12.9.6(@types/node@24.10.0):
+  inquirer@12.9.6(@types/node@24.10.1):
     dependencies:
       '@inquirer/ansi': 1.0.1
-      '@inquirer/core': 10.3.0(@types/node@24.10.0)
-      '@inquirer/prompts': 7.9.0(@types/node@24.10.0)
-      '@inquirer/type': 3.0.9(@types/node@24.10.0)
+      '@inquirer/core': 10.3.0(@types/node@24.10.1)
+      '@inquirer/prompts': 7.9.0(@types/node@24.10.1)
+      '@inquirer/type': 3.0.9(@types/node@24.10.1)
       mute-stream: 2.0.0
       run-async: 4.0.6
       rxjs: 7.8.2
     optionalDependencies:
-      '@types/node': 24.10.0
+      '@types/node': 24.10.1
 
   inquirer@8.2.6:
     dependencies:
@@ -13537,9 +13530,9 @@ snapshots:
       normalize-path: 3.0.0
       semver-compare: 1.0.0
 
-  lerna@9.0.0(@types/node@24.10.0)(babel-plugin-macros@3.1.0):
+  lerna@9.0.0(@types/node@24.10.1)(babel-plugin-macros@3.1.0):
     dependencies:
-      '@lerna/create': 9.0.0(@types/node@24.10.0)(babel-plugin-macros@3.1.0)(typescript@5.9.3)
+      '@lerna/create': 9.0.0(@types/node@24.10.1)(babel-plugin-macros@3.1.0)(typescript@5.9.3)
       '@npmcli/arborist': 9.1.4
       '@npmcli/package-json': 7.0.0
       '@npmcli/run-script': 10.0.0
@@ -13569,7 +13562,7 @@ snapshots:
       import-local: 3.1.0
       ini: 1.3.8
       init-package-json: 8.2.2
-      inquirer: 12.9.6(@types/node@24.10.0)
+      inquirer: 12.9.6(@types/node@24.10.1)
       is-ci: 3.0.1
       is-stream: 2.0.0
       jest-diff: 30.2.0
