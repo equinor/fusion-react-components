@@ -5,7 +5,7 @@
 
 [Storybook](https://equinor.github.io/fusion-react-components/?path=/docs/person-docs--docs)
 
-[Fusion Web Component](https://equinor.github.com/equinor/fusion-web-components/tree/main/packages/person)
+[Fusion Web Component](https://github.com/equinor/fusion-web-components/tree/main/packages/person)
 
 ### Installation
 
