@@ -14,6 +14,7 @@
   "packageManager": "pnpm@10.20.0",
   "scripts": {
     "test": "lerna run --no-bail test",
+    "dev": "pnpm run start",
     "start": "pnpm run storybook",
     "clean": "pnpm clean:node && pnpm clean:build",
     "clean:node": "pnpm -r exec rimraf node_modules && pnpm exec rimraf node_modules",

@@ -1,0 +1,196 @@
+import { Meta, Markdown, ArgTypes, Canvas } from '@storybook/addon-docs/blocks';
+
+import pkg from '#packages/people/package.json';
+import readme from '#packages/people/README.md?raw';
+import changelogReact from '#packages/people/CHANGELOG.md?raw';
+
+import { ChangeLog, PackageInfo } from '../../components';
+
+import * as peoplePickerStories from './people-picker.stories';
+import * as personPickerStories from './person-picker.stories';
+import * as peopleViewerStories from './people-viewer.stories';
+
+<Meta title="People" />
+
+<Markdown>{readme}</Markdown>
+
+## PeoplePicker
+
+The PeoplePicker component is used to pick multiple people from the people API. It provides a search interface where users can search for and select people from your organization's directory.
+
+### Usage
+
+The PeoplePicker component requires a `PersonProvider` context to be available. This provider handles person resolution and caching with the people API.
+The standard PersonProvider is provided by the Fusion portal or dev-server from the `fusion-framework-cli`.
+But you can create a [PersonProvider]('https://equinor.github.io/fusion-react-components/?path=/docs/person-provider--docs') with a custom resolver if needed.
+
+```tsx
+import { PeoplePicker } from '@equinor/fusion-react-people';
+
+// In your component
+<PeoplePicker
+  people={[]}
+  resolveIds={[]}
+  placeholder="Search for people..."
+  multiple={true}
+  showSelectedPeople={true}
+  subtitle="department"
+  secondarySubtitle="jobTitle"
+  onPersonAdded={(e: PersonAddedEvent) => console.log('Person added:', e.detail)} // Fires when a person is added to the selection.
+  onPersonRemoved={(e: PersonRemovedEvent) => console.log('Person removed:', e.detail)} // Fires when a person is removed from the selection.
+  onSelectionChanged={(e: SelectionChangedEvent) => console.log('Selection changed:', e.detail)} // Fires when the selection changes (person added or removed).
+/>
+```
+
+### Properties
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `value` | `string` | The selected persons azureIds are represented as a comma sperated list of azureIds. Mostly used for form submission. |
+| `people` | `PersonInfo[]` | Array of PersonInfo objects to set as selected people in the picker. Mostly used when using PersonPicker as a controlled component. |
+| `resolveIds` | `string[]` | Array of person azureIds to pre-resolve and display as selected people. PS: will only resolve on mount. |
+| `placeholder` | `string` | Placeholder text shown in the search input. |
+| `multiple` | `boolean` | Whether multiple people can be selected. Defaults to `true`. |
+| `showSelectedPeople` | `boolean` | Whether to show selected people below the input. Defaults to `true`. This must be paired with `multiple` to be effective. |
+| `subtitle` | `keyof PersonInfo` | Subtitle text field from PersonInfo displayed in the People Pills. |
+| `secondarySubtitle` | `keyof PersonInfo` | Secondary subtitle field from PersonInfo displayed in the search result list. |
+
+### Events
+
+| Event | Type | Description |
+|-------|------|-------------|
+| `onPersonAdded` | `(e: PersonAddedEvent) => void` | Fired when a person is added to the selection. e.detail is the PersonInfo object that was added. |
+| `onPersonRemoved` | `(e: PersonRemovedEvent) => void` | Fired when a person is removed from the selection. e.detail is the PersonInfo object that was removed. |
+| `onSelectionChanged` | `(e: SelectionChangedEvent) => void` | Fired when the selection changes (person added or removed). e.detail is an array of PersonInfo objects with the updated selection. |
+
+### Examples
+
+#### Basic usage
+
+<Canvas of={ peoplePickerStories.basic } meta={peoplePickerStories} />
+
+#### Pre-resolving IDs
+
+<Canvas of={ peoplePickerStories.resolveIds } meta={peoplePickerStories} />
+
+#### People as a controlled component
+
+<Canvas of={ peoplePickerStories.people } meta={peoplePickerStories} />
+
+
+#### Single Selection
+
+Add the `multiple={false}` to the props of `PeoplePicker` to force single selection.
+You can also use the `PersonPicker` component to pick a single person at a time.
+
+<Canvas of={ peoplePickerStories.singleSelection } meta={peoplePickerStories} />
+
+## PersonPicker
+
+The `PersonPicker` component lets you select only one person at a time.
+
+```tsx
+import { PersonPicker } from '@equinor/fusion-react-people';
+
+// In your component
+<PersonPicker
+  placeholder="Search for people..."
+  resolveId="id-of-the-person-to-resolve"
+  person={person}
+  showSelectedPeople={false|true} // this will hide/show the selected person pill after selection. Default true.
+  subtitle="department"
+  secondarySubtitle="jobTitle"
+  onPersonAdded={(e: PersonAddedEvent) => console.log('Person added:', e.detail)} // Fires when a person is added to the selection.
+  onPersonRemoved={(e: PersonRemovedEvent) => console.log('Person removed:', e.detail)} // Fires when a person is removed from the selection.
+  onSelectionChanged={(e: SelectionChangedEvent) => console.log('Selection changed:', e.detail)} // Fires when the selection changes (person added or removed).
+/>
+```
+
+### Properties
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `resolveId` | `string` | The id of the person to resolve. |
+| `person` | `PersonInfo` | The person to display. |
+| `placeholder` | `string` | Placeholder text shown in the search input. |
+| `showSelectedPeople` | `boolean` | Whether to show the selected person pill after selection. Defaults to true. |
+| `subtitle` | `keyof PersonInfo` | Subtitle text field from PersonInfo displayed in the People Pills. |
+| `secondarySubtitle` | `keyof PersonInfo` | Secondary subtitle field from PersonInfo displayed in the search result list. |
+
+### Events
+
+| Event | Type | Description |
+|-------|------|-------------|
+| `onPersonAdded` | `(e: PersonAddedEvent) => void` | Fired when a person is added to the selection. e.detail is the PersonInfo object that was added. |
+| `onPersonRemoved` | `(e: PersonRemovedEvent) => void` | Fired when a person is removed from the selection. e.detail is the PersonInfo object that was removed. |
+| `onSelectionChanged` | `(e: SelectionChangedEvent) => void` | Fired when the selection changes (person added or removed). e.detail an array of PersonInfo objects with the updated selection. |
+
+### Example
+
+<Canvas of={ personPickerStories.basic } meta={personPickerStories} />
+
+## PeopleViewer
+
+The `PeopleViewer` component is used to display a selection of people as a pill grid of people or as a table of people.
+
+You can choose to display the people as a grid of person pills or as a table of people.
+
+```tsx
+import { PeopleViewer } from '@equinor/fusion-react-people';
+
+// In your component
+<PeopleViewer
+  people={[]}
+  resolveIds={[]}
+  viewMode="list|table"
+  showViewMode={true} // Whether to show the view mode selector. Defaults to true.
+  tableColumns={['avatar', 'name', 'type', 'email', 'mobilePhone', 'jobTitle', 'department', 'manager', 'remove']} // Columns to display in the table.
+  subtitle="department"
+  onPersonAdded={(e: PersonAddedEvent) => console.log('Person added:', e.detail)} // Fires when a person is added to the selection with resolveIds.
+  onPersonRemoved={(e: PersonRemovedEvent) => console.log('Person removed:', e.detail)} // Fires when a person is removed from the selection.
+  onSelectionChanged={(e: SelectionChangedEvent) => console.log('Selection changed:', e.detail)} // Fires when the selection changes (person added or removed).
+/>
+```
+
+### Properties
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `people` | `PersonInfo[]` | Array of PersonInfo objects to display in the viewer. |
+| `resolveIds` | `string[]` | Array of person azureIds to pre-resolve and display as selected people. PS: will only resolve on mount. |
+| `viewMode` | `'list' | 'table'` | The view mode to display the people in. Defaults to `'list'`. |
+| `showViewMode` | `boolean` | Whether to show the view mode selector. Defaults to `true`. |
+| `tableColumns` | `string[]` | Array of column names to display in the table. Defaults to `['avatar', 'name', 'type', 'email', 'mobilePhone', 'jobTitle', 'department', 'manager', 'remove']`. |
+| `subtitle` | `keyof PersonInfo` | Subtitle text field from PersonInfo displayed in the People Pills. |
+
+### Events
+
+| Event | Type | Description |
+|-------|------|-------------|
+| `onPersonAdded` | `(e: PersonAddedEvent) => void` | Fired when a person is added to the selection with resolveIds. e.detail is the PersonInfo object that was added. |
+| `onPersonRemoved` | `(e: PersonRemovedEvent) => void` | Fired when a person is removed from the selection. e.detail is the PersonInfo object that was removed. |
+| `onSelectionChanged` | `(e: SelectionChangedEvent) => void` | Fired when the selection changes (person added or removed). e.detail an array of PersonInfo objects with the updated selection. |
+
+### Examples
+
+#### Basic
+
+<Canvas of={ peopleViewerStories.basic } meta={peopleViewerStories} />
+
+#### Fixed as table view
+
+<Canvas of={ peopleViewerStories.tableView } meta={peopleViewerStories} />
+
+#### ResolveIds on mount
+
+<Canvas of={ peopleViewerStories.resolveIds } meta={peopleViewerStories} />
+
+#### People provided as props
+
+<Canvas of={ peopleViewerStories.people } meta={peopleViewerStories} />
+
+<ChangeLog
+  changelogs={{
+    react: changelogReact,
+  }}
+/>

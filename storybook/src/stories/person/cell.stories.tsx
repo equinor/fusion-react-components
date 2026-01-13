@@ -1,10 +1,9 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { Meta, StoryObj } from '@storybook/react-vite';
 
-import { PersonCell, PersonCellData } from '@equinor/fusion-react-person/src/PersonCell';
-import { PersonProvider } from '@equinor/fusion-react-person/src/PersonProvider';
+import { PersonCell, type PersonCellData, PersonProvider } from '@equinor/fusion-react-person';
 import { Theme } from '../../components/Theme';
-import { resolver } from './person-provider';
+import { resolver } from './person-resolver';
 
 import { faker } from '@faker-js/faker';
 import { PersonItemSize } from '@equinor/fusion-react-person';

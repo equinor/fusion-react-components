@@ -14,7 +14,7 @@ import { PersonListItem } from '@equinor/fusion-react-person/src/PersonListItem'
 import { PersonProvider } from '@equinor/fusion-react-person/src/PersonProvider';
 import { Theme } from '../../components/Theme';
 
-import { resolver } from './person-provider';
+import { resolver } from './person-resolver';
 import type { PersonInfo } from '@equinor/fusion-react-person';
 
 import { createReducer, createAction } from '@equinor/fusion-observable';

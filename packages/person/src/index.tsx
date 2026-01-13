@@ -21,4 +21,5 @@ export type {
   PersonPicture,
   PersonInfo,
   PersonSearchResult,
+  PersonSuggestResult,
 } from '@equinor/fusion-wc-person';

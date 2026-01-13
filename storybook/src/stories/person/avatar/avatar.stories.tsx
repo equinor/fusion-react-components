@@ -6,7 +6,7 @@ import { AvatarSize, type AvatarData } from '@equinor/fusion-react-person/src/in
 import { PersonProvider } from '@equinor/fusion-react-person/src/PersonProvider';
 import { Theme } from '../../../components/Theme';
 
-import { resolver } from '../person-provider';
+import { resolver } from '../person-resolver';
 
 import { faker } from '@faker-js/faker';
 faker.seed(123);

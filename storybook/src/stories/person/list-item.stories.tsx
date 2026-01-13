@@ -12,7 +12,7 @@ import { Menu, Button, Icon } from '@equinor/eds-core-react';
 import { more_vertical } from '@equinor/eds-icons';
 Icon.add({ more_vertical });
 
-import { resolver } from './person-provider';
+import { resolver } from './person-resolver';
 import { faker } from '@faker-js/faker';
 
 const meta: Meta<typeof PersonListItem> = {

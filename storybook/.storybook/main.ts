@@ -2,6 +2,7 @@
 import { fileURLToPath } from "node:url";
 import type { StorybookConfig } from '@storybook/react-vite';
 import { dirname, resolve } from 'path';
+import remarkGfm from 'remark-gfm';
 import { mergeConfig } from 'vite';
 import tsconfigPaths from 'vite-tsconfig-paths';
 
@@ -49,7 +50,13 @@ const config: StorybookConfig = {
   addons: [
     {
       name: '@storybook/addon-docs',
-      options: {},
+      options: {
+        mdxPluginOptions: {
+          mdxCompileOptions: {
+            remarkPlugins: [remarkGfm],
+          },
+        },
+      },
     },
   ],
 
