@@ -15,6 +15,9 @@ npm install @equinor/fusion-react-person
 
 ## Components
 
+- [PeoplePicker](https://equinor.github.io/fusion-react-components/?path=/docs/person-people-peoplepicker--docs) - Pick People from the people api prested as pills or table.
+- [PeopleViewer](https://equinor.github.io/fusion-react-components/?path=/docs/person-people-peopleviewer--docs) - View People presented as pills or table.
+- [PersonPicker](https://equinor.github.io/fusion-react-components/?path=/docs/person-people-personpicker--docs) - Pick a Person from the people api presented as pill or table. This only lets you pick a single person.
 - [PersonAvatar](https://equinor.github.io/fusion-react-components/?path=/story/person-avatar--basic) - This component displays a person's image with an account type border and provides detailed information on hover.
 - [PersonCard](https://equinor.github.io/fusion-react-components/?path=/story/person-card--basic) - Use this component to display comprehensive information about a person,including their department, positions, tasks, and current manager
 - [PersonListItem](https://equinor.github.io/fusion-react-components/?path=/story/person-list-item--basic) - This component showcases basic information about a person, with the option to add additional buttons.

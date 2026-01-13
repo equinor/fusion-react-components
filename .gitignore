@@ -79,6 +79,8 @@ yalc.lock
 packages/**/package-lock.json
 packages/**/dist
 
+components/dist
+
 storybook/package-lock.json
 
 docs/

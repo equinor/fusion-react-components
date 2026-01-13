@@ -1,5 +1,5 @@
 {
-  "name": "@equinor/fusion-react-components",
+  "name": "@equinor/fusion-react-components-monorepo",
   "version": "1.1.0",
   "private": true,
   "type": "module",
@@ -14,10 +14,11 @@
   "packageManager": "pnpm@10.20.0",
   "scripts": {
     "test": "lerna run --no-bail test",
+    "dev": "pnpm run start",
     "start": "pnpm run storybook",
     "clean": "pnpm clean:node && pnpm clean:build",
     "clean:node": "pnpm -r exec rimraf node_modules && pnpm exec rimraf node_modules",
-    "clean:build": "pnpm -r exec rimraf tsconfig.tsbuildinfo ",
+    "clean:build": "pnpm -r exec rimraf tsconfig.tsbuildinfo && pnpm -r exec rimraf dist",
     "build": "lerna run build --ignore '@equinor/fusion-react-components-stories'",
     "build:clean": "pnpm clean:build && pnpm build",
     "build:all": "lerna run build",

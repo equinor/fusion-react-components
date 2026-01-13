@@ -1,21 +1,15 @@
 {
-  "name": "@equinor/fusion-react-person",
-  "version": "1.0.0",
-  "description": "React component for displaying an person information",
+  "name": "@equinor/fusion-react-components",
+  "version": "0.0.0",
+  "description": "Fusion React Components is a library of React components for building user interfaces in Fusion",
   "keywords": [
-    "person",
-    "card",
     "react",
+    "components",
     "fusion",
     "equinor",
-    "search",
-    "people",
-    "peoplepicker",
-    "personpicker",
-    "peopleviewer",
-    "personnel"
+    "library"
   ],
-  "homepage": "https://github.com/equinor/fusion-react-components/edit/feat/person-card/packages/person#readme",
+  "homepage": "https://github.com/equinor/fusion-react-components/edit/components#readme",
   "license": "ISC",
   "main": "dist/index.js",
   "module": "dist/index.js",
@@ -43,9 +37,8 @@
     "url": "https://github.com/equinor/fusion-react-components/issues"
   },
   "dependencies": {
-    "@equinor/fusion-react-utils": "workspace:^",
-    "@equinor/fusion-wc-people": "1.0.2",
-    "@equinor/fusion-wc-person": "3.3.1"
+    "@equinor/fusion-react-utils": "workspace:*",
+    "@equinor/fusion-react-person": "workspace:*"
   },
   "devDependencies": {
     "@types/react": "^19.2.2",

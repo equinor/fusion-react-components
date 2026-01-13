@@ -7,7 +7,10 @@ import HTMLPersonListItemCustomElement, {
 
 type ElementProps = PropsWithChildren<
   Partial<
-    Pick<HTMLPersonListItemCustomElement, 'azureId' | 'upn' | 'dataSource' | 'size' | 'clickable'>
+    Pick<
+      HTMLPersonListItemCustomElement,
+      'azureId' | 'upn' | 'dataSource' | 'resolveIds' | 'size' | 'clickable'
+    >
   >
 >;
 

@@ -1,12 +1,11 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { PersonAvatar } from '@equinor/fusion-react-person/src/PersonAvatar';
-import { AvatarSize, type AvatarData } from '@equinor/fusion-react-person/src/index';
-import { PersonProvider } from '@equinor/fusion-react-person/src/PersonProvider';
+import { PersonAvatar, PersonProvider } from '@equinor/fusion-react-person';
+import { type AvatarSize } from '@equinor/fusion-react-person';
 import { Theme } from '../../../components/Theme';
 
-import { resolver } from '../person-provider';
+import { generatePerson, resolver } from '../person-resolver';
 
 import { faker } from '@faker-js/faker';
 faker.seed(123);
@@ -39,39 +38,11 @@ export const sizes: AvatarStory = {
   ...basic,
   render: (props) => (
     <div style={{ display: 'flex', flexDirection: 'row', columnGap: 30 }}>
-      {Object.values(AvatarSize).map((size) => (
+      {(['small', 'medium', 'large'] as AvatarSize[]).map((size) => (
         <PersonAvatar key={size} {...props} size={size} />
       ))}
     </div>
   ),
-};
-
-export const letter: AvatarStory = {
-  ...basic,
-  args: {
-    ...basic.args,
-    showLetter: true,
-  },
-};
-
-const person: AvatarData = resolver.getInfo
-  ? (resolver.getInfo({ azureId: faker.string.uuid() }) as AvatarData)
-  : {
-      name: faker.person.fullName(),
-      accountType: 'Employee',
-      accountClassification: 'Internal',
-    };
-
-export const withDataSource: AvatarStory = {
-  ...basic,
-  args: {
-    dataSource: {
-      name: person.name,
-      accountType: person.accountType,
-      accountClassification: person.accountClassification,
-    },
-    trigger: 'none',
-  },
 };
 
 export const clickable: AvatarStory = {
@@ -96,4 +67,14 @@ export const disabled: AvatarStory = {
     ...basic.args,
     disabled: true,
   },
+};
+
+export const withDataSource: AvatarStory = {
+  decorators: basic.decorators,
+  loaders: [async () => {
+    return {
+      dataSource: await generatePerson({ azureId: faker.string.uuid() }),
+    };
+  }],
+  render: (args, { loaded: { dataSource } }) => <PersonAvatar {...args} dataSource={dataSource} />,
 };

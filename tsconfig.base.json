@@ -11,12 +11,12 @@
     "declaration": true,
     "declarationMap": true,
     "composite": true,
-    "baseUrl": "./packages",
+    "baseUrl": "./",
     "sourceMap": true,
     "rootDir": ".",
     "lib": ["esnext", "dom"],
     "paths": {
-      "@equinor/fusion-react-*": ["*/src"]
+      "@equinor/fusion-react-*": ["packages/*/src", "components/src"]
     },
     "jsx": "react-jsx"
   }

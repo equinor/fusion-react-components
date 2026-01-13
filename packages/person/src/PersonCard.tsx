@@ -7,7 +7,7 @@ type ElementProps = PropsWithChildren<
   Partial<
     Pick<
       HTMLPersonCardCustomElement,
-      'azureId' | 'upn' | 'dataSource' | 'size' | 'maxWidth' | 'contentHeight'
+      'azureId' | 'upn' | 'dataSource' | 'resolveIds' | 'size' | 'maxWidth' | 'contentHeight'
     >
   >
 >;

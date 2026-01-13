@@ -1,10 +1,9 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { Meta, StoryObj } from '@storybook/react-vite';
 
-import { PersonCell, PersonCellData } from '@equinor/fusion-react-person/src/PersonCell';
-import { PersonProvider } from '@equinor/fusion-react-person/src/PersonProvider';
+import { PersonCell, type PersonCellData, PersonProvider } from '@equinor/fusion-react-person';
 import { Theme } from '../../components/Theme';
-import { resolver } from './person-provider';
+import { resolver } from './person-resolver';
 
 import { faker } from '@faker-js/faker';
 import { PersonItemSize } from '@equinor/fusion-react-person';
@@ -50,8 +49,21 @@ export const customHeading: Story = {
   ...basic,
   args: {
     ...showAvatar.args,
-    heading: (person: PersonCellData) => `<b>${person.jobTitle}</b>`,
-    subHeading: (person: PersonCellData) => `<a href=mailto:${person.mail}>${person.mail}</a>`,
+    heading: (person: PersonCellData) => {
+      if (person.applicationId) {
+        return `<b>${person.applicationName}</b> (App)`;
+      }
+      return `<b>${person.jobTitle}</b>`;
+    },
+    subHeading: (person: PersonCellData) => {
+      if (person.applicationId) {
+        return `<b>${person.applicationId}</b> (App)`;
+      }
+      if (!person.mail) {
+        return person.azureId;
+      }
+      return `<a href=mailto:${person.mail}>${person.mail}</a>`;
+    },
   },
   render: (props) => <PersonCell {...props} showAvatar />,
 };
@@ -65,7 +77,7 @@ export const sizes: Story = {
           key={size}
           {...props}
           size={size}
-          subHeading={(person: PersonCellData) => person.jobTitle}
+          subHeading={(person: PersonCellData) => person.jobTitle ?? person.azureId}
           showAvatar
         />
       ))}

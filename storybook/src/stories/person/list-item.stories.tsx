@@ -3,16 +3,15 @@ import { useMemo, useState } from 'react';
 
 import { Meta, StoryObj } from '@storybook/react-vite';
 
-import { PersonListItem } from '@equinor/fusion-react-person/src/PersonListItem';
-import { PersonItemSize } from '@equinor/fusion-react-person/src/index';
-import { PersonProvider } from '@equinor/fusion-react-person/src/PersonProvider';
+import { PersonListItem, PersonProvider } from '@equinor/fusion-react-person';
+import type { PersonItemSize } from '@equinor/fusion-react-person';
 import { Theme } from '../../components/Theme';
 
 import { Menu, Button, Icon } from '@equinor/eds-core-react';
 import { more_vertical } from '@equinor/eds-icons';
 Icon.add({ more_vertical });
 
-import { resolver } from './person-provider';
+import { resolver } from './person-resolver';
 import { faker } from '@faker-js/faker';
 
 const meta: Meta<typeof PersonListItem> = {
