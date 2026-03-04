@@ -22,14 +22,14 @@ export const basic: Story = {
   argTypes: {
     resolveIds: { control: 'object', description: 'An array of ids to resolve and display in the viewer. The ids can be azureId or upn.', type: { name: 'symbol' } },
     people: { control: 'object', description: 'The people to display in the viewer. Should be of type PersonInfo', type: { name: 'symbol' } },
-    viewMode: {
+    display: {
       control: 'select',
       options: ['list', 'table'],
-      description: 'The view mode of the viewer. list or table.',
+      description: 'The display mode of the viewer. list or table.',
       type: { name: 'string' },
       defaultValue: 'list',
     },
-    showViewMode: { control: 'boolean', description: 'Whether to show the view mode toggle button.', type: { name: 'boolean' }, defaultValue: true },
+    displayToggle: { control: 'boolean', description: 'Whether to show the display mode toggle button.', type: { name: 'boolean' }, defaultValue: true },
     tableColumns: {
       control: 'object',
       description: 'The columns to show in table view. Should be an array of strings with the available properties: \'avatar\', \'name\', \'azureId\', \'type\', \'email\', \'mobilePhone\', \'jobTitle\', \'department\', \'manager\', \'remove\'.',
@@ -53,8 +53,8 @@ export const basic: Story = {
 export const fixedTableView: Story = {
   ...basic,
   args: {
-    viewMode: 'table',
-    showViewMode: false,
+    display: 'table',
+    displayToggle: false,
     resolveIds: generateIds(1, 10),
   }
 };

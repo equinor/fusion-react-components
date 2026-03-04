@@ -27,6 +27,19 @@ export const basic: Story = {
     secondarySubtitle: { control: 'text', description: 'The property of PersonInfo to display as secondary subtitle in the list of search results.', type: { name: 'string' } },
     noResultTitle: { control: 'text', description: 'The title to display when there are no search results.', type: { name: 'string' } },
     noResultSubtitle: { control: 'text', description: 'The subtitle to display when there are no search results.', type: { name: 'string' } },
+    display: {
+      control: 'select',
+      options: ['list', 'table'],
+      description: 'The display mode of the viewer. list or table.',
+      type: { name: 'string' },
+      defaultValue: 'list',
+    },
+    displayToggle: { control: 'boolean', description: 'Whether to show the display mode toggle button.', type: { name: 'boolean' }, defaultValue: true },
+    tableColumns: {
+      control: 'object',
+      description: 'The columns to show in table view. Should be an array of strings with the available properties: \'avatar\', \'name\', \'azureId\', \'type\', \'email\', \'mobilePhone\', \'jobTitle\', \'department\', \'manager\', \'remove\'.',
+      defaultValue: false
+    },
     onPersonAdded: { description: 'Event fired when a person is added to the selection. The event detail will contain the added person of type PersonInfo.', table: { category: 'events' } },
     onPersonRemoved: { description: 'Event fired when a person is removed from the selection. The event detail will contain the removed person of type PersonInfo.', table: { category: 'events' } },
     onSelectionChanged: { description: 'Event fired when the selection changes. The event detail will contain an array of the currently selected people of type PersonInfo[]', table: { category: 'events' } }

@@ -25,6 +25,9 @@ type ElementAttributes = PropsWithChildren<
       | 'showSelectedPeople'
       | 'noResultTitle'
       | 'noResultSubtitle'
+      | 'tableColumns'
+      | 'display'
+      | 'displayToggle'
     >
   >
 >;

@@ -43,6 +43,9 @@ import { PeoplePicker } from '@equinor/fusion-react-person';
   systemAccounts={false} // Whether to include system accounts in the search results. Defaults to false.
   noResultTitle="No results found" // Custom title to display when no results are found.
   noResultSubtitle="Try adjusting your search criteria." // Custom subtitle to display when no results
+  display="list|table"
+  displayToggle={true} // Whether to show the display mode selector. Defaults to true.
+  tableColumns={['avatar', 'name', 'type', 'email', 'mobilePhone', 'jobTitle', 'department', 'manager', 'remove']} // Columns to display in the table.
   onPersonAdded={(e: PersonAddedEvent) => console.log('Person added:', e.detail)} // Fires when a person is added to the selection.
   onPersonRemoved={(e: PersonRemovedEvent) => console.log('Person removed:', e.detail)} // Fires when a person is removed from the selection.
   onSelectionChanged={(e: SelectionChangedEvent) => console.log('Selection changed:', e.detail)} // Fires when the selection changes (person added or removed).
@@ -93,6 +96,9 @@ import { PersonPicker } from '@equinor/fusion-react-person';
   systemAccounts={false} // Whether to include system accounts in the search results. Defaults to false.
   noResultTitle="No results found" // Custom title to display when no results are found.
   noResultSubtitle="Try adjusting your search criteria." // Custom subtitle to display when no results
+  display="list|table"
+  displayToggle={true} // Whether to show the display mode selector. Defaults to true.
+  tableColumns={['avatar', 'name', 'type', 'email', 'mobilePhone', 'jobTitle', 'department', 'manager', 'remove']} // Columns to display in the table.
   onPersonAdded={(e: PersonAddedEvent) => console.log('Person added:', e.detail)} // Fires when a person is added to the selection.
   onPersonRemoved={(e: PersonRemovedEvent) => console.log('Person removed:', e.detail)} // Fires when a person is removed from the selection.
   onSelectionChanged={(e: SelectionChangedEvent) => console.log('Selection changed:', e.detail)} // Fires when the selection changes (person added or removed).
@@ -120,8 +126,8 @@ import { PeopleViewer } from '@equinor/fusion-react-person';
 <PeopleViewer
   people={[]}
   resolveIds={[]}
-  viewMode="list|table"
-  showViewMode={true} // Whether to show the view mode selector. Defaults to true.
+  display="list|table"
+  displayToggle={true} // Whether to show the display mode selector. Defaults to true.
   tableColumns={['avatar', 'name', 'type', 'email', 'mobilePhone', 'jobTitle', 'department', 'manager', 'remove']} // Columns to display in the table.
   subtitle="department"
   onPersonAdded={(e: PersonAddedEvent) => console.log('Person added:', e.detail)} // Fires when a person is added to the selection with resolveIds.

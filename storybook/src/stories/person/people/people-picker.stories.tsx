@@ -27,6 +27,19 @@ export const basic: Story = {
     secondarySubtitle: { control: 'text', description: 'The property of PersonInfo to display as secondary subtitle in the list of search results.', type: { name: 'string' } },
     noResultTitle: { control: 'text', description: 'The title to display when there are no search results.', type: { name: 'string' } },
     noResultSubtitle: { control: 'text', description: 'The subtitle to display when there are no search results.', type: { name: 'string' } },
+    display: {
+      control: 'select',
+      options: ['list', 'table'],
+      description: 'The display mode of the viewer. list or table.',
+      type: { name: 'string' },
+      defaultValue: 'list',
+    },
+    displayToggle: { control: 'boolean', description: 'Whether to show the display mode toggle button.', type: { name: 'boolean' }, defaultValue: true },
+    tableColumns: {
+      control: 'object',
+      description: 'The columns to show in table view. Should be an array of strings with the available properties: \'avatar\', \'name\', \'azureId\', \'type\', \'email\', \'mobilePhone\', \'jobTitle\', \'department\', \'manager\', \'remove\'.',
+      defaultValue: false
+    },
     multiple: { control: 'boolean', description: 'Whether to allow multiple people to be selected.', type: { name: 'boolean' } },
     showSelectedPeople: { control: 'boolean', description: 'Whether to show the selected people in the search results.', type: { name: 'boolean' } },
     onPersonAdded: { description: 'Event fired when a person is added to the selection. The event detail will contain the added person of type PersonInfo.', table: { category: 'events' } },
@@ -74,6 +87,15 @@ export const CustomNoResultTitle: Story = {
       </>
     );
   },
+};
+
+export const displayTable: Story = {
+  ...basic,
+  args: {
+    display: 'table',
+    displayToggle: false,
+    resolveIds: generateIds(1, 10),
+  }
 };
 
 export const resolveIds: Story = {

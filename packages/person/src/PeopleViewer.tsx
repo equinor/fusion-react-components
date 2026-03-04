@@ -14,7 +14,7 @@ type ElementAttributes = PropsWithChildren<
   Partial<
     Pick<
       PeopleViewerElement,
-      'value' | 'resolveIds' | 'people' | 'subtitle' | 'tableColumns' | 'viewMode' | 'showViewMode'
+      'value' | 'resolveIds' | 'people' | 'subtitle' | 'tableColumns' | 'display' | 'displayToggle'
     >
   >
 >;
