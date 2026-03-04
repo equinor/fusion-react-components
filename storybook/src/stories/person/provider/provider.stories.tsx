@@ -5,7 +5,7 @@ import { PersonProvider, PersonResolver, PersonSelect, PersonSearchResult } from
 import { Theme } from '../../../components/Theme';
 import { resolver as mainResolver } from '../person-resolver';
 
-const meta: Meta<typeof PersonSelect> = {
+const meta: Meta<typeof PersonProvider> = {
   title: 'person/Provider',
   component: PersonProvider,
 };
