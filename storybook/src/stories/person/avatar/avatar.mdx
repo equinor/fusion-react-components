@@ -4,7 +4,7 @@ import * as avatarStories from './avatar.stories';
 <Meta title="Person/Avatar" />
 
 ## Avatar
-<ArgTypes of={ avatarStories.basic } />
+<ArgTypes of={ avatarStories.basic } meta={avatarStories} />
 
 ### Basic
 <Canvas of={ avatarStories.basic } meta={avatarStories} story={{height: '350px'}}/>
@@ -14,16 +14,16 @@ import * as avatarStories from './avatar.stories';
 
 ### withDataSource
 
-When providing the dataSource property with a full PersonInfo object the avatar will not resolve any data about the user.
-If the PersonInfo object is missing avatarUrl property, the avtarurl will still be resolved from the PersonProvider.
+When providing the dataSource property with a PersonInfo object including a valid avatarUrl, the avatar will not resolve any data about the user.
+If the PersonInfo object is missing avatarUrl property, the avatarUrl will still be resolved from the PersonProvider.
 
 <Canvas of={ avatarStories.withDataSource } meta={avatarStories}  story={{height: '350px'}}/>
 
-### Clickable
-<Canvas of={ avatarStories.clickable } meta={avatarStories} story={{height: '350px'}}/>
+### Trigger click
+<Canvas of={ avatarStories.TriggerClick } meta={avatarStories} story={{height: '350px'}}/>
 
 ### Trigger none
-<Canvas of={ avatarStories.disableCard } meta={avatarStories}/>
+<Canvas of={ avatarStories.TriggerNone } meta={avatarStories}/>
 
 ### disabled
 <Canvas of={ avatarStories.disabled } meta={avatarStories} />

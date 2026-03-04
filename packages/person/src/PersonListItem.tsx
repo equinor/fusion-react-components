@@ -9,7 +9,7 @@ type ElementProps = PropsWithChildren<
   Partial<
     Pick<
       HTMLPersonListItemCustomElement,
-      'azureId' | 'upn' | 'dataSource' | 'resolveIds' | 'size' | 'clickable'
+      'azureId' | 'upn' | 'dataSource' | 'resolveId' | 'size' | 'clickable'
     >
   >
 >;

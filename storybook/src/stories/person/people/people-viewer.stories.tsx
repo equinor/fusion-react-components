@@ -19,6 +19,26 @@ export default meta;
 type Story = StoryObj<typeof PeopleViewer>;
 
 export const basic: Story = {
+  argTypes: {
+    resolveIds: { control: 'object', description: 'An array of ids to resolve and display in the viewer. The ids can be azureId or upn.', type: { name: 'symbol' } },
+    people: { control: 'object', description: 'The people to display in the viewer. Should be of type PersonInfo', type: { name: 'symbol' } },
+    viewMode: {
+      control: 'select',
+      options: ['list', 'table'],
+      description: 'The view mode of the viewer. list or table.',
+      type: { name: 'string' },
+      defaultValue: 'list',
+    },
+    showViewMode: { control: 'boolean', description: 'Whether to show the view mode toggle button.', type: { name: 'boolean' }, defaultValue: true },
+    tableColumns: {
+      control: 'object',
+      description: 'The columns to show in table view. Should be an array of strings with the available properties: \'avatar\', \'name\', \'azureId\', \'type\', \'email\', \'mobilePhone\', \'jobTitle\', \'department\', \'manager\', \'remove\'.',
+      defaultValue: false
+    },
+    onPersonAdded: { description: 'Event fired when a person is added to the selection. The event detail will contain the added person of type PersonInfo.', table: { category: 'events' } },
+    onPersonRemoved: { description: 'Event fired when a person is removed from the selection. The event detail will contain the removed person of type PersonInfo.', table: { category: 'events' } },
+    onSelectionChanged: { description: 'Event fired when the selection changes. The event detail will contain an array of the currently selected people of type PersonInfo[]', table: { category: 'events' } }
+  },
   decorators: [
     (Story) => (
       <Theme>

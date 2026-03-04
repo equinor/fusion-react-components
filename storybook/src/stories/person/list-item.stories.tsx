@@ -1,10 +1,9 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-import { useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 
 import { Meta, StoryObj } from '@storybook/react-vite';
 
 import { PersonListItem, PersonProvider } from '@equinor/fusion-react-person';
-import type { PersonItemSize } from '@equinor/fusion-react-person';
+import type { PersonInfo, PersonItemSize } from '@equinor/fusion-react-person';
 import { Theme } from '../../components/Theme';
 
 import { Menu, Button, Icon } from '@equinor/eds-core-react';
@@ -24,6 +23,20 @@ export default meta;
 type Story = StoryObj<typeof PersonListItem>;
 
 export const basic: Story = {
+  argTypes: {
+    resolveId: { control: 'text', description: 'The id used to resolve the person, e.g. azureId or upn', type: { name: 'string' } },
+    dataSource: { control: 'object', description: 'The person data to use for the cell. If provided with valid avatarUrl, the cell will not resolve the person.', type: { name: 'symbol' } },
+    size: {
+      control: 'select',
+      options: ['small', 'medium', 'large'],
+      description: 'The size of the cell. small, medium or large.',
+      type: { name: 'string' },
+      defaultValue: 'medium',
+    },
+    clickable: { control: 'boolean', description: 'Whether the list item is clickable. A clickable list item will have interactive styling', type: { name: 'boolean' }, defaultValue: false },
+    azureId: { control: 'text', description: '@deprecated: Use resolveId instead. The azureId of the person to resolve', type: { name: 'string' } },
+    upn: { control: 'text', description: '@deprecated: Use resolveId instead. The UPN of the person to resolve', type: { name: 'string' } },
+  },
   decorators: [
     (Story) => (
       <Theme>
@@ -34,7 +47,7 @@ export const basic: Story = {
     ),
   ],
   args: {
-    azureId: '49132c24-6ea4-41fe-8221-112f314573f0',
+    resolveId: '49132c24-6ea4-41fe-8221-112f314573f0',
   },
 };
 
@@ -61,9 +74,7 @@ export const withToolbar: Story = {
   ...basic,
   render: (props) => {
     faker.seed(123);
-    // eslint-disable-next-line react-hooks/rules-of-hooks
     const [isOpen, setIsOpen] = useState<boolean>(false);
-    // eslint-disable-next-line react-hooks/rules-of-hooks
     const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
     const openMenu = (e: React.MouseEvent<HTMLButtonElement>) => {
       setAnchorEl(e.currentTarget);
@@ -73,12 +84,11 @@ export const withToolbar: Story = {
       setAnchorEl(null);
       setIsOpen(false);
     };
-    // eslint-disable-next-line react-hooks/rules-of-hooks
+
     const items = useMemo(
       () =>
         [...Array(5)].map((_, index) => (
-          // eslint-disable-next-line react/no-array-index-key
-          <PersonListItem key={index} {...props} azureId={faker.string.uuid()}>
+          <PersonListItem key={index} {...props} resolveId={faker.string.uuid()}>
             <Button variant="ghost_icon" onClick={openMenu}>
               <Icon name="more_vertical" />
             </Button>

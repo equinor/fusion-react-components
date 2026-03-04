@@ -19,6 +19,20 @@ export default meta;
 type Story = StoryObj<typeof PeoplePicker>;
 
 export const basic: Story = {
+  argTypes: {
+    people: { control: 'object', description: 'The people to display in the picker. Should be of type PersonInfo', type: { name: 'symbol' } },
+    resolveIds: { control: 'object', description: 'An array of ids to resolve and display in the picker as selected people. The ids can be azureId or upn.', type: { name: 'symbol' } },
+    placeholder: { control: 'text', description: 'The placeholder text to display in the input.', type: { name: 'string' } },
+    subtitle: { control: 'text', description: 'The property of PersonInfo to display as subtitle in the pills and list of search results.', type: { name: 'string' } },
+    secondarySubtitle: { control: 'text', description: 'The property of PersonInfo to display as secondary subtitle in the list of search results.', type: { name: 'string' } },
+    noResultTitle: { control: 'text', description: 'The title to display when there are no search results.', type: { name: 'string' } },
+    noResultSubtitle: { control: 'text', description: 'The subtitle to display when there are no search results.', type: { name: 'string' } },
+    multiple: { control: 'boolean', description: 'Whether to allow multiple people to be selected.', type: { name: 'boolean' } },
+    showSelectedPeople: { control: 'boolean', description: 'Whether to show the selected people in the search results.', type: { name: 'boolean' } },
+    onPersonAdded: { description: 'Event fired when a person is added to the selection. The event detail will contain the added person of type PersonInfo.', table: { category: 'events' } },
+    onPersonRemoved: { description: 'Event fired when a person is removed from the selection. The event detail will contain the removed person of type PersonInfo.', table: { category: 'events' } },
+    onSelectionChanged: { description: 'Event fired when the selection changes. The event detail will contain an array of the currently selected people of type PersonInfo[]', table: { category: 'events' } }
+  },
   decorators: [
     (Story) => (
       <Theme>
@@ -26,28 +40,22 @@ export const basic: Story = {
           <Story />
         </PersonProvider>
       </Theme>
-    ),
-  ],
-  args: {
-    people: [],
-    resolveIds: [],
-    placeholder: 'Search for people...',
-    subtitle: 'department',
-    secondarySubtitle: 'jobTitle',
-    noResultTitle: 'No people found',
-    noResultSubtitle: 'Try adjusting your search criteria.',
-    multiple: true,
-    showSelectedPeople: true,
-    onPersonAdded: (e) => console.log('Person added:', e.detail),
-    onPersonRemoved: (e) => console.log('Person removed:', e.detail),
-    onSelectionChanged: (e) => console.log('Selection changed:', e.detail),
-  },
+    )
+  ]
 };
 
 export const singleSelection: Story = {
   ...basic,
   args: {
     multiple: false,
+  }
+};
+
+export const singleSelectionNoPill: Story = {
+  ...basic,
+  args: {
+    multiple: false,
+    showSelectedPeople: false,
   }
 };
 

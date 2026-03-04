@@ -18,6 +18,19 @@ export default meta;
 type Story = StoryObj<typeof PersonPicker>;
 
 export const basic: Story = {
+  argTypes: {
+    person: { control: 'object', description: 'The person to display in the picker. Should be of type PersonInfo', type: { name: 'symbol' } },
+    resolveId: { control: 'text', description: 'The id to resolve and display in the picker as selected person. The id can be azureId or upn.', type: { name: 'string' } },
+    showSelectedPeople: { control: 'boolean', description: 'Whether to show the selected people in the search results.', type: { name: 'boolean' } },
+    placeholder: { control: 'text', description: 'The placeholder text to display in the input.', type: { name: 'string' } },
+    subtitle: { control: 'text', description: 'The property of PersonInfo to display as subtitle in the pills and list of search results.', type: { name: 'string' } },
+    secondarySubtitle: { control: 'text', description: 'The property of PersonInfo to display as secondary subtitle in the list of search results.', type: { name: 'string' } },
+    noResultTitle: { control: 'text', description: 'The title to display when there are no search results.', type: { name: 'string' } },
+    noResultSubtitle: { control: 'text', description: 'The subtitle to display when there are no search results.', type: { name: 'string' } },
+    onPersonAdded: { description: 'Event fired when a person is added to the selection. The event detail will contain the added person of type PersonInfo.', table: { category: 'events' } },
+    onPersonRemoved: { description: 'Event fired when a person is removed from the selection. The event detail will contain the removed person of type PersonInfo.', table: { category: 'events' } },
+    onSelectionChanged: { description: 'Event fired when the selection changes. The event detail will contain an array of the currently selected people of type PersonInfo[]', table: { category: 'events' } }
+  },
   decorators: [
     (Story) => (
       <Theme>

@@ -19,6 +19,27 @@ export default meta;
 type Story = StoryObj<typeof PersonCard>;
 
 export const basic: Story = {
+  argTypes: {
+    resolveId: {
+      control: 'text',
+      description: 'The id used to resolve the person, e.g. azureId or upn', 
+      type: { name: 'string' }
+    },
+    dataSource: {
+      control: 'object',
+      description: 'The person data to use for the card. If provided with valid avatarUrl, the avatar will not resolve the person.',
+      type: { name: 'symbol' }
+    },
+    size: {
+      control: 'select',
+      options: ['small', 'medium', 'large'],
+      description: 'The size of the card. small, medium or large.',
+      type: { name: 'string' },
+      defaultValue: 'medium',
+    },
+    azureId: { control: 'text', description: '@deprecated: Use resolveId instead. The azureId of the person to resolve', type: { name: 'string' } },
+    upn: { control: 'text', description: '@deprecated: Use resolveId instead. The UPN of the person to resolve', type: { name: 'string' } },
+  },
   decorators: [
     (Story) => (
       <Theme>
@@ -29,7 +50,7 @@ export const basic: Story = {
     ),
   ],
   args: {
-    azureId: faker.string.uuid(),
+    resolveId: faker.string.uuid(),
   },
 };
 

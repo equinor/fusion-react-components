@@ -12,7 +12,7 @@ type ElementProps = PropsWithChildren<
       | 'azureId'
       | 'upn'
       | 'dataSource'
-      | 'resolveIds'
+      | 'resolveId'
       | 'size'
       | 'heading'
       | 'subHeading'
