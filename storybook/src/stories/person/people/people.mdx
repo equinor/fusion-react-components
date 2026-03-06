@@ -14,9 +14,9 @@ import * as peopleViewerStories from './people-viewer.stories';
 
 ## Components
 
-- [PeoplePicker](https://equinor.github.io/fusion-react-components/?path=/story/person-people-peoplepicker--docs) - Component for picking people from the people api.
-- [PersonPicker](https://equinor.github.io/fusion-react-components/?path=/story/person-people-personpicker--docs) - Component for picking a single person from the people api.
-- [PeopleViewer](https://equinor.github.io/fusion-react-components/?path=/story/person-people-peopleviewer--docs) - Component to display list or table of selected people.
+- [PeoplePicker](https://equinor.github.io/fusion-react-components/?path=/story/person-people-peoplepicker--docs) - Component for picking people from the People API.
+- [PersonPicker](https://equinor.github.io/fusion-react-components/?path=/story/person-people-personpicker--docs) - Component for picking a single person from the People API.
+- [PeopleViewer](https://equinor.github.io/fusion-react-components/?path=/story/person-people-peopleviewer--docs) - Component to display a list or table of selected people.
 
 ## PeoplePicker
 
@@ -25,8 +25,8 @@ The PeoplePicker component is used to pick multiple people from the people API. 
 ### Usage
 
 The PeoplePicker component requires a `PersonProvider` context to be available. This provider handles person resolution and caching with the people API.
-The standard PersonProvider is provided by the Fusion portal or dev-server from the `fusion-framework-cli`.
-But you can create a [PersonProvider]('https://equinor.github.io/fusion-react-components/?path=/docs/person-provider--docs') with a custom resolver if needed.
+The standard `PersonProvider` is provided by the Fusion portal or dev-server from `fusion-framework-cli`.
+But you can create a [PersonProvider](https://equinor.github.io/fusion-react-components/?path=/docs/person-provider--docs) with a custom resolver if needed.
 
 ```tsx
 import { PeoplePicker } from '@equinor/fusion-react-person';
@@ -42,7 +42,7 @@ import { PeoplePicker } from '@equinor/fusion-react-person';
   secondarySubtitle="jobTitle"
   systemAccounts={false} // Whether to include system accounts in the search results. Defaults to false.
   noResultTitle="No results found" // Custom title to display when no results are found.
-  noResultSubtitle="Try adjusting your search criteria." // Custom subtitle to display when no results
+  noResultSubtitle="Try adjusting your search criteria." // Custom subtitle to display when no results are found.
   display="list|table"
   displayToggle={true} // Whether to show the display mode selector. Defaults to true.
   tableColumns={['avatar', 'name', 'type', 'email', 'mobilePhone', 'jobTitle', 'department', 'manager', 'remove']} // Columns to display in the table.
@@ -73,7 +73,7 @@ import { PeoplePicker } from '@equinor/fusion-react-person';
 
 #### Single Selection
 
-Add the `multiple={false}` to the props of `PeoplePicker` to force single selection.
+Add `multiple={false}` to the props of `PeoplePicker` to force single selection.
 You can also use the `PersonPicker` component to pick a single person at a time.
 
 <Canvas of={ peoplePickerStories.singleSelection } meta={peoplePickerStories} />
@@ -95,7 +95,7 @@ import { PersonPicker } from '@equinor/fusion-react-person';
   secondarySubtitle="jobTitle"
   systemAccounts={false} // Whether to include system accounts in the search results. Defaults to false.
   noResultTitle="No results found" // Custom title to display when no results are found.
-  noResultSubtitle="Try adjusting your search criteria." // Custom subtitle to display when no results
+  noResultSubtitle="Try adjusting your search criteria." // Custom subtitle to display when no results are found.
   display="list|table"
   displayToggle={true} // Whether to show the display mode selector. Defaults to true.
   tableColumns={['avatar', 'name', 'type', 'email', 'mobilePhone', 'jobTitle', 'department', 'manager', 'remove']} // Columns to display in the table.

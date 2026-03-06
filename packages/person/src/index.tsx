@@ -30,6 +30,8 @@ export type {
   PersonInfo,
   PersonSearchResult,
   PersonSuggestResult,
+  PersonSuggestResultAccountType,
+  PersonSuggestResultPersonAccountType,
 } from '@equinor/fusion-wc-person';
 export type { PeoplePickerProps } from './PeoplePicker';
 export type { PersonPickerProps } from './PersonPicker';

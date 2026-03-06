@@ -32,8 +32,8 @@ import * as personPickerStories from './people/person-picker.stories';
 
 ### withDataSource
 
-When providing the `dataSource` property with a full PersonInfo object the avatar will not resolve any data about the user.
-If the PersonInfo object is missing avatarUrl property, the avtarurl will still be resolved from the PersonProvider.
+When providing the `dataSource` property with a full `PersonInfo` object, the avatar will not resolve any data about the user.
+If the `PersonInfo` object is missing the `avatarUrl` property, the `avatarUrl` will still be resolved from the `PersonProvider`.
 
 <Canvas of={ avatarStories.withDataSource } meta={avatarStories}  story={{height: '350px'}}/>
 

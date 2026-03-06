@@ -1,6 +1,6 @@
 import { faker } from '@faker-js/faker';
 import { PersonAccountType } from '@equinor/fusion-react-person';
-import type { PersonResolver, PersonDetails, PersonSuggestResult } from '@equinor/fusion-react-person';
+import type { PersonResolver, PersonDetails, PersonSuggestResult, PersonSuggestResultPersonAccountType } from '@equinor/fusion-react-person';
 
 faker.seed(123);
 
@@ -24,7 +24,7 @@ const generateManager = (azureId?: string): PersonDetails['manager'] => {
 
 const generatePositions = (azureId?: string): PersonDetails['positions'] => {
   return new Array(faker.number.int({ min: 1, max: 10 })).fill(undefined).map((_, i) => {
-    faker.seed(Number(azureId) + 1 + i);
+    faker.seed(uuid2number(azureId ?? '0') + 1 + i);
     return {
       id: faker.string.uuid(),
       name: faker.company.name(),
@@ -49,7 +49,9 @@ const avatarSvg = async (avatarColor: string, name: string, accountType: string)
         <text x="33" y="35" font-family="Equinor, sans-serif" font-size="26" font-weight="400" fill="#000" text-anchor="middle" dominant-baseline="central">${initial}</text>
       </svg>
     `;
-    return `data:image/svg+xml;base64,${btoa(svg)}`;
+    const bytes = new TextEncoder().encode(svg);
+    const base64 = btoa(String.fromCharCode(...bytes));
+    return `data:image/svg+xml;base64,${base64}`;
   }
 
   const imageUrl = faker.image.personPortrait({ size: 64 });
@@ -71,16 +73,18 @@ const avatarSvg = async (avatarColor: string, name: string, accountType: string)
           <circle cx="32" cy="32" r="28" fill="url(#avatarPattern)" />
         </svg>
       `;
-      const finalDataUrl = `data:image/svg+xml;base64,${btoa(svg)}`;
+      const bytes = new TextEncoder().encode(svg);
+      const base64 = btoa(String.fromCharCode(...bytes));
+      const finalDataUrl = `data:image/svg+xml;base64,${base64}`;
       resolve(finalDataUrl);
     };
   });
 };
 
-export const generatePerson = async (args: { azureId?: string; upn?: string; accountType?: string }): Promise<PersonDetails> => {
+export const generatePerson = async (args: { azureId?: string; upn?: string; accountType?: string; }): Promise<PersonDetails> => {
   args.azureId && faker.seed(uuid2number(args.azureId));
   const azureId = args.azureId ?? faker.string.uuid();
-  const fakeUpn = faker.internet.email({ provider: 'equinor.com' });
+  const fakeUpn = args.upn ?? faker.internet.email({ provider: 'equinor.com' });
   const avatarColor = faker.helpers.arrayElement(['#bebebe', '#eb0037', '#ff92a8', '#000']);
   const name = faker.person.fullName();
 
@@ -96,19 +100,21 @@ export const generatePerson = async (args: { azureId?: string; upn?: string; acc
     ]);
   }
 
+  const accountType = args.accountType === "Person" ? faker.helpers.arrayElement([
+    PersonAccountType.Employee,
+    PersonAccountType.Consultant,
+    PersonAccountType.Enterprise,
+    PersonAccountType.External,
+    PersonAccountType.ExternalHire,
+  ]) : PersonAccountType.Employee;
+
   const avatarUrl = await avatarSvg(avatarColor, args.accountType === 'SystemAccount' ? application.applicationName ?? name : name, args.accountType ?? '');
 
   return {
     azureId,
     upn: args.upn ?? fakeUpn,
     name,
-    accountType: faker.helpers.arrayElement([
-      PersonAccountType.Consultant,
-      PersonAccountType.Employee,
-      PersonAccountType.Enterprise,
-      PersonAccountType.External,
-      PersonAccountType.ExternalHire,
-    ]),
+    accountType,
     accountClassification: faker.helpers.arrayElement(['Internal', 'External']),
     jobTitle: faker.person.jobTitle(),
     department: faker.commerce.department().toUpperCase(),
@@ -129,26 +135,19 @@ export const generatePerson = async (args: { azureId?: string; upn?: string; acc
   };
 };
 
-const generateSuggestedPerson = async (args: { azureId: string }): Promise<PersonSuggestResult> => {
+const generateSuggestedPerson = async (args: { azureId: string; upn?: string }): Promise<PersonSuggestResult> => {
+  const { azureId, upn } = args;
   const accountType = faker.helpers.arrayElement([
     'Person',
     'SystemAccount',
   ]);
-  const generatedPerson = await generatePerson({ azureId: args.azureId, accountType });
+  const generatedPerson = await generatePerson({ azureId, accountType, upn });
 
   let person: PersonSuggestResult['person'] | undefined;
   let application: PersonSuggestResult['application'] | undefined;
   if (accountType === 'Person') {
     person = {
-      accountType: faker.helpers.arrayElement([
-        'Employee',
-        'Consultant',
-        'Enterprise',
-        'EnterpriseExternal',
-        'External',
-        'Local',
-        'TemporaryEmployee',
-      ]),
+      accountType: generatedPerson.accountType as PersonSuggestResultPersonAccountType,
       jobTitle: generatedPerson.jobTitle,
       department: generatedPerson.department,
       upn: generatedPerson.upn,
@@ -209,8 +208,7 @@ export const resolver: PersonResolver = {
     }));
   },
   suggest: async (args) => {
-    const noResults = faker.datatype.boolean({ probability: 0.1 });
-    const generatedCount = noResults ? 0 : faker.number.int({ min: 3, max: 10 });
+    const generatedCount = faker.datatype.boolean({ probability: 0.9 }) ? faker.number.int({ min: 3, max: 10 }) : 0;
     const value = await Promise.all(new Array(generatedCount).fill(undefined).map(async (_, i) => {
       faker.seed(
         args.search
@@ -227,15 +225,17 @@ export const resolver: PersonResolver = {
     };
   },
   resolve: async (args) => {
-    return await Promise.all(args.resolveIds.map(async (azureId) => {
+    return await Promise.all(args.resolveIds.map(async (id) => {
+      const azureId = id.includes('@') ? faker.string.uuid() : id;
+      const upn = id.includes('@') ? id : undefined;
       const success = faker.datatype.boolean({ probability: 0.9 });
       const statusCode = success ? 200 : faker.helpers.arrayElement([400, 404]);
       return {
         success,
         statusCode,
-        errorMessage: success ? null : `Could not resolve profile with identifier: ${azureId}`,
-        identifier: azureId,
-        account: success ? await generateSuggestedPerson({ azureId }) : null,
+        errorMessage: success ? null : `Could not resolve profile with identifier: ${id}`,
+        identifier: id,
+        account: success ? await generateSuggestedPerson({ azureId, upn }) : null,
       };
     }));
   },

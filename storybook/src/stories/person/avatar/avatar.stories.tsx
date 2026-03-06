@@ -34,7 +34,7 @@ export const basic: AvatarStory = {
       control: 'select',
       options: ['hover', 'click', 'none'],
       description: 'The trigger action when clicking the avatar. "hover" will show a person card on hover, "click" will show a person card on click, "none" will do nothing.',
-      default: 'hover',
+      defaultValue: 'hover',
     },
     azureId: { control: 'text', description: '@deprecated: Use resolveId instead. The azureId of the person to resolve', type: { name: 'string' } },
     upn: { control: 'text', description: '@deprecated: Use resolveId instead. The UPN of the person to resolve', type: { name: 'string' } },

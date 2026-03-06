@@ -32,13 +32,11 @@ export const basic: Story = {
       options: ['list', 'table'],
       description: 'The display mode of the viewer. list or table.',
       type: { name: 'string' },
-      defaultValue: 'list',
     },
     displayToggle: { control: 'boolean', description: 'Whether to show the display mode toggle button.', type: { name: 'boolean' }, defaultValue: true },
     tableColumns: {
       control: 'object',
       description: 'The columns to show in table view. Should be an array of strings with the available properties: \'avatar\', \'name\', \'azureId\', \'type\', \'email\', \'mobilePhone\', \'jobTitle\', \'department\', \'manager\', \'remove\'.',
-      defaultValue: false
     },
     multiple: { control: 'boolean', description: 'Whether to allow multiple people to be selected.', type: { name: 'boolean' } },
     showSelectedPeople: { control: 'boolean', description: 'Whether to show the selected people in the search results.', type: { name: 'boolean' } },
