@@ -13,21 +13,12 @@ export const PersonPicker = ({
   person,
   ...props
 }: PersonPickerProps): ReactElement => {
-  const peoplePickerProps = props as PeoplePickerProps;
-
-  // Set multiple to false
-  peoplePickerProps.multiple = false;
-
-  // Set resolveIds if resolveId is provided
-  if (resolveId) {
-    peoplePickerProps.resolveIds = [resolveId];
-  }
-
-  // Set people if person is provided
-  if (person) {
-    peoplePickerProps.people = [person];
-  }
-
+  const peoplePickerProps: PeoplePickerProps = {
+    ...props,
+    multiple: false,
+    ...(resolveId ? { resolveIds: [resolveId] } : {}),
+    ...(person ? { people: [person] } : {}),
+  };
   // Return the PeoplePicker component with the props adapted to PersonPicker usage
   return <PeoplePicker {...peoplePickerProps}>{children}</PeoplePicker>;
 };
