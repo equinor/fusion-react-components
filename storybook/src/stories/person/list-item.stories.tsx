@@ -1,9 +1,9 @@
-import { useCallback, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 
 import { Meta, StoryObj } from '@storybook/react-vite';
 
 import { PersonListItem, PersonProvider } from '@equinor/fusion-react-person';
-import type { PersonInfo, PersonItemSize } from '@equinor/fusion-react-person';
+import type { PersonItemSize } from '@equinor/fusion-react-person';
 import { Theme } from '../../components/Theme';
 
 import { Menu, Button, Icon } from '@equinor/eds-core-react';
