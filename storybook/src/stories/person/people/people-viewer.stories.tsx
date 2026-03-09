@@ -100,15 +100,15 @@ const CombinedWithPeoplePicker = (args: PeopleViewerProps) => {
 
   const handlePersonAdded = useCallback((e: PersonAddedEvent) => {
     setPeople((prev) => [...prev, e.detail]);
-  }, [people]);
+  }, []);
 
   const handleSelectionChanged = useCallback((e: SelectionChangedEvent) => {
     setPeople(e.detail);
   }, []);
   
   const handlePersonRemoved = useCallback((e: PersonRemovedEvent) => {
-    setPeople(people.filter((p) => p.azureId !== e.detail.azureId));
-  }, [people]);
+    setPeople((prev) => prev.filter((p) => p.azureId !== e.detail.azureId));
+  }, []);
 
   return (
     <>

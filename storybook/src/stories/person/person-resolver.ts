@@ -188,7 +188,7 @@ export const resolver: PersonResolver = {
       setTimeout(
         () => {
           if (failed) {
-            reject(Error('person does not exists'));
+            reject(Error('Person does not exist.'));
           }
           return resolve(src);
         },

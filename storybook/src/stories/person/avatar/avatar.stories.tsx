@@ -83,7 +83,7 @@ export const TriggerNone: AvatarStory = {
   },
 };
 
-export const disabled: AvatarStory = {
+export const Disabled: AvatarStory = {
   ...basic,
   args: {
     ...basic.args,

@@ -45,13 +45,6 @@ export type PeoplePickerProps = ComponentProps<PeoplePickerElement, ElementProps
 const PeoplePickerComponent = createComponent<PeoplePickerElement, ElementProps>(
   PeoplePickerElement,
   peoplePickerTag,
-  {
-    events: {
-      onPersonAdded: 'person-added',
-      onPersonRemoved: 'person-removed',
-      onSelectionChanged: 'selection-changed',
-    },
-  },
 );
 
 export const PeoplePicker = (props: PeoplePickerProps): ReactElement => {

@@ -32,13 +32,6 @@ export type PeopleViewerProps = ComponentProps<PeopleViewerElement, ElementProps
 const PeopleViewerComponent = createComponent<PeopleViewerElement, ElementProps>(
   PeopleViewerElement,
   peopleViewerTag,
-  {
-    events: {
-      onPersonAdded: 'person-added',
-      onPersonRemoved: 'person-removed',
-      onSelectionChanged: 'selection-changed',
-    },
-  },
 );
 
 export const PeopleViewer = (props: PeopleViewerProps): ReactElement => {
