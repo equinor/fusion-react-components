@@ -3,57 +3,7 @@
   "compilerOptions": {
     "noEmit": true
   },
-  "include": ["packages/**/src/**/*"],
+  "include": ["packages/**/src/**/*", "components/src/*", "storybook/src/*"],
   "exclude": ["node_modules", "dist", "lib", "*.spec.ts", "api"],
-  "files": [],
-  "references": [
-    {
-      "path": "packages/context-selector"
-    },
-    {
-      "path": "packages/date"
-    },
-    {
-      "path": "packages/errorboundary"
-    },
-    {
-      "path": "packages/filter"
-    },
-    {
-      "path": "packages/hanging-garden"
-    },
-    {
-      "path": "packages/list"
-    },
-    {
-      "path": "packages/markdown"
-    },
-    {
-      "path": "packages/person"
-    },
-    {
-      "path": "packages/ripple"
-    },
-    {
-      "path": "packages/searchable-dropdown"
-    },
-    {
-      "path": "packages/skeleton"
-    },
-    {
-      "path": "packages/stepper"
-    },
-    {
-      "path": "packages/styles"
-    },
-    {
-      "path": "packages/tabs"
-    },
-    {
-      "path": "packages/textarea"
-    },
-    {
-      "path": "packages/utils"
-    }
-  ]
+  "files": []
 }

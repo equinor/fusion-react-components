@@ -12,7 +12,7 @@ import {
   TooltipModule,
 } from '@equinor/fusion-framework-react-ag-grid/enterprise';
 
-import { resolver } from '../../person/person-provider';
+import { resolver } from '../../person/person-resolver';
 
 const meta: Meta<typeof PersonCell> = {
   title: 'ag-grid/Person Cell',

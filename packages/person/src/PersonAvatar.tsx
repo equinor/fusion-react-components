@@ -2,7 +2,6 @@ import type { PropsWithChildren } from 'react';
 import { type ComponentProps, createComponent } from '@equinor/fusion-react-utils';
 import HTMLPersonAvatarCustomElement, {
   tag,
-  AvatarSize,
   type AvatarData,
 } from '@equinor/fusion-wc-person/avatar';
 
@@ -13,6 +12,7 @@ type ElementProps = PropsWithChildren<
       | 'azureId'
       | 'upn'
       | 'dataSource'
+      | 'resolveId'
       | 'pictureSrc'
       | 'showLetter'
       | 'size'
@@ -30,6 +30,5 @@ export const PersonAvatar = createComponent<HTMLPersonAvatarCustomElement, Eleme
   tag,
 );
 
-export { AvatarSize };
 export type { HTMLPersonAvatarCustomElement, AvatarData };
 export default PersonAvatar;

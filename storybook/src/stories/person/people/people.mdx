@@ -1,0 +1,165 @@
+import { Meta, Markdown, ArgTypes, Canvas } from '@storybook/addon-docs/blocks';
+
+import pkg from '#packages/person/package.json';
+import readme from '#packages/person/README.md?raw';
+import changelogReact from '#packages/person/CHANGELOG.md?raw';
+
+import { ChangeLog, PackageInfo } from '../../../components';
+
+import * as peoplePickerStories from './people-picker.stories';
+import * as personPickerStories from './person-picker.stories';
+import * as peopleViewerStories from './people-viewer.stories';
+
+<Meta title="Person/People" />
+
+## Components
+
+- [PeoplePicker](https://equinor.github.io/fusion-react-components/?path=/story/person-people-peoplepicker--docs) - Component for picking people from the People API.
+- [PersonPicker](https://equinor.github.io/fusion-react-components/?path=/story/person-people-personpicker--docs) - Component for picking a single person from the People API.
+- [PeopleViewer](https://equinor.github.io/fusion-react-components/?path=/story/person-people-peopleviewer--docs) - Component to display a list or table of selected people.
+
+## PeoplePicker
+
+The PeoplePicker component is used to pick multiple people from the people API. It provides a search interface where users can search for and select people from your organization's directory.
+
+### Usage
+
+The PeoplePicker component requires a `PersonProvider` context to be available. This provider handles person resolution and caching with the people API.
+The standard `PersonProvider` is provided by the Fusion portal or dev-server from `fusion-framework-cli`.
+But you can create a [PersonProvider](https://equinor.github.io/fusion-react-components/?path=/docs/person-provider--docs) with a custom resolver if needed.
+
+```tsx
+import { PeoplePicker } from '@equinor/fusion-react-person';
+
+// In your component
+<PeoplePicker
+  people={[]}
+  resolveIds={[]}
+  placeholder="Search for people..."
+  multiple={true}
+  showSelectedPeople={true}
+  subtitle="department"
+  secondarySubtitle="jobTitle"
+  systemAccounts={false} // Whether to include system accounts in the search results. Defaults to false.
+  noResultTitle="No results found" // Custom title to display when no results are found.
+  noResultSubtitle="Try adjusting your search criteria." // Custom subtitle to display when no results are found.
+  display="list|table"
+  displayToggle={true} // Whether to show the display mode selector. Defaults to true.
+  tableColumns={['avatar', 'name', 'type', 'email', 'mobilePhone', 'jobTitle', 'department', 'manager', 'remove']} // Columns to display in the table.
+  onPersonAdded={(e: PersonAddedEvent) => console.log('Person added:', e.detail)} // Fires when a person is added to the selection.
+  onPersonRemoved={(e: PersonRemovedEvent) => console.log('Person removed:', e.detail)} // Fires when a person is removed from the selection.
+  onSelectionChanged={(e: SelectionChangedEvent) => console.log('Selection changed:', e.detail)} // Fires when the selection changes (person added or removed).
+/>
+```
+
+### Properties
+
+<ArgTypes of={ peoplePickerStories.basic } />
+
+### Examples
+
+#### Basic usage
+
+<Canvas of={ peoplePickerStories.basic } meta={peoplePickerStories} />
+
+#### Pre-resolving IDs
+
+<Canvas of={ peoplePickerStories.resolveIds } meta={peoplePickerStories} />
+
+#### People as a controlled component
+
+<Canvas of={ peoplePickerStories.people } meta={peoplePickerStories} />
+
+
+#### Single Selection
+
+Add `multiple={false}` to the props of `PeoplePicker` to force single selection.
+You can also use the `PersonPicker` component to pick a single person at a time.
+
+<Canvas of={ peoplePickerStories.singleSelection } meta={peoplePickerStories} />
+
+## PersonPicker
+
+The `PersonPicker` component lets you select only one person at a time.
+
+```tsx
+import { PersonPicker } from '@equinor/fusion-react-person';
+
+// In your component
+<PersonPicker
+  placeholder="Search for people..."
+  resolveId="id-of-the-person-to-resolve"
+  person={person}
+  showSelectedPeople={false|true} // this will hide/show the selected person pill after selection. Default true.
+  subtitle="department"
+  secondarySubtitle="jobTitle"
+  systemAccounts={false} // Whether to include system accounts in the search results. Defaults to false.
+  noResultTitle="No results found" // Custom title to display when no results are found.
+  noResultSubtitle="Try adjusting your search criteria." // Custom subtitle to display when no results are found.
+  display="list|table"
+  displayToggle={true} // Whether to show the display mode selector. Defaults to true.
+  tableColumns={['avatar', 'name', 'type', 'email', 'mobilePhone', 'jobTitle', 'department', 'manager', 'remove']} // Columns to display in the table.
+  onPersonAdded={(e: PersonAddedEvent) => console.log('Person added:', e.detail)} // Fires when a person is added to the selection.
+  onPersonRemoved={(e: PersonRemovedEvent) => console.log('Person removed:', e.detail)} // Fires when a person is removed from the selection.
+  onSelectionChanged={(e: SelectionChangedEvent) => console.log('Selection changed:', e.detail)} // Fires when the selection changes (person added or removed).
+/>
+```
+
+### Properties
+
+<ArgTypes of={ personPickerStories.basic } />
+
+### Example
+<Canvas of={ personPickerStories.basic } meta={personPickerStories} />
+
+## PeopleViewer
+
+
+The `PeopleViewer` component is used to display a selection of people as a pill grid of people or as a table of people.
+
+You can choose to display the people as a grid of person pills or as a table of people.
+
+```tsx
+import { PeopleViewer } from '@equinor/fusion-react-person';
+
+// In your component
+<PeopleViewer
+  people={[]}
+  resolveIds={[]}
+  display="list|table"
+  displayToggle={true} // Whether to show the display mode selector. Defaults to true.
+  tableColumns={['avatar', 'name', 'type', 'email', 'mobilePhone', 'jobTitle', 'department', 'manager', 'remove']} // Columns to display in the table.
+  subtitle="department"
+  onPersonAdded={(e: PersonAddedEvent) => console.log('Person added:', e.detail)} // Fires when a person is added to the selection with resolveIds.
+  onPersonRemoved={(e: PersonRemovedEvent) => console.log('Person removed:', e.detail)} // Fires when a person is removed from the selection.
+  onSelectionChanged={(e: SelectionChangedEvent) => console.log('Selection changed:', e.detail)} // Fires when the selection changes (person added or removed).
+/>
+```
+
+### Properties
+
+<ArgTypes of={ peopleViewerStories.basic } />
+
+### Examples
+
+#### Basic
+
+<Canvas of={ peopleViewerStories.basic } meta={peopleViewerStories} />
+
+#### Fixed as table view
+
+<Canvas of={ peopleViewerStories.fixedTableView } meta={peopleViewerStories} />
+
+#### ResolveIds on mount
+
+<Canvas of={ peopleViewerStories.resolveIds } meta={peopleViewerStories} />
+
+#### People provided as props
+
+<Canvas of={ peopleViewerStories.people } meta={peopleViewerStories} />
+
+<ChangeLog
+  changelogs={{
+    react: changelogReact,
+  }}
+/>

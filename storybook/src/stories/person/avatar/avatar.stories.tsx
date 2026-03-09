@@ -1,12 +1,10 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { PersonAvatar } from '@equinor/fusion-react-person/src/PersonAvatar';
-import { AvatarSize, type AvatarData } from '@equinor/fusion-react-person/src/index';
-import { PersonProvider } from '@equinor/fusion-react-person/src/PersonProvider';
+import { PersonAvatar, PersonProvider } from '@equinor/fusion-react-person';
+import { type AvatarSize } from '@equinor/fusion-react-person';
 import { Theme } from '../../../components/Theme';
 
-import { resolver } from '../person-provider';
+import { generatePerson, resolver } from '../person-resolver';
 
 import { faker } from '@faker-js/faker';
 faker.seed(123);
@@ -21,6 +19,29 @@ export default meta;
 type AvatarStory = StoryObj<typeof PersonAvatar>;
 
 export const basic: AvatarStory = {
+  argTypes: {
+    resolveId: { control: 'text', description: 'The id used to resolve the person, e.g. azureId or upn', type: { name: 'string' } },
+    dataSource: { control: 'object', description: 'The person data to use for the avatar. If provided with valid avatarUrl, the avatar will not resolve the person.', type: { name: 'symbol' } },
+    size: {
+      control: 'select',
+      options: ['small', 'medium', 'large'],
+      description: 'The size of the avatar. "small" is 31x31px, "medium" is 56x56px, "large" is 80x80px.',
+      type: { name: 'string' },
+      defaultValue: 'medium',
+    },
+    disabled: { control: 'boolean', description: 'Whether the avatar is disabled. A disabled avatar will not trigger a person card and have a disabled style.', type: { name: 'boolean' }, defaultValue: false },
+    trigger: {
+      control: 'select',
+      options: ['hover', 'click', 'none'],
+      description: 'The trigger action when clicking the avatar. "hover" will show a person card on hover, "click" will show a person card on click, "none" will do nothing.',
+      defaultValue: 'hover',
+    },
+    azureId: { control: 'text', description: '@deprecated: Use resolveId instead. The azureId of the person to resolve', type: { name: 'string' } },
+    upn: { control: 'text', description: '@deprecated: Use resolveId instead. The UPN of the person to resolve', type: { name: 'string' } },
+    pictureSrc: { control: 'text', description: '@deprecated: Not in use', type: { name: 'string' } },
+    showLetter: { control: 'boolean', description: '@deprecated: Not in use', type: { name: 'boolean' } },
+    clickable: { control: 'boolean', description: '@deprecated: Not in use.', type: { name: 'boolean' } },
+  },
   decorators: [
     (Story) => (
       <Theme>
@@ -31,7 +52,7 @@ export const basic: AvatarStory = {
     ),
   ],
   args: {
-    azureId: faker.string.uuid(),
+    resolveId: faker.string.uuid(),
   },
 };
 
@@ -39,50 +60,22 @@ export const sizes: AvatarStory = {
   ...basic,
   render: (props) => (
     <div style={{ display: 'flex', flexDirection: 'row', columnGap: 30 }}>
-      {Object.values(AvatarSize).map((size) => (
+      {(['small', 'medium', 'large'] as AvatarSize[]).map((size) => (
         <PersonAvatar key={size} {...props} size={size} />
       ))}
     </div>
   ),
 };
 
-export const letter: AvatarStory = {
+export const TriggerClick: AvatarStory = {
   ...basic,
   args: {
     ...basic.args,
-    showLetter: true,
+    trigger: 'click',
   },
 };
 
-const person: AvatarData = resolver.getInfo
-  ? (resolver.getInfo({ azureId: faker.string.uuid() }) as AvatarData)
-  : {
-      name: faker.person.fullName(),
-      accountType: 'Employee',
-      accountClassification: 'Internal',
-    };
-
-export const withDataSource: AvatarStory = {
-  ...basic,
-  args: {
-    dataSource: {
-      name: person.name,
-      accountType: person.accountType,
-      accountClassification: person.accountClassification,
-    },
-    trigger: 'none',
-  },
-};
-
-export const clickable: AvatarStory = {
-  ...basic,
-  args: {
-    ...basic.args,
-    clickable: true,
-  },
-};
-
-export const disableCard: AvatarStory = {
+export const TriggerNone: AvatarStory = {
   ...basic,
   args: {
     ...basic.args,
@@ -90,10 +83,27 @@ export const disableCard: AvatarStory = {
   },
 };
 
-export const disabled: AvatarStory = {
+export const Disabled: AvatarStory = {
   ...basic,
   args: {
     ...basic.args,
     disabled: true,
   },
+  render: (args) => (
+    <>
+      <h3>Disabled Avatar</h3>
+      <p>A disabled avatar will not trigger a person card and have a disabled style.</p>
+      <PersonAvatar {...args} />
+    </>
+  ),
+};
+
+export const withDataSource: AvatarStory = {
+  decorators: basic.decorators,
+  loaders: [async () => {
+    return {
+      dataSource: await generatePerson({ azureId: faker.string.uuid() }),
+    };
+  }],
+  render: (args, { loaded: { dataSource } }) => <PersonAvatar {...args} dataSource={dataSource} />,
 };

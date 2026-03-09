@@ -3,9 +3,9 @@ import { Meta, StoryObj } from '@storybook/react-vite';
 import { PersonProvider, PersonResolver, PersonSelect, PersonSearchResult } from '@equinor/fusion-react-person';
 
 import { Theme } from '../../../components/Theme';
-import { resolver as mainResolver } from '../person-provider';
+import { resolver as mainResolver } from '../person-resolver';
 
-const meta: Meta<typeof PersonSelect> = {
+const meta: Meta<typeof PersonProvider> = {
   title: 'person/Provider',
   component: PersonProvider,
 };

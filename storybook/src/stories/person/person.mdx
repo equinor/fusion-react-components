@@ -11,7 +11,9 @@ import * as avatarStories from './avatar/avatar.stories';
 import * as cardStories from './card.stories';
 import * as selectStories from './select.stories';
 import * as cellStories from './cell.stories';
-
+import * as peoplePickerStories from './people/people-picker.stories';
+import * as peopleViewerStories from './people/people-viewer.stories';
+import * as personPickerStories from './people/person-picker.stories';
 
 <Meta title="Person" />
 
@@ -30,20 +32,19 @@ import * as cellStories from './cell.stories';
 
 ### withDataSource
 
-The avatar will not resolve any data about the user when using property `dataSource`, so the persons avatar will be the users initial as provided in `dataSource`.
-
-When using `dataSource` be sure to add the property `trigger="none"` to prevent the personCard from opening when hovering/clicking on the avatar since it will not resolve a user.
+When providing the `dataSource` property with a full `PersonInfo` object, the avatar will not resolve any data about the user.
+If the `PersonInfo` object is missing the `avatarUrl` property, the `avatarUrl` will still be resolved from the `PersonProvider`.
 
 <Canvas of={ avatarStories.withDataSource } meta={avatarStories}  story={{height: '350px'}}/>
 
 ### Clickable
-<Canvas of={ avatarStories.clickable } meta={avatarStories} story={{height: '350px'}}/>
+<Canvas of={ avatarStories.TriggerClick } meta={avatarStories} story={{height: '350px'}}/>
 
 ### Trigger none
-<Canvas of={ avatarStories.disableCard } meta={avatarStories}/>
+<Canvas of={ avatarStories.TriggerNone } meta={avatarStories}/>
 
 ### disabled
-<Canvas of={ avatarStories.disabled } meta={avatarStories} />
+<Canvas of={ avatarStories.Disabled } meta={avatarStories} />
 
 ## Card
 
@@ -83,8 +84,26 @@ When using `dataSource` be sure to add the property `trigger="none"` to prevent 
 ### Sizes
 <Canvas of={ cellStories.sizes } meta={cellStories} />
 
+## PeoplePicker
+<ArgTypes of={ peoplePickerStories } />
+
+### Basic
+<Canvas of={ peoplePickerStories.basic } meta={peoplePickerStories} />
+
+## PeopleViewer
+<ArgTypes of={ peopleViewerStories } />
+
+### Basic
+<Canvas of={ peopleViewerStories.basic } meta={peopleViewerStories} />
+
+## PersonPicker
+<ArgTypes of={ personPickerStories.basic } />
+
+### Basic
+<Canvas of={ personPickerStories.basic } meta={personPickerStories} />
+
 <ChangeLog
   changelogs={{
     react: changelogReact,
   }}
-/>./cell.stories
+/>

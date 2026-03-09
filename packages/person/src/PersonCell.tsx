@@ -9,7 +9,14 @@ type ElementProps = PropsWithChildren<
   Partial<
     Pick<
       HTMLPersonCellCustomElement,
-      'azureId' | 'upn' | 'dataSource' | 'size' | 'heading' | 'subHeading' | 'showAvatar'
+      | 'azureId'
+      | 'upn'
+      | 'dataSource'
+      | 'resolveId'
+      | 'size'
+      | 'heading'
+      | 'subHeading'
+      | 'showAvatar'
     >
   >
 >;
