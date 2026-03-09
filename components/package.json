@@ -37,7 +37,6 @@
     "url": "https://github.com/equinor/fusion-react-components/issues"
   },
   "dependencies": {
-    "@equinor/fusion-react-utils": "workspace:*",
     "@equinor/fusion-react-person": "workspace:*"
   },
   "devDependencies": {

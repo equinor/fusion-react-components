@@ -8,9 +8,6 @@
   "exclude": ["node_modules"],
   "references": [
     {
-      "path": "../packages/utils"
-    },
-    {
       "path": "../packages/person"
     }
   ]
