@@ -49,8 +49,8 @@ const avatarSvg = async (avatarColor: string, name: string, accountType: string)
         <text x="33" y="35" font-family="Equinor, sans-serif" font-size="26" font-weight="400" fill="#000" text-anchor="middle" dominant-baseline="central">${initial}</text>
       </svg>
     `;
-    const bytes = new TextEncoder().encode(svg);
-    const base64 = btoa(String.fromCharCode(...bytes));
+    // Encode the SVG string to base64 and escape non utf-8 char issue by encoding string to URI component.
+    const base64 = btoa(decodeURIComponent(encodeURIComponent(svg)));
     return `data:image/svg+xml;base64,${base64}`;
   }
 
@@ -73,8 +73,8 @@ const avatarSvg = async (avatarColor: string, name: string, accountType: string)
           <circle cx="32" cy="32" r="28" fill="url(#avatarPattern)" />
         </svg>
       `;
-      const bytes = new TextEncoder().encode(svg);
-      const base64 = btoa(String.fromCharCode(...bytes));
+      // Encode the SVG string to base64 and escape non utf-8 char issue by encoding string to URI component.
+      const base64 = btoa(decodeURIComponent(encodeURIComponent(svg)));
       const finalDataUrl = `data:image/svg+xml;base64,${base64}`;
       resolve(finalDataUrl);
     };
