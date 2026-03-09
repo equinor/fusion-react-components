@@ -4,5 +4,67 @@
     "rootDir": "src",
     "resolveJsonModule": true,
   },
-  "exclude": ["node_modules", "dist"]
+  "exclude": ["node_modules", "dist"],
+  "references": [
+    {
+      "path": "../components"
+    },
+    {
+      "path": "../packages/ag-grid-person-cell"
+    },
+    {
+      "path": "../packages/ag-grid-utils"
+    },
+    {
+      "path": "../packages/context-selector"
+    },
+    {
+      "path": "../packages/date"
+    },
+    {
+      "path": "../packages/errorboundary"
+    },
+    {
+      "path": "../packages/filter"
+    },
+    {
+      "path": "../packages/hanging-garden"
+    },
+    {
+      "path": "../packages/list"
+    },
+    {
+      "path": "../packages/markdown"
+    },
+    {
+      "path": "../packages/person"
+    },
+    {
+      "path": "../packages/ripple"
+    },
+    {
+      "path": "../packages/searchable-dropdown"
+    },
+    {
+      "path": "../packages/side-sheet"
+    },
+    {
+      "path": "../packages/skeleton"
+    },
+    {
+      "path": "../packages/stepper"
+    },
+    {
+      "path": "../packages/styles"
+    },
+    {
+      "path": "../packages/tabs"
+    },
+    {
+      "path": "../packages/textarea"
+    },
+    {
+      "path": "../packages/utils"
+    }
+  ]
 }
