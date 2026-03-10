@@ -4,9 +4,6 @@ inputs:
   tag:
     description: name of the tag to release
     required: true
-  npm-token:
-    description: token for pushing to npm
-    required: true
   gh-token:
     description: github token
     default:  ${{ github.token }}
@@ -28,11 +25,10 @@ runs:
       shell: bash
       if: ${{ steps.status.outputs.releases > 0 }}
       run: |
-        pnpm config set '//registry.npmjs.org/:_authToken' "${NPM_AUTH_TOKEN}"
         pnpm changeset version --snapshot ${{ inputs.tag }}
         pnpm changeset publish --no-git-tag --tag ${{ inputs.tag }} 
       env:
-        NPM_AUTH_TOKEN: ${{ inputs.npm-token }}
+        NPM_CONFIG_PROVENANCE: true
 
     - uses: actions/upload-artifact@v4
       if: ${{ steps.status.outputs.releases > 0 }}

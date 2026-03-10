@@ -48,8 +48,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ github.token }}
           NPM_CONFIG_PROVENANCE: true
-          NPM_TOKEN: ''
-          NODE_AUTH_TOKEN: ''
 
       - name: convert Changeset PR to draft
         if: steps.changesets.outputs.published == 'false' && steps.changesets.outputs.pullRequestNumber

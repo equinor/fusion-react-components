@@ -7,6 +7,10 @@ on:
         description: 'Realse tag (PR)'     
         required: true
 
+permissions:
+  contents: read
+  id-token: write
+
 jobs:
   publish:
     name: Publish to PR
@@ -29,4 +33,3 @@ jobs:
         uses: ./.github/workflows/actions/changeset-snapshot
         with:
           tag: ${{ inputs.tag }}
-          npm-token: ${{ secrets.NPM_AUTH_TOKEN }}
