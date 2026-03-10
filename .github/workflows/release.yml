@@ -8,6 +8,7 @@ on:
     paths:
       - 'packages/**'
       - '.changeset/*.md'
+      - '.github/workflows/release.yml'
 
 jobs:
   release-pkg:
@@ -48,7 +49,7 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
           NPM_CONFIG_PROVENANCE: true
 
-      - name: convert Changeset PR to draf
+      - name: convert Changeset PR to draft
         if: steps.changesets.outputs.published == 'false' && steps.changesets.outputs.pullRequestNumber
         run: gh pr ready ${{ steps.changesets.outputs.pullRequestNumber }} --undo
         env:
