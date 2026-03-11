@@ -19,7 +19,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/equinor/fusion-react-components.git"
+    "url": "git+https://github.com/equinor/fusion-react-components.git",
+    "directory": "packages/tabs"
   },
   "scripts": {
     "build": "tsc -b",
