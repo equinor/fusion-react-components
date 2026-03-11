@@ -22,7 +22,8 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/equinor/fusion-react-components.git"
+    "url": "git+https://github.com/equinor/fusion-react-components.git",
+    "directory": "packages/ripple"
   },
   "scripts": {
     "build": "tsc -b",
