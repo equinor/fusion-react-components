@@ -12,9 +12,8 @@ export type FilterContext<
   data$: Observable<TData[]>;
 };
 
-export type FilterContextDataType<T extends FilterContext> = T extends FilterContext<any, infer D>
-  ? D
-  : never;
+export type FilterContextDataType<T extends FilterContext> =
+  T extends FilterContext<any, infer D> ? D : never;
 
 /**
  * @param data The dataset to be filtered, this passes through the all the filter functions

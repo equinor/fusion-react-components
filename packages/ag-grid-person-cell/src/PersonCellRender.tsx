@@ -57,6 +57,7 @@ export const PersonCellRender = <T,>(params: ICellRendererParams & CustomRenderP
     return (
       <Styled.ArrayContainer>
         {personData.items?.map((item, index) => (
+          // biome-ignore lint/suspicious/noArrayIndexKey: Using index as key is safe here because the list is static and does not change order
           <PersonPopover key={`person-${index}-${item.azureId || item.upn || 'unknown'}`} {...item}>
             <PersonAvatar
               showLetter={!showAvatar}

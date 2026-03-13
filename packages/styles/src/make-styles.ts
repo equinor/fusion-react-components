@@ -205,7 +205,7 @@ export function makeStyles<
       // The ClassKey type is inferred from the styles object structure
       // This type assertion is safe because JSS generates classes matching the style keys
       return sheetResult.classes as unknown as Record<ClassKey, string>;
-    }, [theme, props, generateClassName, jss, stylesOrCreator]);
+    }, [theme, props, generateClassName, jss]);
 
     // Cleanup on unmount - remove sheet reference
     // Empty dependency array ensures cleanup only runs on unmount
