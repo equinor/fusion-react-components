@@ -344,7 +344,7 @@ importers:
         version: 6.11.2(react-dom@19.2.4(react@19.2.0))(react@19.2.0)
       react-keyed-flatten-children:
         specifier: ^5.0.0
-        version: 5.1.2(react-is@19.2.0)(react@19.2.0)
+        version: 5.1.2(react-is@19.2.4)(react@19.2.0)
     devDependencies:
       '@equinor/eds-core-react':
         specifier: ^0.48.0
@@ -645,7 +645,7 @@ importers:
         version: 19.2.4(react@19.2.0)
       react-is:
         specifier: ^19.2.0
-        version: 19.2.0
+        version: 19.2.4
       remark-gfm:
         specifier: ^4.0.1
         version: 4.0.1
@@ -7055,8 +7055,8 @@ packages:
   react-is@18.3.1:
     resolution: {integrity: sha512-/LLMVyas0ljjAtoYiPqYiL8VWXzUUdThrmU5+n20DZv+a+ClRoevUzw5JxU+Ieh5/c87ytoTBV9G1FiKfNJdmg==}
 
-  react-is@19.2.0:
-    resolution: {integrity: sha512-x3Ax3kNSMIIkyVYhWPyO09bu0uttcAIoecO/um/rKGQ4EltYWVYtyiGkS/3xMynrbVQdS69Jhlv8FXUEZehlzA==}
+  react-is@19.2.4:
+    resolution: {integrity: sha512-W+EWGn2v0ApPKgKKCy/7s7WHXkboGcsrXE+2joLyVxkbyVQfO3MUEaUQDHoSmb8TFFrSKYa9mw64WZHNHSDzYA==}
 
   react-keyed-flatten-children@5.1.2:
     resolution: {integrity: sha512-jM6/Em2S6g8DAhFGbxlQwVfCRIhXgoQo9Ks1CyjtzCa5O/S52wW2jsj7qaASHBln86UxiP4ZBLwtLJd70glpVw==}
@@ -16514,12 +16514,12 @@ snapshots:
 
   react-is@18.3.1: {}
 
-  react-is@19.2.0: {}
+  react-is@19.2.4: {}
 
-  react-keyed-flatten-children@5.1.2(react-is@19.2.0)(react@19.2.0):
+  react-keyed-flatten-children@5.1.2(react-is@19.2.4)(react@19.2.0):
     dependencies:
       react: 19.2.0
-      react-is: 19.2.0
+      react-is: 19.2.4
 
   react-lifecycles-compat@3.0.4: {}
 
