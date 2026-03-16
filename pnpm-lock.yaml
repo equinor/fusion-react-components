@@ -212,7 +212,7 @@ importers:
         version: 0.22.0
       '@equinor/fusion-observable':
         specifier: ^8.1.2
-        version: 8.5.7(@types/react@19.2.2)(react@19.2.0)
+        version: 8.5.8(@types/react@19.2.2)(react@19.2.0)
       '@types/react':
         specifier: ^19.2.2
         version: 19.2.2
@@ -490,7 +490,7 @@ importers:
         version: 0.9.2
       '@equinor/fusion-observable':
         specifier: ^8.5.1
-        version: 8.5.7(@types/react@19.2.2)(react@19.2.0)
+        version: 8.5.8(@types/react@19.2.2)(react@19.2.0)
       '@types/react':
         specifier: ^19.2.2
         version: 19.2.2
@@ -679,7 +679,7 @@ importers:
         version: 7.28.5(@babel/core@7.28.5)
       '@equinor/fusion-observable':
         specifier: ^8.1.5
-        version: 8.5.7(@types/react@19.2.2)(react@19.2.0)
+        version: 8.5.8(@types/react@19.2.2)(react@19.2.0)
       '@equinor/fusion-wc-avatar':
         specifier: ^3.2.0
         version: 3.2.3
@@ -2031,8 +2031,8 @@ packages:
       react-dom:
         optional: true
 
-  '@equinor/fusion-observable@8.5.7':
-    resolution: {integrity: sha512-61O616qV4Kj2PlOyj+f7HcrE8jBWPSjCjCFcrvLV7vm+rBjDXr5XjYhTQesdwjgyOxcJKuNQFuS7Y7l/wlwEkg==}
+  '@equinor/fusion-observable@8.5.8':
+    resolution: {integrity: sha512-CpNFqNNIpCp7iQxU45CE9D2pDdnUtSe9ALPyyNMenLVZ1e5hhNwH2L5UKTWdXpWlfgpMLsZnRcGSmNIktoyNdQ==}
     peerDependencies:
       '@types/react': "^17.0.0 ||\_^18.0.0"
       react: "^17.0.0 ||\_^18.0.0"
@@ -6777,8 +6777,8 @@ packages:
   immediate@3.0.6:
     resolution: {integrity: sha512-XXOFtyqDjNDAQxVfYxuF7g9Il/IbWmmlQg2MYKOH8ExIT1qg6xc4zyS3HaEEATgs1btfzxq15ciUiY7gjSXRGQ==}
 
-  immer@11.0.1:
-    resolution: {integrity: sha512-naDCyggtcBWANtIrjQEajhhBEuL9b0Zg4zmlWK2CzS6xCWSE39/vvf4LqnMjUAWHBhot4m9MHCM/Z+mfWhUkiA==}
+  immer@11.1.4:
+    resolution: {integrity: sha512-XREFCPo6ksxVzP4E0ekD5aMdf8WMwmdNaz6vuvxgI40UaEiu6q3p8X52aU6GdyvLY3XXX/8R7JOTXStz/nBbRw==}
 
   immutable@5.1.5:
     resolution: {integrity: sha512-t7xcm2siw+hlUM68I+UEOK+z84RzmN59as9DZ7P1l0994DKUWV7UXBMQZVxaoMSRQ+PBZbHCOoBt7a2wxOMt+A==}
@@ -12237,9 +12237,9 @@ snapshots:
     transitivePeerDependencies:
       - '@types/semver'
 
-  '@equinor/fusion-observable@8.5.7(@types/react@19.2.2)(react@19.2.0)':
+  '@equinor/fusion-observable@8.5.8(@types/react@19.2.2)(react@19.2.0)':
     dependencies:
-      immer: 11.0.1
+      immer: 11.1.4
       react: 19.2.0
       rxjs: 7.8.2
       uuid: 13.0.0
@@ -18579,7 +18579,7 @@ snapshots:
   immediate@3.0.6:
     optional: true
 
-  immer@11.0.1: {}
+  immer@11.1.4: {}
 
   immutable@5.1.5:
     optional: true
