@@ -1,5 +1,11 @@
 # Change Log
 
+## 2.0.1
+
+### Patch Changes
+
+- 7968ea2: Update `@equinor/fusion-wc-person` from `3.4.0` to `3.4.1`.
+
 ## 2.0.0
 
 ### Major Changes
