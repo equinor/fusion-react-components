@@ -292,8 +292,8 @@ importers:
         specifier: 2.0.0
         version: 2.0.0
       '@equinor/fusion-wc-person':
-        specifier: 3.4.0
-        version: 3.4.0
+        specifier: 3.4.1
+        version: 3.4.1
     devDependencies:
       '@types/react':
         specifier: ^19.2.2
@@ -1768,8 +1768,8 @@ packages:
   '@equinor/fusion-wc-people@2.0.0':
     resolution: {integrity: sha512-LqCluIBevax9rFAo1/6vDLu/94Wpz+uKbEswp/aSrQPdK7CwQ1nAqMLsGc5HlMPBOQ+Y5Fb2gdK7vFynI/+4OA==}
 
-  '@equinor/fusion-wc-person@3.4.0':
-    resolution: {integrity: sha512-EXgU0hLyVBEddtraOTlpW3H/vg7/h/HntsToRWxXwOg+G2J23boFJEfL+0Wm7hhd0p8QP9gpaoOKWY4d4HUdyg==}
+  '@equinor/fusion-wc-person@3.4.1':
+    resolution: {integrity: sha512-paGMaNqBpWqunBg99YADUP03x9xSzBcn0L7TkRRTBduc3rVRHlSgU99dajm3zdeeTHwETiWhCLf1HkJwdBp1wQ==}
 
   '@equinor/fusion-wc-picture@3.1.1':
     resolution: {integrity: sha512-TeZd46sjyg43HHlbE4h9Ebk9wCBnif5j9XGodIdVTCaC7rLz2YEd7C6RS7vj3nS+goFIZmowiUUmg6gZemzY4w==}
@@ -7877,8 +7877,8 @@ packages:
     resolution: {integrity: sha512-RAH822pAdBgcNMAfWnCBU3CFZcfZ/i1eZjwFU/dsLKumyuuP3niueg2UAukXYF0E2AAoc82ZSSf9J0WQBinzHA==}
     engines: {node: '>=12.20'}
 
-  type-fest@5.4.4:
-    resolution: {integrity: sha512-JnTrzGu+zPV3aXIUhnyWJj4z/wigMsdYajGLIYakqyOW1nPllzXEJee0QQbHj+CTIQtXGlAjuK0UY+2xTyjVAw==}
+  type-fest@5.5.0:
+    resolution: {integrity: sha512-PlBfpQwiUvGViBNX84Yxwjsdhd1TUlXr6zjX7eoirtCPIr08NAmxwa+fcYBTeRQxHo9YC9wwF3m9i700sHma8g==}
     engines: {node: '>=20'}
 
   typedarray@0.0.6:
@@ -9850,14 +9850,14 @@ snapshots:
       '@equinor/fusion-wc-core': 2.0.0
       '@equinor/fusion-wc-formfield': 1.1.2
       '@equinor/fusion-wc-icon': 2.3.1
-      '@equinor/fusion-wc-person': 3.4.0
+      '@equinor/fusion-wc-person': 3.4.1
       '@equinor/fusion-wc-progress-indicator': 1.1.2
       '@equinor/fusion-wc-skeleton': 2.1.2
       '@equinor/fusion-web-theme': 0.1.10
       '@lit/context': 1.1.6
       lit: 3.3.0
 
-  '@equinor/fusion-wc-person@3.4.0':
+  '@equinor/fusion-wc-person@3.4.1':
     dependencies:
       '@equinor/fusion-wc-button': 2.4.2
       '@equinor/fusion-wc-core': 2.0.0
@@ -15726,7 +15726,7 @@ snapshots:
       statuses: 2.0.2
       strict-event-emitter: 0.5.1
       tough-cookie: 6.0.1
-      type-fest: 5.4.4
+      type-fest: 5.5.0
       until-async: 3.0.2
       yargs: 17.7.2
     optionalDependencies:
@@ -17428,7 +17428,7 @@ snapshots:
 
   type-fest@2.19.0: {}
 
-  type-fest@5.4.4:
+  type-fest@5.5.0:
     dependencies:
       tagged-tag: 1.0.0
     optional: true
