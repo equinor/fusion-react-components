@@ -39,8 +39,8 @@
     "@equinor/fusion-wc-textarea": "^1.1.4"
   },
   "devDependencies": {
-    "@types/react": "^19.2.2",
-    "react": "^19.2.0"
+    "@types/react": "^19.2.14",
+    "react": "^19.2.4"
   },
   "peerDependencies": {
     "react": "^18 || ^19"
