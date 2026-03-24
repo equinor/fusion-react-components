@@ -1,5 +1,4 @@
 import {
-  type ChangeEventHandler,
   type InputHTMLAttributes,
   type ReactElement,
   type FormEvent,
@@ -59,7 +58,7 @@ export const SearchFilter = <TData,>(props: SearchFilterProps<TData>): ReactElem
   const inputRef = useRef<HTMLInputElement>(null);
 
   /** update search selection when input value changes */
-  const onInput: ChangeEventHandler<HTMLInputElement> = useCallback(
+  const onInput = useCallback(
     (e: FormEvent<HTMLInputElement>) => {
       setSelection(e.currentTarget.value);
     },
