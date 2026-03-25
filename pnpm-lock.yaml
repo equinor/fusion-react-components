@@ -289,8 +289,8 @@ importers:
         specifier: workspace:^
         version: link:../utils
       '@equinor/fusion-wc-people':
-        specifier: 2.0.0
-        version: 2.0.0
+        specifier: 2.0.1
+        version: 2.0.1
       '@equinor/fusion-wc-person':
         specifier: 3.4.1
         version: 3.4.1
@@ -1756,8 +1756,8 @@ packages:
   '@equinor/fusion-wc-markdown@1.5.0':
     resolution: {integrity: sha512-8aEZxCazocUn2Zzj0HxLBLg4Ss9R7SeiDXd33FpBrQFzMYKts3kH5ov9fWn3GNChlFwl6DoaNdO24OFGDKuf2w==}
 
-  '@equinor/fusion-wc-people@2.0.0':
-    resolution: {integrity: sha512-LqCluIBevax9rFAo1/6vDLu/94Wpz+uKbEswp/aSrQPdK7CwQ1nAqMLsGc5HlMPBOQ+Y5Fb2gdK7vFynI/+4OA==}
+  '@equinor/fusion-wc-people@2.0.1':
+    resolution: {integrity: sha512-edBC6UKT0XelJiQoytfnUZ1mP2SkBvZK1GqwHVMpwEQQvjl6VTJC5s92wvxtL9lzeHQFwRW0cX5K/82wHLQnJg==}
 
   '@equinor/fusion-wc-person@3.4.1':
     resolution: {integrity: sha512-paGMaNqBpWqunBg99YADUP03x9xSzBcn0L7TkRRTBduc3rVRHlSgU99dajm3zdeeTHwETiWhCLf1HkJwdBp1wQ==}
@@ -5434,8 +5434,8 @@ packages:
   graceful-fs@4.2.11:
     resolution: {integrity: sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==}
 
-  graphql@16.13.1:
-    resolution: {integrity: sha512-gGgrVCoDKlIZ8fIqXBBb0pPKqDgki0Z/FSKNiQzSGj2uEYHr1tq5wmBegGwJx6QB5S5cM0khSBpi/JFHMCvsmQ==}
+  graphql@16.13.2:
+    resolution: {integrity: sha512-5bJ+nf/UCpAjHM8i06fl7eLyVC9iuNAjm9qzkiu2ZGhM0VscSvS6WDPfAwkdkBuoXGM9FJSbKl6wylMwP9Ktig==}
     engines: {node: ^12.22.0 || ^14.16.0 || ^16.0.0 || >=17.0.0}
 
   handlebars@4.7.8:
@@ -9791,7 +9791,7 @@ snapshots:
       prosemirror-transform: 1.10.4
       prosemirror-view: 1.41.3
 
-  '@equinor/fusion-wc-people@2.0.0':
+  '@equinor/fusion-wc-people@2.0.1':
     dependencies:
       '@equinor/fusion-wc-button': 2.4.2
       '@equinor/fusion-wc-checkbox': 1.1.2
@@ -14350,7 +14350,7 @@ snapshots:
 
   graceful-fs@4.2.11: {}
 
-  graphql@16.13.1:
+  graphql@16.13.2:
     optional: true
 
   handlebars@4.7.8:
@@ -15659,7 +15659,7 @@ snapshots:
       '@open-draft/deferred-promise': 2.2.0
       '@types/statuses': 2.0.6
       cookie: 1.1.1
-      graphql: 16.13.1
+      graphql: 16.13.2
       headers-polyfill: 4.0.3
       is-node-process: 1.2.0
       outvariant: 1.4.3
@@ -16513,7 +16513,7 @@ snapshots:
     dependencies:
       object-assign: 4.1.1
       react: 19.2.4
-      react-is: 18.3.1
+      react-is: 17.0.2
     optional: true
 
   react-test-renderer@17.0.2(react@19.2.4):
