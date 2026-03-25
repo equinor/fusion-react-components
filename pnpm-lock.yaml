@@ -68,8 +68,8 @@ importers:
         specifier: ^0.10.0
         version: 0.10.0
       '@equinor/fusion-framework-react-ag-grid':
-        specifier: ^35.0.2
-        version: 35.0.2(@equinor/eds-tokens@0.10.0)(@equinor/fusion-framework-module@5.0.3(@types/semver@7.7.1))(@equinor/fusion-framework-react-module@3.1.13(@types/react@19.2.14)(@types/semver@7.7.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+        specifier: ^36.0.0
+        version: 36.0.0(@equinor/eds-tokens@0.10.0)(@equinor/fusion-framework-module@5.0.3(@types/semver@7.7.1))(@equinor/fusion-framework-react-module@3.1.13(@types/react@19.2.14)(@types/semver@7.7.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       '@types/react':
         specifier: ^19.2.14
         version: 19.2.14
@@ -93,8 +93,8 @@ importers:
         specifier: ^0.9.2
         version: 0.9.2
       '@equinor/fusion-framework-react-ag-grid':
-        specifier: ^35.0.2
-        version: 35.0.2(@equinor/eds-tokens@0.9.2)(@equinor/fusion-framework-module@5.0.3(@types/semver@7.7.1))(@equinor/fusion-framework-react-module@3.1.13(@types/react@19.2.14)(@types/semver@7.7.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+        specifier: ^36.0.0
+        version: 36.0.0(@equinor/eds-tokens@0.9.2)(@equinor/fusion-framework-module@5.0.3(@types/semver@7.7.1))(@equinor/fusion-framework-react-module@3.1.13(@types/react@19.2.14)(@types/semver@7.7.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       '@types/react':
         specifier: ^19.2.14
         version: 19.2.14
@@ -563,8 +563,8 @@ importers:
         specifier: ^0.9.2
         version: 0.9.2
       '@equinor/fusion-framework-react-ag-grid':
-        specifier: ^35.0.2
-        version: 35.0.2(@equinor/eds-tokens@0.9.2)(@equinor/fusion-framework-module@5.0.3(@types/semver@7.7.1))(@equinor/fusion-framework-react-module@3.1.13(@types/react@19.2.14)(@types/semver@7.7.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
+        specifier: ^36.0.0
+        version: 36.0.0(@equinor/eds-tokens@0.9.2)(@equinor/fusion-framework-module@5.0.3(@types/semver@7.7.1))(@equinor/fusion-framework-react-module@3.1.13(@types/react@19.2.14)(@types/semver@7.7.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       '@equinor/fusion-react-ag-grid-person-cell':
         specifier: workspace:^
         version: link:../packages/ag-grid-person-cell
@@ -1680,11 +1680,11 @@ packages:
       react-dom: '>=16.8'
       styled-components: '>=5.1'
 
-  '@equinor/fusion-framework-module-ag-grid@35.0.2':
-    resolution: {integrity: sha512-5F5KqoKfSTWlI9IUivuHmgYMJq7te2Xa7bXR4mbt4XoNp51W4KI6qdFB3yy+g+3RenNbzMDTXpk0VLIs5MAImg==}
+  '@equinor/fusion-framework-module-ag-grid@36.0.0':
+    resolution: {integrity: sha512-dr4GRSJ+8tV527mYK4F1UQO/A9VXNs1UoO9iI34BgJzmvKN020RAfYZVXw4DI7ZNB4cw3BPvaigb7fx9kroU1g==}
     peerDependencies:
-      '@equinor/eds-tokens': ^0.10.0
-      '@equinor/fusion-framework-module': ^5.0.6
+      '@equinor/eds-tokens': ^2.0.0
+      '@equinor/fusion-framework-module': ^6.0.0
       ag-charts-enterprise: '*'
       ag-grid-community: '>=35.1.0'
       ag-grid-enterprise: '>=35.1.0'
@@ -1700,12 +1700,12 @@ packages:
       '@types/semver':
         optional: true
 
-  '@equinor/fusion-framework-react-ag-grid@35.0.2':
-    resolution: {integrity: sha512-49Ysoe2ReDDrLosH7sqKGO/6ApTyE/A1Uvcipu0NsNrY0ScHGmW+hXIS0oQ8qpjyB/gHSsUUrU7EzvzPxpTzxQ==}
+  '@equinor/fusion-framework-react-ag-grid@36.0.0':
+    resolution: {integrity: sha512-N3/OzC0hW/dyllPfU3/LaOUK3KsG8Dh2IsykJdpL4qkToRUGmNZunvRVxisUatLqnew908fy2eReL4bA4tbRng==}
     peerDependencies:
-      '@equinor/fusion-framework-react-module': ^3.1.14
-      react: ^18.0.0
-      react-dom: ^18.0.0
+      '@equinor/fusion-framework-react-module': ^4.0.0
+      react: ^18.0.0 || ^19.0.0
+      react-dom: ^18.0.0 || ^19.0.0
 
   '@equinor/fusion-framework-react-module@3.1.13':
     resolution: {integrity: sha512-L7nT0M2JMKVLFWuWoWsTM9T+fijy4SChP56fXU7mhz6k77Kj3TLeGsJ0gyhOwaNWSkBWJWl4k51Wzkp2vu/G2Q==}
@@ -9646,14 +9646,14 @@ snapshots:
       react-dom: 19.2.4(react@19.2.4)
       styled-components: 6.3.11(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
 
-  '@equinor/fusion-framework-module-ag-grid@35.0.2(@equinor/eds-tokens@0.10.0)(@equinor/fusion-framework-module@5.0.3(@types/semver@7.7.1))(ag-grid-community@35.1.0)(ag-grid-enterprise@35.1.0)':
+  '@equinor/fusion-framework-module-ag-grid@36.0.0(@equinor/eds-tokens@0.10.0)(@equinor/fusion-framework-module@5.0.3(@types/semver@7.7.1))(ag-grid-community@35.1.0)(ag-grid-enterprise@35.1.0)':
     dependencies:
       '@equinor/eds-tokens': 0.10.0
       '@equinor/fusion-framework-module': 5.0.3(@types/semver@7.7.1)
       ag-grid-community: 35.1.0
       ag-grid-enterprise: 35.1.0
 
-  '@equinor/fusion-framework-module-ag-grid@35.0.2(@equinor/eds-tokens@0.9.2)(@equinor/fusion-framework-module@5.0.3(@types/semver@7.7.1))(ag-grid-community@35.1.0)(ag-grid-enterprise@35.1.0)':
+  '@equinor/fusion-framework-module-ag-grid@36.0.0(@equinor/eds-tokens@0.9.2)(@equinor/fusion-framework-module@5.0.3(@types/semver@7.7.1))(ag-grid-community@35.1.0)(ag-grid-enterprise@35.1.0)':
     dependencies:
       '@equinor/eds-tokens': 0.9.2
       '@equinor/fusion-framework-module': 5.0.3(@types/semver@7.7.1)
@@ -9667,9 +9667,9 @@ snapshots:
     optionalDependencies:
       '@types/semver': 7.7.1
 
-  '@equinor/fusion-framework-react-ag-grid@35.0.2(@equinor/eds-tokens@0.10.0)(@equinor/fusion-framework-module@5.0.3(@types/semver@7.7.1))(@equinor/fusion-framework-react-module@3.1.13(@types/react@19.2.14)(@types/semver@7.7.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
+  '@equinor/fusion-framework-react-ag-grid@36.0.0(@equinor/eds-tokens@0.10.0)(@equinor/fusion-framework-module@5.0.3(@types/semver@7.7.1))(@equinor/fusion-framework-react-module@3.1.13(@types/react@19.2.14)(@types/semver@7.7.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
     dependencies:
-      '@equinor/fusion-framework-module-ag-grid': 35.0.2(@equinor/eds-tokens@0.10.0)(@equinor/fusion-framework-module@5.0.3(@types/semver@7.7.1))(ag-grid-community@35.1.0)(ag-grid-enterprise@35.1.0)
+      '@equinor/fusion-framework-module-ag-grid': 36.0.0(@equinor/eds-tokens@0.10.0)(@equinor/fusion-framework-module@5.0.3(@types/semver@7.7.1))(ag-grid-community@35.1.0)(ag-grid-enterprise@35.1.0)
       '@equinor/fusion-framework-react-module': 3.1.13(@types/react@19.2.14)(@types/semver@7.7.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       ag-grid-community: 35.1.0
       ag-grid-enterprise: 35.1.0
@@ -9681,9 +9681,9 @@ snapshots:
       - '@equinor/fusion-framework-module'
       - ag-charts-enterprise
 
-  '@equinor/fusion-framework-react-ag-grid@35.0.2(@equinor/eds-tokens@0.9.2)(@equinor/fusion-framework-module@5.0.3(@types/semver@7.7.1))(@equinor/fusion-framework-react-module@3.1.13(@types/react@19.2.14)(@types/semver@7.7.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
+  '@equinor/fusion-framework-react-ag-grid@36.0.0(@equinor/eds-tokens@0.9.2)(@equinor/fusion-framework-module@5.0.3(@types/semver@7.7.1))(@equinor/fusion-framework-react-module@3.1.13(@types/react@19.2.14)(@types/semver@7.7.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
     dependencies:
-      '@equinor/fusion-framework-module-ag-grid': 35.0.2(@equinor/eds-tokens@0.9.2)(@equinor/fusion-framework-module@5.0.3(@types/semver@7.7.1))(ag-grid-community@35.1.0)(ag-grid-enterprise@35.1.0)
+      '@equinor/fusion-framework-module-ag-grid': 36.0.0(@equinor/eds-tokens@0.9.2)(@equinor/fusion-framework-module@5.0.3(@types/semver@7.7.1))(ag-grid-community@35.1.0)(ag-grid-enterprise@35.1.0)
       '@equinor/fusion-framework-react-module': 3.1.13(@types/react@19.2.14)(@types/semver@7.7.1)(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       ag-grid-community: 35.1.0
       ag-grid-enterprise: 35.1.0
@@ -16538,7 +16538,7 @@ snapshots:
     dependencies:
       object-assign: 4.1.1
       react: 19.2.4
-      react-is: 17.0.2
+      react-is: 18.3.1
     optional: true
 
   react-test-renderer@17.0.2(react@19.2.4):
