@@ -3,6 +3,7 @@ import type { ReactElement } from 'react';
 import { styles as defaultTheme } from '@equinor/fusion-web-theme';
 import { ThemeContext } from './utils/contexts';
 import type { FusionTheme } from './theme';
+import { EdsTokens } from './EdsTokens';
 
 import '@equinor/fusion-wc-theme';
 import type ThemeElement from '@equinor/fusion-wc-theme';
@@ -97,6 +98,7 @@ export function ThemeProvider<T extends FusionTheme = FusionTheme>(
   return (
     <ThemeContext.Provider value={theme}>
       {/* Wrap children in fwc-theme web component for theme application */}
+      <EdsTokens />
       <fwc-theme>{children}</fwc-theme>
     </ThemeContext.Provider>
   );
