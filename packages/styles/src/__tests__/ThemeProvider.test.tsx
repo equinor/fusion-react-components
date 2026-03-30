@@ -295,9 +295,16 @@ describe('EdsTokens - CSS Variables Rendering', () => {
 
     // Verify that style elements exist - styled-components injects styles via <style> tags
     const styleElements = document.querySelectorAll('style');
-    expect(styleElements.length).toBeGreaterThanOrEqual(0);
-    // EdsTokens component successfully rendered (no errors thrown)
-    expect(container).toBeDefined();
+    expect(styleElements.length).toBeGreaterThan(0);
+
+    // Verify that at least one style tag contains EDS CSS variables (e.g. --eds-*)
+    const hasEdsVariables = Array.from(styleElements).some(
+      (style) => style.textContent && style.textContent.includes('--eds-'),
+    );
+    expect(hasEdsVariables).toBe(true);
+
+    // EdsTokens component successfully rendered child content
+    expect(container.querySelector('[data-testid="child"]')).not.toBeNull();
   });
 
   it('should inject EDS token CSS variables when EdsTokens component renders', () => {
