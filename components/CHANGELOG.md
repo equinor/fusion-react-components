@@ -1,5 +1,12 @@
 # @equinor/fusion-react-components
 
+## 1.0.2
+
+### Patch Changes
+
+- Updated dependencies [c0fe19f]
+  - @equinor/fusion-react-person@2.0.2
+
 ## 1.0.1
 
 ### Patch Changes

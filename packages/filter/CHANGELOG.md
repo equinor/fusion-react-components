@@ -1,5 +1,11 @@
 # Change Log
 
+## 2.0.2
+
+### Patch Changes
+
+- dda30be: Fixes a build issue by removing an unnecessary type definition.
+
 ## 2.0.1
 
 ### Patch Changes

@@ -1,5 +1,11 @@
 # Change Log
 
+## 2.0.2
+
+### Patch Changes
+
+- c0fe19f: Updated @equinor/fusion-wc-people from 2.0.0 to 2.0.1
+
 ## 2.0.1
 
 ### Patch Changes
