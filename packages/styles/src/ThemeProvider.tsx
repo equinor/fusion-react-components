@@ -97,8 +97,8 @@ export function ThemeProvider<T extends FusionTheme = FusionTheme>(
 
   return (
     <ThemeContext.Provider value={theme}>
-      {/* Wrap children in fwc-theme web component for theme application */}
       <EdsTokens />
+      {/* Wrap children in fwc-theme web component for theme application */}
       <fwc-theme>{children}</fwc-theme>
     </ThemeContext.Provider>
   );
