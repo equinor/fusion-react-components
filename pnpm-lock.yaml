@@ -453,9 +453,6 @@ importers:
       jss-plugin-vendor-prefixer:
         specifier: ^10.5.1
         version: 10.10.0
-      styled-components:
-        specifier: ^6.3.12
-        version: 6.3.12(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
     devDependencies:
       '@equinor/eds-tokens':
         specifier: ^2.2.0
@@ -478,6 +475,9 @@ importers:
       react:
         specifier: ^19.2.4
         version: 19.2.4
+      styled-components:
+        specifier: ^6.3.12
+        version: 6.3.12(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       vitest:
         specifier: ^4.0.6
         version: 4.1.0(@edge-runtime/vm@5.0.0)(@opentelemetry/api@1.9.0)(@types/node@25.5.0)(happy-dom@20.1.0(bufferutil@4.1.0)(utf-8-validate@6.0.6))(jsdom@29.0.0)(msw@2.12.7(@types/node@25.5.0)(typescript@5.9.3))(vite@8.0.0(@types/node@25.5.0)(esbuild@0.27.4)(jiti@2.6.1)(less@4.5.1)(sass-embedded@1.97.2)(sass@1.97.2)(stylus@0.64.0)(sugarss@5.0.1(postcss@8.5.8))(terser@5.46.1)(tsx@4.21.0)(yaml@2.8.2))

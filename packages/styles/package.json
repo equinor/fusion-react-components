@@ -50,8 +50,7 @@
     "jss-plugin-nested": "^10.5.1",
     "jss-plugin-props-sort": "^10.5.1",
     "jss-plugin-rule-value-function": "^10.5.1",
-    "jss-plugin-vendor-prefixer": "^10.5.1",
-    "styled-components": "^6.3.12"
+    "jss-plugin-vendor-prefixer": "^10.5.1"
   },
   "devDependencies": {
     "@equinor/eds-tokens": "^2.2.0",
@@ -61,10 +60,12 @@
     "@vitest/coverage-v8": "^4.0.6",
     "jsdom": "^29.0.0",
     "react": "^19.2.4",
+    "styled-components": "^6.3.12",
     "vitest": "^4.0.6"
   },
   "peerDependencies": {
     "@equinor/eds-tokens": ">=1",
-    "react": "^18 || ^19"
+    "react": "^18 || ^19",
+    "styled-components": "^6"
   }
 }
