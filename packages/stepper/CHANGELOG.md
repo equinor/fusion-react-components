@@ -1,5 +1,11 @@
 # Change Log
 
+## 3.0.2
+
+### Patch Changes
+
+- e3bea9f: Update `@equinor/eds-tokens@2.2.0` and align peerDependency versions.
+
 ## 3.0.1
 
 ### Patch Changes
