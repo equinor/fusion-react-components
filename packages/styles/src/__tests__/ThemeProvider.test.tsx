@@ -13,6 +13,7 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen, renderHook } from '@testing-library/react';
 import { useContext } from 'react';
+import { StyleSheetManager } from 'styled-components';
 import { ThemeProvider, useTheme } from '../ThemeProvider';
 import { ThemeContext } from '../utils/contexts';
 import type { FusionTheme } from '../theme';
@@ -278,5 +279,30 @@ describe('useTheme hook - Accessing theme from components', () => {
 
     // Verify hook returns updated theme
     expect(result.current).toBe(newTheme);
+  });
+});
+
+describe('EdsTokens - CSS Variables Rendering', () => {
+  it('should render EdsTokens component as styled-component global style', () => {
+    // WHAT: ThemeProvider renders EdsTokens to inject CSS variables via styled-components
+    // WHY: EdsTokens creates a global style using createGlobalStyle from styled-components
+    // to inject design system CSS custom properties from @equinor/eds-tokens
+
+    const { container } = render(
+      <StyleSheetManager disableCSSOMInjection>
+        <ThemeProvider theme={mockTheme}>
+          <div data-testid="child">Test</div>
+        </ThemeProvider>
+      </StyleSheetManager>,
+    );
+
+    // Verify that style elements exist - styled-components injects styles via <style> tags
+    const styleElements = document.querySelectorAll(
+      'style[data-styled], style[data-styled-version]',
+    );
+    expect(styleElements.length).toBeGreaterThan(0);
+
+    // EdsTokens component successfully rendered child content
+    expect(container.querySelector('[data-testid="child"]')).not.toBeNull();
   });
 });

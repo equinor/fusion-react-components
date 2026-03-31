@@ -39,6 +39,7 @@
     "url": "https://github.com/equinor/fusion-react-components/issues"
   },
   "dependencies": {
+    "@equinor/eds-tokens": "^2.2.0",
     "@equinor/fusion-wc-theme": "^1.1.2",
     "@equinor/fusion-web-theme": "^0.1.10",
     "clsx": "^2.1.0",
@@ -59,9 +60,11 @@
     "@vitest/coverage-v8": "^4.0.6",
     "jsdom": "^29.0.0",
     "react": "^19.2.4",
+    "styled-components": "^6.3.12",
     "vitest": "^4.0.6"
   },
   "peerDependencies": {
-    "react": "^18 || ^19"
+    "react": "^18 || ^19",
+    "styled-components": "^6"
   }
 }
