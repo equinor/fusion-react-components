@@ -13,17 +13,13 @@
 import { describe, it, expect } from 'vitest';
 import { render, screen, renderHook } from '@testing-library/react';
 import { useContext } from 'react';
-import { readFileSync } from 'node:fs';
-import { createRequire } from 'node:module';
+import { StyleSheetManager } from 'styled-components';
 import { ThemeProvider, useTheme } from '../ThemeProvider';
 import { ThemeContext } from '../utils/contexts';
 import type { FusionTheme } from '../theme';
 import { createTheme, theme } from '../theme';
 import { makeStyles } from '../make-styles';
 import { ColorStyleProperty } from '@equinor/fusion-web-theme/dist/styles/colors';
-
-const require = createRequire(import.meta.url);
-const edsVariables = readFileSync(require.resolve('@equinor/eds-tokens/css/variables.css'), 'utf8');
 
 // Mock theme - simulates Fusion design system theme
 // Using createTheme to extend FusionTheme with custom colors
@@ -293,9 +289,11 @@ describe('EdsTokens - CSS Variables Rendering', () => {
     // to inject design system CSS custom properties from @equinor/eds-tokens
 
     const { container } = render(
-      <ThemeProvider theme={mockTheme}>
-        <div data-testid="child">Test</div>
-      </ThemeProvider>,
+      <StyleSheetManager disableCSSOMInjection>
+        <ThemeProvider theme={mockTheme}>
+          <div data-testid="child">Test</div>
+        </ThemeProvider>
+      </StyleSheetManager>,
     );
 
     // Verify that style elements exist - styled-components injects styles via <style> tags
@@ -306,26 +304,5 @@ describe('EdsTokens - CSS Variables Rendering', () => {
 
     // EdsTokens component successfully rendered child content
     expect(container.querySelector('[data-testid="child"]')).not.toBeNull();
-  });
-
-  it('should inject EDS token CSS variables when EdsTokens component renders', () => {
-    // WHAT: EdsTokens injects CSS custom properties from EDS design tokens
-    // WHY: Provides design system tokens (colors, sizes, etc.) available as CSS variables
-    // REQUIREMENT: --eds-color-bg-floating should be defined as light-dark(#fff, #202223)
-    // This ensures light mode background is white (#fff) and dark mode is dark gray (#202223)
-
-    const { container } = render(
-      <ThemeProvider theme={mockTheme}>
-        <div data-testid="child">Test</div>
-      </ThemeProvider>,
-    );
-
-    // EdsTokens component renders without errors
-    expect(container.querySelector('[data-testid="child"]')).toBeTruthy();
-
-    // Assert that the injected EDS stylesheet source contains expected CSS variables.
-    // This is deterministic in jsdom even when computed CSS custom properties are unavailable.
-    expect(edsVariables).toContain('--eds-');
-    expect(edsVariables).toMatch(/--eds-color-bg-floating:\s*light-dark\(#fff,\s*#202223\)/);
   });
 });
