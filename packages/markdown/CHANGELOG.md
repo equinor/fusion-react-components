@@ -1,5 +1,11 @@
 # Change Log
 
+## 1.0.1
+
+### Patch Changes
+
+- 0899961: Bump @equinor/fusion-wc-markdown to 1.5.1
+
 ## 1.0.0
 
 ### Major Changes
