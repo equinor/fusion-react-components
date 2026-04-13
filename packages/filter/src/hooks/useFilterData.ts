@@ -20,7 +20,7 @@ export const filterSelection = (
     /** create a selection of filters base on provided args  */
     map((x) =>
       Object.entries(x)
-        .filter(([key]) => !exclude || !exclude.includes(key))
+        .filter(([key]) => !exclude?.includes(key))
         .reduce((acc, [key, filter]) => Object.assign(acc, { [key]: filter }), {}),
     ),
     /** only update filters when filter function changes */
