@@ -68,8 +68,8 @@ importers:
         specifier: ^2.2.0
         version: 2.2.0
       '@equinor/fusion-framework-react-ag-grid':
-        specifier: ^35.0.2
-        version: 35.0.2(@equinor/eds-tokens@2.2.0)(@equinor/fusion-framework-module@5.0.3(@types/semver@7.7.1))(@equinor/fusion-framework-react-module@3.1.13(@types/react@19.2.14)(@types/semver@7.7.1)(react-dom@19.2.5(react@19.2.4))(react@19.2.4))(react-dom@19.2.5(react@19.2.4))(react@19.2.4)
+        specifier: ^36.0.1
+        version: 36.0.1(@equinor/eds-tokens@2.2.0)(@equinor/fusion-framework-module@5.0.3(@types/semver@7.7.1))(@equinor/fusion-framework-react-module@3.1.13(@types/react@19.2.14)(@types/semver@7.7.1)(react-dom@19.2.5(react@19.2.4))(react@19.2.4))(react-dom@19.2.5(react@19.2.4))(react@19.2.4)
       '@types/react':
         specifier: ^19.2.14
         version: 19.2.14
@@ -93,8 +93,8 @@ importers:
         specifier: ^2.2.0
         version: 2.2.0
       '@equinor/fusion-framework-react-ag-grid':
-        specifier: ^35.0.2
-        version: 35.0.2(@equinor/eds-tokens@2.2.0)(@equinor/fusion-framework-module@5.0.3(@types/semver@7.7.1))(@equinor/fusion-framework-react-module@3.1.13(@types/react@19.2.14)(@types/semver@7.7.1)(react-dom@19.2.5(react@19.2.4))(react@19.2.4))(react-dom@19.2.5(react@19.2.4))(react@19.2.4)
+        specifier: ^36.0.1
+        version: 36.0.1(@equinor/eds-tokens@2.2.0)(@equinor/fusion-framework-module@5.0.3(@types/semver@7.7.1))(@equinor/fusion-framework-react-module@3.1.13(@types/react@19.2.14)(@types/semver@7.7.1)(react-dom@19.2.5(react@19.2.4))(react@19.2.4))(react-dom@19.2.5(react@19.2.4))(react@19.2.4)
       '@types/react':
         specifier: ^19.2.14
         version: 19.2.14
@@ -572,8 +572,8 @@ importers:
         specifier: ^2.2.0
         version: 2.2.0
       '@equinor/fusion-framework-react-ag-grid':
-        specifier: ^35.0.2
-        version: 35.0.2(@equinor/eds-tokens@2.2.0)(@equinor/fusion-framework-module@5.0.3(@types/semver@7.7.1))(@equinor/fusion-framework-react-module@3.1.13(@types/react@19.2.14)(@types/semver@7.7.1)(react-dom@19.2.5(react@19.2.4))(react@19.2.4))(react-dom@19.2.5(react@19.2.4))(react@19.2.4)
+        specifier: ^36.0.1
+        version: 36.0.1(@equinor/eds-tokens@2.2.0)(@equinor/fusion-framework-module@5.0.3(@types/semver@7.7.1))(@equinor/fusion-framework-react-module@3.1.13(@types/react@19.2.14)(@types/semver@7.7.1)(react-dom@19.2.5(react@19.2.4))(react@19.2.4))(react-dom@19.2.5(react@19.2.4))(react@19.2.4)
       '@equinor/fusion-react-ag-grid-person-cell':
         specifier: workspace:^
         version: link:../packages/ag-grid-person-cell
@@ -1701,11 +1701,11 @@ packages:
       react-dom: '>=16.8'
       styled-components: '>=5.1'
 
-  '@equinor/fusion-framework-module-ag-grid@35.0.2':
-    resolution: {integrity: sha512-5F5KqoKfSTWlI9IUivuHmgYMJq7te2Xa7bXR4mbt4XoNp51W4KI6qdFB3yy+g+3RenNbzMDTXpk0VLIs5MAImg==}
+  '@equinor/fusion-framework-module-ag-grid@36.0.0':
+    resolution: {integrity: sha512-dr4GRSJ+8tV527mYK4F1UQO/A9VXNs1UoO9iI34BgJzmvKN020RAfYZVXw4DI7ZNB4cw3BPvaigb7fx9kroU1g==}
     peerDependencies:
-      '@equinor/eds-tokens': ^0.10.0
-      '@equinor/fusion-framework-module': ^5.0.6
+      '@equinor/eds-tokens': ^2.0.0
+      '@equinor/fusion-framework-module': ^6.0.0
       ag-charts-enterprise: '*'
       ag-grid-community: '>=35.1.0'
       ag-grid-enterprise: '>=35.1.0'
@@ -1721,12 +1721,12 @@ packages:
       '@types/semver':
         optional: true
 
-  '@equinor/fusion-framework-react-ag-grid@35.0.2':
-    resolution: {integrity: sha512-49Ysoe2ReDDrLosH7sqKGO/6ApTyE/A1Uvcipu0NsNrY0ScHGmW+hXIS0oQ8qpjyB/gHSsUUrU7EzvzPxpTzxQ==}
+  '@equinor/fusion-framework-react-ag-grid@36.0.1':
+    resolution: {integrity: sha512-uMS9Ty31EKMdzsfafsQcEJHjm9jhUmMED7YBMu6VKjcGz0YMBI655VJGYxYJlPPEEKKpGnbMJ2rWF0Pu/q2WYg==}
     peerDependencies:
-      '@equinor/fusion-framework-react-module': ^3.1.14
-      react: ^18.0.0
-      react-dom: ^18.0.0
+      '@equinor/fusion-framework-react-module': ^4.0.0
+      react: ^18.0.0 || ^19.0.0
+      react-dom: ^18.0.0 || ^19.0.0
 
   '@equinor/fusion-framework-react-module@3.1.13':
     resolution: {integrity: sha512-L7nT0M2JMKVLFWuWoWsTM9T+fijy4SChP56fXU7mhz6k77Kj3TLeGsJ0gyhOwaNWSkBWJWl4k51Wzkp2vu/G2Q==}
@@ -4400,29 +4400,29 @@ packages:
   add-stream@1.0.0:
     resolution: {integrity: sha512-qQLMr+8o0WC4FZGQTcJiKBVC59JylcPSrTtk6usvmIDFUOCKegapy1VHQwRbFMOFyb/inzUVqHs+eMYKDM1YeQ==}
 
-  ag-charts-community@13.1.0:
-    resolution: {integrity: sha512-w+uFTjxlAoTq1+8tgUORtB/zr9jm38ibXzbbWnkBP9Dep9yahi5a1jZL7yExAX35uq3g9QtjTh0Oj/QPDBQ9Ew==}
+  ag-charts-community@13.2.1:
+    resolution: {integrity: sha512-A+DCiesRp6WQ5R5e3x9bLh50IWCachVF6gkz6Dz4icMcq6WL5JNKL+xZEzrKYl+kuD8Y8728xmVm/H53o9Nayw==}
 
-  ag-charts-core@13.1.0:
-    resolution: {integrity: sha512-mLHJZ8oU5CPeLRURescdISCtMsiiA/m4d1iBr6aQBEgiTVogRMGpFpsYNtQiYtoW2sRh+62I9sN8fhC3JQjX/g==}
+  ag-charts-core@13.2.1:
+    resolution: {integrity: sha512-Y7rk3kF+fA6bUMjU+vIzG5rRBd+8EKjyIjzNR2uV1+HyrlnOn6b7Eb9HPkDUoosWHhz+UNCOW/lYDzPP6mivHQ==}
 
-  ag-charts-enterprise@13.1.0:
-    resolution: {integrity: sha512-WyKIqvkOdtdvEJxq76hjTacXTCpIR2lq1JDMYc5MtoHYtiVt1KHApsxS0nbutp/CxGKRgdOqJtxUF+3r33pgPw==}
+  ag-charts-enterprise@13.2.1:
+    resolution: {integrity: sha512-QiNuNUu3o5qWUz9cPLuKr9r9k2YsO8Nwp4qJGR0s76WT6AeCmqKa12cSJrvIpwvPdjZ3PVlwsMA8s8EZ4dqrXA==}
 
-  ag-charts-locale@13.1.0:
-    resolution: {integrity: sha512-mPgJnVsOI4Cf17CAlRh8BvLz19e165sdQJeUXNaB7M+DPB+pxODOcfx4oqZlR4Wc8Zu++TGb/2ueHa/aeV2qeQ==}
+  ag-charts-locale@13.2.1:
+    resolution: {integrity: sha512-lwwV/l/O187R4DYUfjm6p8LijITe46IlDz8nOxNQNJAOpkzs+cWmjSxfNiM1BMVCWTcMdah/AKN+6iihbDa8IA==}
 
-  ag-charts-types@13.1.0:
-    resolution: {integrity: sha512-DytRM3CXli+Y013SC1Mr8lQBrhVTACK+11ilDHOhwUM0sRpmGuR51XFGcBKOliW1Vas1AycP31Cm3Pp0jx3hqw==}
+  ag-charts-types@13.2.1:
+    resolution: {integrity: sha512-r7veb3QqJtIKlXmeUsLR4/oDPwmHxFI2tmbZra/203mdaz3uwQUrrgYNg628nrK+7L2YxXnwGc6L05tWjLLjNQ==}
 
-  ag-grid-community@35.1.0:
-    resolution: {integrity: sha512-yWFQfRNjv3KUBkHHzFdDOYGjPcDMU0B8Up4qG651diFlGRUGEGVs94SK73niWvk1FDZdpV9oWrwq3f30/qAoVg==}
+  ag-grid-community@35.2.1:
+    resolution: {integrity: sha512-ycmGI+1EbUT7i3eg/Kgi1owwnkdHXRufo10Xm6cfSsVPM3TMpvlbLgi28KIPt9DGHZWHq9fOBn7nxMNdv1Yaow==}
 
-  ag-grid-enterprise@35.1.0:
-    resolution: {integrity: sha512-Zhod3fpgWa9KE0JNFkkkb8/3Qv66UR9KF3wFyCz++wQUtQm5wdExul4UA8wm1ukvBmD6QyBLQ5Cs9zDnIEb0uQ==}
+  ag-grid-enterprise@35.2.1:
+    resolution: {integrity: sha512-nLl06cc7/THzf7mGZt7PotdeaBN74X3K9g2looyvJEymrOOJfjrLePrV4aNNhz/WZnATkbyblm5DM/qv3BeHKA==}
 
-  ag-grid-react@35.1.0:
-    resolution: {integrity: sha512-n8pJh4RTpos8stzz91nEhTCZZdLy9bjQYAGxIxJ8ocVagnEsAk9T5Vz/VEKUhOGz36il68n7TVbVWSuUA3a+mg==}
+  ag-grid-react@35.2.1:
+    resolution: {integrity: sha512-UzdU15R6fyGJB+lBKEC458xacGoZged3Ra6Plqa7LvrJ/Mg0tWn1NH01UnuKyGEKPWMEAGvdXruOtOUywsPElA==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
@@ -9702,12 +9702,12 @@ snapshots:
       react-dom: 19.2.5(react@19.2.4)
       styled-components: 6.4.0(css-to-react-native@3.2.0)(react-dom@19.2.5(react@19.2.4))(react@19.2.4)
 
-  '@equinor/fusion-framework-module-ag-grid@35.0.2(@equinor/eds-tokens@2.2.0)(@equinor/fusion-framework-module@5.0.3(@types/semver@7.7.1))(ag-grid-community@35.1.0)(ag-grid-enterprise@35.1.0)':
+  '@equinor/fusion-framework-module-ag-grid@36.0.0(@equinor/eds-tokens@2.2.0)(@equinor/fusion-framework-module@5.0.3(@types/semver@7.7.1))(ag-grid-community@35.2.1)(ag-grid-enterprise@35.2.1)':
     dependencies:
       '@equinor/eds-tokens': 2.2.0
       '@equinor/fusion-framework-module': 5.0.3(@types/semver@7.7.1)
-      ag-grid-community: 35.1.0
-      ag-grid-enterprise: 35.1.0
+      ag-grid-community: 35.2.1
+      ag-grid-enterprise: 35.2.1
 
   '@equinor/fusion-framework-module@5.0.3(@types/semver@7.7.1)':
     dependencies:
@@ -9716,13 +9716,13 @@ snapshots:
     optionalDependencies:
       '@types/semver': 7.7.1
 
-  '@equinor/fusion-framework-react-ag-grid@35.0.2(@equinor/eds-tokens@2.2.0)(@equinor/fusion-framework-module@5.0.3(@types/semver@7.7.1))(@equinor/fusion-framework-react-module@3.1.13(@types/react@19.2.14)(@types/semver@7.7.1)(react-dom@19.2.5(react@19.2.4))(react@19.2.4))(react-dom@19.2.5(react@19.2.4))(react@19.2.4)':
+  '@equinor/fusion-framework-react-ag-grid@36.0.1(@equinor/eds-tokens@2.2.0)(@equinor/fusion-framework-module@5.0.3(@types/semver@7.7.1))(@equinor/fusion-framework-react-module@3.1.13(@types/react@19.2.14)(@types/semver@7.7.1)(react-dom@19.2.5(react@19.2.4))(react@19.2.4))(react-dom@19.2.5(react@19.2.4))(react@19.2.4)':
     dependencies:
-      '@equinor/fusion-framework-module-ag-grid': 35.0.2(@equinor/eds-tokens@2.2.0)(@equinor/fusion-framework-module@5.0.3(@types/semver@7.7.1))(ag-grid-community@35.1.0)(ag-grid-enterprise@35.1.0)
+      '@equinor/fusion-framework-module-ag-grid': 36.0.0(@equinor/eds-tokens@2.2.0)(@equinor/fusion-framework-module@5.0.3(@types/semver@7.7.1))(ag-grid-community@35.2.1)(ag-grid-enterprise@35.2.1)
       '@equinor/fusion-framework-react-module': 3.1.13(@types/react@19.2.14)(@types/semver@7.7.1)(react-dom@19.2.5(react@19.2.4))(react@19.2.4)
-      ag-grid-community: 35.1.0
-      ag-grid-enterprise: 35.1.0
-      ag-grid-react: 35.1.0(react-dom@19.2.5(react@19.2.4))(react@19.2.4)
+      ag-grid-community: 35.2.1
+      ag-grid-enterprise: 35.2.1
+      ag-grid-react: 35.2.1(react-dom@19.2.5(react@19.2.4))(react@19.2.4)
       react: 19.2.4
       react-dom: 19.2.5(react@19.2.4)
     transitivePeerDependencies:
@@ -13316,43 +13316,43 @@ snapshots:
 
   add-stream@1.0.0: {}
 
-  ag-charts-community@13.1.0:
+  ag-charts-community@13.2.1:
     dependencies:
-      ag-charts-core: 13.1.0
-      ag-charts-locale: 13.1.0
-      ag-charts-types: 13.1.0
+      ag-charts-core: 13.2.1
+      ag-charts-locale: 13.2.1
+      ag-charts-types: 13.2.1
     optional: true
 
-  ag-charts-core@13.1.0:
+  ag-charts-core@13.2.1:
     dependencies:
-      ag-charts-types: 13.1.0
+      ag-charts-types: 13.2.1
     optional: true
 
-  ag-charts-enterprise@13.1.0:
+  ag-charts-enterprise@13.2.1:
     dependencies:
-      ag-charts-community: 13.1.0
-      ag-charts-core: 13.1.0
+      ag-charts-community: 13.2.1
+      ag-charts-core: 13.2.1
     optional: true
 
-  ag-charts-locale@13.1.0:
+  ag-charts-locale@13.2.1:
     optional: true
 
-  ag-charts-types@13.1.0: {}
+  ag-charts-types@13.2.1: {}
 
-  ag-grid-community@35.1.0:
+  ag-grid-community@35.2.1:
     dependencies:
-      ag-charts-types: 13.1.0
+      ag-charts-types: 13.2.1
 
-  ag-grid-enterprise@35.1.0:
+  ag-grid-enterprise@35.2.1:
     dependencies:
-      ag-grid-community: 35.1.0
+      ag-grid-community: 35.2.1
     optionalDependencies:
-      ag-charts-community: 13.1.0
-      ag-charts-enterprise: 13.1.0
+      ag-charts-community: 13.2.1
+      ag-charts-enterprise: 13.2.1
 
-  ag-grid-react@35.1.0(react-dom@19.2.5(react@19.2.4))(react@19.2.4):
+  ag-grid-react@35.2.1(react-dom@19.2.5(react@19.2.4))(react@19.2.4):
     dependencies:
-      ag-grid-community: 35.1.0
+      ag-grid-community: 35.2.1
       prop-types: 15.8.1
       react: 19.2.4
       react-dom: 19.2.5(react@19.2.4)
