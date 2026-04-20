@@ -1,5 +1,13 @@
 # @equinor/fusion-react-components
 
+## 1.0.3
+
+### Patch Changes
+
+- e942e21: Remove the "ignoreDeprecations" tsconfig property and fix build errors
+- Updated dependencies [e942e21]
+  - @equinor/fusion-react-person@2.0.3
+
 ## 1.0.2
 
 ### Patch Changes

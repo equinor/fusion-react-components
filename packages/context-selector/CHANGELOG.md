@@ -1,5 +1,15 @@
 # Change Log
 
+## 2.0.2
+
+### Patch Changes
+
+- e942e21: Remove the "ignoreDeprecations" tsconfig property and fix build errors
+- Updated dependencies [e942e21]
+  - @equinor/fusion-react-searchable-dropdown@2.0.1
+  - @equinor/fusion-react-styles@2.1.1
+  - @equinor/fusion-react-utils@3.0.1
+
 ## 2.0.1
 
 ### Patch Changes
