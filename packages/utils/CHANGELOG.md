@@ -1,5 +1,11 @@
 # Change Log
 
+## 3.0.1
+
+### Patch Changes
+
+- e942e21: Remove the "ignoreDeprecations" tsconfig property and fix build errors
+
 ## 3.0.0
 
 ### Major Changes

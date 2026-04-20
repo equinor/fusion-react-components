@@ -1,5 +1,31 @@
 # Change Log
 
+## 6.0.2
+
+### Patch Changes
+
+- e942e21: Remove the "ignoreDeprecations" tsconfig property and fix build errors
+- Updated dependencies [e942e21]
+  - @equinor/fusion-react-ag-grid-person-cell@4.0.3
+  - @equinor/fusion-react-searchable-dropdown@2.0.1
+  - @equinor/fusion-react-context-selector@2.0.2
+  - @equinor/fusion-react-hanging-garden@2.0.2
+  - @equinor/fusion-react-ag-grid-utils@33.0.2
+  - @equinor/fusion-react-errorboundary@2.0.3
+  - @equinor/fusion-react-side-sheet@2.0.2
+  - @equinor/fusion-react-markdown@1.0.2
+  - @equinor/fusion-react-skeleton@1.0.1
+  - @equinor/fusion-react-textarea@1.0.1
+  - @equinor/fusion-react-stepper@3.0.3
+  - @equinor/fusion-react-filter@2.0.3
+  - @equinor/fusion-react-person@2.0.3
+  - @equinor/fusion-react-ripple@1.0.1
+  - @equinor/fusion-react-styles@2.1.1
+  - @equinor/fusion-react-date@1.0.1
+  - @equinor/fusion-react-list@1.0.1
+  - @equinor/fusion-react-tabs@2.0.2
+  - @equinor/fusion-react-components@1.0.3
+
 ## 6.0.1
 
 ### Patch Changes
