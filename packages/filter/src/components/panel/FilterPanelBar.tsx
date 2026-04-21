@@ -3,7 +3,8 @@ import type { HTMLAttributes, ReactElement } from 'react';
 import { Button, Icon } from '@equinor/eds-core-react';
 import { chevron_up, chevron_down, refresh } from '@equinor/eds-icons';
 
-import { clsx, createStyles, makeStyles } from '@equinor/fusion-react-styles';
+import styled from 'styled-components';
+import { tokens } from '@equinor/eds-tokens';
 import type { FilterFn } from '../../types';
 import { SearchFilter } from '../filter';
 import { ClearFilterButton } from '../misc';
@@ -11,32 +12,28 @@ import { useFilterPanelContext } from './FilterPanelProvider';
 
 Icon.add({ chevron_down, chevron_up, refresh });
 
-const useStyles = makeStyles(
-  (theme) =>
-    createStyles({
-      root: {
-        display: 'flex',
-        flexWrap: 'wrap',
-        alignItems: 'center',
-        gap: theme.spacing.comfortable.medium.getVariable('padding'),
-      },
-      searchInput: {
-        '--textinput-dense-size': '36px',
-      },
-      actions: {
-        marginLeft: 'auto',
-        display: 'flex',
-        alignItems: 'center',
-        gap: theme.spacing.comfortable.medium.getVariable('padding'),
-      },
-      resetBtn: {
-        '&[disabled]': {
-          display: 'none',
-        },
-      },
-    }),
-  { name: 'fusion-filter-panel-bar' },
-);
+const Styled = {
+  Root: styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: ${tokens.spacings.comfortable.medium};
+  `,
+  Actions: styled.div`
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: ${tokens.spacings.comfortable.medium};
+  `,
+  ResetBtn: styled(ClearFilterButton)`
+    &[disabled] {
+      display: none;
+    }
+  `,
+  SearchWrapper: styled.div`
+    --textinput-dense-size: 36px;
+  `,
+};
 
 type FilterPanelBarProps<TData> = HTMLAttributes<HTMLDivElement> & {
   readonly searchFn?: FilterFn<TData, string>;
@@ -45,21 +42,17 @@ type FilterPanelBarProps<TData> = HTMLAttributes<HTMLDivElement> & {
 export const FilterPanelBar = <TData,>(props: FilterPanelBarProps<TData>): ReactElement => {
   const { className, searchFn, ...args } = props;
   const { showFilters, setShowFilters } = useFilterPanelContext();
-  const styles = useStyles();
 
   return (
-    <div {...args} className={clsx(className, styles.root)}>
-      <SearchFilter
-        filterKey="global"
-        label="Search all"
-        className={styles.searchInput}
-        filterFn={searchFn}
-      />
-      <div className={styles.actions}>
-        <ClearFilterButton className={styles.resetBtn} variant="ghost">
+    <Styled.Root {...args} className={className}>
+      <Styled.SearchWrapper>
+        <SearchFilter filterKey="global" label="Search all" filterFn={searchFn} />
+      </Styled.SearchWrapper>
+      <Styled.Actions>
+        <Styled.ResetBtn variant="ghost">
           Reset Filters
           <Icon name="refresh" />
-        </ClearFilterButton>
+        </Styled.ResetBtn>
         <Button
           icon={showFilters ? 'chevron_up' : 'chevron_down'}
           onClick={() => setShowFilters(!showFilters)}
@@ -69,8 +62,8 @@ export const FilterPanelBar = <TData,>(props: FilterPanelBarProps<TData>): React
           {showFilters ? 'Hide filters' : 'Show filters'}
           <Icon name={showFilters ? 'chevron_up' : 'chevron_down'} />
         </Button>
-      </div>
-    </div>
+      </Styled.Actions>
+    </Styled.Root>
   );
 };
 

@@ -9,36 +9,33 @@ import { FilterPanelFilters } from './FilterPanelFilters';
 import { FilterPanelBar } from './FilterPanelBar';
 import { SelectionChips } from '../misc';
 import FilterPanelSelector from './FilterPanelSelector';
-import { clsx, createStyles, makeStyles } from '@equinor/fusion-react-styles';
+import styled from 'styled-components';
+import { tokens } from '@equinor/eds-tokens';
 import type { FilterFn } from '../../types';
 
-const useStyles = makeStyles(
-  (theme) =>
-    createStyles({
-      root: {
-        '--filter-panel-spacing': theme.spacing.comfortable.medium.getVariable('padding'),
-        display: 'flex',
-        flexFlow: 'column',
-        gap: 'var(--filter-panel-spacing)',
-        padding: 'var(--filter-panel-spacing)',
-        border: `1px solid ${theme.colors.interactive.disabled__border.getVariable('color')}`,
-        borderRadius: '0.5rem',
-        '&>*': {
-          padding: '0 var(--filter-panel-spacing)',
-          margin: '0 calc(var(--filter-panel-spacing) * -1)',
-        },
-      },
-      filters: {
-        overflowX: 'auto',
-        overflowY: 'hidden',
-        display: 'flex',
-        paddingBottom: 'calc(var(--filter-panel-spacing))',
-        marginBottom: 'calc(var(--filter-panel-spacing) * -1)',
-        backgroundColor: theme.colors.ui.background__light.getVariable('color'),
-      },
-    }),
-  { name: 'fusion-filter-panel' },
-);
+const Styled = {
+  Root: styled.div`
+    --filter-panel-spacing: ${tokens.spacings.comfortable.medium};
+    display: flex;
+    flex-flow: column;
+    gap: var(--filter-panel-spacing);
+    padding: var(--filter-panel-spacing);
+    border: 1px solid ${tokens.colors.interactive.disabled__border.rgba};
+    border-radius: 0.5rem;
+    & > * {
+      padding: 0 var(--filter-panel-spacing);
+      margin: 0 calc(var(--filter-panel-spacing) * -1);
+    }
+  `,
+  Filters: styled.div`
+    overflow-x: auto;
+    overflow-y: hidden;
+    display: flex;
+    padding-bottom: calc(var(--filter-panel-spacing));
+    margin-bottom: calc(var(--filter-panel-spacing) * -1);
+    background-color: ${tokens.colors.ui.background__light.rgba};
+  `,
+};
 
 type StyleClasses = {
   /** filter panel */
@@ -84,22 +81,26 @@ export const FilterPanel: <TData>(
     (x) => !!x.props.filterKey,
   );
   const initialSelectedFilters = props.selectedFilters || filters.map((x) => x.props.filterKey);
-  const styles = useStyles();
   return (
     <FilterPanelProvider {...{ filters, initialSelectedFilters, showFilters }}>
-      <div {...args} className={clsx(styles.root, classes?.root, className)}>
+      <Styled.Root
+        {...args}
+        className={[classes?.root, className].filter(Boolean).join(' ') || undefined}
+      >
         {props.showBar && <FilterPanelBar searchFn={searchFn} />}
-        <FilterPanelFilters
-          FilterSelector={props.showSelector ? FilterPanelSelector : undefined}
-          className={clsx(styles.filters, classes?.filters)}
-        />
+        <Styled.Filters>
+          <FilterPanelFilters
+            FilterSelector={props.showSelector ? FilterPanelSelector : undefined}
+            className={classes?.filters}
+          />
+        </Styled.Filters>
         <FilterPanelConsumer>
           {(context: FilterPanelProviderContext) =>
             showSelection &&
             !context?.showFilters && <SelectionChips chips={{ variant: 'outlined' }} />
           }
         </FilterPanelConsumer>
-      </div>
+      </Styled.Root>
     </FilterPanelProvider>
   );
 };

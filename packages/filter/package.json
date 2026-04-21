@@ -42,10 +42,11 @@
     "url": "https://github.com/equinor/fusion-react-components/issues"
   },
   "dependencies": {
-    "@equinor/fusion-react-styles": "workspace:^",
+    "@equinor/eds-tokens": "^2.2.0",
     "@equinor/fusion-react-utils": "workspace:^",
     "@equinor/fusion-wc-chip": "^1.2.2",
     "rxjs": "^7.8.1",
+    "styled-components": "^6.1.8",
     "typesafe-actions": "^5.1.0"
   },
   "devDependencies": {

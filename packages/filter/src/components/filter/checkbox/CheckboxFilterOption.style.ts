@@ -1,36 +1,40 @@
-import { createStyles, makeStyles } from '@equinor/fusion-react-styles';
+import styled from 'styled-components';
+import { tokens } from '@equinor/eds-tokens';
 
-export const useStyles = makeStyles(
-  (theme) =>
-    createStyles({
-      root: {
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        cursor: 'pointer',
-        backgroundColor: 'transparent',
-        willChange: 'backgroundColor',
-        // TODO - fetch from theme
-        transition: '125ms background-color ease-out',
-        '&:hover': {
-          backgroundColor: theme.colors.interactive.primary__hover_alt.getVariable('color'),
-        },
-        // maxWidth: '80px',
-      },
-      inactive: {
-        filter: 'grayscale(100%)',
-        opacity: 0.5,
-      },
-      counter: {
-        ...theme.typography.input.label.style,
-        whiteSpace: 'nowrap',
-        margin: `0 ${theme.spacing.comfortable.small.getVariable('padding')}`,
-      },
-      hide: {
-        display: 'none',
-      },
-    }),
-  { name: 'fusion-filter-checkbox-option' },
-);
+export const Styled = {
+  Root: styled.div<{ $inactive?: boolean; $hide?: boolean }>`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    background-color: transparent;
+    will-change: background-color;
+    transition: 125ms background-color ease-out;
 
-export default useStyles;
+    &:hover {
+      background-color: ${tokens.colors.interactive.primary__hover_alt.rgba};
+    }
+
+    ${({ $inactive }) =>
+      $inactive &&
+      `
+      filter: grayscale(100%);
+      opacity: 0.5;
+    `}
+
+    ${({ $hide }) =>
+      $hide &&
+      `
+      display: none;
+    `}
+  `,
+  Counter: styled.span`
+    color: ${tokens.typography.input.label.color};
+    font-family: ${tokens.typography.input.label.fontFamily};
+    font-size: ${tokens.typography.input.label.fontSize};
+    font-weight: ${tokens.typography.input.label.fontWeight};
+    line-height: ${tokens.typography.input.label.lineHeight};
+    white-space: nowrap;
+    margin: 0 ${tokens.spacings.comfortable.small};
+  `,
+};
