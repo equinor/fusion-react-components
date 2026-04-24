@@ -13,6 +13,7 @@ import { actions } from '../actions';
 
 import type { Filter } from '../types';
 
+// biome-ignore lint/suspicious/noExplicitAny: TSelection defaults to any to allow untyped usage
 export const selectionChanges = <TSelection = any>(
   filter$: Observable<Record<string, Filter>>,
   selection$: Observable<Record<string, TSelection>>,
@@ -31,7 +32,10 @@ export const selectionChanges = <TSelection = any>(
 
 export const useClearFilter = (): {
   clear: VoidFunction;
-  changed$: Observable<Record<string, any>>;
+  changed$: Observable<
+    // biome-ignore lint/suspicious/noExplicitAny: selection values are unknown at this level
+    Record<string, any>
+  >;
 } => {
   const { selection$, filter$ } = useFilterContext();
   const clear = useCallback(() => {

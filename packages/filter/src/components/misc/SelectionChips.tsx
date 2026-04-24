@@ -18,6 +18,7 @@ import { tokens } from '@equinor/eds-tokens';
 Chip;
 
 /** method for extracting selection to array */
+// biome-ignore lint/suspicious/noExplicitAny: selection can be any type from the filter context
 const formatSelection = (selection: any): string[] => {
   switch (true) {
     case selection === undefined:

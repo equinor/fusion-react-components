@@ -20,6 +20,7 @@ export type FilterPanelProviderContext = {
 };
 
 const context = createContext<FilterPanelProviderContext | null>(null);
+// biome-ignore lint/suspicious/noExplicitAny: React context Provider/Consumer types require any for generic usage
 const { Provider, Consumer } = context as { Provider: any; Consumer: any };
 
 export { Consumer as FilterPanelConsumer };

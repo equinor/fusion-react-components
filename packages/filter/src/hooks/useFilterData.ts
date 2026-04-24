@@ -34,11 +34,14 @@ export const filterSelection = (
 };
 
 export const filterData = <
+  // biome-ignore lint/suspicious/noExplicitAny: TInn is a generic record type
   TInn extends Record<string, any>,
+  // biome-ignore lint/suspicious/noExplicitAny: TOut is a generic record type
   TOut extends Record<string, any> = TInn,
 >(
   source$: Observable<TInn[]>,
   filter$: Observable<Record<string, Filter<TInn>>>,
+  // biome-ignore lint/suspicious/noExplicitAny: selection values are unknown at this level
   selection$: Observable<Record<string, any>>,
 ): Observable<TOut[]> => {
   return combineLatest([selection$, source$, filter$]).pipe(
@@ -55,6 +58,7 @@ export const filterData = <
   );
 };
 
+// biome-ignore lint/suspicious/noExplicitAny: TData is a generic record type
 export const useFilterData = <TData extends Record<string, any>>(
   args?: useFilterDataArgs,
 ): Observable<TData[]> => {
