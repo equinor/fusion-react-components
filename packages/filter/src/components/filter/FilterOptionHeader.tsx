@@ -26,7 +26,7 @@ const Styled = {
     font-weight: ${tokens.typography.table.cell_header.fontWeight};
     line-height: ${tokens.typography.table.cell_header.lineHeight};
     overflow: hidden;
-    ${({ $showSearch }) => $showSearch && `display: none;`}
+    ${({ $showSearch }) => $showSearch && 'display: none;'}
   `,
   Counter: styled.span<{ $noCount?: boolean }>`
     display: ${({ $noCount }) => ($noCount ? 'none' : 'inline-flex')};
