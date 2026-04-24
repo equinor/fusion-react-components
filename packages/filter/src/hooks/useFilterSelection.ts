@@ -10,6 +10,7 @@ import { useFilterContext } from '../context';
  */
 export const useFilterSelection = <TSelection>(filterKey: string): Observable<Set<TSelection>> =>
   useObservableSelector(
+    // biome-ignore lint/suspicious/noExplicitAny: selection$ is a generic observable, any is required for the key lookup
     useFilterContext().selection$ as Observable<Record<string, any>>,
     filterKey,
   );

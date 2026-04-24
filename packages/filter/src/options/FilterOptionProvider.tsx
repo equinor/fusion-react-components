@@ -25,12 +25,18 @@ export type FilterComponentProviderProps<TData, TOption extends FilterOption, TV
 };
 
 export const FilterOptionProvider: <
+  // biome-ignore lint/suspicious/noExplicitAny: TData is a generic record type
   TData extends Record<string, any>,
   TOption extends FilterOption,
   TValue,
 >(
   props: PropsWithChildren<FilterComponentProviderProps<TData, TOption, TValue>>,
-) => ReactElement = <TData extends Record<string, any>, TOption extends FilterOption, TValue>(
+) => ReactElement = <
+  // biome-ignore lint/suspicious/noExplicitAny: TData is a generic record type
+  TData extends Record<string, any>,
+  TOption extends FilterOption,
+  TValue,
+>(
   props: PropsWithChildren<FilterComponentProviderProps<TData, TOption, TValue>>,
 ): ReactElement => {
   /** append change method if not provided */

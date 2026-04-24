@@ -5,6 +5,8 @@ import { TextField, Icon } from '@equinor/eds-core-react';
 import { useFilterOptionContext, useFilterOptionSearch } from '../../options';
 
 import { search, chevron_right } from '@equinor/eds-icons';
+import styled from 'styled-components';
+import { tokens } from '@equinor/eds-tokens';
 
 Icon.add({ search, chevron_right });
 
@@ -12,48 +14,46 @@ type FilterHeaderProps = {
   readonly title: string;
 };
 
-import { clsx, createStyles, makeStyles } from '@equinor/fusion-react-styles';
-
-export const useStyles = makeStyles(
-  (theme) =>
-    createStyles({
-      root: {
-        display: 'flex',
-        alignItems: 'center',
-      },
-      header: {
-        ...theme.typography.table.cell_header.style,
-        overflow: 'hidden',
-        '&$showSearch': {
-          display: 'none',
-        },
-      },
-      showSearch: {},
-      counter: {
-        display: 'inline-flex',
-        gap: '1px',
-        ...theme.typography.input.helper.style,
-        marginLeft: theme.spacing.comfortable.small.getVariable('padding'),
-      },
-      noCount: {
-        display: 'none',
-      },
-      iconBtn: {
-        cursor: 'pointer',
-        marginLeft: 'auto',
-      },
-      searchField: {
-        marginTop: '4px',
-        flex: '1 1 auto',
-        '&:not($showSearch)': {
-          maxWidth: 0,
-          flex: 'none',
-          overflow: 'hidden',
-        },
-      },
-    }),
-  { name: 'fusion-filter-header' },
-);
+const Styled = {
+  Root: styled.div`
+    display: flex;
+    align-items: center;
+  `,
+  Header: styled.header<{ $showSearch?: boolean }>`
+    color: ${tokens.typography.table.cell_header.color};
+    font-family: ${tokens.typography.table.cell_header.fontFamily};
+    font-size: ${tokens.typography.table.cell_header.fontSize};
+    font-weight: ${tokens.typography.table.cell_header.fontWeight};
+    line-height: ${tokens.typography.table.cell_header.lineHeight};
+    overflow: hidden;
+    ${({ $showSearch }) => $showSearch && 'display: none;'}
+  `,
+  Counter: styled.span<{ $noCount?: boolean }>`
+    display: ${({ $noCount }) => ($noCount ? 'none' : 'inline-flex')};
+    gap: 1px;
+    color: ${tokens.typography.input.helper.color};
+    font-family: ${tokens.typography.input.helper.fontFamily};
+    font-size: ${tokens.typography.input.helper.fontSize};
+    font-weight: ${tokens.typography.input.helper.fontWeight};
+    letter-spacing: ${tokens.typography.input.helper.letterSpacing};
+    line-height: ${tokens.typography.input.helper.lineHeight};
+    margin-left: ${tokens.spacings.comfortable.small};
+  `,
+  IconBtn: styled(Icon)`
+    cursor: pointer;
+    margin-left: auto;
+  `,
+  SearchField: styled(TextField)<{ $showSearch?: boolean }>`
+    margin-top: 4px;
+    flex: ${({ $showSearch }) => ($showSearch ? '1 1 auto' : 'none')};
+    ${({ $showSearch }) =>
+      !$showSearch &&
+      `
+      max-width: 0;
+      overflow: hidden;
+    `}
+  `,
+};
 
 export const FilterOptionHeader = (props: FilterHeaderProps): ReactElement => {
   const { title } = props;
@@ -65,7 +65,6 @@ export const FilterOptionHeader = (props: FilterHeaderProps): ReactElement => {
   const { value: selectedCount } = useObservableState(
     useObservableSelector(selection$, (x) => (x ?? new Set()).size > 0),
   );
-  const styles = useStyles();
   const onIconClick = () => {
     if (showSearch) {
       setQuery('');
@@ -84,33 +83,32 @@ export const FilterOptionHeader = (props: FilterHeaderProps): ReactElement => {
   }, [query$]);
 
   return (
-    <div className={styles.root}>
-      <TextField
+    <Styled.Root>
+      <Styled.SearchField
         id={title}
         ref={searchRef}
-        className={clsx(styles.searchField, showSearch && styles.showSearch)}
+        $showSearch={showSearch}
         type="search"
         placeholder={title}
         onInput={(e: FormEvent<HTMLInputElement>) => setQuery(e.currentTarget.value)}
         inputIcon={<Icon name="search" key="thumbs" size={16} />}
       />
-      <header className={clsx(styles.header, showSearch && styles.showSearch)}>
+      <Styled.Header $showSearch={showSearch}>
         <span>{title}</span>
-        <span className={clsx(styles.counter, !selectedCount && styles.noCount)}>
+        <Styled.Counter $noCount={!selectedCount}>
           <span>(</span>
           <span>{selectedCount}</span>
           <span>/</span>
           <span>{optionCount}</span>
           <span>)</span>
-        </span>
-      </header>
-      <Icon
-        className={styles.iconBtn}
+        </Styled.Counter>
+      </Styled.Header>
+      <Styled.IconBtn
         name={showSearch ? 'chevron_right' : 'search'}
         size={16}
         onClick={onIconClick}
       />
-    </div>
+    </Styled.Root>
   );
 };
 

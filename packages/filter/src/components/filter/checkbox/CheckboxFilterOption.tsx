@@ -2,8 +2,7 @@ import { useCallback, type ReactElement, type HTMLAttributes, type FormEvent } f
 
 import { Checkbox } from '@equinor/eds-core-react';
 
-import { clsx } from '@equinor/fusion-react-styles';
-import { useStyles } from './CheckboxFilterOption.style';
+import { Styled } from './CheckboxFilterOption.style';
 import type { CheckboxOption } from './types';
 
 export type CheckboxFilterOptionProps = Partial<HTMLAttributes<HTMLDivElement>> &
@@ -34,12 +33,8 @@ export const CheckboxFilterOption = (props: CheckboxFilterOptionProps): ReactEle
     },
     [onOptionChange],
   );
-  const styles = useStyles();
   return (
-    <div
-      {...args}
-      className={clsx(className, styles.root, inactive && styles.inactive, hide && styles.hide)}
-    >
+    <Styled.Root {...args} className={className} $inactive={inactive} $hide={hide}>
       <Checkbox
         name={name}
         checked={checked}
@@ -47,8 +42,8 @@ export const CheckboxFilterOption = (props: CheckboxFilterOptionProps): ReactEle
         indeterminate={indeterminate}
         label={label}
       />
-      <span className={styles.counter}>{count}</span>
-    </div>
+      <Styled.Counter>{count}</Styled.Counter>
+    </Styled.Root>
   );
 };
 

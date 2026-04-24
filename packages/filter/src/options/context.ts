@@ -5,6 +5,7 @@ import type { FilterOption, FilterOptionContext } from './types';
 // @ts-expect-error
 const context = createContext<FilterOptionContext>({});
 
+// biome-ignore lint/suspicious/noExplicitAny: React context Provider/Consumer types require any for generic usage
 export const { Provider, Consumer } = context as { Provider: any; Consumer: any };
 
 export const useFilterOptionContext = <

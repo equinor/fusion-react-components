@@ -12,11 +12,13 @@ import { useObservableSubscription } from '@equinor/fusion-observable/react';
 import Chip, { type ChipElement, type ChipElementProps } from '@equinor/fusion-wc-chip';
 import { useFilterContext } from '../../hooks';
 import { actions } from '../../actions';
-import { clsx, createStyles, makeStyles } from '@equinor/fusion-react-styles';
+import styled from 'styled-components';
+import { tokens } from '@equinor/eds-tokens';
 
 Chip;
 
 /** method for extracting selection to array */
+// biome-ignore lint/suspicious/noExplicitAny: selection can be any type from the filter context
 const formatSelection = (selection: any): string[] => {
   switch (true) {
     case selection === undefined:
@@ -39,19 +41,15 @@ type SelectionItem = {
   selection: string[];
 };
 
-const useStyles = makeStyles(
-  (theme) =>
-    createStyles({
-      root: {
-        display: 'flex',
-        gap: theme.spacing.comfortable.small.getVariable('padding'),
-      },
-      chip: {
-        marginRight: theme.spacing.comfortable.small.getVariable('padding'),
-      },
-    }),
-  { name: 'fusion-filter-selection-chips' },
-);
+const Styled = {
+  Root: styled.div`
+    display: flex;
+    gap: ${tokens.spacings.comfortable.small};
+  `,
+  Chip: styled.span`
+    margin-right: ${tokens.spacings.comfortable.small};
+  `,
+};
 
 export type SelectionChipsProps = HTMLAttributes<HTMLDivElement> & {
   readonly chips: Pick<ChipElementProps, 'variant'>;
@@ -99,20 +97,16 @@ export const SelectionChips = (props: SelectionChipsProps): ReactElement => {
     }
   }, [selection$]);
 
-  const styles = useStyles();
-
   return (
-    <div {...args} className={clsx(styles.root, className)} ref={ref}>
+    <Styled.Root {...args} className={className} ref={ref}>
       {items?.map((x) => (
         // @ts-expect-error fwc-chip is a valid HTML element
         <fwc-chip key={x.key} value={x.key} removable variant={chips.variant}>
           <span>{x.title} </span>
-          <span slot="graphic" className={styles.chip}>
-            {x.selection.length}
-          </span>
+          <Styled.Chip slot="graphic">{x.selection.length}</Styled.Chip>
           {/* @ts-expect-error fwc-chip is a valid HTML element */}
         </fwc-chip>
       ))}
-    </div>
+    </Styled.Root>
   );
 };

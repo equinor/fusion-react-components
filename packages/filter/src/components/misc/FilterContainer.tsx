@@ -1,23 +1,22 @@
 import type { ReactElement, PropsWithChildren, HTMLAttributes } from 'react';
-import { clsx, createStyles, makeStyles, type theme } from '@equinor/fusion-react-styles';
+import styled from 'styled-components';
+import { tokens } from '@equinor/eds-tokens';
 
-const useStyles = makeStyles(
-  (theme) =>
-    createStyles({
-      root: ({ spacing }: StyleProps) => ({
-        display: 'inline-flex',
-        flex: 'auto',
-        gap: theme.spacing.comfortable[spacing || 'medium'].getVariable('padding'),
-        '&>*': {
-          flex: 1,
-        },
-      }),
-    }),
-  { name: 'fusion-filter-container' },
-);
+type SpacingKey = keyof typeof tokens.spacings.comfortable;
+
+const Styled = {
+  Root: styled.div<{ $spacing?: SpacingKey }>`
+    display: inline-flex;
+    flex: auto;
+    gap: ${({ $spacing }) => tokens.spacings.comfortable[$spacing || 'medium']};
+    & > * {
+      flex: 1;
+    }
+  `,
+};
 
 type StyleProps = {
-  readonly spacing?: keyof typeof theme.spacing.comfortable;
+  readonly spacing?: SpacingKey;
 };
 
 export type FilterContainerProps = HTMLAttributes<HTMLDivElement> & StyleProps;
@@ -27,11 +26,10 @@ export type FilterContainerProps = HTMLAttributes<HTMLDivElement> & StyleProps;
  */
 export const FilterContainer = (props: PropsWithChildren<FilterContainerProps>): ReactElement => {
   const { children, className, spacing, ...args } = props;
-  const styles = useStyles({ spacing });
   return (
-    <div className={clsx(styles.root, className)} {...args}>
+    <Styled.Root className={className} $spacing={spacing} {...args}>
       {children}
-    </div>
+    </Styled.Root>
   );
 };
 

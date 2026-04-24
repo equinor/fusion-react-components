@@ -185,9 +185,9 @@ importers:
 
   packages/filter:
     dependencies:
-      '@equinor/fusion-react-styles':
-        specifier: workspace:^
-        version: link:../styles
+      '@equinor/eds-tokens':
+        specifier: ^2.2.0
+        version: 2.2.0
       '@equinor/fusion-react-utils':
         specifier: workspace:^
         version: link:../utils
@@ -200,6 +200,9 @@ importers:
       rxjs:
         specifier: ^7.8.1
         version: 7.8.2
+      styled-components:
+        specifier: ^6.1.8
+        version: 6.4.0(css-to-react-native@3.2.0)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
       typesafe-actions:
         specifier: ^5.1.0
         version: 5.1.0
@@ -16301,7 +16304,7 @@ snapshots:
     dependencies:
       object-assign: 4.1.1
       react: 19.2.5
-      react-is: 17.0.2
+      react-is: 18.3.1
     optional: true
 
   react-test-renderer@17.0.2(react@19.2.5):

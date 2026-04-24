@@ -1,25 +1,22 @@
-import { createStyles, makeStyles } from '@equinor/fusion-react-styles';
+import styled from 'styled-components';
+import { tokens } from '@equinor/eds-tokens';
 
-export const useStyles = makeStyles(
-  (theme) =>
-    createStyles({
-      root: {
-        display: 'flex',
-        flexFlow: 'column',
-        // TODO - remove
-        minWidth: 150,
-      },
-      items: (props: { layout: 'column' | 'row' }) => ({
-        display: 'flex',
-        flexFlow: props.layout,
-        overflowY: 'auto',
-      }),
-
-      title: {
-        ...theme.typography.heading.h3.style,
-      },
-    }),
-  { name: 'fusion-filter-checkbox-option' },
-);
-
-export default useStyles;
+export const Styled = {
+  Root: styled.div`
+    display: flex;
+    flex-flow: column;
+    min-width: 150px;
+  `,
+  Items: styled.div<{ $layout: 'column' | 'row' }>`
+    display: flex;
+    flex-flow: ${({ $layout }) => $layout};
+    overflow-y: auto;
+  `,
+  Title: styled.span`
+    color: ${tokens.typography.heading.h3.color};
+    font-family: ${tokens.typography.heading.h3.fontFamily};
+    font-size: ${tokens.typography.heading.h3.fontSize};
+    font-weight: ${tokens.typography.heading.h3.fontWeight};
+    line-height: ${tokens.typography.heading.h3.lineHeight};
+  `,
+};
