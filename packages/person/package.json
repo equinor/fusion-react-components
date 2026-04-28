@@ -45,8 +45,8 @@
   },
   "dependencies": {
     "@equinor/fusion-react-utils": "workspace:^",
-    "@equinor/fusion-wc-people": "2.1.0",
-    "@equinor/fusion-wc-person": "3.5.0"
+    "@equinor/fusion-wc-people": "2.1.1",
+    "@equinor/fusion-wc-person": "3.5.1"
   },
   "devDependencies": {
     "@types/react": "^19.2.14",
