@@ -39,12 +39,12 @@
   "dependencies": {
     "@equinor/fusion-react-styles": "workspace:^",
     "date-fns": "4.1.0",
-    "history": "4.x",
+    "history": "5.x",
     "pixi.js-legacy": "^5.3.7"
   },
   "devDependencies": {
     "@equinor/fusion": "^3.3.1",
-    "@types/history": "4.x",
+    "@types/history": "5.x",
     "@types/node": "^25.5.0",
     "@types/react": "^19.2.14",
     "react": "^19.2.5"
@@ -52,7 +52,7 @@
   "peerDependencies": {
     "@equinor/fusion": "^3.3.1",
     "date-fns": "4.1.0",
-    "history": "4.x",
+    "history": "5.x",
     "react": "^18 || ^19"
   }
 }
