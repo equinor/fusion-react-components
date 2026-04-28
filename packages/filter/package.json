@@ -50,15 +50,15 @@
     "typesafe-actions": "^5.1.0"
   },
   "devDependencies": {
-    "@equinor/eds-core-react": "^0.48.0",
-    "@equinor/eds-icons": "~1.4.0",
+    "@equinor/eds-core-react": "^2.5.0",
+    "@equinor/eds-icons": "^1.4.0",
     "@equinor/fusion-observable": "^9.0.0",
     "@types/react": "^19.2.14",
     "react": "^19.2.5"
   },
   "peerDependencies": {
-    "@equinor/eds-core-react": "^0.45.0",
-    "@equinor/eds-icons": "~1.4.0",
+    "@equinor/eds-core-react": "^2",
+    "@equinor/eds-icons": "^1",
     "@equinor/fusion-observable": "^9.0.0",
     "react": "^18 || ^19",
     "react-dom": "^18 || ^19"
