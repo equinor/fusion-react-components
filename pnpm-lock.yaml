@@ -215,7 +215,7 @@ importers:
         version: 0.22.0
       '@equinor/fusion-observable':
         specifier: ^9.0.0
-        version: 9.0.0(@types/react@19.2.14)(react@19.2.5)
+        version: 9.0.1(@types/react@19.2.14)(react@19.2.5)
       '@types/react':
         specifier: ^19.2.14
         version: 19.2.14
@@ -502,7 +502,7 @@ importers:
         version: 2.2.0
       '@equinor/fusion-observable':
         specifier: ^9.0.0
-        version: 9.0.0(@types/react@19.2.14)(react@19.2.5)
+        version: 9.0.1(@types/react@19.2.14)(react@19.2.5)
       '@types/react':
         specifier: ^19.2.14
         version: 19.2.14
@@ -691,7 +691,7 @@ importers:
         version: 7.28.5(@babel/core@7.29.0)
       '@equinor/fusion-observable':
         specifier: ^9.0.0
-        version: 9.0.0(@types/react@19.2.14)(react@19.2.5)
+        version: 9.0.1(@types/react@19.2.14)(react@19.2.5)
       '@equinor/fusion-wc-avatar':
         specifier: ^3.3.1
         version: 3.3.1
@@ -1693,8 +1693,8 @@ packages:
       react-dom:
         optional: true
 
-  '@equinor/fusion-observable@9.0.0':
-    resolution: {integrity: sha512-9DDgW1dDVY/xns7AqEIa3MA+L03h47wBHDiagTKUOrXyVTgK6POvmvFlzGpPXSO3Zph2pMeNJItDXw+lVRBYVQ==}
+  '@equinor/fusion-observable@9.0.1':
+    resolution: {integrity: sha512-i2tsKcAfwmbtxU77b6sy+5ZBDSGG/TZcb0Sa8nhH9Es5UO6lcN71v9knR5CNsKsNiJZYERAf3aHVzcF3T4byaQ==}
     peerDependencies:
       '@types/react': ^18.0.0 || ^19.0.0
       react: ^18.0.0 || ^19.0.0
@@ -7904,10 +7904,6 @@ packages:
   util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
 
-  uuid@13.0.0:
-    resolution: {integrity: sha512-XQegIaBTVUjSHliKqcnFqYypAd4S+WCYt5NIeRs6w/UAry7z8Y9j5ZwRRL4kzq9U3sD6v+85er9FvkEaBpji2w==}
-    hasBin: true
-
   uuid@14.0.0:
     resolution: {integrity: sha512-Qo+uWgilfSmAhXCMav1uYFynlQO7fMFiMVZsQqZRMIXp0O7rR7qjkj+cPvBHLgBqi960QCoo/PH2/6ZtVqKvrg==}
     hasBin: true
@@ -9560,12 +9556,12 @@ snapshots:
     transitivePeerDependencies:
       - '@types/semver'
 
-  '@equinor/fusion-observable@9.0.0(@types/react@19.2.14)(react@19.2.5)':
+  '@equinor/fusion-observable@9.0.1(@types/react@19.2.14)(react@19.2.5)':
     dependencies:
       immer: 11.1.4
       react: 19.2.5
       rxjs: 7.8.2
-      uuid: 13.0.0
+      uuid: 14.0.0
     optionalDependencies:
       '@types/react': 19.2.14
 
@@ -17288,8 +17284,6 @@ snapshots:
     optional: true
 
   util-deprecate@1.0.2: {}
-
-  uuid@13.0.0: {}
 
   uuid@14.0.0: {}
 
