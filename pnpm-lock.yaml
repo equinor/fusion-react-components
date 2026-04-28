@@ -81,11 +81,10 @@ importers:
         version: 6.4.1(css-to-react-native@3.2.0)(react-dom@19.2.5(react@19.2.5))(react@19.2.5)
 
   packages/ag-grid-utils:
-    dependencies:
-      '@equinor/eds-core-react':
-        specifier: ^2
-        version: 2.5.0(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(styled-components@6.4.1(css-to-react-native@3.2.0)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))
     devDependencies:
+      '@equinor/eds-core-react':
+        specifier: ^2.5.0
+        version: 2.5.0(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(styled-components@6.4.1(css-to-react-native@3.2.0)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))
       '@equinor/eds-icons':
         specifier: ^1.4.0
         version: 1.4.0
