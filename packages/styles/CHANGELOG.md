@@ -1,5 +1,12 @@
 # Change Log
 
+## 2.1.2
+
+### Patch Changes
+
+- 445bd76: Remove sourcemap generation from build output. Published packages no longer ship broken `.js.map` files that referenced missing source files, eliminating console warnings for consumers.
+- 445bd76: Update `@equinor/fusion-wc-*` dependencies to latest versions which no longer ship broken sourcemaps.
+
 ## 2.1.1
 
 ### Patch Changes

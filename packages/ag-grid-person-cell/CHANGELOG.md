@@ -1,5 +1,15 @@
 # Change Log
 
+## 4.0.4
+
+### Patch Changes
+
+- 445bd76: Remove sourcemap generation from build output. Published packages no longer ship broken `.js.map` files that referenced missing source files, eliminating console warnings for consumers.
+- Updated dependencies [445bd76]
+- Updated dependencies [445bd76]
+  - @equinor/fusion-react-person@2.0.4
+  - @equinor/fusion-react-utils@3.0.2
+
 ## 4.0.3
 
 ### Patch Changes
