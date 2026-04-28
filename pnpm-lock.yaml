@@ -87,8 +87,8 @@ importers:
         version: 0.45.1(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(styled-components@6.4.1(css-to-react-native@3.2.0)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))
     devDependencies:
       '@equinor/eds-icons':
-        specifier: ~0.22.0
-        version: 0.22.0
+        specifier: ~1.4.0
+        version: 1.4.0
       '@equinor/eds-tokens':
         specifier: ^2.2.0
         version: 2.2.0
@@ -168,8 +168,8 @@ importers:
         specifier: ^0.45.0
         version: 0.45.1(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(styled-components@6.4.1(css-to-react-native@3.2.0)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))
       '@equinor/eds-icons':
-        specifier: ~0.22.0
-        version: 0.22.0
+        specifier: ~1.4.0
+        version: 1.4.0
       '@equinor/eds-tokens':
         specifier: ^2.2.0
         version: 2.2.0
@@ -211,8 +211,8 @@ importers:
         specifier: ^0.48.0
         version: 0.48.0(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(styled-components@6.4.1(css-to-react-native@3.2.0)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))
       '@equinor/eds-icons':
-        specifier: ~0.22.0
-        version: 0.22.0
+        specifier: ~1.4.0
+        version: 1.4.0
       '@equinor/fusion-observable':
         specifier: ^9.0.0
         version: 9.0.1(@types/react@19.2.14)(react@19.2.5)
@@ -353,8 +353,8 @@ importers:
         specifier: ^0.48.0
         version: 0.48.0(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(styled-components@6.4.1(css-to-react-native@3.2.0)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))
       '@equinor/eds-icons':
-        specifier: ~0.22.0
-        version: 0.22.0
+        specifier: ~1.4.0
+        version: 1.4.0
       '@equinor/eds-tokens':
         specifier: ^2.2.0
         version: 2.2.0
@@ -403,8 +403,8 @@ importers:
         specifier: ^0.48.0
         version: 0.48.0(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(styled-components@6.4.1(css-to-react-native@3.2.0)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))
       '@equinor/eds-icons':
-        specifier: ~0.22.0
-        version: 0.22.0
+        specifier: ~1.4.0
+        version: 1.4.0
       '@equinor/eds-tokens':
         specifier: ^2.2.0
         version: 2.2.0
@@ -569,8 +569,8 @@ importers:
         specifier: ^0.48.0
         version: 0.48.0(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(styled-components@6.4.1(css-to-react-native@3.2.0)(react-dom@19.2.5(react@19.2.5))(react@19.2.5))
       '@equinor/eds-icons':
-        specifier: ~0.22.0
-        version: 0.22.0
+        specifier: ~1.4.0
+        version: 1.4.0
       '@equinor/eds-tokens':
         specifier: ^2.2.0
         version: 2.2.0
@@ -16343,7 +16343,7 @@ snapshots:
     dependencies:
       object-assign: 4.1.1
       react: 19.2.5
-      react-is: 17.0.2
+      react-is: 18.3.1
     optional: true
 
   react-test-renderer@17.0.2(react@19.2.5):
