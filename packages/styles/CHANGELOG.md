@@ -1,5 +1,11 @@
 # Change Log
 
+## 2.1.3
+
+### Patch Changes
+
+- 2338333: Bump `styled-components` from 6.4.0 to 6.4.1 — fixes a performance regression in `createGlobalStyle` and updates stale dev-mode error messages.
+
 ## 2.1.2
 
 ### Patch Changes

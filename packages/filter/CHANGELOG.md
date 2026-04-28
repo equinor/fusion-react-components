@@ -1,5 +1,18 @@
 # Change Log
 
+## 2.1.2
+
+### Patch Changes
+
+- 2338333: Bump `@equinor/fusion-observable` from 9.0.0 to 9.0.1 — internal `uuid` dependency updated from 13.0.0 to 14.0.0.
+- 2338333: Bump `styled-components` from 6.4.0 to 6.4.1 — fixes a performance regression in `createGlobalStyle` and updates stale dev-mode error messages.
+- 2338333: Bump `vite` from 8.0.8 to 8.0.10 — rolldown RC update, CSS minification warning improvements, and optimizer fixes.
+- 0be8bd4: build(deps): bump @equinor/eds-core-react from 0.45.1 to 2.5.0
+
+  Align peerDependencies with updated eds packages.
+
+- eb99de5: build(deps): bump @equinor/eds-icons from 0.22.0 to 1.4.0
+
 ## 2.1.1
 
 ### Patch Changes
