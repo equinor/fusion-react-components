@@ -91,6 +91,7 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       eds_ref: ${{ steps.resolve.outputs.eds_ref }}
+      eds_sha: ${{ steps.resolve.outputs.eds_sha }}
       skip: ${{ steps.resolve.outputs.skip }}
       environment: ${{ steps.resolve.outputs.environment }}
     steps:
@@ -108,10 +109,12 @@ jobs:
           set -euo pipefail
 
           if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            eds_sha=$(gh api "repos/${EDS_REPO}/commits/${INPUT_EDS_REF}" --jq '.sha')
             echo "eds_ref=${INPUT_EDS_REF}" >> "$GITHUB_OUTPUT"
+            echo "eds_sha=${eds_sha}" >> "$GITHUB_OUTPUT"
             echo "skip=false" >> "$GITHUB_OUTPUT"
             echo "environment=${INPUT_ENVIRONMENT}" >> "$GITHUB_OUTPUT"
-            echo "::notice::Manual dispatch — building EDS ref: ${INPUT_EDS_REF}"
+            echo "::notice::Manual dispatch — building EDS ref: ${INPUT_EDS_REF} (${eds_sha:0:12})"
             exit 0
           fi
 
@@ -128,17 +131,22 @@ jobs:
 
           echo "::notice::Latest EDS release: ${latest_tag}"
 
-          # Compare against the last-indexed ref stored in .eds-ref on the orphan branch
+          # Resolve tag to a stable commit SHA for skip comparison
+          eds_sha=$(gh api "repos/${EDS_REPO}/commits/${latest_tag}" --jq '.sha')
+          echo "::notice::Resolved SHA: ${eds_sha:0:12}"
+
+          # Compare against the last-indexed SHA stored in .eds-ref on the orphan branch
           last_indexed=$(gh api "repos/${{ github.repository }}/contents/.eds-ref?ref=eds-content" \
             --jq '.content' 2>/dev/null | base64 -d | tr -d '\n') || true
 
-          if [[ -n "$last_indexed" && "$latest_tag" == "$last_indexed" ]]; then
-            echo "::notice::EDS ref ${latest_tag} already indexed — skipping"
+          if [[ -n "$last_indexed" && "$eds_sha" == "$last_indexed" ]]; then
+            echo "::notice::EDS SHA ${eds_sha:0:12} already indexed — skipping"
             echo "skip=true" >> "$GITHUB_OUTPUT"
             exit 0
           fi
 
           echo "eds_ref=${latest_tag}" >> "$GITHUB_OUTPUT"
+          echo "eds_sha=${eds_sha}" >> "$GITHUB_OUTPUT"
           echo "skip=false" >> "$GITHUB_OUTPUT"
           echo "environment=docs" >> "$GITHUB_OUTPUT"
 
@@ -305,6 +313,7 @@ jobs:
         working-directory: eds-content
         env:
           EDS_REF: ${{ needs.resolve-ref.outputs.eds_ref }}
+          EDS_SHA: ${{ needs.resolve-ref.outputs.eds_sha }}
         run: |
           set -euo pipefail
 
@@ -316,9 +325,9 @@ jobs:
             changed=$(git diff --cached --name-status | wc -l)
             echo "::notice::${changed} files changed since last index"
             git diff --cached --stat
-            echo "${EDS_REF}" > .eds-ref
+            echo "${EDS_SHA}" > .eds-ref
             git add .eds-ref
-            git commit -m "eds-content: ${EDS_REF}"
+            git commit -m "eds-content: ${EDS_REF} (${EDS_SHA:0:12})"
             echo "has_changes=true" >> "$GITHUB_OUTPUT"
           fi
 
