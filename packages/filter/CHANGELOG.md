@@ -1,5 +1,13 @@
 # Change Log
 
+## 2.1.3
+
+### Patch Changes
+
+- 6c68753: Fix filter panel layout and selected-count behavior in the filter header.
+
+  This updates the selected counter to use an explicit numeric initial value and adjusts panel/container sizing styles so filters render with full-height layout and correct horizontal behavior.
+
 ## 2.1.2
 
 ### Patch Changes
