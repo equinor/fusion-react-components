@@ -5,24 +5,22 @@
   "type": "module",
   "description": "monorepo of fusion react components",
   "main": "index.js",
-  "engines": {
-    "node": ">=20",
-    "npm": "please-use-pnpm",
-    "yarn": "please-use-pnpm",
-    "pnpm": ">=9"
-  },
-  "packageManager": "pnpm@10.20.0",
+  "workspaces": [
+    "components",
+    "packages/*",
+    "storybook"
+  ],
   "scripts": {
-    "test": "lerna run --no-bail test",
-    "dev": "pnpm run start",
-    "start": "pnpm run storybook",
-    "clean": "pnpm clean:node && pnpm clean:build && pnpm clean:dist",
-    "clean:node": "pnpm -r exec rimraf node_modules && pnpm exec rimraf node_modules",
-    "clean:build": "pnpm -r exec rimraf tsconfig.tsbuildinfo",
-    "clean:dist": "pnpm -r exec rimraf dist",
-    "build": "lerna run build --ignore '@equinor/fusion-react-components-stories'",
-    "build:clean": "pnpm clean:build && pnpm build",
-    "build:all": "lerna run build",
+    "test": "bun run --filter '*' test",
+    "dev": "bun run start",
+    "start": "bun run storybook",
+    "clean": "bun run clean:node && bun run clean:build && bun run clean:dist",
+    "clean:node": "find . -name node_modules -type d -prune -exec rm -rf {} +",
+    "clean:build": "find . -name tsconfig.tsbuildinfo -delete",
+    "clean:dist": "find . -name dist -type d -prune -exec rm -rf {} +",
+    "build": "bun run --filter '!@equinor/fusion-react-components-stories' build",
+    "build:clean": "bun run clean:build && bun run build",
+    "build:all": "bun run --filter '*' build",
     "test:build": "docker build -t test -f build.Dockerfile .",
     "check": "biome check",
     "check:errors": "biome check --diagnostic-level=error",
@@ -30,13 +28,11 @@
     "lint:staged": "biome lint --staged",
     "format": "biome format",
     "format:staged": "biome format --staged",
-    "storybook": "pnpm run --dir ./storybook start",
-    "storybook:build": "pnpm run --dir ./storybook build",
-    "lerna:update": "lernaupdate",
-    "lerna:dedupe": "lernaupdate --dedupe",
-    "changeset:version": "changeset version && pnpm install --lockfile-only",
-    "changeset:publish": "pnpm changeset tag && pnpm publish -r --no-git-checks",
-    "changeset:publish:pre-release": "pnpm publish -r --no-git-checks --report-summary --tag ${NPM_TAG}"
+    "storybook": "bun run --cwd ./storybook start",
+    "storybook:build": "bun run --cwd ./storybook build",
+    "changeset:version": "changeset version && bun install --frozen-lockfile",
+    "changeset:publish": "changeset tag && bun publish --filter '*' --no-git-checks",
+    "changeset:publish:pre-release": "bun publish --filter '*' --no-git-checks --tag ${NPM_TAG}"
   },
   "repository": {
     "type": "git",
@@ -58,10 +54,7 @@
     "@changesets/cli": "^2.26.2",
     "@commitlint/cli": "^20.1.0",
     "@commitlint/config-conventional": "^20.0.0",
-    "lerna": "^9.0.0",
-    "lerna-update-wizard": "^1.1.2",
     "prettier": "^3.0.3",
-    "rimraf": "^6.0.1",
     "typescript": "^6.0.2"
   }
 }

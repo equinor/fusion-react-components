@@ -19,11 +19,11 @@ description
 
 ## Install
 
-We are using pnpm as our package manager. Read more about pnpm [here](https://pnpm.io/motivation)
+We are using [Bun](https://bun.sh) as our package manager.
 
 ```sh
-npm install pnpm -g
-pnpm install
+curl -fsSL https://bun.sh/install | bash
+bun install
 ```
 
 ## Start Storybook
@@ -31,8 +31,8 @@ pnpm install
 StoryBook is not handling too well composite libraries, so a clean build is needed 
 
 ```sh
-pnpm build
-pnpm start
+bun run build
+bun run start
 ```
 
 ## Development
@@ -57,15 +57,14 @@ tsc -w
   ]
 }
 ```
-+ run `pnpm clean` and then `pnpm install` from root
++ run `bun run clean` and then `bun install` from root
 
 ## Add a dependency
 
 ```sh
-lerna add @SCOPE/PACKAGE --scope @equinor/fusion-react-MY_COMPONENT
-````
-
-> alternative add with regular `pnpm add @SCOPE/PACKAGE` in the package dir, but the project need to be bootstrapped again.
+cd packages/MY_COMPONENT
+bun add @SCOPE/PACKAGE
+```
 
 ## Refer to another package
 
@@ -128,8 +127,8 @@ import MY_COMPONENT from '@equinor/fusion-react-MY_COMPONENT/src/MY_COMPONENT';
 
 > __DO NOT__ create a PR before code is ready for review/alpha/beta, since each push eats up story snapshots
 
-- [x] make sure that the repo compiles `pnpm build`
-- [x] make sure code is semantic correct `pnpm lint`
+- [x] make sure that the repo compiles `bun run build`
+- [x] make sure code is semantic correct `bun run lint`
 - [x] is the bug/feature ready for review?!
 - [x] does all test on GH run without fails
 
@@ -147,12 +146,12 @@ When the commit is rebased/merge into `main`, GH will deploy all affected packag
 
 __Storybook wont compile 😡__
 ```sh
-pnpm clean && pnpm i
+bun run clean && bun install
 ```
 
 __Watcher does not work__
 ```sh
-pnpm add -g typescript@latest
+bun add -g typescript@latest
 ```
 
 
