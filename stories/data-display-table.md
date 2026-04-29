@@ -1,0 +1,641 @@
+# Data Display/Table
+
+> **Package:** `@equinor/eds-core-react` — `import { Table } from '@equinor/eds-core-react'`
+
+| Name | Type | Required | Default | Description |
+|------|------|----------|---------|-------------|
+| `sticky` | `boolean` | No |  | Header will stick to top when scrolling |
+
+| Name | Type | Required | Default | Description |
+|------|------|----------|---------|-------------|
+| `variant` | `"text" "numeric" "input" "icon"` | No |  | Specifies which variant to use |
+| `color` | `"error"` | No |  | Specifies cell background color |
+| `sort` | `"none" "ascending" "descending" "other"` | No |  | Specifies cell sort direction |
+
+| Name | Type | Required | Default | Description |
+|------|------|----------|---------|-------------|
+| `active` | `boolean` | No |  | Hightlight row as active |
+
+| Name | Type | Required | Default | Description |
+|------|------|----------|---------|-------------|
+| `sticky` | `boolean` | No |  | Footer will stick to bottom when scrolling |
+
+## Examples
+
+### Compact table
+
+```tsx
+() => {
+  const cellValues = toCellValues(data, columns);
+  const [state, setState] = useState<{
+    isOpen: boolean;
+    density: EdsProviderProps['density'];
+  }>({
+    isOpen: false,
+    density: 'compact'
+  });
+  const {
+    density,
+    isOpen
+  } = state;
+  const setDensity = (density: 'comfortable' | 'compact') => setState(prevState => ({
+    ...prevState,
+    density
+  }));
+  const openMenu = () => {
+    setState(prevState => ({
+      ...prevState,
+      isOpen: true
+    }));
+  };
+  const closeMenu = () => setState(prevState => ({
+    ...prevState,
+    isOpen: false
+  }));
+  const onKeyPress = (e: React.KeyboardEvent<HTMLButtonElement>) => {
+    const {
+      key
+    } = e;
+    switch (key) {
+      case 'ArrowDown':
+        isOpen ? closeMenu() : openMenu();
+        break;
+      case 'ArrowUp':
+        isOpen ? closeMenu() : openMenu();
+        break;
+      case 'Escape':
+        closeMenu();
+        break;
+      default:
+        break;
+    }
+  };
+  const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
+  return <>
+      <TopBar>
+        <TopBar.Header>Compact table with switcher</TopBar.Header>
+        <TopBar.Actions>
+          <Button ref={setAnchorEl} variant="ghost_icon" id="menuButton" aria-controls="menu-on-button" aria-haspopup="true" aria-expanded={isOpen} onClick={() => isOpen ? closeMenu() : openMenu()} onKeyDown={onKeyPress}>
+            <Icon data={accessible} title="accessible"></Icon>
+          </Button>
+          <Menu id="menu-on-button" open={isOpen} aria-labelledby="menuButton" anchorEl={anchorEl} onClose={closeMenu}>
+            <Menu.Section title="Density">
+              <Menu.Item onClick={() => setDensity('comfortable')}>
+                Comfortable
+              </Menu.Item>
+              <Menu.Item onClick={() => setDensity('compact')}>
+                Compact
+              </Menu.Item>
+            </Menu.Section>
+          </Menu>
+        </TopBar.Actions>
+      </TopBar>
+      <EdsProvider density={density}>
+        <Table>
+          <Table.Caption>
+            <Typography variant="h2" style={{
+            marginBottom: '16px'
+          }}>
+              Fruits cost price
+            </Typography>
+          </Table.Caption>
+          <Table.Head>
+            <Table.Row>
+              {columns.map(col => <Table.Cell key={`head-${col.accessor}`}>{col.name}</Table.Cell>)}
+            </Table.Row>
+          </Table.Head>
+          <Table.Body>
+            {cellValues?.map(row => <Table.Row key={row.toString()}>
+                {row.map(cellValue => <Table.Cell key={cellValue}>{cellValue}</Table.Cell>)}
+              </Table.Row>)}
+          </Table.Body>
+          <Table.Foot>
+            <Table.Row>
+              <Table.Cell colSpan={5}>Footer</Table.Cell>
+            </Table.Row>
+          </Table.Foot>
+        </Table>
+      </EdsProvider>
+    </>;
+}
+```
+
+### Fixed table header
+
+```tsx
+() => {
+  const cellValues = toCellValues(data, columns);
+  return <div style={{
+    height: '200px',
+    overflow: 'auto',
+    display: 'grid'
+  }}>
+      <Table>
+        <Table.Caption>
+          <Typography variant="h2" style={{
+          marginBottom: '16px'
+        }}>
+            Fruits cost price
+          </Typography>
+        </Table.Caption>
+        <Table.Head sticky>
+          <Table.Row>
+            {columns.map(col => <Table.Cell key={`head-${col.accessor}`}>{col.name}</Table.Cell>)}
+          </Table.Row>
+        </Table.Head>
+        <Table.Body>
+          {cellValues?.map(row => <Table.Row key={row.toString()}>
+              {row.map(cellValue => <Table.Cell key={cellValue}>{cellValue}</Table.Cell>)}
+            </Table.Row>)}
+        </Table.Body>
+      </Table>
+    </div>;
+}
+```
+
+### Fixed table header and footer
+
+```tsx
+() => {
+  const cellValues = toCellValues(data, columns);
+  const total = data.reduce((acc, curr) => acc + curr?.price, 0);
+  return <div style={{
+    height: '400px',
+    overflow: 'auto',
+    display: 'grid'
+  }}>
+      <Table>
+        <Table.Caption>
+          <Typography variant="h2" style={{
+          marginBottom: '16px'
+        }}>
+            Fruits cost price
+          </Typography>
+        </Table.Caption>
+        <Table.Head sticky>
+          <Table.Row>
+            {columns.map(col => <Table.Cell key={`head-${col.accessor}`}>{col.name}</Table.Cell>)}
+          </Table.Row>
+        </Table.Head>
+        <Table.Body>
+          {cellValues?.map(row => <Table.Row key={row.toString()}>
+              {row.map(cellValue => <Table.Cell key={cellValue}>{cellValue}</Table.Cell>)}
+            </Table.Row>)}
+        </Table.Body>
+        <Table.Foot sticky>
+          <Table.Row>
+            <Table.Cell colSpan={columns?.length - 1}>Total</Table.Cell>
+            <Table.Cell colSpan={1}>{total}</Table.Cell>
+          </Table.Row>
+        </Table.Foot>
+      </Table>
+    </div>;
+}
+```
+
+### Introduction
+
+```tsx
+args => {
+  const cellValues = toCellValues(data, columns);
+  return <Table {...args}>
+      <Table.Caption>
+        <Typography variant="h2" style={{
+        marginBottom: '16px'
+      }}>
+          Fruits cost price
+        </Typography>
+      </Table.Caption>
+      <Table.Head>
+        <Table.Row>
+          {columns.map(col => <Table.Cell key={`head-${col.accessor}`}>{col.name}</Table.Cell>)}
+        </Table.Row>
+      </Table.Head>
+      <Table.Body>
+        {cellValues?.map(row => <Table.Row key={row.toString()}>
+            {row.map(cellValue => <Table.Cell key={cellValue}>{cellValue}</Table.Cell>)}
+          </Table.Row>)}
+      </Table.Body>
+      <Table.Foot>
+        <Table.Row>
+          <Table.Cell colSpan={columns.length}>Footer</Table.Cell>
+        </Table.Row>
+      </Table.Foot>
+    </Table>;
+}
+```
+
+### Sortable
+
+```tsx
+() => {
+  const [state, setState] = useState<{
+    columns: Column[];
+    cellValues?: string[][];
+  }>({
+    columns
+  });
+  const onSortClick = (sortCol: Column) => {
+    const updateColumns = state.columns.map(col => {
+      if (sortCol.accessor === col.accessor) {
+        let isSorted = true;
+        let sortDirection: SortDirection = 'none';
+        switch (sortCol.sortDirection) {
+          case 'descending':
+            isSorted = false;
+            sortDirection = 'none';
+            break;
+          case 'ascending':
+            sortDirection = 'descending';
+            break;
+          default:
+            sortDirection = 'ascending';
+            break;
+        }
+        return {
+          ...sortCol,
+          isSorted,
+          sortDirection
+        };
+      }
+      return {
+        ...col,
+        isSorted: false,
+        sortDirection: col.sortDirection ? 'none' as SortDirection : undefined
+      };
+    });
+    setState({
+      ...state,
+      columns: updateColumns
+    });
+  };
+  const sortData = useCallback((data: Data[]) => data.sort((left, right) => {
+    const sortedCol = state.columns.find(col => col.isSorted);
+    if (!sortedCol) {
+      return 1;
+    }
+    const {
+      sortDirection,
+      accessor
+    } = sortedCol;
+    if (sortDirection === 'ascending') {
+      return left[accessor] > right[accessor] ? 1 : -1;
+    }
+    if (sortDirection === 'descending') {
+      return left[accessor] < right[accessor] ? 1 : -1;
+    }
+  }), [state.columns]);
+  useEffect(() => {
+    if (state.columns) {
+      const sorted = sortData(data);
+      const cellValues = toCellValues(sorted, columns);
+      setState(prevState => ({
+        ...prevState,
+        cellValues
+      }));
+    }
+  }, [state.columns, setState, sortData]);
+  return <Table>
+      <Table.Caption>
+        <Typography variant="h2" style={{
+        marginBottom: '16px'
+      }}>
+          Fruits cost price
+        </Typography>
+      </Table.Caption>
+      <Table.Head>
+        <Table.Row>
+          {state.columns.map(col => <SortCell sort={col.sortDirection} key={`head-${col.accessor}`} onClick={col.sortDirection ? () => onSortClick(col) : undefined} isSorted={col.isSorted}>
+              {col.name}
+              <Icon name={col.sortDirection === 'descending' ? 'arrow_down' : 'arrow_up'} />
+            </SortCell>)}
+        </Table.Row>
+      </Table.Head>
+      <Table.Body>
+        {state.cellValues?.map(row => <Table.Row key={row.toString()}>
+            {row.map(cellValue => <Table.Cell key={cellValue}>{cellValue}</Table.Cell>)}
+          </Table.Row>)}
+      </Table.Body>
+      <Table.Foot>
+        <Table.Row>
+          <Table.Cell colSpan={5}>Footer</Table.Cell>
+        </Table.Row>
+      </Table.Foot>
+    </Table>;
+}
+```
+
+### Virtual Scrolling
+
+```tsx
+() => {
+  const [data, setData] = useState<Array<Photo>>([]);
+  const parentRef = useRef<HTMLDivElement | null>(null);
+  const estimateSize = useCallback(() => {
+    return 48;
+  }, []);
+  const virtualizer = useVirtualizer({
+    count: data.length,
+    getScrollElement: () => parentRef.current,
+    estimateSize
+  });
+  useEffect(() => {
+    const abortController = new AbortController();
+    const signal = abortController.signal;
+    fetch(`https://jsonplaceholder.typicode.com/photos`, {
+      signal
+    }).then(r => r.json()).then((d: Photo[]) => {
+      setData(d);
+    }).catch((err: Error) => {
+      console.error(`Error: ${err.message}`);
+    });
+    return () => {
+      abortController.abort();
+    };
+  }, []);
+  const virtualRows = virtualizer.getVirtualItems();
+  const paddingTop = virtualRows.length ? virtualRows[0].start : 0;
+  const paddingBottom = virtualRows.length ? virtualizer.getTotalSize() - virtualRows[virtualRows.length - 1].end : 0;
+  return <div style={{
+    height: '600px',
+    overflow: 'auto'
+  }} ref={parentRef}>
+      <Table style={{
+      width: '100%',
+      paddingLeft: '15px',
+      paddingRight: '15px'
+    }}>
+        <Table.Head sticky>
+          <Table.Row>
+            <Table.Cell>
+              <div style={{
+              width: '40px'
+            }}>ID</div>
+            </Table.Cell>
+            <Table.Cell>
+              <div style={{
+              width: '70px'
+            }}>Album ID</div>
+            </Table.Cell>
+            <Table.Cell>
+              <div style={{
+              width: '400px'
+            }}>Title</div>
+            </Table.Cell>
+            <Table.Cell>
+              <div style={{
+              width: '120px'
+            }}>URL</div>
+            </Table.Cell>
+            <Table.Cell>
+              <div style={{
+              width: '120px'
+            }}>Thumbnail url</div>
+            </Table.Cell>
+          </Table.Row>
+        </Table.Head>
+        <Table.Body>
+          <Table.Row>
+            <Table.Cell style={{
+            height: `${paddingTop}px`
+          }}></Table.Cell>
+          </Table.Row>
+          {virtualRows.map(virtualRow => {
+          const row: Photo = data[virtualRow.index];
+          return <Table.Row key={row.id}>
+                <Table.Cell>
+                  <div style={{
+                width: '40px'
+              }}>{row.id}</div>
+                </Table.Cell>
+                <Table.Cell>
+                  <div style={{
+                width: '70px'
+              }}>{row.albumId}</div>
+                </Table.Cell>
+                <Table.Cell>
+                  <div style={{
+                width: '400px',
+                whiteSpace: 'nowrap',
+                overflow: 'hidden',
+                textOverflow: 'ellipsis'
+              }}>
+                    {row.title}
+                  </div>
+                </Table.Cell>
+                <Table.Cell>
+                  <div style={{
+                width: '120px'
+              }}>
+                    {' '}
+                    <Typography link href={row.url} target="_blank">
+                      Open image
+                    </Typography>
+                  </div>
+                </Table.Cell>
+                <Table.Cell>
+                  <div style={{
+                width: '120px'
+              }}>
+                    {' '}
+                    <Typography link href={row.thumbnailUrl} target="_blank">
+                      Open thumbnail
+                    </Typography>
+                  </div>
+                </Table.Cell>
+              </Table.Row>;
+        })}
+          <Table.Row>
+            <Table.Cell style={{
+            height: `${paddingBottom}px`
+          }}></Table.Cell>
+          </Table.Row>
+        </Table.Body>
+        <Table.Foot>
+          <Table.Row>
+            <Table.Cell colSpan={5}>Footer</Table.Cell>
+          </Table.Row>
+        </Table.Foot>
+      </Table>
+    </div>;
+}
+```
+
+### Virtual Scrolling With Fixed Footer
+
+```tsx
+() => {
+  const [data, setData] = useState<Array<Photo>>([]);
+  const parentRef = useRef<HTMLDivElement | null>(null);
+  const estimateSize = useCallback(() => {
+    return 48;
+  }, []);
+  const virtualizer = useVirtualizer({
+    count: data.length,
+    getScrollElement: () => parentRef.current,
+    estimateSize
+  });
+  useEffect(() => {
+    const abortController = new AbortController();
+    const signal = abortController.signal;
+    fetch(`https://jsonplaceholder.typicode.com/photos`, {
+      signal
+    }).then(r => r.json()).then((d: Photo[]) => {
+      setData(d.slice(0, 100));
+    }).catch((err: Error) => {
+      console.error(`Error: ${err.message}`);
+    });
+    return () => {
+      abortController.abort();
+    };
+  }, []);
+  const virtualRows = virtualizer.getVirtualItems();
+  const paddingTop = virtualRows.length ? virtualRows[0].start : 0;
+  const paddingBottom = virtualRows.length ? virtualizer.getTotalSize() - virtualRows[virtualRows.length - 1].end : 0;
+  return <div style={{
+    height: '600px',
+    overflow: 'auto'
+  }} ref={parentRef}>
+      <Table style={{
+      width: '100%',
+      paddingLeft: '15px',
+      paddingRight: '15px'
+    }}>
+        <Table.Head sticky>
+          <Table.Row>
+            <Table.Cell>
+              <div style={{
+              width: '40px'
+            }}>ID</div>
+            </Table.Cell>
+            <Table.Cell>
+              <div style={{
+              width: '70px'
+            }}>Album ID</div>
+            </Table.Cell>
+            <Table.Cell>
+              <div style={{
+              width: '400px'
+            }}>Title</div>
+            </Table.Cell>
+            <Table.Cell>
+              <div style={{
+              width: '120px'
+            }}>URL</div>
+            </Table.Cell>
+            <Table.Cell>
+              <div style={{
+              width: '120px'
+            }}>Thumbnail url</div>
+            </Table.Cell>
+          </Table.Row>
+        </Table.Head>
+        <Table.Body>
+          <Table.Row>
+            <Table.Cell style={{
+            height: `${paddingTop}px`
+          }}></Table.Cell>
+          </Table.Row>
+          {virtualRows.map(virtualRow => {
+          const row: Photo = data[virtualRow.index];
+          return <Table.Row key={row.id}>
+                <Table.Cell>
+                  <div style={{
+                width: '40px'
+              }}>{row.id}</div>
+                </Table.Cell>
+                <Table.Cell>
+                  <div style={{
+                width: '70px'
+              }}>{row.albumId}</div>
+                </Table.Cell>
+                <Table.Cell>
+                  <div style={{
+                width: '400px',
+                whiteSpace: 'nowrap',
+                overflow: 'hidden',
+                textOverflow: 'ellipsis'
+              }}>
+                    {row.title}
+                  </div>
+                </Table.Cell>
+                <Table.Cell>
+                  <div style={{
+                width: '120px'
+              }}>
+                    {' '}
+                    <Typography link href={row.url} target="_blank">
+                      Open image
+                    </Typography>
+                  </div>
+                </Table.Cell>
+                <Table.Cell>
+                  <div style={{
+                width: '120px'
+              }}>
+                    {' '}
+                    <Typography link href={row.thumbnailUrl} target="_blank">
+                      Open thumbnail
+                    </Typography>
+                  </div>
+                </Table.Cell>
+              </Table.Row>;
+        })}
+          <Table.Row>
+            <Table.Cell style={{
+            height: `${paddingBottom}px`
+          }}></Table.Cell>
+          </Table.Row>
+        </Table.Body>
+        <Table.Foot sticky>
+          <Table.Row>
+            <Table.Cell colSpan={5}>{`Total ${data?.length} items`}</Table.Cell>
+          </Table.Row>
+        </Table.Foot>
+      </Table>
+    </div>;
+}
+```
+
+### With links
+
+```tsx
+() => {
+  return <Table>
+      <Table.Head>
+        <Table.Row>
+          <Table.Cell>Name</Table.Cell>
+          <Table.Cell>Description</Table.Cell>
+          <Table.Cell>Link</Table.Cell>
+        </Table.Row>
+      </Table.Head>
+      <Table.Body>
+        <Table.Row>
+          <Table.Cell>Plain text</Table.Cell>
+          <Table.Cell>No link, font-weight 500</Table.Cell>
+          <Table.Cell></Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell>Typography link</Table.Cell>
+          <Table.Cell>Uses Typography with link prop</Table.Cell>
+          <Table.Cell>
+            <Typography link href="https://equinor.com" target="_blank" rel="noreferrer">
+              Equinor.com
+            </Typography>
+          </Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell>Native anchor</Table.Cell>
+          <Table.Cell>Uses a plain {'<a>'} element</Table.Cell>
+          <Table.Cell>
+            <a href="https://equinor.com" target="_blank" rel="noreferrer">
+              Equinor.com
+            </a>
+          </Table.Cell>
+        </Table.Row>
+      </Table.Body>
+    </Table>;
+}
+```
+
+### T
