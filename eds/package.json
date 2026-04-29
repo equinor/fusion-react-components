@@ -1,0 +1,18 @@
+{
+  "name": "@equinor/fusion-react-eds-index",
+  "version": "0.0.0",
+  "private": true,
+  "description": "EDS AI Search index infrastructure — config, content extraction tooling, and evaluation",
+  "type": "module",
+  "scripts": {
+    "docker:build": "docker build -f docker/Dockerfile -t eds-content docker",
+    "docker:extract": "docker build -f docker/Dockerfile -t eds-content docker --target export --output type=local,dest=content",
+    "index:create": "ffc ai index create --config ./fusion-ai.config.eds.ts",
+    "index:add": "ffc ai index add --config ./fusion-ai.config.eds.ts"
+  },
+  "dependencies": {
+    "@equinor/fusion-framework-cli": "^15.0.0",
+    "@equinor/fusion-framework-cli-plugin-ai-index": "^3.0.0",
+    "zod": "^3.24.0"
+  }
+}

@@ -1,0 +1,399 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# Index EDS Docs
+# ─────────────────────────────────────────────────────────────────────────────
+#
+# Keeps the EDS AI Search index in sync with the latest Equinor Design System
+# release. The workflow extracts component docs, design tokens, and foundation
+# content from the EDS Storybook, then embeds only the changed files into
+# Azure AI Search.
+#
+# ## How it works
+#
+# 1. **resolve-ref** — Finds the latest `@equinor/eds-core-react` release tag
+#    from `equinor/design-system`. Compares it against the `.eds-ref` file on
+#    the `eds-content` orphan branch to skip runs when nothing changed.
+#
+# 2. **build-eds** — Runs a multi-stage Docker build (`eds/docker/Dockerfile`) that:
+#    - Clones the EDS repo and builds Storybook
+#    - Extracts LLM docs via `storybook-llms-extractor`
+#    - Converts design tokens JSON → markdown
+#    - Trims and patches extracted content
+#    The output is a flat directory of markdown files.
+#
+# 3. **index-eds** — Fetches the previous content snapshot from the
+#    `eds-content` orphan branch, commits the new content on top, and runs
+#    `ffc ai index add --diff --base-ref HEAD~1` so only changed files are
+#    re-embedded. On first run (no orphan branch), indexes everything.
+#    After success, pushes the new snapshot to `eds-content` for next time.
+#
+# ## Manual dispatch
+#
+# Use workflow_dispatch to:
+# - Build a specific EDS ref (tag, branch, or SHA)
+# - Force a clean rebuild (`clean: true`) that wipes and re-indexes all docs
+# - Target a specific GitHub environment for Azure credentials
+#
+# ## Required environment variables (GitHub environment)
+#
+# | Variable                  | Purpose                              |
+# |---------------------------|--------------------------------------|
+# | `FUSION_AI_SP_CLIENT_ID`  | Azure AD app registration client ID  |
+# | `FUSION_ENV`              | Fusion environment (e.g. `ci`, `fprd`) |
+#
+# ## Key branches
+#
+# - `eds-content` — orphan branch storing the last-indexed content snapshot.
+#   Contains a `.eds-ref` file with the EDS release tag, which resolve-ref
+#   reads to determine whether a new run is needed.
+#
+# ─────────────────────────────────────────────────────────────────────────────
+
+name: Index EDS Docs
+
+on:
+  workflow_dispatch:
+    inputs:
+      eds_ref:
+        description: 'EDS git ref to build (tag, branch, or commit SHA)'
+        type: string
+        default: main
+      clean:
+        description: 'Delete existing embeddings before indexing'
+        type: boolean
+        default: false
+      environment:
+        description: 'GitHub environment with Azure credentials'
+        type: string
+        required: true
+
+  schedule:
+    # Every Monday 06:00 UTC — check for new EDS releases
+    - cron: '0 6 * * 1'
+
+env:
+  EDS_REPO: equinor/design-system
+
+concurrency:
+  group: index-eds
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  # ── Resolve which EDS ref to build ─────────────────────────────────────────
+  # Determines the EDS release to index and short-circuits when nothing changed.
+  # On manual dispatch, uses the provided ref directly.
+  # On schedule, queries the latest @equinor/eds-core-react release and compares
+  # it against the `.eds-ref` file on the orphan branch to avoid redundant runs.
+  resolve-ref:
+    name: Resolve EDS ref
+    runs-on: ubuntu-latest
+    outputs:
+      eds_ref: ${{ steps.resolve.outputs.eds_ref }}
+      skip: ${{ steps.resolve.outputs.skip }}
+      environment: ${{ steps.resolve.outputs.environment }}
+    steps:
+      # For dispatch: pass through the user-provided ref.
+      # For cron: find the latest eds-core-react release tag from equinor/design-system,
+      # then read .eds-ref from the eds-content branch to see if we already indexed it.
+      # Outputs skip=true when the release hasn't changed since last run.
+      - name: Resolve ref and check skip
+        id: resolve
+        env:
+          GH_TOKEN: ${{ github.token }}
+          INPUT_EDS_REF: ${{ inputs.eds_ref }}
+          INPUT_ENVIRONMENT: ${{ inputs.environment }}
+        run: |
+          set -euo pipefail
+
+          if [[ "${{ github.event_name }}" == "workflow_dispatch" ]]; then
+            echo "eds_ref=${INPUT_EDS_REF}" >> "$GITHUB_OUTPUT"
+            echo "skip=false" >> "$GITHUB_OUTPUT"
+            echo "environment=${INPUT_ENVIRONMENT}" >> "$GITHUB_OUTPUT"
+            echo "::notice::Manual dispatch — building EDS ref: ${INPUT_EDS_REF}"
+            exit 0
+          fi
+
+          # Scheduled run: find the latest @equinor/eds-core-react release
+          latest_tag=$(gh release list -R "$EDS_REPO" --limit 50 \
+            --json tagName \
+            --jq '[.[] | select(.tagName | startswith("@equinor/eds-core-react@"))][0].tagName // empty')
+
+          if [[ -z "$latest_tag" ]]; then
+            echo "::warning::No @equinor/eds-core-react release found"
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          echo "::notice::Latest EDS release: ${latest_tag}"
+
+          # Compare against the last-indexed ref stored in .eds-ref on the orphan branch
+          last_indexed=$(gh api "repos/${{ github.repository }}/contents/.eds-ref?ref=eds-content" \
+            --jq '.content' 2>/dev/null | base64 -d | tr -d '\n') || true
+
+          if [[ -n "$last_indexed" && "$latest_tag" == "$last_indexed" ]]; then
+            echo "::notice::EDS ref ${latest_tag} already indexed — skipping"
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          echo "eds_ref=${latest_tag}" >> "$GITHUB_OUTPUT"
+          echo "skip=false" >> "$GITHUB_OUTPUT"
+          echo "environment=docs" >> "$GITHUB_OUTPUT"
+
+      - name: Summary
+        if: steps.resolve.outputs.skip != 'true'
+        run: |
+          echo "### EDS ref: ${{ steps.resolve.outputs.eds_ref }}" >> "$GITHUB_STEP_SUMMARY"
+
+  # ── Build EDS content via Docker ───────────────────────────────────────────
+  # Runs eds/docker/Dockerfile which:
+  #   Stage 1 (build)     — clones equinor/design-system at the resolved ref,
+  #                         installs deps, builds tokens + icons + Storybook
+  #   Stage 2 (extractor) — runs storybook-llms-extractor to extract component
+  #                         docs from the Storybook build as markdown
+  #   Stage 3 (process)   — converts token JSON → markdown tables, trims noisy
+  #                         story extractions, removes empty skeleton pages
+  #   Stage 4 (export)    — collects final markdown files from all stages
+  #
+  # Output is a flat directory of ~175 markdown files covering components,
+  # design tokens, foundation docs, and icon references.
+  build-eds:
+    name: Build EDS docs
+    needs: resolve-ref
+    if: needs.resolve-ref.outputs.skip != 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+
+      - uses: docker/setup-buildx-action@v4
+
+      # Uses BuildKit cache (GHA backend) so unchanged stages are not rebuilt.
+      # The `export` target outputs plain files (scratch-based) for artifact upload.
+      - name: Build EDS and extract docs
+        uses: docker/build-push-action@v7
+        with:
+          context: ./eds/docker
+          file: eds/docker/Dockerfile
+          target: export
+          outputs: type=local,dest=eds-content
+          build-args: |
+            EDS_REF=${{ needs.resolve-ref.outputs.eds_ref }}
+          cache-from: type=gha,scope=eds-build
+          cache-to: type=gha,scope=eds-build,mode=max
+
+      # Sanity check: if the Docker build produced zero markdown files,
+      # something went wrong upstream (bad EDS ref, build failure, etc.).
+      - name: Verify output
+        run: |
+          set -euo pipefail
+          count=$(find eds-content -name '*.md' | wc -l)
+          echo "::notice::Extracted ${count} markdown files"
+          if [[ "$count" -eq 0 ]]; then
+            echo "::error::No markdown files extracted — aborting"
+            exit 1
+          fi
+
+      # Artifact is consumed by the index-eds job. Retained for 7 days
+      # so maintainers can inspect the extracted content if indexing fails.
+      - name: Upload extracted docs
+        uses: actions/upload-artifact@v7
+        with:
+          name: eds-docs
+          path: eds-content/
+          retention-days: 7
+
+  # ── Index EDS content to Azure AI Search ───────────────────────────────────
+  # This job implements diff-based indexing:
+  #   1. Fetches the previous content snapshot from the `eds-content` orphan branch
+  #   2. Downloads the freshly built content on top
+  #   3. Uses `git diff` to find exactly which files changed
+  #   4. Runs `ffc ai index add --diff --base-ref HEAD~1` so only changed files
+  #      get re-embedded (saves OpenAI API costs and indexing time)
+  #   5. Pushes the new snapshot to `eds-content` for the next run
+  #
+  # Permissions:
+  #   contents: write — needed to push the eds-content branch
+  #   id-token: write — needed for Azure OIDC federated credential login
+  index-eds:
+    name: Index EDS to search
+    needs: [resolve-ref, build-eds]
+    runs-on: ubuntu-latest
+    environment: ${{ needs.resolve-ref.outputs.environment }}
+    permissions:
+      contents: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Install EDS index dependencies
+        working-directory: eds
+        run: npm install --ignore-scripts
+
+      # Reads the index name (e.g. "eds-2026-03-14") from the config file
+      # for use in the ensure-index and summary steps.
+      - name: Read index name from config
+        id: index
+        run: |
+          index_name=$(node -e "import('./eds/fusion-ai.config.eds.ts').then(m => console.log(m.default.index.name))")
+          echo "name=${index_name}" >> "$GITHUB_OUTPUT"
+          echo "::notice::Index name: ${index_name}"
+
+      # Creates a local git repo in eds-content/ and fetches the previous
+      # snapshot from the `eds-content` orphan branch. This becomes HEAD.
+      # After downloading new content, we commit on top — `git diff HEAD~1`
+      # then shows exactly what files were added, modified, or deleted.
+      #
+      # First run (no orphan branch): creates an empty commit so the CLI's
+      # HEAD~1 comparison works. The indexer will process all files.
+      - name: Initialize eds-content with history
+        id: content
+        env:
+          EDS_REF: ${{ needs.resolve-ref.outputs.eds_ref }}
+        run: |
+          set -euo pipefail
+
+          mkdir -p eds-content
+          cd eds-content
+          git init
+          git config user.name "eds-indexer[bot]"
+          git config user.email "eds-indexer[bot]@users.noreply.github.com"
+
+          # Try to fetch the previous content snapshot from the orphan branch
+          has_previous=false
+          if git fetch origin eds-content --depth=1 2>/dev/null; then
+            git reset FETCH_HEAD
+            git checkout -- .
+            git add -A && git commit --allow-empty -m "previous snapshot" || true
+            has_previous=true
+          else
+            echo "::notice::No previous eds-content branch — first run, full index"
+            # Create an empty initial commit so HEAD~1 works after the next commit
+            git commit --allow-empty -m "initial (empty)"
+          fi
+
+          echo "has_previous=${has_previous}" >> "$GITHUB_OUTPUT"
+
+      # Overlay the freshly built content on top of the previous snapshot.
+      # New/modified files replace old ones; deleted files remain only in git history.
+      - name: Download new content
+        uses: actions/download-artifact@v8
+        with:
+          name: eds-docs
+          path: eds-content/
+
+      # Stage all changes and check if anything actually differs.
+      # If content is identical (e.g. EDS released a fix that didn't change docs),
+      # skip indexing entirely to avoid unnecessary API calls.
+      - name: Commit new content and detect changes
+        id: diff
+        working-directory: eds-content
+        env:
+          EDS_REF: ${{ needs.resolve-ref.outputs.eds_ref }}
+        run: |
+          set -euo pipefail
+
+          git add -A
+          if git diff --cached --quiet; then
+            echo "::notice::No content changes detected — nothing to index"
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
+          else
+            changed=$(git diff --cached --name-status | wc -l)
+            echo "::notice::${changed} files changed since last index"
+            git diff --cached --stat
+            echo "${EDS_REF}" > .eds-ref
+            git add .eds-ref
+            git commit -m "eds-content: ${EDS_REF}"
+            echo "has_changes=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      # Only authenticate when we actually need to talk to Azure.
+      # Uses OIDC federated credentials — no secrets stored in the repo.
+      - name: Azure login (OIDC)
+        if: steps.diff.outputs.has_changes == 'true' || inputs.clean
+        uses: azure/login@v3
+        with:
+          client-id: ${{ vars.FUSION_AI_SP_CLIENT_ID }}
+          tenant-id: 3aa4a235-b6e2-48d5-9195-7fcf05b459b0
+          allow-no-subscriptions: true
+
+      # Idempotent: creates the Azure AI Search index if it doesn't exist,
+      # or validates the schema matches if it does. Safe to run every time.
+      - name: Ensure index exists
+        if: steps.diff.outputs.has_changes == 'true' || inputs.clean
+        working-directory: eds
+        env:
+          FUSION_ENV: ${{ vars.FUSION_ENV }}
+        run: npx ffc ai index create --env "$FUSION_ENV" --config ./fusion-ai.config.eds.ts
+
+      # Three modes:
+      #   --clean (manual dispatch): wipes all existing embeddings, re-indexes everything
+      #   --diff (has previous snapshot): only embeds changed files, deletes removed ones
+      #   full (first run): indexes all documents without diffing
+      - name: Index changed EDS docs
+        if: steps.diff.outputs.has_changes == 'true' || inputs.clean
+        timeout-minutes: 10
+        working-directory: eds-content
+        env:
+          INPUT_CLEAN: ${{ inputs.clean }}
+          FUSION_ENV: ${{ vars.FUSION_ENV }}
+          HAS_PREVIOUS: ${{ steps.content.outputs.has_previous }}
+        run: |
+          set -euo pipefail
+
+          config="${{ github.workspace }}/eds/fusion-ai.config.eds.ts"
+
+          if [[ "${INPUT_CLEAN:-false}" == "true" ]]; then
+            echo "::notice::Clean rebuild — re-indexing all documents"
+            npx --prefix ../eds ffc ai index add --clean --env "$FUSION_ENV" --config "$config"
+          elif [[ "$HAS_PREVIOUS" == "true" ]]; then
+            echo "::notice::Incremental index — processing only changed files"
+            npx --prefix ../eds ffc ai index add --diff --base-ref HEAD~1 --env "$FUSION_ENV" --config "$config"
+          else
+            echo "::notice::First run — indexing all documents"
+            npx --prefix ../eds ffc ai index add --env "$FUSION_ENV" --config "$config"
+          fi
+
+      # Persist the current content as the baseline for the next run.
+      # Force-push is safe here — the orphan branch has no PR/review workflow,
+      # it's purely a content snapshot used for diffing.
+      - name: Push content snapshot to orphan branch
+        if: steps.diff.outputs.has_changes == 'true' && success()
+        working-directory: eds-content
+        run: |
+          git push origin HEAD:refs/heads/eds-content --force
+
+      - name: Execution summary
+        if: always()
+        env:
+          EDS_REF: ${{ needs.resolve-ref.outputs.eds_ref }}
+          EXECUTION_STATUS: ${{ job.status }}
+          SEARCH_INDEX_NAME: ${{ steps.index.outputs.name }}
+        run: |
+          set -euo pipefail
+
+          if [[ "$EXECUTION_STATUS" == "success" ]]; then
+            outcome="Indexing completed successfully."
+          else
+            outcome="Indexing failed — eds-content branch was not updated."
+          fi
+
+          {
+            echo '# EDS Index Summary'
+            echo
+            echo "$outcome"
+            echo
+            echo '| Detail | Value |'
+            echo '|--------|-------|'
+            echo "| EDS ref | \`${EDS_REF}\` |"
+            echo "| Index | \`${SEARCH_INDEX_NAME}\` |"
+            echo "| Status | ${EXECUTION_STATUS} |"
+          } >> "$GITHUB_STEP_SUMMARY"
