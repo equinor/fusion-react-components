@@ -30,7 +30,6 @@ const Styled = {
   Filters: styled.div`
     overflow-x: auto;
     overflow-y: hidden;
-    display: flex;
     padding-bottom: calc(var(--filter-panel-spacing));
     margin-bottom: calc(var(--filter-panel-spacing) * -1);
     background-color: ${tokens.colors.ui.background__light.rgba};
