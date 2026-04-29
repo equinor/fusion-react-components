@@ -1,22 +1,26 @@
-name: Setup Node
-description: General setup of node
+name: Setup Bun
+description: General setup of Bun and Node
 inputs:
+  bun-version:
+    description: 'Setting Bun version'
+    default: 'latest'
   node-version:
-    description: 'Setting node version'
+    description: 'Setting Node version (for native addons/tooling)'
     default: '24'
 
 runs:
   using: composite
   steps:
 
-    - uses: pnpm/action-setup@v4
+    - uses: oven-sh/setup-bun@v2
+      with:
+        bun-version: ${{ inputs.bun-version }}
 
     - uses: actions/setup-node@v4
       with:
         node-version: ${{ inputs.node-version }}
-        cache: 'pnpm'
         registry-url: "https://registry.npmjs.org"
 
-    - name: Install Node Dependencies
+    - name: Install Dependencies
       shell: bash
-      run: pnpm install --frozen-lockfile
+      run: bun install --frozen-lockfile
