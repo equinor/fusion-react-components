@@ -258,12 +258,14 @@ jobs:
         id: content
         env:
           EDS_REF: ${{ needs.resolve-ref.outputs.eds_ref }}
+          GITHUB_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
 
           mkdir -p eds-content
           cd eds-content
           git init
+          git remote add origin "https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git"
           git config user.name "eds-indexer[bot]"
           git config user.email "eds-indexer[bot]@users.noreply.github.com"
 
