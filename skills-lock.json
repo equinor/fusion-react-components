@@ -49,17 +49,17 @@
       "skillPath": "skills/.experimental/fusion-github-review-resolution/SKILL.md",
       "computedHash": "31ec168649090359fd7cccefd06871098ee973dfbf1f41ce6d29ef291de8c826"
     },
-    "fusion-help-docs": {
-      "source": "equinor/fusion-skills",
-      "sourceType": "github",
-      "skillPath": "skills/fusion-help-docs/SKILL.md",
-      "computedHash": "7e1bc32bd34d1d527a93f24219e5ad3df860dc50845996217fd029bd900994c8"
-    },
     "fusion-help-api": {
       "source": "equinor/fusion-skills",
       "sourceType": "github",
       "skillPath": "skills/fusion-help-api/SKILL.md",
       "computedHash": "2100afcf4697c823fb99448003c9ab1c061e0335cbc699e5e2282454939c39ee"
+    },
+    "fusion-help-docs": {
+      "source": "equinor/fusion-skills",
+      "sourceType": "github",
+      "skillPath": "skills/fusion-help-docs/SKILL.md",
+      "computedHash": "7e1bc32bd34d1d527a93f24219e5ad3df860dc50845996217fd029bd900994c8"
     },
     "fusion-help-integration": {
       "source": "equinor/fusion-skills",
@@ -91,6 +91,12 @@
       "skillPath": "skills/.experimental/fusion-mcp/SKILL.md",
       "computedHash": "969cfd602e4c33fd473a8b13af69701765470a3f711ee24ade28fc33068bee4f"
     },
+    "fusion-package-scribe": {
+      "source": "equinor/fusion-skills",
+      "sourceType": "github",
+      "skillPath": "skills/.experimental/fusion-package-scribe/SKILL.md",
+      "computedHash": "05f3142682ec0a835f2611d515d8729736fc1837c1ba04fe83532aa25087a4ff"
+    },
     "fusion-research": {
       "source": "equinor/fusion-skills",
       "sourceType": "github",
@@ -103,17 +109,17 @@
       "skillPath": "skills/.system/fusion-rule-author/SKILL.md",
       "computedHash": "0b6528412288dce8210d8a86bfcae2db07f83b7254f6f430b382b67528e3bbbe"
     },
-    "fusion-skill-authoring": {
-      "source": "equinor/fusion-skills",
-      "sourceType": "github",
-      "skillPath": "skills/fusion-skill-authoring/SKILL.md",
-      "computedHash": "7fff89ef0babfe248ae95c5f183de104d07206c9fbcffb4a843cbe33cf9b42bc"
-    },
     "fusion-rules": {
       "source": "equinor/fusion-skills",
       "sourceType": "github",
       "skillPath": "skills/fusion-rules/SKILL.md",
       "computedHash": "ed38f0981c45b3ab9ec79fa3b553c6b18a400cdd1037840b03b1c16c3810aaee"
+    },
+    "fusion-skill-authoring": {
+      "source": "equinor/fusion-skills",
+      "sourceType": "github",
+      "skillPath": "skills/fusion-skill-authoring/SKILL.md",
+      "computedHash": "7fff89ef0babfe248ae95c5f183de104d07206c9fbcffb4a843cbe33cf9b42bc"
     },
     "fusion-skills": {
       "source": "equinor/fusion-skills",
