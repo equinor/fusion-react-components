@@ -226,8 +226,6 @@ jobs:
       id-token: write
     steps:
       - uses: actions/checkout@v6
-        with:
-          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -243,7 +241,7 @@ jobs:
       - name: Read index name from config
         id: index
         run: |
-          index_name=$(node -e "import('./eds/fusion-ai.config.eds.ts').then(m => console.log(m.default.index.name))")
+          index_name=$(node -e "import('./eds/fusion-ai.config.ts').then(m => console.log(m.default.index.name))")
           echo "name=${index_name}" >> "$GITHUB_OUTPUT"
           echo "::notice::Index name: ${index_name}"
 
@@ -284,13 +282,20 @@ jobs:
 
           echo "has_previous=${has_previous}" >> "$GITHUB_OUTPUT"
 
-      # Overlay the freshly built content on top of the previous snapshot.
-      # New/modified files replace old ones; deleted files remain only in git history.
+      # Download to a separate directory to avoid clobbering eds-content/.git/
+      # (download-artifact may clean the target path before extracting).
       - name: Download new content
         uses: actions/download-artifact@v8
         with:
           name: eds-docs
-          path: eds-content/
+          path: eds-docs/
+
+      # Replace content files while preserving the .git/ history needed for
+      # diff-based indexing and the push step.
+      - name: Overlay new content into eds-content
+        run: |
+          find eds-content -mindepth 1 -maxdepth 1 ! -name '.git' -exec rm -rf {} +
+          cp -r eds-docs/* eds-content/
 
       # Stage all changes and check if anything actually differs.
       # If content is identical (e.g. EDS released a fix that didn't change docs),
@@ -334,7 +339,7 @@ jobs:
         working-directory: eds
         env:
           FUSION_ENV: ${{ vars.FUSION_ENV }}
-        run: npx ffc ai index create --env "$FUSION_ENV" --config ./fusion-ai.config.eds.ts
+        run: npx ffc ai index create --env "$FUSION_ENV"
 
       # Three modes:
       #   --clean (manual dispatch): wipes all existing embeddings, re-indexes everything
@@ -351,17 +356,15 @@ jobs:
         run: |
           set -euo pipefail
 
-          config="${{ github.workspace }}/eds/fusion-ai.config.eds.ts"
-
           if [[ "${INPUT_CLEAN:-false}" == "true" ]]; then
             echo "::notice::Clean rebuild — re-indexing all documents"
-            npx --prefix ../eds ffc ai index add --clean --env "$FUSION_ENV" --config "$config"
+            npx --prefix ../eds ffc ai index add --clean --env "$FUSION_ENV"
           elif [[ "$HAS_PREVIOUS" == "true" ]]; then
             echo "::notice::Incremental index — processing only changed files"
-            npx --prefix ../eds ffc ai index add --diff --base-ref HEAD~1 --env "$FUSION_ENV" --config "$config"
+            npx --prefix ../eds ffc ai index add --diff --base-ref HEAD~1 --env "$FUSION_ENV"
           else
             echo "::notice::First run — indexing all documents"
-            npx --prefix ../eds ffc ai index add --env "$FUSION_ENV" --config "$config"
+            npx --prefix ../eds ffc ai index add --env "$FUSION_ENV"
           fi
 
       # Persist the current content as the baseline for the next run.
