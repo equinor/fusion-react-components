@@ -28,7 +28,7 @@ jobs:
         uses: ./.github/workflows/actions/node-setup
 
       - name: Build libs
-        run: pnpm build
+        run: bun run build
 
       # 👇 Checks if the branch is not main and runs Chromatic
       - name: Publish to Chromatic

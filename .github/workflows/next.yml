@@ -44,8 +44,8 @@ jobs:
         uses: changesets/action@v1
         with:
           title: '🤖 Bip Bop - Fusion React Components Pre-Release'
-          version: pnpm changeset:version
-          publish: pnpm changeset:publish:pre-release
+          version: bun run changeset:version
+          publish: bun run changeset:publish:pre-release
         env:
           GITHUB_TOKEN: ${{ github.token }}
           NPM_CONFIG_PROVENANCE: true

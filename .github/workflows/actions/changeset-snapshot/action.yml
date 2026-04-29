@@ -15,7 +15,7 @@ runs:
       id: status
       shell: bash
       run: |
-        pnpm changeset status --output changeset.json
+        bunx changeset status --output changeset.json
         REALEASE_COUNT=$(cat changeset.json | jq '.releases | length')
         echo "releases=${REALEASE_COUNT}" >> "$GITHUB_OUTPUT"
       env:
@@ -25,8 +25,8 @@ runs:
       shell: bash
       if: ${{ steps.status.outputs.releases > 0 }}
       run: |
-        pnpm changeset version --snapshot ${{ inputs.tag }}
-        pnpm changeset publish --no-git-tag --tag ${{ inputs.tag }} 
+        bunx changeset version --snapshot ${{ inputs.tag }}
+        bunx changeset publish --no-git-tag --tag ${{ inputs.tag }} 
       env:
         NPM_CONFIG_PROVENANCE: true
 
