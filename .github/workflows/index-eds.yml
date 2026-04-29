@@ -72,7 +72,6 @@ on:
 
 env:
   EDS_REPO: equinor/design-system
-  CONFIG_PATH: ./eds/fusion-ai.config.eds.ts
 
 concurrency:
   group: index-eds
@@ -230,15 +229,21 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Setup Node.js and install dependencies
-        uses: ./.github/workflows/actions/node-setup
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Install EDS index dependencies
+        working-directory: eds
+        run: npm install --ignore-scripts
 
       # Reads the index name (e.g. "eds-2026-03-14") from the config file
       # for use in the ensure-index and summary steps.
       - name: Read index name from config
         id: index
         run: |
-          index_name=$(node -e "import('$CONFIG_PATH').then(m => console.log(m.default.index.name))")
+          index_name=$(node -e "import('./eds/fusion-ai.config.eds.ts').then(m => console.log(m.default.index.name))")
           echo "name=${index_name}" >> "$GITHUB_OUTPUT"
           echo "::notice::Index name: ${index_name}"
 
@@ -324,9 +329,10 @@ jobs:
       # or validates the schema matches if it does. Safe to run every time.
       - name: Ensure index exists
         if: steps.diff.outputs.has_changes == 'true' || inputs.clean
+        working-directory: eds
         env:
           FUSION_ENV: ${{ vars.FUSION_ENV }}
-        run: pnpm --filter @equinor/fusion-react-eds-index exec ffc ai index create --env "$FUSION_ENV" --config "$CONFIG_PATH"
+        run: npx ffc ai index create --env "$FUSION_ENV" --config ./fusion-ai.config.eds.ts
 
       # Three modes:
       #   --clean (manual dispatch): wipes all existing embeddings, re-indexes everything
@@ -343,15 +349,17 @@ jobs:
         run: |
           set -euo pipefail
 
+          config="${{ github.workspace }}/eds/fusion-ai.config.eds.ts"
+
           if [[ "${INPUT_CLEAN:-false}" == "true" ]]; then
             echo "::notice::Clean rebuild — re-indexing all documents"
-            pnpm --filter @equinor/fusion-react-eds-index exec ffc ai index add --clean --env "$FUSION_ENV" --config "../$CONFIG_PATH"
+            npx --prefix ../eds ffc ai index add --clean --env "$FUSION_ENV" --config "$config"
           elif [[ "$HAS_PREVIOUS" == "true" ]]; then
             echo "::notice::Incremental index — processing only changed files"
-            pnpm --filter @equinor/fusion-react-eds-index exec ffc ai index add --diff --base-ref HEAD~1 --env "$FUSION_ENV" --config "../$CONFIG_PATH"
+            npx --prefix ../eds ffc ai index add --diff --base-ref HEAD~1 --env "$FUSION_ENV" --config "$config"
           else
             echo "::notice::First run — indexing all documents"
-            pnpm --filter @equinor/fusion-react-eds-index exec ffc ai index add --env "$FUSION_ENV" --config "../$CONFIG_PATH"
+            npx --prefix ../eds ffc ai index add --env "$FUSION_ENV" --config "$config"
           fi
 
       # Persist the current content as the baseline for the next run.
