@@ -1,5 +1,16 @@
 # Change Log
 
+## 2.0.4
+
+### Patch Changes
+
+- 2338333: Bump `@equinor/fusion-observable` from 9.0.0 to 9.0.1 — internal `uuid` dependency updated from 13.0.0 to 14.0.0.
+- 2338333: Bump `styled-components` from 6.4.0 to 6.4.1 — fixes a performance regression in `createGlobalStyle` and updates stale dev-mode error messages.
+- 2338333: Bump `typescript` from 6.0.2 to 6.0.3 — hardens ATA package name filtering and fixes class property initializer handling.
+- 0be8bd4: build(deps): bump @equinor/eds-core-react from 0.45.1 to 2.5.0
+
+  Align peerDependencies with updated eds packages.
+
 ## 2.0.3
 
 ### Patch Changes

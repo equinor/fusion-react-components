@@ -1,5 +1,15 @@
 # Change Log
 
+## 6.0.3
+
+### Patch Changes
+
+- 0be8bd4: build(deps): bump @equinor/eds-core-react from 0.45.1 to 2.5.0
+
+  Align peerDependencies with updated eds packages.
+
+- eb99de5: build(deps): bump @equinor/eds-icons from 0.22.0 to 1.4.0
+
 ## 6.0.2
 
 ### Patch Changes

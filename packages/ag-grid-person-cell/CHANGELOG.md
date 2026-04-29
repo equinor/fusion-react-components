@@ -1,5 +1,14 @@
 # Change Log
 
+## 4.0.5
+
+### Patch Changes
+
+- 2338333: Bump `styled-components` from 6.4.0 to 6.4.1 — fixes a performance regression in `createGlobalStyle` and updates stale dev-mode error messages.
+- 0be8bd4: build(deps): bump @equinor/eds-core-react from 0.45.1 to 2.5.0
+
+  Align peerDependencies with updated eds packages.
+
 ## 4.0.4
 
 ### Patch Changes
