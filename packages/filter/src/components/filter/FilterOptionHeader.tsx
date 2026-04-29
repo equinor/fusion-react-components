@@ -63,8 +63,10 @@ export const FilterOptionHeader = (props: FilterHeaderProps): ReactElement => {
   const { options$, selection$ } = useFilterOptionContext();
   const optionCount = Object.keys(useObservableState(options$).value || {}).length;
   const { value: selectedCount } = useObservableState(
-    useObservableSelector(selection$, (x) => (x ?? new Set()).size > 0),
+    useObservableSelector(selection$, (x) => (x ?? new Set()).size),
+    { initial: 0 },
   );
+
   const onIconClick = () => {
     if (showSearch) {
       setQuery('');
@@ -95,7 +97,7 @@ export const FilterOptionHeader = (props: FilterHeaderProps): ReactElement => {
       />
       <Styled.Header $showSearch={showSearch}>
         <span>{title}</span>
-        <Styled.Counter $noCount={!selectedCount}>
+        <Styled.Counter $noCount={selectedCount === 0}>
           <span>(</span>
           <span>{selectedCount}</span>
           <span>/</span>
