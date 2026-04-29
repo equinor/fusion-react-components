@@ -28,7 +28,7 @@ export const FilterPanelFilters = (props: FilterPanelFiltersProps): ReactElement
   );
   return (
     <EdsProvider density="compact">
-      <div {...args} style={{ display: showFilters ? '' : 'none' }}>
+      <div {...args} style={{ display: showFilters ? '' : 'none', height: '100%' }}>
         {FilterSelector && <FilterSelector />}
         <FilterContainer>{filters}</FilterContainer>
       </div>
