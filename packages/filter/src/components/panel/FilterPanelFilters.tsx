@@ -6,6 +6,12 @@ import { EdsProvider } from '@equinor/eds-core-react';
 
 import { map } from 'rxjs/operators';
 import { FilterContainer } from '../misc';
+import { styled } from 'styled-components';
+
+const FilterWrapper = styled.div<{ $showFilters: boolean }>`
+  display: ${({ $showFilters }) => ($showFilters ? 'block' : 'none')};
+  height: 100%;
+`;
 
 type FilterPanelFiltersProps = HTMLAttributes<HTMLDivElement> & {
   readonly FilterSelector?: FC;
@@ -28,10 +34,10 @@ export const FilterPanelFilters = (props: FilterPanelFiltersProps): ReactElement
   );
   return (
     <EdsProvider density="compact">
-      <div {...args} style={{ display: showFilters ? '' : 'none' }}>
+      <FilterWrapper {...args} $showFilters={Boolean(showFilters)}>
         {FilterSelector && <FilterSelector />}
         <FilterContainer>{filters}</FilterContainer>
-      </div>
+      </FilterWrapper>
     </EdsProvider>
   );
 };

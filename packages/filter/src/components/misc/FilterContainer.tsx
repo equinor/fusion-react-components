@@ -6,9 +6,10 @@ type SpacingKey = keyof typeof tokens.spacings.comfortable;
 
 const Styled = {
   Root: styled.div<{ $spacing?: SpacingKey }>`
-    display: inline-flex;
-    flex: auto;
+    display: flex;
     gap: ${({ $spacing }) => tokens.spacings.comfortable[$spacing || 'medium']};
+    height: 100%;
+    
     & > * {
       flex: 1;
     }
