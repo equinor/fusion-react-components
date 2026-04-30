@@ -18,5 +18,7 @@ export const PersonCard = createComponent<HTMLPersonCardCustomElement, ElementPr
   tag,
 );
 
+PersonCard.displayName = 'PersonCard';
+
 export type { HTMLPersonCardCustomElement, PersonItemSize, CardData };
 export default PersonCard;

@@ -24,6 +24,8 @@ export const Ripple = createComponent<HTMLRippleCustomElement, ElementProps>(
   tag,
 );
 
+Ripple.displayName = 'Ripple';
+
 export type RippleProps = ComponentProps<typeof Ripple>;
 
 export default Ripple;

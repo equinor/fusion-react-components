@@ -28,6 +28,9 @@ export const ListItem = createComponent<HTMLListItemCustomElement, ElementProps>
   HTMLListItemCustomElement,
   tag,
 );
+
+ListItem.displayName = 'ListItem';
+
 export type ListItemProps = ComponentProps<HTMLListItemCustomElement, ElementProps>;
 
 export { HTMLListItemCustomElement };

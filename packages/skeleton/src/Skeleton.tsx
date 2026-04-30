@@ -16,6 +16,8 @@ export const Skeleton = createComponent<HTMLSkeletonCustomElement, ElementProps>
   tag,
 );
 
+Skeleton.displayName = 'Skeleton';
+
 export type SkeletonProps = ComponentProps<HTMLSkeletonCustomElement>;
 
 export { HTMLSkeletonCustomElement, SkeletonVariant, SkeletonSize };

@@ -10,6 +10,8 @@ export const MarkdownViewer = createComponent<MarkdownViewerElement, ElementProp
   markdownViewerTag,
 );
 
+MarkdownViewer.displayName = 'MarkdownViewer';
+
 export { MarkdownViewerElement as HTMLMarkdownViewerCustomElement };
 
 export default MarkdownViewer;

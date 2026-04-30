@@ -6,4 +6,6 @@ export const DropdownProvider = createComponent(
   'fwc-searchable-dropdown-provider',
 );
 
+DropdownProvider.displayName = 'DropdownProvider';
+
 export default DropdownProvider;

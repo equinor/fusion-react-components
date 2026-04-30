@@ -34,4 +34,6 @@ export const Dropdown = createComponent<SearchableDropdownElement, ElementProps>
   { events: { onSelect: 'select', onDropdownClosed: 'dropdownClosed' } },
 );
 
+Dropdown.displayName = 'Dropdown';
+
 export default Dropdown;

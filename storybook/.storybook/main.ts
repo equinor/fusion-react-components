@@ -35,12 +35,18 @@ const config: StorybookConfig = {
           loose: true,
         }),
       ],
+      esbuild: {
+        keepNames: true,
+      },
       build: {
         minify: 'terser',
-        minifyOptions: {
+        terserOptions: {
+          compress: {
+            passes: 2,
+          },
           mangle: {
-            keep_fnames: true,
             keep_classnames: true,
+            keep_fnames: true,
           },
         },
       },

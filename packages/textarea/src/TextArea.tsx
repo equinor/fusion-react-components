@@ -47,6 +47,8 @@ export const TextInput = createComponent<TextAreaElement, ElementProps>(TextArea
   functions: new Set(['validityTransform']),
 });
 
+TextInput.displayName = 'TextInput';
+
 export type TextInputProps = ComponentProps<TextAreaElement, ElementProps>;
 
 export default TextInput;

@@ -23,6 +23,9 @@ export const List = createComponent<HTMLListCustomElement, ElementProps>(
   HTMLListCustomElement,
   tag,
 );
+
+List.displayName = 'List';
+
 export type ListProps = ComponentProps<HTMLListCustomElement, ElementProps>;
 
 export { HTMLListCustomElement };

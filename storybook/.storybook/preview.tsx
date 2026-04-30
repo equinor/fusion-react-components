@@ -30,11 +30,7 @@ const preview: Preview = {
       },
     },
     docs: {
-      source: {
-        language: 'tsx'
-      },
-
-      codePanel: true
+      codePanel: true,
     },
   },
  
