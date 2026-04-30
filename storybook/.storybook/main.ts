@@ -37,19 +37,7 @@ const config: StorybookConfig = {
       ],
       esbuild: {
         keepNames: true,
-      },
-      build: {
-        minify: 'terser',
-        terserOptions: {
-          compress: {
-            passes: 2,
-          },
-          mangle: {
-            keep_classnames: true,
-            keep_fnames: true,
-          },
-        },
-      },
+      }
     });
   },
 
