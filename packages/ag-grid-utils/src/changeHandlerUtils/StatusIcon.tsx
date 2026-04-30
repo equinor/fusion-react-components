@@ -29,4 +29,6 @@ export const StatusIcon: FC<StatusIconProps> = ({ status }) => {
   return null;
 };
 
+StatusIcon.displayName = 'StatusIcon';
+
 export default StatusIcon;

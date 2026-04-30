@@ -224,4 +224,6 @@ export const ContextSearch = ({
   );
 };
 
+ContextSearch.displayName = 'ContextSearch';
+
 export default ContextSearch;

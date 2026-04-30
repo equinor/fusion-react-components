@@ -52,6 +52,8 @@ const DataLogger = () => {
   );
 };
 
+DataLogger.displayName = 'DataLogger';
+
 export const filter_panel_story: Story = {
   name: 'FilterPanel',
   args: {

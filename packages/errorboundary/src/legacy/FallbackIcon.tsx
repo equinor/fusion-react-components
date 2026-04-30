@@ -33,4 +33,6 @@ export const FallbackIcon = (props: { readonly errorType?: ErrorType }): ReactEl
   return <Styled.icon name={name} />;
 };
 
+FallbackIcon.displayName = 'FallbackIcon';
+
 export default FallbackIcon;

@@ -63,3 +63,7 @@ export const TabProvider = ({
 };
 
 TabProvider.Tab = Tab;
+
+TabProvider.displayName = 'TabProvider';
+
+export default TabProvider;

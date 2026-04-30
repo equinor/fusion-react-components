@@ -42,4 +42,6 @@ export const PeopleViewer = (props: PeopleViewerProps): ReactElement => {
   return <PeopleViewerComponent ref={ref} {...atts} />;
 };
 
+PeopleViewer.displayName = 'PeopleViewer';
+
 export default PeopleViewer;

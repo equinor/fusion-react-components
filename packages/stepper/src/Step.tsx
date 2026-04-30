@@ -208,4 +208,6 @@ export const Step = ({
   );
 };
 
+Step.displayName = 'Step';
+
 export default Step;

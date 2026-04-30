@@ -26,4 +26,6 @@ export const SearchableDropdown = ({
   );
 };
 
+SearchableDropdown.displayName = 'SearchableDropdown';
+
 export default SearchableDropdown;

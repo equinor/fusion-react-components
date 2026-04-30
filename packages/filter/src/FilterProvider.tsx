@@ -77,4 +77,6 @@ export const FilterProvider: <
   return <Provider value={context}>{children}</Provider>;
 };
 
+(FilterProvider as unknown as { displayName: string }).displayName = 'FilterProvider';
+
 export default FilterProvider;

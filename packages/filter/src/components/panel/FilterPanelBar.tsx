@@ -67,4 +67,6 @@ export const FilterPanelBar = <TData,>(props: FilterPanelBarProps<TData>): React
   );
 };
 
+FilterPanelBar.displayName = 'FilterPanelBar';
+
 export default FilterPanelBar;

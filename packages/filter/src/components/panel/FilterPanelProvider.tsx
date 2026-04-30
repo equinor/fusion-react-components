@@ -72,4 +72,6 @@ export const FilterPanelProvider = (props: FilterPanelProviderProps): ReactEleme
   return <Provider value={{ filters$, showFilters, setShowFilters }}>{props.children}</Provider>;
 };
 
+FilterPanelProvider.displayName = 'FilterPanelProvider';
+
 export default FilterPanelProvider;

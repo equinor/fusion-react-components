@@ -94,3 +94,7 @@ export const Fallback = (props: FallbackProps): ReactElement => {
     </Styled.root>
   );
 };
+
+Fallback.displayName = 'Fallback';
+
+export default Fallback;
