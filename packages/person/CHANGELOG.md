@@ -1,5 +1,19 @@
 # Change Log
 
+## 2.0.5
+
+### Patch Changes
+
+- 5906962: Fix Storybook docs component names in production
+
+  When Storybook is built for production, code examples now keep readable component names instead of showing generic values like `<no />`.
+
+  This combines two fixes:
+  - React wrapper components created with `createComponent(...)` now set explicit `displayName` values across packages so runtime JSX serialization uses meaningful names.
+  - Storybook Vite production build sets `esbuild.keepNames: true` to ensure function and class names are preserved during minification (removing the need for a separate Terser configuration).
+
+  Fixes [#836](https://github.com/equinor/fusion/issues/836)
+
 ## 2.0.4
 
 ### Patch Changes
