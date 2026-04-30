@@ -4,7 +4,7 @@ description: 'Systematically improves TSDoc and README documentation across pack
 license: MIT
 compatibility: Requires file-system access and git CLI for commit operations. Works best in runtimes that support skill-local agents for parallel orchestration and review council. Falls back to inline sequential processing in single-agent runtimes. Benefits from fusion-code-conventions for convention-aware TSDoc quality.
 metadata:
-  version: "0.0.0"
+  version: "0.0.1"
   status: experimental
   owner: "@equinor/fusion-core"
   role: orchestrator

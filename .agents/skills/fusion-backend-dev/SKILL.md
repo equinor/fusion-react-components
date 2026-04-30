@@ -4,7 +4,7 @@ description: 'Guides consumption and understanding of Fusion backend services, A
 license: MIT
 compatibility: Works best with Fusion MCP. Works best with mcp_fusion_search_backend_code for reference code discovery. Frontend/client developers should also install fusion-research for deeper architectural context.
 metadata:
-  version: "0.0.0"
+  version: "0.1.0"
   status: active
   owner: "@equinor/fusion-core"
   skills:
