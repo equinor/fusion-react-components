@@ -35,6 +35,15 @@ const config: StorybookConfig = {
           loose: true,
         }),
       ],
+      build: {
+        minify: 'terser',
+        minifyOptions: {
+          mangle: {
+            keep_fnames: true,
+            keep_classnames: true,
+          },
+        },
+      },
     });
   },
 
