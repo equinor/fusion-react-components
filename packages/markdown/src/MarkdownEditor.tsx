@@ -17,6 +17,8 @@ export const MarkdownEditor = createComponent<MarkdownEditorElement, ElementProp
   { events: { onInput: 'markdownEvent' } },
 );
 
+MarkdownEditor.displayName = 'MarkdownEditor';
+
 export { MarkdownEditorElement as HTMLMarkdownEditorCustomElement, type MenuSizes };
 
 export default MarkdownEditor;

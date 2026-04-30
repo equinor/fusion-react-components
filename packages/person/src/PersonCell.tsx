@@ -27,5 +27,7 @@ export const PersonCell = createComponent<HTMLPersonCellCustomElement, ElementPr
   tag,
 );
 
+PersonCell.displayName = 'PersonCell';
+
 export type { PersonCellData, HTMLPersonCellCustomElement };
 export default PersonCell;

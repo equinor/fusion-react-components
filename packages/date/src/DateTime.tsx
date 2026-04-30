@@ -11,6 +11,8 @@ export const DateTime = createComponent<HTMLDateTimeCustomElement, ElementProps>
   dateTimeTag,
 );
 
+DateTime.displayName = 'DateTime';
+
 export type DateTimeProps = ComponentProps<HTMLDateTimeCustomElement, ElementProps>;
 
 export { HTMLDateTimeCustomElement };

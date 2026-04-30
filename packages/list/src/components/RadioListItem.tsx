@@ -29,6 +29,9 @@ export const RadioListItem = createComponent<HTMLRadioListItemCustomElement, Ele
   HTMLRadioListItemCustomElement,
   tag,
 );
+
+RadioListItem.displayName = 'RadioListItem';
+
 export type RadioListItemProps = ComponentProps<HTMLRadioListItemCustomElement, ElementProps>;
 
 export { HTMLRadioListItemCustomElement };

@@ -30,5 +30,7 @@ export const PersonAvatar = createComponent<HTMLPersonAvatarCustomElement, Eleme
   tag,
 );
 
+PersonAvatar.displayName = 'PersonAvatar';
+
 export type { HTMLPersonAvatarCustomElement, AvatarData };
 export default PersonAvatar;

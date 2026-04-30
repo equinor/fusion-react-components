@@ -30,6 +30,8 @@ export const CheckListItem = createComponent<HTMLCheckListItemCustomElement, Ele
   tag,
 );
 
+CheckListItem.displayName = 'CheckListItem';
+
 export type CheckListItemProps = ComponentProps<HTMLCheckListItemCustomElement, ElementProps>;
 
 export { HTMLCheckListItemCustomElement };

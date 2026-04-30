@@ -27,6 +27,8 @@ export const DateRange = createComponent<HTMLDateRangeCustomElement, ElementProp
   dateRangeTag,
 );
 
+DateRange.displayName = 'DateRange';
+
 export type DateRangeProps = ComponentProps<HTMLDateRangeCustomElement, ElementProps>;
 
 export { HTMLDateRangeCustomElement };

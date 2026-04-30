@@ -45,4 +45,6 @@ export const PersonSelect = createComponent<HTMLPersonSelectCustomElement, Eleme
   { events: { onSelect: 'select', onDropdownClosed: 'dropdownClosed' } },
 );
 
+PersonSelect.displayName = 'PersonSelect';
+
 export default PersonSelect;

@@ -20,5 +20,7 @@ export const PersonListItem = createComponent<HTMLPersonListItemCustomElement, E
   tag,
 );
 
+PersonListItem.displayName = 'PersonListItem';
+
 export type { ListItemData, HTMLPersonListItemCustomElement };
 export default PersonListItem;

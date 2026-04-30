@@ -35,6 +35,9 @@ const config: StorybookConfig = {
           loose: true,
         }),
       ],
+      esbuild: {
+        keepNames: true,
+      }
     });
   },
 
