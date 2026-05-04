@@ -19,4 +19,6 @@ export const PersonTooltip = <T,>(props: TooltipCard<T>): ReactElement => {
   );
 };
 
+PersonTooltip.displayName = 'PersonTooltip';
+
 export default PersonTooltip;

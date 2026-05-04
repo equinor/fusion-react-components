@@ -68,4 +68,6 @@ const StepPane = ({ children }: { readonly children: ReactNode }): ReactElement 
   );
 };
 
+StepPane.displayName = 'StepPane';
+
 export default StepPane;

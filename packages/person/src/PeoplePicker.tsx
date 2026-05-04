@@ -56,4 +56,6 @@ export const PeoplePicker = (props: PeoplePickerProps): ReactElement => {
   return <PeoplePickerComponent ref={ref} {...atts} />;
 };
 
+PeoplePicker.displayName = 'PeoplePicker';
+
 export default PeoplePicker;

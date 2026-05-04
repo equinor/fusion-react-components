@@ -112,3 +112,7 @@ export const Tabs = ({
     </EdsTabs>
   );
 };
+
+Tabs.displayName = 'Tabs';
+
+export default Tabs;

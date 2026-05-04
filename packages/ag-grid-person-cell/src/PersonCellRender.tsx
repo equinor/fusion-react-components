@@ -89,3 +89,7 @@ export const PersonCellRender = <T,>(params: ICellRendererParams & CustomRenderP
     </Styled.SingleContainer>
   );
 };
+
+PersonCellRender.displayName = 'PersonCellRender';
+
+export default PersonCellRender;

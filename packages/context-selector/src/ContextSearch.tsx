@@ -69,6 +69,7 @@ export const ContextSearch = ({
   }, [gettingCtx]);
 
   const keyUpGettingCtx = useCallback(
+    // biome-ignore lint/suspicious/noExplicitAny: fix typing later
     (e: any) => {
       if (e.key === 'Enter' || e.key === ' ') {
         toggleGettingCtx();
@@ -93,6 +94,7 @@ export const ContextSearch = ({
 
   /* Clear context button handler */
   const handleClearContext = useCallback(
+    // biome-ignore lint/suspicious/noExplicitAny: fix typing later
     (event: any) => {
       setCtx(defaultInitialItem);
 
@@ -223,5 +225,7 @@ export const ContextSearch = ({
     </div>
   );
 };
+
+ContextSearch.displayName = 'ContextSearch';
 
 export default ContextSearch;

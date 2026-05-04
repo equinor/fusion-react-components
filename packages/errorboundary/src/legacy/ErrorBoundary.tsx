@@ -20,4 +20,6 @@ export const ErrorBoundary = (props: ErrorBoundaryProps): ReactElement => {
   return <ReactErrorBoundary {...(args as ReactReactErrorBoundary)} />;
 };
 
+ErrorBoundary.displayName = 'ErrorBoundary';
+
 export default ErrorBoundary;

@@ -55,4 +55,6 @@ export const CheckboxFilterOptions = ({ sortFn }: CheckboxFilterOptionsProps): R
   );
 };
 
+CheckboxFilterOptions.displayName = 'CheckboxFilterOptions';
+
 export default CheckboxFilterOptions;

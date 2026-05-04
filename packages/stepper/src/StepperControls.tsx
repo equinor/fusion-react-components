@@ -71,4 +71,6 @@ export const StepperControls = (): ReactElement => {
   );
 };
 
+StepperControls.displayName = 'StepperControls';
+
 export default StepperControls;

@@ -177,4 +177,6 @@ SideSheet.Indicator = Indicator;
 SideSheet.Content = Content;
 SideSheet.Actions = Actions;
 
+SideSheet.displayName = 'SideSheet';
+
 export default SideSheet;

@@ -106,6 +106,8 @@ export function ThemeProvider<T extends FusionTheme = FusionTheme>(
   );
 }
 
+ThemeProvider.displayName = 'ThemeProvider';
+
 /**
  * Hook to access the current theme from ThemeProvider context
  *

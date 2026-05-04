@@ -68,4 +68,4 @@ export const CheckboxFilterProvider: <
   );
 };
 
-export default CheckboxFilterProviderProps;
+export default CheckboxFilterProvider;

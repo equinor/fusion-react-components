@@ -94,4 +94,6 @@ const Garden = <T extends HangingGardenColumnIndex>({ provideController }: Garde
   );
 };
 
+Garden.displayName = 'Garden';
+
 export default Garden;

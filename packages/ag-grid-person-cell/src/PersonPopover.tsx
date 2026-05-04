@@ -92,3 +92,5 @@ export const PersonPopover = ({
     </Styled.Container>
   );
 };
+
+PersonPopover.displayName = 'PersonPopover';
