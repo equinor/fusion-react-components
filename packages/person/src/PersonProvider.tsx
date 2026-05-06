@@ -26,4 +26,6 @@ export const PersonProvider = (props: PropsWithChildren<PersonProviderProps>) =>
   return <fwc-person-provider ref={providerRef}>{children}</fwc-person-provider>;
 };
 
+PersonProvider.displayName = 'PersonProvider';
+
 export default PersonProvider;

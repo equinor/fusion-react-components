@@ -101,4 +101,6 @@ export function StylesProvider(props: StylesProviderProps): ReactElement {
   return <StylesContext.Provider value={context}>{children}</StylesContext.Provider>;
 }
 
+StylesProvider.displayName = 'StylesProvider';
+
 export default StylesProvider;

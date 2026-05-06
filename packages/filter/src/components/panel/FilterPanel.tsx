@@ -72,9 +72,9 @@ export type FilterPanelProps<TData> = HTMLAttributes<HTMLDivElement> & {
 /**
  * Base component for displaying filter components and controllers
  */
-export const FilterPanel: <TData>(
+export function FilterPanel<TData>(
   props: PropsWithChildren<FilterPanelProps<TData>>,
-) => ReactElement = <TData,>(props: PropsWithChildren<FilterPanelProps<TData>>): ReactElement => {
+): ReactElement {
   const { showFilters, className, classes, children, showSelection, searchFn, ...args } = props;
   const filters = (Children.toArray(children) as ReactElement<FilterComponent>[]).filter(
     (x) => !!x.props.filterKey,
@@ -102,6 +102,8 @@ export const FilterPanel: <TData>(
       </Styled.Root>
     </FilterPanelProvider>
   );
-};
+}
+
+FilterPanel.displayName = 'FilterPanel';
 
 export default FilterPanel;

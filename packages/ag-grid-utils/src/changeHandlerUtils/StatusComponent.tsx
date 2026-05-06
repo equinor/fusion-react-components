@@ -30,4 +30,6 @@ export const StatusComponent: FC<ICellRendererParams> = (props: ICellRendererPar
   );
 };
 
+StatusComponent.displayName = 'StatusComponent';
+
 export default StatusComponent;

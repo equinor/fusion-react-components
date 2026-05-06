@@ -52,4 +52,6 @@ export const CheckboxFilter = <TData extends Record<string, any> = Record<string
   );
 };
 
+CheckboxFilter.displayName = 'CheckboxFilter';
+
 export default CheckboxFilter;

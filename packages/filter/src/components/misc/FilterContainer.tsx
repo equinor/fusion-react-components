@@ -34,4 +34,6 @@ export const FilterContainer = (props: PropsWithChildren<FilterContainerProps>):
   );
 };
 
+FilterContainer.displayName = 'FilterContainer';
+
 export default FilterContainer;

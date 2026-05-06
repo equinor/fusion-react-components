@@ -38,4 +38,6 @@ export const FilterPanelSelector = (): ReactElement => {
   );
 };
 
+FilterPanelSelector.displayName = 'FilterPanelSelector';
+
 export default FilterPanelSelector;

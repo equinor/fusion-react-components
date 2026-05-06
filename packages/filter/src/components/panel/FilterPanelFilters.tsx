@@ -42,4 +42,6 @@ export const FilterPanelFilters = (props: FilterPanelFiltersProps): ReactElement
   );
 };
 
+FilterPanelFilters.displayName = 'FilterPanelFilters';
+
 export default FilterPanelFilters;

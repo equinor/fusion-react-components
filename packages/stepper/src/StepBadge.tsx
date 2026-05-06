@@ -51,3 +51,7 @@ export const Badge = ({ position, active, done }: BadgeProps): ReactElement => {
     </Styled.Badge>
   );
 };
+
+Badge.displayName = 'Badge';
+
+export default Badge;

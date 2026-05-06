@@ -114,4 +114,6 @@ export const FilterOptionHeader = (props: FilterHeaderProps): ReactElement => {
   );
 };
 
+FilterOptionHeader.displayName = 'FilterOptionHeader';
+
 export default FilterOptionHeader;

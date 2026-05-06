@@ -42,4 +42,6 @@ export const ClearFilterButton = (props: ClearFilterButtonProps): ReactElement =
   );
 };
 
+ClearFilterButton.displayName = 'ClearFilterButton';
+
 export default ClearFilterButton;

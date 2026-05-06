@@ -47,4 +47,6 @@ export const CheckboxFilterOption = (props: CheckboxFilterOptionProps): ReactEle
   );
 };
 
+CheckboxFilterOption.displayName = 'CheckboxFilterOption';
+
 export default CheckboxFilterOption;

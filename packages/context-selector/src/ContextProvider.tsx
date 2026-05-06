@@ -15,4 +15,6 @@ export const ContextProvider = ({
   return <DropdownProvider ref={contextResolverRef}>{children}</DropdownProvider>;
 };
 
+ContextProvider.displayName = 'ContextProvider';
+
 export default ContextProvider;

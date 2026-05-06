@@ -110,3 +110,7 @@ export const SelectionChips = (props: SelectionChipsProps): ReactElement => {
     </Styled.Root>
   );
 };
+
+SelectionChips.displayName = 'SelectionChips';
+
+export default SelectionChips;

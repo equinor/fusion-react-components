@@ -28,4 +28,6 @@ const StepContent = ({
   return <>{clonedChildren}</>;
 };
 
+StepContent.displayName = 'StepContent';
+
 export default StepContent;

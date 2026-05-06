@@ -46,4 +46,6 @@ export const CheckboxFilterOptionAll = (): ReactElement => {
   );
 };
 
+CheckboxFilterOptionAll.displayName = 'CheckboxFilterOptionAll';
+
 export default CheckboxFilterOptionAll;

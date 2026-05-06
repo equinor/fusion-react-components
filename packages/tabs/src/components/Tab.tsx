@@ -21,3 +21,7 @@ export const Tab = (props: PropsWithChildren<TabProps>): ReactNode => {
   const Component = props.component;
   return Component ? Component : props.children;
 };
+
+Tab.displayName = 'Tab';
+
+export default Tab;

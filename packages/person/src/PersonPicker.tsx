@@ -23,4 +23,6 @@ export const PersonPicker = ({
   return <PeoplePicker {...peoplePickerProps}>{children}</PeoplePicker>;
 };
 
+PersonPicker.displayName = 'PersonPicker';
+
 export default PersonPicker;

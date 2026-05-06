@@ -9,4 +9,6 @@ export const ContextSelector = ({
   return <Dropdown {...props}>{children}</Dropdown>;
 };
 
+ContextSelector.displayName = 'ContextSelector';
+
 export default ContextSelector;

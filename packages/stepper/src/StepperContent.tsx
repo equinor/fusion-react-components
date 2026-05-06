@@ -62,4 +62,6 @@ export const StepperContent = (props: PropsWithChildren<StepperContentProps>): R
   );
 };
 
+StepperContent.displayName = 'StepperContent';
+
 export default StepperContent;

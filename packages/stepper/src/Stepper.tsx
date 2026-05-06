@@ -138,4 +138,6 @@ export const Stepper = ({
   );
 };
 
+Stepper.displayName = 'Stepper';
+
 export default Stepper;

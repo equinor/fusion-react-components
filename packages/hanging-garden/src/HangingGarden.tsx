@@ -124,4 +124,6 @@ const HangingGarden = <T extends HangingGardenColumnIndex>({
   );
 };
 
+HangingGarden.displayName = 'HangingGarden';
+
 export { HangingGarden, PIXI };

@@ -89,4 +89,6 @@ export const SearchFilter = <TData,>(props: SearchFilterProps<TData>): ReactElem
   );
 };
 
+SearchFilter.displayName = 'SearchFilter';
+
 export default SearchFilter;
