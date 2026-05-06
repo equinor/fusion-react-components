@@ -24,14 +24,19 @@ export type FilterProviderProps<TSelections extends Record<string, unknown>, TDa
   initialFilters?: Record<string, Filter<TData, TSelections>>;
 };
 
-export const FilterProvider: <
-  // biome-ignore lint/suspicious/noExplicitAny: we need any here to avoid type errors
-  TSelections extends Record<string, any>,
-  // biome-ignore lint/suspicious/noExplicitAny: we need any here to avoid type errors
-  TData extends Record<string, any> = Record<string, any>,
->(
-  props: PropsWithChildren<FilterProviderProps<TSelections, TData>>,
-) => ReactElement = <
+type FilterProviderComponent = {
+  <
+    // biome-ignore lint/suspicious/noExplicitAny: we need any here to avoid type errors
+    TSelections extends Record<string, any>,
+    // biome-ignore lint/suspicious/noExplicitAny: we need any here to avoid type errors
+    TData extends Record<string, any> = Record<string, any>,
+  >(
+    props: PropsWithChildren<FilterProviderProps<TSelections, TData>>,
+  ): ReactElement;
+  displayName?: string;
+};
+
+export const FilterProvider: FilterProviderComponent = <
   // biome-ignore lint/suspicious/noExplicitAny: we need any here to avoid type errors
   TSelections extends Record<string, any>,
   // biome-ignore lint/suspicious/noExplicitAny: we need any here to avoid type errors
@@ -77,6 +82,6 @@ export const FilterProvider: <
   return <Provider value={context}>{children}</Provider>;
 };
 
-(FilterProvider as unknown as { displayName: string }).displayName = 'FilterProvider';
+FilterProvider.displayName = 'FilterProvider';
 
 export default FilterProvider;

@@ -72,37 +72,38 @@ export type FilterPanelProps<TData> = HTMLAttributes<HTMLDivElement> & {
 /**
  * Base component for displaying filter components and controllers
  */
-export const FilterPanel = Object.assign(
-  <TData,>(props: PropsWithChildren<FilterPanelProps<TData>>): ReactElement => {
-    const { showFilters, className, classes, children, showSelection, searchFn, ...args } = props;
-    const filters = (Children.toArray(children) as ReactElement<FilterComponent>[]).filter(
-      (x) => !!x.props.filterKey,
-    );
-    const initialSelectedFilters = props.selectedFilters || filters.map((x) => x.props.filterKey);
-    return (
-      <FilterPanelProvider {...{ filters, initialSelectedFilters, showFilters }}>
-        <Styled.Root
-          {...args}
-          className={[classes?.root, className].filter(Boolean).join(' ') || undefined}
-        >
-          {props.showBar && <FilterPanelBar searchFn={searchFn} />}
-          <Styled.Filters>
-            <FilterPanelFilters
-              FilterSelector={props.showSelector ? FilterPanelSelector : undefined}
-              className={classes?.filters}
-            />
-          </Styled.Filters>
-          <FilterPanelConsumer>
-            {(context: FilterPanelProviderContext) =>
-              showSelection &&
-              !context?.showFilters && <SelectionChips chips={{ variant: 'outlined' }} />
-            }
-          </FilterPanelConsumer>
-        </Styled.Root>
-      </FilterPanelProvider>
-    );
-  },
-  { displayName: 'FilterPanel' },
-);
+export function FilterPanel<TData>(
+  props: PropsWithChildren<FilterPanelProps<TData>>,
+): ReactElement {
+  const { showFilters, className, classes, children, showSelection, searchFn, ...args } = props;
+  const filters = (Children.toArray(children) as ReactElement<FilterComponent>[]).filter(
+    (x) => !!x.props.filterKey,
+  );
+  const initialSelectedFilters = props.selectedFilters || filters.map((x) => x.props.filterKey);
+  return (
+    <FilterPanelProvider {...{ filters, initialSelectedFilters, showFilters }}>
+      <Styled.Root
+        {...args}
+        className={[classes?.root, className].filter(Boolean).join(' ') || undefined}
+      >
+        {props.showBar && <FilterPanelBar searchFn={searchFn} />}
+        <Styled.Filters>
+          <FilterPanelFilters
+            FilterSelector={props.showSelector ? FilterPanelSelector : undefined}
+            className={classes?.filters}
+          />
+        </Styled.Filters>
+        <FilterPanelConsumer>
+          {(context: FilterPanelProviderContext) =>
+            showSelection &&
+            !context?.showFilters && <SelectionChips chips={{ variant: 'outlined' }} />
+          }
+        </FilterPanelConsumer>
+      </Styled.Root>
+    </FilterPanelProvider>
+  );
+}
+
+FilterPanel.displayName = 'FilterPanel';
 
 export default FilterPanel;
