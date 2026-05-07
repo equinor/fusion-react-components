@@ -1,12 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { PersonProvider, PeoplePicker } from '@equinor/fusion-react-person';
+import { PersonProvider, PeoplePicker, PeoplePickerProps, PersonAddedEvent, PersonRemovedEvent } from '@equinor/fusion-react-person';
 import { resolver, generateIds, generatePerson } from '../person-resolver';
 
 import { Theme } from '../../../components/Theme';
 
 
 import { faker } from '@faker-js/faker';
+import { useCallback, useState } from 'react';
+
 faker.seed(123);
 
 const meta: Meta<typeof PeoplePicker> = {
@@ -96,25 +98,6 @@ export const displayTable: Story = {
   }
 };
 
-export const resolveIds: Story = {
-  ...basic,
-  args: {
-    resolveIds: generateIds(1, 10),
-  },
-  render: (args) => {
-      return (
-        <>
-          <h3>PeoplePicker with resolveIds</h3>
-          <p>PeoplePicker with resolveIds prop. The PeoplePicker will resolve the ids to person info and render them.</p>
-          <p><strong>Note:</strong> The ids will only get resolved at mount.</p>
-          <p>For each resolved person the picker will dispatch the <code>onPersonAdded</code> event.</p>
-          <p>When all persons are resolved, the picker will dispatch the <code>onSelectionChanged</code> event.</p>
-          <PeoplePicker {...args} />
-        </>
-      );
-    },
-};
-
 export const people: Story = {
   decorators: basic.decorators,
   loaders: [async () => {
@@ -127,9 +110,49 @@ export const people: Story = {
       <>
         <h3>PeoplePicker with people</h3>
         <p>PeoplePicker with people prop. The PeoplePicker will render the provided people.</p>
-        <p>The people prop will be the source of truth, so be sure to update the selected people state with the <code>onPersonAdded</code>, <code>onPersonRemoved</code> or <code>onSelectionChanged</code> event handler.</p>
+        <p><strong>PS:</strong> using this prop will turn this into a controlled component.</p>
+        <p>The people prop will be the source of truth, so be sure to update the props state with the <code>onPersonAdded</code>, <code>onPersonRemoved</code> or <code>onSelectionChanged</code> event handler.</p>
         <PeoplePicker people={people} {...args} />
       </>
     );
   },
+};
+
+const ResolveIds = (args: PeoplePickerProps) => {
+  const [resolveIds, setResolveIds] = useState<string[]>(args.resolveIds || []);
+
+  const handlePersonAdded = useCallback((e: PersonAddedEvent) => {
+    setResolveIds((prev) => {
+      if (!prev.includes(e.detail.azureId)) {
+        console.log('Adding', e.detail.azureId);
+        return [...prev, e.detail.azureId];
+      }
+      return prev;
+    });
+  }, []);
+  
+  const handlePersonRemoved = useCallback((e: PersonRemovedEvent) => {
+    console.log('Removing', e.detail.azureId);
+    setResolveIds((prev) => prev.filter((id) => id !== e.detail.azureId));
+  }, []);
+  
+  return (
+    <>
+      <h3>PeoplePicker with resolveIds</h3>
+      <p>PeoplePicker with resolveIds prop. The PeoplePicker will resolve the ids to person info and render them.</p>
+      <p>For each resolved person the picker will dispatch the <code>onPersonAdded</code> event.</p>
+      <p>When all persons are resolved, the picker will dispatch the <code>onSelectionChanged</code> event.</p>
+      <p><strong>PS:</strong> using this prop will turn this into a controlled component.</p>
+      <p>The resolveIds prop will be the source of truth, so be sure to update the props state with the <code>onPersonAdded</code>, <code>onPersonRemoved</code> or <code>onSelectionChanged</code> event handler.</p>
+      <PeoplePicker resolveIds={resolveIds} onPersonAdded={handlePersonAdded} onPersonRemoved={handlePersonRemoved} />
+    </>
+  );
+}
+
+export const resolveIds: Story = {
+  ...basic,
+  args: {
+    resolveIds: generateIds(1, 10),
+  },
+  render: (args) => <ResolveIds {...args} />,
 };
