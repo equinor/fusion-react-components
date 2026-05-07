@@ -1,5 +1,12 @@
 # Change Log
 
+## 2.0.6
+
+### Patch Changes
+
+- e7c525a: Add display names to various components.
+- 2518da0: Update person web component dependencies and align Storybook examples for the people picker.
+
 ## 2.0.5
 
 ### Patch Changes
