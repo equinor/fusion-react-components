@@ -1,5 +1,11 @@
 # Change Log
 
+## 33.0.5
+
+### Patch Changes
+
+- e7c525a: Add display names to various components.
+
 ## 33.0.4
 
 ### Patch Changes
