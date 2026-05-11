@@ -15,7 +15,7 @@
     },
     "components": {
       "name": "@equinor/fusion-react-components",
-      "version": "1.0.6",
+      "version": "1.0.7",
       "dependencies": {
         "@equinor/fusion-react-person": "workspace:*",
       },
@@ -213,11 +213,11 @@
     },
     "packages/person": {
       "name": "@equinor/fusion-react-person",
-      "version": "2.0.6",
+      "version": "2.0.7",
       "dependencies": {
         "@equinor/fusion-react-utils": "workspace:^",
-        "@equinor/fusion-wc-people": "^2.2.2",
-        "@equinor/fusion-wc-person": "^3.5.4",
+        "@equinor/fusion-wc-people": "2.2.2",
+        "@equinor/fusion-wc-person": "3.5.4",
       },
       "devDependencies": {
         "@types/react": "^19.2.14",

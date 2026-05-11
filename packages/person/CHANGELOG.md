@@ -1,5 +1,12 @@
 # Change Log
 
+## 2.0.7
+
+### Patch Changes
+
+- 44e749a: Update `@equinor/fusion-wc-people` from `2.2.0` to `2.2.2`.
+  Update `@equinor/fusion-wc-person` from `3.5.3` to `3.5.4`.
+
 ## 2.0.6
 
 ### Patch Changes
