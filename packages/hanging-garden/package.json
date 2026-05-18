@@ -31,9 +31,7 @@
     "build": "tsc -b",
     "lint": "biome lint",
     "lint:fix": "eslint --ext .ts,.tsx,.js src/ --fix",
-    "prepack": "npm run build",
-    "publish": "bun publish",
-    "publish:pre-release": "bun publish --tag ${NPM_TAG}"
+    "prepack": "npm run build"
   },
   "bugs": {
     "url": "https://github.com/equinor/fusion-react-components/issues"
