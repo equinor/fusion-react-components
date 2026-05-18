@@ -33,7 +33,9 @@
     "format": "biome format",
     "prepack": "npm run build",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "publish": "bun publish",
+    "publish:pre-release": "bun publish --tag ${NPM_TAG}"
   },
   "bugs": {
     "url": "https://github.com/equinor/fusion-react-components/issues"

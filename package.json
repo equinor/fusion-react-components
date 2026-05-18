@@ -31,8 +31,8 @@
     "storybook": "bun run --cwd ./storybook start",
     "storybook:build": "bun run --cwd ./storybook build",
     "changeset:version": "changeset version && bun install",
-    "changeset:publish": "changeset tag && bun publish --filter '*' --no-git-checks",
-    "changeset:publish:pre-release": "bun publish --filter '*' --no-git-checks --tag ${NPM_TAG}"
+    "changeset:publish": "changeset tag && bun run --filter '!@equinor/fusion-react-components-stories' publish",
+    "changeset:publish:pre-release": "bun run --filter '!@equinor/fusion-react-components-stories' publish:pre-release"
   },
   "repository": {
     "type": "git",
