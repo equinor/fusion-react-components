@@ -1,5 +1,11 @@
 # Change Log
 
+## 2.0.9
+
+### Patch Changes
+
+- fb79375: Fixes reference to `@equinor/fusion-react-utils`
+
 ## 2.0.8
 
 ### Patch Changes
