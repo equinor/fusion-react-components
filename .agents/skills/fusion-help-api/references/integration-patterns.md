@@ -1,6 +1,6 @@
 # Integration Patterns
 
-Common code patterns for integrating the Fusion Help API into applications and scripts.
+Patterns for integrating Fusion Help API into apps and scripts.
 
 See also: [Authentication](authentication.md) | [API Endpoints](api-endpoints.md)
 
@@ -8,7 +8,7 @@ See also: [Authentication](authentication.md) | [API Endpoints](api-endpoints.md
 
 ## Pattern 1: Display help articles in a Fusion app
 
-Fetch articles for your app key and render them in a side panel or help section.
+Fetch articles by app key; render in side panel or help section.
 
 ```typescript
 // React component using Fusion Framework HTTP client

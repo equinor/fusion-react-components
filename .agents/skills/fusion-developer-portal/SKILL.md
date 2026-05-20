@@ -4,7 +4,7 @@ description: 'Guides development of Fusion portal shells — scaffolding, module
 license: MIT
 compatibility: Requires @equinor/fusion-framework-cli for portal scaffolding and dev server. Requires @equinor/fusion-framework and @equinor/fusion-framework-react for portal runtime.
 metadata:
-  version: "0.0.1"
+  version: "0.0.2"
   status: active
   owner: "@equinor/fusion-core"
   skills:
@@ -27,35 +27,35 @@ metadata:
 
 # Fusion Developer Portal
 
-Guide development of Fusion portal shells — the host applications that load, route, and render Fusion apps inside a shared chrome (header, context selector, navigation).
+Guide development of Fusion portal shells — host applications that load, route, and render Fusion apps inside shared chrome (header, context selector, navigation).
 
 ## When to use
 
-- User wants to scaffold a new Fusion portal
-- User asks about `portal.manifest.ts` or `ffc portal dev`
-- User wants to configure portal-level framework modules (telemetry, analytics, navigation, services, app module)
-- User wants to build a custom app loader or portal shell
-- User wants to add portal-level routing (`/apps/:appKey/*`)
-- User asks about the `Apploader` component or `useApploader` hook for embedding apps
-- User wants to wire up a portal header, context selector, or bookmark side sheet
-- User asks how portals load and initialize Fusion apps at runtime
-- User wants to add portal-level analytics or telemetry
-- User asks about portal deployment (`ffc portal build`, `ffc portal upload`)
+- Scaffold new Fusion portal
+- `portal.manifest.ts` or `ffc portal dev` questions
+- Configure portal-level modules (telemetry, analytics, navigation, services, app module)
+- Build custom app loader or portal shell
+- Add portal-level routing (`/apps/:appKey/*`)
+- `Apploader` component or `useApploader` hook for embedding apps
+- Wire up portal header, context selector, or bookmark side sheet
+- Understand how portals load/initialize Fusion apps at runtime
+- Add portal-level analytics or telemetry
+- Portal deployment (`ffc portal build`, `ffc portal upload`)
 
 ## When not to use
 
-- App-level feature development inside a Fusion app → use `fusion-app-react-dev`
-- Backend service changes → separate repository
-- Fusion Help Center integration → use `fusion-help-integration`
-- Skill authoring → use `fusion-skill-authoring`
-- Issue authoring → use `fusion-issue-authoring`
+- App-level feature development → `fusion-app-react-dev`
+- Backend service changes → separate repo
+- Fusion Help Center integration → `fusion-help-integration`
+- Skill authoring → `fusion-skill-authoring`
+- Issue authoring → `fusion-issue-authoring`
 
 ## Required inputs
 
 ### Mandatory
 
-- What to build: scaffold a portal, add a portal feature, configure a module, or understand portal architecture
-- Portal context: new portal from scratch, or modifying an existing one
+- What to build: scaffold a portal, add a feature, configure a module, or understand portal architecture
+- Portal context: new from scratch or modifying existing
 
 ### Conditional
 
@@ -70,14 +70,14 @@ Guide development of Fusion portal shells — the host applications that load, r
 
 Determine what the user needs:
 
-- **Scaffold a new portal** → go to step 2
-- **Configure portal modules** → go to step 3
-- **App loading and routing** → go to step 4
-- **Portal chrome (header, context, bookmarks)** → go to step 5
-- **Analytics and telemetry** → go to step 6
-- **Build and deploy** → go to step 7
+- **Scaffold new portal** → step 2
+- **Configure portal modules** → step 3
+- **App loading and routing** → step 4
+- **Portal chrome (header, context, bookmarks)** → step 5
+- **Analytics and telemetry** → step 6
+- **Build and deploy** → step 7
 
-When Fusion MCP is available, prefer `mcp_fusion_search_framework` with queries like `"portal manifest definePortalManifest ffc portal"` or `"createFrameworkProvider PortalModuleInitiator portal configure"` to retrieve the latest API surface. Label any guidance not confirmed by MCP as fallback.
+When Fusion MCP is available, prefer `mcp_fusion_search_framework` with queries like `"portal manifest definePortalManifest ffc portal"` or `"createFrameworkProvider PortalModuleInitiator portal configure"` for latest API surface. Label guidance not confirmed by MCP as fallback.
 
 ### Step 2 — Scaffold a new portal
 
@@ -130,9 +130,9 @@ const configure = (configurator: FrameworkConfigurator) => {
 };
 ```
 
-Key difference from app configuration: the portal configures `FrameworkConfigurator` and its modules are hoisted to all child apps. MSAL/auth is configured at the portal level and inherited by apps.
+Key difference from app configuration: the portal configures `FrameworkConfigurator` and its modules are hoisted to all child apps. MSAL/auth is configured at portal level and inherited by apps.
 
-See [references/portal-architecture.md](references/portal-architecture.md) for the full module configuration pattern and the `portal-analytics` cookbook reference.
+See [references/portal-architecture.md](references/portal-architecture.md) for full module configuration and `portal-analytics` cookbook reference.
 
 ### Step 4 — App loading and routing
 
@@ -165,11 +165,11 @@ const Router = () => {
 Portal-level UI typically includes:
 
 - **Header** — top bar with Fusion logo, context selector, bookmarks, person settings
-- **Context selector** — wired to the current app's context module via `useCurrentContext` or `useContextSelector`
-- **Bookmark side sheet** — toggle via the navigation module
-- **App navigation** — sidebar or top-level nav for switching between hosted apps
+- **Context selector** — wired to app context module via `useCurrentContext` or `useContextSelector`
+- **Bookmark side sheet** — toggled via navigation module
+- **App navigation** — sidebar or top-level nav for switching apps
 
-These components are portal-specific. Apps do not build their own header — they receive it from the portal shell.
+Apps don't build their own header — they receive it from the portal shell.
 
 ### Step 6 — Analytics and telemetry
 
@@ -202,12 +202,12 @@ ffc portal upload --portal-id <id>
 ffc portal tag --portal-id <id> --tag latest --version <version>
 ```
 
-> **Never paste tokens directly into commands.** Use `az login` for interactive auth or set the `FUSION_TOKEN` environment variable for CI pipelines.
+> **Never paste tokens directly into commands.** Use `az login` for interactive auth or set `FUSION_TOKEN` env var for CI pipelines.
 
 ### Step 8 — Validate
 
 1. `ffc portal dev` starts without errors
-2. Apps load correctly at `/apps/:appKey`
+2. Apps load at `/apps/:appKey`
 3. Context selector and header render properly
 4. TypeScript compiles with no errors
 5. Analytics events fire on app load/select (if enabled)
@@ -221,18 +221,18 @@ ffc portal tag --portal-id <id> --tag latest --version <version>
 
 ## Helper agents
 
-This skill uses the same companion infrastructure as `fusion-app-react-dev`:
+Same companion infrastructure as `fusion-app-react-dev`:
 
-- **`fusion-research`** — for source-backed Fusion ecosystem research when portal behavior is uncertain
-- **`fusion-code-conventions`** — for naming, TSDoc, and code style checks
+- **`fusion-research`** — source-backed Fusion ecosystem research when portal behavior is uncertain
+- **`fusion-code-conventions`** — naming, TSDoc, and code style checks
 
 When Fusion MCP is available, prefer `mcp_fusion_search_framework` for portal-specific lookups.
 
 ## Safety & constraints
 
-- **MSAL is portal-level** — never configure auth in individual apps; it is hoisted from the portal
-- **Do not invent portal APIs** — only reference APIs confirmed by MCP or documented in references
+- **MSAL is portal-level** — never configure auth in apps; it is hoisted from the portal
+- **Don't invent portal APIs** — only reference APIs confirmed by MCP or documented in references
 - **`Apploader` is experimental** — always mention routing/context limitations when advising on app embedding
 - **No secrets in source** — MSAL client IDs must come from environment variables, not hardcoded
-- **Do not modify the production Fusion portal** — this skill covers custom portal development only
-- **Conventional commits** for all changes
+- **Don't modify the production Fusion portal** — this skill covers custom portal development only
+- Conventional commits for all changes

@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.0.2 - 2026-05-07
+
+### patch
+
+- [#170](https://github.com/equinor/fusion-skills/pull/170) [`5e43223`](https://github.com/equinor/fusion-skills/commit/5e432232917b2b1642431d80cf1698bbefe80ee8) - Apply caveman-compress prose style to SKILL.md and references.
+
+
+  - Drop articles, filler, hedging from SKILL.md activation body
+  - Compress batch-strategy, readme-template, tsdoc-checklist references
+
 ## 0.0.1 - 2026-04-22
 
 ### patch
@@ -14,4 +24,3 @@
   - Token budget guidance and batch strategy for large monorepo sweeps
 
   resolves equinor/fusion-core-tasks#702
-

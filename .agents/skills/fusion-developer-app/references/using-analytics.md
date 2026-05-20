@@ -1,10 +1,10 @@
 # Using Analytics
 
-How to instrument Fusion app and portal experiences with Fusion Framework analytics.
+Instrumenting Fusion apps with Fusion Framework analytics.
 
 ## What the framework provides
 
-Fusion Framework analytics gives apps a common tracking API while letting the platform handle collection. The portal already includes analytics support, so most app work starts with the hook, not a custom telemetry client.
+Common tracking API; platform handles collection. Portal already includes analytics support — most app work starts with the hook.
 
 ## Basic tracking
 
@@ -53,9 +53,9 @@ trackFeature('dashboard-filter-applied', {
 });
 ```
 
-Use small, intentional metadata. Avoid secrets, access tokens, or personal data that does not belong in analytics events.
+Use small, intentional metadata. Never include secrets, tokens, or personal data.
 
-Keep event names consistent. A simple default is lower-case `kebab-case`, for example `dashboard-page-loaded`, `dashboard-filter-opened`, and `dashboard-filter-applied`.
+Consistent event names: `kebab-case` (e.g. `dashboard-page-loaded`, `dashboard-filter-opened`, `dashboard-filter-applied`).
 
 ## When to instrument
 
@@ -76,7 +76,7 @@ To inspect analytics locally:
 
 ## Advanced configuration
 
-Most app work can rely on the portal's existing analytics setup. If you need custom collectors or adapters, configure them in app configuration and validate the current analytics module docs first.
+Most apps rely on portal's existing analytics setup. Custom collectors/adapters: configure in app config and check analytics module docs.
 
 ## Review guidance
 

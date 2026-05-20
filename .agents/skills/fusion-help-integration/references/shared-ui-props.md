@@ -1,6 +1,6 @@
 # Shared UI Props Reference
 
-Documents the `@fra/ui` component interfaces relevant to Fusion Help integration. These components are already implemented — **do not modify them**. This reference helps understand the prop contract.
+Reference for `@fra/ui` component interfaces relevant to Fusion Help integration. Components are already implemented — **do not modify them**.
 
 ## PageHeaderProps
 
@@ -33,10 +33,10 @@ export interface PageHeaderProps {
 
 ### Behavior
 
-- `PageLayout` extends `PageHeaderProps` and passes these props through to `PageHeader`
-- `PageHeader` conditionally renders `FusionHelpButton` only when `openHelpArticle` is truthy
-- `PageHeader` conditionally renders `WhatsNewButton` only when `openReleaseNotes` is truthy and the header is not collapsed
-- The help button is wrapped in a feature announcement anchor (`fusion-help`) for the `@fra/announcements` system
+- `PageLayout` extends `PageHeaderProps`, passes props to `PageHeader`
+- `FusionHelpButton` renders only when `openHelpArticle` truthy
+- `WhatsNewButton` renders when `openReleaseNotes` truthy and header not collapsed
+- Help button wrapped in `fusion-help` anchor for `@fra/announcements`
 
 ## FusionHelpButtonProps
 
@@ -60,10 +60,10 @@ export interface FusionHelpButtonProps {
 
 ### Visual
 
-- Renders as a ghost icon button with the `info_circle` icon from `@equinor/eds-icons`
+- Ghost icon button with `info_circle` from `@equinor/eds-icons`
 - Icon color: `theme.colors.interactive.primary__resting` (Equinor blue)
-- Wrapped in an `EdsProvider` to apply density
-- Wrapped in a `Tooltip` from `@equinor/eds-core-react`
+- Wrapped in `EdsProvider` for density
+- Wrapped in `Tooltip` from `@equinor/eds-core-react`
 
 ## useHelpCenter Hook
 
@@ -82,7 +82,7 @@ const { openArticle, openReleaseNotes } = useHelpCenter();
 
 ### Important notes
 
-- The hook must be called inside a component that is a descendant of the Fusion Framework app shell (`makeComponent` / `renderApp`)
+- Must be called inside a component descended from the Fusion Framework app shell (`makeComponent` / `renderApp`)
 - `openArticle` requires a slug argument — always wrap it: `() => openArticle(slug)`
-- If the slug doesn't match a published article, the sidesheet opens but shows no content (silent failure)
-- The hook is available in all apps that depend on `@equinor/fusion-framework-react-app` (all apps in this monorepo)
+- If slug doesn't match a published article, sidesheet opens but shows no content (silent failure)
+- Available in all apps that depend on `@equinor/fusion-framework-react-app`

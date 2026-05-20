@@ -4,7 +4,7 @@ description: 'Systematically improves TSDoc and README documentation across pack
 license: MIT
 compatibility: Requires file-system access and git CLI for commit operations. Works best in runtimes that support skill-local agents for parallel orchestration and review council. Falls back to inline sequential processing in single-agent runtimes. Benefits from fusion-code-conventions for convention-aware TSDoc quality.
 metadata:
-  version: "0.0.1"
+  version: "0.0.2"
   status: experimental
   owner: "@equinor/fusion-core"
   role: orchestrator
@@ -31,7 +31,7 @@ This skill is experimental and not yet stable. Behavior, structure, and outputs 
 
 ## When to use
 
-Use this skill when you need to systematically add or improve documentation across TypeScript packages — whether a full monorepo sweep or a single package.
+Use when you need to systematically add or improve documentation across TypeScript packages — whether a full monorepo sweep or a single package.
 
 Typical triggers:
 - "document all packages"
@@ -48,7 +48,6 @@ Implicit triggers:
 
 ## When not to use
 
-Do not use this skill for:
 - Modifying runtime code (only doc comments and README files)
 - Generating API reference sites or TypeDoc output
 - Non-TypeScript languages (initial scope is TS/TSX only)

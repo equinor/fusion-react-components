@@ -1,8 +1,8 @@
 # Using the Fusion Router
 
-How to add client-side routing to a Fusion Framework app with `@equinor/fusion-framework-react-router`.
+Client-side routing in Fusion Framework apps with `@equinor/fusion-framework-react-router`.
 
-The Fusion Router wraps React Router v7 and adds framework integration: navigation module wiring, typed `fusion` context in loaders and components, a route DSL for code splitting, and manifest-ready route schemas.
+Wraps React Router v7: navigation module wiring, typed `fusion` context in loaders, route DSL for code splitting, manifest-ready schemas.
 
 ## Prerequisites
 
@@ -26,7 +26,7 @@ export const configure: AppModuleInitiator = (configurator, { env }) => {
 
 ## Route DSL
 
-Define routes using the helper functions from the `/routes` entry point. Each file reference is lazy-loaded automatically.
+Define routes via `/routes` helpers. Files lazy-loaded.
 
 ```typescript
 // src/routes.ts
@@ -58,7 +58,7 @@ export const routes = layout('./pages/Root.tsx', [
 
 ### Vite plugin
 
-Enable the Vite plugin so DSL calls are statically transformed into React Router `RouteObject` code at build time:
+Enable Vite plugin for static DSL-to-RouteObject transform at build time:
 
 ```typescript
 // vite.config.ts
@@ -92,7 +92,7 @@ The `<Router>` component accepts:
 
 ## Page components
 
-Each page file exports a default component. It receives `RouteComponentProps` with `loaderData` and `fusion`:
+Each page: default component export with `RouteComponentProps` (`loaderData`, `fusion`):
 
 ```typescript
 // src/pages/ItemPage.tsx
@@ -113,7 +113,7 @@ export default function ItemPage({ loaderData }: RouteComponentProps) {
 
 ## Client loaders
 
-Export a `clientLoader` to fetch data before the component renders. The loader receives `params`, `request`, and `fusion` (framework modules + custom context):
+Export `clientLoader` to fetch before component renders. Receives `params`, `request`, `fusion` (framework modules + custom context):
 
 ```typescript
 import type { LoaderFunctionArgs } from '@equinor/fusion-framework-react-router';
@@ -131,11 +131,11 @@ export const clientLoader = async ({ params, fusion }: LoaderFunctionArgs) => {
 };
 ```
 
-The returned data is automatically passed to the component as `loaderData`.
+Returns data as `loaderData`.
 
 ## Error handling
 
-Export an `ErrorElement` from any page file to catch errors in that route's loader or component:
+Export `ErrorElement` from any page file to catch loader/component errors:
 
 ```typescript
 import type { ErrorElementProps } from '@equinor/fusion-framework-react-router';
@@ -156,11 +156,11 @@ export function ErrorElement({ error }: ErrorElementProps) {
 }
 ```
 
-If no `ErrorElement` is exported, the error bubbles up to the parent route's error boundary.
+Without `ErrorElement`: bubbles to parent error boundary.
 
 ## Navigation
 
-Fusion Router re-exports React Router's navigation primitives:
+Router re-exports React Router navigation primitives:
 
 ```typescript
 import { Link, useNavigate, useParams, useSearchParams, useLocation } from '@equinor/fusion-framework-react-router';
@@ -185,7 +185,7 @@ navigate(0);                 // reload current route
 
 ## Layout routes
 
-A layout route wraps children with shared UI (nav bar, sidebar). The component must render `<Outlet />`:
+Layout route wraps children with shared UI. Component must render `<Outlet />`:
 
 ```typescript
 // src/pages/Root.tsx

@@ -1,6 +1,6 @@
 # README Template
 
-Default structure for package READMEs when the target repository does not provide its own template. Adapt section order and depth to the package's complexity — small utility packages may omit Configuration; large packages may split API Reference into sub-sections.
+Default package README structure when no repository template exists. Adapt depth to complexity — small utility packages may omit Configuration; large packages may split API Reference into sub-sections.
 
 ## Template
 
@@ -104,8 +104,8 @@ Subscribe to real-time data changes across Fusion modules with automatic cleanup
 
 ### Retrieval optimization
 
-The README should surface for natural-language queries about the package's domain:
+README should surface for natural-language queries about the package's domain:
 - Use domain keywords in **headings** (not just "Overview" or "API")
 - Front-load important terms in the **first sentence** of each section
 - Include the package's **common aliases** or related terms in the description
-- Avoid jargon-only descriptions — pair technical terms with plain-language explanations
+- Pair technical terms with plain-language explanations

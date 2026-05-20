@@ -1,10 +1,10 @@
 # Wiring Pattern Reference
 
-Canonical code patterns extracted from the three apps that have integrated Fusion Help.
+Code patterns from apps that have integrated Fusion Help.
 
 ## Constants File
 
-Each app defines a `FUSION_HELP_ARTICLES` object mapping page concepts to slug strings.
+Each app defines a `FUSION_HELP_ARTICLES` object mapping page concepts to slugs.
 
 ### Prefixed convention (recommended for new apps)
 

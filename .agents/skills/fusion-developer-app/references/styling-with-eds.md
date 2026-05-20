@@ -1,6 +1,6 @@
 # Styling with EDS
 
-How to use the Equinor Design System (EDS) components and design tokens in a Fusion Framework app.
+Using EDS components and design tokens in Fusion Framework apps.
 
 ## Packages
 
@@ -39,7 +39,7 @@ Frequently used components from `@equinor/eds-core-react`:
 | `Switch`      | On/off toggle                       |
 | `EdsProvider` | Density switching (compact/comfortable) |
 
-Always check `@equinor/eds-core-react` before building custom UI elements.
+Check `@equinor/eds-core-react` before building custom UI elements.
 
 ## Design tokens
 
@@ -47,7 +47,7 @@ Use EDS tokens for all visual values — never hardcode colors, spacing, or typo
 
 ### CSS custom properties (preferred)
 
-Available when the EDS theme is active (Fusion Portal provides this):
+When EDS theme is active (Fusion Portal provides this):
 
 ```css
 background: var(--eds-color-bg-neutral-surface);
@@ -91,7 +91,7 @@ Import names use `snake_case`. Browse available icons at [eds.equinor.com](https
 
 ## Density
 
-Switch between comfortable and compact density:
+Toggle density:
 
 ```typescript
 import { EdsProvider } from '@equinor/eds-core-react';

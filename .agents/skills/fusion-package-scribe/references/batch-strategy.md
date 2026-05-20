@@ -1,10 +1,10 @@
 # Batch Strategy
 
-Guidance for orchestrating documentation passes across multiple packages. Covers token budget estimation, batch sizing, context isolation, and failure handling.
+Orchestrating documentation passes across multiple packages: token budget estimation, batch sizing, context isolation, and failure handling.
 
 ## Token budget estimation
 
-Estimate the token cost for each package before processing:
+Estimate token cost per package:
 
 | Component | Estimate | Notes |
 |---|---|---|
@@ -37,7 +37,7 @@ Process batches in this order:
 
 ## Context isolation
 
-Each package must be processed with a clean working context:
+Each package: clean working context.
 
 ### Carry across packages (shared context)
 - Repository-level standards (discovered once in Step 1)
@@ -53,11 +53,11 @@ Each package must be processed with a clean working context:
 ### Why isolation matters
 - Prevents "pattern bleed" where TSDoc from a utility package leaks into a domain package
 - Each package's documentation should stand alone
-- Reduces the risk of hallucinated cross-references between unrelated packages
+- Reduces risk of hallucinated cross-references between unrelated packages
 
 ## Oversized package handling
 
-When a single package exceeds 60% of the estimated context window:
+When single package exceeds 60% of estimated context window:
 
 1. **Split by API surface priority:**
    - Pass 1: Barrel exports and direct re-exports

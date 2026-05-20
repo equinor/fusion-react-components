@@ -101,7 +101,7 @@ configurator.useFrameworkServiceClient('people');
 
 ## Consuming HTTP clients
 
-In React components and hooks, **always prefer `@equinor/fusion-framework-react-app/*` hooks** over direct module access. Reserve `useAppModule` and `framework.modules.*` for non-React contexts (route loaders, standalone scripts).
+In React components and hooks, prefer `@equinor/fusion-framework-react-app/*` hooks over direct module access. Reserve `useAppModule` and `framework.modules.*` for non-React contexts (route loaders, scripts).
 
 ### Preferred: `useHttpClient` hook
 

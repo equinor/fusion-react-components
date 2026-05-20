@@ -1,12 +1,12 @@
 # Using Context
 
-How to enable, configure, and consume the Fusion context module in a Fusion Framework app.
+Enabling, configuring, and consuming the Fusion context module.
 
-Context represents the entity the user is currently working with — a project, facility, contract, or other domain object selected in the Fusion Portal.
+Context: the entity the user is working with — a project, facility, contract, or other domain object selected in Fusion Portal.
 
 ## Enable context in `config.ts`
 
-Context is not enabled by default. Register it with `enableContext`:
+Not enabled by default. Register with `enableContext`:
 
 ```typescript
 import type { AppModuleInitiator } from '@equinor/fusion-framework-react-app';
@@ -37,11 +37,11 @@ The `builder` callback exposes several configuration methods:
 | `setContextPathGenerator(fn)` | Generate URL path from context item |
 | `setResolveInitialContext(fn)` | Override initial context resolution on app load |
 
-Minimal setup only needs `setContextType`. Add other methods as requirements grow.
+Minimal setup only needs `setContextType`. Add other methods as needed.
 
 ## Read the current context
 
-Use the `useCurrentContext` hook from the app sub-path import:
+Use `useCurrentContext` hook:
 
 ```typescript
 import { useCurrentContext } from '@equinor/fusion-framework-react-app/context';
@@ -54,11 +54,11 @@ const MyComponent = () => {
 };
 ```
 
-`context` is `undefined` when no context is selected. It updates automatically when the user picks a different project/facility in the portal.
+`context` is `undefined` when no context is selected. Updates automatically on portal context change.
 
 ## Use context in data fetching
 
-A common pattern: pass the context ID to API queries so data refreshes on context change.
+Common: pass context ID to API queries so data refreshes on context change.
 
 ### With React Query
 

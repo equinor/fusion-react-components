@@ -38,11 +38,11 @@ export default defineDevServerConfig(() => ({
 }));
 ```
 
-App code uses `fetch('/api/items')` or `useHttpClient(name)` — the dev server intercepts matching routes before anything hits the network.
+App code uses `fetch('/api/items')` or `useHttpClient(name)` — dev server intercepts matching routes before network calls.
 
 ## Proxy to a local backend (simple)
 
-When running a local API (e.g. Docker Compose), add a proxy route that forwards requests to the upstream:
+For a local API (e.g. Docker Compose), add a proxy route:
 
 ```typescript
 // dev-server.config.ts

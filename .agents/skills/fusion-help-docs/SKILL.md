@@ -3,7 +3,7 @@ name: fusion-help-docs
 description: 'Guides app teams through authoring, structuring, and publishing help documentation (articles, release notes, FAQs) using the fusion-help-cli. USE FOR: write help articles, create release notes, set up help docs, publish documentation, sync articles, configure help config file, maintain app help content. DO NOT USE FOR: building the CLI itself, modifying Fusion.Services.Help internals, or non-documentation tasks.'
 license: MIT
 metadata:
-  version: "0.0.1"
+  version: "0.0.2"
   status: active
   owner: "@equinor/fusion-core"
   tags:
@@ -16,28 +16,28 @@ metadata:
 
 # Fusion Help Documentation
 
-Use this skill to help app teams author, structure, and publish help documentation (articles, release notes, FAQs) to the Fusion Help system using the `fhelp` CLI.
+Author, structure, and publish help docs (articles, release notes, FAQs) via `fhelp` CLI.
 
 ## When to use
 
-- User wants to write a help article for their Fusion app
-- User wants to create or update release notes
-- User wants to set up the docs folder structure and config file for their app
-- User needs help structuring markdown content for the help system
-- User wants to publish/sync documentation to a Fusion environment
-- User asks about FAQs or how to add FAQ entries
-- User wants to set up a CI/CD pipeline to auto-publish help docs
+- Write help article for Fusion app
+- Create/update release notes
+- Set up docs folder structure + config
+- Structure markdown for help system
+- Publish/sync docs to Fusion environment
+- Add FAQ entries
+- Set up CI/CD pipeline to auto-publish
 
 ## When not to use
 
-- Modifying the `fusion-help-cli` source code itself (that lives in `tooling/fusion-help-cli/`)
-- Changing the Fusion.Services.Help backend API
+- Modifying `fusion-help-cli` source (`tooling/fusion-help-cli/`)
+- Changing Fusion.Services.Help backend API
 - General markdown editing unrelated to Fusion Help
 - Non-documentation tasks
 
 ## Required inputs
 
-Before creating documentation, collect:
+Collect before creating:
 
 | Input | Required | Description |
 |-------|----------|-------------|
@@ -46,17 +46,17 @@ Before creating documentation, collect:
 | **Docs root path** | Yes | Where the team stores their docs (e.g. `docs/help/`) |
 | **Target environment** | For publish | `ci`, `fqa`, `tr`, or `fprd` |
 
-If the user doesn't know their app key, point them to:
-- **CI**: `https://fusion.ci.fusion-dev.net/apps/app-admin` 
+Unknown app key → check app admin:
+- **CI**: `https://fusion.ci.fusion-dev.net/apps/app-admin`
 - **Production**: `https://fusion.equinor.com/apps/app-admin`
 
-Open the app and look for the "Admins" section — you must be listed as admin to publish articles.
+Look in "Admins" section — must be listed as admin to publish.
 
 ## Instructions
 
 ### 1. Set up docs folder structure
 
-Create the standard directory layout in the team's repository:
+Create folder layout:
 
 ```
 docs/
@@ -70,11 +70,11 @@ docs/
     help-release-notes.json      # Release notes config (if using release notes)
 ```
 
-> The actual folder names and config file names are flexible — they just need to match what you pass to `fhelp`. The above is a recommended convention.
+> Folder and config names are flexible — must match what you pass to `fhelp`.
 
 ### 2. Create the article config file
 
-The config file tells the CLI which articles to sync and their metadata. Create `help-articles.json`:
+Create `help-articles.json` (tells CLI which articles to sync):
 
 ```jsonc
 {
@@ -110,14 +110,13 @@ Create markdown files in the articles root folder. The filename (without `.md`) 
 
 **Article writing guidelines:**
 
-- Write in clear, concise language aimed at end-users of the Fusion app
-- Use headings (`##`, `###`) to structure content — avoid `#` as the title comes from config
-- Use images to illustrate UI workflows — place them in the `images/` subfolder
-- Image references in markdown use standard syntax: `![Alt text](images/my-screenshot.png)`
-- The CLI automatically uploads images and rewrites paths to the Fusion CDN
-- **Images must be PNG format** — this is a current CLI limitation
-- Keep articles focused on a single topic or workflow
-- Link to related articles by mentioning their title (deep linking is handled by the platform)
+- Write for end-users of the Fusion app
+- Use `##`, `###` for structure — avoid `#` (title comes from config)
+- Place images in `images/`; reference with `![Alt text](images/my-screenshot.png)`
+- CLI auto-uploads images + rewrites paths to CDN
+- **Images must be PNG** (CLI limitation)
+- One topic per article
+- Link related articles by title (platform handles deep linking)
 
 **Example article** (`docs/help/articles/my-app-getting-started.md`):
 
@@ -149,7 +148,7 @@ Contact the team on Teams or check the FAQ section.
 
 ### 4. Create the release notes config file (optional)
 
-If the team publishes release notes, create `help-release-notes.json`:
+Create `help-release-notes.json` if team publishes release notes:
 
 ```jsonc
 {
@@ -220,7 +219,7 @@ dotnet tool install --global --add-source "https://statoil-proview.pkgs.visualst
 az login
 ```
 
-The CLI uses `DefaultAzureCredentials` — it will pick up your `az login` session automatically.
+CLI uses `DefaultAzureCredentials` — picks up `az login` session automatically.
 
 ### 6. Publish documentation
 
@@ -249,11 +248,11 @@ fhelp releasenotes sync -f docs/help/help-release-notes.json -r docs/help/releas
 
 **Environment promotion order:** `ci` → `fqa` → `fprd` (skip `tr` unless testing infrastructure).
 
-Always test in `ci` first before promoting to `fqa` and then `fprd`.
+Test in `ci` before promoting to `fqa` then `fprd`.
 
 ### 7. Set up CI/CD pipeline (recommended)
 
-Automate documentation publishing in your Azure DevOps pipeline or GitHub Actions workflow.
+Automate publishing via Azure DevOps or GitHub Actions.
 
 **Azure DevOps pipeline example:**
 
@@ -354,13 +353,11 @@ For most teams, managing FAQs through the Fusion Help Admin UI at `https://fusio
 
 ## Expected output
 
-When this skill completes, the user should have:
-
-- A `docs/help/` folder structure with articles root, images folder, and config file(s)
-- One or more markdown article files with proper content
-- A valid `help-articles.json` (and optionally `help-release-notes.json`)
-- Knowledge of how to install, authenticate, and run `fhelp` to publish
-- Optionally, a CI/CD pipeline snippet for automated publishing
+- `docs/help/` folder with articles, images, and config
+- Markdown article file(s) with proper content
+- Valid `help-articles.json` (+ optional `help-release-notes.json`)
+- How to install, auth, and run `fhelp`
+- CI/CD pipeline snippet (optional)
 
 ## Troubleshooting
 
@@ -374,8 +371,8 @@ When this skill completes, the user should have:
 
 ## Safety & constraints
 
-- **Never use `--no-validation` without understanding the consequences** — it can overwrite content that was manually created through the Fusion Help Admin UI
-- Always test in `ci` before publishing to `fprd` (production)
-- The `sourceSystem` is automatically set to `Fusion.Help.Cli` — articles created by the CLI and articles created via the UI have different source systems and won't conflict unless `--no-validation` is used
-- Slugs must be globally unique across all apps — use an app-specific prefix (e.g. `my-app-getting-started`)
-- Do not commit access tokens to source control — rely on `az login` or pipeline service principals
+- **Never use `--no-validation` without understanding** — can overwrite UI-created content
+- Test in `ci` before publishing to `fprd`
+- `sourceSystem` auto-set to `Fusion.Help.Cli`; CLI and UI articles have different source systems and won't conflict unless `--no-validation` is used
+- Slugs must be globally unique — use app-specific prefix (e.g. `my-app-getting-started`)
+- Never commit access tokens — use `az login` or pipeline service principals

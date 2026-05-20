@@ -1,6 +1,6 @@
 # Using AG Charts
 
-How to render standalone charts in a Fusion Framework app using `@equinor/fusion-framework-react-ag-charts`.
+Rendering standalone charts with `@equinor/fusion-framework-react-ag-charts`.
 
 ## Quick start
 
@@ -13,7 +13,7 @@ bun add @equinor/fusion-framework-react-ag-charts
 
 ### Register modules
 
-Register chart modules **once** at application startup, before rendering any chart:
+Register chart modules **once** before rendering any chart:
 
 ```ts
 import {
@@ -24,7 +24,7 @@ import {
 ModuleRegistry.registerModules([AllCommunityModule]);
 ```
 
-Place this in the application entry point or a top-level initializer. Charts fail silently without module registration.
+Place in app entry point or top-level initializer. Charts fail silently without module registration.
 
 ### Render a chart
 
@@ -58,7 +58,7 @@ const SalesChart = () => {
 | `@equinor/fusion-framework-react-ag-charts/community` | `AllCommunityModule`, `ModuleRegistry`, `AgChartOptions`, `AgChartTheme` | `ag-charts-community` |
 | `@equinor/fusion-framework-react-ag-charts/enterprise` | `AgChartsEnterpriseModule` and enterprise-only chart types | `ag-charts-enterprise` |
 
-Always import from the Fusion wrapper, not directly from `ag-charts-*` packages. The wrapper ensures all Fusion apps share a single centrally managed version.
+Always import from the Fusion wrapper, not from `ag-charts-*` directly — wrapper ensures a single centrally managed version.
 
 ## Multi-series chart
 
@@ -105,7 +105,7 @@ series: [
 
 ## Enterprise chart types
 
-Enterprise features require a valid AG Charts license. Import from the `/enterprise` sub-path:
+Requires a valid AG Charts license. Import from `/enterprise`:
 
 ```ts
 import { AgChartsEnterpriseModule } from '@equinor/fusion-framework-react-ag-charts/enterprise';
@@ -115,7 +115,7 @@ Enterprise-only types include: waterfall, heatmap, sunburst, treemap, stock char
 
 ## Reactive chart updates
 
-Use `useState` for chart options that change in response to user interaction or data updates:
+Use `useState` for chart options that change with user interaction or data updates:
 
 ```tsx
 const [chartOptions, setChartOptions] = useState<AgChartOptions>({

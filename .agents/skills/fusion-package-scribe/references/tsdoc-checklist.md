@@ -1,6 +1,6 @@
 # TSDoc Checklist
 
-Built-in defaults for TSDoc quality when the target repository does not provide its own documentation standards. Repository-level standards (for example `fusion-code-conventions`) take precedence when available.
+Default TSDoc quality rules when no repository-level standards exist. Repository standards (e.g. `fusion-code-conventions`) take precedence.
 
 ## Required tags by export kind
 
@@ -15,12 +15,12 @@ Built-in defaults for TSDoc quality when the target repository does not provide 
 
 ## Summary line rules
 
-The summary line is the most important part of any TSDoc comment. It must:
+Most important part of TSDoc comment:
 
-1. **Explain purpose** — why does this export exist? What problem does it solve?
-2. **Be specific** — "Formats a time range for display in booking calendars" is better than "Formats time"
-3. **Avoid name-echo** — never restate the function/type name as the summary
-4. **Lead with the outcome** — what does the caller get or what effect does it have?
+1. **Purpose** — why does this exist? What problem does it solve?
+2. **Be specific** — "Formats a time range for booking calendars" > "Formats time"
+3. **No name-echo** — never restate the export name
+4. **Lead with outcome** — what does caller get or what effect occurs?
 
 ### Examples
 
@@ -85,7 +85,7 @@ export function useSubscription(...)
 
 ## `@throws` rules
 
-- Document error paths that callers should handle
+- Document error paths callers should handle
 - Include the error type when known
 - Skip for impossible or framework-internal errors
 
@@ -98,8 +98,8 @@ export function useSubscription(...)
 
 - Required for all user-facing and non-trivial APIs
 - Use realistic variable names and scenarios
-- Show the import if the usage context is not obvious
-- Keep examples minimal but complete — a reader should be able to copy-paste and run
+- Show the import if usage context is not obvious
+- Minimal but complete — copy-paste and run
 
 ```typescript
 /**

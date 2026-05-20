@@ -2,15 +2,15 @@
 
 ## Request Authentication
 
-Most Fusion services require an Azure AD access token in the Authorization header (see [API Key Authentication](#api-key-authentication-special-cases) for exceptions):
+Most Fusion services require a Bearer token. See [API Key Authentication](#api-key-authentication-special-cases) for exceptions:
 
 ```
 Authorization: Bearer {jwt_token}
 ```
 
-The token is obtained from Azure AD using the Fusion app registration:
-- **Client ID**: `{app-client-id}` (obtain from your Fusion app registration)
-- **Authority**: `https://login.microsoftonline.com/{tenant-id}/` (replace `{tenant-id}` with your Azure AD tenant ID, or use `common` / `organizations` if appropriate)
+Token from Azure AD using the Fusion app registration:
+- **Client ID**: `{app-client-id}` (from your Fusion app registration)
+- **Authority**: `https://login.microsoftonline.com/{tenant-id}/`
 - **Delegated scope format**: `api://{resource-app-id}/{scope-name}`
 - **Client credentials scope format**: `api://{resource-app-id}/.default`
 
@@ -24,7 +24,7 @@ The token is obtained from Azure AD using the Fusion app registration:
 | Org | `api://{resource-app-id}/user_impersonation` |
 | Context | `api://{resource-app-id}/user_impersonation` |
 
-> Delegated scope names are defined by each service's Azure AD app registration. `user_impersonation` is a common pattern, but you must verify the actual delegated scope exposed by the target service before requesting a token.
+> Delegated scope names defined per service's Azure AD app registration. `user_impersonation` is common — verify actual scope in target service.
 **Application scope** (client credentials / app-only access):
 
 | Flow | Scope |
@@ -51,9 +51,9 @@ public class MustBeContextManagerRequirement : IAuthorizationRequirement
 // 2. Resource ownership (context manager, project lead, etc.)
 ```
 
-**What this means for consumers**:
-- Your Azure AD identity must include the required role/claim
-- Or you must be explicitly listed as responsible (context manager, position holder)
+**Consumers**:
+- Azure AD identity must include the required role/claim
+- Or must be explicitly listed as responsible (context manager, position holder, etc.)
 - If denied: `403 Forbidden`
 
 ### Common Requirements
@@ -87,8 +87,7 @@ Fusion services assign roles per user per resource. Example: roles in a context:
 - **Contributor**: Can edit owned resources; read access to context
 - **Viewer**: Read-only access to context and positions
 
-Check your token's delegated `scp` claim or app roles to confirm coarse service/application permissions.
-For per-context Fusion roles such as `ContextManager`, `Approver`, or `Contributor`, use the relevant Fusion endpoint(s) or resource responses, because those roles are determined within Fusion and are not Azure AD token claims.
+Check token `scp` claim or app roles for coarse permissions. Per-context roles (`ContextManager`, `Approver`, `Contributor`): use Fusion endpoints — not Azure AD token claims.
 
 ---
 
@@ -114,7 +113,7 @@ For per-context Fusion roles such as `ContextManager`, `Approver`, or `Contribut
 
 ### 403 Forbidden with authorization detail
 
-**Cause**: Request is authenticated, but the caller does not satisfy an authorization requirement
+**Cause**: Caller doesn't satisfy authorization requirement
 
 **Response example** (ProblemDetails with Fusion `error` extension):
 ```json
@@ -135,28 +134,28 @@ For per-context Fusion roles such as `ContextManager`, `Approver`, or `Contribut
 }
 ```
 
-**Fix**: Escalate to someone with the required role, or ask your manager to add your responsibility
+**Fix**: Escalate to someone with required role
 
 ---
 
 ## Service-to-Service Authentication
 
-When one Fusion service calls another (internal only):
+Internal service-to-service:
 
-1. Service acquires a token for the **service principal** (not user)
-2. Token is requested with service's own scope
-3. Called service validates the caller's service identity
+1. Service acquires token for its **service principal** (not user)
+2. Token requested with service's own scope
+3. Called service validates caller's service identity
 
-**This is internal only** — as a client, you don't implement this directly. But you should know:
-- Fusion services can communicate securely
+As client, don't implement directly. Know:
+- Fusion services communicate securely
 - Cross-service calls are authenticated and authorized
-- If a service can't reach another, it's usually a service principal permission issue (not your problem as a consumer)
+- If a service can't reach another, it's usually a service principal permission issue
 
 ---
 
 ## API Key Authentication (Special Cases)
 
-Some non-user integrations accept API keys instead of Azure AD tokens:
+Non-user integrations may use API keys instead of Azure AD tokens:
 
 ```
 Authorization: ApiKey {api-key}
@@ -170,14 +169,14 @@ Authorization: ApiKey {api-key}
 
 ## Checking Your Permissions
 
-Before calling an endpoint, understand what you can do:
+Before calling an endpoint:
 
-1. **Get your token**: Request from Azure AD with the appropriate scope:
-   - **Delegated** (user flow): `api://{resource-app-id}/user_impersonation` (or the specific delegated scope exposed by the service)
+1. **Get token**: Azure AD with appropriate scope:
+   - **Delegated** (user flow): `api://{resource-app-id}/user_impersonation`
    - **App-only** (client credentials): `api://{resource-app-id}/.default`
-2. **Decode the token**: Use jwt.ms or similar to see your roles/claims
-3. **Check the endpoint docs**: Look for "Required role" or "Requirement" field
-4. **Verify you have that role**: If not, ask your manager or context manager to assign it
+2. **Decode the token**: Use jwt.ms to see your roles/claims
+3. **Check the endpoint docs**: Look for "Required role" or "Requirement"
+4. **Verify you have that role**: If not, ask manager or context manager to assign it
 
 ### Example Token Claims
 
@@ -202,6 +201,6 @@ Before calling an endpoint, understand what you can do:
 }
 ```
 
-> **Key difference:** Delegated tokens carry `scp` (delegated permissions); app-only tokens carry `roles` (application permissions). A single token will not contain both.
+> **Key difference:** Delegated tokens carry `scp` (delegated permissions); app-only tokens carry `roles` (application permissions). Never both in one token.
 
 Per-context roles (e.g. ContextManager, Approver) are Fusion-level concepts returned in API responses, not Azure AD token claims.

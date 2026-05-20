@@ -6,7 +6,7 @@ Fusion services use **CQRS** (Command Query Responsibility Segregation) via Medi
 
 ### Commands (Write Operations)
 
-A command represents an intent to change state:
+Commands express intent to change state:
 
 ```csharp
 // Example command
@@ -29,7 +29,7 @@ public class CreatePositionCommand : IRequest<PositionDto>
 
 ### Queries (Read Operations)
 
-A query represents a request for data:
+Queries request data:
 
 ```csharp
 // Example query
@@ -192,7 +192,7 @@ public class ListContextsQuery : IRequest<List<ContextDto>>
 
 ### Fluent Builder Pattern
 
-Some queries support fluent building (illustrative pseudo-code — actual query classes vary by service):
+Illustrative fluent builder (actual query classes vary by service):
 
 ```csharp
 // Fluent builder query example:
@@ -204,7 +204,7 @@ GetContextQuery query = new GetContextQuery { ContextId = contextId }
 ContextDto context = await mediator.Send(query);
 ```
 
-**What this enables**: Load only the data you need (optimization)
+**What this enables**: Load only needed data
 
 ---
 

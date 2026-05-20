@@ -2,7 +2,7 @@
 
 ## Validation Pattern
 
-Fusion services validate all input before processing. Validation happens in layers:
+All input validated before processing. Layers:
 
 ### 1. Request-Level Validation (HTTP)
 
@@ -50,7 +50,7 @@ StartDate must be before EndDate
 
 ### 3. Business Logic Validation
 
-After model validation passes, business rules are checked:
+After model validation, business rules are checked:
 
 ```text
 // Example business rules:
@@ -79,7 +79,7 @@ Cannot modify archived context
 
 ## Error Response Format
 
-Fusion services built on the shared infrastructure libraries return errors as RFC 7807 `ProblemDetails` with Fusion-specific extensions. The envelope is consistent across services that use this pattern; what varies is the `error` extension content. Error envelopes may differ in services that predate this convention or use custom middleware.
+Services return RFC 7807 `ProblemDetails` with Fusion extensions. Envelope consistent across services using this pattern; `error` content varies. Pre-convention/custom-middleware services may differ.
 
 ### Validation errors (400)
 
@@ -107,11 +107,11 @@ FluentValidation failures produce a `ProblemDetails` with both a legacy `error` 
 }
 ```
 
-> **Note:** The top-level `errors` dictionary (field name → message array) matches the standard ASP.NET Core validation format. The nested `error.errors` array is a legacy format with additional context like `attemptedValue`. Consumers should prefer the top-level `errors` dictionary.
+> Top-level `errors` (field → message[]) matches ASP.NET Core format. `error.errors` is legacy with extra context (`attemptedValue`). Prefer top-level `errors`.
 
 ### Domain and operational errors (404, 409, 424, etc.)
 
-Domain-specific errors use the same `ProblemDetails` envelope with an `error` extension:
+Domain errors use same envelope with `error` extension:
 
 ```json
 {
@@ -129,7 +129,7 @@ Domain-specific errors use the same `ProblemDetails` envelope with an `error` ex
 }
 ```
 
-Controllers typically produce these via `FusionApiError` static factory methods. The following are common patterns observed in fusion-libraries (`Fusion.AspNetCore` namespace) and fusion-core-services controllers:
+Controllers: `FusionApiError` factory methods (common patterns from `Fusion.AspNetCore`):
 - `FusionApiError.NotFound(resource, message)` → 404
 - `FusionApiError.InvalidOperation(code, message)` → 400
 - `FusionApiError.ResourceExists(resource, message, exception)` → 409
@@ -137,17 +137,17 @@ Controllers typically produce these via `FusionApiError` static factory methods.
 - `FusionApiError.FailedDependency(code, message)` → 424
 - `FusionApiError.IncorrectETag(message)` → 409
 
-> **Note:** Exact method signatures may vary across service versions. Verify available factory methods in the target service's source or via MCP `mcp_fusion_search_backend_code`.
+> Signatures vary by service version. Verify via source or `mcp_fusion_search_backend_code`.
 
 ### Unhandled exceptions (500, middleware-caught)
 
-Services commonly use an exception middleware (e.g. `ApiExceptionMiddleware`) that catches unhandled exceptions and maps known types to HTTP status codes. Typical mappings include:
+Common exception middleware (e.g. `ApiExceptionMiddleware`) maps exception types to HTTP status. Typical:
 - `NotFoundError` → 404
 - `NotAuthorizedError` → 403 (may include `accessRequirements` in the error)
 - `ResourceExistsError` → 409
 - `ReadOnlyModeError` → 500 with read-only context
 
-> These exception types and mappings are illustrative of the pattern used in fusion-libraries and fusion-core-services. Not all services implement every mapping — check the target service's middleware configuration.
+> Illustrative of fusion-libraries pattern. Not all services implement every mapping — check target middleware config.
 
 ### Common Error Codes
 
@@ -190,7 +190,7 @@ if (response.status === 400) {
 
 ### For Business Rule Violations (400)
 
-Business rules are often recoverable but require additional steps:
+Business rules require additional steps:
 
 1. Parse `error.code` and `error.message` from the ProblemDetails response
 2. Either:
@@ -246,11 +246,11 @@ Body: { "title": "New Title" }
 
 ## Retry Strategy
 
-Retries are only safe for operations that can be repeated without side effects:
+Retry only for operations safe to repeat:
 - Inherently idempotent methods (`GET`, `HEAD`)
-- Write operations protected by an idempotency key, `ETag`/`If-Match`, or explicit deduplication
+- Write operations protected by idempotency key, `ETag`/`If-Match`, or explicit deduplication
 
-Avoid automatic retries for non-idempotent writes (e.g. `POST`/command operations) unless the API contract explicitly guarantees safe retry.
+Avoid auto-retries for non-idempotent writes (e.g. `POST`/command operations) unless API contract explicitly guarantees safe retry.
 
 | Status | Retryable? | Strategy |
 | --- | --- | --- |

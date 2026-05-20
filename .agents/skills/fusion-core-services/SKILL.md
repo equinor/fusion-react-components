@@ -3,7 +3,7 @@ name: fusion-core-services
 description: 'Guides integrations across Fusion Core service APIs from a single installable skill. USE FOR: service discovery across apps, people, context, roles, notifications, reports, tasks, and other Fusion Core APIs; cross-service integration planning; choosing the right endpoint/model guidance for a workflow. DO NOT USE FOR: modifying Fusion backend source code, non-Fusion APIs, or generic cloud architecture work without a Fusion service integration target.'
 license: MIT
 metadata:
-  version: "0.0.1"
+  version: "0.0.2"
   status: experimental
   owner: "@equinor/fusion-core"
   tags:
@@ -18,7 +18,7 @@ metadata:
 
 ## When to use
 
-Use this skill when the task involves one or more Fusion Core service APIs and the agent needs to identify the right service guidance without requiring separate skill installs.
+Use when the task involves one or more Fusion Core service APIs and the agent needs to identify the right service guidance without requiring separate skill installs.
 
 Typical triggers:
 - implement a Fusion API client
@@ -28,10 +28,9 @@ Typical triggers:
 
 ## When not to use
 
-Do not use this skill for:
-- modifying code inside `fusion-core-services`
-- non-Fusion APIs or generic Microsoft Graph / Power BI work with no Fusion service layer involved
-- standalone product workflows already covered by another dedicated skill outside Fusion Core services
+- Modifying code inside `fusion-core-services`
+- Non-Fusion APIs or generic Microsoft Graph / Power BI work with no Fusion service layer
+- Standalone product workflows already covered by another dedicated skill outside Fusion Core services
 
 ## Required inputs
 
@@ -43,8 +42,8 @@ Do not use this skill for:
 ## Instructions
 
 1. Scope the request first.
-- Identify whether the workflow touches one service or multiple services.
-- If the service is ambiguous, use `agents/service-router.md` to map the workflow to likely services before producing implementation guidance.
+- Identify whether the workflow touches one service or multiple.
+- If service is ambiguous, use `agents/service-router.md` to map the workflow to likely services before producing implementation guidance.
 
 2. Read only the relevant service references.
 - Start with [Combined API surface](references/api-surface.md).
@@ -52,7 +51,7 @@ Do not use this skill for:
 - Pull in the endpoint catalog and model asset for only the services that materially affect the answer.
 
 3. Preserve source-grounded guidance.
-- Prefer controller-backed endpoint and model notes already captured in the bundled references.
+- Prefer controller-backed endpoint and model notes already captured in bundled references.
 - Call out any route or model area that still requires direct source confirmation before shipping.
 
 4. Handle capabilities explicitly.
@@ -60,7 +59,7 @@ Do not use this skill for:
 - If a service does not expose stable probes, document conservative client behavior and treat `403 Forbidden` as the fallback capability signal.
 
 5. Treat subscriptions as backend-only unless the reference says otherwise.
-- The `/subscriptions/...` routes in this skill are for application-token event registration and CloudEvent-style change handling, not normal frontend CRUD flows.
+- The `/subscriptions/...` routes are for application-token event registration and CloudEvent-style change handling, not normal frontend CRUD flows.
 
 6. Return consumer-ready guidance.
 - For frontend consumers, return TypeScript-friendly DTOs and a minimal client/hook pattern.

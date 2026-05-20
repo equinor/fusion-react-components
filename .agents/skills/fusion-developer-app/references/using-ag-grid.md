@@ -1,12 +1,10 @@
 # Using AG Grid
 
-How to display tabular data with AG Grid in a Fusion Framework app, using `@equinor/fusion-framework-react-ag-grid`.
+Displaying tabular data with AG Grid in Fusion Framework apps using `@equinor/fusion-framework-react-ag-grid`.
 
 ## Quick start
 
 ### Install
-
-Install with your project's package manager:
 
 ```sh
 # use the project's package manager (bun / pnpm / npm)
@@ -15,7 +13,7 @@ bun add @equinor/fusion-framework-react-ag-grid
 
 ### Enable the module
 
-Register AG Grid in `src/config.ts`:
+Register in `src/config.ts`:
 
 ```typescript
 import type { AppModuleInitiator } from '@equinor/fusion-framework-react-app';
@@ -64,7 +62,7 @@ const ItemGrid = ({ items }: { items: Item[] }) => {
 
 ## Registering feature modules
 
-Since AG Grid 33, feature modules must be explicitly registered for tree-shaking.
+Since AG Grid 33, explicitly register feature modules for tree-shaking.
 Use `builder.setModules()` inside the `enableAgGrid` callback:
 
 ```typescript
@@ -109,7 +107,7 @@ Only import what you need — unregistered modules are tree-shaken out.
 
 ## Theming
 
-The module provides the `fusionTheme` by default — an Equinor-branded theme based on AG Grid Alpine with EDS accent colors.
+The module provides `fusionTheme` by default — Equinor-branded theme based on AG Grid Alpine with EDS accent colors.
 
 ### Using the default theme
 
@@ -154,7 +152,7 @@ const MyGrid = () => {
 
 ## Default column definitions
 
-Set shared column defaults to reduce repetition:
+Shared column defaults to reduce repetition:
 
 ```typescript
 const defaultColDef: ColDef = {

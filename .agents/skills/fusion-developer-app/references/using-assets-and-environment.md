@@ -1,6 +1,6 @@
 # Using Assets and Runtime Configuration
 
-How to separate bundled assets from runtime configuration in a Fusion Framework app.
+Separating bundled assets from runtime configuration in Fusion Framework apps.
 
 ## Put runtime values in app config
 
@@ -70,9 +70,9 @@ export const EnvironmentDisplay = () => {
 
 ## Endpoints and service discovery
 
-Use `endpoints` in `app.config.ts` when you need explicit URLs or scopes.
+Use `endpoints` in `app.config.ts` for explicit URLs or scopes.
 
-Be aware that defining an endpoint key overrides service discovery for the same key. This is useful for PR environments, but it should be deliberate.
+Defining an endpoint key overrides service discovery for the same key (useful for PR environments, but be deliberate).
 
 ## Static assets
 
@@ -83,7 +83,7 @@ Use the project's existing asset import pattern for:
 - icons or logos shipped with the app
 - static JSON or other bundled resources
 
-Do not move deployment-specific values into bundled assets. If an asset choice or URL must change per environment, drive that selection from `app.config.ts` instead of hardcoding environment logic into components.
+Don't put deployment-specific values in bundled assets. Use `app.config.ts` for per-environment selection instead of hardcoding environment logic in components.
 
 ## Choosing the right storage
 

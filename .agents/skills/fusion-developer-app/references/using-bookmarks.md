@@ -1,6 +1,6 @@
 # Using Bookmarks
 
-How to save and restore shareable view state with Fusion Framework bookmarks.
+Saving and restoring shareable view state with Fusion Framework bookmarks.
 
 ## When bookmarks are the right fit
 
@@ -85,17 +85,17 @@ export const FiltersPanel = () => {
 };
 ```
 
-The payload generator should return the serializable state you want the bookmark system to save and restore.
+The payload generator returns serializable state for the bookmark system to save and restore.
 
 ## Choosing bookmark payload
 
-Good bookmark payloads usually contain:
+Good bookmark payloads:
 - filters and sort order
 - selected IDs or tabs
 - current page or panel state
-- other serializable view-model data that another user can reproduce
+- other serializable view-model data another user can reproduce
 
-Keep route identity in the router. Use bookmarks for page state layered on top of the route, not as a replacement for route definitions.
+Keep route identity in the router. Bookmarks are for page state layered on top of routes.
 
 ## Multi-page flows
 
