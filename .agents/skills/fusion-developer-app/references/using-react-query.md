@@ -1,6 +1,6 @@
 # Using React Query
 
-How to manage server state with `@tanstack/react-query` in a Fusion Framework app.
+Managing server state with `@tanstack/react-query`.
 
 ## Setup
 
@@ -27,7 +27,7 @@ const App = () => (
 
 ## Custom query hooks
 
-Create thin wrappers in `src/hooks/`. Combine React Query with the Fusion HTTP client:
+Create thin wrappers in `src/hooks/`:
 
 ```typescript
 import { useQuery } from '@tanstack/react-query';
@@ -79,7 +79,7 @@ export const useItem = (itemId: string) => {
 
 ## Mutations
 
-Use `useMutation` for write operations. Invalidate related queries on success:
+Use `useMutation` for writes. Invalidate related queries on success:
 
 ```typescript
 import { useMutation, useQueryClient } from '@tanstack/react-query';
@@ -117,7 +117,7 @@ Never store UI state in React Query. Never manage server state in `useState`.
 
 ## DevTools
 
-Add React Query DevTools for debugging (removed automatically in production):
+DevTools for debugging (excluded in production):
 
 ```typescript
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
@@ -132,7 +132,7 @@ const App = () => (
 
 ## Error handling
 
-Handle errors at the component level:
+Component-level:
 
 ```typescript
 const { data, error, isLoading } = useItems();
@@ -141,7 +141,7 @@ if (isLoading) return <Progress.Dots />;
 if (error) return <Banner variant="warning">Failed to load items</Banner>;
 ```
 
-Or set a global error handler on the `QueryClient`:
+Or global handler on `QueryClient`:
 
 ```typescript
 import { QueryClient, QueryCache } from '@tanstack/react-query';

@@ -4,7 +4,7 @@ description: 'Guides developers and admins through direct interaction with the F
 license: MIT
 compatibility: Requires authenticated HTTP client with Fusion bearer token. Works with any language or framework that can make REST calls.
 metadata:
-  version: "0.0.2"
+  version: "0.0.3"
   status: active
   owner: "@equinor/fusion-core"
   tags:
@@ -19,21 +19,21 @@ metadata:
 
 # Fusion Help API
 
-Use this skill when a developer or admin needs to interact directly with the Fusion Help REST API — whether to read help content in their own app, build custom tooling, or automate content management.
+Use when a developer or admin needs to interact directly with the Fusion Help REST API — reading help content, building custom tooling, or automating content management.
 
 ## When to use
 
-- App developer wants to display help articles, FAQs, or release notes inside their Fusion app
-- Developer building a custom CLI or automation script to manage help content
-- Admin wants to programmatically create, update, or delete help documentation
-- Developer needs to search or suggest help content from their application
-- Someone wants to understand the Help API endpoints, authentication, or data models
-- Building an integration that reads help content for another system
+- Display help articles, FAQs, or release notes inside a Fusion app
+- Build custom CLI or automation to manage help content
+- Programmatically create, update, or delete help documentation
+- Search or suggest help content from an application
+- Understand Help API endpoints, authentication, or data models
+- Read help content for another system
 
 ## When not to use
 
-- Using the `fhelp` CLI tool to sync markdown docs (use the `fusion-help-docs` skill instead)
-- Modifying the Fusion.Services.Help backend service code
+- Using `fhelp` CLI to sync markdown docs → use `fusion-help-docs`
+- Modifying Fusion.Services.Help backend service code
 - General REST API questions unrelated to Help
 
 ## Required inputs
@@ -49,7 +49,7 @@ Use this skill when a developer or admin needs to interact directly with the Fus
 
 ### 1. Discover the Help API base URL
 
-The Help API is registered in the Fusion service discovery. Resolve the URL dynamically or use the known patterns:
+Resolve URL dynamically or use known patterns:
 
 | Environment | Base URL |
 |-------------|----------|
@@ -88,34 +88,32 @@ Quick reference — token audiences:
 
 ### 4. Call the API
 
-Endpoints are versioned — include `?api-version=1.0` in requests. Resources: **Articles**, **FAQs**, **Release Notes**, **Assets**, **Search/Suggest**, **Changelog**.
+Endpoints are versioned — include `?api-version=1.0`. Resources: **Articles**, **FAQs**, **Release Notes**, **Assets**, **Search/Suggest**, **Changelog**.
 
 For full CRUD details, request/response bodies, OData filters, and validation rules see [references/api-endpoints.md](references/api-endpoints.md).
 
-For a compact endpoint matrix and OData cheat sheet see [references/api-quick-reference.md](references/api-quick-reference.md).
+For compact endpoint matrix and OData cheat sheet see [references/api-quick-reference.md](references/api-quick-reference.md).
 
-For detailed response model schemas see [references/response-models.md](references/response-models.md).
+For response model schemas see [references/response-models.md](references/response-models.md).
 
 ### 5. Integration patterns
 
-Ready-to-use code samples for common scenarios (React component, release notes banner, FAQ search, C# backend automation, Python scripting) are in [references/integration-patterns.md](references/integration-patterns.md).
+Ready-to-use code samples (React component, release notes banner, FAQ search, C# backend automation, Python scripting) are in [references/integration-patterns.md](references/integration-patterns.md).
 
 ## Expected output
 
-When this skill completes, the user should have:
-
 - Working code to authenticate and call the Help API
-- Correct endpoint URLs and query parameters for their use case
-- Understanding of the response models and OData query options
-- For admin use cases: correct request bodies for create/update/delete operations
+- Correct endpoint URLs and query parameters for the use case
+- Understanding of response models and OData query options
+- For admin use cases: correct request bodies for create/update/delete
 - For integration patterns: sample code in the relevant language/framework
 
 ## Safety & constraints
 
 - Read-only endpoints are safe for any authenticated user — no admin permissions needed
 - Write operations require app admin, trusted application, or `Fusion.Help.FullControl`
-- Deleted articles/FAQs/release notes are **soft-deleted** — their slugs cannot be reused
-- The `sourceSystem` field tracks which tool created a record — mixing source systems for the same slug will cause the `fhelp` CLI to refuse updates (unless `--no-validation` is used)
-- Always test against `ci` environment before targeting `fprd` (production)
-- Do not hardcode bearer tokens — always use `DefaultAzureCredential` or equivalent token providers
-- Image uploads must be PNG format; the API processes them into WebP for serving
+- Deleted articles/FAQs/release notes are **soft-deleted** — slugs cannot be reused
+- `sourceSystem` tracks which tool created a record — mixing source systems for the same slug causes `fhelp` CLI to refuse updates (unless `--no-validation` is used)
+- Always test against `ci` before targeting `fprd`
+- Never hardcode bearer tokens — use `DefaultAzureCredential` or equivalent
+- Image uploads must be PNG; API processes them into WebP for serving

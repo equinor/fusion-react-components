@@ -17,7 +17,7 @@ src/
 └── types/            # TypeScript interfaces, type aliases, enums
 ```
 
-Projects may use additional directories (e.g. `pages/`, `utils/`, `context/`). Always check the existing structure first.
+Projects may add directories (e.g. `pages/`, `utils/`, `context/`). Check existing structure first.
 
 ## Layer responsibilities
 
@@ -64,4 +64,4 @@ Use conventional commits for all changes:
 
 ## Architecture Decision Records
 
-Many Fusion apps document decisions in `docs/adr/`. Check if the project has ADRs and follow them. When making architectural decisions not covered by existing ADRs, propose a new ADR if the project uses them.
+Check for ADRs in `docs/adr/`. Follow them. Propose new ADRs for architectural decisions not already covered.

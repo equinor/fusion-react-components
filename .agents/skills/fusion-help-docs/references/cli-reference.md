@@ -13,19 +13,19 @@ dotnet tool install --global --add-source "https://statoil-proview.pkgs.visualst
 
 ## Authentication
 
-The CLI uses `DefaultAzureCredential` from the Microsoft Identity SDK. The simplest method is Azure CLI:
+Uses `DefaultAzureCredential`. Simplest method:
 
 ```powershell
 az login
 ```
 
-For CI/CD pipelines, use a service principal:
+CI/CD: use service principal:
 
 ```powershell
 az login --service-principal -u <app-id> -p <client-secret> --tenant 3aa4a235-b6e2-48d5-9195-7fcf05b459b0
 ```
 
-Alternatively, pass a JWT token directly via the `--token` flag.
+Or pass JWT token via `--token` flag.
 
 ## Commands
 
@@ -63,11 +63,11 @@ Syncs release note markdown files to the Fusion Help API.
 fhelp releasenotes sync -f <config-file> -r <release-notes-root> -e <environment> [-t <token>] [--no-validation] [-v]
 ```
 
-Flags and behavior are identical to `article sync`, but uses the `releaseNotes` array in the config and includes a `publishedDate` field.
+Same flags/behavior as `article sync`; uses `releaseNotes` array, includes `publishedDate`.
 
 ### `fhelp faq sync`
 
-Syncs FAQs from an Excel file. This is a temporary solution for multi-app FAQs.
+Syncs FAQs from Excel. Temporary solution for multi-app FAQs.
 
 ```
 fhelp faq sync -f <excel-file> -e <environment> [-r <faq-root>] [-p <slug-prefix>] [-t <token>] [--no-validation] [-v]
@@ -95,7 +95,7 @@ fhelp faq sync -f <excel-file> -e <environment> [-r <faq-root>] [-p <slug-prefix
 
 ## Source system
 
-The CLI stamps all content with `sourceSystem: "Fusion.Help.Cli"`. Content created via the Fusion Help Admin UI has a different source system (`fusion-help-admin`). The CLI will not overwrite content from a different source system unless `--no-validation` is used.
+The CLI stamps all content with `sourceSystem: "Fusion.Help.Cli"`. Content created via Fusion Help Admin UI has source `fusion-help-admin`. CLI will not overwrite content from a different source system unless `--no-validation` is used.
 
 ## Image handling
 
@@ -108,7 +108,7 @@ The CLI stamps all content with `sourceSystem: "Fusion.Help.Cli"`. Content creat
 
 ## Slug naming conventions
 
-Slugs must be globally unique across all apps. Recommended pattern:
+Slugs must be globally unique across all apps. Pattern:
 
 ```
 {app-prefix}-{topic}

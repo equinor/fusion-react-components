@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.4.1 - 2026-05-07
+
+### patch
+
+- [#170](https://github.com/equinor/fusion-skills/pull/170) [`5e43223`](https://github.com/equinor/fusion-skills/commit/5e432232917b2b1642431d80cf1698bbefe80ee8) - Apply caveman-compress prose style to references.
+
+
+  - Compress backend-code.query and framework.query references
+
 ## 0.4.0 - 2026-04-22
 
 ### minor

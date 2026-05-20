@@ -20,7 +20,7 @@ Version negotiation: `?api-version=3.0` (query string) or `api-version: 3.0` (re
 
 ### Versioning Strategy
 
-Fusion services use `Asp.Versioning` with a custom `HeaderOrQueryVersionReader`. Version is negotiated via:
+`Asp.Versioning` with `HeaderOrQueryVersionReader`. Version via:
 
 - **Query string**: `?api-version=3.0` (preferred)
 - **Request header**: `api-version: 3.0`
@@ -173,9 +173,9 @@ See `async-patterns.md` for event details.
 
 ## Rate Limiting
 
-Fusion services may apply rate limiting, but quotas, headers, and retry behavior can vary by service and environment.
+Fusion services may apply rate limiting; quotas and retry behavior vary by service and environment.
 
-Common patterns include:
+Common patterns:
 - **Exceeded**: `429 Too Many Requests`, sometimes with a `Retry-After` header
 - **Headers**: Some services or gateways may expose headers such as `X-RateLimit-Remaining`
 - **Quotas**: Request limits are service-specific; verify exact limits in the target API/OpenAPI documentation
@@ -184,7 +184,7 @@ Common patterns include:
 
 ## Pagination
 
-Endpoints supporting large result sets use OData-style offset pagination with `$top` and `$skip`. The standard paged response envelope is:
+Large result sets use OData offset pagination (`$top`, `$skip`). Standard paged response envelope:
 
 ```json
 {

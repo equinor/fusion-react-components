@@ -1,6 +1,6 @@
 # Create a Fusion App
 
-How Fusion Framework apps are bootstrapped and configured at the entry-point level.
+Bootstrapping and configuring Fusion Framework apps at entry-point level.
 
 ## File structure
 
@@ -16,7 +16,7 @@ app.manifest.ts   → Portal metadata (appKey, displayName)
 
 ## Entry point (`src/index.ts`)
 
-The modern pattern uses the `renderApp` helper:
+Modern pattern:
 
 ```typescript
 import { renderApp } from '@equinor/fusion-framework-react-app';
@@ -27,7 +27,7 @@ export const render = renderApp(App, configure);
 export default render;
 ```
 
-Older codebases may use the lower-level `makeComponent` + `createRoot` pattern. Check the project's existing `index.ts` and follow its convention.
+Older codebases use `makeComponent` + `createRoot`. Check project's `index.ts` and follow its convention.
 
 ## Module configuration (`src/config.ts`)
 
@@ -45,7 +45,7 @@ See `configure-services.md` for HTTP client setup and `using-framework-modules.m
 
 ## App manifest (`app.manifest.ts`)
 
-Defines metadata used by the Fusion Portal to identify and display the application:
+Metadata for Fusion Portal:
 
 ```typescript
 import { defineAppManifest } from '@equinor/fusion-framework-cli/app';
@@ -59,7 +59,7 @@ export default defineAppManifest(async (_env, { base }) => ({
 
 ## Runtime config (`app.config.ts`)
 
-Supplies environment variables and API endpoint definitions resolved at dev-server startup or build time:
+Environment variables and endpoints, resolved at dev-server startup or build time:
 
 ```typescript
 import { defineAppConfig } from '@equinor/fusion-framework-cli/app';

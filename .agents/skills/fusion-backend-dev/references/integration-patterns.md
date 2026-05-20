@@ -22,11 +22,11 @@ public interface IPeopleApiClient
 // - Timeout management
 ```
 
-**What this means for consumers**: Services have well-defined contracts. When a service calls another, it's using a typed interface (type-safe, testable).
+**Well-defined contracts. Typed interfaces (type-safe, testable).**
 
 ### How Services Find Each Other
 
-Fusion services resolve other services via **configuration and the Fusion service discovery client**:
+Services resolve peers via config + Fusion service discovery client:
 
 ```
 1. Service startup → Load base URLs from config / Key Vault
@@ -35,9 +35,9 @@ Fusion services resolve other services via **configuration and the Fusion servic
 4. Service calls → People API via typed HTTP client
 ```
 
-Base URLs are managed through Azure App Configuration and Key Vault, not runtime service registries.
+Base URLs managed via Azure App Configuration and Key Vault.
 
-**Why this matters**: Services have stable, centrally managed endpoints. The typed HTTP client handles auth, retries, and timeouts.
+**Why**: Stable, centrally managed endpoints. Typed HTTP client handles auth, retries, and timeouts.
 
 ### Authentication Between Services
 
@@ -51,7 +51,7 @@ When Service A calls Service B:
 5. Service B validates token → Check caller service identity
 ```
 
-**Different from user auth**: Service-to-service uses service principal, not user identity. As a client, you don't implement this — it happens internally.
+Service-to-service: service principal, not user identity.
 
 ---
 
@@ -81,9 +81,9 @@ Credentials stored in:
 - **User secrets** (`dotnet user-secrets`) — for local development (never committed to source control)
 - **Environment variables** — for containerized deployment
 
-> **Warning:** Never store secrets in `appsettings.json` or other files tracked by source control, even for development. Use `dotnet user-secrets` or environment variables instead.
+> **Warning:** Never store secrets in `appsettings.json` or files tracked by source control, even for development. Use `dotnet user-secrets` or environment variables instead.
 
-**As a consumer**: You don't see the keys. They're managed by the service team.
+As consumer: keys are managed by the service team.
 
 ### Pattern: Request Mapping
 
@@ -111,11 +111,11 @@ PersonDto fusion = mapper.Map<PersonDto>(sapPerson);
 
 ## Webhook Handling
 
-> **Note:** The following describes webhook patterns observed in the Fusion ecosystem. Specific header names, signature formats, and registration endpoints vary by service and external system. Always verify the webhook contract in the target service's documentation or source code.
+> **Note:** Webhook patterns observed in Fusion ecosystem. Header names, signature formats, registration endpoints vary by service and external system. Verify in target service docs.
 
 ### Receiving Webhooks from External Systems
 
-Some Fusion services receive webhooks from external systems (e.g. CommonLib). The external system delivers events to a registered callback URL:
+Some Fusion services receive webhooks from external systems (e.g. CommonLib) via registered callback URL:
 
 ```
 POST https://{fusion-host}/api/webhook/inbound
@@ -125,11 +125,11 @@ x-commonlib-sig: {signature}  // Signature header name varies by provider
 { /* event body */ }
 ```
 
-The receiving service should validate the signature header against a shared secret. In practice, the specific header name and signature algorithm depend on the external provider's webhook contract.
+Validate signature against shared secret. Header name and algorithm depend on provider's contract.
 
 ### Registering Webhooks
 
-Webhook registration is typically managed by the external system's API, not Fusion's. For example, Fusion's CommonLib integration subscribes via the external system's endpoint:
+Managed by external API, not Fusion. Example: CommonLib subscribes via external endpoint:
 
 ```json
 {
@@ -142,7 +142,7 @@ Webhook registration is typically managed by the external system's API, not Fusi
 
 ### Signature Validation (Illustrative)
 
-The following illustrates a general HMAC signature validation pattern. The specific algorithm (SHA-1, SHA-256), header name, and signature format depend on the provider:
+General HMAC pattern. Algorithm (SHA-1, SHA-256), header, format depend on provider:
 
 ```csharp
 // Illustrative pattern — verify actual header name, algorithm, and format
@@ -210,7 +210,7 @@ using CancellationTokenSource cts = new CancellationTokenSource(timeout);
 HttpResponseMessage response = await _httpClient.GetAsync(url, cts.Token);
 ```
 
-**Why**: Prevents a slow external API from blocking the entire service
+**Why**: Prevents a slow external API from blocking the service
 
 ### Circuit Breaker
 
@@ -224,7 +224,7 @@ When external API is failing:
 5. If succeeds: Circuit closes → Back to normal
 ```
 
-**Result**: Service doesn't hammer a broken external API.
+**Result**: Prevents hammering a broken external API.
 
 ### Fallback & Degraded Mode
 

@@ -1,17 +1,17 @@
 # Using App Settings
 
-How to persist per-user application settings in a Fusion Framework app.
+Per-user app settings in Fusion Framework.
 
 ## When app settings are the right fit
 
-Use app settings for:
-- preferences that belong to one user and should survive between sessions
-- view options that are not meant to be shared via a bookmark URL
-- application-specific toggles such as density, preferred tab, or optional UI panels
+Use for:
+- per-user preferences that survive sessions
+- view options not shared via bookmark URL
+- app toggles (density, preferred tab, optional panels)
 
-Do not use app settings for:
-- deployment or environment-specific values, which belong in `app.config.ts`
-- shareable or support-reproducible view state, which belongs in bookmarks
+Don't use for:
+- deployment/environment values — use `app.config.ts`
+- shareable view state — use bookmarks
 - secrets, access tokens, or large cached API responses
 
 ## Basic hook
@@ -30,7 +30,7 @@ const ToggleFunMode = () => {
 };
 ```
 
-Pass a default value when the setting may not exist yet. The stored value is scoped per user per app.
+Default value required; stored per user per app.
 
 ## Read all settings
 
@@ -54,18 +54,18 @@ const SettingsDebug = () => {
 
 ## Design guidance
 
-- Keep keys stable. Existing user settings survive releases, so renaming keys needs a migration plan.
-- Keep values JSON-serializable and small.
-- Define defaults in code so new users and older stored payloads both work.
-- Treat the stored shape as an app contract. If the shape changes, handle missing or legacy fields defensively.
-- Only the current user can read and update their own app settings. Do not model shared workflow state here.
+- Stable keys — renaming needs migration plan
+- JSON-serializable, small values
+- Define defaults in code for new users and legacy payloads
+- Stored shape is app contract; handle missing/legacy fields defensively
+- Only current user can read/update own settings; don't model shared workflow state
 
 ## Review questions
 
-When reviewing a settings change, ask:
-- Should this be a bookmark instead of a setting?
-- Is the setting truly per-user, or is it runtime config?
-- What happens if the setting is missing or comes from an older stored shape?
+When reviewing settings changes:
+- Should this be a bookmark instead?
+- Truly per-user, or runtime config?
+- What happens if setting is missing or from older stored shape?
 
 ## Relevant sources
 

@@ -2,11 +2,11 @@
 
 ## Event Publishing
 
-Fusion services publish events to Azure Service Bus topics using `IEventNotificationClient`. Events follow the [CloudEvents v1.0](https://github.com/cloudevents/spec/blob/v1.0/spec.md) specification.
+Fusion services publish events to Azure Service Bus using `IEventNotificationClient`, following [CloudEvents v1.0](https://github.com/cloudevents/spec/blob/v1.0/spec.md).
 
 ### Event Type Categories
 
-Event types use a dotted naming convention: `com.equinor.fusion.{domain}.{type}`.
+Types use dotted naming: `com.equinor.fusion.{domain}.{type}`.
 
 | Category | Type name | Service | Sub-types (in payload) |
 | --- | --- | --- | --- |
@@ -33,7 +33,7 @@ Event types use a dotted naming convention: `com.equinor.fusion.{domain}.{type}`
 }
 ```
 
-> **Note:** The `data` field is a JSON-serialized string, not a nested object. Deserialize it separately to access the typed payload.
+> **Note:** `data` is a JSON-serialized string, not a nested object. Deserialize separately.
 
 ---
 
@@ -41,7 +41,7 @@ Event types use a dotted naming convention: `com.equinor.fusion.{domain}.{type}`
 
 ### Subscription API Pattern
 
-Several Fusion services expose subscription endpoints that create a Service Bus subscription and return connection details with a SAS token. Only application users (service principals) can subscribe.
+Fusion services expose subscription endpoints that create a Service Bus subscription and return connection details with a SAS token. Only service principals can subscribe.
 
 **Known subscription endpoints:**
 
@@ -140,22 +140,22 @@ processor.ProcessErrorAsync += async (args) =>
 await processor.StartProcessingAsync();
 ```
 
-> **Token renewal:** SAS tokens expire. When `UnauthorizedAccessException` occurs, stop the processor, call the subscription endpoint again to get a fresh token, and reconnect with a new client.
+> **Token renewal:** SAS tokens expire. On `UnauthorizedAccessException`, stop processor, re-call subscription endpoint for fresh token, reconnect.
 
 ### Filtering Events
 
-Subscriptions support SQL filters on Service Bus message properties:
+Subscriptions support SQL filters on message properties:
 
 ```
 type = 'com.equinor.fusion.org.position'
 app = 'my-app-id'
 ```
 
-These filters are set via `typeFilter` in the subscription request or managed by the service when creating the subscription.
+Set via `typeFilter` in subscription request or managed by service.
 
 ### Service Bus Message Properties
 
-Messages on the bus carry these `ApplicationProperties` (available for filtering):
+Message `ApplicationProperties` (available for filtering):
 
 | Property | Description |
 | --- | --- |
@@ -208,7 +208,7 @@ When an external system needs event notifications via HTTP callbacks:
 4. Receiver validates signature and processes the event
 ```
 
-> **Note:** Webhook header names, signature formats, and registration APIs vary by provider. Always check the specific provider's documentation for the exact contract. See [integration-patterns.md](./integration-patterns.md) for an illustrative signature validation pattern.
+> **Note:** Webhook header names, signature formats, and registration APIs vary by provider. Check provider docs for exact contract. See [integration-patterns.md](./integration-patterns.md) for signature validation example.
 
 ---
 
@@ -216,7 +216,7 @@ When an external system needs event notifications via HTTP callbacks:
 
 ### Idempotent Processing
 
-Events can be delivered multiple times. Your handler must be idempotent:
+Events may be delivered multiple times. Handlers must be idempotent:
 
 ```csharp
 // ❌ NOT idempotent:
@@ -252,8 +252,6 @@ public void Handle(PositionAssigned @event)
 ```
 
 ### Error Handling
-
-What if processing fails?
 
 ```csharp
 try

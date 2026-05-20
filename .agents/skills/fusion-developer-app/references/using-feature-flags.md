@@ -1,6 +1,6 @@
 # Using Feature Flags
 
-How to use Fusion Framework feature toggling in a Fusion Framework React app.
+Using Fusion Framework feature toggling in React apps.
 
 ## When feature flags are the right fit
 
@@ -17,7 +17,7 @@ Do not use feature flags for:
 
 ## App-level setup
 
-For most Fusion apps the app-level helper is the right starting point.
+For most Fusion apps, start with the app-level helper.
 
 ```ts
 // src/config.ts
@@ -39,13 +39,13 @@ export const configure: AppModuleInitiator = (appConfigurator) => {
 };
 ```
 
-- Prefer defining feature keys in a shared enum or string-constant object rather than inlining raw strings.
-- Add `title` and `description` when the flag is surfaced to users or in code reviews.
-- Use the optional `value` field only when behavior requires configuration beyond a simple on/off toggle.
+- Prefer shared enum or string-constant object over raw strings
+  - Add `title` and `description` when surfaced to users or code reviews
+  - Use `value` only when behavior requires more than on/off
 
 ## Framework-level setup with plugins
 
-When a flag should participate in framework-wide providers, or when local persistence and URL override are needed, use the module-level API.
+When participating in framework-wide providers or needing local persistence and URL override, use the module-level API.
 
 ```ts
 // framework-level configuration (for example in src/framework-config.ts)
@@ -70,7 +70,7 @@ export const configureFeatureFlags = (configurator) => {
 
 ## Consuming flags in components
 
-Use `useFeature` from the app package in React components.
+Use `useFeature` in React components:
 
 ```tsx
 // src/components/Dashboard.tsx
@@ -88,14 +88,14 @@ const Dashboard = () => {
 };
 ```
 
-- Access `feature.enabled` for boolean gating.
-- Access `feature.value` when the flag carries a typed configuration value.
-- Call `toggleFeature()` or `toggleFeature(true | false)` when user-controlled toggling is required.
-- Guard against `feature` being `undefined`; use optional chaining or a null check.
+- Access `feature.enabled` for boolean gating
+  - Access `feature.value` for typed configuration value
+  - Call `toggleFeature()` for user-controlled toggling
+  - Guard against `feature` being `undefined`; use optional chaining or null check
 
 ### Provider-based hook variant
 
-The framework package exposes a provider-based variant for cases where you need explicit provider control.
+Provider-based variant for explicit provider control:
 
 ```ts
 import { useFeature } from '@equinor/fusion-framework-react/feature-flag';
@@ -103,25 +103,25 @@ import { useFeature } from '@equinor/fusion-framework-react/feature-flag';
 const value = useFeature(provider, 'my-flag-key');
 ```
 
-Use this variant only when working at framework level outside the app package scope.
+Use only at framework level outside the app package scope.
 
 ## Known API ambiguity
 
-Public Fusion Framework sources show inconsistent spelling for the read-only flag property:
+Public sources show inconsistent spelling for the read-only flag property:
 - Some sources use `readonly`
 - Older docs mention `readOnly`
 
-Always verify the expected spelling against your local types or a live Fusion MCP query before finalizing code that reads this property.
+Verify against local types or Fusion MCP before finalizing code that reads this property.
 
 ## Rollout and cleanup
 
-Feature flags are temporary. Every flag needs an owner and a removal plan.
+Feature flags are temporary — every flag needs an owner and a removal plan.
 
-- **Define an owner** in a comment or in the flag `description`.
-- **State the release milestone** at which the flag will be removed.
-- **Test both paths** — the application must work correctly with the flag on and with the flag off.
-- **Remove completely** — when the rollout is done, delete the flag definition, all consumers, and any dead code branches together in one PR.
-- **Avoid long-lived flags** — flags that outlive their rollout become maintenance debt.
+- **Define an owner** in a comment or in the flag `description`
+- **State removal milestone** at which the flag will be removed
+- **Test both paths** — app must work with flag on and off
+- **Remove completely** — delete flag definition, all consumers, and dead code branches in one PR
+- **Avoid long-lived flags** — flags that outlive rollout become maintenance debt
 
 ### Rollout checklist
 

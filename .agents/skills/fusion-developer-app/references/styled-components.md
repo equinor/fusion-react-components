@@ -1,10 +1,10 @@
 # styled-components Patterns
 
-How to use styled-components for custom styling in a Fusion Framework app.
+Using styled-components for custom styling in Fusion Framework apps.
 
 ## The `Styled` object pattern
 
-Co-locate styled components at the top of the file in a `Styled` namespace object:
+Co-locate styled components in a `Styled` namespace object at top of file:
 
 ```typescript
 import { styled } from 'styled-components';
@@ -69,7 +69,7 @@ const Styled = {
 
 ## Extending EDS components
 
-Wrap EDS components with `styled()` when you need additional layout or theme tweaks:
+Wrap EDS components with `styled()` for layout or theme tweaks:
 
 ```typescript
 import { Button, Dialog } from '@equinor/eds-core-react';

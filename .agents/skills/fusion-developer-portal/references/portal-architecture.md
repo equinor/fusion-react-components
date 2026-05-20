@@ -1,10 +1,10 @@
 # Portal Architecture Reference
 
-Detailed patterns for Fusion portal development: entry point structure, module configuration, custom app loading, and the app initialization lifecycle.
+Fusion portal patterns: entry point, module config, custom app loading, lifecycle.
 
 ## Portal entry point
 
-A portal creates a framework provider and renders its shell. From the `portal-analytics` cookbook:
+Portal creates framework provider, renders shell. From `portal-analytics` cookbook:
 
 ```tsx
 import { createElement, type FC, lazy, Suspense } from 'react';
@@ -37,7 +37,7 @@ export default createPortal;
 
 ## Module configuration
 
-Portal modules use `FrameworkConfigurator`, not `AppModuleInitiator`. The portal's config is hoisted to all child apps.
+Portal uses `FrameworkConfigurator`, not `AppModuleInitiator`. Config hoisted to child apps.
 
 ```typescript
 import type { FrameworkConfigurator, Fusion } from '@equinor/fusion-framework';
@@ -89,7 +89,7 @@ export const frameworkConfig: PortalModuleInitiator = (configurator) => {
 
 ## Portal routing
 
-Portals use `react-router-dom` via the framework navigation module. The standard pattern routes `/apps/:appKey/*` to the app loader:
+Portals use `react-router-dom` via framework navigation module. Standard pattern routes `/apps/:appKey/*` to app loader:
 
 ```tsx
 import { Outlet, RouterProvider, type RouterProviderProps, useParams } from 'react-router-dom';
@@ -118,7 +118,7 @@ export const Router = () => {
 
 ## Custom app loader
 
-For fine-grained control over app loading, error handling, and mounting. Based on `portal-analytics` cookbook:
+Fine-grained control over loading, error handling, mounting. From `portal-analytics` cookbook:
 
 ```tsx
 import { useEffect, useId, useMemo, useRef, useState } from 'react';

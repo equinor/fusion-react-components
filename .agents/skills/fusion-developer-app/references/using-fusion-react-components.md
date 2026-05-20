@@ -1,13 +1,13 @@
 # Fusion React Components
 
-Domain-specific React components from the `@equinor/fusion-react-components` monorepo that complement EDS. These components integrate with Fusion platform APIs and provide functionality not covered by `@equinor/eds-core-react`.
+Domain-specific React components complementing EDS. Integrate with Fusion platform APIs — functionality not in `@equinor/eds-core-react`.
 
 **Repository**: [equinor/fusion-react-components](https://github.com/equinor/fusion-react-components)
 **Storybook**: [equinor.github.io/fusion-react-components](https://equinor.github.io/fusion-react-components/)
 
 ## When to use
 
-Use `@equinor/fusion-react-*` packages when the feature requires **Fusion-specific** UI that EDS does not provide — for example, person/people selection backed by the Fusion People API. Always check `@equinor/eds-core-react` first; reach for fusion-react only when EDS has no equivalent.
+Use `@equinor/fusion-react-*` when EDS has no equivalent. Check EDS first.
 
 ## Packages
 
@@ -19,7 +19,7 @@ Use `@equinor/fusion-react-*` packages when the feature requires **Fusion-specif
 
 ## Person components (`@equinor/fusion-react-person`)
 
-The most commonly used package. All components resolve person data via the **Fusion People API** — pass an `azureId` or `upn` and the component handles fetching.
+Most used package. Pass `azureId`/`upn`; components handle fetch.
 
 ### Component catalog
 
@@ -155,6 +155,98 @@ Person components use **custom DOM events**, not standard React callback signatu
   }}
 />
 ```
+
+#### Display a person card
+
+`PersonCard` renders full person details (name, department, positions, tasks, manager) resolved from Fusion People API by `azureId`.
+
+```typescript
+import { PersonCard } from '@equinor/fusion-react-person';
+
+const OwnerCard = ({ azureId }: { azureId: string }) => (
+  <PersonCard azureId={azureId} />
+);
+```
+
+Use `PersonCard` for full-detail views. Prefer `PersonAvatar` for compact inline display.
+
+#### Display a person list item
+
+`PersonListItem` renders a compact single-row entry. Action buttons optional.
+
+```typescript
+import { PersonListItem } from '@equinor/fusion-react-person';
+import { Button } from '@equinor/eds-core-react';
+
+// Display only
+const AssigneeRow = ({ azureId }: { azureId: string }) => (
+  <PersonListItem azureId={azureId} />
+);
+
+// With an action button
+const ReviewerRow = ({
+  azureId,
+  onRemove,
+}: {
+  azureId: string;
+  onRemove: () => void;
+}) => (
+  <PersonListItem azureId={azureId}>
+    <Button variant="ghost_icon" onClick={onRemove}>
+      Remove
+    </Button>
+  </PersonListItem>
+);
+```
+
+#### Person column in AG Grid (PersonCell)
+
+`PersonCell` is an AG Grid cell renderer: avatar + name inline. Cell value must be `azureId` string.
+
+```typescript
+import { PersonCell } from '@equinor/fusion-react-person';
+import type { ColDef } from '@equinor/fusion-framework-react-ag-grid/community';
+
+interface WorkItem {
+  id: string;
+  title: string;
+  ownerAzureId: string;
+}
+
+const columnDefs: ColDef<WorkItem>[] = [
+  { field: 'title', headerName: 'Title', flex: 2 },
+  {
+    field: 'ownerAzureId',
+    headerName: 'Owner',
+    width: 200,
+    cellRenderer: PersonCell,
+  },
+];
+```
+
+If `azureId` is nested in the row object, use `valueGetter` to extract it:
+
+```typescript
+{
+  headerName: 'Owner',
+  width: 200,
+  cellRenderer: PersonCell,
+  valueGetter: ({ data }) => data?.owner?.azureId,
+}
+```
+
+### Decision guide: which person component?
+
+| UI need | Component |
+|---|---|
+| Compact inline display (avatar only, hover for details) | `PersonAvatar` |
+| Full person detail view (card, panel, popover) | `PersonCard` |
+| One-line person row in a list | `PersonListItem` |
+| Person row with action buttons | `PersonListItem` with children |
+| Pick a single person | `PersonPicker` or `PersonSelect` |
+| Pick multiple people | `PeoplePicker` |
+| Display a selected set of people | `PeopleViewer` |
+| Person column in an AG Grid | `PersonCell` |
 
 ## Decision guide: EDS vs Fusion React
 
