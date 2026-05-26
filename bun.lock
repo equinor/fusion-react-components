@@ -163,7 +163,7 @@
       "version": "2.0.4",
       "dependencies": {
         "@equinor/fusion-react-styles": "workspace:^",
-        "date-fns": "4.2.1",
+        "date-fns": "4.3.0",
         "history": "5.x",
         "pixi.js-legacy": "^5.3.7",
       },
@@ -176,7 +176,7 @@
       },
       "peerDependencies": {
         "@equinor/fusion": "^3.3.1",
-        "date-fns": "4.2.1",
+        "date-fns": "4.3.0",
         "history": "5.x",
         "react": "^18 || ^19",
       },
@@ -399,7 +399,7 @@
       "name": "@equinor/fusion-react-utils",
       "version": "3.0.2",
       "dependencies": {
-        "date-fns": "^4.2.1",
+        "date-fns": "^4.3.0",
       },
       "devDependencies": {
         "@types/react": "^19.2.14",
@@ -1547,7 +1547,7 @@
 
     "data-urls": ["data-urls@7.0.0", "", { "dependencies": { "whatwg-mimetype": "^5.0.0", "whatwg-url": "^16.0.0" } }, "sha512-23XHcCF+coGYevirZceTVD7NdJOqVn+49IHyxgszm+JIiHLoB2TkmPtsYkNWT1pvRSGkc35L6NHs0yHkN2SumA=="],
 
-    "date-fns": ["date-fns@4.2.1", "", {}, "sha512-37RhSdxaG1suen6VDCza6rNrQfooyQh57HFVPwQGEq2QWliVLzPQZ8Oa017weOu+HZCnzI7N3Pf/wyoBKfEqrA=="],
+    "date-fns": ["date-fns@4.3.0", "", {}, "sha512-OYcL+3N/jyWbYdFGqoMAhytDgxP9pbYPUUiRCOgn4Fewaadk9l/Wam4Avciiyp2BgkpfQyBV9B+ehnVJych+eQ=="],
 
     "debug": ["debug@4.4.3", "", { "dependencies": { "ms": "^2.1.3" } }, "sha512-RGwwWnwQvkVfavKVt22FGLw+xYSdzARwm0ru6DhTVA3umU5hZc28V3kO4stgYryrTlLpuvgI9GiijltAjNbcqA=="],
 
