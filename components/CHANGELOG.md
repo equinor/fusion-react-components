@@ -1,5 +1,19 @@
 # @equinor/fusion-react-components
 
+## 1.1.0
+
+### Minor Changes
+
+- 2e87d5f: Add comprehensive documentation and improved module exports to the main components package.
+
+  - New README with installation, usage examples, and benefits documentation
+  - New exports field enabling modular subpath imports (e.g., `@equinor/fusion-react-components/person`)
+
+### Patch Changes
+
+- Updated dependencies [2e87d5f]
+  - @equinor/fusion-react-person@2.0.11
+
 ## 1.0.10
 
 ### Patch Changes

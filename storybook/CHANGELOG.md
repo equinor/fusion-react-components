@@ -1,5 +1,26 @@
 # Change Log
 
+## 6.0.5
+
+### Patch Changes
+
+- Updated dependencies [2e87d5f]
+- Updated dependencies [2e87d5f]
+  - @equinor/fusion-react-components@1.1.0
+  - @equinor/fusion-react-ag-grid-person-cell@4.0.7
+  - @equinor/fusion-react-context-selector@2.0.5
+  - @equinor/fusion-react-date@1.0.4
+  - @equinor/fusion-react-errorboundary@2.0.7
+  - @equinor/fusion-react-filter@2.1.5
+  - @equinor/fusion-react-hanging-garden@2.0.6
+  - @equinor/fusion-react-list@1.0.4
+  - @equinor/fusion-react-markdown@1.0.5
+  - @equinor/fusion-react-person@2.0.11
+  - @equinor/fusion-react-ripple@1.0.4
+  - @equinor/fusion-react-searchable-dropdown@2.0.5
+  - @equinor/fusion-react-skeleton@1.0.4
+  - @equinor/fusion-react-textarea@1.0.4
+
 ## 6.0.4
 
 ### Patch Changes
