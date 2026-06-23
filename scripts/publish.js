@@ -17,7 +17,7 @@ for (const ws of workspaceDirs) {
   let pkg;
   try {
     pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf8'));
-  } catch (e) {
+  } catch (_e) {
     console.warn(`⚠️  Could not read package.json in ${ws}`);
     continue;
   }
@@ -60,15 +60,30 @@ for (const ws of workspaceDirs) {
     continue;
   }
 
-  console.log(`🚀 Publishing ${packageName}@${version}...`);
+  console.log(`📦 Packing ${packageName}@${version} with bun...`);
+  let tarballPath;
   try {
-    execSync('npm publish --access public --provenance', {
+    // Run bun pack and capture the output filename
+    const packOutput = execSync('bun pm pack --quiet', {
       cwd: path.join(rootDir, ws),
+      encoding: 'utf8',
+    });
+
+    const packInfo = packOutput.trim();
+    tarballPath = path.join(rootDir, ws, packInfo);
+  } catch (error) {
+    console.error(`❌ bun pm pack failed for ${packageName}`, error.message);
+    process.exit(1);
+  }
+
+  console.log(`🚀 Publishing tarball: ${path.basename(tarballPath)}`);
+  try {
+    execSync(`npm publish "${tarballPath}" --provenance --access public --dry-run`, {
       stdio: 'inherit',
     });
     console.log(`✅ Successfully published ${packageName}@${version}\n`);
   } catch (error) {
-    console.error(`❌ Failed to publish ${packageName}`, error.message);
+    console.error(`❌ Publish failed for ${packageName}`, error.message);
     process.exit(1);
   }
 }
