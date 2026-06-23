@@ -78,7 +78,7 @@ for (const ws of workspaceDirs) {
 
   console.log(`🚀 Publishing tarball: ${path.basename(tarballPath)}`);
   try {
-    execSync(`npm publish "${tarballPath}" --provenance --access public --dry-run`, {
+    execSync(`npm publish "${tarballPath}" --provenance --access public`, {
       stdio: 'inherit',
     });
     console.log(`✅ Successfully published ${packageName}@${version}\n`);
