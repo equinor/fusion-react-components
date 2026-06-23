@@ -38,7 +38,7 @@ for (const ws of workspaceDirs) {
     // Check if this exact version exists on npm
     const output = execSync(`npm view ${packageName}@${version} version --json`, {
       encoding: 'utf8',
-      stdio: ['ignore', 'pipe', 'ignore'],
+      stdio: ['ignore', 'pipe', 'pipe'],
     });
     const publishedVersion = JSON.parse(output.trim());
     if (publishedVersion === version) {
@@ -46,7 +46,9 @@ for (const ws of workspaceDirs) {
     }
   } catch (error) {
     // Version does not exist → we should publish
-    if (error.status === 1 && error.stderr?.includes('E404')) {
+    const stderr =
+      typeof error?.stderr === 'string' ? error.stderr : error?.stderr?.toString?.('utf8');
+    if (error.status === 1 && stderr?.includes('E404')) {
       alreadyPublished = false;
     } else {
       console.warn(`⚠️  Could not check registry for ${packageName}: ${error.message}`);
