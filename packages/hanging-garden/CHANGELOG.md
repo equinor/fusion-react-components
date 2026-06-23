@@ -1,5 +1,13 @@
 # Change Log
 
+## 2.0.5
+
+### Patch Changes
+
+- c2a474d: Updates `date-fns` to 4.4.0.
+- fd142b9: Updates `date-fns` to 4.2.1
+- 9094cbb: Updates date-fns to 4.3.0.
+
 ## 2.0.4
 
 ### Patch Changes

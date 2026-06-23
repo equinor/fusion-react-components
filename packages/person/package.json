@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-person",
-  "version": "2.0.9",
+  "version": "2.0.10",
   "description": "React component for selecting and displaying a person's information",
   "keywords": [
     "person",
@@ -44,7 +44,7 @@
     "url": "https://github.com/equinor/fusion-react-components/issues"
   },
   "dependencies": {
-    "@equinor/fusion-react-utils": "3.0.2",
+    "@equinor/fusion-react-utils": "3.0.3",
     "@equinor/fusion-wc-people": "2.2.2",
     "@equinor/fusion-wc-person": "3.5.4"
   },
