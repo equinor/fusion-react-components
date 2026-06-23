@@ -31,7 +31,7 @@
     "storybook": "bun run --cwd ./storybook start",
     "storybook:build": "bun run --cwd ./storybook build",
     "changeset:version": "changeset version",
-    "changeset:publish": "changeset tag && bun run build && npm publish --workspaces --provenance",
+    "changeset:publish": "changeset tag && bun run build && npm publish --workspaces --provenance --access public",
     "changeset:publish:pre-release": "npm publish --workspaces --tag ${NPM_TAG}"
   },
   "repository": {
