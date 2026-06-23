@@ -9,6 +9,19 @@
     "equinor",
     "library"
   ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./person": {
+      "import": "./dist/person.js",
+      "types": "./dist/person.d.ts"
+    },
+    "./package.json": "./package.json",
+    "./README.md": "./README.md",
+    "./CHANGELOG.md": "./CHANGELOG.md"
+  },
   "homepage": "https://github.com/equinor/fusion-react-components/blob/main/components#readme",
   "license": "ISC",
   "main": "dist/index.js",
@@ -18,7 +31,9 @@
     "dist": "dist"
   },
   "files": [
-    "dist"
+    "dist",
+    "README.md",
+    "CHANGELOG.md"
   ],
   "publishConfig": {
     "access": "public"

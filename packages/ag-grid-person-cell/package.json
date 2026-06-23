@@ -44,8 +44,8 @@
     "url": "https://github.com/equinor/fusion-react-components/issues"
   },
   "dependencies": {
-    "@equinor/fusion-react-person": "workspace:^",
-    "@equinor/fusion-react-utils": "workspace:^"
+    "@equinor/fusion-react-person": "workspace:*",
+    "@equinor/fusion-react-utils": "workspace:*"
   },
   "devDependencies": {
     "@equinor/eds-core-react": "^2.5.0",
