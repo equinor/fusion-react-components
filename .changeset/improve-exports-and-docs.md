@@ -17,4 +17,4 @@
 
 Patch release to make sure all workspace dependencies are resolved.
 
-- Make sure all workspace packages has `workspace:*` imports
+- Make sure all workspace packages have `workspace:*` imports
