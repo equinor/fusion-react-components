@@ -1,5 +1,17 @@
 # Change Log
 
+## 4.0.7
+
+### Patch Changes
+
+- 2e87d5f: Patch release to make sure all workspace dependencies are resolved.
+
+  - Make sure all workspace packages have `workspace:*` imports
+
+- Updated dependencies [2e87d5f]
+  - @equinor/fusion-react-person@2.0.11
+  - @equinor/fusion-react-utils@3.0.4
+
 ## 4.0.6
 
 ### Patch Changes
