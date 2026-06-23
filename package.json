@@ -30,8 +30,8 @@
     "format:staged": "biome format --staged",
     "storybook": "bun run --cwd ./storybook start",
     "storybook:build": "bun run --cwd ./storybook build",
-    "changeset:version": "changeset version",
-    "changeset:publish": "changeset tag && bun run build && npm publish --workspaces --provenance --access public",
+    "changeset:version": "changeset version && bun update",
+    "changeset:publish": "changeset tag && bun run build && node scripts/publish.js",
     "changeset:publish:pre-release": "npm publish --workspaces --tag ${NPM_TAG}"
   },
   "repository": {
