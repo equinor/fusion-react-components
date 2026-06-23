@@ -1,7 +1,7 @@
 <!--prettier-ignore-start-->
 # @equinor/fusion-react-components [![Published on npm](https://img.shields.io/npm/v/@equinor/fusion-react-components.svg)](https://www.npmjs.com/package/@equinor/fusion-react-components)
 
-A convenient collection package providing unified access to Fusion react components. This package aggregates and re-exports components from individual Fusion react component packages, making it easier to import and use multiple components in your application.
+A convenient collection package providing unified access to Fusion React components. This package aggregates and re-exports components from individual Fusion React component packages, making it easier to import and use multiple components in your application.
 
 ## [Storybook](https://equinor.github.io/fusion-react-components/)
 
