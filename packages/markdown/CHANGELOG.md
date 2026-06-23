@@ -1,5 +1,27 @@
 # Change Log
 
+## 1.0.6
+
+### Patch Changes
+
+- 3197bf7: Fix stale internal `workspace:*` dependency versions in published packages.
+
+  Previously published tarballs pinned outdated versions of sibling workspace
+  packages (for example, `@equinor/fusion-react-person` resolving to an old
+  `@equinor/fusion-react-utils`, and `@equinor/fusion-react-components` resolving
+  to an old `@equinor/fusion-react-person`). This happened because `bun pm pack`
+  substitutes `workspace:*` ranges using the versions recorded in `bun.lock`, but
+  the lockfile was not refreshed after `changeset version` bumped package
+  versions, so the lockfile drifted out of sync with the actual package versions.
+
+  This release republishes all packages so their `workspace:*` dependencies are
+  resolved to the correct, current versions. The release workflow now refreshes
+  and commits `bun.lock` during the version step (`changeset version && bun
+install`), preventing this drift from recurring.
+
+- Updated dependencies [3197bf7]
+  - @equinor/fusion-react-utils@3.0.5
+
 ## 1.0.5
 
 ### Patch Changes
