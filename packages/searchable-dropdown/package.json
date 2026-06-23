@@ -37,7 +37,7 @@
     "url": "https://github.com/equinor/fusion-react-components/issues"
   },
   "dependencies": {
-    "@equinor/fusion-react-utils": "workspace:^",
+    "@equinor/fusion-react-utils": "workspace:*",
     "@equinor/fusion-wc-icon": "^2.4.1",
     "@equinor/fusion-wc-searchable-dropdown": "^4.1.1"
   },

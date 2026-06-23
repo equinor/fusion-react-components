@@ -37,7 +37,7 @@
     "url": "https://github.com/equinor/fusion-react-components/issues"
   },
   "dependencies": {
-    "@equinor/fusion-react-styles": "workspace:^",
+    "@equinor/fusion-react-styles": "workspace:*",
     "date-fns": "4.4.0",
     "history": "5.x",
     "pixi.js-legacy": "^5.3.7"
