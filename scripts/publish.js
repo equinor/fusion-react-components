@@ -123,9 +123,13 @@ try {
 } finally {
   // Cleanup tarballs
   tarballs.forEach((t) => {
-    if (fs.existsSync(t)) {
-      fs.unlinkSync(t);
-      console.log(`🧹 Cleaned up ${path.basename(t)}`);
+    try {
+      if (fs.existsSync(t)) {
+        fs.unlinkSync(t);
+        console.log(`🧹 Cleaned up ${path.basename(t)}`);
+      }
+    } catch (e) {
+      console.warn(`⚠️  Failed to clean up ${path.basename(t)}`);
     }
   });
 }
