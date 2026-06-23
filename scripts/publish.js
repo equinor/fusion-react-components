@@ -45,7 +45,8 @@ for (const ws of workspaceDirs) {
       toPublish.push({ name: pkg.name, dir: ws, version, pkg });
       console.log(`📋 Will publish: ${pkg.name}@${version}`);
     } else {
-      console.warn(`⚠️  Could not check ${pkg.name}`);
+      console.error(`❌ Could not check ${pkg.name}@${version}${stderr ? `\n${stderr}` : ''}`);
+      throw error;
     }
   }
 }
