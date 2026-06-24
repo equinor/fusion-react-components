@@ -27,7 +27,7 @@ const workspaceDirs = [
 // substitutes them from `bun.lock`, which Bun does not refresh after a version
 // bump (oven-sh/bun#18906, #20477). Resolving from disk avoids that bug without
 // regenerating or deleting the lockfile.
-const workspaceVersions = {};
+const workspaceVersions = Object.create(null);
 for (const ws of workspaceDirs) {
   const pkgPath = path.join(rootDir, ws, 'package.json');
   if (!fs.existsSync(pkgPath)) continue;
