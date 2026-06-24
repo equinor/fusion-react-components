@@ -34,8 +34,8 @@ for (const ws of workspaceDirs) {
   try {
     const p = JSON.parse(fs.readFileSync(pkgPath, 'utf8'));
     if (p.name && p.version) workspaceVersions[p.name] = p.version;
-  } catch {
-    // ignore unreadable package.json; handled again in the collection loop below
+  } catch (e) {
+    console.warn(`⚠️  Could not read ${ws}/package.json for workspace version resolution`);
   }
 }
 
