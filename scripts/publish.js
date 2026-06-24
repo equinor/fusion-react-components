@@ -15,11 +15,14 @@ import path from 'node:path';
 
 const rootDir = process.cwd();
 
-// All workspace package directories, mirroring the `workspaces` globs in the
+// All published workspace package directories, from the `workspaces` globs in the
 // root package.json (the single `components` package plus everything in packages/).
 const workspaceDirs = [
   'components',
-  ...fs.readdirSync(path.join(rootDir, 'packages')).map((p) => `packages/${p}`),
+  ...fs
+    .readdirSync(path.join(rootDir, 'packages'), { withFileTypes: true })
+    .filter((d) => d.isDirectory())
+    .map((p) => `packages/${p.name}`),
 ];
 
 // Map of every workspace package name -> its current on-disk version.
