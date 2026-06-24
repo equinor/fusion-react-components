@@ -41,7 +41,7 @@ While Storybook is running open a new terminal and compile the project
 
 ```sh
 cd packages/PACKAGE_NAME
-tsc -w
+bun exec tsc -w
 ```
 
 # Add a new component
@@ -154,5 +154,67 @@ __Watcher does not work__
 bun add -g typescript@latest
 ```
 
+# Bun releases & the custom publish script
+
+Releases are driven by [Changesets](https://github.com/changesets/changesets). When a release PR is
+merged into `main`, the workflow versions the affected packages and runs `scripts/publish.js` to
+publish them to NPM.
+
+## Why we have a custom publish script
+
+We publish with `npm publish` (for provenance/OIDC) but pack with `bun pm pack`. In a monorepo with
+internal `workspace:*` dependencies this combination has a footgun caused by two Bun bugs:
+
+- `bun pm pack` resolves `workspace:*` ranges from `bun.lock`, not from the sibling's `package.json`
+  ([oven-sh/bun#20477](https://github.com/oven-sh/bun/issues/20477)).
+- `bun install` does not refresh those workspace version records in `bun.lock` after a version bump
+  ([oven-sh/bun#18906](https://github.com/oven-sh/bun/issues/18906)).
+
+Together they mean a freshly bumped package can be published pinning a **stale** version of an
+internal dependency (e.g. `@equinor/fusion-react-person` shipping with an outdated
+`@equinor/fusion-react-utils`). Deleting/regenerating `bun.lock` would fix it, but our policy is to
+never delete the lockfile.
+
+Instead, `scripts/publish.js` resolves every `workspace:*` range to the concrete version read from
+each sibling's on-disk `package.json` immediately before packing, then restores the original file —
+exactly what `bun publish` / `pnpm publish` do internally. This is independent of `bun.lock`, so the
+correct versions are always shipped.
+
+## Migrating away from it
+
+This script is a workaround, not a permanent solution. **Once Bun fixes the bugs above, remove the
+`workspace:*` resolution logic** (`workspaceVersions`, `resolveWorkspaceRange`, `resolveWorkspaceDeps`,
+and the temporary `package.json` rewrite in the packing loop) and let `bun pm pack` resolve versions
+on its own. Track these issues for the green light:
+
+- [oven-sh/bun#18906](https://github.com/oven-sh/bun/issues/18906) — lockfile not refreshed after version bumps.
+- [oven-sh/bun#20477](https://github.com/oven-sh/bun/issues/20477) — `bun pm pack` reads versions from the lockfile.
+
+When `bun publish` also supports `--provenance` and npm OIDC trusted publishing
+([oven-sh/bun#15601](https://github.com/oven-sh/bun/issues/15601)), the entire `npm publish` step can
+likely be replaced with `bun publish`, removing the script altogether.
 
 
+# Dependabot & Bun
+
+Dependabot bumps versions in `package.json` but does **not** understand Bun's lockfile (`bun.lock`),
+so its PRs leave the lockfile out of sync with the updated dependencies. Merging such a PR as-is can
+break installs and CI steps that run with a frozen lockfile.
+
+Before merging a Dependabot PR, refresh `bun.lock` locally and push it back to the PR branch:
+
+```sh
+# check out the Dependabot PR branch
+gh pr checkout <PR_NUMBER>
+
+# regenerate the lockfile from the updated package.json files
+bun install
+
+# commit and push the refreshed lockfile to the same branch
+git commit -am "chore: update bun.lock"
+git push
+````
+
+Do not delete bun.lock to update it — a plain bun install is enough here, since Dependabot
+changed an actual dependency (Bun refreshes the lockfile when dependencies change, unlike a
+workspace-only version bump).
