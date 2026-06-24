@@ -1,5 +1,15 @@
 # @equinor/fusion-react-components
 
+## 1.1.2
+
+### Patch Changes
+
+- 3ee997a: Fix stale internal `workspace:*` dependency versions in published packages. The publish script now resolves
+  `workspace:*` to concrete versions from each sibling's on-disk `package.json` before packing, working around a Bun bug
+  (oven-sh/bun#18906) where `bun pm pack` used outdated versions from `bun.lock`.
+- Updated dependencies [3ee997a]
+  - @equinor/fusion-react-person@2.0.13
+
 ## 1.1.1
 
 ### Patch Changes
