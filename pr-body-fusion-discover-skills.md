@@ -15,7 +15,7 @@ The deprecated skill `fusion-discover-skills` is still installed locally.
 
 ## References
 
-- Workflow run: https://github.com/equinor/fusion-react-components/actions/runs/27407381059
+- Workflow run: https://github.com/equinor/fusion-react-components/actions/runs/28088155739
 - Successor skill: `fusion-skills`
 
 ## Reviewer focus
