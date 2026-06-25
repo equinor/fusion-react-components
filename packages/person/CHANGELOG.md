@@ -1,5 +1,14 @@
 # Change Log
 
+## 2.0.15
+
+### Patch Changes
+
+- 0949fd1: Update the bundled people web component dependency.
+
+  - Pick up the latest `@equinor/fusion-wc-people` patch release.
+  - Keep the person package aligned with the current web component dependency range.
+
 ## 2.0.14
 
 ### Patch Changes
