@@ -1,5 +1,14 @@
 # Change Log
 
+## 6.0.8
+
+### Patch Changes
+
+- Updated dependencies [bead18c]
+  - @equinor/fusion-react-person@2.0.14
+  - @equinor/fusion-react-components@1.1.3
+  - @equinor/fusion-react-ag-grid-person-cell@4.0.10
+
 ## 6.0.7
 
 ### Patch Changes
