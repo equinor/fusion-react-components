@@ -201,7 +201,10 @@ Dependabot bumps versions in `package.json` but does **not** understand Bun's lo
 so its PRs leave the lockfile out of sync with the updated dependencies. Merging such a PR as-is can
 break installs and CI steps that run with a frozen lockfile.
 
-Before merging a Dependabot PR, refresh `bun.lock` locally and push it back to the PR branch:
+To cover that gap, the repository runs a workflow on Dependabot PRs that executes `bun install` and
+commits an updated `bun.lock` back to the PR branch when needed.
+
+If that automation fails for any reason, refresh `bun.lock` locally and push it back to the PR branch:
 
 ```sh
 # check out the Dependabot PR branch
