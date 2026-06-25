@@ -8,14 +8,14 @@
         "@biomejs/biome": "2.5.0",
         "@changesets/cli": "^2.26.2",
         "@commitlint/cli": "^21.0.1",
-        "@commitlint/config-conventional": "^21.0.1",
+        "@commitlint/config-conventional": "^21.1.0",
         "prettier": "^3.0.3",
         "typescript": "^6.0.2",
       },
     },
     "components": {
       "name": "@equinor/fusion-react-components",
-      "version": "1.1.3",
+      "version": "1.1.4",
       "dependencies": {
         "@equinor/fusion-react-person": "workspace:*",
       },
@@ -29,7 +29,7 @@
     },
     "packages/ag-grid-person-cell": {
       "name": "@equinor/fusion-react-ag-grid-person-cell",
-      "version": "4.0.10",
+      "version": "4.0.11",
       "dependencies": {
         "@equinor/fusion-react-person": "workspace:*",
         "@equinor/fusion-react-utils": "workspace:*",
@@ -213,7 +213,7 @@
     },
     "packages/person": {
       "name": "@equinor/fusion-react-person",
-      "version": "2.0.14",
+      "version": "2.0.15",
       "dependencies": {
         "@equinor/fusion-react-utils": "workspace:*",
         "@equinor/fusion-wc-people": "^2.2.4",
@@ -411,7 +411,7 @@
     },
     "storybook": {
       "name": "@equinor/fusion-react-components-stories",
-      "version": "6.0.8",
+      "version": "6.0.9",
       "dependencies": {
         "@babel/core": "^8.0.1",
         "@emotion/css": "^11.11.2",
@@ -731,7 +731,7 @@
 
     "@commitlint/cli": ["@commitlint/cli@21.0.2", "", { "dependencies": { "@commitlint/format": "21.0.1", "@commitlint/lint": "21.0.2", "@commitlint/load": "21.0.2", "@commitlint/read": "21.0.2", "@commitlint/types": "21.0.1", "tinyexec": "1.2.4", "yargs": "18.0.0" }, "bin": { "commitlint": "cli.js" } }, "sha512-YMmfLbqBg+ZRvvmPhc+cilSQFrh/AgzVgCT1U/OifmUZEwPbvCtA8rN//YNaF9d5eoZphxVMGYtmwA2QgQORgg=="],
 
-    "@commitlint/config-conventional": ["@commitlint/config-conventional@21.0.2", "", { "dependencies": { "@commitlint/types": "21.0.1", "conventional-changelog-conventionalcommits": "9.3.1" } }, "sha512-P/ZRhryQmkj0Z0dY9FOoRwe3xkwJyyAdtXwt01NT2kuZttcG2CNYp1q5Ci3u+nDT2jcbJRw2kt13Czl1qKNPfg=="],
+    "@commitlint/config-conventional": ["@commitlint/config-conventional@21.1.0", "", { "dependencies": { "@commitlint/types": "^21.1.0", "conventional-changelog-conventionalcommits": "^9.2.0" } }, "sha512-BIFl8xM+3SLy3jrblUC3wmQLCVbLty+++6o859BDCmybVrQdXmIWO+dlkGIbv/M2bBoC55wGuh0zGiw3TPjL1g=="],
 
     "@commitlint/config-validator": ["@commitlint/config-validator@21.0.1", "", { "dependencies": { "@commitlint/types": "21.0.1", "ajv": "8.20.0" } }, "sha512-Zd2UFdndeMMaW2O96HK0tdfT4gOImUvidMpAd/pws2zZ4m1nrAZ/9b/v2JYuE8fs86GpXv9F7LNaIuCIWhY+pA=="],
 
@@ -2442,6 +2442,8 @@
     "@changesets/apply-release-plan/prettier": ["prettier@2.8.8", "", { "bin": { "prettier": "bin-prettier.js" } }, "sha512-tdN8qQGvNjw4CHbY+XXk0JgCXn9QiF21a55rBe5LJAU+kDyC4WQn4+awm2Xfk2lQMk5fKup9XgzTZtGkjBdP9Q=="],
 
     "@changesets/write/prettier": ["prettier@2.8.8", "", { "bin": { "prettier": "bin-prettier.js" } }, "sha512-tdN8qQGvNjw4CHbY+XXk0JgCXn9QiF21a55rBe5LJAU+kDyC4WQn4+awm2Xfk2lQMk5fKup9XgzTZtGkjBdP9Q=="],
+
+    "@commitlint/config-conventional/@commitlint/types": ["@commitlint/types@21.1.0", "", { "dependencies": { "conventional-commits-parser": "^6.3.0", "picocolors": "^1.1.1" } }, "sha512-YodnnnH1Cp+08nP8HGNJAIuB6L3/vdCTHVRTfF8Ik/wRCLOTsU9zwv3yO1cSPQRDa9CLYtE+UJ2K67r7CwMSFw=="],
 
     "@emotion/babel-plugin/@babel/helper-module-imports": ["@babel/helper-module-imports@7.29.7", "", { "dependencies": { "@babel/traverse": "^7.29.7", "@babel/types": "^7.29.7" } }, "sha512-ejHwrQQYcm9xnTivShn2IDOlIzInN34AXskvq9QicvCtEzq1Vzclu/tKF8Jq1Cg8JG2GL6/EmjgsCT7lXepE3g=="],
 
