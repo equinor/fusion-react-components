@@ -15,7 +15,7 @@ The deprecated skill `fusion-framework-feature-toggling` is still installed loca
 
 ## References
 
-- Workflow run: https://github.com/equinor/fusion-react-components/actions/runs/27407381059
+- Workflow run: https://github.com/equinor/fusion-react-components/actions/runs/28088155739
 - Successor skill: `fusion-app-react-dev`
 
 ## Reviewer focus
