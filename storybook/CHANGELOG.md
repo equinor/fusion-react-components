@@ -1,5 +1,14 @@
 # Change Log
 
+## 6.0.9
+
+### Patch Changes
+
+- Updated dependencies [0949fd1]
+  - @equinor/fusion-react-person@2.0.15
+  - @equinor/fusion-react-components@1.1.4
+  - @equinor/fusion-react-ag-grid-person-cell@4.0.11
+
 ## 6.0.8
 
 ### Patch Changes
