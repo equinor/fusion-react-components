@@ -193,31 +193,3 @@ on its own. Track these issues for the green light:
 When `bun publish` also supports `--provenance` and npm OIDC trusted publishing
 ([oven-sh/bun#15601](https://github.com/oven-sh/bun/issues/15601)), the entire `npm publish` step can
 likely be replaced with `bun publish`, removing the script altogether.
-
-
-# Dependabot & Bun
-
-Dependabot bumps versions in `package.json` but does **not** understand Bun's lockfile (`bun.lock`),
-so its PRs leave the lockfile out of sync with the updated dependencies. Merging such a PR as-is can
-break installs and CI steps that run with a frozen lockfile.
-
-To cover that gap, the repository runs a workflow on Dependabot PRs that executes `bun install` and
-commits an updated `bun.lock` back to the PR branch when needed.
-
-If that automation fails for any reason, refresh `bun.lock` locally and push it back to the PR branch:
-
-```sh
-# check out the Dependabot PR branch
-gh pr checkout <PR_NUMBER>
-
-# regenerate the lockfile from the updated package.json files
-bun install
-
-# commit and push the refreshed lockfile to the same branch
-git commit -am "chore: update bun.lock"
-git push
-````
-
-Do not delete bun.lock to update it — a plain bun install is enough here, since Dependabot
-changed an actual dependency (Bun refreshes the lockfile when dependencies change, unlike a
-workspace-only version bump).
