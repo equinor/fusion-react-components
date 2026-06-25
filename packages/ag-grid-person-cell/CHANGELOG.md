@@ -1,5 +1,12 @@
 # Change Log
 
+## 4.0.10
+
+### Patch Changes
+
+- Updated dependencies [bead18c]
+  - @equinor/fusion-react-person@2.0.14
+
 ## 4.0.9
 
 ### Patch Changes
