@@ -58,8 +58,8 @@
   },
   "dependencies": {
     "@equinor/fusion-react-utils": "workspace:*",
-    "@equinor/fusion-wc-layout": "^0.0.1-beta.2",
-    "@equinor/fusion-wc-page": "^0.0.1-beta.0"
+    "@equinor/fusion-wc-layout": "^0.0.0",
+    "@equinor/fusion-wc-page": "^0.0.0"
   },
   "devDependencies": {
     "@types/react": "^19.2.14",
