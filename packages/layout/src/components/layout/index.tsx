@@ -20,7 +20,7 @@ type LayoutComponent = ((props: PropsWithChildren) => ReactNode) & {
  * assigning children to the layout content and sidebar slots.
  */
 export const Layout: LayoutComponent = ({ children }: PropsWithChildren): ReactNode => {
-  const [hasSidebar, setHasSidebar] = useState<boolean>(true);
+  const [hasSidebar, setHasSidebar] = useState<boolean>(false);
 
   const childArray = Children.toArray(children);
 
@@ -34,7 +34,7 @@ export const Layout: LayoutComponent = ({ children }: PropsWithChildren): ReactN
   }, [hasSidebarChild]);
 
   /* @ts-expect-error the jsx element exist */
-  return <fwc-layout sidebar={hasSidebar}>{children}</fwc-layout>;
+  return <fwc-layout sidebar={hasSidebar || undefined}>{children}</fwc-layout>;
 };
 
 Layout.displayName = 'Layout';
