@@ -1,4 +1,3 @@
-/* eslint-disable react/no-array-index-key */
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
 import { Layout, Page } from '@equinor/fusion-react-layout';
