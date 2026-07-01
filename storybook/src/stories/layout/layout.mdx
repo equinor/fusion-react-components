@@ -1,0 +1,40 @@
+import { Meta, Markdown, Canvas } from '@storybook/addon-docs/blocks';
+
+import readme from '#packages/layout/README.md?raw';
+import pkg from '#packages/layout/package.json';
+
+import changelogReact from '#packages/layout/CHANGELOG.md?raw';
+
+import { ChangeLog, PackageInfo } from '../../components';
+
+import * as layoutStories from './layout.stories';
+
+<Meta of={layoutStories} />
+
+<PackageInfo pkg={pkg} />
+
+<Markdown>{readme}</Markdown>
+
+## Layout
+
+<Canvas of={ layoutStories.content } />
+
+## Layout with Sidebar
+
+<Canvas of={ layoutStories.sidebar } />
+
+## Layout with Page
+
+<Canvas of={ layoutStories.page } />
+
+## Layout with Page and Sidebar
+
+<Canvas of={ layoutStories.pageAndSidebar } />
+
+## Changelog
+
+<ChangeLog
+  changelogs={{
+    react: changelogReact,
+  }}
+/>

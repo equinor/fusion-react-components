@@ -1,0 +1,70 @@
+{
+  "name": "@equinor/fusion-react-layout",
+  "version": "0.0.0",
+  "description": "Fusion React Layout Component.",
+  "keywords": [
+    "react",
+    "components",
+    "fusion",
+    "equinor",
+    "layout"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./layout": {
+      "import": "./dist/components/layout/index.js",
+      "types": "./dist/components/layout/index.d.ts"
+    },
+    "./page": {
+      "import": "./dist/components/page/index.js",
+      "types": "./dist/components/page/index.d.ts"
+    },
+    "./package.json": "./package.json",
+    "./README.md": "./README.md",
+    "./CHANGELOG.md": "./CHANGELOG.md"
+  },
+  "homepage": "https://github.com/equinor/fusion-react-components/blob/main/packages/layout#readme",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "directories": {
+    "dist": "dist"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/equinor/fusion-react-components.git",
+    "directory": "packages/layout"
+  },
+  "scripts": {
+    "build": "tsc -b",
+    "lint": "biome lint",
+    "format": "biome format",
+    "prepack": "npm run build"
+  },
+  "bugs": {
+    "url": "https://github.com/equinor/fusion-react-components/issues"
+  },
+  "dependencies": {
+    "@equinor/fusion-wc-layout": "^0.0.0",
+    "@equinor/fusion-wc-page": "^0.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.14",
+    "react": "^19.2.5"
+  },
+  "peerDependencies": {
+    "react": "^18 || ^19"
+  }
+}
