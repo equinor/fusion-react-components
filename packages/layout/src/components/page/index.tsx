@@ -1,16 +1,20 @@
 import type { PropsWithChildren, ReactNode } from 'react';
 
-import { PageElement } from '@equinor/fusion-wc-page';
+import '@equinor/fusion-wc-page';
 
-// Referencing the element module registers the custom element before React renders it.
-PageElement;
+type PageComponent = ((props: PropsWithChildren) => ReactNode) & {
+  Header: (props: PropsWithChildren) => ReactNode;
+  Main: (props: PropsWithChildren) => ReactNode;
+  Footer: (props: PropsWithChildren) => ReactNode;
+  displayName?: string;
+};
 
 /**
  * Wraps the Fusion page web component and exposes compound components for
  * assigning children to the page header, main, and footer slots.
  */
-export const Page = ({ children }: PropsWithChildren): ReactNode => {
-  /* @ts-expect-error the jsx element exist */
+export const Page: PageComponent = ({ children }: PropsWithChildren): ReactNode => {
+  /* @ts-expect-error fwc-page is a web component */
   return <fwc-page>{children}</fwc-page>;
 };
 Page.displayName = 'Page';
