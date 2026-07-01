@@ -45,8 +45,8 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/equinor/fusion-react-components.git",
-    "directory": "layout"
-  },
+    "directory": "packages/layout"
+  }
   "scripts": {
     "build": "tsc -b",
     "lint": "biome lint",
