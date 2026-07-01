@@ -56,7 +56,7 @@
       "version": "33.0.7",
       "devDependencies": {
         "@equinor/eds-core-react": "^2.5.0",
-        "@equinor/eds-icons": "^1.4.0",
+        "@equinor/eds-icons": "^1.5.1",
         "@equinor/eds-tokens": "^2.3.1",
         "@equinor/fusion-framework-react-ag-grid": "^36.0.1",
         "@types/react": "^19.2.14",
@@ -117,7 +117,7 @@
       },
       "devDependencies": {
         "@equinor/eds-core-react": "^2.5.0",
-        "@equinor/eds-icons": "^1.4.0",
+        "@equinor/eds-icons": "^1.5.1",
         "@equinor/eds-tokens": "^2.3.1",
         "@types/react": "^19.2.14",
         "react": "^19.2.5",
@@ -145,7 +145,7 @@
       },
       "devDependencies": {
         "@equinor/eds-core-react": "^2.5.0",
-        "@equinor/eds-icons": "^1.4.0",
+        "@equinor/eds-icons": "^1.5.1",
         "@equinor/fusion-observable": "^9.0.0",
         "@types/react": "^19.2.14",
         "react": "^19.2.5",
@@ -267,7 +267,7 @@
       },
       "devDependencies": {
         "@equinor/eds-core-react": "^2.5.0",
-        "@equinor/eds-icons": "^1.4.0",
+        "@equinor/eds-icons": "^1.5.1",
         "@equinor/eds-tokens": "^2.3.1",
         "@types/react": "^19.2.14",
         "@types/styled-components": "^5.1.29",
@@ -305,7 +305,7 @@
       "version": "3.0.8",
       "devDependencies": {
         "@equinor/eds-core-react": "^2.5.0",
-        "@equinor/eds-icons": "^1.4.0",
+        "@equinor/eds-icons": "^1.5.1",
         "@equinor/eds-tokens": "^2.3.1",
         "@types/react": "^19.2.14",
         "react": "^19.2.5",
@@ -418,7 +418,7 @@
         "@emotion/react": "^11.11.3",
         "@emotion/styled": "^11.11.0",
         "@equinor/eds-core-react": "^2.5.0",
-        "@equinor/eds-icons": "^1.4.0",
+        "@equinor/eds-icons": "^1.5.1",
         "@equinor/eds-tokens": "^2.3.1",
         "@equinor/fusion-framework-react-ag-grid": "^36.0.1",
         "@equinor/fusion-react-ag-grid-person-cell": "workspace:*",
@@ -815,7 +815,7 @@
 
     "@equinor/eds-core-react": ["@equinor/eds-core-react@2.6.1", "", { "dependencies": { "@babel/runtime": "^7.29.2", "@equinor/eds-icons": "^1.5.0", "@equinor/eds-tokens": "^2.2.0", "@equinor/eds-utils": "^2.2.1", "@floating-ui/react": "^0.27.19", "@internationalized/date": "^3.12.0", "@react-aria/utils": "^3.33.1", "@react-stately/calendar": "^3.9.3", "@react-stately/datepicker": "^3.16.1", "@react-types/shared": "^3.33.1", "@tanstack/react-virtual": "3.13.24", "downshift": "9.3.2", "react-aria": "^3.47.0" }, "peerDependencies": { "react": "^18 || ^19", "react-dom": "^18 || ^19", "styled-components": "^6" } }, "sha512-TEXOf7CEWkxiFaTqZrVW19a4r6i5bivD32fsVJepTazO6DLwE1EugsidDu8UL9HfTBanH16tgFfYBr/yTl/DwA=="],
 
-    "@equinor/eds-icons": ["@equinor/eds-icons@1.5.0", "", {}, "sha512-vYRui2RLLU8il+4G4ZsIorO/w1QB6CtVgq2DIkejY/q1mGLa/9dU8QlW5QZQ5Oh3INwi9rlWAaJx10D3hrAtZA=="],
+    "@equinor/eds-icons": ["@equinor/eds-icons@1.5.1", "", {}, "sha512-5/pi0vsXHKVDIFG+BOufOqtAS8wD5J0qTqcucUvnIvo4vpUHWJbMpP80fyAQ9S8ZAu+9auBEq4NY1ZBcqjZq8w=="],
 
     "@equinor/eds-tokens": ["@equinor/eds-tokens@2.3.1", "", {}, "sha512-LSMTc3pZsgGYsTmw4xWIfIfB9fw8p6MN87v5UyshVawKDN+na9Cz91+N9uUniaL3vsIS2X8badt1pnwkf38gEw=="],
 
@@ -2449,6 +2449,8 @@
 
     "@emotion/cache/stylis": ["stylis@4.2.0", "", {}, "sha512-Orov6g6BB1sDfYgzWfTHDOxamtX1bE/zo104Dh9e6fqJ3PooipYyfJ0pUmrZO2wAvO8YbEyeFrkV91XTsGMSrw=="],
 
+    "@equinor/eds-core-react/@equinor/eds-icons": ["@equinor/eds-icons@1.5.0", "", {}, "sha512-vYRui2RLLU8il+4G4ZsIorO/w1QB6CtVgq2DIkejY/q1mGLa/9dU8QlW5QZQ5Oh3INwi9rlWAaJx10D3hrAtZA=="],
+
     "@equinor/eds-core-react/@equinor/eds-tokens": ["@equinor/eds-tokens@2.3.0", "", {}, "sha512-CAuO75EnYw053nNB78OafNbA3+Orfav7a6SoFaEPfuiHiEopYqeEHnptijo5Pznd73dwMK8wMqmlzynQkDBYCg=="],
 
     "@equinor/eds-utils/@equinor/eds-tokens": ["@equinor/eds-tokens@2.3.0", "", {}, "sha512-CAuO75EnYw053nNB78OafNbA3+Orfav7a6SoFaEPfuiHiEopYqeEHnptijo5Pznd73dwMK8wMqmlzynQkDBYCg=="],
@@ -2458,6 +2460,8 @@
     "@equinor/fusion/react": ["react@17.0.2", "", { "dependencies": { "loose-envify": "^1.1.0", "object-assign": "^4.1.1" } }, "sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA=="],
 
     "@equinor/fusion/uuid": ["uuid@8.3.2", "", { "bin": { "uuid": "dist/bin/uuid" } }, "sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg=="],
+
+    "@equinor/fusion-wc-icon/@equinor/eds-icons": ["@equinor/eds-icons@1.5.0", "", {}, "sha512-vYRui2RLLU8il+4G4ZsIorO/w1QB6CtVgq2DIkejY/q1mGLa/9dU8QlW5QZQ5Oh3INwi9rlWAaJx10D3hrAtZA=="],
 
     "@equinor/fusion-wc-people/lit": ["lit@3.3.3", "", { "dependencies": { "@lit/reactive-element": "^2.1.0", "lit-element": "^4.2.0", "lit-html": "^3.3.0" } }, "sha512-fycuvZg/hkpozL00lm1pEJH5nN/lr9ZXd6mJI2HSN4+Bzc+LDNdEApJ6HFbPkdFNHLvOplIIuJvxkS4XUxqirw=="],
 
