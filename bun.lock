@@ -183,9 +183,8 @@
     },
     "packages/layout": {
       "name": "@equinor/fusion-react-layout",
-      "version": "0.0.0",
+      "version": "0.1.0",
       "dependencies": {
-        "@equinor/fusion-react-utils": "workspace:*",
         "@equinor/fusion-wc-layout": "^0.0.0",
         "@equinor/fusion-wc-page": "^0.0.0",
       },
@@ -427,7 +426,7 @@
     },
     "storybook": {
       "name": "@equinor/fusion-react-components-stories",
-      "version": "6.0.9",
+      "version": "6.0.10",
       "dependencies": {
         "@babel/core": "^8.0.1",
         "@emotion/css": "^11.11.2",
