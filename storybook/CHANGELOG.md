@@ -1,5 +1,12 @@
 # Change Log
 
+## 6.0.10
+
+### Patch Changes
+
+- Updated dependencies [060f792]
+  - @equinor/fusion-react-layout@0.1.0
+
 ## 6.0.9
 
 ### Patch Changes
