@@ -4,7 +4,7 @@ Component for handling layout in your application.
 
 Use this package to compose app-level layouts with an optional sidebar and page sections for header, main content, and footer.
 
-## [Storybook](https://equinor.github.io/fusion-react-layout/)
+## [Storybook](https://equinor.github.io/fusion-react-components/?path=/docs/ui-layout)
 
 ## Installation
 
