@@ -9,14 +9,19 @@ import {
 
 import { LayoutElement } from '@equinor/fusion-wc-layout';
 
-// makes sure web component is registrerred
+// Referencing the element module registers the custom element before React renders it.
 LayoutElement;
 
+/**
+ * Wraps the Fusion layout web component and exposes compound components for
+ * assigning children to the layout content and sidebar slots.
+ */
 export const Layout = ({ children }: PropsWithChildren): ReactNode => {
   const [hasSidebar, setHasSidebar] = useState<boolean>(true);
 
   const childArray = Children.toArray(children);
 
+  // Keep the web component sidebar state aligned with the compound component tree.
   const hasSidebarChild = childArray.some((child) => {
     return isValidElement(child) && child.type === Layout.Sidebar;
   });
@@ -31,11 +36,14 @@ export const Layout = ({ children }: PropsWithChildren): ReactNode => {
 
 Layout.displayName = 'Layout';
 
+// Compound components mirror the slots supported by the underlying web component.
 Layout.Sidebar = ({ children }: PropsWithChildren): ReactNode => {
+  // The underlying web component projects this content into its sidebar slot.
   return <div slot="sidebar">{children}</div>;
 };
 
 Layout.Content = ({ children }: PropsWithChildren): ReactNode => {
+  // The underlying web component projects this content into its main content slot.
   return <div slot="content">{children}</div>;
 };
 
