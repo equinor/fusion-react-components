@@ -1,6 +1,6 @@
 # @equinor/fusion-react-layout [![Published on npm](https://img.shields.io/npm/v/@equinor/fusion-react-layout.svg)](https://www.npmjs.com/package/@equinor/fusion-react-layout)
 
-Component for handling layout in you application.
+Component for handling layout in your application.
 
 Use this package to compose app-level layouts with an optional sidebar and page sections for header, main content, and footer.
 
