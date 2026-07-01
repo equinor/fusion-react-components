@@ -60,7 +60,7 @@
     "@equinor/eds-tokens": "^2.3.1",
     "@types/react": "^19.2.14",
     "react": "^19.2.5",
-    "styled-components": "^6.1.1"
+    "styled-components": "^6.4.3"
   },
   "peerDependencies": {
     "@equinor/eds-core-react": "^2",
@@ -68,6 +68,6 @@
     "@equinor/eds-tokens": "^2",
     "react": "^18 || ^19",
     "react-dom": "^18 || ^19",
-    "styled-components": "^6.1.1"
+    "styled-components": "^6.4.3"
   }
 }
