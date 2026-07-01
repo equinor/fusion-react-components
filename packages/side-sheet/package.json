@@ -46,7 +46,7 @@
     "@types/styled-components": "^5.1.29",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
-    "styled-components": "^6.1.0",
+    "styled-components": "^6.4.3",
     "typescript": "^6.0.2"
   },
   "peerDependencies": {
@@ -55,6 +55,6 @@
     "@equinor/eds-tokens": "^2",
     "react": "^18 || ^19",
     "react-dom": "^18 || ^19",
-    "styled-components": "^6.1.0"
+    "styled-components": "^6.4.3"
   }
 }
