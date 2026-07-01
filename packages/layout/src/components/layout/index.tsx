@@ -20,8 +20,6 @@ type LayoutComponent = ((props: PropsWithChildren) => ReactNode) & {
  * assigning children to the layout content and sidebar slots.
  */
 export const Layout: LayoutComponent = ({ children }: PropsWithChildren): ReactNode => {
-  const [hasSidebar, setHasSidebar] = useState<boolean>(false);
-
   const childArray = Children.toArray(children);
 
   // Keep the web component sidebar state aligned with the compound component tree.
@@ -29,11 +27,13 @@ export const Layout: LayoutComponent = ({ children }: PropsWithChildren): ReactN
     return isValidElement(child) && child.type === Layout.Sidebar;
   });
 
+  const [hasSidebar, setHasSidebar] = useState<boolean>(hasSidebarChild);
+
   useEffect(() => {
     setHasSidebar(hasSidebarChild);
   }, [hasSidebarChild]);
 
-  /* @ts-expect-error the jsx element exist */
+  /* @ts-expect-error fwc-layout is a web component */
   return <fwc-layout sidebar={hasSidebar || undefined}>{children}</fwc-layout>;
 };
 
