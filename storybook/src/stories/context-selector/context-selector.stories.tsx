@@ -1,14 +1,15 @@
-import { Meta, StoryObj } from '@storybook/react-vite';
+import { Meta, StoryObj } from "@storybook/react-vite";
 import {
   ContextProvider,
   ContextSelector,
   ContextSearch,
   ContextSelectEvent,
-} from '@equinor/fusion-react-context-selector/src';
-import { _exampleResolver } from './context-selector.helpers';
+} from "@equinor/fusion-react-context-selector/src";
+import { Typography } from "@equinor/eds-core-react";
+import { _exampleResolver } from "./context-selector.helpers";
 
 const meta: Meta<typeof ContextSearch> = {
-  title: 'data/ContextSelector',
+  title: "data/ContextSelector",
   component: ContextSelector,
 };
 
@@ -18,16 +19,16 @@ type Story = StoryObj<typeof ContextSearch>;
 
 export const ContextHeader: Story = {
   args: {
-    placeholder: 'Start to type to search...',
-    initialText: 'The initial text result',
-    variant: 'header',
-    dropdownHeight: '300px',
+    placeholder: "Start to type to search...",
+    initialText: "The initial text result",
+    variant: "header",
+    dropdownHeight: "300px",
     onSelect: (e: ContextSelectEvent) => {
       e.stopPropagation();
-      console.log('Event', e.type, 'fired. Object:', e);
+      console.log("Event", e.type, "fired. Object:", e);
     },
     onClearContext: () => {
-      console.log('Context Clearing');
+      console.log("Context Clearing");
     },
   },
   render: (args) => (
@@ -50,4 +51,42 @@ export const ContextHeaderTopLayerDisabled: Story = {
     ...ContextHeader.args,
     topLayer: false,
   },
+  render: (args) => (
+    <div
+      style={{
+        position: "relative",
+        transform: "translateZ(0)",
+        padding: "2rem 1rem 260px",
+        border: "1px dashed gray",
+      }}
+    >
+      <Typography style={{ margin: "0 0 1rem" }}>
+        This box creates its own stacking context via transform: translateZ(0).
+        The overlay directly below the input uses z-index: 999, exactly where
+        the result list opens. Toggle topLayer in the Controls panel to compare.
+      </Typography>
+      <div style={{ position: "relative" }}>
+        <ContextProvider resolver={_exampleResolver}>
+          <ContextSearch {...args} />
+        </ContextProvider>
+        <div
+          style={{
+            position: "absolute",
+            top: "100%",
+            left: 0,
+            right: 0,
+            height: "200px",
+            zIndex: 999,
+            background: "rgba(226, 6, 44, 0.25)",
+            textAlign: "center",
+            paddingTop: "0.5rem",
+          }}
+        >
+          <Typography>
+            Overlay with its own stacking context (z-index: 999)
+          </Typography>
+        </div>
+      </div>
+    </div>
+  ),
 };
