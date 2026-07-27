@@ -16,6 +16,14 @@ import * as stories from './searchable-dropdown.stories';
 <ArgTypes of={ stories.basic } />
 <Canvas of={ stories.basic } meta={stories} story={{height: '320px'}}/>
 
+## Rendering above stacking contexts
+
+Enable `topLayer` to render the result list above independently created
+stacking contexts. Toggle the control in this example to compare the default
+positioning with browser top-layer rendering.
+
+<Canvas of={ stories.TopLayer } meta={stories} story={{height: '560px'}}/>
+
 ## How to use
 
 The ``searchable-dropdown`` component is built up of 2 elements, ``dropdown`` and ``dropdownProvider``.
