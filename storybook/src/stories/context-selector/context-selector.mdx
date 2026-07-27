@@ -20,6 +20,15 @@ import * as stories from './context-selector.stories';
 
 <Canvas of={stories.ContextHeader} />
 
+### Rendering above arbitrary Fusion app stacking contexts
+
+Context selector results are portal-owned UI: they must reliably render above whatever
+stacking context a hosting Fusion app happens to create, without app teams having to manage
+z-index. `topLayer` therefore defaults to `true`, rendering results in the browser's top
+layer via the native Popover API. Pass `topLayer={false}` to opt back out.
+
+<Canvas of={stories.ContextHeaderTopLayerDisabled} />
+
 ## ChangeLog
 
 <ChangeLog

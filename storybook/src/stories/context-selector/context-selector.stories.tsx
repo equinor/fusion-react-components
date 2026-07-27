@@ -36,3 +36,18 @@ export const ContextHeader: Story = {
     </ContextProvider>
   ),
 };
+
+/**
+ * `topLayer` defaults to `true` for context selector results (see the
+ * "Rendering above arbitrary Fusion app stacking contexts" section in the package
+ * README), so results render in the browser's top layer and can't be clipped or
+ * hidden behind app content with its own stacking context. Pass `topLayer={false}`
+ * to opt back into the previous shadow-DOM-relative, absolutely positioned behavior.
+ */
+export const ContextHeaderTopLayerDisabled: Story = {
+  ...ContextHeader,
+  args: {
+    ...ContextHeader.args,
+    topLayer: false,
+  },
+};
