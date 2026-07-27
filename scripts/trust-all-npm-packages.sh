@@ -25,24 +25,42 @@ is_true() {
 }
 
 collect_workspace_packages() {
-  pnpm -r list --depth -1 --json | node -e '
-    const fs = require("node:fs");
-    const input = fs.readFileSync(0, "utf8").trim();
-    if (!input) process.exit(0);
+  bun -e '
+    import { existsSync, readdirSync, readFileSync } from "node:fs";
+    import { join } from "node:path";
 
-    const data = JSON.parse(input);
-    const records = Array.isArray(data)
-      ? data
-      : Array.isArray(data?.packages)
-        ? data.packages
-        : Array.isArray(data?.projects)
-          ? data.projects
-          : (data && typeof data === "object")
-            ? Object.values(data)
-            : [];
+    const root = process.cwd();
+    const rootPackageJson = JSON.parse(readFileSync(join(root, "package.json"), "utf8"));
+    const workspaces = Array.isArray(rootPackageJson.workspaces)
+      ? rootPackageJson.workspaces
+      : Array.isArray(rootPackageJson.workspaces?.packages)
+        ? rootPackageJson.workspaces.packages
+        : [];
 
-    for (const pkg of records) {
-      if (pkg?.name && pkg.private !== true) {
+    const packageDirs = workspaces.flatMap((workspace) => {
+      if (!workspace.includes("*")) {
+        return [workspace];
+      }
+
+      const base = workspace.slice(0, workspace.indexOf("*")).replace(/[/\\]*$/, "");
+      const baseDir = join(root, base || ".");
+      if (!existsSync(baseDir)) {
+        return [];
+      }
+
+      return readdirSync(baseDir, { withFileTypes: true })
+        .filter((entry) => entry.isDirectory())
+        .map((entry) => join(base, entry.name));
+    });
+
+    for (const packageDir of packageDirs) {
+      const packageJsonPath = join(root, packageDir, "package.json");
+      if (!existsSync(packageJsonPath)) {
+        continue;
+      }
+
+      const pkg = JSON.parse(readFileSync(packageJsonPath, "utf8"));
+      if (pkg.name && pkg.private !== true) {
         console.log(pkg.name);
       }
     }
@@ -63,7 +81,7 @@ trust_matches_target() {
 
 add_trust() {
   local pkg="$1"
-  local cmd=(npm trust github "$pkg" --repo "$REPOSITORY" --file "$WORKFLOW_FILE" --yes)
+  local cmd=(npm trust github "$pkg" --repo "$REPOSITORY" --file "$WORKFLOW_FILE" --allow-publish --yes)
 
   if [[ -n "$ENVIRONMENT" ]]; then
     cmd+=(--environment "$ENVIRONMENT")
@@ -81,8 +99,8 @@ echo "Repository: ${REPOSITORY}"
 echo "Workflow file: ${WORKFLOW_FILE}"
 echo "Dry run: ${DRY_RUN}"
 
-if ! command -v pnpm >/dev/null 2>&1; then
-  echo "pnpm is required but was not found in PATH." >&2
+if ! command -v bun >/dev/null 2>&1; then
+  echo "bun is required but was not found in PATH." >&2
   exit 1
 fi
 
