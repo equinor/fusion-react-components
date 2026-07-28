@@ -1,5 +1,15 @@
 # Change Log
 
+## 6.0.12
+
+### Patch Changes
+
+- Updated dependencies [aa34bea]
+  - @equinor/fusion-react-styles@2.1.8
+  - @equinor/fusion-react-context-selector@2.0.9
+  - @equinor/fusion-react-errorboundary@2.0.11
+  - @equinor/fusion-react-hanging-garden@2.0.10
+
 ## 6.0.11
 
 ### Patch Changes
@@ -150,6 +160,7 @@
   When Storybook is built for production, code examples now keep readable component names instead of showing generic values like `<no />`.
 
   This combines two fixes:
+
   - React wrapper components created with `createComponent(...)` now set explicit `displayName` values across packages so runtime JSX serialization uses meaningful names.
   - Storybook Vite production build sets `esbuild.keepNames: true` to ensure function and class names are preserved during minification (removing the need for a separate Terser configuration).
 
@@ -216,6 +227,7 @@
   ref: https://github.com/equinor/fusion-framework/issues/3698
 
   ### Added
+
   - **Styles Documentation (`styles.mdx`)**: Comprehensive MDX documentation page showcasing all styling features
   - **Story Groups**: Organized stories into logical groups:
     - **Basic Usage**: Basic styles, dynamic styles, and theme-based styles
@@ -231,6 +243,7 @@
     - **Theme Extension**: Step-by-step guide for extending `FusionTheme` with custom properties
 
   ### Changed
+
   - Storybook port updated to 3000
   - Removed `@material-ui/styles` dependency from Storybook package
   - **All stories now use Fusion theme CSS values**: Replaced hardcoded custom CSS with proper theme values using `getVariable()` API (`theme.colors.*.getVariable('color')`, `theme.spacing.*.getVariable('padding')`, `theme.typography.*.style.*`) for consistent design system integration
@@ -248,6 +261,7 @@
 ### Major Changes
 
 - fbc8188: React 19 compatibility fixes
+
   - Fixed TypeScript errors related to React 19 type changes
   - Updated `useRef` calls to provide initial values when type is explicitly specified
   - Fixed `HTMLDivElement` type usage to use `Partial<HTMLAttributes<HTMLDivElement>>`
@@ -306,6 +320,7 @@
 ### Patch Changes
 
 - 8b29782: **AG Grid Person Cell Component Updates**
+
   - Updated dependencies for both person cell and person component
   - **NEW**: Replaced tooltip functionality with popover-based person cards for better user experience
   - Added `PersonPopover` component that shows detailed person information on hover
@@ -343,6 +358,7 @@
 ### Patch Changes
 
 - c20b0b0: feat: Add support for array data in agGridPersonCell
+
   - The agGridPersonCell function now automatically detects when the field contains an array of person identifiers.
   - Tooltips are disabled for array fields and now it's using tooltip from EDS.
   - Heading and subHeading functions are not applied to array data.
@@ -350,6 +366,7 @@
   - Documentation updated to describe array handling in storybook.
 
 - ba9f00e: Update person provider mock resolver implementation
+
   - Fixed import path to use published package instead of src path
   - Updated faker image generation to use personPortrait instead of deprecated urlLoremFlickr
   - Reduced photo loading timeout from max 1000ms to 100ms for better storybook performance
@@ -377,10 +394,12 @@
 - 6158e18: ## Fusion React Tabs
 
   Add new `@equinor/fusion-react-tabs` component to:
+
   - Fusion React Components
   - Storybook with examples
 
   ### Features
+
   - The ability to float the tabs to the right or left of the screen
   - The ability to set a specific height for the tabs and provide a scroll bar if the tabs exceed the height
   - Default behavior of line under the tabs, and can be disabled. This is just a visual design change, and does not affect the functionality of the tabs
@@ -537,6 +556,7 @@
 ### Patch Changes
 
 - eba9cf6: Changed implementation of the Stepper component from being uncontrolled to having a both an uncontrolled and controlled mode.
+
   - Required 'activeStepKey' prop removed. Replaced with 'initialStepKey' and 'stepKey' (both optional)
   - If 'stepKey' is set, then the component becomes controlled by that prop.
   - If 'stepKey' is set and 'initialStepKey' is set, then the initial step will be that prop, but otherwise be uncontrolled.
@@ -665,6 +685,7 @@
 ### Patch Changes
 
 - 0a37ed6: AgGrid person cell update of:
+
   - Storybook
   - Dependencies
 
@@ -691,6 +712,7 @@
 - c7315b8: ### Package `@equinor/fusion-react-ag-grid-styles`
 
   Changed export statement
+
   - `export { useStyles, useStyles as default } from './agGridStyles';`
   - Renamed `useAgGridStyles.ts` to `index.ts` in `ag-grid-styles` package.
 
@@ -721,6 +743,7 @@
 ### Patch Changes
 
 - 49389d4: AgGrid person cell update of:
+
   - Storybook
   - Dependencies
 
@@ -745,6 +768,7 @@
 - bb95029: ### New component: `agGridPersonCell`
 
   React component for displaying person details in AgGrid cell and PersonCard on cell hover.
+
   - Introduced `agGridPersonCell` for integrating person details into AgGrid cells.
   - Customizable `heading`, `subHeading`, `size`, and `showAvatar` options.
   - Allows mapping complex data structures for fields like `azureId`, `upn`, and `dataSource`.
@@ -1034,6 +1058,7 @@
   - In the `storybook/src/stories/button/button.stories.tsx` file:
     - The import statement for `@equinor/fusion-react-icon` has been replaced with an import statement for `@equinor/fusion-wc-icon`.
 - cb99230: **@equinor/fusion-react-ag-grid-utils:**
+
   - Updated README
   - updated Ag Grid to `~30.2.0`
   - refactor compare function (lifted resolve of comparer)
@@ -1042,6 +1067,7 @@
   - replaced fusion icon with EDS icon
 
   **@equinor/fusion-react-storybook:**
+
   - added example for using change-handler and status component
   - cleaned up deps
 
@@ -1071,10 +1097,12 @@
 ### Patch Changes
 
 - 9b7ef80: Change to component.stories.mdx:
+
   - Modified the imports.
   - Updated the StoryExample calls.
 
   Change to examples.stories.tsx:
+
   - Modified the imports.
   - Updated the Component story to use SkeletonSize.Medium.
   - Added new stories for different variations of the Skeleton component:

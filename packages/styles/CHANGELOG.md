@@ -1,5 +1,11 @@
 # Change Log
 
+## 2.1.8
+
+### Patch Changes
+
+- aa34bea: Remove the unused jsdom development dependency.
+
 ## 2.1.7
 
 ### Patch Changes
@@ -73,11 +79,13 @@ install`), preventing this drift from recurring.
   ref: https://github.com/equinor/fusion-framework/issues/3698
 
   ### Breaking Changes
+
   - Removed `@material-ui/styles` dependency - replaced with direct JSS integration
   - All Material-UI v4 styling APIs are now implemented internally
   - No API changes - existing code should work without modifications
 
   ### Added
+
   - Custom `makeStyles` implementation using JSS directly
   - Custom `StylesProvider` with enhanced scope isolation via seed prefixes
   - Custom `ThemeProvider` with React 19 compatibility
@@ -91,11 +99,13 @@ install`), preventing this drift from recurring.
   - Updated README with comprehensive documentation
 
   ### Changed
+
   - Package now uses JSS directly instead of Material-UI wrapper
   - Improved TypeScript types with better inference
   - Enhanced class name isolation for micro-frontend scenarios
 
   ### Technical Details
+
   - React 19 compatible (tested with React ^18 || ^19)
   - Uses JSS v10 with all necessary plugins
   - Maintains backward compatibility with existing API surface
@@ -106,6 +116,7 @@ install`), preventing this drift from recurring.
 - 15eacdf: Enhanced theme system with support for extending `FusionTheme` with custom properties, improved nested theme composition, and comprehensive documentation.
 
   ### Added
+
   - **Theme Extension Support**: `FusionTheme` now supports extending with custom properties using generics:
     ```typescript
     type MyTheme = FusionTheme<{ colors: { primary: ColorStyleProperty } }>;
@@ -114,7 +125,7 @@ install`), preventing this drift from recurring.
     ```typescript
     const extendedTheme = createTheme(
       { colors: { ui: { background__danger: newColor } } },
-      outerTheme,
+      outerTheme
     );
     ```
   - **Deep Merging Improvements**: Enhanced `deepMerge` function properly handles nested theme properties, `Record` types, and `StyleProperty` instances
@@ -123,6 +134,7 @@ install`), preventing this drift from recurring.
   - **Theme Extension Storybook Story**: New `ThemeExtension` story demonstrating how to extend themes with custom properties, including step-by-step examples for type definition, theme creation, and usage with `useTheme` and `makeStyles`
 
   ### Changed
+
   - `createTheme` signature now accepts optional `baseTheme` parameter (backward compatible)
   - Improved type inference for extended themes in `ThemeProvider`, `useTheme`, and `makeStyles`
   - Better handling of nested theme composition when using theme functions in nested `ThemeProvider` components
@@ -130,6 +142,7 @@ install`), preventing this drift from recurring.
   - **README Updated**: Updated all documentation examples to use correct `getVariable()` API for theme properties
 
   ### Technical Details
+
   - Deep merging now correctly handles `StyleProperty` instances (replaces instead of merging)
   - Theme composition works correctly with nested `ThemeProvider` components
   - All types are properly exported and documented with complete TSDoc comments
@@ -143,6 +156,7 @@ install`), preventing this drift from recurring.
 ### Major Changes
 
 - fbc8188: React 19 compatibility fixes
+
   - Fixed TypeScript errors related to React 19 type changes
   - Updated `useRef` calls to provide initial values when type is explicitly specified
   - Fixed `HTMLDivElement` type usage to use `Partial<HTMLAttributes<HTMLDivElement>>`
