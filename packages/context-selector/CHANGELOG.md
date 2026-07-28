@@ -1,5 +1,12 @@
 # Change Log
 
+## 2.0.9
+
+### Patch Changes
+
+- Updated dependencies [aa34bea]
+  - @equinor/fusion-react-styles@2.1.8
+
 ## 2.0.8
 
 ### Patch Changes
@@ -101,6 +108,7 @@ install`), preventing this drift from recurring.
 ### Major Changes
 
 - fbc8188: React 19 compatibility fixes
+
   - Fixed TypeScript errors related to React 19 type changes
   - Updated `useRef` calls to provide initial values when type is explicitly specified
   - Fixed `HTMLDivElement` type usage to use `Partial<HTMLAttributes<HTMLDivElement>>`
