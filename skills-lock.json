@@ -157,6 +157,12 @@
       "skillPath": "skills/.experimental/fusion-package-scribe/SKILL.md",
       "computedHash": "c431cc1d38cf73ec56420de4021da469d707fdf07131bdbad10c94019cb0e414"
     },
+    "fusion-pm-mcp": {
+      "source": "equinor/fusion-skills",
+      "sourceType": "github",
+      "skillPath": "skills/.experimental/fusion-pm-mcp/SKILL.md",
+      "computedHash": "ecec5b892be1313a80ba3fd191dad76f900ff48cacde7e070146271931422d45"
+    },
     "fusion-research": {
       "source": "equinor/fusion-skills",
       "sourceType": "github",
