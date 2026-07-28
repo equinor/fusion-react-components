@@ -8,7 +8,7 @@ compatibility: >
   Requires Azure AD login (fdev login).
   Works best alongside fusion-backend-dev for understanding API contracts before calling them.
 metadata:
-  version: "0.1.0"
+  version: "0.1.1"
   status: active
   owner: "@equinor/fusion-core"
   tags:

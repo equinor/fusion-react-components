@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-ag-grid-person-cell",
-  "version": "4.0.11",
+  "version": "4.0.12",
   "description": "React component for displaying person details in AgGrid cell and PersonCard on cell hover",
   "keywords": [
     "person",
@@ -49,16 +49,16 @@
   },
   "devDependencies": {
     "@equinor/eds-core-react": "^2.5.0",
-    "@equinor/eds-tokens": "^2.3.1",
-    "@equinor/fusion-framework-react-ag-grid": "^36.0.1",
+    "@equinor/eds-tokens": "^2.3.2",
+    "@equinor/fusion-framework-react-ag-grid": "^37.0.0",
     "@types/react": "^19.2.14",
-    "react": "^19.2.5",
-    "styled-components": "^6.4.3"
+    "react": "^19.2.8",
+    "styled-components": "^6.4.4"
   },
   "peerDependencies": {
     "@equinor/eds-core-react": "^2",
     "@equinor/eds-tokens": "^2",
-    "@equinor/fusion-framework-react-ag-grid": "^36.0.1",
+    "@equinor/fusion-framework-react-ag-grid": "^37.0.0",
     "react": "^18 || ^19",
     "react-dom": "^18 || ^19",
     "styled-components": "^6"

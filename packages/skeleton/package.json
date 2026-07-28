@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-skeleton",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "React component for displaying a skeleton",
   "keywords": [
     "skeleton",
@@ -40,7 +40,7 @@
   },
   "devDependencies": {
     "@types/react": "^19.2.14",
-    "react": "^19.2.5"
+    "react": "^19.2.8"
   },
   "peerDependencies": {
     "react": "^18 || ^19"

@@ -1,10 +1,6 @@
-import React from 'react';
-
 import { type Preview } from '@storybook/react-vite';
 
 import {Theme} from '../src/components/Theme'
-
-import './theme.css';
 
 const _customElementsDefine = window.customElements.define;
 window.customElements.define = (name, cl, conf) => {

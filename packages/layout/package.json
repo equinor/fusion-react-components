@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-layout",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Fusion React Layout Component.",
   "keywords": [
     "react",
@@ -62,7 +62,7 @@
   },
   "devDependencies": {
     "@types/react": "^19.2.14",
-    "react": "^19.2.5"
+    "react": "^19.2.8"
   },
   "peerDependencies": {
     "react": "^18 || ^19"

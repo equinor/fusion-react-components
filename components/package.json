@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-components",
-  "version": "1.1.4",
+  "version": "1.1.5",
   "description": "Fusion React Components is a library of React components for building user interfaces in Fusion",
   "keywords": [
     "react",
@@ -57,7 +57,7 @@
   },
   "devDependencies": {
     "@types/react": "^19.2.14",
-    "react": "^19.2.5"
+    "react": "^19.2.8"
   },
   "peerDependencies": {
     "react": "^18 || ^19"

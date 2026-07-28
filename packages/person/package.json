@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-person",
-  "version": "2.0.15",
+  "version": "2.0.16",
   "description": "React component for selecting and displaying a person's information",
   "keywords": [
     "person",
@@ -50,7 +50,7 @@
   },
   "devDependencies": {
     "@types/react": "^19.2.14",
-    "react": "^19.2.5"
+    "react": "^19.2.8"
   },
   "peerDependencies": {
     "react": "^18 || ^19"

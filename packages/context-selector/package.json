@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-context-selector",
-  "version": "2.0.7",
+  "version": "2.0.8",
   "description": "React component for context selector",
   "keywords": [
     "contextselector",
@@ -46,7 +46,7 @@
   },
   "devDependencies": {
     "@types/react": "^19.2.14",
-    "react": "^19.2.5"
+    "react": "^19.2.8"
   },
   "peerDependencies": {
     "react": "^18 || ^19"
