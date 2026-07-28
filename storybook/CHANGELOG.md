@@ -1,5 +1,50 @@
 # Change Log
 
+## 6.0.11
+
+### Patch Changes
+
+- Updated dependencies [d0437e6]
+- Updated dependencies [d0437e6]
+- Updated dependencies [d0437e6]
+- Updated dependencies [d0437e6]
+- Updated dependencies [d0437e6]
+- Updated dependencies [d0437e6]
+- Updated dependencies [d0437e6]
+- Updated dependencies [d0437e6]
+- Updated dependencies [d0437e6]
+- Updated dependencies [d0437e6]
+- Updated dependencies [d0437e6]
+- Updated dependencies [d0437e6]
+- Updated dependencies [d0437e6]
+- Updated dependencies [d0437e6]
+- Updated dependencies [d0437e6]
+- Updated dependencies [d0437e6]
+- Updated dependencies [d0437e6]
+- Updated dependencies [d0437e6]
+- Updated dependencies [d0437e6]
+- Updated dependencies [d0437e6]
+  - @equinor/fusion-react-ag-grid-person-cell@4.0.12
+  - @equinor/fusion-react-ag-grid-utils@33.0.8
+  - @equinor/fusion-react-components@1.1.5
+  - @equinor/fusion-react-context-selector@2.0.8
+  - @equinor/fusion-react-date@1.0.7
+  - @equinor/fusion-react-errorboundary@2.0.10
+  - @equinor/fusion-react-filter@2.1.8
+  - @equinor/fusion-react-hanging-garden@2.0.9
+  - @equinor/fusion-react-layout@0.1.1
+  - @equinor/fusion-react-list@1.0.7
+  - @equinor/fusion-react-markdown@1.0.8
+  - @equinor/fusion-react-person@2.0.16
+  - @equinor/fusion-react-ripple@1.0.7
+  - @equinor/fusion-react-searchable-dropdown@2.0.8
+  - @equinor/fusion-react-side-sheet@2.0.8
+  - @equinor/fusion-react-skeleton@1.0.7
+  - @equinor/fusion-react-stepper@3.0.9
+  - @equinor/fusion-react-styles@2.1.7
+  - @equinor/fusion-react-tabs@2.0.8
+  - @equinor/fusion-react-textarea@1.0.7
+
 ## 6.0.10
 
 ### Patch Changes

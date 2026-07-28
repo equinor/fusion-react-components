@@ -1,5 +1,13 @@
 # @equinor/fusion-react-components
 
+## 1.1.5
+
+### Patch Changes
+
+- d0437e6: Upgraded to TypeScript 7.0.2.
+- Updated dependencies [d0437e6]
+  - @equinor/fusion-react-person@2.0.16
+
 ## 1.1.4
 
 ### Patch Changes

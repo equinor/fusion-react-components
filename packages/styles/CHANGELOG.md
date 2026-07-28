@@ -1,5 +1,11 @@
 # Change Log
 
+## 2.1.7
+
+### Patch Changes
+
+- d0437e6: Upgraded to TypeScript 7.0.2.
+
 ## 2.1.6
 
 ### Patch Changes

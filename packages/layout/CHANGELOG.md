@@ -1,5 +1,11 @@
 # @equinor/fusion-react-layout
 
+## 0.1.1
+
+### Patch Changes
+
+- d0437e6: Upgraded to TypeScript 7.0.2.
+
 ## 0.1.0
 
 ### Minor Changes
