@@ -1,5 +1,17 @@
 # Change Log
 
+## 2.0.8
+
+### Patch Changes
+
+- d0437e6: Upgraded to TypeScript 7.0.2.
+- Updated dependencies [d0437e6]
+- Updated dependencies [d0437e6]
+- Updated dependencies [d0437e6]
+  - @equinor/fusion-react-searchable-dropdown@2.0.8
+  - @equinor/fusion-react-styles@2.1.7
+  - @equinor/fusion-react-utils@3.0.7
+
 ## 2.0.7
 
 ### Patch Changes
