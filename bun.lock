@@ -36,7 +36,7 @@
       "devDependencies": {
         "@equinor/eds-core-react": "^2.5.0",
         "@equinor/eds-tokens": "^2.3.2",
-        "@equinor/fusion-framework-react-ag-grid": "^37.0.0",
+        "@equinor/fusion-framework-react-ag-grid": "^37.0.1",
         "@types/react": "^19.2.14",
         "react": "^19.2.8",
         "styled-components": "^6.4.4",
@@ -44,7 +44,7 @@
       "peerDependencies": {
         "@equinor/eds-core-react": "^2",
         "@equinor/eds-tokens": "^2",
-        "@equinor/fusion-framework-react-ag-grid": "^37.0.0",
+        "@equinor/fusion-framework-react-ag-grid": "^37.0.1",
         "react": "^18 || ^19",
         "react-dom": "^18 || ^19",
         "styled-components": "^6",
@@ -57,7 +57,7 @@
         "@equinor/eds-core-react": "^2.5.0",
         "@equinor/eds-icons": "^1.5.1",
         "@equinor/eds-tokens": "^2.3.2",
-        "@equinor/fusion-framework-react-ag-grid": "^37.0.0",
+        "@equinor/fusion-framework-react-ag-grid": "^37.0.1",
         "@types/react": "^19.2.14",
         "react": "^19.2.8",
         "react-dom": "^19.2.8",
@@ -67,7 +67,7 @@
         "@equinor/eds-core-react": "^2",
         "@equinor/eds-icons": "^1",
         "@equinor/eds-tokens": "^2",
-        "@equinor/fusion-framework-react-ag-grid": "^37.0.0",
+        "@equinor/fusion-framework-react-ag-grid": "^37.0.1",
         "react": "^18 || ^19",
         "react-dom": "^18 || ^19",
         "styled-components": "^6",
@@ -431,7 +431,7 @@
         "@equinor/eds-core-react": "^2.5.0",
         "@equinor/eds-icons": "^1.5.1",
         "@equinor/eds-tokens": "^2.3.2",
-        "@equinor/fusion-framework-react-ag-grid": "^37.0.0",
+        "@equinor/fusion-framework-react-ag-grid": "^37.0.1",
         "@equinor/fusion-react-ag-grid-person-cell": "workspace:*",
         "@equinor/fusion-react-ag-grid-utils": "workspace:*",
         "@equinor/fusion-react-components": "workspace:*",
@@ -832,9 +832,9 @@
 
     "@equinor/fusion-framework-module": ["@equinor/fusion-framework-module@6.1.0", "", { "dependencies": { "rxjs": "^7.8.1", "semver": "^7.7.4" }, "peerDependencies": { "@types/semver": "^7.0.0" }, "optionalPeers": ["@types/semver"] }, "sha512-0SHd/L6us2cAC8idO4U40XsGUuJVIhoZDfBjTvXHNh1xS8MGUpuMVQPtwVQBmSaj/PLPb0Qe7lRXrI6XkLTvbg=="],
 
-    "@equinor/fusion-framework-module-ag-grid": ["@equinor/fusion-framework-module-ag-grid@37.0.0", "", { "peerDependencies": { "@equinor/eds-tokens": "^2.0.0", "@equinor/fusion-framework-module": "^6.1.0", "ag-charts-enterprise": "*", "ag-grid-community": ">=36.0.0", "ag-grid-enterprise": ">=36.0.0" }, "optionalPeers": ["ag-charts-enterprise"] }, "sha512-A/vZCCFyCmOh0lCYDpcpBv4f/LDLiXw6er1gIKOSFF9ccZCtT6XdosDrYDGA7X0Oe+Fo+zuvanMXH/LhZojFrA=="],
+    "@equinor/fusion-framework-module-ag-grid": ["@equinor/fusion-framework-module-ag-grid@37.0.1", "", { "peerDependencies": { "@equinor/eds-tokens": "^2.0.0", "@equinor/fusion-framework-module": "^6.1.1", "ag-grid-community": ">=36.0.0", "ag-grid-enterprise": ">=36.0.0" } }, "sha512-a4pm6mlSNpMV+gZ8bOeMf/26IEZyVaEf/SkYfd3xKwwlYi9acsmTjwkMuJNWaM7oVFA4U7y7/Zw3Iv9jTwRvwg=="],
 
-    "@equinor/fusion-framework-react-ag-grid": ["@equinor/fusion-framework-react-ag-grid@37.0.0", "", { "dependencies": { "@equinor/fusion-framework-module-ag-grid": "37.0.0", "ag-grid-community": "~36.0.1", "ag-grid-enterprise": "~36.0.1", "ag-grid-react": "~36.0.1" }, "peerDependencies": { "@equinor/fusion-framework-react-module": "^4.0.1", "react": "^18.0.0 || ^19.0.0", "react-dom": "^18.0.0 || ^19.0.0" } }, "sha512-roXkYtSv5Bpk1CXWYyQd+XxaCOTomAqR0K0Y2w09NzVY0D61yKWhqJGjHgi/WLBs2zwaj05E61yzti4+nT1z8g=="],
+    "@equinor/fusion-framework-react-ag-grid": ["@equinor/fusion-framework-react-ag-grid@37.0.1", "", { "dependencies": { "@equinor/fusion-framework-module-ag-grid": "37.0.1", "ag-grid-community": "~36.0.1", "ag-grid-enterprise": "~36.0.1", "ag-grid-react": "~36.0.1" }, "peerDependencies": { "@equinor/fusion-framework-react-module": "^4.0.2", "react": "^18.0.0 || ^19.0.0", "react-dom": "^18.0.0 || ^19.0.0" } }, "sha512-6kXo0dtw62/3t+yqqT0MJ7rIfgtyiV/sIjIBKA5JvzAxAa1VJeT6fY0/vLXJutbiWh/NNrZyFvXQ+KQ7rniolw=="],
 
     "@equinor/fusion-framework-react-module": ["@equinor/fusion-framework-react-module@4.0.1", "", { "dependencies": { "@equinor/fusion-framework-module": "^6.1.0" }, "peerDependencies": { "@types/react": "^18.0.0 || ^19.0.0", "react": "^18.0.0 || ^19.0.0", "react-dom": "^18.0.0 || ^19.0.0" }, "optionalPeers": ["@types/react", "react-dom"] }, "sha512-72tG8LCDJGelkQk4FYfTilEpIPaK7UtOlBD/nKmxGMHiqIP05FX8U4rJruV4aMVWVmZ/OgIq7GQkjLJWUQYFzA=="],
 
