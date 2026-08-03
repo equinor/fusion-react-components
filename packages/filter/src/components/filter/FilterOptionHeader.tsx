@@ -14,6 +14,8 @@ type FilterHeaderProps = {
   readonly title: string;
 };
 
+const getSelectedCount = (selection?: Set<unknown>): number => selection?.size ?? 0;
+
 const Styled = {
   Root: styled.div`
     display: flex;
@@ -63,7 +65,7 @@ export const FilterOptionHeader = (props: FilterHeaderProps): ReactElement => {
   const { options$, selection$ } = useFilterOptionContext();
   const optionCount = Object.keys(useObservableState(options$).value || {}).length;
   const { value: selectedCount } = useObservableState(
-    useObservableSelector(selection$, (x) => (x ?? new Set()).size),
+    useObservableSelector(selection$, getSelectedCount),
     { initial: 0 },
   );
 
