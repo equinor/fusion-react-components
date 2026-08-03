@@ -1,5 +1,12 @@
 # Change Log
 
+## 6.0.13
+
+### Patch Changes
+
+- Updated dependencies [854843f]
+  - @equinor/fusion-react-filter@2.1.9
+
 ## 6.0.12
 
 ### Patch Changes
