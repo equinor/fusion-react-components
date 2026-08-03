@@ -1,5 +1,11 @@
 # Change Log
 
+## 2.1.9
+
+### Patch Changes
+
+- 854843f: Prevent `FilterOptionHeader` from entering an infinite render loop after upgrading `@equinor/fusion-observable` by keeping its selection count selector stable across renders.
+
 ## 2.1.8
 
 ### Patch Changes
@@ -77,6 +83,7 @@
 ### Minor Changes
 
 - ea959be: Rewrote all component styles from `@equinor/fusion-react-styles` (JSS) to `styled-components`.
+
   - Replaced all `makeStyles`/`createStyles` hooks with `styled-components` tagged template literals
   - Grouped styled components into a `Styled` object per file (e.g. `Styled.Root`, `Styled.Items`) following the pattern used across other packages in the monorepo
   - Replaced `@equinor/fusion-web-theme` token access (via JSS theme callbacks) with static `@equinor/eds-tokens` imports
@@ -113,6 +120,7 @@
 ### Major Changes
 
 - fbc8188: React 19 compatibility fixes
+
   - Fixed TypeScript errors related to React 19 type changes
   - Updated `useRef` calls to provide initial values when type is explicitly specified
   - Fixed `HTMLDivElement` type usage to use `Partial<HTMLAttributes<HTMLDivElement>>`
