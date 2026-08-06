@@ -19,7 +19,7 @@
         "@equinor/fusion-react-person": "workspace:*",
       },
       "devDependencies": {
-        "@types/react": "^19.2.14",
+        "@types/react": "^19.2.18",
         "react": "^19.2.8",
       },
       "peerDependencies": {
@@ -37,7 +37,7 @@
         "@equinor/eds-core-react": "^2.5.0",
         "@equinor/eds-tokens": "^2.3.2",
         "@equinor/fusion-framework-react-ag-grid": "^37.0.1",
-        "@types/react": "^19.2.14",
+        "@types/react": "^19.2.18",
         "react": "^19.2.8",
         "styled-components": "^6.4.4",
       },
@@ -58,7 +58,7 @@
         "@equinor/eds-icons": "^1.5.1",
         "@equinor/eds-tokens": "^2.3.2",
         "@equinor/fusion-framework-react-ag-grid": "^37.0.1",
-        "@types/react": "^19.2.14",
+        "@types/react": "^19.2.18",
         "react": "^19.2.8",
         "react-dom": "^19.2.8",
         "styled-components": "^6.4.4",
@@ -84,7 +84,7 @@
         "@equinor/fusion-wc-searchable-dropdown": "^4.1.1",
       },
       "devDependencies": {
-        "@types/react": "^19.2.14",
+        "@types/react": "^19.2.18",
         "react": "^19.2.8",
       },
       "peerDependencies": {
@@ -99,7 +99,7 @@
         "@equinor/fusion-wc-date": "^1.2.1",
       },
       "devDependencies": {
-        "@types/react": "^19.2.14",
+        "@types/react": "^19.2.18",
         "react": "^19.2.8",
       },
       "peerDependencies": {
@@ -118,7 +118,7 @@
         "@equinor/eds-core-react": "^2.5.0",
         "@equinor/eds-icons": "^1.5.1",
         "@equinor/eds-tokens": "^2.3.2",
-        "@types/react": "^19.2.14",
+        "@types/react": "^19.2.18",
         "react": "^19.2.8",
         "styled-components": "^6.4.4",
       },
@@ -133,7 +133,7 @@
     },
     "packages/filter": {
       "name": "@equinor/fusion-react-filter",
-      "version": "2.1.8",
+      "version": "2.1.9",
       "dependencies": {
         "@equinor/eds-tokens": "^2.3.2",
         "@equinor/fusion-react-utils": "workspace:*",
@@ -146,7 +146,7 @@
         "@equinor/eds-core-react": "^2.5.0",
         "@equinor/eds-icons": "^1.5.1",
         "@equinor/fusion-observable": "^9.1.1",
-        "@types/react": "^19.2.14",
+        "@types/react": "^19.2.18",
         "react": "^19.2.8",
       },
       "peerDependencies": {
@@ -170,7 +170,7 @@
         "@equinor/fusion": "^3.3.1",
         "@types/history": "5.x",
         "@types/node": "^26.0.1",
-        "@types/react": "^19.2.14",
+        "@types/react": "^19.2.18",
         "react": "^19.2.8",
       },
       "peerDependencies": {
@@ -188,7 +188,7 @@
         "@equinor/fusion-wc-page": "^0.0.0",
       },
       "devDependencies": {
-        "@types/react": "^19.2.14",
+        "@types/react": "^19.2.18",
         "react": "^19.2.8",
       },
       "peerDependencies": {
@@ -203,7 +203,7 @@
         "@equinor/fusion-wc-list": "^1.2.1",
       },
       "devDependencies": {
-        "@types/react": "^19.2.14",
+        "@types/react": "^19.2.18",
         "react": "^19.2.8",
       },
       "peerDependencies": {
@@ -218,7 +218,7 @@
         "@equinor/fusion-wc-markdown": "^1.6.1",
       },
       "devDependencies": {
-        "@types/react": "^19.2.14",
+        "@types/react": "^19.2.18",
         "react": "^19.2.8",
       },
       "peerDependencies": {
@@ -234,7 +234,7 @@
         "@equinor/fusion-wc-person": "^3.5.5",
       },
       "devDependencies": {
-        "@types/react": "^19.2.14",
+        "@types/react": "^19.2.18",
         "react": "^19.2.8",
       },
       "peerDependencies": {
@@ -249,7 +249,7 @@
         "@equinor/fusion-wc-ripple": "^1.2.1",
       },
       "devDependencies": {
-        "@types/react": "^19.2.14",
+        "@types/react": "^19.2.18",
         "react": "^19.2.8",
       },
       "peerDependencies": {
@@ -265,7 +265,7 @@
         "@equinor/fusion-wc-searchable-dropdown": "^4.1.1",
       },
       "devDependencies": {
-        "@types/react": "^19.2.14",
+        "@types/react": "^19.2.18",
         "react": "^19.2.8",
       },
       "peerDependencies": {
@@ -283,7 +283,7 @@
         "@equinor/eds-core-react": "^2.5.0",
         "@equinor/eds-icons": "^1.5.1",
         "@equinor/eds-tokens": "^2.3.2",
-        "@types/react": "^19.2.14",
+        "@types/react": "^19.2.18",
         "@types/styled-components": "^5.1.29",
         "react": "^19.2.8",
         "react-dom": "^19.2.8",
@@ -306,7 +306,7 @@
         "@equinor/fusion-wc-skeleton": "^2.2.1",
       },
       "devDependencies": {
-        "@types/react": "^19.2.14",
+        "@types/react": "^19.2.18",
         "react": "^19.2.8",
       },
       "peerDependencies": {
@@ -320,7 +320,7 @@
         "@equinor/eds-core-react": "^2.5.0",
         "@equinor/eds-icons": "^1.5.1",
         "@equinor/eds-tokens": "^2.3.2",
-        "@types/react": "^19.2.14",
+        "@types/react": "^19.2.18",
         "react": "^19.2.8",
         "styled-components": "^6.4.4",
       },
@@ -355,7 +355,7 @@
         "@testing-library/react": "^16.3.0",
         "@testing-library/react-hooks": "^8.0.1",
         "@types/node": "^26.0.1",
-        "@types/react": "^19.2.14",
+        "@types/react": "^19.2.18",
         "@vitest/coverage-v8": "^4.0.6",
         "react": "^19.2.8",
         "styled-components": "^6.4.4",
@@ -376,7 +376,7 @@
         "@equinor/eds-core-react": "^2.5.0",
         "@equinor/eds-tokens": "^2.3.2",
         "@equinor/fusion-observable": "^9.1.1",
-        "@types/react": "^19.2.14",
+        "@types/react": "^19.2.18",
         "react": "^19.2.8",
         "react-dom": "^19.2.8",
         "styled-components": "^6.4.4",
@@ -399,7 +399,7 @@
         "@equinor/fusion-wc-textarea": "^1.2.1",
       },
       "devDependencies": {
-        "@types/react": "^19.2.14",
+        "@types/react": "^19.2.18",
         "react": "^19.2.8",
       },
       "peerDependencies": {
@@ -413,7 +413,7 @@
         "date-fns": "^4.4.0",
       },
       "devDependencies": {
-        "@types/react": "^19.2.14",
+        "@types/react": "^19.2.18",
         "react": "^19.2.8",
       },
       "peerDependencies": {
@@ -422,7 +422,7 @@
     },
     "storybook": {
       "name": "@equinor/fusion-react-components-stories",
-      "version": "6.0.12",
+      "version": "6.0.13",
       "dependencies": {
         "@babel/core": "^8.0.1",
         "@emotion/css": "^11.11.2",
@@ -477,7 +477,7 @@
         "@equinor/fusion-wc-icon": "^2.4.1",
         "@faker-js/faker": "^10.0.0",
         "@storybook/builder-vite": "^10.0.2",
-        "@types/react": "^19.2.14",
+        "@types/react": "^19.2.18",
       },
     },
   },
@@ -1472,7 +1472,7 @@
 
     "@types/range-parser": ["@types/range-parser@1.2.7", "", {}, "sha512-hKormJbkJqzQGhziax5PItDUTMAM9uE2XXQmM37dyd4hVM+5aVl7oVxMVUiVQn2oCQFN/LKCZdvSM0pFRqbSmQ=="],
 
-    "@types/react": ["@types/react@19.2.17", "", { "dependencies": { "csstype": "^3.2.2" } }, "sha512-MXfmqaVPEVgkBT/aY0aGCkRWWtByiYQXo3xdQ8r5RzuFrPiRn8Gar2tQdXSUQ2GKV3bkXckek89V8wQBY2Q/Aw=="],
+    "@types/react": ["@types/react@19.2.18", "", { "dependencies": { "csstype": "^3.2.2" } }, "sha512-AnzbBERsrLKtk2XSfTbYRLjQPdy116Sty4q+T+Bp3IC4l6jNBvreVPAHmpq9qhXQM7CXZPjLVmGMw9sy+hxQ3w=="],
 
     "@types/resolve": ["@types/resolve@1.20.6", "", {}, "sha512-A4STmOXPhMUtHH+S6ymgE2GiBSMqf4oTvcQZMcHzokuTLVYzXTB8ttjcgxOVaAp2lGwEdzZ0J+cRbbeevQj1UQ=="],
 
@@ -2643,6 +2643,8 @@
     "@types/babel__template/@babel/types": ["@babel/types@7.29.7", "", { "dependencies": { "@babel/helper-string-parser": "^7.29.7", "@babel/helper-validator-identifier": "^7.29.7" } }, "sha512-4zBIxpPzowiZpusoFkyGVwakdRJUyuH5PxQ/PrqghfdFWWasvnCdPfQXHrenDai+gyLARulZjZowCOj6fjT4pA=="],
 
     "@types/babel__traverse/@babel/types": ["@babel/types@7.29.7", "", { "dependencies": { "@babel/helper-string-parser": "^7.29.7", "@babel/helper-validator-identifier": "^7.29.7" } }, "sha512-4zBIxpPzowiZpusoFkyGVwakdRJUyuH5PxQ/PrqghfdFWWasvnCdPfQXHrenDai+gyLARulZjZowCOj6fjT4pA=="],
+
+    "@types/styled-components/@types/react": ["@types/react@19.2.17", "", { "dependencies": { "csstype": "^3.2.2" } }, "sha512-MXfmqaVPEVgkBT/aY0aGCkRWWtByiYQXo3xdQ8r5RzuFrPiRn8Gar2tQdXSUQ2GKV3bkXckek89V8wQBY2Q/Aw=="],
 
     "@vitest/expect/@vitest/utils": ["@vitest/utils@3.2.4", "", { "dependencies": { "@vitest/pretty-format": "3.2.4", "loupe": "^3.1.4", "tinyrainbow": "^2.0.0" } }, "sha512-fB2V0JFrQSMsCo9HiSq3Ezpdv4iYaXRG1Sx8edX3MwxfyNn83mKiGzOcH+Fkxt4MHxr3y42fQi1oeAInqgX2QA=="],
 
