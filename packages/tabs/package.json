@@ -60,7 +60,7 @@
     "@types/react": "^19.2.18",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
-    "styled-components": "^6.5.0",
+    "styled-components": "^6.5.1",
     "vitest": "^4.0.3"
   },
   "peerDependencies": {
@@ -69,6 +69,6 @@
     "@equinor/fusion-observable": "^9.1.1",
     "react": "^18 || ^19",
     "react-dom": "^18 || ^19",
-    "styled-components": "^6.5.0"
+    "styled-components": "^6.5.1"
   }
 }
