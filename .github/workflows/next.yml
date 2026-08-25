@@ -43,7 +43,7 @@ jobs:
         id: changesets
         uses: changesets/action@v2
         with:
-          title: '🤖 Bip Bop - Fusion React Components Pre-Release'
+          pr-title: '🤖 Bip Bop - Fusion React Components Pre-Release'
           version-script: bun run changeset:version
           publish-script: bun run changeset:publish:pre-release
         env:
