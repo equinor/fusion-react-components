@@ -1,5 +1,11 @@
 # Change Log
 
+## 4.0.13
+
+### Patch Changes
+
+- da738bf: Add a default value formatter for person columns that use `dataToSort`.
+
 ## 4.0.12
 
 ### Patch Changes
