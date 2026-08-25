@@ -39,8 +39,8 @@ jobs:
         id: changesets
         uses: changesets/action@v2
         with:
-          title: '🤖 Bip Bop - Fusion React Components Release'
-          commit: 'chore: version packages'
+          pr-title: '🤖 Bip Bop - Fusion React Components Release'
+          commit-message: 'chore: version packages'
           create-github-releases: true
           setupGitUser: false
           version-script: bun run changeset:version
