@@ -19,7 +19,7 @@ export const agGridPersonCell = <T,>(col: ColDef<T> & PersonColDef<T>): ColDef<T
     },
     cellRenderer: PersonCellRender,
     comparator: dataToSort ? personSortComparator(dataToSort) : undefined,
-    valueFormatter: dataToSort ? ({ data }) => (data ? (dataToSort(data) ?? '') : '') : undefined,
+    valueFormatter: dataToSort ? ({ value }) => (value == null ? '' : (dataToSort(value as T) ?? '')) : undefined,
     cellClass: Array.isArray(col.field) ? 'personnel-table-cell' : 'person-table-cell',
     cellStyle: {
       display: 'flex',
