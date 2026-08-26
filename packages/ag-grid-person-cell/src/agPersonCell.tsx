@@ -3,7 +3,9 @@ import { personSortComparator } from './personSort';
 import { PersonCellRender } from './PersonCellRender';
 import type { PersonColDef } from './types';
 
-export const agGridPersonCell = <T,>(col: ColDef<T> & PersonColDef<T>): ColDef<T> => {
+export const agGridPersonCell = <TRow, TCellValue>(
+  col: ColDef<TRow, TCellValue> & PersonColDef<TCellValue>,
+): ColDef<TRow, TCellValue> => {
   const { azureId, upn, dataSource, dataToSort, heading, subHeading, showAvatar, size, ...colDef } =
     col;
 
@@ -20,7 +22,7 @@ export const agGridPersonCell = <T,>(col: ColDef<T> & PersonColDef<T>): ColDef<T
     cellRenderer: PersonCellRender,
     comparator: dataToSort ? personSortComparator(dataToSort) : undefined,
     valueFormatter: dataToSort
-      ? ({ value }) => (value == null ? '' : (dataToSort(value as T) ?? ''))
+      ? ({ value }) => (value == null ? '' : (dataToSort(value) ?? ''))
       : undefined,
     cellClass: Array.isArray(col.field) ? 'personnel-table-cell' : 'person-table-cell',
     cellStyle: {
