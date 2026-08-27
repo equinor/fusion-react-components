@@ -19,15 +19,17 @@ const Styled = {
   `,
 };
 
-export const PersonCellRender = <T,>(params: ICellRendererParams & CustomRenderParams<T>) => {
+export const PersonCellRender = <TRow, TCellValue>(
+  params: ICellRendererParams<TRow, TCellValue> & CustomRenderParams<TCellValue>,
+) => {
   const { heading, subHeading, azureId, upn, dataSource, showAvatar, value, size } = params;
 
   // Helper function to apply selector to data (handles both single items and arrays)
   const applySelector = <R,>(
-    selector: ((data: T) => R) | undefined,
-    data: T,
+    selector: ((data: TCellValue) => R) | undefined,
+    data: TCellValue | null | undefined,
   ): R | R[] | undefined => {
-    if (!selector) return undefined;
+    if (!selector || data == null) return undefined;
 
     // If the data itself is an array, map the selector over each item
     if (Array.isArray(data)) {
