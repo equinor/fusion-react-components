@@ -1,5 +1,11 @@
 # Change Log
 
+## 5.0.0
+
+### Major Changes
+
+- 22856e9: Separate row data and cell value generics in `agGridPersonCell`.
+
 ## 4.0.13
 
 ### Patch Changes
