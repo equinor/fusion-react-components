@@ -145,14 +145,14 @@
       "devDependencies": {
         "@equinor/eds-core-react": "^2.5.0",
         "@equinor/eds-icons": "^1.5.1",
-        "@equinor/fusion-observable": "^9.1.1",
+        "@equinor/fusion-observable": "^9.2.0",
         "@types/react": "^19.2.18",
         "react": "^19.2.8",
       },
       "peerDependencies": {
         "@equinor/eds-core-react": "^2",
         "@equinor/eds-icons": "^1",
-        "@equinor/fusion-observable": "^9.1.1",
+        "@equinor/fusion-observable": "^9.2.0",
         "react": "^18 || ^19",
         "react-dom": "^18 || ^19",
       },
@@ -375,7 +375,7 @@
       "devDependencies": {
         "@equinor/eds-core-react": "^2.5.0",
         "@equinor/eds-tokens": "^2.3.2",
-        "@equinor/fusion-observable": "^9.1.1",
+        "@equinor/fusion-observable": "^9.2.0",
         "@types/react": "^19.2.18",
         "react": "^19.2.8",
         "react-dom": "^19.2.8",
@@ -385,7 +385,7 @@
       "peerDependencies": {
         "@equinor/eds-core-react": "^2",
         "@equinor/eds-tokens": "^2",
-        "@equinor/fusion-observable": "^9.1.1",
+        "@equinor/fusion-observable": "^9.2.0",
         "react": "^18 || ^19",
         "react-dom": "^18 || ^19",
         "styled-components": "^6.5.2",
@@ -472,7 +472,7 @@
         "@babel/preset-env": "^8.0.2",
         "@babel/preset-react": "^8.0.1",
         "@babel/preset-typescript": "^8.0.1",
-        "@equinor/fusion-observable": "^9.1.1",
+        "@equinor/fusion-observable": "^9.2.0",
         "@equinor/fusion-wc-avatar": "^3.3.4",
         "@equinor/fusion-wc-icon": "^2.4.4",
         "@faker-js/faker": "^10.6.0",
@@ -838,7 +838,7 @@
 
     "@equinor/fusion-framework-react-module": ["@equinor/fusion-framework-react-module@4.0.1", "", { "dependencies": { "@equinor/fusion-framework-module": "^6.1.0" }, "peerDependencies": { "@types/react": "^18.0.0 || ^19.0.0", "react": "^18.0.0 || ^19.0.0", "react-dom": "^18.0.0 || ^19.0.0" }, "optionalPeers": ["@types/react", "react-dom"] }, "sha512-72tG8LCDJGelkQk4FYfTilEpIPaK7UtOlBD/nKmxGMHiqIP05FX8U4rJruV4aMVWVmZ/OgIq7GQkjLJWUQYFzA=="],
 
-    "@equinor/fusion-observable": ["@equinor/fusion-observable@9.1.1", "", { "dependencies": { "immer": "^11.0.0", "rxjs": "^7.8.1", "uuid": "^14.0.0" }, "peerDependencies": { "@types/react": "^18.0.0 || ^19.0.0", "react": "^18.0.0 || ^19.0.0" }, "optionalPeers": ["@types/react"] }, "sha512-oMNiOYsgycad6j5CzRKi1QG4HrsuGsWah98XnV1+eXP1wDMdcG0HH8bD7wJdkTTIhvpm4RehvHIRxMSiZDWppw=="],
+    "@equinor/fusion-observable": ["@equinor/fusion-observable@9.2.0", "", { "dependencies": { "immer": "^11.0.0", "rxjs": "^7.8.1", "uuid": "^14.0.0" }, "peerDependencies": { "@types/react": "^18.0.0 || ^19.0.0", "react": "^18.0.0 || ^19.0.0" }, "optionalPeers": ["@types/react"] }, "sha512-igKIAUfA7PUsnS9UYUe99bEybsnR03DryCD0mRGXdHx9X58lTpIvSFMHia/+5E1VcB6nLQJSEFAGb+Tx7BPwSw=="],
 
     "@equinor/fusion-react-ag-grid-person-cell": ["@equinor/fusion-react-ag-grid-person-cell@workspace:packages/ag-grid-person-cell"],
 
