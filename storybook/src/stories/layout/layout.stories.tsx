@@ -5,6 +5,13 @@ import { Layout, Page } from '@equinor/fusion-react-layout';
 const meta: Meta<typeof Layout> = {
   title: 'ui/Layout',
   component: Layout,
+  decorators: [
+    (Story) => (
+      <div style={{ height: '100vh' }}>
+        <Story />
+      </div>
+    ),
+  ],
 };
 
 export default meta;
