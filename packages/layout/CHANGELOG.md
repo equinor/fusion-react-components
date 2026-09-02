@@ -1,5 +1,13 @@
 # @equinor/fusion-react-layout
 
+## 0.1.2
+
+### Patch Changes
+
+- 934e52c: Forward props from `Page` and its compound slot components to their underlying elements.
+  
+  Update the underlying layout and page web components to constrain content to the available height, preventing nested content from expanding the viewport and allowing main content to scroll correctly.
+
 ## 0.1.1
 
 ### Patch Changes
