@@ -3,7 +3,7 @@ import type { ComponentProps } from '@equinor/fusion-react-utils';
 
 import '@equinor/fusion-wc-page';
 
-export type PageProps = ComponentProps<HTMLElement, PropsWithChildren>;
+export type PageProps = ComponentProps<HTMLDivElement, PropsWithChildren>;
 
 type PageComponent = ((props: PageProps) => ReactNode) & {
   Header: (props: PageProps) => ReactNode;
