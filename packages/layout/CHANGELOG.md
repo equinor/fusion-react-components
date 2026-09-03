@@ -1,5 +1,11 @@
 # @equinor/fusion-react-layout
 
+## 0.1.3
+
+### Patch Changes
+
+- a094571: Rename the layout and page web component tags to their `fwc-app-*` names and update the underlying web component dependencies.
+
 ## 0.1.2
 
 ### Patch Changes
