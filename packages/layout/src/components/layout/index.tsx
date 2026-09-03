@@ -33,8 +33,8 @@ export const Layout: LayoutComponent = ({ children }: PropsWithChildren): ReactN
     setHasSidebar(hasSidebarChild);
   }, [hasSidebarChild]);
 
-  /* @ts-expect-error fwc-layout is a web component */
-  return <fwc-layout sidebar={hasSidebar || undefined}>{children}</fwc-layout>;
+  /* @ts-expect-error fwc-app-layout is a web component */
+  return <fwc-app-layout sidebar={hasSidebar || undefined}>{children}</fwc-app-layout>;
 };
 
 Layout.displayName = 'Layout';
