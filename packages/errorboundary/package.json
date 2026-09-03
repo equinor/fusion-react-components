@@ -52,7 +52,7 @@
   "dependencies": {
     "@equinor/fusion-react-styles": "workspace:*",
     "@equinor/fusion-react-utils": "workspace:*",
-    "react-error-boundary": "^6.1.3"
+    "react-error-boundary": "^6.1.4"
   },
   "devDependencies": {
     "@equinor/eds-core-react": "^2.5.0",
