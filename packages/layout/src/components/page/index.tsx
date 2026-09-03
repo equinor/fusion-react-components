@@ -17,8 +17,8 @@ type PageComponent = ((props: PageProps) => ReactNode) & {
  * assigning children to the page header, main, and footer slots.
  */
 export const Page: PageComponent = ({ children, ...props }: PageProps): ReactNode => {
-  /* @ts-expect-error fwc-page is a web component */
-  return <fwc-page {...props}>{children}</fwc-page>;
+  /* @ts-expect-error fwc-app-page is a web component */
+  return <fwc-app-page {...props}>{children}</fwc-app-page>;
 };
 Page.displayName = 'Page';
 

@@ -182,10 +182,10 @@
     },
     "packages/layout": {
       "name": "@equinor/fusion-react-layout",
-      "version": "0.1.1",
+      "version": "0.1.2",
       "dependencies": {
-        "@equinor/fusion-wc-layout": "^0.1.2",
-        "@equinor/fusion-wc-page": "^0.1.2",
+        "@equinor/fusion-wc-layout": "^0.2.0",
+        "@equinor/fusion-wc-page": "^0.2.0",
       },
       "devDependencies": {
         "@types/react": "^19.2.18",
@@ -902,13 +902,13 @@
 
     "@equinor/fusion-wc-icon": ["@equinor/fusion-wc-icon@2.4.4", "", { "dependencies": { "@equinor/eds-icons": "^1.5.1", "@equinor/fusion-wc-core": "^2.0.3", "lit": "3.3.3" } }, "sha512-GdnFe3WwRWIVZ9hyPh8I+95Wj+Ri3FFjASc9Ej7115P2ISf4JoL2zKnk+YnbqSLP9wpqOPaxt0k3laDTBPSoTQ=="],
 
-    "@equinor/fusion-wc-layout": ["@equinor/fusion-wc-layout@0.1.2", "", { "dependencies": { "@equinor/fusion-wc-core": "^2.0.3", "@equinor/fusion-web-theme": "^0.1.10", "lit": "3.3.3" } }, "sha512-Dqu0VWW5l6bmvVuEKxchAOIVFDc0sGSxk0owd/NObDwQDxnmt22or19tb3x9e+ln2DM6GsgJxX5DEwOlbJ9Z6g=="],
+    "@equinor/fusion-wc-layout": ["@equinor/fusion-wc-layout@0.2.0", "", { "dependencies": { "@equinor/fusion-wc-core": "^2.0.3", "@equinor/fusion-web-theme": "^0.1.10", "lit": "3.3.3" } }, "sha512-8YLhEQ96YOoElTscb7zTp6rJl4eVFXf3gNSmVpI1z4QozEFMxv52MjaKo70qU9kP2EhwwbreHkSGeAi30NqRmA=="],
 
     "@equinor/fusion-wc-list": ["@equinor/fusion-wc-list@1.2.4", "", { "dependencies": { "@equinor/fusion-wc-checkbox": "^1.2.4", "@equinor/fusion-wc-core": "^2.0.3", "@equinor/fusion-wc-divider": "^1.2.4", "@equinor/fusion-wc-icon": "^2.4.4", "@equinor/fusion-wc-radio": "^1.2.4", "@equinor/fusion-web-theme": "^0.1.10", "@material/mwc-list": "^0.27.0", "lit": "3.3.3" } }, "sha512-LZGutrmjYsCOZltX2GGMqdGoTlSNwPScl+Bi9PvFkQwmZbs3BIEycKUnlxM8X9+ylSj5wrprf5uzyA36qHcGoA=="],
 
     "@equinor/fusion-wc-markdown": ["@equinor/fusion-wc-markdown@1.6.4", "", { "dependencies": { "@equinor/fusion-wc-core": "^2.0.3", "@equinor/fusion-wc-icon": "^2.4.4", "@equinor/fusion-web-theme": "^0.1.10", "lit": "3.3.3", "marked": "^18.0.9", "prismjs": "^1.29.0", "prosemirror-commands": "^1.7.2", "prosemirror-history": "^1.5.0", "prosemirror-inputrules": "^1.5.1", "prosemirror-keymap": "^1.2.3", "prosemirror-markdown": "^1.13.5", "prosemirror-model": "^1.25.11", "prosemirror-schema-basic": "^1.2.4", "prosemirror-schema-list": "^1.5.1", "prosemirror-state": "^1.4.4", "prosemirror-transform": "^1.12.0", "prosemirror-view": "^1.42.2" } }, "sha512-atFOYLsr55kSQX4bqci9Z6t6m3htvjIdIoXkS8O85tW7kKr/b3f4CXYg/EutOAUqIKkFhb5+pIZMhGODipMFOg=="],
 
-    "@equinor/fusion-wc-page": ["@equinor/fusion-wc-page@0.1.2", "", { "dependencies": { "@equinor/fusion-wc-core": "^2.0.3", "@equinor/fusion-web-theme": "^0.1.10", "lit": "3.3.3" } }, "sha512-DvI2l6SyZwbErdO+1U6rT/f91Xi7hEpRBaRaRjh/cA0temlWzdjIxwQXwsEE5e5cZhtHQTATTjTf12PWQkUIxg=="],
+    "@equinor/fusion-wc-page": ["@equinor/fusion-wc-page@0.2.0", "", { "dependencies": { "@equinor/fusion-wc-core": "^2.0.3", "@equinor/fusion-web-theme": "^0.1.10", "lit": "3.3.3" } }, "sha512-U4wBhRlu8lDzOltLJ67dzCQ00hdiocwCSlM+9/Rpw4RiVlnGwbbuvNzGfgbcRUlCeIwJY1l4Kcs1Lv4/3SMtmA=="],
 
     "@equinor/fusion-wc-people": ["@equinor/fusion-wc-people@2.2.5", "", { "dependencies": { "@equinor/fusion-wc-button": "^2.5.4", "@equinor/fusion-wc-checkbox": "^1.2.4", "@equinor/fusion-wc-chip": "^1.3.4", "@equinor/fusion-wc-core": "^2.0.3", "@equinor/fusion-wc-formfield": "^1.2.4", "@equinor/fusion-wc-icon": "^2.4.4", "@equinor/fusion-wc-person": "^3.5.6", "@equinor/fusion-wc-progress-indicator": "^1.2.4", "@equinor/fusion-wc-skeleton": "^2.2.4", "@equinor/fusion-web-theme": "^0.1.10", "@lit/context": "^1.1.6", "@lit/task": "^1.0.3", "lit": "3.3.3" } }, "sha512-bcsrgHQuYTXV5jh5njbWim6+qbdi/3XCYmx5FgDlFiByrpMmEx2jfLaXJqB6/hiMSlsY1qYVlApYSZYSVmp0EQ=="],
 
