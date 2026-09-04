@@ -67,6 +67,12 @@
       "skillPath": "skills/.deprecated/fusion-framework-feature-toggling/SKILL.md",
       "computedHash": "5a6eab0f8b16908019218acf3efe4a8411b71392f926ed200bd51540134c40d9"
     },
+    "fusion-framework-testing": {
+      "source": "equinor/fusion-skills",
+      "sourceType": "github",
+      "skillPath": "skills/.experimental/fusion-framework-testing/SKILL.md",
+      "computedHash": "306c94239f8595a5b07a68b66bf3b662e6f3872521a9432f42cc2aab43471931"
+    },
     "fusion-github-review-resolution": {
       "source": "equinor/fusion-skills",
       "sourceType": "github",
