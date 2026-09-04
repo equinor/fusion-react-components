@@ -15,7 +15,7 @@ const meta: Meta<typeof SideSheet> = {
   argTypes: {
     defaultWidth: {
       control: 'text',
-      description: 'Width of the side sheet when it opens, in pixels or as a viewport percentage.',
+      description: 'Width of the side sheet when it opens, using %, vw, px, or em.',
     },
   },
 };

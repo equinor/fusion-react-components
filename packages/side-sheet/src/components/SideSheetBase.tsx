@@ -55,7 +55,7 @@ export type SideSheetProps = {
   readonly isOpen: boolean;
   readonly isDismissable?: boolean;
   readonly minWidth?: number;
-  readonly defaultWidth?: number | `${number}%`;
+  readonly defaultWidth?: number | `${number}${'%' | 'vw' | 'px' | 'em'}`;
   readonly animate?: boolean;
   onClose(): void;
 };
@@ -67,7 +67,7 @@ export const SideSheetBase = (props: PropsWithChildren<SideSheetProps>) => {
   const initialWidth =
     typeof defaultWidth === 'number'
       ? Math.max(defaultWidth, minimumWidth)
-      : (defaultWidth?.replace('%', 'vw') ?? minimumWidth);
+      : (defaultWidth ?? minimumWidth);
   const [width, setWidth] = useState(initialWidth);
 
   const shouldAnimate = animate === undefined ? true : animate;
