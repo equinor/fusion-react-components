@@ -32,10 +32,8 @@ export const selectionChanges = <TSelection = any>(
 
 export const useClearFilter = (): {
   clear: VoidFunction;
-  changed$: Observable<
-    // biome-ignore lint/suspicious/noExplicitAny: selection values are unknown at this level
-    Record<string, any>
-  >;
+  // biome-ignore lint/suspicious/noExplicitAny: selection values are unknown at this level
+  changed$: Observable<Record<string, any>>;
 } => {
   const { selection$, filter$ } = useFilterContext();
   const clear = useCallback(() => {
