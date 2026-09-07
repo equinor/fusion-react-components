@@ -48,7 +48,7 @@
     "@equinor/fusion-react-utils": "workspace:*"
   },
   "devDependencies": {
-    "@equinor/eds-core-react": "^2.5.0",
+    "@equinor/eds-core-react": "^2.6.2",
     "@equinor/eds-tokens": "^2.3.2",
     "@equinor/fusion-framework-react-ag-grid": "^37.0.2",
     "@types/react": "^19.2.18",
