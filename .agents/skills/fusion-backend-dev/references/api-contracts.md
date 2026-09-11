@@ -27,6 +27,18 @@ Version negotiation: `?api-version=3.0` (query string) or `api-version: 3.0` (re
 
 `AssumeDefaultVersionWhenUnspecified` is enabled, so unversioned requests receive the default version.
 
+Versioning is per endpoint, not per service. Each action carries its own `[MapToApiVersion(...)]`
+and only the endpoints that actually changed move to a new version — a service can have `GET
+/persons/{id}` at v3 while `GET /persons/{id}/roles` is still at v1, because that endpoint never
+needed to change. Do not assume every endpoint on a service shares one version number, and do not
+bump a version for an endpoint that hasn't changed.
+
+Fusion services strive to avoid breaking changes and prefer evolving a version in place over
+introducing a new one. Before bumping a version, check whether the change can be made
+non-breaking instead — the most common case is **adding a new optional property to a response**,
+which existing consumers can safely ignore. Reserve a new major version for genuinely breaking
+changes (removing/renaming a field, changing a type, changing required-ness, changing semantics).
+
 Version levels:
 - **Major version**: Incompatible changes (breaking changes to response shape, required fields, semantics)
 - **Minor version**: Non-breaking enhancements (new optional fields, new endpoints)
