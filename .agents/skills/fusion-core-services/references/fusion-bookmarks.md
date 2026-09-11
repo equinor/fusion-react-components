@@ -29,7 +29,7 @@
 	- `@equinor/fusion-framework-module-services` when `BookmarksApiClient` is available
 - Suggested client file: `src/api/bookmarksClient.ts`
 - Suggested hook file: `src/features/bookmarks/useBookmarks.ts`
-- Keep bookmark payload and bookmark metadata DTOs separate.
+- Keep bookmark payload and bookmark metadata models separate.
 - Starter shape:
 
 ```ts
@@ -53,7 +53,7 @@ export async function listMyBookmarks(baseUrl: string, init?: RequestInit) {
 	- `WithFusionServiceEndpoint(FusionServiceEndpointKeys.Bookmarks)`
 	- typed wrappers for bookmark list vs write operations
 - Suggested client class: `BookmarksApiClient`
-- Suggested DTOs: `BookmarkItem`, `CreateBookmarkRequestDto`
+- Suggested local models: `BookmarkItem`, `CreateBookmarkRequest`
 - Model V1 and V2 bookmark responses separately if both surfaces are consumed.
 - Starter shape:
 
@@ -69,14 +69,14 @@ public sealed record BookmarkItem(string Id, string Name, string AppKey);
 
 ## Suggested local models
 - `BookmarkItem`
-- `BookmarkPayloadDto`
-- `CreateBookmarkRequestDto`
-- `FavoriteRequestDto`
+- `BookmarkPayload`
+- `CreateBookmarkRequest`
+- `FavoriteRequest`
 
 ## Representative model snapshots
 - `BookmarkItem`: bookmark `id`, `name`, and `appKey`
-- `BookmarkPayloadDto`: app-specific state payload
-- `CreateBookmarkRequestDto`: name, appKey, payload, optional context id
+- `BookmarkPayload`: app-specific state payload
+- `CreateBookmarkRequest`: name, appKey, payload, optional context id
 
 ## Validation highlights
 - `CreateBookmarkRequest.Name` is required

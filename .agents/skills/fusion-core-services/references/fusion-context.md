@@ -37,8 +37,9 @@
 - Prefer `serviceDiscovery.createClient('context')` or a configured `useHttpClient('context')` client.
 - Suggested client file: `src/api/contextClient.ts`
 - Suggested hook file: `src/features/context/useContextEntity.ts`
-- Prefer local DTOs derived from `ApiContextEntity`, `ApiRelatedContextEntity`, and relation request models.
-- Starter shape:
+- Prefer local models derived from `ApiContextEntity`, `ApiRelatedContextEntity`, and relation request models.
+- Starter shape (a narrow projection of `ApiContextEntity` for illustration — confirm the full field
+  list against the live OpenAPI document before shipping):
 
 ```ts
 export interface ContextEntity {
@@ -61,18 +62,19 @@ export async function getContextEntity(baseUrl: string, contextId: string, init?
 	- `WithFusionServiceEndpoint(FusionServiceEndpointKeys.Context)`
 	- `DefaultFusionEndpointResolver` when configuration overrides are needed
 - Suggested client class: `ContextApiClient`
-- Suggested DTOs: `ContextEntityDto`, `ContextRelationDto`
-- Keep request DTOs for create/update separate from read DTOs.
-- Starter shape:
+- Suggested local models: `ContextEntity`, `ContextRelation`
+- Keep request models for create/update separate from read models.
+- Starter shape (a narrow projection of `ApiContextEntity` for illustration — confirm the full field
+  list against the live OpenAPI document before shipping):
 
 ```csharp
 public sealed class ContextApiClient(HttpClient httpClient)
 {
-		public async Task<ContextEntityDto?> GetContextAsync(string contextId, CancellationToken cancellationToken)
-				=> await httpClient.GetFromJsonAsync<ContextEntityDto>($"contexts/{contextId}", cancellationToken);
+		public async Task<ContextEntity?> GetContextAsync(string contextId, CancellationToken cancellationToken)
+				=> await httpClient.GetFromJsonAsync<ContextEntity>($"contexts/{contextId}", cancellationToken);
 }
 
-public sealed record ContextEntityDto(string Id, string? ExternalId, string? Type);
+public sealed record ContextEntity(string Id, string? ExternalId, string? Type);
 
 // Example registration
 services.AddFusionIntegrationCore("FPRD");
@@ -83,10 +85,10 @@ services.AddFusionIntegrationHttpClient("context-client", options =>
 ```
 
 ## Representative model snapshots
-- `ContextEntityDto`: `id`, optional `externalId`, optional `type`
-- `RelatedContextEntityDto`: relation-linked entity reference
-- `CreateContextRequestDto`: title, externalId, context type, and additional metadata
-- `UpdateContextRelationDto`: source/target relation payload
+- `ContextEntity`: `id`, optional `externalId`, optional `type`
+- `RelatedContextEntity`: relation-linked entity reference
+- `CreateContextRequest`: title, externalId, context type, and additional metadata
+- `UpdateContextRelation`: source/target relation payload
 
 ## Validation highlights
 - `NewContextRequest.Type.Id` is required and must map to a valid context type
@@ -94,10 +96,10 @@ services.AddFusionIntegrationHttpClient("context-client", options =>
 - `NewContextRequest.ExternalId` is required and limited to 100 chars
 
 ## Suggested local models
-- `ContextEntityDto`
-- `RelatedContextEntityDto`
-- `CreateContextRequestDto`
-- `UpdateContextRelationDto`
+- `ContextEntity`
+- `RelatedContextEntity`
+- `CreateContextRequest`
+- `UpdateContextRelation`
 
 ## Versioning notes
 - Context API commonly relies on relation and path query semantics; payload correctness is critical.

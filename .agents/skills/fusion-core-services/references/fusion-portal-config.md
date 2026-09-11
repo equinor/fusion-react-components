@@ -37,7 +37,7 @@
 	- service-discovery-backed named clients configured in app startup
 - Suggested client file: `src/api/portalConfigClient.ts`
 - Suggested hook file: `src/features/portalConfig/usePortalConfig.ts`
-- Keep portal, template, category, and settings DTOs separate.
+- Keep portal, template, category, and settings models separate.
 - Starter shape:
 
 ```ts
@@ -67,10 +67,10 @@ export async function listPortals(baseUrl: string, init?: RequestInit) {
 	- `AddFusionIntegrationCore(environment)`
 	- `AddFusionIntegrationHttpClient("portal-config-client", setup)`
 	- `WithFusionServiceEndpoint(FusionServiceEndpointKeys.PortalConfig)`
-	- version-aware DTO separation for template/version endpoints
+	- version-aware model separation for template/version endpoints
 - Suggested client class: `PortalConfigApiClient`
-- Suggested DTOs: `PortalSummary`, `TemplateSummary`, `PortalSettingsDto`
-- Version template DTOs separately when working with `TemplateVersionsController`.
+- Suggested local models: `PortalSummary`, `TemplateSummary`, `PortalSettings`
+- Version template models separately when working with `TemplateVersionsController`.
 - Starter shape:
 
 ```csharp
@@ -88,14 +88,14 @@ public sealed record PortalSummary(string Id, string Name, string DisplayName);
 ## Suggested local models
 - `PortalSummary`
 - `TemplateSummary`
-- `PortalTagDto`
-- `PortalSettingsDto`
+- `PortalTag`
+- `PortalSettings`
 
 ## Representative model snapshots
 - `PortalSummary`: portal `id`, `name`, and `displayName`
 - `TemplateSummary`: template id/name plus version/tag metadata
-- `CreatePortalRequestDto`: name, displayName, template, admins
-- `PortalSettingsDto`: global portal-config settings shape
+- `CreatePortalRequest`: name, displayName, template, admins
+- `PortalSettings`: global portal-config settings shape
 
 ## Validation highlights
 - `CreatePortalRequest.Name` is required, min 3, max 50, and URL-safe
