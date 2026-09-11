@@ -31,7 +31,7 @@
 	- named service-discovery client for reports endpoints
 - Suggested client file: `src/api/reportsClient.ts`
 - Suggested hook file: `src/features/reports/useReports.ts`
-- Keep report summary DTOs distinct from embed/config DTOs.
+- Keep report summary models distinct from embed/config models.
 - Starter shape:
 
 ```ts
@@ -54,8 +54,8 @@ export async function listReports(baseUrl: string, init?: RequestInit) {
 	- `WithFusionServiceEndpoint(FusionServiceEndpointKeys.Reports)`
 	- separate wrappers or method groups for public/embed vs admin operations
 - Suggested client class: `ReportsApiClient`
-- Suggested DTOs: `ReportSummary`, `EmbedConfigDto`, `UpdateReportRequestDto`
-- Keep embed token/config DTOs isolated from admin update DTOs.
+- Suggested local models: `ReportSummary`, `EmbedConfig`, `UpdateReportRequest`
+- Keep embed token/config models isolated from admin update models.
 - Starter shape:
 
 ```csharp
@@ -70,15 +70,15 @@ public sealed record ReportSummary(string Id, string? Title);
 
 ## Suggested local models
 - `ReportSummary`
-- `EmbedConfigDto`
-- `ReportConfigDto`
-- `UpdateReportRequestDto`
+- `EmbedConfig`
+- `ReportConfig`
+- `UpdateReportRequest`
 
 ## Representative model snapshots
 - `ReportSummary`: report id, title, ownership/editability metadata
-- `EmbedConfigDto`: embed url, token/config, report type details
-- `CreateReportRequestDto`: title, owner, optional global identifier
-- `UpdateConfigRequestDto`: report type plus provider-specific config fields
+- `EmbedConfig`: embed url, token/config, report type details
+- `CreateReportRequest`: title, owner, optional global identifier
+- `UpdateConfigRequest`: report type plus provider-specific config fields
 
 ## Validation highlights
 - `CreateReportRequest.Title` is required
