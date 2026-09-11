@@ -27,7 +27,8 @@ npm install @equinor/fusion-react-side-sheet
 | Name | Type | Default | Description
 | ---- | ---- | ------- | -----------
 | `enableFullScreen` | `boolean` | `true` | prop for disabling fullScreen action.
-| `minWidth` | `number` | `500` | Min with of the side-sheet.
+| `defaultWidth` | `number \| \`${number}${'%' \| 'vw' \| 'px' \| 'em'}\`` | `minWidth` | Initial width of the side-sheet as pixels or a supported CSS width (`%`, `vw`, `px`, or `em`).
+| `minWidth` | `number` | `480` | Minimum width of the side-sheet.
 | `onClose` | `function` | - | Callback function triggered onClose button clicked.
 
 

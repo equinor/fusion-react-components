@@ -12,6 +12,12 @@ Icon.add({ help_outline });
 const meta: Meta<typeof SideSheet> = {
   title: 'UI/Side Sheet',
   component: SideSheet,
+  argTypes: {
+    defaultWidth: {
+      control: 'text',
+      description: 'Width of the side sheet when it opens, using %, vw, px, or em.',
+    },
+  },
 };
 
 export default meta;
@@ -37,6 +43,7 @@ export const basic: Story = {
     },
     enableFullscreen: false,
     minWidth: 400,
+    defaultWidth: '50%',
     animate: true,
     children: (
       <>
@@ -65,7 +72,12 @@ export const basic: Story = {
     return (
       <div>
         <Button onClick={() => setOpen(true)}>Open Side Sheet</Button>
-        <SideSheet {...props} isOpen={open} onClose={() => setOpen(false)}></SideSheet>
+        <SideSheet
+          {...props}
+          key={props.defaultWidth}
+          isOpen={open}
+          onClose={() => setOpen(false)}
+        ></SideSheet>
       </div>
     );
   },
