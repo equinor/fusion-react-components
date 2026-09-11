@@ -47,7 +47,7 @@
 	- `@equinor/fusion-framework-module-service-discovery`
 - Suggested client file: `src/api/appsClient.ts`
 - Suggested hook file: `src/features/apps/useApps.ts`
-- Because endpoint details are sparse in this snapshot, keep DTOs narrow and confirm route contracts before shipping.
+- Because endpoint details are sparse in this snapshot, keep models narrow and confirm route contracts before shipping.
 - Starter shape:
 
 ```ts
@@ -78,7 +78,7 @@ export async function getApps(baseUrl: string, init?: RequestInit) {
 	- `AddFusionIntegrationHttpClient("apps-client", setup)` when service endpoint details are available
 	- otherwise a named client using explicit URI until a stable endpoint key is confirmed
 - Suggested client class: `AppsApiClient`
-- Suggested DTOs: `AppSummary`, `AppSyncStatusDto`
+- Suggested local models: `AppSummary`, `AppSyncStatus`
 - Treat route and payload names as provisional until confirmed from concrete controller source.
 - Starter shape:
 
@@ -96,13 +96,13 @@ public sealed record AppSummary(string AppKey, string DisplayName, string? Descr
 
 ## Suggested local models
 - `AppSummary`
-- `AppDetailsDto`
-- `AppSyncStatusDto`
+- `AppDetails`
+- `AppSyncStatus`
 
 ## Representative model snapshots
 - `AppSummary`: `appKey`, `displayName`, optional `description`
-- `AppDetailsDto`: application metadata, owners/admins, tags, classification
-- `CreateAppRequestDto`: app name, type, admins, and ownership fields
+- `AppDetails`: application metadata, owners/admins, tags, classification
+- `CreateAppRequest`: app name, type, admins, and ownership fields
 
 ## Validation highlights
 - validation in this service varies by controller surface

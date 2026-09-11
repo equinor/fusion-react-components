@@ -65,8 +65,8 @@ export async function listNotifications(baseUrl: string, personIdentifier: strin
 	- `WithFusionServiceEndpoint(FusionServiceEndpointKeys.Notification)`
 	- typed wrapper separating content operations from settings operations
 - Suggested client class: `NotificationApiClient`
-- Suggested DTOs: `NotificationItem`, `NotificationSettingsDto`
-- Keep notification settings and notification content DTOs in separate namespaces/files.
+- Suggested local models: `NotificationItem`, `NotificationSettings`
+- Keep notification settings and notification content models in separate namespaces/files.
 - Starter shape:
 
 ```csharp
@@ -87,14 +87,14 @@ public sealed class NotificationApiClient(HttpClient httpClient)
 
 ## Suggested local models
 - `NotificationItem`
-- `CreateNotificationRequestDto`
-- `NotificationSettingsDto`
-- `PatchNotificationRequestDto`
+- `CreateNotificationRequest`
+- `NotificationSettings`
+- `PatchNotificationRequest`
 
 ## Representative model snapshots
 - `NotificationItem`: `id`, `title`, nested `sourceSystem`, `created`, `seen`
-- `CreateNotificationRequestDto`: title, description/card, app context, recipient info
-- `NotificationSettingsDto`: user notification preference set
+- `CreateNotificationRequest`: title, description/card, app context, recipient info
+- `NotificationSettings`: user notification preference set
 
 ## Validation highlights
 - `NewFusionNotificationRequestV1.Title` is required
