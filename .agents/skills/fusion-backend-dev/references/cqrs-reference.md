@@ -1,5 +1,19 @@
 # CQRS: Commands, Queries, and Handlers
 
+## Naming convention
+
+Fusion services never suffix model types with `Dto`. Use the actual prefixes:
+
+- `Db{Entity}` — EF Core entity (e.g. `DbPosition`, `DbFusionContext`)
+- `Query{Entity}` — internal domain model returned by a query/command handler
+- `Api{Entity}` — HTTP-facing model returned by the controller, usually built from a `Query`/`Db`
+  model via a static factory (`ApiModel.CreateOrDefault(entity)`) or a mapper
+
+`fusion-core-services` inserts the `Query` layer between the handler and the controller (handler
+returns `Query{Entity}`, controller maps it to `Api{Entity}`). Simpler standalone services
+sometimes skip the `Query` layer and have the handler return `Api{Entity}` directly, as the
+examples below do — check the target repository's own convention before assuming either shape.
+
 ## Command/Query Pattern Basics
 
 Fusion services use **CQRS** (Command Query Responsibility Segregation) via MediatR:
@@ -10,7 +24,7 @@ Commands express intent to change state:
 
 ```csharp
 // Example command
-public class CreatePositionCommand : IRequest<PositionDto>
+public class CreatePositionCommand : IRequest<ApiPosition>
 {
     public string ContextId { get; set; }
     public string Title { get; set; }
@@ -33,7 +47,7 @@ Queries request data:
 
 ```csharp
 // Example query
-public class GetPositionsQuery : IRequest<List<PositionDto>>
+public class GetPositionsQuery : IRequest<List<ApiPosition>>
 {
     public string ContextId { get; set; }
     public bool IncludeArchived { get; set; }
@@ -53,9 +67,9 @@ Each command/query has a handler that processes it:
 
 ```csharp
 // Command handler
-public class CreatePositionHandler : IRequestHandler<CreatePositionCommand, PositionDto>
+public class CreatePositionHandler : IRequestHandler<CreatePositionCommand, ApiPosition>
 {
-    public async Task<PositionDto> Handle(CreatePositionCommand request, ...)
+    public async Task<ApiPosition> Handle(CreatePositionCommand request, ...)
     {
         // Validate input
         // Check authorization
@@ -67,9 +81,9 @@ public class CreatePositionHandler : IRequestHandler<CreatePositionCommand, Posi
 }
 
 // Query handler
-public class GetPositionsHandler : IRequestHandler<GetPositionsQuery, List<PositionDto>>
+public class GetPositionsHandler : IRequestHandler<GetPositionsQuery, List<ApiPosition>>
 {
-    public async Task<List<PositionDto>> Handle(GetPositionsQuery request, ...)
+    public async Task<List<ApiPosition>> Handle(GetPositionsQuery request, ...)
     {
         // Query database
         // Apply filters
@@ -106,7 +120,7 @@ When you call a command/query, this happens:
 ### Create Pattern
 
 ```csharp
-public class CreateContextCommand : IRequest<ContextDto>
+public class CreateContextCommand : IRequest<ApiContext>
 {
     public string Title { get; set; }
     public string Type { get; set; }  // ProjectContext, ProgramContext, etc.
@@ -120,13 +134,13 @@ public class CreateContextCommand : IRequest<ContextDto>
 // 3. Create: Context entity with initial state
 // 4. Persist: Save to database
 // 5. Publish: ContextCreated event
-// 6. Return: ContextDto with new ID
+// 6. Return: ApiContext with new ID
 ```
 
 ### Update Pattern
 
 ```csharp
-public class UpdateContextCommand : IRequest<ContextDto>
+public class UpdateContextCommand : IRequest<ApiContext>
 {
     public string ContextId { get; set; }
     public string? Title { get; set; }  // Optional — null means unchanged
@@ -140,7 +154,7 @@ public class UpdateContextCommand : IRequest<ContextDto>
 // 4. Update: Modify only specified fields
 // 5. Persist: Save changes
 // 6. Publish: ContextModified event
-// 7. Return: Updated ContextDto
+// 7. Return: Updated ApiContext
 ```
 
 ### Delete Pattern
@@ -168,7 +182,7 @@ public class DeleteContextCommand : IRequest<bool>
 ### Single Item
 
 ```csharp
-public class GetContextQuery : IRequest<ContextDto>
+public class GetContextQuery : IRequest<ApiContext>
 {
     public string ContextId { get; set; }
 }
@@ -179,7 +193,7 @@ public class GetContextQuery : IRequest<ContextDto>
 ### List with Filtering
 
 ```csharp
-public class ListContextsQuery : IRequest<List<ContextDto>>
+public class ListContextsQuery : IRequest<List<ApiContext>>
 {
     public string? Type { get; set; }  // Optional filter
     public bool IncludeArchived { get; set; }
@@ -201,7 +215,7 @@ GetContextQuery query = new GetContextQuery { ContextId = contextId }
     .WithManager()
     .WithResponsibilities();
 
-ContextDto context = await mediator.Send(query);
+ApiContext context = await mediator.Send(query);
 ```
 
 **What this enables**: Load only needed data
@@ -224,7 +238,7 @@ ContextDto context = await mediator.Send(query);
 ### Authorization Requirements
 
 ```csharp
-public class CreatePositionCommand : IRequest<PositionDto>, ITrackableRequest
+public class CreatePositionCommand : IRequest<ApiPosition>, ITrackableRequest
 {
     public string ContextId { get; set; }
     public string Title { get; set; }
@@ -330,7 +344,7 @@ Response: 500 Internal Server Error
 ### Idempotent Creation
 
 ```csharp
-public async Task<PositionDto> Handle(
+public async Task<ApiPosition> Handle(
     CreatePositionCommand request,
     CancellationToken cancellationToken)
 {
@@ -341,7 +355,7 @@ public async Task<PositionDto> Handle(
             .FirstOrDefaultAsync(p => p.ExternalId == request.ExternalId, cancellationToken);
 
         if (existing != null)
-            return _mapper.Map<PositionDto>(existing);  // Return existing
+            return _mapper.Map<ApiPosition>(existing);  // Return existing
     }
     
     // Create new
@@ -349,7 +363,7 @@ public async Task<PositionDto> Handle(
     await _db.SaveChangesAsync(cancellationToken);
     await _mediator.Publish(new PositionCreated(position), cancellationToken);
     
-    return _mapper.Map<PositionDto>(position);
+    return _mapper.Map<ApiPosition>(position);
 }
 ```
 
@@ -377,7 +391,7 @@ public async Task<bool> Handle(
 ### Transactional Consistency
 
 ```csharp
-public async Task<ContextDto> Handle(
+public async Task<ApiContext> Handle(
     CreateContextCommand request,
     CancellationToken cancellationToken)
 {
@@ -398,7 +412,7 @@ public async Task<ContextDto> Handle(
         // Publish events AFTER transaction succeeds
         await _mediator.Publish(new ContextCreated(context), cancellationToken);
         
-        return _mapper.Map<ContextDto>(context);
+        return _mapper.Map<ApiContext>(context);
     }
     catch
     {
