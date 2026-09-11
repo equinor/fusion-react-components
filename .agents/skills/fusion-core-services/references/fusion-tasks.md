@@ -39,7 +39,7 @@
 - Prefer a named service-discovery client for `fusiontasks` or the resolved service key in the current environment.
 - Suggested client file: `src/api/tasksClient.ts`
 - Suggested hook file: `src/features/tasks/useTasks.ts`
-- Prefer separate local DTOs for Fusion, PIMS, and ProCoSys task shapes.
+- Prefer separate local models for Fusion, PIMS, and ProCoSys task shapes.
 - Starter shape:
 
 ```ts
@@ -62,7 +62,7 @@ export async function listFusionTasks(baseUrl: string, init?: RequestInit) {
 	- `AddFusionIntegrationHttpClient("fusion-tasks-client", setup)`
 	- endpoint-key-based discovery rather than hard-coded base URLs
 - Suggested client class: `FusionTasksApiClient`
-- Suggested DTOs: `FusionTaskItem`, `PimsTaskItem`, `ProCoSysTaskItem`
+- Suggested local models: `FusionTaskItem`, `PimsTaskItem`, `ProCoSysTaskItem`
 - Model source-system differences explicitly instead of sharing one record type.
 - Starter shape:
 
@@ -85,7 +85,7 @@ services.AddFusionIntegrationHttpClient("fusion-tasks-client", options =>
 
 ## Representative model snapshots
 - `FusionTaskItem`: core task id, title, status, and context reference
-- `NewFusionTaskRequestDto`: title, assignee, context, and source-system metadata
+- `NewFusionTaskRequest`: title, assignee, context, and source-system metadata
 - `PimsTaskItem`: source-system-specific PIMS task shape
 - `ProCoSysTaskItem`: deprecated ProCoSys shape kept separate
 
@@ -97,7 +97,7 @@ services.AddFusionIntegrationHttpClient("fusion-tasks-client", options =>
 
 ## Suggested local models
 - `FusionTaskItem`
-- `NewFusionTaskRequestDto`
+- `NewFusionTaskRequest`
 - `PimsTaskItem`
 - `ProCoSysTaskItem`
 

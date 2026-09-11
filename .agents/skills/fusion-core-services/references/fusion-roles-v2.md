@@ -43,7 +43,7 @@
 - Prefer a configured framework client and keep role, claimable-role, and access-role operations in separate local modules.
 - Suggested client file: `src/api/rolesV2Client.ts`
 - Suggested hook file: `src/features/roles/useRoleAssignments.ts`
-- Keep role, claimable role, and access-role DTOs distinct.
+- Keep role, claimable role, and access-role models distinct.
 - Starter shape:
 
 ```ts
@@ -73,8 +73,8 @@ export async function listRoles(baseUrl: string, init?: RequestInit) {
 	- `AddFusionIntegrationHttpClient(name, setup)` with a Roles endpoint key
 	- typed wrapper over the named client similar to the `Fusion.Integration.Roles` package pattern
 - Suggested client class: `RolesV2ApiClient`
-- Suggested DTOs: `RoleSummary`, `AssignRoleRequestDto`, `AccessRoleSummary`
-- Preserve separate DTOs for assignments, activations, and scope values.
+- Suggested local models: `RoleSummary`, `AssignRoleRequest`, `AccessRoleSummary`
+- Preserve separate models for assignments, activations, and scope values.
 - Starter shape:
 
 ```csharp
@@ -98,7 +98,7 @@ services.AddFusionIntegrationHttpClient("roles-client", options =>
 
 ## Representative model snapshots
 - `RoleSummary`: paged role item with `id` and `name`
-- `AssignRoleRequestDto`: account identifier, role identifier, reason, validity range
+- `AssignRoleRequest`: account identifier, role identifier, reason, validity range
 - `AccessRoleSummary`: access-role identifier and metadata
 - `ClaimableRoleSummary`: claimable role plus scope/activation metadata
 
@@ -111,7 +111,7 @@ services.AddFusionIntegrationHttpClient("roles-client", options =>
 
 ## Suggested local models
 - `RoleSummary`
-- `AssignRoleRequestDto`
+- `AssignRoleRequest`
 - `AccessRoleSummary`
 - `ClaimableRoleSummary`
 
