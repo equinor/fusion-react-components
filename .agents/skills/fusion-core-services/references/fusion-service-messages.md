@@ -30,7 +30,7 @@
 	- `useHttpClient(name)` for application-integrated message clients
 - Suggested client file: `src/api/serviceMessagesClient.ts`
 - Suggested hook file: `src/features/serviceMessages/useServiceMessages.ts`
-- Keep admin message DTOs distinct from app-scoped visibility DTOs.
+- Keep admin message models distinct from app-scoped visibility models.
 - Starter shape:
 
 ```ts
@@ -54,8 +54,8 @@ export async function listServiceMessages(baseUrl: string, init?: RequestInit) {
 	- `WithFusionServiceEndpoint(FusionServiceEndpointKeys.ServiceMessages)`
 	- typed request models for admin vs app-scoped writes
 - Suggested client class: `ServiceMessagesApiClient`
-- Suggested DTOs: `ServiceMessageItem`, `CreateServiceMessageRequestDto`, `UpdateVisibilityRequestDto`
-- Preserve admin/app request DTO differences in client code.
+- Suggested local models: `ServiceMessageItem`, `CreateServiceMessageRequest`, `UpdateVisibilityRequest`
+- Preserve admin/app request model differences in client code.
 - Starter shape:
 
 ```csharp
@@ -70,14 +70,14 @@ public sealed record ServiceMessageItem(string Id, string? Title, bool? IsCurren
 
 ## Suggested local models
 - `ServiceMessageItem`
-- `CreateServiceMessageRequestDto`
-- `CreateServiceMessageForAppRequestDto`
-- `UpdateVisibilityRequestDto`
+- `CreateServiceMessageRequest`
+- `CreateServiceMessageForAppRequest`
+- `UpdateVisibilityRequest`
 
 ## Representative model snapshots
 - `ServiceMessageItem`: id, title, content, and current-visibility metadata
-- `CreateServiceMessageRequestDto`: title, content, type, scope, relevant apps/portals
-- `UpdateVisibilityRequestDto`: applies-from/to and visibility targeting details
+- `CreateServiceMessageRequest`: title, content, type, scope, relevant apps/portals
+- `UpdateVisibilityRequest`: applies-from/to and visibility targeting details
 
 ## Validation highlights
 - `CreateServiceMessageRequest.Title` is required and limited to 200 chars

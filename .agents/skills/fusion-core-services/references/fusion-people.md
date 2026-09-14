@@ -26,7 +26,7 @@
 ## Model clarity map
 - Request models: `Controllers/Models/Requests/*`
 - Response/view models: `Controllers/Models/ViewModels/*`
-- Versioned person DTOs: `ApiPersonV1`, `ApiPersonV2`, `ApiPersonV3`, `ApiPersonV4`
+- Versioned person models: `ApiPersonV1`, `ApiPersonV2`, `ApiPersonV3`, `ApiPersonV4`
 - Related public package: `src/ApiModels/Fusion.Services.People.ApiModels`
 
 ## Capability / OPTIONS defaults
@@ -49,7 +49,7 @@
 - Prefer `useHttpClient('people')` or a service-discovery-created client over ad hoc `fetch` setup.
 - Suggested client file: `src/api/peopleClient.ts`
 - Suggested hook file: `src/features/people/usePeople.ts`
-- Prefer local DTOs derived from `ApiPersonV3`, `ApiPeoplePickerPerson`, and `ApiPersonSearchResponseV1`.
+- Prefer local models derived from `ApiPersonV3`, `ApiPeoplePickerPerson`, and `ApiPersonSearchResponseV1`.
 - Starter shape:
 
 ```ts
@@ -73,8 +73,8 @@ export async function getPerson(baseUrl: string, personId: string, init?: Reques
 	- `AddFusionIntegrationHttpClient(name, setup)`
 	- `WithFusionServiceEndpoint(FusionServiceEndpointKeys.People)`
 - Suggested client class: `PeopleApiClient`
-- Suggested DTOs: `PersonSummary`, `PeopleSearchResponse`
-- Prefer `System.Text.Json` and keep version-specific DTOs separate.
+- Suggested local models: `PersonSummary`, `PeopleSearchResponse`
+- Prefer `System.Text.Json` and keep version-specific models separate.
 - Starter shape:
 
 ```csharp

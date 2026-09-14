@@ -2,8 +2,11 @@
 name: fusion-core-services
 description: 'Guides integrations across Fusion Core service APIs from a single installable skill. USE FOR: service discovery across apps, people, context, roles, notifications, reports, tasks, and other Fusion Core APIs; cross-service integration planning; choosing the right endpoint/model guidance for a workflow. DO NOT USE FOR: modifying Fusion backend source code, non-Fusion APIs, or generic cloud architecture work without a Fusion service integration target.'
 license: MIT
+compatibility: Works best with a web-fetch tool to read live, public OpenAPI documents
+  (`https://{service}.api.fusion.equinor.com/openapi/api-v{version}.json`, no JWT required) as the
+  source of truth for exact schema/type names, rather than relying solely on the bundled snapshots.
 metadata:
-  version: "0.0.2"
+  version: "0.0.3"
   status: experimental
   owner: "@equinor/fusion-core"
   tags:
@@ -50,20 +53,39 @@ Typical triggers:
 - Then open the matching per-service reference file.
 - Pull in the endpoint catalog and model asset for only the services that materially affect the answer.
 
-3. Preserve source-grounded guidance.
-- Prefer controller-backed endpoint and model notes already captured in bundled references.
+3. Fetch the live OpenAPI document before trusting exact names or shapes.
+- Every Fusion Core service publishes its current OpenAPI document publicly, with no JWT required:
+  `https://{service}.api.fusion.equinor.com/openapi/api-v{version}.json` (e.g.
+  `https://people.api.fusion.equinor.com/openapi/api-v3.json`,
+  `https://context.api.fusion.equinor.com/openapi/api-v1.json`).
+- The bundled reference files are a curated index of which services/controllers exist and how to
+  approach them — not the source of truth for exact schema/type names, which drift as services
+  change. Fetch the live document for the target service(s) and read `components.schemas` for the
+  real type names — responses are commonly `Api{Entity}` and request bodies a plain
+  `{Verb}{Entity}Request` name, but the live document's exact name always wins over any pattern;
+  never invent a `Dto`-suffixed name that isn't actually in `components.schemas`.
+- If you cannot fetch the live OpenAPI document (no web-fetch tool or network access), explicitly
+  state that limitation, treat bundled references/assets as best-effort, and avoid asserting exact
+  schema/type names or required fields.
+- If the subdomain isn't already known from the service catalog below, resolve it via Fusion
+  service discovery rather than guessing, per the platform-wide rule of never hardcoding service
+  addresses.
+
+4. Preserve source-grounded guidance.
+- Prefer the live OpenAPI document over the bundled reference's own "suggested model" lists when
+  they disagree — the live document is always current, the bundled file may not be.
 - Call out any route or model area that still requires direct source confirmation before shipping.
 
-4. Handle capabilities explicitly.
+5. Handle capabilities explicitly.
 - If a service exposes `OPTIONS` or other access-probe routes, use them to drive capability-aware UI or mutation logic.
 - If a service does not expose stable probes, document conservative client behavior and treat `403 Forbidden` as the fallback capability signal.
 
-5. Treat subscriptions as backend-only unless the reference says otherwise.
+6. Treat subscriptions as backend-only unless the reference says otherwise.
 - The `/subscriptions/...` routes are for application-token event registration and CloudEvent-style change handling, not normal frontend CRUD flows.
 
-6. Return consumer-ready guidance.
-- For frontend consumers, return TypeScript-friendly DTOs and a minimal client/hook pattern.
-- For .NET consumers, return a typed `HttpClient` plan plus DTO record suggestions.
+7. Return consumer-ready guidance.
+- For frontend consumers, return TypeScript-friendly models (named after the real schema, not `Dto`-suffixed) and a minimal client/hook pattern.
+- For .NET consumers, return a typed `HttpClient` plan that deserializes directly into the real schema type from the live document (commonly `Api{Entity}`, but use whatever `components.schemas` actually names it) rather than a hand-rolled shadow record, where one is published.
 - For cross-service tasks, explain the service sequence and data handoff between services.
 
 ## Service catalog
@@ -96,11 +118,15 @@ Return headings in this order:
 ## Safety & constraints
 
 Never:
-- invent service ownership, routes, or DTO fields
+- invent service ownership, routes, or model fields
+- invent a `Dto`-suffixed type name, or any name not actually present in the live OpenAPI
+  document's `components.schemas` — use the exact real name, whatever pattern it follows
 - answer from generic SaaS/API assumptions when the bundled Fusion references are specific
 - treat backend subscription routes as normal frontend interaction flows
 
 Always:
+- fetch the live OpenAPI document for the target service(s) before naming a type — the bundled
+  reference files can drift out of date, the live document cannot
 - keep cross-service reasoning explicit when more than one service is involved
 - call out capability-probe behavior when the service exposes `OPTIONS`
 - prefer the narrowest set of service references needed for the user’s workflow

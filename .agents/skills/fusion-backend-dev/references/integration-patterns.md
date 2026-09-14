@@ -10,8 +10,8 @@ Fusion services use typed HTTP clients for service-to-service calls:
 // Backend service example structure
 public interface IPeopleApiClient
 {
-    Task<PersonDto> GetPerson(string personId);
-    Task<List<PersonDto>> SearchPeople(string query);
+    Task<ApiPersonV3> GetPerson(string personId);
+    Task<List<ApiPersonV3>> SearchPeople(string query);
     Task<bool> UserHasRole(string personId, string role);
 }
 
@@ -88,8 +88,8 @@ As consumer: keys are managed by the service team.
 ### Pattern: Request Mapping
 
 ```csharp
-// Fusion model
-public class PersonDto
+// Illustrative shape only — see the People API docs/fusion-research for the real ApiPersonV3 contract
+public class ApiPersonV3
 {
   public string Name { get; set; }
   public string Email { get; set; }
@@ -104,7 +104,7 @@ public class SAPPerson
 }
 
 // Mapper converts between formats
-PersonDto fusion = mapper.Map<PersonDto>(sapPerson);
+ApiPersonV3 fusion = mapper.Map<ApiPersonV3>(sapPerson);
 ```
 
 ---
@@ -233,14 +233,14 @@ If external integration fails:
 ```csharp
 try
 {
-  SAPPersonDto sap = await _sapClient.GetPerson(personId);
+  SAPPerson sap = await _sapClient.GetPerson(personId);
   return enriched(sap);
 }
 catch (SAPUnavailableException)
 {
-  // SAP is down; use cached data or return minimal response
-  PersonDto? cached = _cache.Get(personId);
-  return cached ?? new MinimalPersonDto();
+  // SAP is down; fall back to whatever is already cached under the same key used by the
+  // Cache Pattern below, or null if nothing is cached yet.
+  return _cache.Get<ApiPersonV3>($"person:{personId}");
 }
 ```
 
@@ -251,13 +251,13 @@ catch (SAPUnavailableException)
 ### Cache Pattern
 
 ```csharp
-public async Task<PersonDto> GetPerson(string id)
+public async Task<ApiPersonV3> GetPerson(string id)
 {
-  PersonDto? cached = _cache.Get<PersonDto>($"person:{id}");
+  ApiPersonV3? cached = _cache.Get<ApiPersonV3>($"person:{id}");
   if (cached != null)
     return cached;
   
-  PersonDto person = await _sapClient.GetPerson(id);
+  ApiPersonV3 person = await _sapClient.GetPerson(id);
   _cache.Set($"person:{id}", person, expiration: TimeSpan.FromHours(1));
   return person;
 }
@@ -283,7 +283,7 @@ public async Task<PersonDto> GetPerson(string id)
 // Interfaces allow swapping real vs mock
 public interface IExternalApiClient
 {
-  Task<PersonDto> GetPerson(string id);
+  Task<ApiPersonV3> GetPerson(string id);
 }
 
 // Production: Real HTTP client
@@ -292,9 +292,9 @@ public class HttpExternalApiClient : IExternalApiClient { }
 // Testing: Mock
 public class TestExternalApiClient : IExternalApiClient
 {
-  public Task<PersonDto> GetPerson(string id)
+  public Task<ApiPersonV3> GetPerson(string id)
   {
-    return Task.FromResult(new PersonDto { Name = "Test User" });
+    return Task.FromResult(new ApiPersonV3 { Name = "Test User" });
   }
 }
 ```

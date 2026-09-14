@@ -37,7 +37,7 @@
 	- `@equinor/fusion-framework-module-service-discovery`
 - Suggested client file: `src/api/contractPersonnelClient.ts`
 - Suggested hook file: `src/features/contractPersonnel/usePersonnel.ts`
-- Keep personnel, contract, and role DTOs separated by domain.
+- Keep personnel, contract, and role models separated by domain.
 - Starter shape:
 
 ```ts
@@ -72,8 +72,8 @@ export async function listPersonnel(baseUrl: string, projectId: string, contract
 	- `AddFusionIntegrationHttpClient("contract-personnel-client", setup)`
 	- service resolution through a Fusion endpoint key when available
 - Suggested client class: `ContractPersonnelApiClient`
-- Suggested DTOs: `PersonnelItem`, `ContractItem`, `RoleAssignmentDto`
-- Keep V2 controller DTOs distinct from V1 DTOs.
+- Suggested local models: `PersonnelItem`, `ContractItem`, `RoleAssignment`
+- Keep V2 controller models distinct from V1 models.
 - Starter shape:
 
 ```csharp
@@ -93,14 +93,18 @@ public sealed record PersonnelItem(string Id, PersonnelPersonSummary Person);
 ## Suggested local models
 - `PersonnelItem`
 - `ContractItem`
-- `AssignRoleRequestDto`
+- `AssignRoleRequest`
 - `RecertificationItem`
 
 ## Representative model snapshots
+
+> Confirm exact request/response type names against this service's live OpenAPI document before
+> shipping — this section is illustrative and may not match the current contract exactly.
+
 - `PersonnelItem`: personnel `id` plus nested person identity/contact summary
 - `ContractItem`: contract id, title/reference, project binding
-- `CreatePersonnelRequestDto`: person reference, start/end dates, and assignment metadata
-- `RoleAssignmentDto`: personnel/contract role assignment payload
+- `CreatePersonnelRequestRequest`: person reference, start/end dates, and assignment metadata
+- `RoleAssignment`: personnel/contract role assignment payload
 
 ## Validation highlights
 - `CreatePersonnelRequestRequest.Person` is required
