@@ -46,7 +46,7 @@
     "@storybook/react-vite": "^10.6.0",
     "@vitejs/plugin-react": "^6.1.1",
     "babel-loader": "^10.0.0",
-    "react": "^19.2.8",
+    "react": "^19.3.0",
     "react-dom": "^19.2.8",
     "react-is": "^19.2.8",
     "remark-gfm": "^4.0.1",
@@ -65,6 +65,6 @@
     "@equinor/fusion-wc-icon": "^2.4.4",
     "@faker-js/faker": "^10.6.0",
     "@storybook/builder-vite": "^10.0.2",
-    "@types/react": "^19.2.18"
+    "@types/react": "^19.3.0"
   }
 }
