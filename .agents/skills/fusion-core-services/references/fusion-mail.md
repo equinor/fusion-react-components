@@ -30,18 +30,18 @@
 	- `useHttpClient(name)` for configured clients in React apps
 - Suggested client file: `src/api/mailClient.ts`
 - Suggested hook file: `src/features/mail/useSendMail.ts`
-- Keep send-request DTOs versioned locally.
+- Keep send-request models versioned locally.
 - Starter shape:
 
 ```ts
-export interface NewMailRequestDto {
+export interface NewMailRequest {
 	subject: string;
 	body: string;
 	recipients: string[];
 	fromDisplayName?: string;
 }
 
-export async function createMail(baseUrl: string, payload: NewMailRequestDto, init?: RequestInit) {
+export async function createMail(baseUrl: string, payload: NewMailRequest, init?: RequestInit) {
 	const response = await fetch(`${baseUrl}/mails`, {
 		method: 'POST',
 		headers: { 'Content-Type': 'application/json' },
@@ -58,16 +58,16 @@ export async function createMail(baseUrl: string, payload: NewMailRequestDto, in
 	- `AddFusionIntegrationCore(environment)`
 	- `AddFusionIntegrationHttpClient("mail-client", setup)`
 	- `WithFusionServiceEndpoint(FusionServiceEndpointKeys.Mail)`
-	- named-client wrapper with typed request DTOs per version
+	- named-client wrapper with typed request models per version
 - Suggested client class: `MailApiClient`
-- Suggested DTOs: `NewMailRequestDto`, `MailItem`, `MailStatusDto`
+- Suggested local models: `NewMailRequest`, `MailItem`, `ApiMailStatus`
 - Prefer explicit serializer options for enum/string handling.
 - Starter shape:
 
 ```csharp
 public sealed class MailApiClient(HttpClient httpClient)
 {
-		public async Task<ApiMail?> CreateMailAsync(NewMailRequestDto request, CancellationToken cancellationToken)
+		public async Task<ApiMail?> CreateMailAsync(NewMailRequest request, CancellationToken cancellationToken)
 		{
 			using HttpResponseMessage response = await httpClient.PostAsJsonAsync("mails", request, cancellationToken);
 			response.EnsureSuccessStatusCode();
@@ -75,17 +75,17 @@ public sealed class MailApiClient(HttpClient httpClient)
 		}
 }
 
-public sealed record NewMailRequestDto(string Subject, string Body, IReadOnlyList<string> Recipients, string? FromDisplayName = null);
+public sealed record NewMailRequest(string Subject, string Body, IReadOnlyList<string> Recipients, string? FromDisplayName = null);
 ```
 
 ## Suggested local models
-- `NewMailRequestDto`
+- `NewMailRequest`
 - `MailItem`
 - `MailTemplateItem`
-- `MailStatusDto`
+- `ApiMailStatus`
 
 ## Representative model snapshots
-- `NewMailRequestDto`: `subject`, `body`, `recipients`, optional `fromDisplayName`
+- `NewMailRequest`: `subject`, `body`, `recipients`, optional `fromDisplayName`
 - `MailItem`: created mail id, status, sender, recipients
 - `MailTemplateItem`: template name/key and render payload expectations
 

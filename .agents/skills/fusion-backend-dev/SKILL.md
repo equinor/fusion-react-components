@@ -1,10 +1,10 @@
 ---
 name: fusion-backend-dev
-description: 'Guides consumption and understanding of Fusion backend services, APIs, and patterns for frontend/client developers, integrators, and architects. Shows reference implementations, explains architectural decisions, and clarifies contracts. USE FOR: understanding Fusion backend APIs, learning implementation patterns, exploring reference code, choosing the right integration point, and understanding authorization/validation/async patterns. DO NOT USE FOR: modifying backend services, creating new endpoints, database changes, or backend-specific development (use fusion-services-develop or backend service repo instead).'
+description: 'Guides consumption and understanding of Fusion backend services, APIs, and patterns for frontend/client developers, integrators, and architects. Shows reference implementations, explains architectural decisions, and clarifies contracts. USE FOR: understanding Fusion backend APIs, learning implementation patterns, exploring reference code, choosing the right integration point, and understanding authorization/validation/async patterns. DO NOT USE FOR: modifying backend services, creating new endpoints, database changes, or backend-specific development (use the fusion-services-developer agent or the target backend service repo instead).'
 license: MIT
 compatibility: Works best with Fusion MCP. Works best with mcp_fusion_search_backend_code for reference code discovery. Frontend/client developers should also install fusion-research for deeper architectural context.
 metadata:
-  version: "0.1.2"
+  version: "0.1.3"
   status: active
   owner: "@equinor/fusion-core"
   skills:
@@ -148,4 +148,5 @@ Always:
 - Capture and cite repository, file path, and line references for real code
 - State which repository the pattern comes from
 - Note when a pattern exists in one service but not others
-- Offer to escalate to `fusion-services-develop` skill if user wants to implement changes
+- Offer to escalate to the `fusion-services-developer` agent if user wants to implement changes
+- For setting up or deploying a new standalone backend API (app registration, Roles V2, database, Radix/Kubernetes deployment, observability), point to the [New Backend Service Checklist](https://docs.fusion.equinor.com/docs/developer/api/new-service-checklist) on fusion-docs rather than improvising the sequence
