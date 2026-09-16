@@ -50,19 +50,31 @@ const StyledSideSheetContent = styled.div`
 
 const MIN_WIDTH = 480;
 
+const DISABLE_ALL_HANDLES = {
+  top: false,
+  right: false,
+  bottom: false,
+  left: false,
+  topRight: false,
+  bottomRight: false,
+  bottomLeft: false,
+  topLeft: false,
+};
+
 /** Defines the visibility, sizing, and dismissal behavior of a side sheet. */
 export type SideSheetProps = {
   readonly isOpen: boolean;
   readonly isDismissable?: boolean;
   readonly minWidth?: number;
   readonly defaultWidth?: number | `${number}${'%' | 'vw' | 'px' | 'em'}`;
+  readonly disableResize?: boolean;
   readonly animate?: boolean;
   onClose(): void;
 };
 
 /** Provides the resizable and dismissable foundation used by the composed side sheet. */
 export const SideSheetBase = (props: PropsWithChildren<SideSheetProps>) => {
-  const { isOpen, onClose, isDismissable, minWidth, defaultWidth, children, animate } = props;
+  const { isOpen, onClose, isDismissable, minWidth, defaultWidth, disableResize = false, children, animate } = props;
   const minimumWidth = minWidth ?? MIN_WIDTH;
   const initialWidth =
     typeof defaultWidth === 'number'
@@ -84,6 +96,7 @@ export const SideSheetBase = (props: PropsWithChildren<SideSheetProps>) => {
           size={{ width, height: '100%' }}
           maxWidth={'100vw'}
           minWidth={minimumWidth}
+          enable={disableResize ? DISABLE_ALL_HANDLES : undefined}
           onResizeStop={(event, _direction, element) => {
             event.stopPropagation();
             event.stopImmediatePropagation();

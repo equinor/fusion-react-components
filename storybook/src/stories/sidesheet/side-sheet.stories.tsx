@@ -44,6 +44,7 @@ export const basic: Story = {
     enableFullscreen: false,
     minWidth: 400,
     defaultWidth: '50%',
+    disableResize: false,
     animate: true,
     children: (
       <>
