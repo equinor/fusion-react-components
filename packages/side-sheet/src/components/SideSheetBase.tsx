@@ -50,17 +50,6 @@ const StyledSideSheetContent = styled.div`
 
 const MIN_WIDTH = 480;
 
-const DISABLE_ALL_HANDLES = {
-  top: false,
-  right: false,
-  bottom: false,
-  left: false,
-  topRight: false,
-  bottomRight: false,
-  bottomLeft: false,
-  topLeft: false,
-};
-
 /** Defines the visibility, sizing, and dismissal behavior of a side sheet. */
 export type SideSheetProps = {
   readonly isOpen: boolean;
@@ -96,7 +85,7 @@ export const SideSheetBase = (props: PropsWithChildren<SideSheetProps>) => {
           size={{ width, height: '100%' }}
           maxWidth={'100vw'}
           minWidth={minimumWidth}
-          enable={disableResize ? DISABLE_ALL_HANDLES : undefined}
+          enable={disableResize ? false : undefined}
           onResizeStop={(event, _direction, element) => {
             event.stopPropagation();
             event.stopImmediatePropagation();
