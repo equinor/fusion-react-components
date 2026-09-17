@@ -13,8 +13,8 @@ on:
 # List of jobs
 jobs:
   chromatic-deployment:
-    # do not waste render on dependabot
-    if: contains(fromJson('["dependabot[bot]", "dependabot-preview[bot]"]'), github.actor) == false
+    # Disable this job from running since we are out of tokens
+    if: false
     # Operating System
     runs-on: ubuntu-latest
     # Job steps

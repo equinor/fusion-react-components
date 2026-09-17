@@ -37,7 +37,7 @@ for (const ws of workspaceDirs) {
   try {
     const p = JSON.parse(fs.readFileSync(pkgPath, 'utf8'));
     if (p.name && p.version) workspaceVersions[p.name] = p.version;
-  } catch (e) {
+  } catch {
     console.warn(`⚠️  Could not read ${ws}/package.json for workspace version resolution`);
   }
 }
@@ -89,7 +89,7 @@ for (const ws of workspaceDirs) {
   let pkg;
   try {
     pkg = JSON.parse(fs.readFileSync(pkgPath, 'utf8'));
-  } catch (e) {
+  } catch {
     console.warn(`⚠️  Could not read ${ws}/package.json`);
     continue;
   }
@@ -231,7 +231,7 @@ try {
         fs.unlinkSync(t);
         console.log(`🧹 Cleaned up ${path.basename(t)}`);
       }
-    } catch (e) {
+    } catch {
       console.warn(`⚠️  Failed to clean up ${path.basename(t)}`);
     }
   });
