@@ -39,8 +39,8 @@
     "@equinor/fusion-wc-skeleton": "^2.2.4"
   },
   "devDependencies": {
-    "@types/react": "^19.2.18",
-    "react": "^19.2.8"
+    "@types/react": "^19.3.0",
+    "react": "^19.3.0"
   },
   "peerDependencies": {
     "react": "^18 || ^19"
