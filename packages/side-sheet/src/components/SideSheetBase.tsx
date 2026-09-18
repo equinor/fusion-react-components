@@ -63,7 +63,16 @@ export type SideSheetProps = {
 
 /** Provides the resizable and dismissable foundation used by the composed side sheet. */
 export const SideSheetBase = (props: PropsWithChildren<SideSheetProps>) => {
-  const { isOpen, onClose, isDismissable, minWidth, defaultWidth, disableResize = false, children, animate } = props;
+  const {
+    isOpen,
+    onClose,
+    isDismissable,
+    minWidth,
+    defaultWidth,
+    disableResize = false,
+    children,
+    animate,
+  } = props;
   const minimumWidth = minWidth ?? MIN_WIDTH;
   const initialWidth =
     typeof defaultWidth === 'number'
