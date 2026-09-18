@@ -44,6 +44,7 @@ export const basic: Story = {
     enableFullscreen: false,
     minWidth: 400,
     defaultWidth: '50%',
+    disableResize: false,
     animate: true,
     children: (
       <>
@@ -62,6 +63,46 @@ export const basic: Story = {
         </SideSheet.Actions>
         <SideSheet.Content>
           😎
+        </SideSheet.Content>,
+      </>
+    ),
+  },
+  render: (props) => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const [open, setOpen] = useState(false);
+    return (
+      <div>
+        <Button onClick={() => setOpen(true)}>Open Side Sheet</Button>
+        <SideSheet
+          {...props}
+          key={props.defaultWidth}
+          isOpen={open}
+          onClose={() => setOpen(false)}
+        ></SideSheet>
+      </div>
+    );
+  },
+};
+
+export const disableResize: Story = {
+  args: {
+    isOpen: open,
+    onClose: () => {
+      open = false;
+    },
+    enableFullscreen: false,
+    minWidth: 400,
+    defaultWidth: '50%',
+    disableResize: true,
+    animate: true,
+    children: (
+      <>
+        <SideSheet.Title title="title" />,
+        <SideSheet.SubTitle subTitle="sub title" />,
+        <SideSheet.Indicator color="#543345" />,
+        <SideSheet.Content>
+          😎
+          <p>The drag handle is hidden when <code>disableResize</code> is set.</p>
         </SideSheet.Content>,
       </>
     ),
