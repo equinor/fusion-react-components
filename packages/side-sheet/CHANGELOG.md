@@ -1,5 +1,12 @@
 # Change Log
 
+## 2.1.0
+
+### Minor Changes
+
+- d6cf6b0: Add a `defaultWidth` prop for setting the side sheet's initial width in pixels or with the `%`, `vw`, `px`, and `em` CSS units.
+- b8ae020: Add a `disableResize` prop for hiding the drag-to-resize handle.
+
 ## 2.0.8
 
 ### Patch Changes
