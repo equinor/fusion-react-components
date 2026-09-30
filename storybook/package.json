@@ -5,7 +5,8 @@
   "private": true,
   "scripts": {
     "start": "storybook dev -p 6006",
-    "build": "storybook build -o ./dist"
+    "build": "storybook build -o ./dist",
+    "test": "node --test .storybook/*.test.mjs"
   },
   "keywords": [],
   "author": "",
