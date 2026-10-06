@@ -52,14 +52,14 @@
   "devDependencies": {
     "@equinor/eds-core-react": "^2.6.3",
     "@equinor/eds-icons": "^1.6.0",
-    "@equinor/fusion-observable": "^9.2.2",
+    "@equinor/fusion-observable": "^9.2.3",
     "@types/react": "^19.3.0",
     "react": "^19.3.0"
   },
   "peerDependencies": {
     "@equinor/eds-core-react": "^2",
     "@equinor/eds-icons": "^1",
-    "@equinor/fusion-observable": "^9.2.2",
+    "@equinor/fusion-observable": "^9.2.3",
     "react": "^18 || ^19",
     "react-dom": "^18 || ^19"
   }
