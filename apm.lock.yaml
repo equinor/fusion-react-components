@@ -1,6 +1,6 @@
 lockfile_version: '2'
-generated_at: '2026-10-19T05:53:11.267273+00:00'
-apm_version: 0.29.0
+generated_at: '2026-10-19T11:51:36.459677+00:00'
+apm_version: 0.33.0
 dependencies:
 - repo_url: equinor/fusion-skills
   name: fusion-core-services
@@ -99,7 +99,7 @@ dependencies:
   content_hash: sha256:b93b1087b8b229abc2b2a0cd139809a16f59394e789a3d0f1205f9f0da5326ac
   constraint: ^1.9.0
   resolved_tag: v1.9.0
-  resolved_at: '2026-10-19T05:53:02+00:00'
+  resolved_at: '2026-10-19T11:51:28+00:00'
 - repo_url: equinor/fusion-skills
   name: fusion-dependency-review
   host: github.com
@@ -153,7 +153,7 @@ dependencies:
   content_hash: sha256:6a8825eac30858fa9b35b1ca09857c6a4548af77b97e4816b62877f11508055e
   constraint: ^1.9.0
   resolved_tag: v1.9.0
-  resolved_at: '2026-10-19T05:53:04+00:00'
+  resolved_at: '2026-10-19T11:51:29+00:00'
 - repo_url: equinor/fusion-skills
   name: fusion-design
   host: github.com
@@ -193,7 +193,7 @@ dependencies:
   content_hash: sha256:c9579c4bd027aaa6aa269013d1ce55d6828be0c5a0f9ea0ee47a4991cc9569e1
   constraint: ^1.9.0
   resolved_tag: v1.9.0
-  resolved_at: '2026-10-19T05:53:04+00:00'
+  resolved_at: '2026-10-19T11:51:29+00:00'
 - repo_url: equinor/fusion-skills
   name: fusion-framework-testing
   host: github.com
@@ -223,7 +223,7 @@ dependencies:
   content_hash: sha256:246a53abd7b1a42ba8800eec61baa20826c6e10b2e173c0a723881796f0999e6
   constraint: ^1.9.0
   resolved_tag: v1.9.0
-  resolved_at: '2026-10-19T05:53:04+00:00'
+  resolved_at: '2026-10-19T11:51:30+00:00'
 - repo_url: equinor/fusion-skills
   name: fusion-github-review-resolution
   host: github.com
@@ -273,7 +273,7 @@ dependencies:
   content_hash: sha256:cd9203ac36930574c0cbaa77ce5827d7062993e43ddf47689a578e3faeff8829
   constraint: ^1.9.0
   resolved_tag: v1.9.0
-  resolved_at: '2026-10-19T05:53:07+00:00'
+  resolved_at: '2026-10-19T11:51:30+00:00'
 - repo_url: equinor/fusion-skills
   name: fusion-issue-solving
   host: github.com
@@ -295,7 +295,7 @@ dependencies:
   content_hash: sha256:384afbde0b467c0922abd1002cf2c3000594426ad47770a1ab23a7dec743d2a6
   constraint: ^1.9.0
   resolved_tag: v1.9.0
-  resolved_at: '2026-10-19T05:53:07+00:00'
+  resolved_at: '2026-10-19T11:51:31+00:00'
 - repo_url: equinor/fusion-skills
   name: fusion-issue-task-planning
   host: github.com
@@ -333,7 +333,7 @@ dependencies:
   content_hash: sha256:eee72e14fc7455401adbbbacca5cf375ed8c7e117118d9403f50cc462960f09e
   constraint: ^1.9.0
   resolved_tag: v1.9.0
-  resolved_at: '2026-10-19T05:53:07+00:00'
+  resolved_at: '2026-10-19T11:51:31+00:00'
 - repo_url: equinor/fusion-skills
   name: fusion-mcp
   host: github.com
@@ -371,7 +371,7 @@ dependencies:
   content_hash: sha256:6917a5bf1b5a3a311f091bc8f42267559b4e9d64ae56a6d764422da07845354b
   constraint: ^1.9.0
   resolved_tag: v1.9.0
-  resolved_at: '2026-10-19T05:53:07+00:00'
+  resolved_at: '2026-10-19T11:51:31+00:00'
 - repo_url: equinor/fusion-skills
   name: fusion-package-scribe
   host: github.com
@@ -407,7 +407,7 @@ dependencies:
   content_hash: sha256:da9b8c6f0752f4d89149056d58b35387a122dfa48a37c3c46b82ed92aca4ce71
   constraint: ^1.9.0
   resolved_tag: v1.9.0
-  resolved_at: '2026-10-19T05:53:07+00:00'
+  resolved_at: '2026-10-19T11:51:31+00:00'
 - repo_url: equinor/fusion-skills
   name: fusion-pm-mcp
   host: github.com
@@ -441,7 +441,7 @@ dependencies:
   content_hash: sha256:08e74b341814657eb17441716a396ff4b7f8b7d663ae119378cce4948f5f2ad1
   constraint: ^1.9.0
   resolved_tag: v1.9.0
-  resolved_at: '2026-10-19T05:53:07+00:00'
+  resolved_at: '2026-10-19T11:51:31+00:00'
 - repo_url: equinor/fusion-skills
   name: equinor-design-system
   host: github.com
@@ -461,7 +461,7 @@ dependencies:
   content_hash: sha256:b34e22fe585a243a2f5363520f36a33efcd688310cd9620bc4a3bde32a9c003c
   constraint: ^1.9.0
   resolved_tag: v1.9.0
-  resolved_at: '2026-10-19T05:53:02+00:00'
+  resolved_at: '2026-10-19T11:51:28+00:00'
 - repo_url: equinor/fusion-skills
   name: fusion-code-conventions
   host: github.com
@@ -507,7 +507,7 @@ dependencies:
   content_hash: sha256:03a46f1879db369ebeeafe0e277f5186a44ea29b2ae9eb0c3d3b54bc1ec3bde2
   constraint: ^1.9.0
   resolved_tag: v1.9.0
-  resolved_at: '2026-10-19T05:53:02+00:00'
+  resolved_at: '2026-10-19T11:51:28+00:00'
 - repo_url: equinor/fusion-skills
   name: fusion-research
   host: github.com
@@ -557,7 +557,7 @@ dependencies:
   content_hash: sha256:08dcbe15d5101903a85c4e381f1d2855b7f53b8e206f2a084c5cb886f2373ccb
   constraint: ^1.9.0
   resolved_tag: v1.9.0
-  resolved_at: '2026-10-19T05:53:07+00:00'
+  resolved_at: '2026-10-19T11:51:32+00:00'
 - repo_url: equinor/fusion-skills
   name: fusion-rule-author
   host: github.com
@@ -593,7 +593,7 @@ dependencies:
   content_hash: sha256:bd7676993607ea1b91a23c909e869114468d482081d51586d779964cffca5d4c
   constraint: ^1.9.0
   resolved_tag: v1.9.0
-  resolved_at: '2026-10-19T05:53:07+00:00'
+  resolved_at: '2026-10-19T11:51:32+00:00'
 - repo_url: equinor/fusion-skills
   name: fusion
   host: github.com
@@ -613,7 +613,7 @@ dependencies:
   content_hash: sha256:506c20f87e13b08dcc31fe650eec9f573330c8e12aa09e3fa51a47f968210d7f
   constraint: ^1.9.0
   resolved_tag: v1.9.0
-  resolved_at: '2026-10-19T05:53:02+00:00'
+  resolved_at: '2026-10-19T11:51:28+00:00'
 - repo_url: equinor/fusion-skills
   name: fusion-developer-app
   host: github.com
@@ -701,7 +701,7 @@ dependencies:
   content_hash: sha256:e22e6eb23713ddf02deb2aeb234cf424491e2b6303c059335b351b8584c1deb0
   constraint: ^1.9.0
   resolved_tag: v1.9.0
-  resolved_at: '2026-10-19T05:53:04+00:00'
+  resolved_at: '2026-10-19T11:51:29+00:00'
 - repo_url: equinor/fusion-skills
   name: fusion-developer-portal
   host: github.com
@@ -723,7 +723,7 @@ dependencies:
   content_hash: sha256:6de02fd0c1f20fa30c98015a224283bda58ccb0faa7ab6f5d1654c7cf0008601
   constraint: ^1.9.0
   resolved_tag: v1.9.0
-  resolved_at: '2026-10-19T05:53:04+00:00'
+  resolved_at: '2026-10-19T11:51:29+00:00'
 - repo_url: equinor/fusion-skills
   name: fusion-devtools
   host: github.com
@@ -749,7 +749,7 @@ dependencies:
   content_hash: sha256:e6a8b7898a4892d7863829189d6a4342d0db056aa6cab579a939202ec95794cc
   constraint: ^1.9.0
   resolved_tag: v1.9.0
-  resolved_at: '2026-10-19T05:53:04+00:00'
+  resolved_at: '2026-10-19T11:51:30+00:00'
 - repo_url: equinor/fusion-skills
   name: fusion-help-api
   host: github.com
@@ -779,7 +779,7 @@ dependencies:
   content_hash: sha256:7d31dace06e7012027bd63801ebb66408ef16593433f7ceb8f52ee55c2486675
   constraint: ^1.9.0
   resolved_tag: v1.9.0
-  resolved_at: '2026-10-19T05:53:07+00:00'
+  resolved_at: '2026-10-19T11:51:30+00:00'
 - repo_url: equinor/fusion-skills
   name: fusion-help-docs
   host: github.com
@@ -815,7 +815,7 @@ dependencies:
   content_hash: sha256:54626649dc6034b5afaca4bc803c62e0e1edf33a6ae14946280ce31b986ef5e1
   constraint: ^1.9.0
   resolved_tag: v1.9.0
-  resolved_at: '2026-10-19T05:53:07+00:00'
+  resolved_at: '2026-10-19T11:51:30+00:00'
 - repo_url: equinor/fusion-skills
   name: fusion-help-integration
   host: github.com
@@ -841,7 +841,7 @@ dependencies:
   content_hash: sha256:6dc0c1dce8ba964f61d7011e504e2a1503e8c47d18a72e945229802990335f61
   constraint: ^1.9.0
   resolved_tag: v1.9.0
-  resolved_at: '2026-10-19T05:53:07+00:00'
+  resolved_at: '2026-10-19T11:51:30+00:00'
 - repo_url: equinor/fusion-skills
   name: fusion-infra-cli
   host: github.com
@@ -865,7 +865,7 @@ dependencies:
   content_hash: sha256:0e77bb3a95eaba727623f11d4fdd8fbd86c84f379778e91935c415ea2c8aee4b
   constraint: ^1.9.0
   resolved_tag: v1.9.0
-  resolved_at: '2026-10-19T05:53:07+00:00'
+  resolved_at: '2026-10-19T11:51:30+00:00'
 - repo_url: equinor/fusion-skills
   name: fusion-issue-authoring
   host: github.com
@@ -949,7 +949,7 @@ dependencies:
   content_hash: sha256:44679870d32ba3b92d31c8afe993b91027b2bf4d954d5fd7a0e34b9b53f209a9
   constraint: ^1.9.0
   resolved_tag: v1.9.0
-  resolved_at: '2026-10-19T05:53:07+00:00'
+  resolved_at: '2026-10-19T11:51:30+00:00'
 - repo_url: equinor/fusion-skills
   name: fusion-roles-cli
   host: github.com
@@ -975,7 +975,7 @@ dependencies:
   content_hash: sha256:8b1d04e1d552bd8de521a73de0508e8d4954f79785ff9311c92a883a1bfc90ea
   constraint: ^1.9.0
   resolved_tag: v1.9.0
-  resolved_at: '2026-10-19T05:53:07+00:00'
+  resolved_at: '2026-10-19T11:51:32+00:00'
 - repo_url: equinor/fusion-skills
   name: fusion-rules
   host: github.com
@@ -1001,7 +1001,7 @@ dependencies:
   content_hash: sha256:7d355b536a2643cfb0de0426116db8483ac83857783ef1c4ac036c26599199a6
   constraint: ^1.9.0
   resolved_tag: v1.9.0
-  resolved_at: '2026-10-19T05:53:08+00:00'
+  resolved_at: '2026-10-19T11:51:32+00:00'
 - repo_url: equinor/fusion-skills
   name: fusion-skill-authoring
   host: github.com
@@ -1039,7 +1039,7 @@ dependencies:
   content_hash: sha256:a018b5d46076bfd87ae4ddda9265d7a72c661f47477ce2cbb22d281b2e077948
   constraint: ^1.9.0
   resolved_tag: v1.9.0
-  resolved_at: '2026-10-19T05:53:08+00:00'
+  resolved_at: '2026-10-19T11:51:32+00:00'
 - repo_url: equinor/fusion-skills
   name: fusion-skills
   host: github.com
@@ -1087,7 +1087,7 @@ dependencies:
   content_hash: sha256:10e98eb1c97d05e172723ab8f00da2a535d53b03a247e9f93ae810396828d726
   constraint: ^1.9.0
   resolved_tag: v1.9.0
-  resolved_at: '2026-10-19T05:53:08+00:00'
+  resolved_at: '2026-10-19T11:51:32+00:00'
 deployments:
 - kind: project-relative
   target: copilot
