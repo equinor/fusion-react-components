@@ -14,6 +14,19 @@ Config file for `froles create --file <path>`. All sections are optional — inc
 
 ---
 
+## Contents
+
+- Root object
+- ScopeType
+- AccessRole
+- Role
+- ClaimableRole
+- Binding
+- RoleAssignment
+- ClaimableRoleAssignment
+- DeleteRoleAssignmentRequest
+- Complete example
+
 ## Root object
 
 ```json
@@ -140,10 +153,10 @@ Links an Entra (Azure AD) group to roles or claimable roles, optionally scoped.
   "identifier": "string (required — unique key)",
   "system": "string (required — owning system identifier)",
   "description": "string (optional)",
-  "reason": "string (optional — explains binding purpose)",
+  "reason": "string (set it: the API rejects empty reasons although the schema allows null)",
   "type": "string (e.g. 'EntraGroup')",
   "sourceSystem": "string (e.g. 'Entra')",
-  "version": "string (optional)",
+  "version": "string (required — e.g. '1.0.0')",
   "binding": {
     "version": "string (optional)",
     "group": {
@@ -153,18 +166,18 @@ Links an Entra (Azure AD) group to roles or claimable roles, optionally scoped.
     "roles": [
       {
         "name": "string (role name)",
-        "type": "string (optional)",
+        "type": "'Global' | 'Scoped' (required)",
         "scope": {
-          "scopeTypeIdentifier": "string",
-          "isGlobal": "boolean (true for global scope)",
-          "value": "string (scope value; null when isGlobal=true)"
+          "scopeTypeIdentifier": "string (required)",
+          "isGlobal": "boolean (optional — true = every value of the scope type)",
+          "value": "string (required unless isGlobal)"
         }
       }
     ],
     "claimableRoles": [
       {
         "name": "string (claimable role name)",
-        "type": "string (optional)",
+        "type": "'Global' | 'Scoped' (required)",
         "scope": { ... }
       }
     ]
@@ -172,12 +185,15 @@ Links an Entra (Azure AD) group to roles or claimable roles, optionally scoped.
 }
 ```
 
-**Note**: The binding diff in dry-run output shows exactly which roles/groups are added or removed.
+**Note**: `scope` must be `null` when `type` is `Global` and is required when `type` is `Scoped`. The binding diff in
+dry-run output shows exactly which roles/groups are added or removed.
 
 **Example — global role binding:**
 ```json
 {
   "identifier": "admins-global-binding",
+  "version": "1.0.0",
+  "reason": "Service admins need global access",
   "system": "my-service",
   "type": "EntraGroup",
   "sourceSystem": "Entra",
@@ -186,17 +202,24 @@ Links an Entra (Azure AD) group to roles or claimable roles, optionally scoped.
     "roles": [
       {
         "name": "project-editor",
-        "scope": { "isGlobal": true }
+        "type": "Global",
+        "scope": null
       }
     ]
   }
 }
 ```
 
+For a scoped access role that should cover every project, use `"type": "Scoped"` with
+`"scope": { "scopeTypeIdentifier": "project", "isGlobal": true }`; a `Global` assignment does not pass scoped checks
+(see [concepts.md](concepts.md)).
+
 **Example — scoped role binding:**
 ```json
 {
   "identifier": "project-alpha-editors",
+  "version": "1.0.0",
+  "reason": "Project alpha editors need write access",
   "system": "my-service",
   "type": "EntraGroup",
   "sourceSystem": "Entra",
@@ -205,6 +228,7 @@ Links an Entra (Azure AD) group to roles or claimable roles, optionally scoped.
     "roles": [
       {
         "name": "project-editor",
+        "type": "Scoped",
         "scope": {
           "scopeTypeIdentifier": "project",
           "isGlobal": false,
@@ -228,8 +252,8 @@ A direct role assignment for a specific identity.
   "accountIdentifier": "string (optional — email or UPN)",
   "source": "string (e.g. 'Entra')",
   "externalIdentifier": "string (object ID from source system)",
-  "reason": "string (optional)",
-  "type": "string (optional — e.g. 'Direct')",
+  "reason": "string (required)",
+  "type": "'Global' | 'Scoped' (required)",
   "scope": {
     "scopeTypeIdentifier": "string (optional)",
     "isGlobal": "boolean (optional)",
@@ -251,6 +275,8 @@ A direct role assignment for a specific identity.
   "accountIdentifier": "user@equinor.com",
   "source": "Entra",
   "externalIdentifier": "12345678-1234-1234-1234-123456789012",
+  "reason": "Project alpha editor",
+  "type": "Scoped",
   "scope": {
     "scopeTypeIdentifier": "project",
     "isGlobal": false,
@@ -271,6 +297,8 @@ Same structure as `RoleAssignment` but uses `claimableRoleIdentifier`:
   "accountIdentifier": "string (optional)",
   "source": "string",
   "externalIdentifier": "string",
+  "reason": "string (required)",
+  "type": "'Global' | 'Scoped' (required)",
   "scope": { ... },
   "validFrom": "ISO 8601 datetime (optional)",
   "validTo": "ISO 8601 datetime (optional)",
@@ -335,6 +363,8 @@ Used in `deleteRoleAssignments` to remove specific assignments by ID (ID obtaine
   "bindings": [
     {
       "identifier": "editors-entra-binding",
+      "version": "1.0.0",
+      "reason": "Editors need write access",
       "system": "my-service",
       "type": "EntraGroup",
       "sourceSystem": "Entra",
@@ -343,7 +373,8 @@ Used in `deleteRoleAssignments` to remove specific assignments by ID (ID obtaine
         "roles": [
           {
             "name": "project-editor",
-            "scope": { "isGlobal": true }
+            "type": "Global",
+            "scope": null
           }
         ]
       }

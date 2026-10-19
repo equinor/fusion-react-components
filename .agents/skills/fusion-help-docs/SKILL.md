@@ -1,9 +1,9 @@
 ---
 name: fusion-help-docs
-description: 'Guides app teams through authoring, structuring, and publishing help documentation (articles, release notes, FAQs) using the fusion-help-cli. USE FOR: write help articles, create release notes, set up help docs, publish documentation, sync articles, configure help config file, maintain app help content. DO NOT USE FOR: building the CLI itself, modifying Fusion.Services.Help internals, or non-documentation tasks.'
+description: 'Guides app teams through authoring, structuring, and publishing help documentation (articles, release notes, FAQs) using the fusion-help-cli. USE FOR: write help articles, create release notes, set up help docs, publish documentation, sync articles, configure help config file, maintain app help content, capture help screenshots with Playwright, keep help in sync with UI changes, validate help before publishing. DO NOT USE FOR: building the CLI itself, modifying Fusion.Services.Help internals, or non-documentation tasks.'
 license: MIT
 metadata:
-  version: "0.0.2"
+  version: "0.1.2"
   status: active
   owner: "@equinor/fusion-core"
   tags:
@@ -12,6 +12,8 @@ metadata:
     - articles
     - release-notes
     - faq
+    - screenshots
+    - playwright
 ---
 
 # Fusion Help Documentation
@@ -27,6 +29,8 @@ Author, structure, and publish help docs (articles, release notes, FAQs) via `fh
 - Publish/sync docs to Fusion environment
 - Add FAQ entries
 - Set up CI/CD pipeline to auto-publish
+- Capture readable screenshots for articles, or validate help before publishing
+- A UI change (labels, buttons, dialogs, pages, flows, roles) may have made help outdated
 
 ## When not to use
 
@@ -113,38 +117,16 @@ Create markdown files in the articles root folder. The filename (without `.md`) 
 - Write for end-users of the Fusion app
 - Use `##`, `###` for structure — avoid `#` (title comes from config)
 - Place images in `images/`; reference with `![Alt text](images/my-screenshot.png)`
+- Help opens in a narrow side sheet (~450 px): capture one component per image, never the full page; avoid tables with more than two short columns
+- Write alt text that says what the image shows and which control is outlined
 - CLI auto-uploads images + rewrites paths to CDN
 - **Images must be PNG** (CLI limitation)
 - One topic per article
 - Link related articles by title (platform handles deep linking)
 
-**Example article** (`docs/help/articles/my-app-getting-started.md`):
+Read slot header in [assets/article-template.md.hbs](assets/article-template.md.hbs), fill named slots as Markdown, repeat `#each` items, drop template comments, and unescape `\{{` to literal `{{`. Never evaluate mustaches inside slot values. Save filled article as `.md`; consumers may use their own renderer. Config: [assets/help-articles-template.json](assets/help-articles-template.json).
 
-```markdown
-## Overview
-
-This guide walks you through the basics of using My App.
-
-## Prerequisites
-
-Before you begin, make sure you have:
-- Access to the Fusion portal
-- The correct role assigned to your user
-
-## Step 1: Navigate to the app
-
-Open Fusion and search for "My App" in the app launcher.
-
-![App launcher](images/app-launcher.png)
-
-## Step 2: Create your first item
-
-Click the **New** button in the toolbar to create your first item.
-
-## Need help?
-
-Contact the team on Teams or check the FAQ section.
-```
+For reproducible screenshots, generate them with Playwright stories and the [assets/capture-story-helper.ts](assets/capture-story-helper.ts) helper, and validate articles, images, and app help links before publishing. See [references/screenshots-and-validation.md](references/screenshots-and-validation.md).
 
 ### 4. Create the release notes config file (optional)
 
@@ -176,27 +158,7 @@ Create `help-release-notes.json` if team publishes release notes:
 | `tags` | No | string[] | Searchable tags. |
 | `relevantApps` | No | string[] | Additional app keys. |
 
-**Example release note** (`docs/help/release-notes/my-app-v2-release.md`):
-
-```markdown
-## What's new in Version 2.0
-
-### New dashboard
-
-We've completely redesigned the dashboard with new charts and filtering capabilities.
-
-![New dashboard](images/new-dashboard.png)
-
-### Performance improvements
-
-- Page load times reduced by 40%
-- Search results now appear in under 1 second
-
-### Bug fixes
-
-- Fixed an issue where filters would reset on navigation
-- Corrected date formatting in the export feature
-```
+Fill [assets/release-note-template.md.hbs](assets/release-note-template.md.hbs) using same slot rules; omit empty `#if` sections. Config: [assets/help-release-notes-template.json](assets/help-release-notes-template.json).
 
 ### 5. Install and authenticate the CLI
 
@@ -219,7 +181,7 @@ dotnet tool install --global --add-source "https://statoil-proview.pkgs.visualst
 az login
 ```
 
-CLI uses `DefaultAzureCredentials` — picks up `az login` session automatically.
+CLI uses `DefaultAzureCredential` — picks up `az login` session automatically.
 
 ### 6. Publish documentation
 
@@ -252,96 +214,13 @@ Test in `ci` before promoting to `fqa` then `fprd`.
 
 ### 7. Set up CI/CD pipeline (recommended)
 
-Automate publishing via Azure DevOps or GitHub Actions.
+Automate publishing via Azure DevOps or GitHub Actions. Use the pipeline examples in [references/ci-pipelines.md](references/ci-pipelines.md).
 
-**Azure DevOps pipeline example:**
+### 8. Keep help in sync with the app
 
-```yaml
-parameters:
-  - name: environment
-    type: string
-    default: ci
-    values: [ci, fqa, fprd]
-  - name: azureSubscription
-    type: string
+After a change to what users see or do, search articles, FAQs, and stories for the old and new UI labels, verify behavior against the running app, update text and stories, recapture, inspect every image, and run validation. Follow the checklist in [references/screenshots-and-validation.md](references/screenshots-and-validation.md#keep-help-in-sync-with-the-app).
 
-steps:
-  - checkout: self
-
-  - script: |
-      dotnet tool install --global --add-source "https://statoil-proview.pkgs.visualstudio.com/Fusion%20-%20Packages/_packaging/Fusion-Public/nuget/v3/index.json" Fusion.Help.Cli
-    displayName: "Install fusion help CLI"
-
-  - task: AzureCLI@2
-    displayName: "Sync help articles"
-    inputs:
-      azureSubscription: ${{ parameters.azureSubscription }}
-      scriptType: pscore
-      scriptLocation: inlineScript
-      inlineScript: |
-        fhelp article sync `
-          -f ./docs/help/help-articles.json `
-          -r ./docs/help/articles `
-          -e "${{ parameters.environment }}" `
-          -v
-
-  - task: AzureCLI@2
-    displayName: "Sync release notes"
-    inputs:
-      azureSubscription: ${{ parameters.azureSubscription }}
-      scriptType: pscore
-      scriptLocation: inlineScript
-      inlineScript: |
-        fhelp releasenotes sync `
-          -f ./docs/help/help-release-notes.json `
-          -r ./docs/help/release-notes `
-          -e "${{ parameters.environment }}" `
-          -v
-```
-
-**GitHub Actions example:**
-
-```yaml
-name: Sync Help Documentation
-
-on:
-  push:
-    branches: [main]
-    paths: ['docs/help/**']
-
-jobs:
-  sync-docs:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Setup .NET
-        uses: actions/setup-dotnet@v4
-        with:
-          dotnet-version: '8.0.x'
-
-      - name: Install fusion help CLI
-        run: |
-          dotnet tool install --global \
-            --add-source "https://statoil-proview.pkgs.visualstudio.com/Fusion%20-%20Packages/_packaging/Fusion-Public/nuget/v3/index.json" \
-            Fusion.Help.Cli
-
-      - name: Azure Login
-        uses: azure/login@v2
-        with:
-          client-id: ${{ secrets.AZURE_CLIENT_ID }}
-          tenant-id: '3aa4a235-b6e2-48d5-9195-7fcf05b459b0'
-          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-
-      - name: Sync articles
-        run: |
-          fhelp article sync \
-            -f ./docs/help/help-articles.json \
-            -r ./docs/help/articles \
-            -e ci -v
-```
-
-### 8. FAQs (supplementary)
+### 9. FAQs (supplementary)
 
 FAQs use an Excel-based workflow and require app-level access. This is a temporary solution best suited for scenarios where FAQs span multiple apps.
 
@@ -358,6 +237,7 @@ For most teams, managing FAQs through the Fusion Help Admin UI at `https://fusio
 - Valid `help-articles.json` (+ optional `help-release-notes.json`)
 - How to install, auth, and run `fhelp`
 - CI/CD pipeline snippet (optional)
+- Playwright stories and captured component screenshots, plus validation results (when screenshots are used)
 
 ## Troubleshooting
 
@@ -368,6 +248,7 @@ For most teams, managing FAQs through the Fusion Help Admin UI at `https://fusio
 | Article not created (skipped) | No matching `.md` file in root folder | Ensure filename matches slug exactly: `{slug}.md` |
 | Source system mismatch warning | Article was created via UI, CLI won't overwrite | Use `--no-validation` carefully, or use a different slug |
 | Images not uploading | Wrong format | Images must be **PNG** format |
+| Screenshot text unreadable in the help panel | Full-page or full-width capture | Capture one component; reflow with a narrower `width` first |
 
 ## Safety & constraints
 

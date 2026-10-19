@@ -1,0 +1,34 @@
+name: fusion-react-components
+version: 1.0.0
+description: Explicit agent context for Fusion React Components
+targets:
+  - copilot
+dependencies:
+  apm:
+    - equinor/fusion-skills/skills/.system/equinor-design-system#^1.9.0
+    - equinor/fusion-skills/skills/fusion#^1.9.0
+    - equinor/fusion-skills/skills/.system/fusion-code-conventions#^1.9.0
+    - equinor/fusion-skills/skills/.experimental/fusion-core-services#^1.9.0
+    - equinor/fusion-skills/skills/.experimental/fusion-dependency-review#^1.9.0
+    - equinor/fusion-skills/skills/.experimental/fusion-design#^1.9.0
+    - equinor/fusion-skills/skills/fusion-developer-app#^1.9.0
+    - equinor/fusion-skills/skills/fusion-developer-portal#^1.9.0
+    - equinor/fusion-skills/skills/fusion-devtools#^1.9.0
+    - equinor/fusion-skills/skills/.experimental/fusion-framework-testing#^1.9.0
+    - equinor/fusion-skills/skills/.experimental/fusion-github-review-resolution#^1.9.0
+    - equinor/fusion-skills/skills/fusion-help-api#^1.9.0
+    - equinor/fusion-skills/skills/fusion-help-docs#^1.9.0
+    - equinor/fusion-skills/skills/fusion-help-integration#^1.9.0
+    - equinor/fusion-skills/skills/fusion-infra-cli#^1.9.0
+    - equinor/fusion-skills/skills/fusion-issue-authoring#^1.9.0
+    - equinor/fusion-skills/skills/.experimental/fusion-issue-solving#^1.9.0
+    - equinor/fusion-skills/skills/.experimental/fusion-issue-task-planning#^1.9.0
+    - equinor/fusion-skills/skills/.experimental/fusion-mcp#^1.9.0
+    - equinor/fusion-skills/skills/.experimental/fusion-package-scribe#^1.9.0
+    - equinor/fusion-skills/skills/.experimental/fusion-pm-mcp#^1.9.0
+    - equinor/fusion-skills/skills/.system/fusion-research#^1.9.0
+    - equinor/fusion-skills/skills/fusion-roles-cli#^1.9.0
+    - equinor/fusion-skills/skills/.system/fusion-rule-author#^1.9.0
+    - equinor/fusion-skills/skills/fusion-rules#^1.9.0
+    - equinor/fusion-skills/skills/fusion-skill-authoring#^1.9.0
+    - equinor/fusion-skills/skills/fusion-skills#^1.9.0

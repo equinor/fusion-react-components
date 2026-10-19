@@ -17,6 +17,14 @@ description
 
 # Setup
 
+## Agent context
+
+Agent skills are declared individually in [apm.yml](./apm.yml), resolved in
+[apm.lock.yaml](./apm.lock.yaml), and deployed under `.agents/skills/`.
+See [agent context maintenance](./AGENT_CONTEXT.md) for locked restoration,
+validation, updates, and the legacy ownership reconciliation. Do not use `npx skills`
+or edit APM-managed copies directly.
+
 ## Install
 
 We are using [Bun](https://bun.sh) as our package manager.

@@ -1,0 +1,36 @@
+{{!--
+  End-user release notes; preserve the app's help format, not agent-content framing.
+  Insert Markdown as written, drop this header, and unescape literal \{{ sequences.
+  version: released version.
+  features: list of {heading, description}; include screenshots where useful.
+  improvements: list of improvements.
+  bugFixes: list of fixes.
+  knownIssues: list of known issues; omit section when empty.
+--}}
+## What's new in {{version}}
+
+{{#each features}}
+### {{heading}}
+
+{{description}}
+{{/each}}
+
+### Improvements
+
+{{#each improvements}}
+- {{this}}
+{{/each}}
+
+### Bug fixes
+
+{{#each bugFixes}}
+- {{this}}
+{{/each}}
+{{#if knownIssues}}
+
+### Known issues
+
+{{#each knownIssues}}
+- {{this}}
+{{/each}}
+{{/if}}

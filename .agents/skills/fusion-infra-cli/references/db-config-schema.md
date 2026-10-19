@@ -4,6 +4,16 @@ Config file for `finf database provision -f <file>`. All fields are optional unl
 
 > **Source of truth**: [`ProvisionDatabaseCommand.cs`](https://github.com/equinor/fusion-core-services/blob/main/tooling/fusion-infra-cli/Fusion.Infra.Cli/Commands/Database/ProvisionDatabaseCommand.cs) and the [infra-cli README](https://github.com/equinor/fusion-core-services/blob/main/tooling/fusion-infra-cli/Fusion.Infra.Cli/README.md). If this file conflicts with the source, the source wins.
 
+## Contents
+
+- Root object
+- `pullRequest` object
+- `sqlPermission` object
+- `accessControl` object
+- `configuration` object
+- Minimal working example
+- Full example with permissions in file
+
 ## Root object
 
 ```json
@@ -104,7 +114,10 @@ Members of the admin group are auto-approved for owner access; developer group f
 }
 ```
 
-The `[environment]` placeholder in `databaseFullyQualifiedName` is substituted with the resolved environment name.
+The `[environment]` placeholder in `databaseFullyQualifiedName` is substituted with the resolved environment name
+(`<env>-<pr>` for PR databases). `provisioningMode` is `fapp` (app databases, named `sqldb-fapp-<name>-db-<env>`)
+or `fcore` (Fusion core services). Overriding the database name requires an extra role on the infra API; app teams
+normally leave `configuration` out. CLI equivalents: `-d <database-name>` and, for access groups, `-agn` / `-dgn`.
 
 ---
 
