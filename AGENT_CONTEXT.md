@@ -7,7 +7,7 @@ Commit both files and the deployed `.agents/skills/` context. Never commit `apm_
 
 ## Restore and verify
 
-Use APM **0.29.0**, matching the reviewed shared workflow default. From a clean checkout, run:
+Use APM **0.33.0**, the version pinned in the sync workflow. From a clean checkout, run:
 
 ```sh
 apm --version
@@ -44,23 +44,28 @@ outside the managed inventory; do not use `apm install --force` to overwrite col
 
 ## Daily automation
 
-[APM Sync](./.github/workflows/apm-sync.yml) is a thin caller of
-`equinor/fusion-skills/.github/workflows/apm-sync.yml@main`, reviewed at
-`40aa2ebfc983c92aed854725369013dc921dc30f` during this migration.
+[APM Sync](./.github/workflows/apm-sync.yml) is a local copy of
+`equinor/fusion-skills/.github/workflows/apm-sync.yml` (originally reviewed at
+`40aa2ebfc983c92aed854725369013dc921dc30f`). This public repository cannot call that internal
+repository's reusable workflow, so the steps live in the workflow file itself.
 It runs at **08:17 UTC every day, including Saturday and Sunday**, and retains manual dispatch.
 GitHub schedules are best-effort, not a strict 24-hour execution guarantee.
 
-The shared workflow owns updating within manifest constraints, deployment, and PR creation.
+The workflow owns updating within manifest constraints, deployment, and PR creation.
 It uses `chore/apm-sync`, reuses its open PR, and merges default-branch advances without a
 force-push. A merge conflict fails for manual resolution; a no-change run must not create an
 empty commit or PR. Do not add a second updater, release-pin rewriter, or discovery workflow.
 
-The caller grants only `contents: write` and `pull-requests: write`. Repository/organization
-policy must permit the shared workflow, its actions, and GitHub Actions PR creation.
-No credentials, allowlists, or rulesets are changed by this migration. The shared workflow uses
-`GITHUB_TOKEN`; a maintainer may need to approve downstream PR workflows, and token-triggered
-pushes do not start push workflows. Do not substitute another publishing mechanism if policy
-blocks it.
+The workflow grants only `contents: write` and `pull-requests: write`. Repository/organization
+policy must permit its actions and GitHub Actions PR creation. PR creation uses `GITHUB_TOKEN`;
+a maintainer may need to approve downstream PR workflows, and token-triggered pushes do not
+start push workflows. Do not substitute another publishing mechanism if policy blocks it.
+
+`equinor/fusion-skills` is internal, so the job token cannot clone it. The APM update step
+receives the repository secret `APM_FUSION_SKILLS_TOKEN` as `GITHUB_APM_PAT_EQUINOR`; the token
+needs read access to `equinor/fusion-skills` contents only. Without the secret the run falls
+back to the job token and fails with an authentication error. Keep the APM version in the
+workflow aligned with the one used here.
 
 After explicit approval to publish and roll out:
 
