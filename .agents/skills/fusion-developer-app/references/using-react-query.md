@@ -52,6 +52,9 @@ export const useItems = () => {
 };
 ```
 
+The generic only claims a shape. For responses the app depends on, validate in the request
+function before data enters the cache; see `references/validating-api-contracts.md`.
+
 ## Query key conventions
 
 - Derive keys from the API path and parameters: `['items']`, `['items', itemId]`

@@ -75,6 +75,7 @@ Run through this checklist after generating or modifying code. Skip items that d
 - [ ] Queries disabled (`enabled: false`) when required parameters are missing
 - [ ] Mutations invalidate related queries on success
 - [ ] Loading and error states handled in the UI
+- [ ] Responses parsed with a schema in the API layer; external objects strip unknown keys, app-owned stay strict, ids use `z.guid()` (`references/validating-api-contracts.md`)
 
 ## Charts & Visualization
 

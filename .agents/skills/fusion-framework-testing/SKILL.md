@@ -1,10 +1,10 @@
 ---
 name: fusion-framework-testing
-description: 'Guides writing and running Vitest tests for Fusion Framework React apps with @equinor/fusion-framework-vitest-plugin-react-app — choosing a testing layer, configuring vitest.config.ts and Browser Mode, rendering with test/render/renderAppHook/renderAppComponent/testApp fixtures, and troubleshooting or migrating a suite. USE FOR: writing a new app/component/hook test, setting up vitest.config.ts for a Fusion app, choosing between app/framework/module/HTTP test layers, composing or overriding test fixtures, diagnosing a failing Fusion app test. DO NOT USE FOR: seeding module-specific mock state (auth, context, bookmarks, feature flags, HTTP) — use fusion-framework-mocking; dev-server-time API mocking/proxying (use fusion-developer-app); non-Fusion test suites; backend/service-repo tests.'
+description: 'Guides writing and running Vitest tests for Fusion Framework React apps with @equinor/fusion-framework-vitest-plugin-react-app — choosing a testing layer, configuring vitest.config.ts and Browser Mode, rendering with test/render/renderAppHook/renderAppComponent/testApp fixtures, troubleshooting or migrating a suite, plus when and how to add behavior-driven Playwright journeys. USE FOR: writing a new app/component/hook test, setting up vitest.config.ts for a Fusion app, choosing between app/framework/module/HTTP test layers, composing or overriding test fixtures, diagnosing a failing Fusion app test, writing a Playwright user journey, handling visual baselines. DO NOT USE FOR: seeding module-specific mock state (auth, context, bookmarks, feature flags, HTTP) — use fusion-framework-mocking; dev-server-time API mocking/proxying (use fusion-developer-app); non-Fusion test suites; backend/service-repo tests.'
 license: MIT
 compatibility: Requires a Fusion Framework React app. Rendering helpers need vitest, playwright, @vitest/browser-playwright, vitest-browser-react, and @equinor/fusion-framework-vitest-plugin-react-app as dev dependencies, plus `playwright install chromium`. React, React DOM, RxJS, and Vite are peer dependencies a Fusion app normally already provides.
 metadata:
-  version: "0.1.0"
+  version: "0.2.0"
   status: experimental
   owner: "@equinor/fusion-core"
   skills:
@@ -15,6 +15,8 @@ metadata:
     - vitest
     - react
     - browser-mode
+    - playwright
+    - e2e
   mcp:
     suggested:
       - fusion
@@ -34,6 +36,8 @@ Typical triggers:
 - "Should this be a hook test or a component test?"
 - "Share seeded fixtures across a test file"
 - "Migrate this suite off Testing Library / jsdom"
+- "Does this change need an end-to-end journey?" / "Write a Playwright journey for this workflow"
+- "Should I update the screenshot baselines?"
 
 Implicit triggers:
 - A test file imports `@equinor/fusion-framework-vitest-plugin-react-app` (or its `/test`,
@@ -76,6 +80,7 @@ assertions, lifecycle hooks, spies, timers, and coverage.
 | App module configuration without React | `mockAppModules` | see `fusion-framework-mocking` |
 | Parent framework or portal-level modules | `mockFramework` | see `fusion-framework-mocking` |
 | One method call, timer, global, or JS module | Vitest's `vi` APIs | `vitest` |
+| Complete workflow across routes, dialogs, or persisted state | Playwright journey against the served app | `@playwright/test` + `@equinor/fusion-openapi-mock-server` |
 
 A component test should not recreate a portal; an app-lifecycle test should not replace every
 Fusion hook with a JavaScript module mock. See `references/getting-started-and-configuration.md`
@@ -141,6 +146,13 @@ to `happy-dom`/jsdom for a component/hook provably independent of real browser b
 See `references/browser-mode-and-migration.md` for moving an existing
 `@testing-library/react`/jsdom suite onto this package.
 
+### Step 8 — Cover complete workflows with a Playwright journey (only when warranted)
+
+Use a journey only when the change crosses routes, dialogs, persisted state, or a primary user
+workflow. Behavior assertions decide pass/fail; screenshots are reviewed evidence generated in CI,
+never pixel gates or locally committed baselines. As an agent, run the one affected journey once as
+final validation, not while iterating. See `references/end-to-end-journeys.md`.
+
 ## Expected output
 
 - A test file using the smallest layer that exercises the behavior under test
@@ -152,6 +164,7 @@ See `references/browser-mode-and-migration.md` for moving an existing
 ## Safety & constraints
 
 Never:
+- Commit locally generated Playwright screenshot baselines or add `toHaveScreenshot` pixel gates
 - Claim a rendered result is correct without awaiting the render/hook helper first
 - Replace a DOM-emulation gap with an untested polyfill or component swap and call the test passing
 - Assume an unmatched HTTP request stays offline — an unmatched request reaches the real network

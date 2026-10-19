@@ -4,7 +4,7 @@ description: 'Guides feature development in Fusion Framework React apps, includi
 license: MIT
 compatibility: Requires a Fusion Framework React app bootstrapped with @equinor/fusion-framework-cli. Works best when styled-components, @equinor/eds-core-react, and @equinor/fusion-react-* packages are installed.
 metadata:
-  version: "0.4.1"
+  version: "0.5.0"
   status: active
   owner: "@equinor/fusion-core"
   skills:
@@ -109,11 +109,12 @@ New app from scratch → use `assets/new-app-checklist.md`.
 2. Map to correct directory. Typical Fusion app:
    - `src/components/` — React components (presentation layer)
    - `src/hooks/` — Custom React hooks (state and side-effect logic)
-   - `src/api/` — API clients, data transforms, business logic
+   - `src/api/` — API clients, response schemas, data transforms (no business logic)
    - `src/types/` — TypeScript interfaces, type aliases, enums
    - `src/routes.ts` — Route definitions (when using Fusion Router)
    - `src/config.ts` — Fusion module configuration
    - `src/App.tsx` — Root component, layout shell
+   - Growing app with shared rules or workflow state → `api/` → `domain/` → `components/` → `routes/` layers with an import-direction test; see `references/project-structure.md`.
 3. Identify shared types early — define before referencing.
 4. Project uses routing → follow `references/using-router.md` for DSL + page patterns.
 5. Different structure → follow it.
@@ -148,6 +149,7 @@ Follow `references/configure-services.md`, `references/using-react-query.md`, `r
 - React Query: wrap `useQuery` in thin custom hooks.
 - Query keys: derived from API path + parameters.
 - Keep client UI state in React state/context, not server-state libs.
+- Validate responses with Zod in the API layer before caching; external schemas strip unknown keys, app-owned schemas stay strict → `references/validating-api-contracts.md`.
 
 ### Step 6 — Configure Fusion modules (when applicable)
 
@@ -156,6 +158,7 @@ Identify which module the user needs, then read only the matching reference:
 | Need | Reference |
 |---|---|
 | HTTP clients / API integration | `references/configure-services.md` |
+| Runtime API contract validation (Zod) | `references/validating-api-contracts.md` |
 | Context module | `references/using-context.md` |
 | Router and pages | `references/using-router.md` |
 | AG Grid | `references/using-ag-grid.md` |

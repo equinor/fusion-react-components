@@ -1,5 +1,30 @@
 # Changelog
 
+## 0.5.0 - 2026-10-18
+
+### minor
+
+- [#275](https://github.com/equinor/fusion-skills/pull/275) [`ac663a1`](https://github.com/equinor/fusion-skills/commit/ac663a12751696343660c2d3c2625e852fa1c4db) - Add a layered source layout and API contract validation guidance for growing Fusion apps
+
+
+  - `references/project-structure.md` describes an `api/` → `domain/` → `components/` → `routes/` layout with an import-direction table, domains named after business areas, feature folders for components, and routes that own the page.
+  - Adds a portable Vitest architecture test that fails when a layer imports one above it.
+  - `api/` is now described as gateways (clients, response schemas, transforms) rather than business logic, in both the reference and the SKILL.md planning step.
+  - New `references/validating-api-contracts.md` for Zod 4: parse responses in the API layer before they reach the React Query cache; strip unknown keys from external schemas but keep known fields and enum values validated, and keep app-owned schemas strict; treat new fields and enum values as contract changes checked against the provider's current OpenAPI document; use `z.guid()` for SQL Server/Entity Framework sequential ids; show a "service unavailable" state with field-level issues; and cover schemas with fixture, additive-field, and broken-field tests.
+  - `SKILL.md`, `references/using-react-query.md`, and `assets/review-checklist.md` point to the new contract reference.
+
+  resolves equinor/fusion-core-tasks#2409
+  resolves equinor/fusion-core-tasks#2410
+
+### patch
+
+- [#280](https://github.com/equinor/fusion-skills/pull/280) [`51d8103`](https://github.com/equinor/fusion-skills/commit/51d8103818b8e3c9dc36d3b74aa67d26db10fab7) - Clarify that `z.guid()` is about validating ids, not choosing keys
+
+
+  - Explains why sequential keys from Azure SQL fail `z.uuid()`, and when `z.uuid()` is right (RFC UUIDs such as UUIDv7 on PostgreSQL).
+
+  refs equinor/fusion-core-tasks#2402
+
 ## 0.4.1 - 2026-09-07
 
 ### patch

@@ -6,7 +6,7 @@ compatibility: >
   Requires froles installed as a .NET global tool from the Fusion-Public NuGet feed.
   Requires Azure CLI login (az login) or explicit token via -t flag.
 metadata:
-  version: "0.0.1"
+  version: "0.0.2"
   status: active
   owner: "@equinor/fusion-core"
   tags:
@@ -60,6 +60,9 @@ Auth uses `DefaultAzureCredential` automatically (picks up `az login` session). 
 
 ## Core workflow — deploy a role config
 
+New to Roles V2? Read [references/concepts.md](references/concepts.md) first: system, access role, scope type, role,
+claimable role, assignment, binding, and when to use global or scoped access.
+
 ### 1. Create the config file
 
 The config file is a JSON file declaring all role resources for your system. Always include the `$schema` reference — it enables editor validation and autocompletion.
@@ -90,6 +93,10 @@ Minimal example (`roles-config.json`):
 
 See [references/role-config-schema.md](references/role-config-schema.md) for the full schema with all resource types and field definitions.
 
+For an app repo, split the config per environment and concern (`roles.<env>.json`, `bindings.<env>.json`,
+`access-assignments.<env>.json`) and apply them in that order. See [references/file-layout.md](references/file-layout.md)
+for the layout, deploy order, reconcile flags, scoped vs global roles, and naming.
+
 ### 2. Dry-run to verify changes
 
 Always dry-run before deploying to catch unexpected changes:
@@ -98,7 +105,9 @@ Always dry-run before deploying to catch unexpected changes:
 froles create -e ci --file roles-config.json --dry-run
 ```
 
-The dry-run shows exactly what will be created, patched, or left unchanged — including binding diffs showing added/removed roles.
+The dry-run reads the current state from the server (GET requests, so you need access to the target environment) and
+prints what would be created, patched or left unchanged, including binding diffs. It sends no create, update or delete
+requests.
 
 ### 3. Deploy
 
@@ -135,9 +144,9 @@ The `create` command reconciles each resource type against its natural key:
 | Access roles | `systemIdentifier` + `name` | Create if missing; patch if changed |
 | Roles / claimable roles | `name` | Create if missing; patch if changed; access role mappings fully reconciled |
 | Bindings | `identifier` | Patch all fields; diff shows role/group additions and removals |
-| Role assignments | `roleIdentifier` + `source` + `externalIdentifier` | Create if missing; skip if exists |
+| Role assignments | `roleIdentifier` + `source` + `externalIdentifier` | Create if missing; skip if exists; delete only with `--reconcile-assignments` |
 
-**Important**: Access role mappings on roles/claimable roles are **fully reconciled** — mappings absent from the config are removed. Only access roles belonging to systems declared in the config file are managed.
+**Important**: Access role mappings on roles/claimable roles are **fully reconciled** — mappings absent from the config are removed. Only access roles belonging to systems declared in the config file are managed. Bindings and assignments are only deleted with `--reconcile-bindings=<system>` / `--reconcile-assignments[=<system>]` (see [references/file-layout.md](references/file-layout.md)).
 
 ## Environments
 
@@ -165,5 +174,7 @@ Or see the source documentation:
 
 - Always dry-run before deploying to production
 - Access role mapping reconciliation removes unmapped roles — review the dry-run output carefully
+- `--reconcile-bindings` / `--reconcile-assignments` delete entries missing from the file — use only on complete files, dry-run first, confirm with the user
+- `--dry-run` only reads from the server; it skips all writes, so it cannot catch API validation errors. Apply to `ci` before `fprd`
 - Never store tokens in config files; always use `-t <token>` from a secret variable in pipelines
 - `delete role-assignments` is destructive — confirm with user and dry-run first

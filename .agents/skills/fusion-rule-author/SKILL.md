@@ -3,7 +3,7 @@ name: fusion-rule-author
 description: 'Support skill providing the workflow, templates, and references for AI coding assistant rule authoring. Invoked by fusion-rules gateway agents — not intended for direct use.'
 license: MIT
 metadata:
-  version: "0.1.1"
+  version: "0.1.2"
   status: active
   owner: "@equinor/fusion-core"
   role: support
@@ -162,17 +162,17 @@ When targeting multiple editors, generate parallel files with equivalent content
 
 ### Step 5 — Draft rule files
 
-Generate files using templates in `assets/`:
+Read `.md.hbs` slot headers in `assets/`; fill named slots with Markdown, drop template comments, select applicable fenced output. Save output in editor's native format, not `.hbs`; no renderer required. Preserve YAML quoting in frontmatter.
 
 **GitHub Copilot:**
-- Root instructions: use `assets/copilot-instructions-template.md`
-- Scoped instructions: use `assets/scoped-rule-template.md` with correct `applyTo` glob
+- Root instructions: use `assets/copilot-instructions-template.md.hbs`
+- Scoped instructions: use `assets/scoped-rule-template.md.hbs` with correct `applyTo` glob
 
 **Cursor:**
-- Use `assets/cursor-rule-template.mdc` and set frontmatter accordingly
+- Use `assets/cursor-rule-template.md.hbs` and set frontmatter accordingly
 
 **Claude Code:**
-- Project instructions: use `assets/claude-rule-template.md`
+- Project instructions: use `assets/claude-rule-template.md.hbs`
 - Scoped rules: place in `.claude/rules/` with `paths` frontmatter
 
 **Quality rules (enforced during drafting):**
@@ -243,8 +243,8 @@ Always:
 - `references/examples.md` — concrete examples for different tech stacks
 - `assets/creation-follow-up.md` — per-rule follow-up questions (purpose, exceptions, boundaries, voice)
 - `assets/frontmatter-scenarios.md` — scenario-based frontmatter guide for GitHub Copilot, Cursor, and Claude Code
-- `assets/copilot-instructions-template.md` — starter template for root instructions
-- `assets/scoped-rule-template.md` — starter template for scoped rules
-- `assets/cursor-rule-template.mdc` — starter template for Cursor rules
-- `assets/claude-rule-template.md` — starter template for Claude Code rules
+- `assets/copilot-instructions-template.md.hbs` — starter template for root instructions
+- `assets/scoped-rule-template.md.hbs` — starter template for scoped rules
+- `assets/cursor-rule-template.md.hbs` — starter template for Cursor rules
+- `assets/claude-rule-template.md.hbs` — starter template for Claude Code rules
 - `assets/quality-checklist.md` — quality review checklist

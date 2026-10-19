@@ -1,0 +1,45 @@
+{{!--
+  End-user getting-started article; output stays Markdown, without agent-content framing.
+  Insert Markdown as written, drop this header, and unescape literal \{{ sequences.
+  overview: brief description of the app and its audience.
+  prerequisites: list of additional role or permission requirements.
+  appName: app launcher display name.
+  firstAction: first key action, with title and body.
+  secondAction: second key action, with title and body.
+  tips: list of helpful tips for new users.
+  contact: team contact channel or email.
+--}}
+## Overview
+
+{{overview}}
+
+## Prerequisites
+
+Before you begin, make sure you have:
+
+- Access to the Fusion portal
+{{#each prerequisites}}
+- {{this}}
+{{/each}}
+
+## Step 1: Open the app
+
+Navigate to [Fusion](https://fusion.equinor.com) and search for "{{appName}}" in the app launcher, or open it directly via the sidebar.
+
+## Step 2: {{firstAction.title}}
+
+{{firstAction.body}}
+
+## Step 3: {{secondAction.title}}
+
+{{secondAction.body}}
+
+## Tips
+
+{{#each tips}}
+- {{this}}
+{{/each}}
+
+## Need help?
+
+Check the FAQ section or contact the team on {{contact}}.
