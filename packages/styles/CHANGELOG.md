@@ -1,5 +1,11 @@
 # Change Log
 
+## 2.1.9
+
+### Patch Changes
+
+- 407cb4f: Move `@equinor/fusion-web-theme` from fusion-web into the fusion-react-components monorepo. `@equinor/fusion-react-styles` now consumes it from the workspace.
+
 ## 2.1.8
 
 ### Patch Changes

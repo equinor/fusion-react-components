@@ -1,5 +1,11 @@
 # Change Log
 
+## 5.0.1
+
+### Patch Changes
+
+- 42b278a: build(deps): bump @equinor/fusion-framework-react-ag-grid from 37.1.1 to 37.1.2
+
 ## 5.0.0
 
 ### Major Changes

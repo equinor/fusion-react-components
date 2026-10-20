@@ -30,6 +30,12 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @equinor/fusion-web-theme
 
+## 0.1.11
+
+### Patch Changes
+
+- 407cb4f: Move `@equinor/fusion-web-theme` from fusion-web into the fusion-react-components monorepo. `@equinor/fusion-react-styles` now consumes it from the workspace.
+
 ## 0.1.8 (2022-02-09)
 
 ### Bug Fixes

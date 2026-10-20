@@ -1,5 +1,13 @@
 # Change Log
 
+## 2.0.12
+
+### Patch Changes
+
+- 16b759f: build(deps): bump react-error-boundary from 6.1.5 to 6.1.6
+- Updated dependencies [407cb4f]
+  - @equinor/fusion-react-styles@2.1.9
+
 ## 2.0.11
 
 ### Patch Changes

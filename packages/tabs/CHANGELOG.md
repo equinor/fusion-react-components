@@ -1,5 +1,11 @@
 # Change Log
 
+## 2.0.9
+
+### Patch Changes
+
+- b5c4491: build(deps): bump @equinor/fusion-observable from 9.2.2 to 9.2.3
+
 ## 2.0.8
 
 ### Patch Changes
