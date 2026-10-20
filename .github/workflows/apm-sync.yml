@@ -13,9 +13,7 @@ concurrency:
   group: apm-sync
   cancel-in-progress: true
 
-# Local copy of equinor/fusion-skills/.github/workflows/apm-sync.yml. This repository is
-# public and cannot call that internal repository's reusable workflow (the run fails at
-# startup with "workflow was not found"), so the steps live here instead.
+# Kept local because public repositories cannot call reusable workflows in internal repositories.
 jobs:
   sync:
     name: Sync APM dependencies
@@ -28,6 +26,7 @@ jobs:
         uses: actions/checkout@v7
         with:
           ref: ${{ env.BASE_BRANCH }}
+          # Fetch the existing update branch and common history needed to merge the default branch.
           fetch-depth: 0
 
       - name: Require APM setup
@@ -37,6 +36,7 @@ jobs:
             exit 1
           fi
 
+      # Reuse one update branch so scheduled runs accumulate APM changes in a single PR.
       - name: Prepare update branch
         run: |
           git check-ref-format --branch "$PR_BRANCH"
@@ -48,6 +48,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           if git show-ref --verify --quiet "refs/remotes/origin/$PR_BRANCH"; then
             git switch --create "$PR_BRANCH" --track "origin/$PR_BRANCH"
+            # Preserve published commits so updates can use a normal push instead of a force push.
             git merge --no-edit "origin/$BASE_BRANCH"
           else
             git switch --create "$PR_BRANCH"
