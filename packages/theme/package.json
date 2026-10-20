@@ -1,0 +1,40 @@
+{
+  "name": "@equinor/fusion-web-theme",
+  "version": "0.1.10",
+  "description": "fusion web theme",
+  "keywords": [
+    "style",
+    "theme",
+    "eds"
+  ],
+  "author": "odin thomas rochmann <odin.rochmann@gmail.com>",
+  "homepage": "https://github.com/equinor/fusion-react-components/tree/main/packages/theme#readme",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist/",
+    "src/"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/equinor/fusion-react-components.git",
+    "directory": "packages/theme"
+  },
+  "scripts": {
+    "build": "tsc -b",
+    "lint": "biome lint",
+    "format": "biome format",
+    "prepack": "npm run build"
+  },
+  "bugs": {
+    "url": "https://github.com/equinor/fusion-react-components/issues"
+  },
+  "dependencies": {
+    "@equinor/eds-tokens": "0.9.2",
+    "csstype": "^3.1.3"
+  }
+}
