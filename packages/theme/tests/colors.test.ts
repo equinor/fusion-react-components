@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'bun:test';
 import { spawnSync } from 'node:child_process';
 import { attributes } from '../src';
-import { colors, colorVariables, ColorStyleProperty } from '../src/styles/colors';
+import { colorVariables } from '../src/styles/colors';
 import { elevationVariables } from '../src/styles/elevation';
 import { spacingVariables } from '../src/styles/spacing';
 import { typographyVariables } from '../src/styles/typography';
@@ -17,13 +17,8 @@ describe('native control color scheme', () => {
   });
 
   test('preserves the previous color variable values and order', () => {
-    const previousVariables = Object.values(colors).reduce(
-      (current, value) => current.concat(ColorStyleProperty.extractVariables(value)),
-      [] as string[],
-    );
-
-    expect(previousVariables.length).toBeGreaterThan(0);
-    expect(colorVariables.slice(1)).toEqual(previousVariables);
+    expect(colorVariables.slice(1)).toHaveLength(75);
+    expect(colorVariables.slice(1)).toMatchSnapshot();
   });
 
   test('inherits the declaration exactly once in aggregate attributes', () => {
@@ -38,7 +33,7 @@ describe('native control color scheme', () => {
     ]);
   });
 
-  test('imports the public entry point without accessing the DOM', () => {
+  test('imports the built public entry point without accessing the DOM', () => {
     const result = spawnSync(
       process.execPath,
       [
@@ -50,7 +45,7 @@ describe('native control color scheme', () => {
             });
           }
           const { attributes } = await import(${JSON.stringify(
-            new URL('../src/index.ts', import.meta.url).href,
+            new URL('../dist/index.js', import.meta.url).href,
           )});
           if (!attributes.includes(${JSON.stringify(nativeColorScheme)})) {
             throw new Error('Missing native color scheme declaration');

@@ -44,3 +44,7 @@ bun run --cwd packages/theme test
 bun run --cwd packages/theme build
 bun run check -- packages/theme
 ```
+
+The test command builds the package first so the DOM-free import check exercises
+the published entry point. The committed color snapshot preserves the 75 legacy
+declarations and their order; review any snapshot update as a public-output change.
