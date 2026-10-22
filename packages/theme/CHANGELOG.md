@@ -30,6 +30,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @equinor/fusion-web-theme
 
+## 0.1.12
+
+### Patch Changes
+
+- 23eb174: Temporarily include `color-scheme: only light` in the generated color declarations
+  so consuming root styles keep browser-native controls light until Fusion supports
+  dark mode. Existing theme variables and their order are unchanged. Importing the
+  package does not inject CSS or select the modern EDS token palette.
+
 ## 0.1.11
 
 ### Patch Changes
