@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.1.3 - 2026-10-22
+
+### patch
+
+- [#310](https://github.com/equinor/fusion-skills/pull/310) [`cdb11c9`](https://github.com/equinor/fusion-skills/commit/cdb11c93bf583d66003f56fb9be753ae7b43be70) - Route APM sync and Fusion app workflow requests directly to experimental
+
+  fusion-repository-greenkeeping. Keep skill lifecycle requests with fusion-skills.
+
+  refs equinor/fusion-skills#299
+
+- [#310](https://github.com/equinor/fusion-skills/pull/310) [`cdb11c9`](https://github.com/equinor/fusion-skills/commit/cdb11c93bf583d66003f56fb9be753ae7b43be70) - Route Copilot setup and Copilot readiness requests to fusion-repository-greenkeeping.
+
+
+  refs equinor/fusion-skills#313
+
 ## 0.1.2 - 2026-10-18
 
 ### patch
