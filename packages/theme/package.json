@@ -26,6 +26,7 @@
   },
   "scripts": {
     "build": "tsc -b",
+    "test": "bun test ./tests",
     "lint": "biome lint",
     "format": "biome format",
     "prepack": "npm run build"
