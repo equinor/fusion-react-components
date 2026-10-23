@@ -1,5 +1,16 @@
 # Change Log
 
+## 2.0.11
+
+### Patch Changes
+
+- e5185f5: Raise `@equinor/fusion-wc-*` dependencies to releases requiring `@equinor/fusion-web-theme` `^0.1.12`, which temporarily keeps native browser controls in light mode.
+  
+  Ref: equinor/fusion-core-tasks#2120
+- Updated dependencies [e5185f5]
+  - @equinor/fusion-react-searchable-dropdown@2.0.9
+  - @equinor/fusion-react-styles@2.1.10
+
 ## 2.0.10
 
 ### Patch Changes
