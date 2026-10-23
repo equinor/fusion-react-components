@@ -4,7 +4,6 @@ import test from 'node:test';
 import { runInNewContext } from 'node:vm';
 
 const previewHead = readFileSync(new URL('./preview-head.html', import.meta.url), 'utf8');
-const managerHead = readFileSync(new URL('./manager-head.html', import.meta.url), 'utf8');
 
 test('preview selects the EDS light colour scheme synchronously, before loading styles', () => {
   const attributes = new Map();
@@ -19,10 +18,4 @@ test('preview selects the EDS light colour scheme synchronously, before loading 
   assert.deepEqual(root.style, {}, 'EDS sets color-scheme from data-color-scheme');
   assert.ok(previewHead.indexOf('</script>') < previewHead.indexOf('<link'));
   assert.doesNotMatch(previewHead, /prefers-color-scheme|matchMedia|addEventListener/);
-});
-
-test('manager keeps native controls light before application startup', () => {
-  assert.match(managerHead, /^<meta name="color-scheme" content="only light"\s*\/>/);
-  assert.doesNotMatch(managerHead, /prefers-color-scheme|matchMedia|addEventListener/);
-  assert.match(managerHead, /:root,\s*:root body \*\s*\{\s*color-scheme:\s*only light;/);
 });

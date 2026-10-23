@@ -51,16 +51,15 @@ guidance: `preview-head.html` sets `data-color-scheme="light"` on `<html>`
 before any styles load. EDS then resolves its light CSS variables and applies
 `color-scheme: light`, so EDS colours and native controls stay light on initial
 load and when the OS/browser preference changes, including docs canvases and
-content portaled to `body`. The manager is not styled by EDS; it already uses an
-explicit light Storybook theme, and `manager-head.html` also locks its native
-controls to light, overriding Storybook's layout and popover `light dark`
-declarations within the manager document only.
+content portaled to `body`.
+Only the preview, where components use EDS CSS variables, is affected; the
+Storybook manager UI is left unchanged.
 
 This is a temporary Storybook-only policy for
 [equinor/fusion-core-tasks#2120](https://github.com/equinor/fusion-core-tasks/issues/2120),
 not dark-mode support or a change to reusable `ThemeProvider` defaults.
 Explicit nested color-scheme examples remain free to override the inherited
-scheme. Remove the head overrides when Storybook supports automatic theming.
+scheme. Remove the preview head override when Storybook supports automatic theming.
 
 Run the startup regression checks with:
 
@@ -70,10 +69,10 @@ node --test storybook/.storybook/light-mode.test.mjs
 
 For browser verification, load Storybook with both light and dark
 `prefers-color-scheme` preferences, then switch each preference live without
-reloading. Check an ordinary story, its Docs canvas, manager controls, and
-body-portaled content. The preview root must keep `data-color-scheme="light"`,
-EDS colors must remain light, preview native controls must resolve to
-`color-scheme: light`, and manager native controls to `color-scheme: only light`.
+reloading. Check an ordinary story, its Docs canvas, and body-portaled
+content. The preview root must keep `data-color-scheme="light"`,
+EDS colors must remain light, and preview native controls must resolve to
+`color-scheme: light`.
 
 ## Development
 
