@@ -86,8 +86,8 @@ paths:
 When one rule covers several file types or directories:
 
 ```yaml
-# Copilot
-applyTo: "**/*.{ts,tsx}"
+# Copilot — comma-separated, no brace expansion
+applyTo: "**/*.ts, **/*.tsx"
 
 # Cursor
 globs:
@@ -99,6 +99,8 @@ paths:
   - "**/*.{ts,tsx}"
   - "lib/**/*.ts"
 ```
+
+Copilot splits `applyTo` on commas before glob matching, so `**/*.{ts,tsx}` becomes invalid `**/*.{ts` and `tsx}`. Copilot code review logs a syntax error, skips the instruction, and still passes. Never use `{a,b}` in `applyTo`.
 
 ---
 
@@ -224,8 +226,9 @@ Look for conventions that only matter for certain file types and split them out.
 | `src/api/**` | Everything under `src/api/` |
 | `*.md` | Markdown files in root only |
 | `**/*.md` | All markdown files everywhere |
-| `**/*.{ts,tsx}` | TypeScript and TSX files |
-| `src/{components,hooks}/**` | Multiple directories |
+| `**/*.{ts,tsx}` | TypeScript and TSX files (Claude Code `paths` only; not Copilot `applyTo`) |
+| `src/{components,hooks}/**` | Multiple directories (Claude Code `paths` only; not Copilot `applyTo`) |
+| `**/*.ts, **/*.tsx` | Copilot `applyTo` equivalent of brace expansion |
 
 ### Common mistakes
 
@@ -234,3 +237,4 @@ Look for conventions that only matter for certain file types and split them out.
 | `**/*` as a glob scope | Use always-on (root file / `alwaysApply` / no `paths`) |
 | `*.ts` (no `**`) | Use `**/*.ts` to match nested files |
 | `src/api` (no trailing `/**`) | Use `src/api/**` for directory contents |
+| `applyTo: "**/*.{ts,tsx}"` (braces in Copilot) | Use `applyTo: "**/*.ts, **/*.tsx"` |

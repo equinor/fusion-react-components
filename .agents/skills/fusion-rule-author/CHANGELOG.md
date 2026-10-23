@@ -1,5 +1,20 @@
 # Changelog
 
+## 0.1.3 - 2026-10-22
+
+### patch
+
+- [#322](https://github.com/equinor/fusion-skills/pull/322) [`da178d5`](https://github.com/equinor/fusion-skills/commit/da178d5ed9d130dc5a0a684f3ebaf6b1e5f28faa) - Stop recommending brace expansion in Copilot `applyTo`
+
+
+  Copilot code review splits `applyTo` on commas before glob matching, so `**/*.{ts,tsx}` becomes invalid patterns and the instruction is silently skipped.
+
+  - Use comma-separated patterns (`**/*.ts, **/*.tsx`) in the Copilot multiple-patterns example
+  - Mark brace globs in the cheat sheet as Claude Code `paths` only, and add a common-mistakes row
+  - Forbid brace expansion in the scoped template `pathPattern` slot, the quality checklist, and drafting rules
+
+  resolves equinor/fusion-skills#321
+
 ## 0.1.2 - 2026-10-18
 
 ### patch
