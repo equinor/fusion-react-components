@@ -45,13 +45,16 @@ bun run start
 
 ### Temporary light-only Storybook
 
-Storybook's preview document sets `data-color-scheme="light"` and
-`color-scheme: only light` on its root before rendering. This keeps EDS CSS
-variables and native controls light on initial load and when the OS/browser
-preference changes, including docs canvases and content portaled to `body`.
-The manager already uses an explicit light Storybook theme; `manager-head.html`
-also locks its native controls to light, overriding Storybook's layout and
-popover `light dark` declarations within the manager document only.
+Storybook's preview document follows the EDS
+[colour scheme detection](https://eds.equinor.com/foundation/colour/getting-started)
+guidance: `preview-head.html` sets `data-color-scheme="light"` on `<html>`
+before any styles load. EDS then resolves its light CSS variables and applies
+`color-scheme: light`, so EDS colours and native controls stay light on initial
+load and when the OS/browser preference changes, including docs canvases and
+content portaled to `body`. The manager is not styled by EDS; it already uses an
+explicit light Storybook theme, and `manager-head.html` also locks its native
+controls to light, overriding Storybook's layout and popover `light dark`
+declarations within the manager document only.
 
 This is a temporary Storybook-only policy for
 [equinor/fusion-core-tasks#2120](https://github.com/equinor/fusion-core-tasks/issues/2120),
@@ -69,8 +72,8 @@ For browser verification, load Storybook with both light and dark
 `prefers-color-scheme` preferences, then switch each preference live without
 reloading. Check an ordinary story, its Docs canvas, manager controls, and
 body-portaled content. The preview root must keep `data-color-scheme="light"`,
-EDS colors must remain light, and both documents' native controls must retain
-`color-scheme: only light`.
+EDS colors must remain light, preview native controls must resolve to
+`color-scheme: light`, and manager native controls to `color-scheme: only light`.
 
 ## Development
 
