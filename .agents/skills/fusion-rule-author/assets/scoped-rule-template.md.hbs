@@ -1,7 +1,9 @@
 {{!--
   Scoped rule starters; select the editor's fenced output.
   Insert Markdown as written; drop this header. No agent-content framing in rules.
-  pathPattern: YAML-safe path glob, without surrounding quotes.
+  pathPattern: YAML-safe path glob, without surrounding quotes or brace expansion ({a,b}).
+    Copilot splits applyTo on commas, so braces break matching. For several patterns,
+    comma-separate them in applyTo and use separate list items in paths.
   description: YAML-safe rule description, without surrounding quotes.
   ruleTitle: concise rule title.
   directives: imperative rule bullets.
