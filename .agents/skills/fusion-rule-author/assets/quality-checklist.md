@@ -16,6 +16,7 @@ Review every rule file against this checklist before finalizing.
 
 - [ ] **Valid frontmatter** — Has `applyTo` field. Optionally `excludeAgent` to scope to a specific agent.
 - [ ] **Correct glob** — Pattern matches intended files (verified against actual repo paths).
+- [ ] **No brace expansion** — `applyTo` has no `{a,b}`; comma-separate patterns instead (`**/*.ts, **/*.tsx`).
 - [ ] **Not too broad** — Glob is not `**/*` or equivalent (use root instructions instead).
 - [ ] **Conciseness** — Under ~50 lines per file. Split if larger.
 - [ ] **No overlap** — Does not repeat guidance from root instructions.

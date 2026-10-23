@@ -1,5 +1,21 @@
 # Changelog
 
+## 0.2.0 - 2026-10-22
+
+### minor
+
+- [#325](https://github.com/equinor/fusion-skills/pull/325) [`231032f`](https://github.com/equinor/fusion-skills/commit/231032f25de3a8a2ea00c61d7fecae28c2194094) - Add warden feedback mode: evaluate greenkeeping runs, dedupe skill feedback by root cause, publish unattended under trusted runtime policy.
+
+- [#329](https://github.com/equinor/fusion-skills/pull/329) [`0650826`](https://github.com/equinor/fusion-skills/commit/06508269c80c302067458b002fe89183d748b7f7) - Add the shared service-mode contract for running skills unattended.
+
+
+  - Define `fusion-service-mode/1`: given-not-asked task inputs, maintainer decisions reported as findings, allowed and forbidden actions, time/token stop rules
+  - Define one proposal per fingerprint with kind (`fix`, `finding`, `resolved`, `none`), confidence, evidence, validation and provenance
+  - Define stable fingerprint normalisation so the same finding keeps one fingerprint across runs
+  - Interactive skill behaviour is unchanged; service mode activates only through an explicit service task
+
+  resolves equinor/fusion-core-tasks#2536
+
 ## 0.1.0 - 2026-10-22
 
 ### minor
