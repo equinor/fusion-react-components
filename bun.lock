@@ -39,7 +39,7 @@
         "@equinor/fusion-framework-react-ag-grid": "^37.1.2",
         "@types/react": "^19.3.0",
         "react": "^19.3.0",
-        "styled-components": "^6.5.3",
+        "styled-components": "^6.6.0",
       },
       "peerDependencies": {
         "@equinor/eds-core-react": "^2",
@@ -61,7 +61,7 @@
         "@types/react": "^19.3.0",
         "react": "^19.3.0",
         "react-dom": "^19.3.0",
-        "styled-components": "^6.5.3",
+        "styled-components": "^6.6.0",
       },
       "peerDependencies": {
         "@equinor/eds-core-react": "^2",
@@ -120,7 +120,7 @@
         "@equinor/eds-tokens": "^2.3.2",
         "@types/react": "^19.3.0",
         "react": "^19.3.0",
-        "styled-components": "^6.5.3",
+        "styled-components": "^6.6.0",
       },
       "peerDependencies": {
         "@equinor/eds-core-react": "^2",
@@ -128,7 +128,7 @@
         "@equinor/eds-tokens": "^2",
         "react": "^18 || ^19",
         "react-dom": "^18 || ^19",
-        "styled-components": "^6.5.3",
+        "styled-components": "^6.6.0",
       },
     },
     "packages/filter": {
@@ -139,7 +139,7 @@
         "@equinor/fusion-react-utils": "workspace:*",
         "@equinor/fusion-wc-chip": "^1.3.5",
         "rxjs": "^7.8.1",
-        "styled-components": "^6.5.3",
+        "styled-components": "^6.6.0",
         "typesafe-actions": "^5.1.0",
       },
       "devDependencies": {
@@ -287,7 +287,7 @@
         "@types/styled-components": "^5.1.29",
         "react": "^19.3.0",
         "react-dom": "^19.3.0",
-        "styled-components": "^6.5.3",
+        "styled-components": "^6.6.0",
       },
       "peerDependencies": {
         "@equinor/eds-core-react": "^2",
@@ -295,7 +295,7 @@
         "@equinor/eds-tokens": "^2",
         "react": "^18 || ^19",
         "react-dom": "^18 || ^19",
-        "styled-components": "^6.5.3",
+        "styled-components": "^6.6.0",
       },
     },
     "packages/skeleton": {
@@ -322,7 +322,7 @@
         "@equinor/eds-tokens": "^2.3.2",
         "@types/react": "^19.3.0",
         "react": "^19.3.0",
-        "styled-components": "^6.5.3",
+        "styled-components": "^6.6.0",
       },
       "peerDependencies": {
         "@equinor/eds-core-react": "^2",
@@ -330,7 +330,7 @@
         "@equinor/eds-tokens": "^2",
         "react": "^18 || ^19",
         "react-dom": "^18 || ^19",
-        "styled-components": "^6.5.3",
+        "styled-components": "^6.6.0",
       },
     },
     "packages/styles": {
@@ -358,7 +358,7 @@
         "@types/react": "^19.3.0",
         "@vitest/coverage-v8": "^5.0.3",
         "react": "^19.3.0",
-        "styled-components": "^6.5.3",
+        "styled-components": "^6.6.0",
         "vitest": "^5.0.3",
       },
       "peerDependencies": {
@@ -379,7 +379,7 @@
         "@types/react": "^19.3.0",
         "react": "^19.3.0",
         "react-dom": "^19.3.0",
-        "styled-components": "^6.5.3",
+        "styled-components": "^6.6.0",
         "vitest": "^5.0.3",
       },
       "peerDependencies": {
@@ -388,7 +388,7 @@
         "@equinor/fusion-observable": "^9.2.3",
         "react": "^18 || ^19",
         "react-dom": "^18 || ^19",
-        "styled-components": "^6.5.3",
+        "styled-components": "^6.6.0",
       },
     },
     "packages/textarea": {
@@ -472,7 +472,7 @@
         "remark-gfm": "^4.0.1",
         "storybook": "^10.6.1",
         "storybook-addon-react-docgen": "^1.2.44",
-        "styled-components": "^6.5.3",
+        "styled-components": "^6.6.0",
         "vite": "^8.3.3",
         "vite-tsconfig-paths": "^6.1.1",
       },
@@ -1462,6 +1462,8 @@
 
     "@types/styled-components": ["@types/styled-components@5.1.36", "", { "dependencies": { "@types/hoist-non-react-statics": "*", "@types/react": "*", "csstype": "^3.2.2" } }, "sha512-pGMRNY5G2rNDKEv2DOiFYa7Ft1r0jrhmgBwHhOMzPTgCjO76bCot0/4uEfqj7K0Jf1KdQmDtAuaDk9EAs9foSw=="],
 
+    "@types/stylis": ["@types/stylis@4.2.7", "", {}, "sha512-VgDNokpBoKF+wrdvhAAfS55OMQpL6QRglwTwNC3kIgBrzZxA4WsFj+2eLfEA/uMUDzBcEhYmjSbwQakn/i3ajA=="],
+
     "@types/trusted-types": ["@types/trusted-types@2.0.7", "", {}, "sha512-ScaPdn1dQczgbl0QFTeTOmVHFULt394XJgOQNoyVhZ6r2vLnMLJfBPd53SB52T/3G36VI1/g2MZaX0cwDuXsfw=="],
 
     "@types/unist": ["@types/unist@3.0.3", "", {}, "sha512-ko/gIFJRv177XgZsZcBwnqJN5x/Gien8qNOn0D5bQU/zAzVf9Zt3BlcUiLqhV9y4ARk0GbT3tnUiPNgnTXzc/Q=="],
@@ -2206,7 +2208,7 @@
 
     "strip-indent": ["strip-indent@4.1.1", "", {}, "sha512-SlyRoSkdh1dYP0PzclLE7r0M9sgbFKKMFXpFRUMNuKhQSbC6VQIGzq3E0qsfvGJaUFJPGv6Ws1NZ/haTAjfbMA=="],
 
-    "styled-components": ["styled-components@6.5.3", "", { "dependencies": { "@emotion/is-prop-valid": "1.4.0", "css-to-react-native": "3.2.0", "csstype": "3.2.3", "stylis": "4.3.6" }, "peerDependencies": { "react": ">= 16.8.0", "react-dom": ">= 16.8.0", "react-native": ">= 0.68.0" }, "optionalPeers": ["react-dom", "react-native"] }, "sha512-vAX79sfpmUerP9fsTTxoTrBDE0RuO4ahjInyWYoohNgqrdg63Ms4q6FJ/o2Fyity82NU3cujOT8Ewl9TThBdwg=="],
+    "styled-components": ["styled-components@6.6.0", "", { "dependencies": { "@emotion/is-prop-valid": "1.4.0", "@types/stylis": "4.2.7", "css-to-react-native": "3.2.0", "csstype": "3.2.3", "stylis": "4.3.6" }, "peerDependencies": { "react": ">= 16.8.0", "react-dom": ">= 16.8.0", "react-native": ">= 0.68.0" }, "optionalPeers": ["react-dom", "react-native"] }, "sha512-drKKsqvDBxVRn4ySU67iQ5nQBuo/1xyYeBfdhDde112PkqrS3+95KPnpDs5hFRcmrW+q6+gbyywYYYR14oWFtw=="],
 
     "stylis": ["stylis@4.3.6", "", {}, "sha512-yQ3rwFWRfwNUY7H5vpU0wfdkNSnvnJinhF9830Swlaxl03zsOjCfmX0ugac+3LtK0lYSgwL/KXc8oYL3mG4YFQ=="],
 
