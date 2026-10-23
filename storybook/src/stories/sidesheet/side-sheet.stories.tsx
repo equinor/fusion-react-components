@@ -84,6 +84,14 @@ export const basic: Story = {
   },
 };
 
+export const fullWidth: Story = {
+  ...basic,
+  args: {
+    ...basic.args,
+    defaultWidth: '100vw',
+  },
+};
+
 export const disableResize: Story = {
   args: {
     isOpen: open,
