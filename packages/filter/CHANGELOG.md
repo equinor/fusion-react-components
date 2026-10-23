@@ -1,5 +1,13 @@
 # Change Log
 
+## 2.1.11
+
+### Patch Changes
+
+- e5185f5: Raise `@equinor/fusion-wc-*` dependencies to releases requiring `@equinor/fusion-web-theme` `^0.1.12`, which temporarily keeps native browser controls in light mode.
+  
+  Ref: equinor/fusion-core-tasks#2120
+
 ## 2.1.10
 
 ### Patch Changes

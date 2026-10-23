@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-markdown",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "React component for editing morkdown language",
   "keywords": [
     "markdown",
@@ -39,7 +39,7 @@
   },
   "dependencies": {
     "@equinor/fusion-react-utils": "workspace:*",
-    "@equinor/fusion-wc-markdown": "^1.6.4"
+    "@equinor/fusion-wc-markdown": "^1.6.5"
   },
   "devDependencies": {
     "@types/react": "^19.3.0",

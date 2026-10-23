@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-list",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "React components for displaying a list",
   "keywords": [
     "list",
@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "@equinor/fusion-react-utils": "workspace:*",
-    "@equinor/fusion-wc-list": "^1.2.1"
+    "@equinor/fusion-wc-list": "^1.2.5"
   },
   "devDependencies": {
     "@types/react": "^19.3.0",

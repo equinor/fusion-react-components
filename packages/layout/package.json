@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-layout",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Fusion React Layout Component.",
   "keywords": [
     "react",
@@ -57,8 +57,8 @@
     "url": "https://github.com/equinor/fusion-react-components/issues"
   },
   "dependencies": {
-    "@equinor/fusion-wc-layout": "^0.2.0",
-    "@equinor/fusion-wc-page": "^0.2.0"
+    "@equinor/fusion-wc-layout": "^0.2.1",
+    "@equinor/fusion-wc-page": "^0.2.1"
   },
   "devDependencies": {
     "@types/react": "^19.3.0",

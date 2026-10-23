@@ -1,6 +1,6 @@
 {
   "name": "@equinor/fusion-react-skeleton",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "React component for displaying a skeleton",
   "keywords": [
     "skeleton",
@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "@equinor/fusion-react-utils": "workspace:*",
-    "@equinor/fusion-wc-skeleton": "^2.2.4"
+    "@equinor/fusion-wc-skeleton": "^2.2.5"
   },
   "devDependencies": {
     "@types/react": "^19.3.0",
