@@ -145,14 +145,14 @@
       "devDependencies": {
         "@equinor/eds-core-react": "^2.6.3",
         "@equinor/eds-icons": "^1.6.0",
-        "@equinor/fusion-observable": "^9.2.3",
+        "@equinor/fusion-observable": "^9.2.5",
         "@types/react": "^19.3.0",
         "react": "^19.3.0",
       },
       "peerDependencies": {
         "@equinor/eds-core-react": "^2",
         "@equinor/eds-icons": "^1",
-        "@equinor/fusion-observable": "^9.2.3",
+        "@equinor/fusion-observable": "^9.2.5",
         "react": "^18 || ^19",
         "react-dom": "^18 || ^19",
       },
@@ -375,7 +375,7 @@
       "devDependencies": {
         "@equinor/eds-core-react": "^2.6.3",
         "@equinor/eds-tokens": "^2.3.2",
-        "@equinor/fusion-observable": "^9.2.3",
+        "@equinor/fusion-observable": "^9.2.5",
         "@types/react": "^19.3.0",
         "react": "^19.3.0",
         "react-dom": "^19.3.0",
@@ -385,7 +385,7 @@
       "peerDependencies": {
         "@equinor/eds-core-react": "^2",
         "@equinor/eds-tokens": "^2",
-        "@equinor/fusion-observable": "^9.2.3",
+        "@equinor/fusion-observable": "^9.2.5",
         "react": "^18 || ^19",
         "react-dom": "^18 || ^19",
         "styled-components": "^6.5.3",
@@ -480,7 +480,7 @@
         "@babel/preset-env": "^8.0.6",
         "@babel/preset-react": "^8.0.1",
         "@babel/preset-typescript": "^8.0.1",
-        "@equinor/fusion-observable": "^9.2.3",
+        "@equinor/fusion-observable": "^9.2.5",
         "@equinor/fusion-wc-avatar": "^3.3.5",
         "@equinor/fusion-wc-icon": "^2.4.4",
         "@faker-js/faker": "^10.6.0",
@@ -828,7 +828,7 @@
 
     "@equinor/fusion-framework-react-module": ["@equinor/fusion-framework-react-module@4.0.1", "", { "dependencies": { "@equinor/fusion-framework-module": "^6.1.0" }, "peerDependencies": { "@types/react": "^18.0.0 || ^19.0.0", "react": "^18.0.0 || ^19.0.0", "react-dom": "^18.0.0 || ^19.0.0" }, "optionalPeers": ["@types/react", "react-dom"] }, "sha512-72tG8LCDJGelkQk4FYfTilEpIPaK7UtOlBD/nKmxGMHiqIP05FX8U4rJruV4aMVWVmZ/OgIq7GQkjLJWUQYFzA=="],
 
-    "@equinor/fusion-observable": ["@equinor/fusion-observable@9.2.3", "", { "dependencies": { "immer": "^11.0.0", "rxjs": "^7.8.1", "uuid": "^14.0.0" }, "peerDependencies": { "@types/react": "^18.0.0 || ^19.0.0", "react": "^18.0.0 || ^19.0.0" }, "optionalPeers": ["@types/react"] }, "sha512-o2UkNMKArbi9GXEpKCa/25PfO+vg9a4AHH+UyOuILVxsT01OUQ7nb1lHIjK+BAZkc9gIjRSPmR4+4nPMHpyQ3w=="],
+    "@equinor/fusion-observable": ["@equinor/fusion-observable@9.2.5", "", { "dependencies": { "immer": "^11.0.0", "rxjs": "^7.8.1", "uuid": "^14.0.0" }, "peerDependencies": { "@types/react": "^18.0.0 || ^19.0.0", "react": "^18.0.0 || ^19.0.0" }, "optionalPeers": ["@types/react"] }, "sha512-DFvwwmXvZc6dbSapFk3HX9dAbOUp/tiAoEBE0FCIEnE2swFromMQmKWZNIzH8VlOaUfkqBbwNV/jLtIHwMiEzw=="],
 
     "@equinor/fusion-react-ag-grid-person-cell": ["@equinor/fusion-react-ag-grid-person-cell@workspace:packages/ag-grid-person-cell"],
 
@@ -2288,7 +2288,7 @@
 
     "util-deprecate": ["util-deprecate@1.0.2", "", {}, "sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw=="],
 
-    "uuid": ["uuid@14.0.1", "", { "bin": { "uuid": "dist-node/bin/uuid" } }, "sha512-6ZxzVpzDXDa3bJWaHilVayA+BH/1zmxCJoVgvmqJnid/gPoKHxUrS/aC/T6LGQtNHT+XHG9fXPJB4d+IrU30Ew=="],
+    "uuid": ["uuid@14.0.3", "", { "bin": { "uuid": "dist-node/bin/uuid" } }, "sha512-Sc5u1VVln93y1Xnz4R+CunOZc7R9LUcTmhj7Rc7Eg3HVcf7rVn2FOoa812fe0W8p3jD7xeoGSYbfqCGGH2B6xw=="],
 
     "value-equal": ["value-equal@1.0.1", "", {}, "sha512-NOJ6JZCAWr0zlxZt+xqCHNTEKOsrks2HQd4MqhP1qy4z1SkbEP467eNx6TgDKXMvUOb+OENfJCZwM+16n7fRfw=="],
 
@@ -2413,8 +2413,6 @@
     "@equinor/fusion/uuid": ["uuid@8.3.2", "", { "bin": { "uuid": "dist/bin/uuid" } }, "sha512-+NYs2QeMWy+GWFOEm9xnn6HCDp0l7QBD7ml8zLUmJ+93Q5NF0NocErnwkTkXVFNiX3/fpC6afS8Dhb/gz7R7eg=="],
 
     "@equinor/fusion-wc-icon/@equinor/eds-icons": ["@equinor/eds-icons@1.5.1", "", {}, "sha512-5/pi0vsXHKVDIFG+BOufOqtAS8wD5J0qTqcucUvnIvo4vpUHWJbMpP80fyAQ9S8ZAu+9auBEq4NY1ZBcqjZq8w=="],
-
-    "@equinor/fusion-wc-searchable-dropdown/uuid": ["uuid@14.0.3", "", { "bin": { "uuid": "dist-node/bin/uuid" } }, "sha512-Sc5u1VVln93y1Xnz4R+CunOZc7R9LUcTmhj7Rc7Eg3HVcf7rVn2FOoa812fe0W8p3jD7xeoGSYbfqCGGH2B6xw=="],
 
     "@equinor/fusion-wc-textarea/@equinor/fusion-wc-textinput": ["@equinor/fusion-wc-textinput@1.2.4", "", { "dependencies": { "@equinor/fusion-wc-core": "^2.0.3", "@equinor/fusion-wc-icon": "^2.4.4", "@equinor/fusion-web-theme": "^0.1.10", "@material/mwc-textfield": "^0.27.0", "lit": "3.3.3" } }, "sha512-jPry3+5vg9QzR+xTJC52xtyWYRUK0qv/eddU3KKOiYBAqu1mb2xfcDbFChpdsZkVqsd9Twa8PPGrtfuYdThFKg=="],
 
@@ -2557,6 +2555,8 @@
     "@types/serve-static/@types/node": ["@types/node@26.1.2", "", { "dependencies": { "undici-types": "~8.3.0" } }, "sha512-Vu4a5UFA9rIIFJ7rB/Vaafh9lrCQszopTCx6KjFboXTGQbPNasehVR5TEiithSDGyd1DEiUByggTZsg8jukeIg=="],
 
     "@types/styled-components/@types/react": ["@types/react@19.2.17", "", { "dependencies": { "csstype": "^3.2.2" } }, "sha512-MXfmqaVPEVgkBT/aY0aGCkRWWtByiYQXo3xdQ8r5RzuFrPiRn8Gar2tQdXSUQ2GKV3bkXckek89V8wQBY2Q/Aw=="],
+
+    "@types/uuid/uuid": ["uuid@14.0.1", "", { "bin": { "uuid": "dist-node/bin/uuid" } }, "sha512-6ZxzVpzDXDa3bJWaHilVayA+BH/1zmxCJoVgvmqJnid/gPoKHxUrS/aC/T6LGQtNHT+XHG9fXPJB4d+IrU30Ew=="],
 
     "@vitest/expect/chai": ["chai@5.3.3", "", { "dependencies": { "assertion-error": "^2.0.1", "check-error": "^2.1.1", "deep-eql": "^5.0.1", "loupe": "^3.1.0", "pathval": "^2.0.0" } }, "sha512-4zNhdJD/iOjSH0A05ea+Ke6MU5mmpQcbQsSOkgdaUMJ9zTlDTD/GYlwohmIE2u0gaxHYiVHEn1Fw9mZ/ktJWgw=="],
 
