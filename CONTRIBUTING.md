@@ -47,8 +47,9 @@ bun run start
 
 Storybook's preview document follows the EDS
 [colour scheme detection](https://eds.equinor.com/foundation/colour/getting-started)
-guidance: `preview-head.html` sets `data-color-scheme="light"` on `<html>`
-before any styles load. EDS then resolves its light CSS variables and applies
+guidance: `preview-head.html` declares `<html data-color-scheme="light">`,
+which the HTML parser merges onto the preview document's root element before
+any styles load. EDS then resolves its light CSS variables and applies
 `color-scheme: light`, so EDS colours and native controls stay light on initial
 load and when the OS/browser preference changes, including docs canvases and
 content portaled to `body`.
