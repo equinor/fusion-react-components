@@ -3,7 +3,7 @@ name: fusion-rule-author
 description: 'Support skill providing the workflow, templates, and references for AI coding assistant rule authoring. Invoked by fusion-rules gateway agents — not intended for direct use.'
 license: MIT
 metadata:
-  version: "0.1.2"
+  version: "0.1.3"
   status: active
   owner: "@equinor/fusion-core"
   role: support
@@ -181,6 +181,7 @@ Read `.md.hbs` slot headers in `assets/`; fill named slots with Markdown, drop t
 - Use imperative voice ("Use camelCase for variables", not "Variables should use camelCase")
 - Avoid duplicating guidance between root and scoped files
 - Validate `applyTo` / `globs` / `paths` glob patterns match intended files
+- Never use brace expansion (`{a,b}`) in Copilot `applyTo`; Copilot splits on commas and silently skips the rule. Use `**/*.ts, **/*.tsx`
 - Warn if total root instructions exceed ~80 lines (risk of context dilution)
 - Warn if scoped instruction file exceeds ~50 lines (GitHub Copilot), ~500 lines (Cursor), ~200 lines (Claude Code CLAUDE.md)
 - See `references/examples.md` for concrete good/bad examples
