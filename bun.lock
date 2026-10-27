@@ -479,13 +479,8 @@
       "devDependencies": {
         "@babel/preset-env": "^8.0.7",
         "@babel/preset-react": "^8.0.1",
-<<<<<<< HEAD
         "@babel/preset-typescript": "^8.0.7",
-        "@equinor/fusion-observable": "^9.2.3",
-=======
-        "@babel/preset-typescript": "^8.0.1",
         "@equinor/fusion-observable": "^9.2.5",
->>>>>>> f9d26116 (build(deps-dev): bump @equinor/fusion-observable from 9.2.3 to 9.2.5)
         "@equinor/fusion-wc-avatar": "^3.3.5",
         "@equinor/fusion-wc-icon": "^2.4.4",
         "@faker-js/faker": "^10.6.0",
