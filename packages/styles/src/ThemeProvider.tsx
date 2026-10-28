@@ -4,7 +4,6 @@ import { styles as defaultTheme } from '@equinor/fusion-web-theme';
 import { ThemeContext } from './utils/contexts';
 import type { FusionTheme } from './theme';
 import { EdsTokens } from './EdsTokens';
-import { useForceLightColorScheme } from './utils/force-light-color-scheme';
 
 import '@equinor/fusion-wc-theme';
 import type ThemeElement from '@equinor/fusion-wc-theme';
@@ -32,9 +31,6 @@ export interface ThemeProviderProps<T extends FusionTheme = FusionTheme> {
  * Provides theme values to child components
  *
  * This component wraps children with a theme context and the fwc-theme web component.
- * The outermost provider also injects the EDS token CSS variables and, until Fusion supports
- * dark mode, forces the EDS light colour scheme by setting `data-color-scheme="light"` on
- * `<html>` (the previous value is restored on unmount).
  * When nested, the theme can be a function that receives the outer theme and returns
  * a merged or customized theme.
  *
@@ -99,16 +95,14 @@ export function ThemeProvider<T extends FusionTheme = FusionTheme>(
     return (localTheme ?? defaultTheme) as T;
   }, [localTheme, outerTheme]);
 
-  // Temporarily force EDS light mode from the root provider only (equinor/fusion-core-tasks#2120)
-  useForceLightColorScheme(outerTheme === null);
-
   return (
     <ThemeContext.Provider value={theme}>
       {/* Only add eds variables once, when there is no outer theme yet */}
       {outerTheme === null && <EdsTokens />}
 
       {/* Wrap children in fwc-theme web component for theme application */}
-      <fwc-theme>{children}</fwc-theme>
+      {/* TEMPORARY: force EDS light mode until Fusion supports dark mode (equinor/fusion-core-tasks#2120) */}
+      <fwc-theme data-color-scheme="light">{children}</fwc-theme>
     </ThemeContext.Provider>
   );
 }

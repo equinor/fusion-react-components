@@ -10,7 +10,7 @@
  * Components can access theme via useTheme hook or useTheme in makeStyles.
  */
 
-import { afterEach, describe, it, expect } from 'vitest';
+import { describe, it, expect } from 'vitest';
 import { render, screen, renderHook } from '@testing-library/react';
 import { useContext } from 'react';
 import { StyleSheetManager } from 'styled-components';
@@ -194,6 +194,19 @@ describe('ThemeProvider - Theme distribution', () => {
     expect(fwcTheme).toBeTruthy();
   });
 
+  it('should force the EDS light colour scheme on the fwc-theme wrapper', () => {
+    // WHAT: fwc-theme gets data-color-scheme="light"
+    // WHY: Fusion does not support dark mode yet (equinor/fusion-core-tasks#2120)
+
+    const { container } = render(
+      <ThemeProvider theme={mockTheme}>
+        <div>Test</div>
+      </ThemeProvider>,
+    );
+
+    expect(container.querySelector('fwc-theme')?.getAttribute('data-color-scheme')).toBe('light');
+  });
+
   it('should render children inside fwc-theme element', () => {
     // WHAT: Children are wrapped inside fwc-theme
     // WHY: So theme CSS custom properties apply to all children
@@ -304,77 +317,5 @@ describe('EdsTokens - CSS Variables Rendering', () => {
 
     // EdsTokens component successfully rendered child content
     expect(container.querySelector('[data-testid="child"]')).not.toBeNull();
-  });
-});
-
-describe('ThemeProvider - Forced light colour scheme', () => {
-  // TEMPORARY: Fusion forces EDS light mode until dark mode is supported
-  // (equinor/fusion-core-tasks#2120)
-  const root = document.documentElement;
-
-  afterEach(() => {
-    root.removeAttribute('data-color-scheme');
-  });
-
-  it('should set data-color-scheme="light" on <html> while mounted', () => {
-    const { unmount } = render(
-      <ThemeProvider theme={mockTheme}>
-        <div>Test</div>
-      </ThemeProvider>,
-    );
-
-    expect(root.getAttribute('data-color-scheme')).toBe('light');
-
-    unmount();
-    expect(root.hasAttribute('data-color-scheme')).toBe(false);
-  });
-
-  it('should override an existing value and restore it on unmount', () => {
-    root.setAttribute('data-color-scheme', 'dark');
-
-    const { unmount } = render(
-      <ThemeProvider theme={mockTheme}>
-        <div>Test</div>
-      </ThemeProvider>,
-    );
-
-    expect(root.getAttribute('data-color-scheme')).toBe('light');
-
-    unmount();
-    expect(root.getAttribute('data-color-scheme')).toBe('dark');
-  });
-
-  it('should keep light mode until the last root ThemeProvider unmounts', () => {
-    const first = render(
-      <ThemeProvider theme={mockTheme}>
-        <div>First</div>
-      </ThemeProvider>,
-    );
-    const second = render(
-      <ThemeProvider theme={mockTheme}>
-        <div>Second</div>
-      </ThemeProvider>,
-    );
-
-    first.unmount();
-    expect(root.getAttribute('data-color-scheme')).toBe('light');
-
-    second.unmount();
-    expect(root.hasAttribute('data-color-scheme')).toBe(false);
-  });
-
-  it('should keep light mode when only a nested ThemeProvider unmounts', () => {
-    const Tree = ({ nested }: { nested: boolean }) => (
-      <ThemeProvider theme={mockTheme}>
-        {nested ? <ThemeProvider theme={mockTheme}>Nested</ThemeProvider> : 'Root'}
-      </ThemeProvider>
-    );
-
-    const { rerender, unmount } = render(<Tree nested />);
-    rerender(<Tree nested={false} />);
-    expect(root.getAttribute('data-color-scheme')).toBe('light');
-
-    unmount();
-    expect(root.hasAttribute('data-color-scheme')).toBe(false);
   });
 });
