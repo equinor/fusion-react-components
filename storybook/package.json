@@ -6,7 +6,7 @@
   "scripts": {
     "start": "storybook dev -p 6006",
     "build": "storybook build -o ./dist",
-    "test": "node --test .storybook/*.test.mjs",
+    "test": "vitest run",
     "test:setup": "playwright install --only-shell chromium"
   },
   "keywords": [],
@@ -68,6 +68,7 @@
     "@faker-js/faker": "^10.6.0",
     "@storybook/builder-vite": "^10.0.2",
     "@types/react": "^19.3.0",
-    "playwright": "^1.64.1"
+    "playwright": "^1.64.1",
+    "vitest": "^5.0.5"
   }
 }
