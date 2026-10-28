@@ -252,6 +252,8 @@ Provides theme context to child components. Supports nested themes and theme com
 - `theme`: Theme object or function `(outerTheme) => theme`
 - `children`: React nodes
 
+**Colour scheme:** Fusion does not support dark mode yet, so the outermost `ThemeProvider` forces the EDS light colour scheme. It sets `data-color-scheme="light"` on `<html>` (overriding any existing value) and adds `:root { color-scheme: only light; }`, so the OS/browser dark preference never loads dark EDS variables. The previous attribute value is restored when the last root `ThemeProvider` unmounts. This is temporary until dark mode is supported ([equinor/fusion-core-tasks#2120](https://github.com/equinor/fusion-core-tasks/issues/2120)).
+
 **Example:**
 
 ```tsx
