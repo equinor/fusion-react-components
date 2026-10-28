@@ -2,6 +2,16 @@ import { defineConfig } from 'vitest/config';
 import { name, version } from './package.json';
 
 export default defineConfig({
+  resolve: {
+    alias: [
+      // styled-components only injects client-side styles from its `browser` build, but vitest
+      // resolves the Node build (via `module`), so global styles would never reach the jsdom DOM.
+      {
+        find: /^styled-components$/,
+        replacement: 'styled-components/dist/styled-components.browser.esm.js',
+      },
+    ],
+  },
   test: {
     include: ['src/__tests__/**/*.{test,spec}.{ts,tsx}'],
     exclude: ['**/*.md', '**/node_modules/**'],
