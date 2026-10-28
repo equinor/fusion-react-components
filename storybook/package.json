@@ -5,7 +5,9 @@
   "private": true,
   "scripts": {
     "start": "storybook dev -p 6006",
-    "build": "storybook build -o ./dist"
+    "build": "storybook build -o ./dist",
+    "test": "vitest run",
+    "test:setup": "playwright install --only-shell chromium"
   },
   "keywords": [],
   "author": "",
@@ -65,6 +67,8 @@
     "@equinor/fusion-wc-icon": "^2.4.4",
     "@faker-js/faker": "^10.6.0",
     "@storybook/builder-vite": "^10.0.2",
-    "@types/react": "^19.3.0"
+    "@types/react": "^19.3.0",
+    "playwright": "^1.64.1",
+    "vitest": "^5.0.5"
   }
 }
