@@ -20,10 +20,9 @@ const readEdsTokens = (scheme: 'light' | 'dark'): Record<string, string> =>
 const lightTokens = readEdsTokens('light');
 const darkTokens = readEdsTokens('dark');
 
-test('preview selects the EDS light colour scheme on <html> before loading styles', () => {
+test('preview selects the EDS light colour scheme on <html>', () => {
   const htmlTags = markup.match(/<html\b[^>]*>/g) ?? [];
   expect(htmlTags).toEqual(['<html data-color-scheme="light">']);
-  expect(markup.indexOf('<html')).toBeLessThan(markup.indexOf('<link'));
   expect(markup).not.toMatch(/<script|<\/html>|color-scheme:|prefers-color-scheme/);
 });
 
@@ -31,7 +30,7 @@ test('preview selects the EDS light colour scheme on <html> before loading style
 const renderEdsColor = async (browser: Browser, head: string, variable: string) => {
   const page = await browser.newPage({ colorScheme: 'dark' });
   try {
-    // Keep the test offline; the font stylesheet in preview-head is irrelevant to colours.
+    // Keep the test offline; only the inlined EDS variables matter for colours.
     await page.route('**/*', (route) => route.abort());
     await page.setContent(
       `<!doctype html><html lang="en"><head>${head}<style>${edsVariables}</style></head>` +
