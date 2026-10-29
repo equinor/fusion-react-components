@@ -75,7 +75,7 @@
     },
     "packages/context-selector": {
       "name": "@equinor/fusion-react-context-selector",
-      "version": "2.0.11",
+      "version": "2.0.12",
       "dependencies": {
         "@equinor/fusion-react-searchable-dropdown": "workspace:*",
         "@equinor/fusion-react-styles": "workspace:*",
@@ -108,7 +108,7 @@
     },
     "packages/errorboundary": {
       "name": "@equinor/fusion-react-errorboundary",
-      "version": "2.0.13",
+      "version": "2.0.14",
       "dependencies": {
         "@equinor/fusion-react-styles": "workspace:*",
         "@equinor/fusion-react-utils": "workspace:*",
@@ -159,7 +159,7 @@
     },
     "packages/hanging-garden": {
       "name": "@equinor/fusion-react-hanging-garden",
-      "version": "2.0.12",
+      "version": "2.0.13",
       "dependencies": {
         "@equinor/fusion-react-styles": "workspace:*",
         "date-fns": "4.4.0",
@@ -274,7 +274,7 @@
     },
     "packages/side-sheet": {
       "name": "@equinor/fusion-react-side-sheet",
-      "version": "2.1.0",
+      "version": "2.1.1",
       "dependencies": {
         "re-resizable": "^6.9.11",
         "react-keyed-flatten-children": "^5.1.4",
@@ -335,7 +335,7 @@
     },
     "packages/styles": {
       "name": "@equinor/fusion-react-styles",
-      "version": "2.1.10",
+      "version": "2.1.11",
       "dependencies": {
         "@equinor/eds-tokens": "^2.3.2",
         "@equinor/fusion-wc-theme": "^1.2.6",
