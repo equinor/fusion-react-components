@@ -1,5 +1,13 @@
 # Change Log
 
+## 2.1.1
+
+### Patch Changes
+
+- 77f05cd: Add a slim full-height resize rail with a subtle gray outer border and matching background on hover or drag, keyboard resizing, and an accessible outside edge at maximum width.
+  
+  Keyboard resizing follows the WAI-ARIA Window Splitter convention: Home sets minimum width and End sets maximum width.
+
 ## 2.1.0
 
 ### Minor Changes
