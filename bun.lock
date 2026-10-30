@@ -75,7 +75,7 @@
     },
     "packages/context-selector": {
       "name": "@equinor/fusion-react-context-selector",
-      "version": "2.0.11",
+      "version": "2.0.12",
       "dependencies": {
         "@equinor/fusion-react-searchable-dropdown": "workspace:*",
         "@equinor/fusion-react-styles": "workspace:*",
@@ -108,7 +108,7 @@
     },
     "packages/errorboundary": {
       "name": "@equinor/fusion-react-errorboundary",
-      "version": "2.0.13",
+      "version": "2.0.14",
       "dependencies": {
         "@equinor/fusion-react-styles": "workspace:*",
         "@equinor/fusion-react-utils": "workspace:*",
@@ -159,7 +159,7 @@
     },
     "packages/hanging-garden": {
       "name": "@equinor/fusion-react-hanging-garden",
-      "version": "2.0.12",
+      "version": "2.0.13",
       "dependencies": {
         "@equinor/fusion-react-styles": "workspace:*",
         "date-fns": "4.4.0",
@@ -274,7 +274,7 @@
     },
     "packages/side-sheet": {
       "name": "@equinor/fusion-react-side-sheet",
-      "version": "2.1.0",
+      "version": "2.1.1",
       "dependencies": {
         "re-resizable": "^6.9.11",
         "react-keyed-flatten-children": "^5.1.4",
@@ -335,10 +335,10 @@
     },
     "packages/styles": {
       "name": "@equinor/fusion-react-styles",
-      "version": "2.1.10",
+      "version": "2.1.11",
       "dependencies": {
         "@equinor/eds-tokens": "^2.3.2",
-        "@equinor/fusion-wc-theme": "^1.2.5",
+        "@equinor/fusion-wc-theme": "^1.2.6",
         "@equinor/fusion-web-theme": "workspace:^",
         "clsx": "^2.1.0",
         "hoist-non-react-statics": "^3.3.2",
@@ -922,7 +922,7 @@
 
     "@equinor/fusion-wc-textinput": ["@equinor/fusion-wc-textinput@1.2.5", "", { "dependencies": { "@equinor/fusion-wc-core": "^2.0.3", "@equinor/fusion-wc-icon": "^2.4.4", "@equinor/fusion-web-theme": "^0.1.12", "@material/mwc-textfield": "^0.27.0", "lit": "3.3.3" } }, "sha512-r/0Fn+4j+fn/XV5x+np6xK9J7xEyf00BAZRs5q4gtyOzWVU/Qa3wMWiMW6hAnMuYcm5H6/agOU1BjetUrTLBQw=="],
 
-    "@equinor/fusion-wc-theme": ["@equinor/fusion-wc-theme@1.2.5", "", { "dependencies": { "@equinor/fusion-wc-core": "^2.0.3", "@equinor/fusion-web-theme": "^0.1.12", "@material/theme": "^14.0.0", "lit": "3.3.3" } }, "sha512-MSp5UgxB5Yt5fEl9+JJMvIo++Y/xI2XhxeHyqyyLLiUpeKsyDaJs5j1zMQgkjyUSwtEDr/b4OCKYybmwhEo34g=="],
+    "@equinor/fusion-wc-theme": ["@equinor/fusion-wc-theme@1.2.6", "", { "dependencies": { "@equinor/fusion-wc-core": "^2.0.3", "@equinor/fusion-web-theme": "^0.1.12", "@material/theme": "^14.0.0", "lit": "3.3.3" } }, "sha512-MIem4+ct3EF/TwwukG0ZirYmuJyaLn4J8fZpnz8FSSJtPAlj8vH+zdk+AAAheZh03AOmypuD6x01hdfkc36qcQ=="],
 
     "@equinor/fusion-web-theme": ["@equinor/fusion-web-theme@workspace:packages/theme"],
 
