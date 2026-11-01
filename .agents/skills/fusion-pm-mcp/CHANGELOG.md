@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.1.4 - 2026-11-01
+
+### patch
+
+- [#363](https://github.com/equinor/fusion-skills/pull/363) [`f34c0d9`](https://github.com/equinor/fusion-skills/commit/f34c0d9dc7de15e59ec643407914e98ad8288245) - Shorten the always-loaded PM MCP description, retaining hosted HTTP+OAuth setup, troubleshooting and setup bug drafts. Preserve service-development and issue-authoring exclusions, distinguish Framework/docs/EDS retrieval through `fusion-mcp`, and exclude exposing secrets.
+
+
+  resolves equinor/fusion-core-tasks#2671
+
 ## 0.1.3 - 2026-10-27
 
 ### patch

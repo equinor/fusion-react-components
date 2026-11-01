@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.1.1 - 2026-11-01
+
+### patch
+
+- [#363](https://github.com/equinor/fusion-skills/pull/363) [`f34c0d9`](https://github.com/equinor/fusion-skills/commit/f34c0d9dc7de15e59ec643407914e98ad8288245) - Shorten EDS lookup description while retaining token and Portal layout cues, subordinate no-workflow scope and React props/API research exclusions.
+
+
+  resolves equinor/fusion-core-tasks#2672
+
 ## 0.1.0 - 2026-05-05
 
 ### minor
@@ -18,4 +27,3 @@
   Consumed by other skills and agents as a ground-truth lookup reference, not as a standalone workflow.
 
   resolves equinor/fusion-core-tasks#859
-

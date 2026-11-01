@@ -53,6 +53,8 @@ Expanded execution contract. Keep `SKILL.md` focused on activation, orchestratio
 
 ## Step 4 — Live PR checkpoints and maintainer decision gates
 
+Applies to interactive runs. Host-assigned runs follow `references/unattended-updates.md`: the calling host decides whether checkpoint and verdict comments are posted and owns confirmations and publication, so missing comment permission doesn't stop host-authorised local work.
+
 1. Post the research checkpoint comment before any source-control mutation, rebase, push, approval, or merge.
 2. If the runtime cannot post the research checkpoint comment, stop before mutation and tell the maintainer that the PR record could not be updated.
 3. Post the final verdict comment before any approval, hold, decline, or merge action. Refresh it with any patching or validation results before posting.

@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.2.3 - 2026-11-01
+
+### patch
+
+- [#363](https://github.com/equinor/fusion-skills/pull/363) [`f34c0d9`](https://github.com/equinor/fusion-skills/commit/f34c0d9dc7de15e59ec643407914e98ad8288245) - Shorten the review-resolution description while keeping unresolved-thread, changes-requested and review-URL triggers. Retain read-only exclusions and distinguish dependency verdicts and unconfirmed mutations.
+
+
+  resolves equinor/fusion-core-tasks#2667
+
 ## 0.2.2 - 2026-10-27
 
 ### patch

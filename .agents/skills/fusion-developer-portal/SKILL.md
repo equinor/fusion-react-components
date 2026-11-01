@@ -1,10 +1,10 @@
 ---
 name: fusion-developer-portal
-description: 'Guides development of Fusion portal shells — scaffolding, module configuration, app loading, routing, header/context integration, analytics, and deployment using the Fusion Framework CLI portal commands. USE FOR: create portal, scaffold portal, configure portal modules, portal app loading, portal routing, portal header, context selector, portal analytics, portal telemetry, portal manifest, ffc portal dev, portal deployment, embed apps in portal. DO NOT USE FOR: app-level feature development (use fusion-app-react-dev), backend service changes, Fusion Help Center integration, skill authoring.'
+description: 'Guides Fusion portal shells. USE FOR: scaffolding, portal.manifest.ts, modules, app loading and routing, header and context selector, analytics, ffc portal dev and deployment. DO NOT USE FOR: app features (use fusion-developer-app), backend changes, Help Center integration (use fusion-help-integration) or skill authoring.'
 license: MIT
 compatibility: Requires @equinor/fusion-framework-cli for portal scaffolding and dev server. Requires @equinor/fusion-framework and @equinor/fusion-framework-react for portal runtime.
 metadata:
-  version: "0.0.2"
+  version: "0.0.3"
   status: active
   owner: "@equinor/fusion-core"
   skills:

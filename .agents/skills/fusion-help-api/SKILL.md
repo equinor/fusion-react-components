@@ -1,10 +1,10 @@
 ---
 name: fusion-help-api
-description: 'Guides developers and admins through direct interaction with the Fusion Help REST API — reading articles, FAQs, release notes, searching content, and managing help documentation programmatically. USE FOR: fetch help articles from API, integrate help content in app, search help content, manage help documentation via API, automate help content, build help tooling. DO NOT USE FOR: using the fhelp CLI tool (use fusion-help-docs skill), modifying Fusion.Services.Help backend code, or non-help-API tasks.'
+description: 'Guides direct Fusion Help REST API use. USE FOR: fetch/search articles, FAQs and release notes, manage help content via API, auth, request models and automation. DO NOT USE FOR: fhelp (use fusion-help-docs), PageLayout/useHelpCenter wiring (use fusion-help-integration), Help backend changes or non-Help APIs.'
 license: MIT
 compatibility: Requires authenticated HTTP client with Fusion bearer token. Works with any language or framework that can make REST calls.
 metadata:
-  version: "0.0.3"
+  version: "0.0.4"
   status: active
   owner: "@equinor/fusion-core"
   tags:

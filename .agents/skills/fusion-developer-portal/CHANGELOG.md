@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.0.3 - 2026-11-01
+
+### patch
+
+- [#372](https://github.com/equinor/fusion-skills/pull/372) [`61c8e4b`](https://github.com/equinor/fusion-skills/commit/61c8e4bba4f71a2cf00e83c73e32e992460e1e69) - Shorten portal-shell discovery wording while keeping manifest, app loading, routing, header, context and CLI triggers. Route app features to fusion-developer-app instead of the removed fusion-app-react-dev; the portal body and research routes remain separate work.
+
+
+  resolves equinor/fusion-core-tasks#2673
+
+  refs equinor/fusion-skills#359
+
 ## 0.0.2 - 2026-05-07
 
 ### patch

@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.1.8 - 2026-11-01
+
+### patch
+
+- [#363](https://github.com/equinor/fusion-skills/pull/363) [`f34c0d9`](https://github.com/equinor/fusion-skills/commit/f34c0d9dc7de15e59ec643407914e98ad8288245) - Shorten the conventions description while keeping language coverage, naming, TSDoc/XML documentation, intent and ADR review cues, and review-target and approval boundaries.
+
+
+  resolves equinor/fusion-core-tasks#2669
+
 ## 0.1.7 - 2026-10-18
 
 ### patch

@@ -1,9 +1,9 @@
 ---
 name: fusion-issue-solving
-description: 'Handles GitHub issue resolution end-to-end for prompts like "solve #123", "lets solve #123", "work on #123", "work on https://github.com/owner/repo/issues/123", or by pasting a direct GitHub issue URL as the request. USE FOR: solve #123, continue work on issue #123, work on https://github.com/owner/repo/issues/123, paste a GitHub issue URL for implementation work. DO NOT USE FOR: issue drafting only, PR review only, or non-implementation research.'
+description: 'Resolves GitHub issues through implementation, validation and PR preparation. USE FOR: solve #123, work on #123, continue or finish an issue, direct GitHub issue URLs (https://github.com/owner/repo/issues/123). DO NOT USE FOR: issue drafting, PR review only, non-implementation research, read-only repositories or unconfirmed publishing.'
 license: MIT
 metadata:
-  version: "0.2.0"
+  version: "0.2.1"
   status: experimental
   owner: "@equinor/fusion-core"
   skills:

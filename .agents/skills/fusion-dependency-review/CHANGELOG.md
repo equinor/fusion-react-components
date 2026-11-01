@@ -1,5 +1,39 @@
 # Changelog
 
+## 0.4.1 - 2026-11-01
+
+### patch
+
+- [#363](https://github.com/equinor/fusion-skills/pull/363) [`f34c0d9`](https://github.com/equinor/fusion-skills/commit/f34c0d9dc7de15e59ec643407914e98ad8288245) - Shorten the skill description, which is loaded on every turn. Triggers, exclusions that separate it from sibling skills, and safety exclusions are unchanged, and a routing evaluation confirms requests still reach this skill.
+
+
+  resolves equinor/fusion-core-tasks#2666
+
+## 0.4.0 - 2026-10-31
+
+### minor
+
+- [#357](https://github.com/equinor/fusion-skills/pull/357) [`70cc23a`](https://github.com/equinor/fusion-skills/commit/70cc23adab3506bf96f31972a7e1e0a04c71dad7) - Extend dependency review with GitHub Actions and Docker base-image evidence checklists and an explicit licence-change HOLD gate.
+
+
+  - Preserve action SHA and image digest conventions; assess workflow contracts, runner requirements, distro and runtime changes.
+  - Distinguish research-only sandbox evidence and host-owned workflow publication permissions from compatibility failures.
+  - Check licence and terms changes across the installed version interval; require human acceptance before recommending merge.
+
+  refs equinor/fusion-poc-greenkeeper#45
+
+## 0.3.0 - 2026-10-31
+
+### minor
+
+- [#353](https://github.com/equinor/fusion-skills/pull/353) [`e2c276a`](https://github.com/equinor/fusion-skills/commit/e2c276a0be5dd41001061948859471aa12ec0d0f) - Add stack-neutral unattended-update guidance for version-checked Node and NuGet regeneration,
+
+  consumer discovery, release research, verdicts, release artifacts and maintainer summaries.
+  Separate host-assigned from interactive routing: live-PR checkpoint comments stay mandatory for
+  interactive runs; the calling host owns confirmation, comment and publication gates otherwise.
+
+  refs equinor/fusion-poc-greenkeeper#45
+
 ## 0.2.3 - 2026-10-28
 
 ### patch

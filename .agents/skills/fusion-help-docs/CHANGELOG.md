@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.1.3 - 2026-11-01
+
+### patch
+
+- [#363](https://github.com/equinor/fusion-skills/pull/363) [`f34c0d9`](https://github.com/equinor/fusion-skills/commit/f34c0d9dc7de15e59ec643407914e98ad8288245) - Shorten the always-loaded `fhelp` documentation description, retaining authoring, publishing, Playwright screenshots, UI-change maintenance and pre-publish validation. Preserve CLI/backend exclusions and distinguish REST calls from app UI wiring.
+
+
+  resolves equinor/fusion-core-tasks#2671
+
 ## 0.1.2 - 2026-10-18
 
 ### patch

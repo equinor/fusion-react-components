@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.1.5 - 2026-11-01
+
+### patch
+
+- [#363](https://github.com/equinor/fusion-skills/pull/363) [`f34c0d9`](https://github.com/equinor/fusion-skills/commit/f34c0d9dc7de15e59ec643407914e98ad8288245) - Shorten cross-domain routing wording while keeping ambiguous requests, where-to-start guidance, missing-skill installation and direct-lifecycle exclusions.
+
+
+  refs equinor/fusion-core-tasks#2670
+
 ## 0.1.4 - 2026-10-22
 
 ### patch

@@ -1,10 +1,10 @@
 ---
 name: fusion-developer-app
-description: 'Guides feature development in Fusion Framework React apps, including app-scoped framework research, test authoring, and test-time mocking needed to choose and verify the right integration patterns. USE FOR: building features, components, pages, hooks, services, API integrations, module configuration, and their tests. DO NOT USE FOR: issue authoring, skill authoring, CI/CD configuration, backend service changes, or general Fusion documentation unrelated to app implementation.'
+description: 'Guides Fusion Framework React app features and integration tests. USE FOR: components, pages, hooks, API integration, modules, React Query, dev-server API mocks/proxies. DO NOT USE FOR: issue/skill authoring, CI/CD, backend changes, secrets, general docs (use fusion-research), test setup (use fusion-framework-testing), test module mocks (use fusion-framework-mocking).'
 license: MIT
 compatibility: Requires a Fusion Framework React app bootstrapped with @equinor/fusion-framework-cli. Works best when styled-components, @equinor/eds-core-react, and @equinor/fusion-react-* packages are installed.
 metadata:
-  version: "0.5.0"
+  version: "0.5.1"
   status: active
   owner: "@equinor/fusion-core"
   skills:

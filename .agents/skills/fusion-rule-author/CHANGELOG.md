@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.1.4 - 2026-11-01
+
+### patch
+
+- [#363](https://github.com/equinor/fusion-skills/pull/363) [`f34c0d9`](https://github.com/equinor/fusion-skills/commit/f34c0d9dc7de15e59ec643407914e98ad8288245) - Clarify the internal shared rule-authoring workflow and delegated-support trigger. Explicitly exclude direct editor-rule requests and name fusion-rules as the user-facing entrypoint.
+
+
+  refs equinor/fusion-core-tasks#2670
+
 ## 0.1.3 - 2026-10-22
 
 ### patch

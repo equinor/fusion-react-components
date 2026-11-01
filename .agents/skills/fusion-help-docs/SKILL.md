@@ -1,9 +1,9 @@
 ---
 name: fusion-help-docs
-description: 'Guides app teams through authoring, structuring, and publishing help documentation (articles, release notes, FAQs) using the fusion-help-cli. USE FOR: write help articles, create release notes, set up help docs, publish documentation, sync articles, configure help config file, maintain app help content, capture help screenshots with Playwright, keep help in sync with UI changes, validate help before publishing. DO NOT USE FOR: building the CLI itself, modifying Fusion.Services.Help internals, or non-documentation tasks.'
+description: 'Authors and publishes Fusion Help docs with fusion-help-cli (fhelp). USE FOR: articles, release notes, FAQs, config/sync, Playwright screenshots, UI-change updates and pre-publish validation. DO NOT USE FOR: CLI/backend development, REST calls (use fusion-help-api), app UI wiring (use fusion-help-integration) or non-documentation tasks.'
 license: MIT
 metadata:
-  version: "0.1.2"
+  version: "0.1.3"
   status: active
   owner: "@equinor/fusion-core"
   tags:

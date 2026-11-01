@@ -1,10 +1,10 @@
 ---
 name: fusion-skill-authoring
-description: 'Creates or modernizes repository skills with clear activation cues, purposeful support files, and practical review loops. USE FOR: creating a new skill, tightening an existing skill, improving discovery wording, and structuring references/assets/optional helper agents when they genuinely add value. DO NOT USE FOR: product-code changes, routine copy edits outside skills/, or documentation that should not become an installable skill.'
+description: 'Creates or modernizes installable skills. USE FOR: new skills, SKILL.md structural refreshes, activation wording, references, assets and helper agents. DO NOT USE FOR: product code, copy edits outside skills/, or ordinary docs, templates and scripts without skill-routing value.'
 license: MIT
 compatibility: Works best in repositories that can inspect their local skill catalog and run catalog-specific validation commands. Optional helper agents are most useful in Anthropic-compatible runtimes or other clients that support skill-local agents/subagents.
 metadata:
-   version: "0.3.7"
+   version: "0.3.8"
    status: active
    owner: "@equinor/fusion-core"
    tags:

@@ -1,10 +1,10 @@
 ---
 name: fusion
-description: 'Main Copilot skill gate for the Fusion ecosystem — cross-domain router. USE FOR: routing between different Fusion domains (skills, issues, PRs, reviews, app maintenance, repository workflows) when the right domain skill is unclear; getting install guidance for missing skills. DO NOT USE FOR: skill lifecycle operations (use fusion-skills directly), tasks where a specific Fusion skill is already active.'
+description: 'Routes unclear cross-domain Fusion requests and gives missing-skill install guidance. USE FOR: choosing between skills, issues, PRs, reviews or maintenance; "where to start". DO NOT USE FOR: skill lifecycle (use fusion-skills), or tasks with a specific skill active.'
 license: MIT
 compatibility: Assumes Fusion MCP is available (`mcp_fusion_skills`). Falls back to inline install commands when unavailable.
 metadata:
-  version: "0.1.4"
+  version: "0.1.5"
   status: active
   owner: "@equinor/fusion-core"
   role: orchestrator
