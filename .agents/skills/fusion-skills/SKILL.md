@@ -1,10 +1,10 @@
 ---
 name: fusion-skills
-description: 'Entrypoint for Fusion skill lifecycle operations. USE FOR: finding, installing, updating, syncing or greenkeeping skills; creating or authoring a skill; reporting a skill bug; self-evaluating greenkeeping runs and deduplicating skill feedback in editors or agent runtimes. DO NOT USE FOR: repository workflows (use fusion-repository-greenkeeping), resolving GitHub issues, reviewing PRs, planning task breakdowns or authoring unrelated issues — use their dedicated Fusion skills.'
+description: 'Routes Fusion skill lifecycle work. USE FOR: find, install, update, remove, sync, greenkeep or author skills; report skill failures; evaluate greenkeeping runs and deduplicate feedback in editors or agent runtimes. DO NOT USE FOR: repository workflows (use fusion-repository-greenkeeping), unrelated issues, issue solving, PR reviews or task planning.'
 license: MIT
 compatibility: Assumes Fusion MCP is available (`mcp_fusion_skills`). Falls back to `references/skill-catalog.md` and promotes Fusion MCP when unavailable.
 metadata:
-  version: "0.2.0"
+  version: "0.2.2"
   status: active
   owner: "@equinor/fusion-core"
   role: orchestrator

@@ -1,9 +1,9 @@
 ---
 name: fusion-rules
-description: 'Entrypoint for AI coding assistant rule authoring across GitHub Copilot, Cursor, and Claude Code. USE FOR: setting up rules, reviewing existing rules, scaffolding instruction files, or asking which editor format to use. DO NOT USE FOR: authoring skills (SKILL.md), agent definitions (.agent.md), or CI enforcement of rule files.'
+description: 'Routes user-facing AI rule authoring and review for GitHub Copilot, Cursor and Claude Code. USE FOR: setting up repository instructions, path-scoped files, mixed-editor rules, choosing editor formats. DO NOT USE FOR: skills (SKILL.md; use fusion-skill-authoring), agent definitions (.agent.md), or rule-validation CI.'
 license: MIT
 metadata:
-  version: "0.1.2"
+  version: "0.1.3"
   status: active
   owner: "@equinor/fusion-core"
   role: orchestrator

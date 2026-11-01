@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.0.3 - 2026-11-01
+
+### patch
+
+- [#363](https://github.com/equinor/fusion-skills/pull/363) [`f34c0d9`](https://github.com/equinor/fusion-skills/commit/f34c0d9dc7de15e59ec643407914e98ad8288245) - Shorten the package documentation description while keeping TypeScript public-export TSDoc, retrieval-friendly READMEs, single-package and monorepo passes, review and independent commits, and documentation-only boundaries.
+
+
+  resolves equinor/fusion-core-tasks#2669
+
 ## 0.0.2 - 2026-05-07
 
 ### patch

@@ -1,10 +1,10 @@
 ---
 name: fusion-package-scribe
-description: 'Systematically improves TSDoc and README documentation across packages in a TypeScript monorepo. Discovers public API surfaces, generates or improves TSDoc on all exports, rewrites READMEs to a consistent retrieval-friendly structure, and commits each package independently. USE FOR: monorepo-wide documentation passes, single-package doc improvements, TSDoc generation on public exports, README standardization, review council quality checks. DO NOT USE FOR: runtime code changes, security scanning, API reference site generation, non-TypeScript languages.'
+description: 'Improves public-export TSDoc and retrieval-friendly READMEs in TypeScript packages, with per-package review and commits. USE FOR: single-package or monorepo doc passes, TSDoc generation, README standardization, review council checks. DO NOT USE FOR: runtime changes, security scans, API reference sites, CI doc-generation replacement, non-TypeScript languages or auto-merging PRs.'
 license: MIT
 compatibility: Requires file-system access and git CLI for commit operations. Works best in runtimes that support skill-local agents for parallel orchestration and review council. Falls back to inline sequential processing in single-agent runtimes. Benefits from fusion-code-conventions for convention-aware TSDoc quality.
 metadata:
-  version: "0.0.2"
+  version: "0.0.3"
   status: experimental
   owner: "@equinor/fusion-core"
   role: orchestrator

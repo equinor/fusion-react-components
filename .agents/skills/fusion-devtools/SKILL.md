@@ -1,6 +1,6 @@
 ---
 name: fusion-devtools
-description: 'Use Fusion DevTools CLI (fdev) for API testing, token acquisition, service discovery, and person lookup during development. USE FOR: calling Fusion REST APIs, getting access tokens as JSON, discovering services and environments, resolving persons, PIM role activation. DO NOT USE FOR: modifying backend service code, deploying services, infrastructure changes, CI/CD pipeline configuration, or Service Bus operations.'
+description: 'Uses Fusion DevTools CLI (fdev) for API testing. USE FOR: Fusion REST calls, JSON access tokens, service/environment discovery, person lookup and PIM role activation. DO NOT USE FOR: backend code (use fusion-developer-service), deployments, infrastructure, CI/CD setup, Service Bus operations, unconfirmed PIM activation or exposing tokens or secrets.'
 license: MIT
 compatibility: >
   Requires fdev installed as a .NET global tool
@@ -8,7 +8,7 @@ compatibility: >
   Requires Azure AD login (fdev login).
   Works best alongside fusion-core-services for understanding API contracts before calling them.
 metadata:
-  version: "0.1.2"
+  version: "0.1.3"
   status: active
   owner: "@equinor/fusion-core"
   tags:

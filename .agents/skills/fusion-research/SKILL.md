@@ -1,10 +1,10 @@
 ---
 name: fusion-research
-description: 'Source-backed research orchestrator for the Fusion ecosystem. Routes to the correct research agent based on question type. Returns source-backed evidence only; will not invent Framework behavior, component APIs, skill catalog relationships, platform guidance, or backend implementation details. USE FOR: any research question needing source-backed evidence about Fusion Framework APIs, EDS components, the Fusion skill catalog, Fusion platform documentation, or backend service implementation. DO NOT USE FOR: implementing code changes, installing or editing skills, MCP setup or troubleshooting, or inventing Fusion behavior without evidence.'
+description: 'Routes Fusion research and returns only source-backed evidence. USE FOR: Framework APIs and hooks, EDS components and props, skill catalog scope and relationships, Fusion platform docs, backend service implementation. DO NOT USE FOR: implementing code, installing or editing skills (use fusion-skills), MCP setup or troubleshooting (use fusion-mcp), or inventing behavior.'
 license: MIT
 compatibility: Works best with Fusion MCP. Dispatches to `agents/framework.agent.md` for `mcp_fusion_search_framework`, `agents/eds.agent.md` for `mcp_fusion_search_eds`, `agents/skills.agent.md` for `mcp_fusion_search_skills`, `agents/docs.agent.md` for `mcp_fusion_search_docs`, and `agents/backend-code.agent.md` for `mcp_fusion_search_backend_code`. If MCP is unavailable, state that clearly rather than guessing.
 metadata:
-  version: "0.4.2"
+  version: "0.4.3"
   status: experimental
   owner: "@equinor/fusion-core"
   tags:

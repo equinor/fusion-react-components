@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.1.3 - 2026-11-01
+
+### patch
+
+- [#363](https://github.com/equinor/fusion-skills/pull/363) [`f34c0d9`](https://github.com/equinor/fusion-skills/commit/f34c0d9dc7de15e59ec643407914e98ad8288245) - Shorten editor-rule discovery wording and strengthen user-facing setup, review, mixed-editor and format-selection triggers. Keep skill, agent-definition and CI exclusions.
+
+
+  refs equinor/fusion-core-tasks#2670
+
 ## 0.1.2 - 2026-10-18
 
 ### patch

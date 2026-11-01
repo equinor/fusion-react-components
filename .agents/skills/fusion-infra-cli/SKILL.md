@@ -1,12 +1,12 @@
 ---
 name: fusion-infra-cli
-description: 'Provision and migrate Fusion databases (Fusion Database-as-a-Service, Azure SQL) using the fusion-infra-cli (finf). USE FOR: provision a database for a service, run SQL migrations, provision or delete PR-specific ephemeral databases, check database state, wire finf into GitHub Actions or Azure DevOps, troubleshoot provision/migrate failures. DO NOT USE FOR: EF Core or application code changes (use fusion-developer-service), service deployments, role management, or infrastructure other than databases.'
+description: 'Provisions and migrates Fusion Azure SQL databases with finf. USE FOR: SQL migrations, PR databases, database state, GitHub Actions/Azure DevOps pipelines and failures. DO NOT USE FOR: EF Core/app code (use fusion-developer-service), roles (use fusion-roles-cli), service deployment, non-database infrastructure, exposed secrets or destructive changes without confirmation.'
 license: MIT
 compatibility: >
   Requires finf installed as a .NET global tool from the Fusion-Public NuGet feed (.NET 8+ SDK).
   Requires Azure CLI login (az login), a pipeline Azure login, or an explicit token via -t.
 metadata:
-  version: "0.1.0"
+  version: "0.1.1"
   status: active
   owner: "@equinor/fusion-core"
   tags:

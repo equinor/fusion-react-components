@@ -1,9 +1,9 @@
 ---
 name: fusion-rule-author
-description: 'Support skill providing the workflow, templates, and references for AI coding assistant rule authoring. Invoked by fusion-rules gateway agents — not intended for direct use.'
+description: 'Serves only internal fusion-rules agents with shared workflow, templates and references. USE FOR: explicitly delegated support after conventions interview. DO NOT USE FOR: starting, creating or reviewing editor rules (use fusion-rules).'
 license: MIT
 metadata:
-  version: "0.1.3"
+  version: "0.1.4"
   status: active
   owner: "@equinor/fusion-core"
   role: support

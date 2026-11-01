@@ -1,10 +1,10 @@
 ---
 name: fusion-help-integration
-description: 'Wires Fusion Help Center into app pages — creates article slug constants, adds useHelpCenter hook, and connects PageLayout props so users can open contextual help articles. USE FOR: add help button to page, wire useHelpCenter, create helpArticles constants, integrate Fusion Help in app, connect PageLayout to help center, add openHelpArticle to page. DO NOT USE FOR: authoring markdown help articles (use fusion-help-docs), direct Help REST API calls (use fusion-help-api), modifying @fra/ui shared components.'
+description: 'Wires Fusion Help Center into monorepo app pages. USE FOR: help button, useHelpCenter, helpArticles constants and PageLayout openHelpArticle. DO NOT USE FOR: Markdown authoring (use fusion-help-docs), REST calls (use fusion-help-api), @fra/ui changes, non-Fusion-framework apps or apps outside this monorepo.'
 license: MIT
 compatibility: Requires @equinor/fusion-framework-react-app with help-center subpath export. Requires @fra/ui PageLayout component.
 metadata:
-  version: "0.0.2"
+  version: "0.0.3"
   status: active
   owner: "@equinor/fusion-core"
   tags:

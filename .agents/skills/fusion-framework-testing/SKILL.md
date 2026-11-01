@@ -1,10 +1,10 @@
 ---
 name: fusion-framework-testing
-description: 'Guides writing and running Vitest tests for Fusion Framework React apps with @equinor/fusion-framework-vitest-plugin-react-app — choosing a testing layer, configuring vitest.config.ts and Browser Mode, rendering with test/render/renderAppHook/renderAppComponent/testApp fixtures, troubleshooting or migrating a suite, plus when and how to add behavior-driven Playwright journeys. USE FOR: writing a new app/component/hook test, setting up vitest.config.ts for a Fusion app, choosing between app/framework/module/HTTP test layers, composing or overriding test fixtures, diagnosing a failing Fusion app test, writing a Playwright user journey, handling visual baselines. DO NOT USE FOR: seeding module-specific mock state (auth, context, bookmarks, feature flags, HTTP) — use fusion-framework-mocking; dev-server-time API mocking/proxying (use fusion-developer-app); non-Fusion test suites; backend/service-repo tests.'
+description: 'Guides Fusion React Vitest and Browser Mode tests with @equinor/fusion-framework-vitest-plugin-react-app. USE FOR: app/component/hook tests, vitest.config.ts, render fixtures, failing suites, Playwright journeys, visual baselines. DO NOT USE FOR: module mock state (use fusion-framework-mocking), dev-server API mocks (use fusion-developer-app), non-Fusion suites or backend tests.'
 license: MIT
 compatibility: Requires a Fusion Framework React app. Rendering helpers need vitest, playwright, @vitest/browser-playwright, vitest-browser-react, and @equinor/fusion-framework-vitest-plugin-react-app as dev dependencies, plus `playwright install chromium`. React, React DOM, RxJS, and Vite are peer dependencies a Fusion app normally already provides.
 metadata:
-  version: "0.2.0"
+  version: "0.2.1"
   status: experimental
   owner: "@equinor/fusion-core"
   skills:

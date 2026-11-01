@@ -1,12 +1,12 @@
 ---
 name: fusion-roles-cli
-description: 'Deploy and manage Fusion Roles V2 configuration using the fusion-roles-cli (froles). USE FOR: deploy role config from a JSON file, create roles/bindings/assignments, export current role state, inspect role assignments. DO NOT USE FOR: database provisioning, application code changes, Azure AD group management outside role bindings, or Roles V1 management.'
+description: 'Manages Fusion Roles V2 config with froles. USE FOR: JSON role deployment, bindings, assignments, dry-run, assignment inspection and state export. DO NOT USE FOR: databases (use fusion-infra-cli), app code, Azure AD groups outside bindings, Roles V1 or exposed tokens.'
 license: MIT
 compatibility: >
   Requires froles installed as a .NET global tool from the Fusion-Public NuGet feed.
   Requires Azure CLI login (az login) or explicit token via -t flag.
 metadata:
-  version: "0.0.2"
+  version: "0.0.3"
   status: active
   owner: "@equinor/fusion-core"
   tags:

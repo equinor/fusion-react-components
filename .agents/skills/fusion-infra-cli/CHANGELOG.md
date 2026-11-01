@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.1.1 - 2026-11-01
+
+### patch
+
+- [#372](https://github.com/equinor/fusion-skills/pull/372) [`61c8e4b`](https://github.com/equinor/fusion-skills/commit/61c8e4bba4f71a2cf00e83c73e32e992460e1e69) - Shorten discovery wording while keeping finf database provisioning, SQL migrations, PR databases and pipeline triggers, distinct from application code and role bindings. Keep secret-exposure and unconfirmed-destructive-change exclusions.
+
+
+  resolves equinor/fusion-core-tasks#2673
+
 ## 0.1.0 - 2026-10-13
 
 ### minor
