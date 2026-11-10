@@ -1,10 +1,10 @@
 ---
 name: fusion-dependency-review
-description: 'Review dependency PRs with structured research, existing-PR-discussion capture, multi-lens analysis (security, code quality, impact), and a repeatable verdict template. USE FOR: dependency update PRs, Renovate/Dependabot PRs, library upgrade reviews, "review this dependency PR", "should we merge this update". DO NOT USE FOR: feature PRs, application code reviews, dependency automation/bot configuration, or unattended merge without confirmation.'
+description: 'Reviews dependency PRs using existing PR discussion, security, code-quality and impact research, and a repeatable verdict. USE FOR: dependency update PRs, Renovate/Dependabot PRs, library upgrades, "should we merge this update". DO NOT USE FOR: feature PRs or code reviews, dependency bot configuration, or merging without confirmation.'
 license: MIT
 compatibility: Requires GitHub MCP server for PR context. Uses fusion-issue-authoring for follow-up handoff when post-merge work is identified.
 metadata:
-  version: "0.2.1"
+  version: "0.4.1"
   status: experimental
   owner: "@equinor/fusion-core"
   skills:
@@ -94,7 +94,7 @@ Keep the lens advisors narrow and independent. The parent skill owns the unified
 3. Run `agents/security-advisor.md`, `agents/code-quality-advisor.md`, and `agents/impact-advisor.md` in parallel with the same normalized research packet.
 4. Use `agents/verdict-advisor.md` to produce recommendation, confidence, readiness, follow-up, and explicit maintainer prompt.
 5. Use `agents/source-control-advisor.md` only after verdict is accepted and only when branch work is required.
-6. Follow `references/instructions.md` for detailed live-PR contract: target selection, checkpoint comments, decision gates, and handoff timing.
+6. Follow `references/instructions.md` for the interactive live-PR contract: target selection, checkpoint comments, decision gates, and handoff timing.
 
 ### Human-first output
 
@@ -103,6 +103,16 @@ Maintainers read the research checkpoint and verdict comments to decide whether 
 - A banner naming the agent, tool, model, and reasoning effort reported by the runtime (never guessed), then a quoted TL;DR (`> **TL;DR:**`) with the verdict and the ask.
 - Short prose for the reasoning that matters. Recommendation, confidence, readiness, blockers, risks, follow-ups, and the confirmation prompt stay visible.
 - Lens analysis, changelog excerpts, and research notes fold under **Details**; skills, references, and sources fold last under **References and evidence**.
+
+### Unattended runs
+
+Route by run type:
+
+- **Interactive** (maintainer present): live-PR checkpoint and verdict comments, confirmations and gates below apply.
+- **Host-assigned** (unattended): use [unattended updates](references/unattended-updates.md). Calling host owns
+  confirmation gates, Git workflow, PR comments and publication. Post checkpoint/verdict comments only when host
+  requires and authorises them; missing comment permission doesn't block host-authorised local work.
+  The reference grants no mutation authority.
 
 ## Assets
 
@@ -116,7 +126,9 @@ No renderer ships with the skill; `assets/review-tracker.md` stays Markdown.
 
 ## References
 
+- `references/unattended-updates.md`: stack-neutral warm-up, targeted regeneration, bounded research, verdicts and maintainer summaries for host-assigned updates
 - `references/instructions.md`: detailed execution contract for target selection, live-PR checkpoints, and decision sequencing
+- `references/upgrade-migration.md`: upgrade guide, migration tooling, finding fixes, narrow suppressions, and new-default decisions when an upgrade needs code or config changes
 - `references/questions.md`: concise follow-up questions for choosing the target dependency PR and scoping the review
 
 ## Advisors
@@ -148,6 +160,7 @@ If the PR target is resolved, return a structured review containing:
 - Code quality assessment with evidence
 - Impact assessment with evidence
 - Verdict: recommendation, rationale, confidence, readiness, and follow-up items
+- Migration steps when the upgrade needed adaptation: upgrade guide, migration command, findings fixed, suppressions added with reasons, decisions deferred
 - Handoff recommendation when follow-up work should become a tracked issue
 - Explicit action prompt for the maintainer
 
@@ -160,12 +173,14 @@ Never:
 - Merge or approve a dependency PR without explicit user confirmation
 - Create a merge commit by merging the base branch into a Dependabot or Renovate PR branch
 - Guess which PR to review when multiple plausible dependency PRs exist
-- Skip the research checkpoint comment or final verdict comment on a live PR
+- Skip the research checkpoint comment or final verdict comment on a live PR in an interactive run
 - Ignore existing reviewer concerns because they are inconvenient or duplicative
 - Claim CI passed or security is clear without checking actual status
 - Expose secrets or tokens in comments or logs
 - Dismiss security concerns for convenience
 - Fabricate changelog entries or version details not found in sources
+- Downgrade or disable rules repository-wide, add glob/path overrides that weaken checks, or remove CI checks just to get CI green
+- Silently adopt or reject behaviour a tool newly enables by default
 
 Always:
 
@@ -174,13 +189,14 @@ Always:
 - Assess technical recommendation, evidence confidence, and mechanical merge readiness independently
 - Treat pending checks or required approval as readiness gates, not technical reasons to hold
 - Require explicit compatibility evidence for major updates without treating semver category alone as low confidence
+- When an upgrade is not a pure patch, reports breaking changes, or needs code/config changes: read upstream upgrade guide, run documented migration tooling first, fix new findings in code, use only narrow inline-justified suppressions, and report migration steps in the verdict (`references/upgrade-migration.md`)
 - List candidate dependency PRs for user selection when repository context exists but the PR target does not
 - Fetch existing PR comments and review threads via GitHub MCP before analysis on a live PR
 - Reuse one shared research packet across advisors instead of rediscovering the same facts in each pass — this includes PR metadata, changed files, CI status, and existing discussion
 - Do not re-fetch PR comments or review threads independently in each advisor; pass the pre-fetched data from the research advisor to all lens advisors
 - Prefer parallel lens analysis when the runtime supports it, then chain synthesis after all lens outputs are ready
-- Post the research checkpoint comment to the PR before any branch mutation on a live PR
-- Post the final verdict comment to the PR before any approval or merge on a live PR
+- Post the research checkpoint comment to the PR before any branch mutation on a live PR in an interactive run
+- Post the final verdict comment to the PR before any approval or merge on a live PR in an interactive run
 - Make branch-sync or rebase needs explicit before patching the PR
 - Rebase dependency PR branches onto the latest base branch when refresh is required; do not merge the base branch into the PR branch
 - Make follow-up work explicit rather than burying it in review notes

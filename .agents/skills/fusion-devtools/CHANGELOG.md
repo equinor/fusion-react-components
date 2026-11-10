@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.1.3 - 2026-11-01
+
+### patch
+
+- [#372](https://github.com/equinor/fusion-skills/pull/372) [`61c8e4b`](https://github.com/equinor/fusion-skills/commit/61c8e4bba4f71a2cf00e83c73e32e992460e1e69) - Shorten discovery wording while keeping fdev API testing, JSON tokens, service discovery, person lookup and PIM activation, distinct from backend code and infrastructure. Keep token/secret exposure and unconfirmed PIM activation excluded.
+
+
+  resolves equinor/fusion-core-tasks#2673
+
 ## 0.1.2 - 2026-10-13
 
 ### patch

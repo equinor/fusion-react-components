@@ -1,10 +1,10 @@
 ---
 name: fusion-github-review-resolution
-description: "Resolves unresolved GitHub PR review threads end-to-end: evaluates whether each review comment is correct, applies a targeted fix when valid, replies with rationale when not, commits, and resolves the thread. USE FOR: unresolved review threads, PR review feedback, changes requested PRs, PR review URLs (#pullrequestreview-...), fix the review comments, close the open threads, address PR feedback. DO NOT USE FOR: summarizing feedback without code changes, creating new PRs, or read-only branches."
+description: 'Resolves GitHub PR review threads by judging feedback, fixing valid concerns and replying before resolution. USE FOR: unresolved review threads, changes requested, fix review comments, PR review URLs (#pullrequestreview-...). DO NOT USE FOR: feedback summaries, new PRs, dependency verdicts (use fusion-dependency-review), read-only branches or unconfirmed mutations.'
 license: MIT
 compatibility: Requires GitHub MCP server or gh CLI, and git.
 metadata:
-   version: "0.2.1"
+   version: "0.2.3"
    status: experimental
    owner: "@equinor/fusion-core"
    skills:

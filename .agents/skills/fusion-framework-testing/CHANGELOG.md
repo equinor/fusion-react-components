@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.2.1 - 2026-11-01
+
+### patch
+
+- [#363](https://github.com/equinor/fusion-skills/pull/363) [`f34c0d9`](https://github.com/equinor/fusion-skills/commit/f34c0d9dc7de15e59ec643407914e98ad8288245) - Shorten test-runner description while retaining Vitest, Browser Mode, render fixtures, Playwright journeys and visual baselines. Keep module-state and dev-server mock handoffs.
+
+
+  resolves equinor/fusion-core-tasks#2672
+
 ## 0.2.0 - 2026-10-18
 
 ### minor

@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.5.1 - 2026-11-01
+
+### patch
+
+- [#363](https://github.com/equinor/fusion-skills/pull/363) [`f34c0d9`](https://github.com/equinor/fusion-skills/commit/f34c0d9dc7de15e59ec643407914e98ad8288245) - Shorten app feature-development description while retaining React Query, integration tests, dev-server API mocks and explicit test setup/module-mock handoffs.
+
+
+  resolves equinor/fusion-core-tasks#2672
+
 ## 0.5.0 - 2026-10-18
 
 ### minor

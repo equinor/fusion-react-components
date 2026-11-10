@@ -1,12 +1,12 @@
 ---
 name: fusion-core-services
-description: 'Guides integrations across Fusion Core service APIs from a single installable skill. USE FOR: service discovery across apps, people, context, roles, notifications, reports, tasks, and other Fusion Core APIs; cross-service integration planning; choosing the right endpoint/model guidance for a workflow. DO NOT USE FOR: modifying Fusion backend source code, non-Fusion APIs, or generic cloud architecture work without a Fusion service integration target.'
+description: 'Guides existing Fusion Core API integrations. USE FOR: service discovery, endpoint and model selection for clients and cross-service workflows. DO NOT USE FOR: backend code changes (use fusion-developer-service), non-Fusion APIs or generic cloud architecture.'
 license: MIT
 compatibility: Works best with a web-fetch tool to read live, public OpenAPI documents
   (`https://{service}.api.fusion.equinor.com/openapi/api-v{version}.json`, no JWT required) as the
   source of truth for exact schema/type names, rather than relying solely on the bundled snapshots.
 metadata:
-  version: "0.0.3"
+  version: "0.0.4"
   status: experimental
   owner: "@equinor/fusion-core"
   tags:
