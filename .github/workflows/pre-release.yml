@@ -22,7 +22,7 @@ jobs:
           fetch-depth: 0
 
       - name: Setup node and install deps
-        uses: ./.github/workflows/actions/node-setup
+        uses: $/.github/workflows/actions/node-setup
 
       - name: Config git user
         run: |
@@ -30,6 +30,6 @@ jobs:
           git config --global user.email "${{ github.actor }}@users.noreply.github.com"
 
       - name: Create snapshot
-        uses: ./.github/workflows/actions/changeset-snapshot
+        uses: $/.github/workflows/actions/changeset-snapshot
         with:
           tag: ${{ inputs.tag }}

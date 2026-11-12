@@ -37,7 +37,7 @@ jobs:
           echo "Using tag from pre.json: $TAG"
 
       - name: Setup node and install deps
-        uses: ./.github/workflows/actions/node-setup
+        uses: $/.github/workflows/actions/node-setup
 
       - name: Create Release Pull Request or Publish to npm
         id: changesets
