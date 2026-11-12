@@ -1,5 +1,5 @@
 lockfile_version: '2'
-generated_at: '2026-10-25T08:34:48.315526+00:00'
+generated_at: '2026-11-12T09:59:49.743322+00:00'
 apm_version: 0.33.0
 dependencies:
 - repo_url: equinor/fusion-skills
@@ -558,42 +558,6 @@ dependencies:
   constraint: ^1.9.0
   resolved_tag: v1.11.1
   resolved_at: '2026-10-25T08:34:42+00:00'
-- repo_url: equinor/fusion-skills
-  name: fusion-rule-author
-  host: github.com
-  resolved_commit: 33e00fe2ea82b7bff67942c024f44cc9786137bb
-  resolved_ref: v1.11.1
-  version: 1.11.1
-  virtual_path: skills/.system/fusion-rule-author
-  is_virtual: true
-  package_type: claude_skill
-  deployed_files:
-  - .agents/skills/fusion-rule-author
-  - .agents/skills/fusion-rule-author/CHANGELOG.md
-  - .agents/skills/fusion-rule-author/SKILL.md
-  - .agents/skills/fusion-rule-author/assets/claude-rule-template.md.hbs
-  - .agents/skills/fusion-rule-author/assets/copilot-instructions-template.md.hbs
-  - .agents/skills/fusion-rule-author/assets/creation-follow-up.md
-  - .agents/skills/fusion-rule-author/assets/cursor-rule-template.md.hbs
-  - .agents/skills/fusion-rule-author/assets/frontmatter-scenarios.md
-  - .agents/skills/fusion-rule-author/assets/quality-checklist.md
-  - .agents/skills/fusion-rule-author/assets/scoped-rule-template.md.hbs
-  - .agents/skills/fusion-rule-author/references/examples.md
-  deployed_file_hashes:
-    .agents/skills/fusion-rule-author/CHANGELOG.md: sha256:53332355523b32dcb3df7463a1b8373ac26aae698699e461defe7a3a8a982a5b
-    .agents/skills/fusion-rule-author/SKILL.md: sha256:24be4953b8c8356429152216214cc85f083a3d4c10d5164eeb8f06c0eddbcd14
-    .agents/skills/fusion-rule-author/assets/claude-rule-template.md.hbs: sha256:803fe187c5867cd46edf0ca39846f52ce3b752fe6df3280d744094cdf651890c
-    .agents/skills/fusion-rule-author/assets/copilot-instructions-template.md.hbs: sha256:e80861d1cb19dd069cc0539171dbc0a82cd72963bcaf0bf3f1ca4bf00f4702d5
-    .agents/skills/fusion-rule-author/assets/creation-follow-up.md: sha256:274de2a06dddb3e58bb04e1c8aa82f0d08a3fb4b1e542048a291d1446d8d5a20
-    .agents/skills/fusion-rule-author/assets/cursor-rule-template.md.hbs: sha256:9f4b6f885823570369441500f8b23520c6dcbbb1b10a0b37f48186b4e5710be4
-    .agents/skills/fusion-rule-author/assets/frontmatter-scenarios.md: sha256:3dcacc5986158c2c9a4a245221c238c760fa88a5aff963ab6699fed866c8222f
-    .agents/skills/fusion-rule-author/assets/quality-checklist.md: sha256:429f8671ba3f08234f15e7df6fb98a477fc148299198f3c4996c488b552f9461
-    .agents/skills/fusion-rule-author/assets/scoped-rule-template.md.hbs: sha256:935140e2d774f75391f8f576bfda477c1e7e80e1a18ddc571007a2fb73347cc0
-    .agents/skills/fusion-rule-author/references/examples.md: sha256:f0d6691ab828e34093d05c517506c4fc0e3bb3445f276b42a249820d766fbbf9
-  content_hash: sha256:df3934347dd7f495d467f52d7ba20b7c547ec8039c6549c6efe8d9152e0160e7
-  constraint: ^1.9.0
-  resolved_tag: v1.11.1
-  resolved_at: '2026-10-25T08:34:43+00:00'
 - repo_url: equinor/fusion-skills
   name: fusion
   host: github.com
@@ -3843,105 +3807,6 @@ deployments:
   - equinor/fusion-skills/skills/fusion-roles-cli
   active_owner: equinor/fusion-skills/skills/fusion-roles-cli
   content_hash: sha256:bac8cce949b3c9598b539d48a1dd48cab76c02abc635d315d8d07cd6e265874b
-- kind: project-relative
-  target: copilot
-  value: .agents/skills/fusion-rule-author
-  runtime: null
-  scope: project
-  owners:
-  - equinor/fusion-skills/skills/.system/fusion-rule-author
-  active_owner: equinor/fusion-skills/skills/.system/fusion-rule-author
-  content_hash: null
-- kind: project-relative
-  target: copilot
-  value: .agents/skills/fusion-rule-author/CHANGELOG.md
-  runtime: null
-  scope: project
-  owners:
-  - equinor/fusion-skills/skills/.system/fusion-rule-author
-  active_owner: equinor/fusion-skills/skills/.system/fusion-rule-author
-  content_hash: sha256:53332355523b32dcb3df7463a1b8373ac26aae698699e461defe7a3a8a982a5b
-- kind: project-relative
-  target: copilot
-  value: .agents/skills/fusion-rule-author/SKILL.md
-  runtime: null
-  scope: project
-  owners:
-  - equinor/fusion-skills/skills/.system/fusion-rule-author
-  active_owner: equinor/fusion-skills/skills/.system/fusion-rule-author
-  content_hash: sha256:24be4953b8c8356429152216214cc85f083a3d4c10d5164eeb8f06c0eddbcd14
-- kind: project-relative
-  target: copilot
-  value: .agents/skills/fusion-rule-author/assets/claude-rule-template.md.hbs
-  runtime: null
-  scope: project
-  owners:
-  - equinor/fusion-skills/skills/.system/fusion-rule-author
-  active_owner: equinor/fusion-skills/skills/.system/fusion-rule-author
-  content_hash: sha256:803fe187c5867cd46edf0ca39846f52ce3b752fe6df3280d744094cdf651890c
-- kind: project-relative
-  target: copilot
-  value: .agents/skills/fusion-rule-author/assets/copilot-instructions-template.md.hbs
-  runtime: null
-  scope: project
-  owners:
-  - equinor/fusion-skills/skills/.system/fusion-rule-author
-  active_owner: equinor/fusion-skills/skills/.system/fusion-rule-author
-  content_hash: sha256:e80861d1cb19dd069cc0539171dbc0a82cd72963bcaf0bf3f1ca4bf00f4702d5
-- kind: project-relative
-  target: copilot
-  value: .agents/skills/fusion-rule-author/assets/creation-follow-up.md
-  runtime: null
-  scope: project
-  owners:
-  - equinor/fusion-skills/skills/.system/fusion-rule-author
-  active_owner: equinor/fusion-skills/skills/.system/fusion-rule-author
-  content_hash: sha256:274de2a06dddb3e58bb04e1c8aa82f0d08a3fb4b1e542048a291d1446d8d5a20
-- kind: project-relative
-  target: copilot
-  value: .agents/skills/fusion-rule-author/assets/cursor-rule-template.md.hbs
-  runtime: null
-  scope: project
-  owners:
-  - equinor/fusion-skills/skills/.system/fusion-rule-author
-  active_owner: equinor/fusion-skills/skills/.system/fusion-rule-author
-  content_hash: sha256:9f4b6f885823570369441500f8b23520c6dcbbb1b10a0b37f48186b4e5710be4
-- kind: project-relative
-  target: copilot
-  value: .agents/skills/fusion-rule-author/assets/frontmatter-scenarios.md
-  runtime: null
-  scope: project
-  owners:
-  - equinor/fusion-skills/skills/.system/fusion-rule-author
-  active_owner: equinor/fusion-skills/skills/.system/fusion-rule-author
-  content_hash: sha256:3dcacc5986158c2c9a4a245221c238c760fa88a5aff963ab6699fed866c8222f
-- kind: project-relative
-  target: copilot
-  value: .agents/skills/fusion-rule-author/assets/quality-checklist.md
-  runtime: null
-  scope: project
-  owners:
-  - equinor/fusion-skills/skills/.system/fusion-rule-author
-  active_owner: equinor/fusion-skills/skills/.system/fusion-rule-author
-  content_hash: sha256:429f8671ba3f08234f15e7df6fb98a477fc148299198f3c4996c488b552f9461
-- kind: project-relative
-  target: copilot
-  value: .agents/skills/fusion-rule-author/assets/scoped-rule-template.md.hbs
-  runtime: null
-  scope: project
-  owners:
-  - equinor/fusion-skills/skills/.system/fusion-rule-author
-  active_owner: equinor/fusion-skills/skills/.system/fusion-rule-author
-  content_hash: sha256:935140e2d774f75391f8f576bfda477c1e7e80e1a18ddc571007a2fb73347cc0
-- kind: project-relative
-  target: copilot
-  value: .agents/skills/fusion-rule-author/references/examples.md
-  runtime: null
-  scope: project
-  owners:
-  - equinor/fusion-skills/skills/.system/fusion-rule-author
-  active_owner: equinor/fusion-skills/skills/.system/fusion-rule-author
-  content_hash: sha256:f0d6691ab828e34093d05c517506c4fc0e3bb3445f276b42a249820d766fbbf9
 - kind: project-relative
   target: copilot
   value: .agents/skills/fusion-rules
