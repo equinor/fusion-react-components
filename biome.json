@@ -78,15 +78,5 @@
       "attributePosition": "auto",
       "bracketSpacing": true
     }
-  },
-  "overrides": [
-    {
-      "includes": ["**/*.test.ts", "**/*.test.tsx"],
-      "linter": {
-        "rules": {
-          "correctness": { "noComponentHookFactories": "off" }
-        }
-      }
-    }
-  ]
+  }
 }

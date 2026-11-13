@@ -53,6 +53,7 @@ describe('StylesProvider - Styling scope isolation', () => {
     // WHAT: StylesProvider provides JSS instance and class name generator via context
     // WHY: Child components need this to generate styles
 
+    // biome-ignore lint/correctness/noComponentHookFactories: test fixture closes over per-test values
     const TestComponent = () => {
       const context = useContext(StylesContext);
       // Verify context has all required properties
@@ -75,6 +76,7 @@ describe('StylesProvider - Styling scope isolation', () => {
 
     const customGenerate = createGenerateClassName('custom');
 
+    // biome-ignore lint/correctness/noComponentHookFactories: test fixture closes over per-test values
     const TestComponent = () => {
       const context = useContext(StylesContext);
       // Verify custom generator is used
@@ -94,6 +96,7 @@ describe('StylesProvider - Styling scope isolation', () => {
     // WHY: Critical for preventing CSS collisions when modules share same style names
     // EXAMPLE: Module A and Module B both use "root" class - with seeds they become "moduleA-root-1" and "moduleB-root-1"
 
+    // biome-ignore lint/correctness/noComponentHookFactories: test fixture closes over per-test values
     const TestComponent = () => {
       const context = useContext(StylesContext);
       const className = context.generateClassName({ key: 'test' });
@@ -116,6 +119,7 @@ describe('StylesProvider - Styling scope isolation', () => {
     const { create } = await import('jss');
     const customJss = create();
 
+    // biome-ignore lint/correctness/noComponentHookFactories: test fixture closes over per-test values
     const TestComponent = () => {
       const context = useContext(StylesContext);
       // Verify custom JSS instance is used
@@ -137,6 +141,7 @@ describe('StylesProvider - Styling scope isolation', () => {
 
     const parentGenerate = createGenerateClassName('parent');
 
+    // biome-ignore lint/correctness/noComponentHookFactories: test fixture closes over per-test values
     const TestComponent = () => {
       const context = useContext(StylesContext);
       // Child inherits parent's generator
@@ -159,6 +164,7 @@ describe('StylesProvider - Styling scope isolation', () => {
 
     const customSheetsManager = new Map();
 
+    // biome-ignore lint/correctness/noComponentHookFactories: test fixture closes over per-test values
     const TestComponent = () => {
       const context = useContext(StylesContext);
       // Verify custom manager is used
@@ -193,6 +199,7 @@ describe('StylesProvider - Styling scope isolation', () => {
     const useStyles1 = makeStyles(sharedStyles, { name: 'Component1' });
     const useStyles2 = makeStyles(sharedStyles, { name: 'Component2' });
 
+    // biome-ignore lint/correctness/noComponentHookFactories: test fixture closes over per-test values
     const Component1 = () => {
       const classes = useStyles1({});
       return (
@@ -202,6 +209,7 @@ describe('StylesProvider - Styling scope isolation', () => {
       );
     };
 
+    // biome-ignore lint/correctness/noComponentHookFactories: test fixture closes over per-test values
     const Component2 = () => {
       const classes = useStyles2({});
       return (
@@ -266,6 +274,7 @@ describe('StylesProvider - Styling scope isolation', () => {
     const useOuterStyles = makeStyles(styles, { name: 'OuterComponent' });
     const useInnerStyles = makeStyles(styles, { name: 'InnerComponent' });
 
+    // biome-ignore lint/correctness/noComponentHookFactories: test fixture closes over per-test values
     const InnerComponent = () => {
       const classes = useInnerStyles({});
       return (
@@ -275,6 +284,7 @@ describe('StylesProvider - Styling scope isolation', () => {
       );
     };
 
+    // biome-ignore lint/correctness/noComponentHookFactories: test fixture closes over per-test values
     const OuterComponent = () => {
       const classes = useOuterStyles({});
       return (
@@ -336,6 +346,7 @@ describe('StylesProvider - Styling scope isolation', () => {
     const useBaseStyles = makeStyles(baseStyles, { name: 'BaseComponent' });
     const useDynamicStyles = makeStyles(baseStyles, { name: 'DynamicComponent' });
 
+    // biome-ignore lint/correctness/noComponentHookFactories: test fixture closes over per-test values
     const BaseComponent = () => {
       const classes = useBaseStyles({});
       return (
@@ -350,6 +361,7 @@ describe('StylesProvider - Styling scope isolation', () => {
       );
     };
 
+    // biome-ignore lint/correctness/noComponentHookFactories: test fixture closes over per-test values
     const DynamicComponent = () => {
       const classes = useDynamicStyles({});
       return (
