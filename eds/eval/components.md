@@ -4,6 +4,7 @@ These queries test whether the EDS index surfaces accurate component documentati
 when developers ask about EDS React component usage, props, patterns, and examples.
 
 When judging results, verify that:
+
 - Results reference `@equinor/eds-core-react` as the component package.
 - Props tables include correct prop names, types, and defaults — not invented values.
 - Code examples use the correct import path and valid JSX patterns.

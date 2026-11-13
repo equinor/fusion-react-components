@@ -4,6 +4,7 @@ These queries test whether the EDS index surfaces accurate design token informat
 when developers ask about CSS variables, color values, spacing, and sizing tokens.
 
 When judging results, verify that:
+
 - Returned CSS variable names are real `--eds-*` tokens, not invented names.
 - Token values match the actual theme (light vs dark) referenced in the query.
 - Results distinguish between light and dark theme tokens when relevant.

@@ -1,10 +1,10 @@
 name: Pre-release
 
-on: 
+on:
   workflow_dispatch:
     inputs:
       tag:
-        description: 'Realse tag (PR)'     
+        description: "Realse tag (PR)"
         required: true
 
 permissions:

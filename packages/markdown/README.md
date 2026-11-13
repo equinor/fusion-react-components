@@ -8,6 +8,7 @@
 [Fusion Web Component](https://equinor.github.io/fusion-web-components/?path=/docs/input-markdown-editor--basic)
 
 ### Installation
+
 ```sh
 npm install @equinor/fusion-react-markdown
 ```
@@ -19,28 +20,35 @@ npm install @equinor/fusion-react-markdown
 ```tsx
 import { MarkdownEditor } from '@equinor/fusion-react-markdown';
 
-<MarkdownEditor props>
-  **some** markdown *text*
-</MarkdownEditor>
+<MarkdownEditor props>**some** markdown *text*</MarkdownEditor>;
 ```
 
 #### Usage
+
 ```tsx
 import { MarkdownEditor } from '@equinor/fusion-react-markdown';
 
-const markdown = "# my heading here";
-<MarkdownEditor value={markdown} onInput={(e)=>{console.log(e.target._value)}} change={console.log} />
+const markdown = '# my heading here';
+<MarkdownEditor
+  value={markdown}
+  onInput={(e) => {
+    console.log(e.target._value);
+  }}
+  change={console.log}
+/>;
 ```
 
 #### Properties/Attributes
-| Name | Type | Default | Description
-| ---- | ---- | ------- | -----------
-| `menuItems` | `Array<MdMenuItemType>*` | `['strong', 'em', 'bullet_list', 'ordered_list']` | List of visible menu buttons
-| `minHeight` | `string` | `''` | Markdown Editor minimum height
-| `value` | `string` | `''` | Markdown editors value
-| `menuSize` | `MenuSizes**` | `'medium'` | Size of the menu buttons
 
-\*  `Array<MdMenuItemType>` is list of showing visible menu buttons available as `MdMenuItemType`.
+| Name        | Type                     | Default                                           | Description                    |
+| ----------- | ------------------------ | ------------------------------------------------- | ------------------------------ |
+| `menuItems` | `Array<MdMenuItemType>*` | `['strong', 'em', 'bullet_list', 'ordered_list']` | List of visible menu buttons   |
+| `minHeight` | `string`                 | `''`                                              | Markdown Editor minimum height |
+| `value`     | `string`                 | `''`                                              | Markdown editors value         |
+| `menuSize`  | `MenuSizes**`            | `'medium'`                                        | Size of the menu buttons       |
+
+\* `Array<MdMenuItemType>` is list of showing visible menu buttons available as `MdMenuItemType`.
+
 ```ts
 type MdMenuItemType =
   | 'strong'
@@ -56,7 +64,8 @@ type MdMenuItemType =
   | 'tx';
 ```
 
-\*  `MenuSizes` type imported from markdown component.
+\* `MenuSizes` type imported from markdown component.
+
 ```ts
 type MenuSizes = 'small' | 'medium' | 'large';
 ```

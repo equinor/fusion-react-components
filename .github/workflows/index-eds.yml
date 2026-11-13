@@ -54,21 +54,21 @@ on:
   workflow_dispatch:
     inputs:
       eds_ref:
-        description: 'EDS git ref to build (tag, branch, or commit SHA)'
+        description: "EDS git ref to build (tag, branch, or commit SHA)"
         type: string
         default: main
       clean:
-        description: 'Delete existing embeddings before indexing'
+        description: "Delete existing embeddings before indexing"
         type: boolean
         default: false
       environment:
-        description: 'GitHub environment with Azure credentials'
+        description: "GitHub environment with Azure credentials"
         type: string
         required: true
 
   schedule:
     # Every Monday 06:00 UTC — check for new EDS releases
-    - cron: '0 6 * * 1'
+    - cron: "0 6 * * 1"
 
 env:
   EDS_REPO: equinor/design-system

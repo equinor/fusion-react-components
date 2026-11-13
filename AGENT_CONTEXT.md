@@ -93,11 +93,11 @@ remain available in Git. Reconcile that inventory before removing the lock or ol
 
 The following 26 entries are retained as explicit APM dependencies at their upstream paths:
 
-| Upstream directory | Retained entries |
-| --- | --- |
-| `skills/` | `fusion`, `fusion-developer-app`, `fusion-developer-portal`, `fusion-devtools`, `fusion-help-api`, `fusion-help-docs`, `fusion-help-integration`, `fusion-infra-cli`, `fusion-issue-authoring`, `fusion-roles-cli`, `fusion-rules`, `fusion-skill-authoring`, `fusion-skills` |
-| `skills/.system/` | `equinor-design-system`, `fusion-code-conventions`, `fusion-research` |
-| `skills/.experimental/` | `fusion-core-services`, `fusion-dependency-review`, `fusion-design`, `fusion-framework-testing`, `fusion-github-review-resolution`, `fusion-issue-solving`, `fusion-issue-task-planning`, `fusion-mcp`, `fusion-package-scribe`, `fusion-pm-mcp` |
+| Upstream directory      | Retained entries                                                                                                                                                                                                                                                              |
+| ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `skills/`               | `fusion`, `fusion-developer-app`, `fusion-developer-portal`, `fusion-devtools`, `fusion-help-api`, `fusion-help-docs`, `fusion-help-integration`, `fusion-infra-cli`, `fusion-issue-authoring`, `fusion-roles-cli`, `fusion-rules`, `fusion-skill-authoring`, `fusion-skills` |
+| `skills/.system/`       | `equinor-design-system`, `fusion-code-conventions`, `fusion-research`                                                                                                                                                                                                         |
+| `skills/.experimental/` | `fusion-core-services`, `fusion-dependency-review`, `fusion-design`, `fusion-framework-testing`, `fusion-github-review-resolution`, `fusion-issue-solving`, `fusion-issue-task-planning`, `fusion-mcp`, `fusion-package-scribe`, `fusion-pm-mcp`                              |
 
 Despite its non-Fusion name, **equinor-design-system is supplied by equinor/fusion-skills**
 at `skills/.system/equinor-design-system`, not by a different EDS repository.
@@ -106,13 +106,13 @@ between the legacy deployment and the initial APM release.
 
 The remaining five legacy entries are intentionally mapped rather than reinstalled:
 
-| Legacy entry | Reconciliation |
-| --- | --- |
-| `fusion-backend-dev` | Deprecated upstream. Its client/API-consumption role is retained through `fusion-core-services` and `fusion-research`. Backend implementation remains outside this component repository; do not add the backend development preset. |
-| `fusion-framework-feature-toggling` | Already absent from deployed files. Its replacement chain ends at retained `fusion-developer-app`. |
-| `fusion-issue-author-feature` | Already absent from deployed files. Retained `fusion-issue-authoring` owns feature issue authoring. |
-| `fusion-issue-author-user-story` | Already absent from deployed files. Retained `fusion-issue-authoring` owns user-story authoring. |
-| `fusion-rule-author` | Deprecated upstream in Fusion Skills v1.16.0 and moved out of `skills/.system/`, so the declaration no longer resolved. Retained `fusion-rules` owns rule authoring. |
+| Legacy entry                        | Reconciliation                                                                                                                                                                                                                      |
+| ----------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `fusion-backend-dev`                | Deprecated upstream. Its client/API-consumption role is retained through `fusion-core-services` and `fusion-research`. Backend implementation remains outside this component repository; do not add the backend development preset. |
+| `fusion-framework-feature-toggling` | Already absent from deployed files. Its replacement chain ends at retained `fusion-developer-app`.                                                                                                                                  |
+| `fusion-issue-author-feature`       | Already absent from deployed files. Retained `fusion-issue-authoring` owns feature issue authoring.                                                                                                                                 |
+| `fusion-issue-author-user-story`    | Already absent from deployed files. Retained `fusion-issue-authoring` owns user-story authoring.                                                                                                                                    |
+| `fusion-rule-author`                | Deprecated upstream in Fusion Skills v1.16.0 and moved out of `skills/.system/`, so the declaration no longer resolved. Retained `fusion-rules` owns rule authoring.                                                                |
 
 The tracked **fusion-framework-mocking** directory is **not in the legacy lock**.
 It was added by the earlier discovery PR #3380 and matches the upstream

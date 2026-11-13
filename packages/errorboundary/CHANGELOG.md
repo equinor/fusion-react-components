@@ -78,7 +78,6 @@ install`), preventing this drift from recurring.
 ### Patch Changes
 
 - 2e87d5f: Patch release to make sure all workspace dependencies are resolved.
-
   - Make sure all workspace packages have `workspace:*` imports
 
 - Updated dependencies [2e87d5f]
@@ -141,7 +140,6 @@ install`), preventing this drift from recurring.
 ### Major Changes
 
 - fbc8188: React 19 compatibility fixes
-
   - Fixed TypeScript errors related to React 19 type changes
   - Updated `useRef` calls to provide initial values when type is explicitly specified
   - Fixed `HTMLDivElement` type usage to use `Partial<HTMLAttributes<HTMLDivElement>>`

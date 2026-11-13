@@ -13,7 +13,8 @@
       "!packages/hanging-garden",
       "!.changeset",
       "!.agents",
-      "!scripts"
+      "!scripts",
+      "!apm.lock.yaml"
     ]
   },
   "formatter": {
@@ -77,12 +78,6 @@
       "attributePosition": "auto",
       "bracketSpacing": true
     }
-  },
-  "markdown": {
-    "formatter": { "enabled": false }
-  },
-  "yaml": {
-    "formatter": { "enabled": false }
   },
   "overrides": [
     {

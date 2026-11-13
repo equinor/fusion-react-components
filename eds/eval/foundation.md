@@ -5,6 +5,7 @@ These queries test whether the EDS index surfaces design foundation knowledge
 and design patterns that guide consistent interface construction.
 
 When judging results, verify that:
+
 - Colour system results reference semantic categories (accent, neutral, success, danger, warning, info), not raw hex values alone.
 - Spacing results reference the 8px grid system and named spacer sizes (XX Small through XXX Large).
 - Typography results reference EDS heading and paragraph components or typographic guidelines.

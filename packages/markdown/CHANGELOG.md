@@ -5,7 +5,7 @@
 ### Patch Changes
 
 - e5185f5: Raise `@equinor/fusion-wc-*` dependencies to releases requiring `@equinor/fusion-web-theme` `^0.1.12`, which temporarily keeps native browser controls in light mode.
-  
+
   Ref: equinor/fusion-core-tasks#2120
 
 ## 1.0.8
@@ -53,7 +53,6 @@ install`), preventing this drift from recurring.
 ### Patch Changes
 
 - 2e87d5f: Patch release to make sure all workspace dependencies are resolved.
-
   - Make sure all workspace packages have `workspace:*` imports
 
 - Updated dependencies [2e87d5f]

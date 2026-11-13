@@ -4,6 +4,7 @@ These queries test whether the EDS index surfaces useful information about EDS i
 — finding icons by name or purpose, importing them, and using them in React.
 
 When judging results, verify that:
+
 - Icon names referenced are real exports from `@equinor/eds-icons`.
 - Import examples use the correct named export pattern.
 - React usage shows `Icon` component from `@equinor/eds-core-react` with `data` prop.

@@ -1,8 +1,8 @@
 name: Lint project files
 
-on: 
-  pull_request: 
-    types: 
+on:
+  pull_request:
+    types:
       - ready_for_review
       - opened
       - reopened
@@ -24,7 +24,7 @@ jobs:
 
       - name: Build project
         run: bun run build
-    
+
       - name: Setup Biome CLI
         uses: biomejs/setup-biome@v2
 

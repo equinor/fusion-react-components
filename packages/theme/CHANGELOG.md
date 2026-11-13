@@ -5,22 +5,13 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 ## [0.1.10](https://github.com/equinor/fusion-web/compare/@equinor/fusion-web-theme@0.1.9...@equinor/fusion-web-theme@0.1.10) (2024-03-14)
 
-
 ### Bug Fixes
 
-* **theme:** removing type module from package.json ([a5e5ac0](https://github.com/equinor/fusion-web/commit/a5e5ac0ab215199bcc364c740be8f3239e870117))
-
-
-
-
+- **theme:** removing type module from package.json ([a5e5ac0](https://github.com/equinor/fusion-web/commit/a5e5ac0ab215199bcc364c740be8f3239e870117))
 
 ## [0.1.9](https://github.com/equinor/fusion-web/compare/@equinor/fusion-web-theme@0.1.8...@equinor/fusion-web-theme@0.1.9) (2024-03-11)
 
 **Note:** Version bump only for package @equinor/fusion-web-theme
-
-
-
-
 
 ## [0.1.10](https://github.com/equinor/fusion-web/compare/@equinor/fusion-web-theme@0.1.9...@equinor/fusion-web-theme@0.1.10) (2024-03-11)
 

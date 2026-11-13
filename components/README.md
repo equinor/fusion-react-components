@@ -29,7 +29,7 @@ import {
   PeopleViewer,
   type PersonInfo,
   type PeoplePickerProps,
-  type PeopleViewerProps
+  type PeopleViewerProps,
 } from '@equinor/fusion-react-components';
 ```
 
@@ -38,10 +38,10 @@ import {
 Import components from specific subpaths:
 
 ```ts
-import { 
-  PeoplePicker, 
+import {
+  PeoplePicker,
   PeopleViewer,
-  type PersonInfo 
+  type PersonInfo,
 } from '@equinor/fusion-react-components/person';
 ```
 

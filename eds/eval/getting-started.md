@@ -5,6 +5,7 @@ These queries test whether the EDS index surfaces onboarding and setup informati
 structure, and integrating EDS with development workflows.
 
 When judging results, verify that:
+
 - Installation instructions use `@equinor/eds-core-react` as the primary component package.
 - EdsProvider is mentioned as the required wrapper for EDS components.
 - Package names are real published packages, not fabricated.
