@@ -36,7 +36,7 @@ bun install
 
 ## Start Storybook
 
-StoryBook is not handling too well composite libraries, so a clean build is needed 
+StoryBook is not handling too well composite libraries, so a clean build is needed
 
 ```sh
 bun run build
@@ -91,18 +91,17 @@ bun exec tsc -w
 
 # Add a new component
 
-+ Add a new directory under packages
-+ Add `package.json` (or copy from existing project and modify)
-+ Add `tsconfig.json` (or copy from existing project and modify)
-+ Include package in base `tsconfig.json`
+- Add a new directory under packages
+- Add `package.json` (or copy from existing project and modify)
+- Add `tsconfig.json` (or copy from existing project and modify)
+- Include package in base `tsconfig.json`
 ```json
 {
-  "references": [
-    { "path": "packages/MY_PACKAGE" }
-  ]
+  "references": [{ "path": "packages/MY_PACKAGE" }]
 }
 ```
-+ run `bun run clean` and then `bun install` from root
+
+- run `bun run clean` and then `bun install` from root
 
 ## Add a dependency
 
@@ -113,28 +112,25 @@ bun add @SCOPE/PACKAGE
 
 ## Refer to another package
 
-+ add the package as previously described
-+ update `tsconfig.config`
+- add the package as previously described
+- update `tsconfig.config`
 
 ```json
 {
-  "references": [
-    { "path": "../SOME_PACKAGE" }
-  ]
+  "references": [{ "path": "../SOME_PACKAGE" }]
 }
 ```
 
 ## Update StoryBook
 
-+ update `storybook/tsconfig.json`
+- update `storybook/tsconfig.json`
 ```json
 {
-  "references": [
-    { "path": "../packages/MY_PACKAGE" }
-  ]
+  "references": [{ "path": "../packages/MY_PACKAGE" }]
 }
 ```
-+ add infopage `storybook/src/stories/MY_PACKAGE/component.stories.mdx`
+
+- add infopage `storybook/src/stories/MY_PACKAGE/component.stories.mdx`
 
 ```md
 import { Meta, Story, Canvas, ArgsTable,Description } from '@storybook/addon-docs';
@@ -156,21 +152,21 @@ import MY_COMPONENT from '@equinor/fusion-react-MY_COMPONENT/src/MY_COMPONENT';
 ## Changelog
 
 <ChangeLog changelogs={{
-  react: require('@equinor/fusion-react-MY_COMPONENT/CHANGELOG.md')
+react: require('@equinor/fusion-react-MY_COMPONENT/CHANGELOG.md')
 }}/>
 ```
 > the template might change, look at other stories
 
-+ add a stories `storybook/src/stories/MY_PACKAGE/component.stories.tsx`, add stories to the info page by refering the id to the `StoryExample` component
+- add a stories `storybook/src/stories/MY_PACKAGE/component.stories.tsx`, add stories to the info page by refering the id to the `StoryExample` component
 
-+ add component snapshots  `storybook/src/stories/MY_PACKAGE/snapshots.stories.tsx|mdx`
+- add component snapshots `storybook/src/stories/MY_PACKAGE/snapshots.stories.tsx|mdx`
 > add stories for possible states of the component
 >
 > group similar states into one story/snapshot
 
 # Creating a PR
 
-> __DO NOT__ create a PR before code is ready for review/alpha/beta, since each push eats up story snapshots
+> **DO NOT** create a PR before code is ready for review/alpha/beta, since each push eats up story snapshots
 
 - [x] make sure that the repo compiles `bun run build`
 - [x] make sure code is semantic correct `bun run lint`
@@ -181,20 +177,22 @@ When the commit is rebased/merge into `main`, GH will deploy all affected packag
 
 ## Creating an Alpha
 
-+ navigate to `Action` pane in GitHub
-+ Select the `pre-release` action
-+ Select the branch witch you want to release
-+ input a unique name or the number of your pr `pr-XXX`
-+ run workflow
+- navigate to `Action` pane in GitHub
+- Select the `pre-release` action
+- Select the branch witch you want to release
+- input a unique name or the number of your pr `pr-XXX`
+- run workflow
 
 # Troubleshoot
 
-__Storybook wont compile 😡__
+**Storybook wont compile 😡**
+
 ```sh
 bun run clean && bun install
 ```
 
-__Watcher does not work__
+**Watcher does not work**
+
 ```sh
 bun add -g typescript@latest
 ```

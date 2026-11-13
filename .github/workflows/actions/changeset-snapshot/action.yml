@@ -6,7 +6,7 @@ inputs:
     required: true
   gh-token:
     description: github token
-    default:  ${{ github.token }}
+    default: ${{ github.token }}
 
 runs:
   using: composite
@@ -35,4 +35,3 @@ runs:
       with:
         name: changeset-status
         path: changeset.json
-          

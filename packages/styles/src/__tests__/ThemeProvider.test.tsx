@@ -50,6 +50,7 @@ describe('ThemeProvider - Theme distribution', () => {
     // WHY: Allows components to use theme values without receiving theme as prop
     // EXAMPLE: Component uses theme.colors.primary instead of hardcoded color
 
+    // biome-ignore lint/correctness/noComponentHookFactories: test fixture closes over per-test values
     const TestComponent = () => {
       const theme = useContext(ThemeContext);
       // Verify theme from provider is available
@@ -69,6 +70,7 @@ describe('ThemeProvider - Theme distribution', () => {
     // WHY: Components still work even if parent doesn't provide theme
     // EXAMPLE: Standalone components or utility components
 
+    // biome-ignore lint/correctness/noComponentHookFactories: test fixture closes over per-test values
     const TestComponent = () => {
       const theme = useContext(ThemeContext);
       // Verify default theme is used
@@ -107,6 +109,7 @@ describe('ThemeProvider - Theme distribution', () => {
       { name: 'ThemeFunctionTest' },
     );
 
+    // biome-ignore lint/correctness/noComponentHookFactories: test fixture closes over per-test values
     const TestComponent = () => {
       const classes = useStyles({});
       return <div className={classes.root}>Test</div>;
@@ -159,6 +162,7 @@ describe('ThemeProvider - Theme distribution', () => {
       );
     };
 
+    // biome-ignore lint/correctness/noComponentHookFactories: test fixture closes over per-test values
     const TestComponent = () => {
       const componentTheme = useTheme();
       // Verify the merged theme is available

@@ -34,7 +34,7 @@ const columnDefs = useMemo<ColDef[]>(() => {
       subHeading: (person) => person.mail, // Function to extract person's email as sub heading
       size: 'small', // Specifies the size of the component
       showAvatar: true, // Determines whether to show the avatar in the cell
-    })
+    }),
   ];
 }, []);
 ```
@@ -46,11 +46,11 @@ You can customize the content of the `heading` and `subHeading` in the component
 For example, you might want to display the **job title** in bold and the **email** as a **clickable link**.
 
 ```tsx
-    agGridPersonCell({
-      ...agPersonCellData,
-      heading: (person) => `<b>${person.jobTitle}</b>`,  // Custom HTML for heading
-      subHeading: (person) => `<a href="mailto:${person.mail}">${person.mail}</a>`, // Custom HTML for subHeading
-    })
+agGridPersonCell({
+  ...agPersonCellData,
+  heading: (person) => `<b>${person.jobTitle}</b>`, // Custom HTML for heading
+  subHeading: (person) => `<a href="mailto:${person.mail}">${person.mail}</a>`, // Custom HTML for subHeading
+});
 ```
 
 <!--prettier-ignore-end-->

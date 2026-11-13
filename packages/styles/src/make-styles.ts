@@ -144,6 +144,7 @@ export function makeStyles<
 
   const instanceName = generateInstanceName(name);
 
+  // biome-ignore lint/correctness/noComponentHookFactories: makeStyles is a public hook factory, called once at module level by consumers
   const useStyles = (props: Props = {} as Props): Record<ClassKey, string> => {
     // Get theme from context or use default
     const theme = useContext(ThemeContext) || optionsDefaultTheme;

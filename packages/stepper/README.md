@@ -9,23 +9,23 @@
 
 ### for stepper
 
-Name                      | Type                          | Default                         | Description
-------------------------- |-------------------------------| -----------------------------   | -----------
-`initialStepKey`          | `string / undefined`          | `/`                             | Sets the initial step key for an uncontrolled stepper component. If undefined the stepper will use the first step as initial step.
-`stepKey`                 | `string / undefined`          | `/`                             | Used for making the stepper a controlled component. If it is set then it is the property that decides the currentStep and initialStepKey is ignored.
-`forceOrder`              | `boolean`                     | `false`                         | Can't skip steps. Steps will have specific order.
-`verticalSteps`           | `boolean`                     | `false`                         | Change stepper layout to vertical. Vertical positioning of steps.
-`hideNavButtons`          | `boolean`                     | `false`                         | Show/hide next and previous navigation buttons for stepper.
-`onChange`                | `(stepKey: string, allSteps: StepKey[]) => void` |                                 | onChange event for active step.
+| Name             | Type                                             | Default | Description                                                                                                                                          |
+| ---------------- | ------------------------------------------------ | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `initialStepKey` | `string / undefined`                             | `/`     | Sets the initial step key for an uncontrolled stepper component. If undefined the stepper will use the first step as initial step.                   |
+| `stepKey`        | `string / undefined`                             | `/`     | Used for making the stepper a controlled component. If it is set then it is the property that decides the currentStep and initialStepKey is ignored. |
+| `forceOrder`     | `boolean`                                        | `false` | Can't skip steps. Steps will have specific order.                                                                                                    |
+| `verticalSteps`  | `boolean`                                        | `false` | Change stepper layout to vertical. Vertical positioning of steps.                                                                                    |
+| `hideNavButtons` | `boolean`                                        | `false` | Show/hide next and previous navigation buttons for stepper.                                                                                          |
+| `onChange`       | `(stepKey: string, allSteps: StepKey[]) => void` |         | onChange event for active step.                                                                                                                      |
 
 ### for step
 
-Name                      | Type                            | Default                         | Description
-------------------------- | -----------------------------   | -----------------------------   | -----------
-`stepKey`                 | `string`                        | `/`                             | Step key of step. Used for ***activeStepKey***. `required`
-`title`                   | `string`                        | `/`                             | Title of step
-`description`             | `string`                        | `/`                             | Description of step
-`disabled`                | `boolean`                       | `false`                         | Disable step. Can't be clicked, but can manually navigate to it
+| Name          | Type      | Default | Description                                                     |
+| ------------- | --------- | ------- | --------------------------------------------------------------- |
+| `stepKey`     | `string`  | `/`     | Step key of step. Used for **_activeStepKey_**. `required`      |
+| `title`       | `string`  | `/`     | Title of step                                                   |
+| `description` | `string`  | `/`     | Description of step                                             |
+| `disabled`    | `boolean` | `false` | Disable step. Can't be clicked, but can manually navigate to it |
 
 ## Example Usage
 
@@ -44,7 +44,7 @@ import { Stepper } from '@equinor/fusion-react-stepper';
   <Step title="Title 3" stepKey="step3" props>
     Step content 3
   </Step>
-</Stepper>
+</Stepper>;
 ```
 
 ### Controlled usage

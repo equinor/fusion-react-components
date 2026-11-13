@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       tag:
-        description: 'Release tag (PR)'     
+        description: "Release tag (PR)"
         required: true
 
 concurrency: ${{ github.workflow }}-${{ github.ref }}
@@ -24,7 +24,7 @@ jobs:
       - uses: actions/checkout@v7
         with:
           fetch-depth: 0
-  
+
       - name: Validate pre-release configuration
         id: tag
         run: |
@@ -43,7 +43,7 @@ jobs:
         id: changesets
         uses: changesets/action@v2
         with:
-          pr-title: '🤖 Bip Bop - Fusion React Components Pre-Release'
+          pr-title: "🤖 Bip Bop - Fusion React Components Pre-Release"
           version-script: bun run changeset:version
           publish-script: bun run changeset:publish:pre-release
         env:
@@ -56,4 +56,3 @@ jobs:
         run: gh pr ready ${{ steps.changesets.outputs.pullRequestNumber }} --undo
         env:
           GH_TOKEN: ${{ github.token }}
-

@@ -2,16 +2,15 @@ name: Setup Bun
 description: General setup of Bun and Node
 inputs:
   bun-version:
-    description: 'Setting Bun version'
-    default: 'latest'
+    description: "Setting Bun version"
+    default: "latest"
   node-version:
-    description: 'Setting Node version (for native addons/tooling)'
-    default: '24'
+    description: "Setting Node version (for native addons/tooling)"
+    default: "24"
 
 runs:
   using: composite
   steps:
-
     - uses: oven-sh/setup-bun@v2
       with:
         bun-version: ${{ inputs.bun-version }}

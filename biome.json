@@ -1,5 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.5.15/schema.json",
+  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
   "vcs": {
     "enabled": true,
     "clientKind": "git",
@@ -13,7 +13,9 @@
       "!packages/hanging-garden",
       "!.changeset",
       "!.agents",
-      "!scripts"
+      "!scripts",
+      "!apm.lock.yaml",
+      "!**/CHANGELOG.md"
     ]
   },
   "formatter": {
