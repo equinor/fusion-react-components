@@ -5,7 +5,7 @@
 ### Patch Changes
 
 - e5185f5: Raise `@equinor/fusion-wc-*` dependencies to releases requiring `@equinor/fusion-web-theme` `^0.1.12`, which temporarily keeps native browser controls in light mode.
-
+  
   Ref: equinor/fusion-core-tasks#2120
 
 ## 0.1.3
@@ -19,7 +19,7 @@
 ### Patch Changes
 
 - 934e52c: Forward props from `Page` and its compound slot components to their underlying elements.
-
+  
   Update the underlying layout and page web components to constrain content to the available height, preventing nested content from expanding the viewport and allowing main content to scroll correctly.
 
 ## 0.1.1
@@ -33,4 +33,5 @@
 ### Minor Changes
 
 - 060f792: Add React layout and page components for Fusion applications.
+
   - Exposes slot-based `Layout` and `Page` wrappers backed by Fusion web components.

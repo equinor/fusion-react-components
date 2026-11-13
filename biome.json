@@ -14,7 +14,8 @@
       "!.changeset",
       "!.agents",
       "!scripts",
-      "!apm.lock.yaml"
+      "!apm.lock.yaml",
+      "!**/CHANGELOG.md"
     ]
   },
   "formatter": {

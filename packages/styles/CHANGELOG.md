@@ -5,7 +5,7 @@
 ### Patch Changes
 
 - d000b0f: Raise `@equinor/fusion-wc-theme` to `^1.2.6`, where `<fwc-theme>` always sets `data-color-scheme="light"`. This temporarily keeps EDS colours and native browser controls in light mode inside every `ThemeProvider`, regardless of OS or browser settings.
-
+  
   Ref: equinor/fusion-core-tasks#2120
 
 ## 2.1.10
@@ -13,7 +13,7 @@
 ### Patch Changes
 
 - e5185f5: Raise `@equinor/fusion-wc-*` dependencies to releases requiring `@equinor/fusion-web-theme` `^0.1.12`, which temporarily keeps native browser controls in light mode.
-
+  
   Ref: equinor/fusion-core-tasks#2120
 
 ## 2.1.9
@@ -101,11 +101,13 @@ install`), preventing this drift from recurring.
   ref: https://github.com/equinor/fusion-framework/issues/3698
 
   ### Breaking Changes
+
   - Removed `@material-ui/styles` dependency - replaced with direct JSS integration
   - All Material-UI v4 styling APIs are now implemented internally
   - No API changes - existing code should work without modifications
 
   ### Added
+
   - Custom `makeStyles` implementation using JSS directly
   - Custom `StylesProvider` with enhanced scope isolation via seed prefixes
   - Custom `ThemeProvider` with React 19 compatibility
@@ -119,11 +121,13 @@ install`), preventing this drift from recurring.
   - Updated README with comprehensive documentation
 
   ### Changed
+
   - Package now uses JSS directly instead of Material-UI wrapper
   - Improved TypeScript types with better inference
   - Enhanced class name isolation for micro-frontend scenarios
 
   ### Technical Details
+
   - React 19 compatible (tested with React ^18 || ^19)
   - Uses JSS v10 with all necessary plugins
   - Maintains backward compatibility with existing API surface
@@ -134,13 +138,12 @@ install`), preventing this drift from recurring.
 - 15eacdf: Enhanced theme system with support for extending `FusionTheme` with custom properties, improved nested theme composition, and comprehensive documentation.
 
   ### Added
-  - **Theme Extension Support**: `FusionTheme` now supports extending with custom properties using generics:
 
+  - **Theme Extension Support**: `FusionTheme` now supports extending with custom properties using generics:
     ```typescript
     type MyTheme = FusionTheme<{ colors: { primary: ColorStyleProperty } }>;
     ```
   - **Custom Base Theme Merging**: `createTheme` now accepts an optional `baseTheme` parameter for merging with custom base themes:
-
     ```typescript
     const extendedTheme = createTheme(
       { colors: { ui: { background__danger: newColor } } },
@@ -153,6 +156,7 @@ install`), preventing this drift from recurring.
   - **Theme Extension Storybook Story**: New `ThemeExtension` story demonstrating how to extend themes with custom properties, including step-by-step examples for type definition, theme creation, and usage with `useTheme` and `makeStyles`
 
   ### Changed
+
   - `createTheme` signature now accepts optional `baseTheme` parameter (backward compatible)
   - Improved type inference for extended themes in `ThemeProvider`, `useTheme`, and `makeStyles`
   - Better handling of nested theme composition when using theme functions in nested `ThemeProvider` components
@@ -160,6 +164,7 @@ install`), preventing this drift from recurring.
   - **README Updated**: Updated all documentation examples to use correct `getVariable()` API for theme properties
 
   ### Technical Details
+
   - Deep merging now correctly handles `StyleProperty` instances (replaces instead of merging)
   - Theme composition works correctly with nested `ThemeProvider` components
   - All types are properly exported and documented with complete TSDoc comments
@@ -173,6 +178,7 @@ install`), preventing this drift from recurring.
 ### Major Changes
 
 - fbc8188: React 19 compatibility fixes
+
   - Fixed TypeScript errors related to React 19 type changes
   - Updated `useRef` calls to provide initial values when type is explicitly specified
   - Fixed `HTMLDivElement` type usage to use `Partial<HTMLAttributes<HTMLDivElement>>`

@@ -5,7 +5,7 @@
 ### Patch Changes
 
 - e5185f5: Raise `@equinor/fusion-wc-*` dependencies to releases requiring `@equinor/fusion-web-theme` `^0.1.12`, which temporarily keeps native browser controls in light mode.
-
+  
   Ref: equinor/fusion-core-tasks#2120
 
 ## 2.1.10
@@ -50,6 +50,7 @@
 ### Patch Changes
 
 - 2e87d5f: Patch release to make sure all workspace dependencies are resolved.
+
   - Make sure all workspace packages have `workspace:*` imports
 
 - Updated dependencies [2e87d5f]
@@ -96,6 +97,7 @@
 ### Minor Changes
 
 - ea959be: Rewrote all component styles from `@equinor/fusion-react-styles` (JSS) to `styled-components`.
+
   - Replaced all `makeStyles`/`createStyles` hooks with `styled-components` tagged template literals
   - Grouped styled components into a `Styled` object per file (e.g. `Styled.Root`, `Styled.Items`) following the pattern used across other packages in the monorepo
   - Replaced `@equinor/fusion-web-theme` token access (via JSS theme callbacks) with static `@equinor/eds-tokens` imports
@@ -132,6 +134,7 @@
 ### Major Changes
 
 - fbc8188: React 19 compatibility fixes
+
   - Fixed TypeScript errors related to React 19 type changes
   - Updated `useRef` calls to provide initial values when type is explicitly specified
   - Fixed `HTMLDivElement` type usage to use `Partial<HTMLAttributes<HTMLDivElement>>`

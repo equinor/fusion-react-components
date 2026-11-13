@@ -38,6 +38,7 @@ install`), preventing this drift from recurring.
 ### Patch Changes
 
 - 2e87d5f: Patch release to make sure all workspace dependencies are resolved.
+
   - Make sure all workspace packages have `workspace:*` imports
 
 ## 3.0.3
