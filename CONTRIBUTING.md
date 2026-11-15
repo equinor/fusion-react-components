@@ -43,18 +43,34 @@ bun run build
 bun run start
 ```
 
-### Colour scheme
+### Colour scheme (light / dark / system)
 
-Storybook's preview no longer forces light mode. Following the EDS
+Use the **Colour scheme** toolbar item to switch the preview between System, Light and Dark.
+The decorator in `storybook/.storybook/preview.tsx` always sets an explicit `light` or `dark`
+`data-color-scheme` on the preview `<html>`, the way the Fusion portal passes the scheme down.
+For System it resolves `prefers-color-scheme` with `matchMedia` and updates the attribute when
+the OS setting changes, as the portal does.
+`ThemeProvider` inherits it, and content portaled to `body` follows it too. The body uses the EDS
+neutral surface background and text colours from `preview-head.html`.
+Follow the EDS
 [colour scheme detection](https://eds.equinor.com/docs/foundation/colour/getting_started#colour-scheme-detection)
-guidance, set `data-color-scheme="light"` or `"dark"` on the preview `<html>` to select a palette.
-The body uses the EDS neutral surface background and text colours from `preview-head.html`.
+guidance.
 
 Run the regression checks with:
 
 ```sh
 bun run --cwd storybook test
 ```
+
+The checks verify that `preview-head.html` does not force a scheme. They also render an
+EDS CSS colour variable and the classic (EDS 2.x) colour mapping in headless Chromium for Light,
+Dark and System (with light and dark `prefers-color-scheme`) and assert each matches the explicit
+scheme. They also unit test how System resolves and follows OS changes. Install the browser once
+with `bun run --cwd storybook test:setup`.
+
+For browser verification, check an ordinary story, its Docs canvas and body-portaled content
+(Tooltip, Menu, Popover, Dialog, Scrim) in each toolbar scheme, and switch the OS preference
+while System is selected.
 
 ### Colours
 

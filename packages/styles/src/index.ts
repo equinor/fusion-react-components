@@ -19,6 +19,6 @@ export {
   classicOverlayTextStyles,
   classicScrimColour,
 } from './classic-colours';
-export type { ThemeProviderProps } from './ThemeProvider';
+export type { ColorScheme, ThemeProviderProps } from './ThemeProvider';
 
 export type { StyleRules, StyleCSSProperties, Styles } from './types';

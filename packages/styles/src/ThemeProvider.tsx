@@ -1,4 +1,12 @@
-import { useContext, useEffect, useLayoutEffect, useMemo, useRef, type ReactNode } from 'react';
+import {
+  useContext,
+  useEffect,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useSyncExternalStore,
+  type ReactNode,
+} from 'react';
 import type { ReactElement } from 'react';
 import { styles as defaultTheme } from '@equinor/fusion-web-theme';
 import { ThemeContext } from './utils/contexts';
@@ -7,9 +15,6 @@ import { EdsTokens } from './EdsTokens';
 
 import '@equinor/fusion-wc-theme';
 import type ThemeElement from '@equinor/fusion-wc-theme';
-// Avoids the server-side `useLayoutEffect` warning while removing the attribute before paint.
-const useIsomorphicLayoutEffect = typeof window === 'undefined' ? useEffect : useLayoutEffect;
-
 declare module 'react' {
   namespace JSX {
     interface IntrinsicElements {
@@ -17,6 +22,31 @@ declare module 'react' {
     }
   }
 }
+
+/**
+ * Colour scheme applied by {@link ThemeProvider}.
+ *
+ * - `light` / `dark` force the EDS colour scheme for the provider subtree.
+ * - `system` follows the user's `prefers-color-scheme` setting.
+ */
+export type ColorScheme = 'light' | 'dark' | 'system';
+
+const darkSchemeQuery = '(prefers-color-scheme: dark)';
+
+const noop = (): void => undefined;
+
+const subscribeToSystemScheme = (onChange: () => void): (() => void) => {
+  if (typeof window === 'undefined' || !window.matchMedia) return noop;
+  const media = window.matchMedia(darkSchemeQuery);
+  media.addEventListener('change', onChange);
+  return () => media.removeEventListener('change', onChange);
+};
+
+const getSystemScheme = (): 'light' | 'dark' =>
+  typeof window !== 'undefined' && window.matchMedia?.(darkSchemeQuery).matches ? 'dark' : 'light';
+
+// Avoids the server-side `useLayoutEffect` warning while applying the attribute before paint.
+const useIsomorphicLayoutEffect = typeof window === 'undefined' ? useEffect : useLayoutEffect;
 
 /**
  * Props for the ThemeProvider component
@@ -28,6 +58,14 @@ export interface ThemeProviderProps<T extends FusionTheme = FusionTheme> {
   children?: ReactNode;
   /** Theme object or function that receives outer theme and returns new theme */
   theme?: T | Partial<T> | ((outerTheme: T | null) => T);
+  /**
+   * Colour scheme for this subtree, set as `data-color-scheme` on the `fwc-theme` wrapper.
+   *
+   * When omitted, no attribute is set and the subtree inherits the scheme from its
+   * ancestors (for example `data-color-scheme` on `<html>` set by the portal), or follows
+   * `prefers-color-scheme` when no ancestor sets one.
+   */
+  colorScheme?: ColorScheme;
 }
 
 /**
@@ -48,6 +86,13 @@ export interface ThemeProviderProps<T extends FusionTheme = FusionTheme> {
  * <ThemeProvider theme={myTheme}>
  *   <App />
  * </ThemeProvider>
+ * ```
+ *
+ * @example
+ * ```tsx
+ * // Force dark mode, or follow the operating system setting
+ * <ThemeProvider colorScheme="dark"><App /></ThemeProvider>
+ * <ThemeProvider colorScheme="system"><App /></ThemeProvider>
  * ```
  *
  * @example
@@ -80,14 +125,30 @@ export interface ThemeProviderProps<T extends FusionTheme = FusionTheme> {
 export function ThemeProvider<T extends FusionTheme = FusionTheme>(
   props: ThemeProviderProps<T>,
 ): ReactElement {
-  const { children, theme: localTheme } = props;
+  const { children, theme: localTheme, colorScheme } = props;
   const themeElementRef = useRef<ThemeElement>(null);
+  const systemScheme = useSyncExternalStore(
+    subscribeToSystemScheme,
+    getSystemScheme,
+    () => 'light' as const,
+  );
+  const resolvedScheme = colorScheme === 'system' ? systemScheme : colorScheme;
 
-  // `fwc-theme` <= 1.2.6 forces `data-color-scheme="light"` when connected; removing it lets the
-  // subtree inherit the colour scheme from its ancestors (for example `<html>`).
+  // Applied after mount because `fwc-theme` <= 1.2.6 forces `data-color-scheme="light"` when
+  // connected; removing it when no scheme is given lets the subtree inherit from its ancestors.
+  // `color-scheme` is the input attribute of newer `fwc-theme` versions, which then keep
+  // `data-color-scheme` in sync themselves.
   useIsomorphicLayoutEffect(() => {
-    themeElementRef.current?.removeAttribute('data-color-scheme');
-  }, []);
+    const element = themeElementRef.current;
+    if (!element) return;
+    if (colorScheme && resolvedScheme) {
+      element.setAttribute('color-scheme', colorScheme);
+      element.setAttribute('data-color-scheme', resolvedScheme);
+    } else {
+      element.removeAttribute('color-scheme');
+      element.removeAttribute('data-color-scheme');
+    }
+  }, [colorScheme, resolvedScheme]);
   // Get theme from parent ThemeProvider (if nested)
   const outerTheme = useContext(ThemeContext) as T | null;
 

@@ -1,6 +1,8 @@
 import { type Preview } from '@storybook/react-vite';
+import { useEffect } from 'storybook/preview-api';
 
-import {Theme} from '../src/components/Theme'
+import { Theme } from '../src/components/Theme';
+import { applyColorScheme, type StorybookColorScheme } from './color-scheme';
 
 const _customElementsDefine = window.customElements.define;
 window.customElements.define = (name, cl, conf) => {
@@ -13,6 +15,24 @@ window.customElements.define = (name, cl, conf) => {
 };
 
 const preview: Preview = {
+  globalTypes: {
+    colorScheme: {
+      description: 'EDS colour scheme (resolved data-color-scheme on <html>)',
+      toolbar: {
+        title: 'Colour scheme',
+        icon: 'contrast',
+        items: [
+          { value: 'system', title: 'System' },
+          { value: 'light', title: 'Light' },
+          { value: 'dark', title: 'Dark' },
+        ],
+        dynamicTitle: true,
+      },
+    },
+  },
+  initialGlobals: {
+    colorScheme: 'system',
+  },
   parameters: {
     controls: {
       matchers: {
@@ -31,11 +51,18 @@ const preview: Preview = {
   },
  
   decorators: [
-    (Story) => (
-      <Theme>
-        <Story />
-      </Theme>
-    ),
+    (Story, context) => {
+      const colorScheme = (context.globals.colorScheme ?? 'system') as StorybookColorScheme;
+      // Applied during render so the first paint uses the selected scheme; the effect keeps
+      // `system` in sync with OS changes.
+      applyColorScheme(document.documentElement, colorScheme)();
+      useEffect(() => applyColorScheme(document.documentElement, colorScheme), [colorScheme]);
+      return (
+        <Theme>
+          <Story />
+        </Theme>
+      );
+    },
   ],
   tags: ['autodocs'],
 };
