@@ -1,6 +1,5 @@
 import type { PropsWithChildren, ReactElement } from 'react';
 import { Tabs as EdsTabs } from '@equinor/eds-core-react';
-import { tokens } from '@equinor/eds-tokens';
 import { useCallback } from 'react';
 import { styled } from 'styled-components';
 import { useActiveTab } from '../hooks/use-active-tab';
@@ -26,7 +25,7 @@ const Line = styled.div`
   width: 100%;
   height: 2px;
   margin-top: -2px;
-  background-color: ${tokens.colors.ui.background__medium.rgba};
+  background-color: var(--eds-color-bg-neutral-fill-muted-default);
 `;
 
 export type TabsProps = {

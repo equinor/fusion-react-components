@@ -35,6 +35,25 @@ that media query. Consumers using modern EDS must explicitly set
 `data-color-scheme="light"` on `html` to select its light palette. This package
 does not set that attribute or choose a modern EDS palette.
 
+## EDS colour variables
+
+Most colour properties resolve to an EDS 2.x colour-scheme-aware CSS custom property,
+without a literal colour fallback, for example:
+
+```css
+var(--fusion-color__interactive-primary__resting, var(--eds-color-bg-accent-fill-emphasis-default))
+```
+
+- The `--eds-color-*` variables come from `@equinor/eds-tokens/css/variables` (2.x).
+  Load that stylesheet (for example through `ThemeProvider` from
+  `@equinor/fusion-react-styles`); the host must load it, because mapped colours have no literal fallback.
+- `colorSchemeVariables` in `src/styles/colors.ts` is a Fusion-owned approximation:
+  EDS publishes no official legacy-to-2.x mapping. Infographic, logo, snackbar link and
+  overlay/scrim colours are intentionally unmapped and stay static.
+- Typography colours resolve to `--eds-color-text-neutral-strong` (paragraph links:
+  `--eds-color-text-accent-subtle`), including `--fusion-typography__base-color`.
+- `hex` and `hsla` values remain the static legacy light values.
+
 ## Development
 
 From the repository root:

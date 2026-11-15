@@ -12,7 +12,7 @@ export const Styled = {
     transition: 125ms background-color ease-out;
 
     &:hover {
-      background-color: ${tokens.colors.interactive.primary__hover_alt.rgba};
+      background-color: var(--eds-color-bg-accent-fill-muted-default);
     }
 
     ${({ $inactive }) =>
@@ -29,7 +29,7 @@ export const Styled = {
     `}
   `,
   Counter: styled.span`
-    color: ${tokens.typography.input.label.color};
+    color: var(--eds-color-text-neutral-strong);
     font-family: ${tokens.typography.input.label.fontFamily};
     font-size: ${tokens.typography.input.label.fontSize};
     font-weight: ${tokens.typography.input.label.fontWeight};

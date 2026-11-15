@@ -52,7 +52,8 @@ which the HTML parser merges onto the preview document's root element before
 any styles load. EDS then resolves its light CSS variables and applies
 `color-scheme: light`, so EDS colours and native controls stay light on initial
 load and when the OS/browser preference changes, including docs canvases and
-content portaled to `body`.
+content portaled to `body`. The body uses the EDS neutral surface background
+and text colours from `preview-head.html`.
 Only the preview, where components use EDS CSS variables, is affected; the
 Storybook manager UI is left unchanged.
 
@@ -79,6 +80,12 @@ reloading. Check an ordinary story, its Docs canvas, and body-portaled
 content. The preview root must keep `data-color-scheme="light"`,
 EDS colors must remain light, and preview native controls must resolve to
 `color-scheme: light`.
+
+### Colours
+
+Style components with EDS CSS custom properties (`var(--eds-color-…)`), not the JavaScript
+`tokens` object from `@equinor/eds-tokens`, whose colours are static light values. Do not
+hard-code colours or add literal fallbacks inside `var()`.
 
 ## Development
 
