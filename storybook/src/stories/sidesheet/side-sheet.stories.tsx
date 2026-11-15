@@ -50,7 +50,7 @@ export const basic: Story = {
       <>
         <SideSheet.Title title="title" />,
         <SideSheet.SubTitle subTitle="sub title" />,
-        <SideSheet.Indicator color="#543345" />,
+        <SideSheet.Indicator color="var(--eds-color-bg-accent-fill-emphasis-default)" />,
         <SideSheet.Actions>
           <Button
             variant="ghost_icon"
@@ -107,7 +107,7 @@ export const disableResize: Story = {
       <>
         <SideSheet.Title title="title" />,
         <SideSheet.SubTitle subTitle="sub title" />,
-        <SideSheet.Indicator color="#543345" />,
+        <SideSheet.Indicator color="var(--eds-color-bg-accent-fill-emphasis-default)" />,
         <SideSheet.Content>
           😎
           <p>The drag handle is hidden when <code>disableResize</code> is set.</p>
@@ -190,7 +190,7 @@ export const padding: Story = {
       <>
         <SideSheet.Title title="title" />,
         <SideSheet.SubTitle subTitle="sub title" />,
-        <SideSheet.Indicator color="#543345" />,
+        <SideSheet.Indicator color="var(--eds-color-bg-accent-fill-emphasis-default)" />,
         <SideSheet.Actions>
           <Button
             variant="ghost_icon"

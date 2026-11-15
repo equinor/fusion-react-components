@@ -14,7 +14,7 @@ const Styled = {
     --spacing-vertical: 5px;
     --spacing-between-vartical-steps: ${tokens.spacings.comfortable.x_large};
     --spacing-between-horizontal-steps: ${tokens.spacings.comfortable.medium};
-    --stepper-divider: 1px solid ${tokens.colors.interactive.disabled__border.hex};
+    --stepper-divider: 1px solid var(--eds-color-border-disabled);
     display: flex;
     flex-direction: ${(props) => (props.$vertical ? 'row' : 'column')};
     height: 100%;

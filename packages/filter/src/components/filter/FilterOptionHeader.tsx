@@ -22,7 +22,7 @@ const Styled = {
     align-items: center;
   `,
   Header: styled.header<{ $showSearch?: boolean }>`
-    color: ${tokens.typography.table.cell_header.color};
+    color: var(--eds-color-text-neutral-strong);
     font-family: ${tokens.typography.table.cell_header.fontFamily};
     font-size: ${tokens.typography.table.cell_header.fontSize};
     font-weight: ${tokens.typography.table.cell_header.fontWeight};
@@ -33,7 +33,7 @@ const Styled = {
   Counter: styled.span<{ $noCount?: boolean }>`
     display: ${({ $noCount }) => ($noCount ? 'none' : 'inline-flex')};
     gap: 1px;
-    color: ${tokens.typography.input.helper.color};
+    color: var(--eds-color-text-neutral-strong);
     font-family: ${tokens.typography.input.helper.fontFamily};
     font-size: ${tokens.typography.input.helper.fontSize};
     font-weight: ${tokens.typography.input.helper.fontWeight};

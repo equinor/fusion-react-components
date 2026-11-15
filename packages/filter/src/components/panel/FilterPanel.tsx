@@ -20,7 +20,7 @@ const Styled = {
     flex-flow: column;
     gap: var(--filter-panel-spacing);
     padding: var(--filter-panel-spacing);
-    border: 1px solid ${tokens.colors.interactive.disabled__border.rgba};
+    border: 1px solid var(--eds-color-border-disabled);
     border-radius: 0.5rem;
     & > * {
       padding: 0 var(--filter-panel-spacing);
@@ -32,7 +32,7 @@ const Styled = {
     overflow-y: hidden;
     padding-bottom: calc(var(--filter-panel-spacing));
     margin-bottom: calc(var(--filter-panel-spacing) * -1);
-    background-color: ${tokens.colors.ui.background__light.rgba};
+    background-color: var(--eds-color-bg-neutral-canvas);
   `,
 };
 

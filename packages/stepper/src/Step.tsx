@@ -42,11 +42,11 @@ const Styled = {
       width: calc(100% - var(--badge-size) - calc(var(--spacing) * 2));
       left: 50%;
       height: 1px;
-      background-color: ${tokens.colors.interactive.disabled__border.hex};
+      background-color: var(--eds-color-border-disabled);
       order: -1;
     }
     &:focus-visible {
-      outline: 2px dashed ${tokens.colors.interactive.primary__resting.hex};
+      outline: 2px dashed var(--eds-color-border-accent-strong);
       outline-offset: 2px;
     }
     ${({ $vertical, $horizontalTitle }) =>
@@ -83,15 +83,15 @@ const Styled = {
       $done &&
       css`
         &:not(:last-child):after {
-          background-color: ${tokens.colors.interactive.primary__resting.hex};
+          background-color: var(--eds-color-bg-accent-fill-emphasis-default);
         }
       `}
     ${({ $disabled }) =>
       $disabled &&
       css`
         pointer-events: none;
-        color: ${tokens.colors.interactive.disabled__text.hex};
-        --line-color: ${tokens.colors.interactive.disabled__border.hex};
+        color: var(--eds-color-text-disabled);
+        --line-color: var(--eds-color-border-disabled);
       `}
   `,
   Content: styled.div<StyledContentProps>`
@@ -181,11 +181,7 @@ export const Step = ({
           group="paragraph"
           variant="body_short"
           color={
-            isCurrent
-              ? 'primary'
-              : disabled
-                ? 'disabled'
-                : tokens.colors.text.static_icons__default.hex
+            isCurrent ? 'primary' : disabled ? 'disabled' : 'var(--eds-color-text-neutral-strong)'
           }
         >
           {title}
@@ -194,11 +190,7 @@ export const Step = ({
           group="paragraph"
           variant="caption"
           color={
-            isCurrent
-              ? 'primary'
-              : disabled
-                ? 'disabled'
-                : tokens.colors.text.static_icons__tertiary.hex
+            isCurrent ? 'primary' : disabled ? 'disabled' : 'var(--eds-color-text-neutral-subtle)'
           }
         >
           {description}

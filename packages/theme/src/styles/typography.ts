@@ -2,6 +2,21 @@ import { tokens, type Typography } from '@equinor/eds-tokens';
 import { StyleProperty, type StyleAttribute } from '../style-property';
 
 type TypographyAttribute = keyof Typography;
+
+const legacyColorPattern = /^var\(--eds_[a-z0-9_]+, (rgba?\([^)]+\))\)$/;
+
+/**
+ * Resolves a legacy EDS typography colour to an EDS 2.x colour-scheme-aware variable,
+ * without a literal fallback. Link variants use the accent text colour.
+ */
+export const withTypographyColorScheme = (name: string, color?: string): string | undefined => {
+  if (!color || !legacyColorPattern.test(color)) return color;
+  const variable =
+    name.endsWith('_link') && !name.startsWith('table-')
+      ? '--eds-color-text-accent-subtle'
+      : '--eds-color-text-neutral-strong';
+  return `var(${variable})`;
+};
 export class TypographyStyleProperty extends StyleProperty<Typography, TypographyAttribute> {
   get attributes() {
     const { name, value } = this;
@@ -10,7 +25,7 @@ export class TypographyStyleProperty extends StyleProperty<Typography, Typograph
         attribute: StyleProperty.makeCssVar('typography', `${name}__color`),
         value: StyleProperty.makeVariable({
           attribute: StyleProperty.makeCssVar('typography', 'base-color'),
-          value: value.color,
+          value: withTypographyColorScheme(name, value.color),
         }),
         base: true,
       },
@@ -83,7 +98,7 @@ export const typography = {
 
 export const baseTypographyColor: StyleAttribute = {
   attribute: StyleProperty.makeCssVar('typography', 'base-color'),
-  value: tokens.colors.text.static_icons__default.rgba,
+  value: withTypographyColorScheme('base', tokens.colors.text.static_icons__default.rgba) as string,
 };
 
 export const typographyVariables = [

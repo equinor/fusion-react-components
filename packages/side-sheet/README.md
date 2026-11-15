@@ -15,13 +15,13 @@ npm install @equinor/fusion-react-side-sheet
 
 ## Children
 
-| Name        | Props              | Description                                     |
-| ----------- | ------------------ | ----------------------------------------------- |
-| `Title`     | title              | Required child for displaying side sheet title. |
-| `SubTile`   | subTitle           | ...                                             |
-| `Actions`   | sideSheetRef       | ...                                             |
-| `Indicator` | color              | ...                                             |
-| `Content`   | ReactChildElements | ...                                             |
+| Name        | Props              | Description                                                                                                                                                                         |
+| ----------- | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Title`     | title              | Required child for displaying side sheet title.                                                                                                                                     |
+| `SubTile`   | subTitle           | ...                                                                                                                                                                                 |
+| `Actions`   | sideSheetRef       | ...                                                                                                                                                                                 |
+| `Indicator` | color              | Colour bar next to the title. Accepts an EDS CSS custom property such as `var(--eds-color-bg-accent-fill-emphasis-default)` (preferred, follows the colour scheme) or a hex string. |
+| `Content`   | ReactChildElements | ...                                                                                                                                                                                 |
 
 ## Properties/Attributes
 
