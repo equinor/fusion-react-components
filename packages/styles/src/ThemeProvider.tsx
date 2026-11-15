@@ -1,4 +1,4 @@
-import { useContext, useMemo, type ReactNode } from 'react';
+import { useContext, useEffect, useLayoutEffect, useMemo, useRef, type ReactNode } from 'react';
 import type { ReactElement } from 'react';
 import { styles as defaultTheme } from '@equinor/fusion-web-theme';
 import { ThemeContext } from './utils/contexts';
@@ -7,6 +7,9 @@ import { EdsTokens } from './EdsTokens';
 
 import '@equinor/fusion-wc-theme';
 import type ThemeElement from '@equinor/fusion-wc-theme';
+// Avoids the server-side `useLayoutEffect` warning while removing the attribute before paint.
+const useIsomorphicLayoutEffect = typeof window === 'undefined' ? useEffect : useLayoutEffect;
+
 declare module 'react' {
   namespace JSX {
     interface IntrinsicElements {
@@ -78,6 +81,13 @@ export function ThemeProvider<T extends FusionTheme = FusionTheme>(
   props: ThemeProviderProps<T>,
 ): ReactElement {
   const { children, theme: localTheme } = props;
+  const themeElementRef = useRef<ThemeElement>(null);
+
+  // `fwc-theme` <= 1.2.6 forces `data-color-scheme="light"` when connected; removing it lets the
+  // subtree inherit the colour scheme from its ancestors (for example `<html>`).
+  useIsomorphicLayoutEffect(() => {
+    themeElementRef.current?.removeAttribute('data-color-scheme');
+  }, []);
   // Get theme from parent ThemeProvider (if nested)
   const outerTheme = useContext(ThemeContext) as T | null;
 
@@ -101,7 +111,7 @@ export function ThemeProvider<T extends FusionTheme = FusionTheme>(
       {outerTheme === null && <EdsTokens />}
 
       {/* Wrap children in fwc-theme web component for theme application */}
-      <fwc-theme>{children}</fwc-theme>
+      <fwc-theme ref={themeElementRef}>{children}</fwc-theme>
     </ThemeContext.Provider>
   );
 }

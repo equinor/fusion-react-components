@@ -20,20 +20,18 @@ const readEdsTokens = (scheme: 'light' | 'dark'): Record<string, string> =>
 const lightTokens = readEdsTokens('light');
 const darkTokens = readEdsTokens('dark');
 
-test('preview selects the EDS light colour scheme on <html>', () => {
-  const htmlTags = markup.match(/<html\b[^>]*>/g) ?? [];
-  expect(htmlTags).toEqual(['<html data-color-scheme="light">']);
-  expect(markup).not.toMatch(/<script|<\/html>|color-scheme:|prefers-color-scheme/);
+test('preview does not force a colour scheme', () => {
+  expect(markup).not.toMatch(/<html\b|<script|color-scheme/);
 });
 
 /** Render an EDS colour variable in a dark-preferring page, as Storybook's preview iframe would. */
-const renderEdsColor = async (browser: Browser, head: string, variable: string) => {
+const renderEdsColor = async (browser: Browser, head: string, variable: string, htmlAttributes = '') => {
   const page = await browser.newPage({ colorScheme: 'dark' });
   try {
     // Keep the test offline; only the inlined EDS variables matter for colours.
     await page.route('**/*', (route) => route.abort());
     await page.setContent(
-      `<!doctype html><html lang="en"><head>${head}<style>${edsVariables}</style></head>` +
+      `<!doctype html><html lang="en" ${htmlAttributes}><head>${head}<style>${edsVariables}</style></head>` +
         `<body><div id="probe" style="background-color: var(${variable})"></div></body></html>`,
     );
     return await page.$eval('#probe', (el) => getComputedStyle(el).backgroundColor);
@@ -47,15 +45,17 @@ const toRgb = (hex: string) => {
   return `rgb(${r}, ${g}, ${b})`;
 };
 
-test('EDS CSS variables render their light values when the browser prefers dark', async () => {
+test('EDS CSS variables follow the colour scheme set on <html>', async () => {
   const light = toRgb(lightTokens['bg-neutral-canvas']);
   const dark = toRgb(darkTokens['bg-neutral-canvas']);
   expect(light).not.toBe(dark);
 
   const browser = await chromium.launch();
   try {
-    expect(await renderEdsColor(browser, '', '--eds-color-bg-canvas')).toBe(dark);
-    expect(await renderEdsColor(browser, previewHead, '--eds-color-bg-canvas')).toBe(light);
+    expect(await renderEdsColor(browser, previewHead, '--eds-color-bg-canvas')).toBe(dark);
+    expect(
+      await renderEdsColor(browser, previewHead, '--eds-color-bg-canvas', 'data-color-scheme="light"'),
+    ).toBe(light);
   } finally {
     await browser.close();
   }

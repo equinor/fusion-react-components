@@ -12,19 +12,14 @@ import { elevationVariables } from '../src/styles/elevation';
 import { spacingVariables } from '../src/styles/spacing';
 import { typography, typographyVariables } from '../src/styles/typography';
 
-const nativeColorScheme = 'color-scheme: only light';
-
 describe('color scheme', () => {
-  test('includes one standalone light-only declaration before the color variables', () => {
-    expect(colorVariables[0]).toBe(nativeColorScheme);
-    expect(attributes.filter((value) => value.startsWith('color-scheme:'))).toEqual([
-      nativeColorScheme,
-    ]);
+  test('does not force a color scheme', () => {
+    expect(attributes.some((value) => value.startsWith('color-scheme:'))).toBe(false);
   });
 
   test('keeps the color variable names and order', () => {
-    expect(colorVariables.slice(1)).toHaveLength(75);
-    expect(colorVariables.slice(1)).toMatchSnapshot();
+    expect(colorVariables).toHaveLength(75);
+    expect(colorVariables).toMatchSnapshot();
   });
 
   test('maps colours to EDS 2.x variables without a literal fallback', () => {
