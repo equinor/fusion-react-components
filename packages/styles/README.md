@@ -275,6 +275,7 @@ Provides theme context to child components. Supports nested themes and theme com
 **Props:**
 
 - `theme`: Theme object or function `(outerTheme) => theme`
+- `colorScheme` (optional): `'light' | 'dark' | 'system'`, see [Colour scheme](#colour-scheme-light--dark--system)
 - `children`: React nodes
 
 **Example:**
@@ -301,6 +302,35 @@ function App() {
   );
 }
 ```
+
+#### Colour scheme (light / dark / system)
+
+The outermost `ThemeProvider` injects the EDS 2.x colour variables
+(`@equinor/eds-tokens/css/variables`). They switch with `data-color-scheme`, and theme
+colours from `@equinor/fusion-web-theme` resolve to them.
+
+- **Omitted (default):** the provider sets no attribute, and the subtree inherits the scheme
+  from its ancestors. Portals should always set an explicit `data-color-scheme="light"` or
+  `"dark"` on `<html>`, resolving System with `matchMedia`.
+- **`light` / `dark`:** sets `data-color-scheme` on the `fwc-theme` wrapper to force that
+  scheme for the subtree.
+- **`system`:** resolves `prefers-color-scheme` with `matchMedia`, sets `light` or `dark` on
+  the wrapper and updates when the setting changes. The EDS CSS only applies its media
+  query at the document root, so a subtree needs the explicit value.
+
+```tsx
+<ThemeProvider colorScheme="system">
+  <YourApp />
+</ThemeProvider>;
+```
+
+Content rendered outside the provider (for example popovers portaled to `document.body`)
+only follows the scheme set on `<html>` or `<body>`. Set the scheme there when using such
+components.
+
+Use EDS CSS custom properties such as `var(--eds-color-text-neutral-strong)` for new colour
+styles, not the JavaScript `tokens` object from `@equinor/eds-tokens`, whose values are
+static light-mode colours.
 
 #### Classic EDS components in dark mode
 

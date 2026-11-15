@@ -2,6 +2,6 @@
 "@equinor/fusion-react-styles": minor
 ---
 
-`ThemeProvider` no longer forces light mode: it removes the `data-color-scheme="light"` that `fwc-theme` sets when connected, so the subtree inherits the colour scheme from its ancestors.
+Add an optional `colorScheme` prop (`'light' | 'dark' | 'system'`) to `ThemeProvider` and export the `ColorScheme` type. Without the prop, the provider no longer forces light mode and the subtree inherits `data-color-scheme` from its ancestors (for example `<html>`). With `system`, the provider follows `prefers-color-scheme` and updates when it changes.
 
 Ref: equinor/fusion-core-tasks#2755
