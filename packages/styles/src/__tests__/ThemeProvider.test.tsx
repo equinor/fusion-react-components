@@ -211,6 +211,16 @@ describe('ThemeProvider - Theme distribution', () => {
     expect(screen.getByTestId('child')).toBeDefined();
     expect(container.querySelector('[data-testid="child"]')).toBeTruthy();
   });
+
+  it('should not force a light colour scheme on fwc-theme', () => {
+    const { container } = render(
+      <ThemeProvider theme={mockTheme}>
+        <div>Test</div>
+      </ThemeProvider>,
+    );
+
+    expect(container.querySelector('fwc-theme')?.hasAttribute('data-color-scheme')).toBe(false);
+  });
 });
 
 describe('useTheme hook - Accessing theme from components', () => {

@@ -43,43 +43,18 @@ bun run build
 bun run start
 ```
 
-### Temporary light-only Storybook
+### Colour scheme
 
-Storybook's preview document follows the EDS
+Storybook's preview no longer forces light mode. Following the EDS
 [colour scheme detection](https://eds.equinor.com/docs/foundation/colour/getting_started#colour-scheme-detection)
-guidance: `preview-head.html` declares `<html data-color-scheme="light">`,
-which the HTML parser merges onto the preview document's root element before
-any styles load. EDS then resolves its light CSS variables and applies
-`color-scheme: light`, so EDS colours and native controls stay light on initial
-load and when the OS/browser preference changes, including docs canvases and
-content portaled to `body`. The body uses the EDS neutral surface background
-and text colours from `preview-head.html`.
-Only the preview, where components use EDS CSS variables, is affected; the
-Storybook manager UI is left unchanged.
-
-This is a temporary Storybook-only policy for
-[equinor/fusion-core-tasks#2120](https://github.com/equinor/fusion-core-tasks/issues/2120),
-not dark-mode support or a change to reusable `ThemeProvider` defaults.
-Explicit nested color-scheme examples remain free to override the inherited
-scheme. Remove the preview head override when Storybook supports automatic theming.
+guidance, set `data-color-scheme="light"` or `"dark"` on the preview `<html>` to select a palette.
+The body uses the EDS neutral surface background and text colours from `preview-head.html`.
 
 Run the regression checks with:
 
 ```sh
 bun run --cwd storybook test
 ```
-
-The checks verify the preview head markup and render an EDS CSS variable in
-headless Chromium with a dark `prefers-color-scheme`, asserting it resolves to
-the EDS light token value. Install the browser once with
-`bun run --cwd storybook test:setup`.
-
-For browser verification, load Storybook with both light and dark
-`prefers-color-scheme` preferences, then switch each preference live without
-reloading. Check an ordinary story, its Docs canvas, and body-portaled
-content. The preview root must keep `data-color-scheme="light"`,
-EDS colors must remain light, and preview native controls must resolve to
-`color-scheme: light`.
 
 ### Colours
 

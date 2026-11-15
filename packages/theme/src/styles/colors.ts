@@ -118,11 +118,8 @@ export const colors = {
   ui: createStyleProperty(tokens.colors.ui, 'ui'),
 };
 
-export const colorVariables = [
-  // Temporarily keep native controls aligned with the light palette.
-  // Remove this entry once Fusion supports dark mode.
-  'color-scheme: only light',
-  ...Object.values(colors).flatMap((value) => ColorStyleProperty.extractVariables(value)),
-];
+export const colorVariables = Object.values(colors).flatMap((value) =>
+  ColorStyleProperty.extractVariables(value),
+);
 
 export default colors;
