@@ -39,7 +39,7 @@
   },
   "dependencies": {
     "@equinor/fusion-react-utils": "workspace:*",
-    "@equinor/fusion-wc-markdown": "^1.6.5"
+    "@equinor/fusion-wc-markdown": "^2.0.0"
   },
   "devDependencies": {
     "@types/react": "^19.3.0",

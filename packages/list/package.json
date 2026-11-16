@@ -36,7 +36,7 @@
   },
   "dependencies": {
     "@equinor/fusion-react-utils": "workspace:*",
-    "@equinor/fusion-wc-list": "^1.2.5"
+    "@equinor/fusion-wc-list": "^2.0.0"
   },
   "devDependencies": {
     "@types/react": "^19.3.0",
