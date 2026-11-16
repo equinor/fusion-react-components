@@ -87,6 +87,11 @@ Style components with EDS CSS custom properties (`var(--eds-color-…)`), not th
 `tokens` object from `@equinor/eds-tokens`, whose colours are static light values. Do not
 hard-code colours or add literal fallbacks inside `var()`.
 
+Use the stable `@equinor/eds-core-react` 2.x components. They read classic `--eds_*` colour
+properties, which the root `ThemeProvider` from `@equinor/fusion-react-styles` maps to EDS colour
+variables in dark mode only (see `classicColourDeclarations` in its README). Do not wrap or restyle
+them per component for dark mode.
+
 ## Development
 
 While Storybook is running open a new terminal and compile the project

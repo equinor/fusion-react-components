@@ -6,6 +6,9 @@ import {
   type SearchableDropdownProps,
   type SearchableDropdownSelectEvent as HTMLSearchableDropdownSelectEvent,
 } from '@equinor/fusion-wc-searchable-dropdown';
+import { applyColourOverrides } from './colour-overrides';
+
+applyColourOverrides();
 
 export type {
   SearchableDropdownResult,

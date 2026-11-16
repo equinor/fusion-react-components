@@ -2,6 +2,12 @@ import { defineConfig } from 'vitest/config';
 import { name, version } from './package.json';
 
 export default defineConfig({
+  resolve: {
+    // jsdom tests resolve the Node build, which never injects <style> tags into the document
+    alias: {
+      'styled-components': 'styled-components/dist/styled-components.browser.esm.js',
+    },
+  },
   test: {
     include: ['src/__tests__/**/*.{test,spec}.{ts,tsx}'],
     exclude: ['**/*.md', '**/node_modules/**'],

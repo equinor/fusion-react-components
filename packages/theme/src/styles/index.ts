@@ -3,6 +3,8 @@ import { elevation, elevationVariables } from './elevation';
 import { spacing, spacingVariables } from './spacing';
 import { typography, typographyVariables } from './typography';
 
+export { mdcColorSchemeVariables, mdcColorVariables } from './mdc';
+
 export const styles = {
   colors,
   elevation,
