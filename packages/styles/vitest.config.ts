@@ -13,6 +13,8 @@ export default defineConfig({
     exclude: ['**/*.md', '**/node_modules/**'],
     name: `${name}@${version}`,
     environment: 'jsdom',
+    // vitest stubs CSS as empty by default, including the raw EDS token source
+    css: { include: [/@equinor\/eds-tokens/] },
     globals: true,
     setupFiles: ['./src/__tests__/setup.ts'],
     coverage: {
