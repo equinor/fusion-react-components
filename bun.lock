@@ -184,6 +184,7 @@
       "name": "@equinor/fusion-react-layout",
       "version": "0.1.4",
       "dependencies": {
+        "@equinor/fusion-react-utils": "workspace:*",
         "@equinor/fusion-wc-layout": "^0.2.1",
         "@equinor/fusion-wc-page": "^0.2.1",
       },
