@@ -1,5 +1,11 @@
 # Change Log
 
+## 2.0.10
+
+### Patch Changes
+
+- 04b7c20: Update the Fusion Observable peer minimum from 9.2.5 to 9.2.6.
+
 ## 2.0.9
 
 ### Patch Changes
