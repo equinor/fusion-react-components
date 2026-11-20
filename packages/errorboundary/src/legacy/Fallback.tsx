@@ -19,7 +19,7 @@ const Styled = {
   stacktrace: styled.pre`
     overflow: auto;
     max-width: 100%;
-    color: ${tokens.colors.interactive.danger__resting.hex};
+    color: var(--eds-color-text-danger-subtle);
     font-size: 0.8em;
     line-height: 1em;
     margin: 0;
@@ -68,10 +68,7 @@ export const Fallback = (props: FallbackProps): ReactElement => {
       <div>
         {props.icon ?? <FallbackIcon errorType={errorType} />}
         <Typography variant="h3">{title ?? generateTitle(errorType, resourceName)}</Typography>
-        <Typography
-          variant="ingress"
-          token={{ color: tokens.colors.text.static_icons__tertiary.hex }}
-        >
+        <Typography variant="ingress" token={{ color: 'var(--eds-color-text-neutral-subtle)' }}>
           {message ?? error.message}
         </Typography>
 

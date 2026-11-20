@@ -8,12 +8,11 @@ import {
 
 import { Button, Icon, Tooltip } from '@equinor/eds-core-react';
 import { close as closeIcon } from '@equinor/eds-icons';
-import { tokens } from '@equinor/eds-tokens';
 import { type PropsWithChildren, useRef } from 'react';
 import { Actions } from './Actions';
 import { Content } from './Content';
 import { FullscreenIcon } from './icon/FullscreenIcon';
-import { type HEXString, Indicator } from './Indicator';
+import { type IndicatorColor, Indicator } from './Indicator';
 import { SubTitle } from './SubTitle';
 import { Title } from './Title';
 
@@ -31,7 +30,7 @@ const StyledFlexColumn = styled(StyledFlexBox)`
 `;
 
 const StyledContainerWrapper = styled(StyledFlexColumn)`
-  background: ${tokens.colors.ui.background__default.hex};
+  background: var(--eds-color-bg-neutral-surface);
   height: 100%;
 `;
 
@@ -55,7 +54,7 @@ type PortalSideSheet = SideSheetProps & {
 };
 
 type SideSheetComponents = {
-  indicator?: ReactElement<unknown, string | JSXElementConstructor<{ color: HEXString }>>;
+  indicator?: ReactElement<unknown, string | JSXElementConstructor<{ color: IndicatorColor }>>;
   title?: ReactElement<unknown, string | JSXElementConstructor<{ title: string }>>;
   subTitle?: ReactElement<unknown, string | JSXElementConstructor<{ subTitle: string }>>;
   actions?: ReactElement<unknown, string | JSXElementConstructor<PropsWithChildren<unknown>>>;

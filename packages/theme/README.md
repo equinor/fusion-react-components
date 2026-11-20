@@ -20,20 +20,32 @@ from startup, including controls in overlays mounted under `body`. Scoping the
 declarations to an app container does not cover overlays outside that container.
 If the consuming stylesheet loads later, protection only starts when it applies.
 
-## Temporary native-control light mode
+## Colour scheme (light / dark)
 
-`colorVariables` (from `src/styles/colors`) includes a standalone
-`color-scheme: only light` declaration. The public aggregate `attributes` inherits
-it once. This keeps browser-native controls on a light scheme while Fusion does
-not support dark mode, including when the OS preference changes at runtime.
-Remove this single entry when Fusion supports dark mode.
+The package does not force a colour scheme. Most colour properties resolve to an
+EDS 2.x colour-scheme-aware CSS custom property, without a literal colour fallback,
+for example:
 
-This is **not** a complete EDS dark-mode lock. The existing legacy EDS 0.9.2 tokens
-use CSS variable references with light fallbacks. Modern EDS token stylesheets can
-select dark values through `prefers-color-scheme`; `color-scheme` does not disable
-that media query. Consumers using modern EDS must explicitly set
-`data-color-scheme="light"` on `html` to select its light palette. This package
-does not set that attribute or choose a modern EDS palette.
+```css
+var(--fusion-color__interactive-primary__resting, var(--eds-color-bg-accent-fill-emphasis-default))
+```
+
+- The `--eds-color-*` variables come from `@equinor/eds-tokens/css/variables` (2.x).
+  Load that stylesheet (for example through `ThemeProvider` from
+  `@equinor/fusion-react-styles`); the host must load it, because mapped colours have no literal fallback.
+- Select the scheme with `data-color-scheme="light"` or `"dark"` on `<html>` or any
+  ancestor element. Without the attribute, EDS follows `prefers-color-scheme` at the
+  document root.
+- `colorSchemeVariables` in `src/styles/colors.ts` is a Fusion-owned approximation:
+  EDS publishes no official legacy-to-2.x mapping. Infographic, logo, snackbar link and
+  overlay/scrim colours are intentionally unmapped and stay static.
+- `getVariable()` values resolve where they are used, so they follow subtree scopes.
+  Declaring `attributes` on `:root` resolves the `--fusion-color__*` variables once at
+  the root; such variables follow a scheme set on `<html>`, but not one set on a
+  descendant element.
+- Typography colours resolve to `--eds-color-text-neutral-strong` (paragraph links:
+  `--eds-color-text-accent-subtle`), including `--fusion-typography__base-color`.
+- `hex` and `hsla` values remain the static legacy light values.
 
 ## Development
 
@@ -46,5 +58,5 @@ bun run check -- packages/theme
 ```
 
 The test command builds the package first so the DOM-free import check exercises
-the published entry point. The committed color snapshot preserves the 75 legacy
+the published entry point. The committed color snapshot preserves the 75 color
 declarations and their order; review any snapshot update as a public-output change.

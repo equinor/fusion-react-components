@@ -43,24 +43,18 @@ bun run build
 bun run start
 ```
 
-### Temporary light-only Storybook
+### Colour scheme (light / dark / system)
 
-Storybook's preview document follows the EDS
+Use the **Colour scheme** toolbar item to switch the preview between System, Light and Dark.
+The decorator in `storybook/.storybook/preview.tsx` always sets an explicit `light` or `dark`
+`data-color-scheme` on the preview `<html>`, the way the Fusion portal passes the scheme down.
+For System it resolves `prefers-color-scheme` with `matchMedia` and updates the attribute when
+the OS setting changes, as the portal does.
+`ThemeProvider` inherits it, and content portaled to `body` follows it too. The body uses the EDS
+neutral surface background and text colours from `preview-head.html`.
+Follow the EDS
 [colour scheme detection](https://eds.equinor.com/docs/foundation/colour/getting_started#colour-scheme-detection)
-guidance: `preview-head.html` declares `<html data-color-scheme="light">`,
-which the HTML parser merges onto the preview document's root element before
-any styles load. EDS then resolves its light CSS variables and applies
-`color-scheme: light`, so EDS colours and native controls stay light on initial
-load and when the OS/browser preference changes, including docs canvases and
-content portaled to `body`.
-Only the preview, where components use EDS CSS variables, is affected; the
-Storybook manager UI is left unchanged.
-
-This is a temporary Storybook-only policy for
-[equinor/fusion-core-tasks#2120](https://github.com/equinor/fusion-core-tasks/issues/2120),
-not dark-mode support or a change to reusable `ThemeProvider` defaults.
-Explicit nested color-scheme examples remain free to override the inherited
-scheme. Remove the preview head override when Storybook supports automatic theming.
+guidance.
 
 Run the regression checks with:
 
@@ -68,17 +62,26 @@ Run the regression checks with:
 bun run --cwd storybook test
 ```
 
-The checks verify the preview head markup and render an EDS CSS variable in
-headless Chromium with a dark `prefers-color-scheme`, asserting it resolves to
-the EDS light token value. Install the browser once with
-`bun run --cwd storybook test:setup`.
+The checks verify that `preview-head.html` does not force a scheme. They also render an
+EDS CSS colour variable and the classic (EDS 2.x) colour mapping in headless Chromium for Light,
+Dark and System (with light and dark `prefers-color-scheme`) and assert each matches the explicit
+scheme. They also unit test how System resolves and follows OS changes. Install the browser once
+with `bun run --cwd storybook test:setup`.
 
-For browser verification, load Storybook with both light and dark
-`prefers-color-scheme` preferences, then switch each preference live without
-reloading. Check an ordinary story, its Docs canvas, and body-portaled
-content. The preview root must keep `data-color-scheme="light"`,
-EDS colors must remain light, and preview native controls must resolve to
-`color-scheme: light`.
+For browser verification, check an ordinary story, its Docs canvas and body-portaled content
+(Tooltip, Menu, Popover, Dialog, Scrim) in each toolbar scheme, and switch the OS preference
+while System is selected.
+
+### Colours
+
+Style components with EDS CSS custom properties (`var(--eds-color-…)`), not the JavaScript
+`tokens` object from `@equinor/eds-tokens`, whose colours are static light values. Do not
+hard-code colours or add literal fallbacks inside `var()`.
+
+Use the stable `@equinor/eds-core-react` 2.x components. They read classic `--eds_*` colour
+properties, which the root `ThemeProvider` from `@equinor/fusion-react-styles` maps to EDS colour
+variables in dark mode only (see `classicColourDeclarations` in its README). Do not wrap or restyle
+them per component for dark mode.
 
 ## Development
 

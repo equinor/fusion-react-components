@@ -10,8 +10,8 @@
  * Components can access theme via useTheme hook or useTheme in makeStyles.
  */
 
-import { describe, it, expect } from 'vitest';
-import { render, screen, renderHook } from '@testing-library/react';
+import { describe, it, expect, vi } from 'vitest';
+import { act, render, screen, renderHook } from '@testing-library/react';
 import { useContext } from 'react';
 import { StyleSheetManager } from 'styled-components';
 import { ThemeProvider, useTheme } from '../ThemeProvider';
@@ -308,5 +308,64 @@ describe('EdsTokens - CSS Variables Rendering', () => {
 
     // EdsTokens component successfully rendered child content
     expect(container.querySelector('[data-testid="child"]')).not.toBeNull();
+  });
+});
+
+describe('ThemeProvider - colour scheme', () => {
+  const getThemeElement = (container: HTMLElement) => {
+    const element = container.querySelector('fwc-theme');
+    if (!element) throw new Error('fwc-theme not rendered');
+    return element;
+  };
+
+  const mockSystemScheme = (dark: boolean) => {
+    const listeners = new Set<() => void>();
+    const media = {
+      matches: dark,
+      addEventListener: (_: string, listener: () => void) => listeners.add(listener),
+      removeEventListener: (_: string, listener: () => void) => listeners.delete(listener),
+    };
+    const original = window.matchMedia;
+    window.matchMedia = vi.fn(() => media) as unknown as typeof window.matchMedia;
+    return {
+      setDark: (value: boolean) => {
+        media.matches = value;
+        for (const listener of listeners) listener();
+      },
+      restore: () => {
+        window.matchMedia = original;
+      },
+    };
+  };
+
+  it('does not set a colour scheme when colorScheme is omitted, so it inherits', () => {
+    const { container } = render(<ThemeProvider>content</ThemeProvider>);
+    expect(getThemeElement(container).hasAttribute('data-color-scheme')).toBe(false);
+  });
+
+  it.each(['light', 'dark'] as const)('sets data-color-scheme="%s"', (scheme) => {
+    const { container } = render(<ThemeProvider colorScheme={scheme}>content</ThemeProvider>);
+    expect(getThemeElement(container).getAttribute('data-color-scheme')).toBe(scheme);
+    expect(getThemeElement(container).getAttribute('color-scheme')).toBe(scheme);
+  });
+
+  it('updates the attribute when colorScheme changes', () => {
+    const { container, rerender } = render(<ThemeProvider colorScheme="dark">x</ThemeProvider>);
+    rerender(<ThemeProvider colorScheme="light">x</ThemeProvider>);
+    expect(getThemeElement(container).getAttribute('data-color-scheme')).toBe('light');
+    rerender(<ThemeProvider>x</ThemeProvider>);
+    expect(getThemeElement(container).hasAttribute('data-color-scheme')).toBe(false);
+  });
+
+  it('follows prefers-color-scheme for "system"', () => {
+    const system = mockSystemScheme(true);
+    try {
+      const { container } = render(<ThemeProvider colorScheme="system">x</ThemeProvider>);
+      expect(getThemeElement(container).getAttribute('data-color-scheme')).toBe('dark');
+      act(() => system.setDark(false));
+      expect(getThemeElement(container).getAttribute('data-color-scheme')).toBe('light');
+    } finally {
+      system.restore();
+    }
   });
 });

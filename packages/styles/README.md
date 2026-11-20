@@ -275,6 +275,7 @@ Provides theme context to child components. Supports nested themes and theme com
 **Props:**
 
 - `theme`: Theme object or function `(outerTheme) => theme`
+- `colorScheme` (optional): `'light' | 'dark' | 'system'`, see [Colour scheme](#colour-scheme-light--dark--system)
 - `children`: React nodes
 
 **Example:**
@@ -300,6 +301,67 @@ function App() {
     </ThemeProvider>
   );
 }
+```
+
+#### Colour scheme (light / dark / system)
+
+The outermost `ThemeProvider` injects the EDS 2.x colour variables
+(`@equinor/eds-tokens/css/variables`). They switch with `data-color-scheme`, and theme
+colours from `@equinor/fusion-web-theme` resolve to them.
+
+- **Omitted (default):** the provider sets no attribute, and the subtree inherits the scheme
+  from its ancestors. Portals should always set an explicit `data-color-scheme="light"` or
+  `"dark"` on `<html>`, resolving System with `matchMedia`.
+- **`light` / `dark`:** sets `data-color-scheme` on the `fwc-theme` wrapper to force that
+  scheme for the subtree.
+- **`system`:** resolves `prefers-color-scheme` with `matchMedia`, sets `light` or `dark` on
+  the wrapper and updates when the setting changes. The EDS CSS only applies its media
+  query at the document root, so a subtree needs the explicit value.
+
+```tsx
+<ThemeProvider colorScheme="system">
+  <YourApp />
+</ThemeProvider>;
+```
+
+Content rendered outside the provider (for example popovers portaled to `document.body`)
+only follows the scheme set on `<html>` or `<body>`. Set the scheme there when using such
+components.
+
+Use EDS CSS custom properties such as `var(--eds-color-text-neutral-strong)` for new colour
+styles, not the JavaScript `tokens` object from `@equinor/eds-tokens`, whose values are
+static light-mode colours.
+
+#### Classic EDS components in dark mode
+
+The root `ThemeProvider` (through `EdsTokens`) maps the legacy `--eds_*` properties that stable
+`@equinor/eds-core-react` 2.x components read (`var(--eds_*, <light value>)`) to the scheme-aware
+`--eds-color-*` variables of `@equinor/eds-tokens` 2.3.2, so classic components, including
+portalled ones such as `Tooltip`, `Menu`, `Popover`, `Dialog` and `Scrim`, follow dark mode.
+The mapping applies only where the tokens select dark: `[data-color-scheme="dark"]`, or a root
+without `data-color-scheme="light"` when the system prefers dark. Light mode keeps the classic
+colours, and a nested `[data-color-scheme="light"]` resets the mapping.
+
+Hosts that render their own global styles can use the same mapping:
+
+- `classicColourVariables`: legacy property name → EDS colour variable name.
+- `classicScrimColour`: a translucent scrim (`color-mix` of the opaque `--eds-color-bg-backdrop`
+  with `transparent`).
+- `classicOverlayColour`: a dark, near-opaque `Tooltip` and `Snackbar` background
+  (`--eds-color-bg-neutral-canvas` at 90%).
+- `classicOverlayColours`: the scrim and overlay legacy properties with the values above.
+- `classicOverlayTextStyles`: rules that give `Tooltip` and `Snackbar` light text in dark mode.
+  The shared white-text property is dark in dark mode because contained buttons use it on light
+  fills. Render these rules globally, not under a dark selector; light mode is unaffected.
+- `classicColourDeclarations()`: CSS declarations for all of the above. Put them under your dark
+  selector only.
+- `classicColourSchemeStyles()`: the complete dark-scoped rules that `EdsTokens` renders.
+
+```ts
+import { classicColourDeclarations, classicOverlayTextStyles } from '@equinor/fusion-react-styles';
+
+const globalCss = `[data-color-scheme="dark"] { ${classicColourDeclarations()} }
+${classicOverlayTextStyles}`;
 ```
 
 ### `useTheme<T>()`

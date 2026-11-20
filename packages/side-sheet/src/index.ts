@@ -1,2 +1,2 @@
 export { SideSheet, default } from './components/SideSheet';
-export type { HEXString } from './components/Indicator';
+export type { CSSVariableString, HEXString, IndicatorColor } from './components/Indicator';

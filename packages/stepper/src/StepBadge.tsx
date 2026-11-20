@@ -15,19 +15,19 @@ const Styled = {
       switch (true) {
         case $active:
           return css`
-            border: 1px solid ${tokens.colors.interactive.primary__resting.hex};
-            background-color: ${tokens.colors.interactive.primary__resting.hex};
-            color: ${tokens.colors.text.static_icons__primary_white.hex};
+            border: 1px solid var(--eds-color-bg-accent-fill-emphasis-default);
+            background-color: var(--eds-color-bg-accent-fill-emphasis-default);
+            color: var(--eds-color-text-accent-strong-on-emphasis);
           `;
         case $done:
           return css`
-            border: 1px solid ${tokens.colors.interactive.primary__resting.hex};
-            color: ${tokens.colors.interactive.primary__resting.hex};
+            border: 1px solid var(--eds-color-border-accent-strong);
+            color: var(--eds-color-text-accent-subtle);
           `;
         default:
           return css`
-            border: 1px solid ${tokens.colors.interactive.disabled__border.hex};
-            color: ${tokens.colors.text.static_icons__default.hex};
+            border: 1px solid var(--eds-color-border-disabled);
+            color: var(--eds-color-text-neutral-strong);
           `;
       }
     }}
