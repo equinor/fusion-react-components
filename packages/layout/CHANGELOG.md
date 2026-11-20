@@ -1,5 +1,11 @@
 # @equinor/fusion-react-layout
 
+## 0.1.5
+
+### Patch Changes
+
+- 033c69f: Declare the utils workspace dependency used by Page props so consumers receive the required package and workspace builds account for the dependency.
+
 ## 0.1.4
 
 ### Patch Changes

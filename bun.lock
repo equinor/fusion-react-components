@@ -28,7 +28,7 @@
     },
     "packages/ag-grid-person-cell": {
       "name": "@equinor/fusion-react-ag-grid-person-cell",
-      "version": "5.0.2",
+      "version": "5.0.3",
       "dependencies": {
         "@equinor/fusion-react-person": "workspace:*",
         "@equinor/fusion-react-utils": "workspace:*",
@@ -52,7 +52,7 @@
     },
     "packages/ag-grid-utils": {
       "name": "@equinor/fusion-react-ag-grid-utils",
-      "version": "33.0.9",
+      "version": "33.0.10",
       "devDependencies": {
         "@equinor/eds-core-react": "^2.6.4",
         "@equinor/eds-icons": "^1.6.0",
@@ -133,7 +133,7 @@
     },
     "packages/filter": {
       "name": "@equinor/fusion-react-filter",
-      "version": "2.1.11",
+      "version": "2.1.12",
       "dependencies": {
         "@equinor/eds-tokens": "^2.3.2",
         "@equinor/fusion-react-utils": "workspace:*",
@@ -182,7 +182,7 @@
     },
     "packages/layout": {
       "name": "@equinor/fusion-react-layout",
-      "version": "0.1.4",
+      "version": "0.1.5",
       "dependencies": {
         "@equinor/fusion-react-utils": "workspace:*",
         "@equinor/fusion-wc-layout": "^0.2.1",
@@ -369,7 +369,7 @@
     },
     "packages/tabs": {
       "name": "@equinor/fusion-react-tabs",
-      "version": "2.0.9",
+      "version": "2.0.10",
       "dependencies": {
         "rxjs": "^7.8.2",
       },
