@@ -145,14 +145,14 @@
       "devDependencies": {
         "@equinor/eds-core-react": "^2.6.4",
         "@equinor/eds-icons": "^1.6.0",
-        "@equinor/fusion-observable": "^9.2.6",
+        "@equinor/fusion-observable": "^9.2.7",
         "@types/react": "^19.3.0",
         "react": "^19.3.1",
       },
       "peerDependencies": {
         "@equinor/eds-core-react": "^2",
         "@equinor/eds-icons": "^1",
-        "@equinor/fusion-observable": "^9.2.6",
+        "@equinor/fusion-observable": "^9.2.7",
         "react": "^18 || ^19",
         "react-dom": "^18 || ^19",
       },
@@ -376,7 +376,7 @@
       "devDependencies": {
         "@equinor/eds-core-react": "^2.6.4",
         "@equinor/eds-tokens": "^2.3.2",
-        "@equinor/fusion-observable": "^9.2.6",
+        "@equinor/fusion-observable": "^9.2.7",
         "@types/react": "^19.3.0",
         "react": "^19.3.1",
         "react-dom": "^19.3.1",
@@ -386,7 +386,7 @@
       "peerDependencies": {
         "@equinor/eds-core-react": "^2",
         "@equinor/eds-tokens": "^2",
-        "@equinor/fusion-observable": "^9.2.6",
+        "@equinor/fusion-observable": "^9.2.7",
         "react": "^18 || ^19",
         "react-dom": "^18 || ^19",
         "styled-components": "^6.6.0",
@@ -481,7 +481,7 @@
         "@babel/preset-env": "^8.0.7",
         "@babel/preset-react": "^8.0.1",
         "@babel/preset-typescript": "^8.0.7",
-        "@equinor/fusion-observable": "^9.2.6",
+        "@equinor/fusion-observable": "^9.2.7",
         "@equinor/fusion-wc-avatar": "^3.3.5",
         "@equinor/fusion-wc-icon": "^2.4.4",
         "@faker-js/faker": "^10.6.0",
@@ -699,13 +699,13 @@
 
     "@biomejs/cli-darwin-x64": ["@biomejs/cli-darwin-x64@2.6.8", "", { "os": "darwin", "cpu": "x64" }, "sha512-QWWUPjlA0RnkkgYnFLUHZu+RrDc0FdK0A+wEPA+dENQJwsuSHMH89lspnAw2QUWWc9VHyfluGx1Xmp6Y2GZi8Q=="],
 
-    "@biomejs/cli-linux-arm64": ["@biomejs/cli-linux-arm64@2.6.8", "", { "os": "linux", "cpu": "arm64", "libc": "glibc" }, "sha512-0Bjim8lKwnrvXUHoI4k3Tb51BjoiLEwDnovCI8nSzkk6wj3dShiuAjrx6+X0Hjf4ejR1sRZgTQiSDHlpy9vB7w=="],
+    "@biomejs/cli-linux-arm64": ["@biomejs/cli-linux-arm64@2.6.8", "", { "os": "linux", "cpu": "arm64" }, "sha512-0Bjim8lKwnrvXUHoI4k3Tb51BjoiLEwDnovCI8nSzkk6wj3dShiuAjrx6+X0Hjf4ejR1sRZgTQiSDHlpy9vB7w=="],
 
-    "@biomejs/cli-linux-arm64-musl": ["@biomejs/cli-linux-arm64-musl@2.6.8", "", { "os": "linux", "cpu": "arm64", "libc": "musl" }, "sha512-WB9PhOitX+bRc0G3+GNJGlvbKoWn3JoB9z4E04JQizIC9aPCQyIvwvWG7QZHxw6k20Fi+dHLmZ2fSEmBa9HqiA=="],
+    "@biomejs/cli-linux-arm64-musl": ["@biomejs/cli-linux-arm64-musl@2.6.8", "", { "os": "linux", "cpu": "arm64" }, "sha512-WB9PhOitX+bRc0G3+GNJGlvbKoWn3JoB9z4E04JQizIC9aPCQyIvwvWG7QZHxw6k20Fi+dHLmZ2fSEmBa9HqiA=="],
 
-    "@biomejs/cli-linux-x64": ["@biomejs/cli-linux-x64@2.6.8", "", { "os": "linux", "cpu": "x64", "libc": "glibc" }, "sha512-XIk3pLQT56I6Tti+u0DF8FtSNXjCMTPbxVTzfJ9cS2t1ImVKvrqV5b52GuEaJg6/wuiXvz0sjfb5saB4TPRjzA=="],
+    "@biomejs/cli-linux-x64": ["@biomejs/cli-linux-x64@2.6.8", "", { "os": "linux", "cpu": "x64" }, "sha512-XIk3pLQT56I6Tti+u0DF8FtSNXjCMTPbxVTzfJ9cS2t1ImVKvrqV5b52GuEaJg6/wuiXvz0sjfb5saB4TPRjzA=="],
 
-    "@biomejs/cli-linux-x64-musl": ["@biomejs/cli-linux-x64-musl@2.6.8", "", { "os": "linux", "cpu": "x64", "libc": "musl" }, "sha512-64Yzo+J4fEk7Kf9SMnVdVxC+Y2A2e/L86QTP9JjGQ57lsddyELLpbBcNMxSJggre2T1AvISwwSrOApkBAHDqNA=="],
+    "@biomejs/cli-linux-x64-musl": ["@biomejs/cli-linux-x64-musl@2.6.8", "", { "os": "linux", "cpu": "x64" }, "sha512-64Yzo+J4fEk7Kf9SMnVdVxC+Y2A2e/L86QTP9JjGQ57lsddyELLpbBcNMxSJggre2T1AvISwwSrOApkBAHDqNA=="],
 
     "@biomejs/cli-win32-arm64": ["@biomejs/cli-win32-arm64@2.6.8", "", { "os": "win32", "cpu": "arm64" }, "sha512-ezjCEZzHIWE2pdh83a7zLVcAAcDaERcTcvfA7uWlxqz/1CuDxgtfO19pDg9B6YY4wKYIDvYBw2QCMnqIshSwmw=="],
 
@@ -835,7 +835,7 @@
 
     "@equinor/fusion-framework-react-module": ["@equinor/fusion-framework-react-module@4.0.7", "", { "dependencies": { "@equinor/fusion-framework-module": "^6.2.0" }, "peerDependencies": { "@types/react": "^18.0.0 || ^19.0.0", "react": "^18.0.0 || ^19.0.0", "react-dom": "^18.0.0 || ^19.0.0" }, "optionalPeers": ["@types/react", "react-dom"] }, "sha512-8q5HjEuuxtC7Np07soASlquKH9agdQnt0RjaxMFquSU8tpvcZdDnpRojTEmM3gyEIRXopoxUru2ulh68yzbr2A=="],
 
-    "@equinor/fusion-observable": ["@equinor/fusion-observable@9.2.6", "", { "dependencies": { "immer": "^11.0.0", "rxjs": "^7.8.1", "uuid": "^14.0.0" }, "peerDependencies": { "@types/react": "^18.0.0 || ^19.0.0", "react": "^18.0.0 || ^19.0.0" }, "optionalPeers": ["@types/react"] }, "sha512-cuvV4UzOEwTvoh1OrEisnKTCuT2Qciij5Msc3UASMpfy17T5P2P7rpeNNyv+n1t5OWgZ9YDbbhqdg8GVO4CJjg=="],
+    "@equinor/fusion-observable": ["@equinor/fusion-observable@9.2.7", "", { "dependencies": { "immer": "^11.0.0", "rxjs": "^7.8.1", "uuid": "^14.0.0" }, "peerDependencies": { "@types/react": "^18.0.0 || ^19.0.0", "react": "^18.0.0 || ^19.0.0" }, "optionalPeers": ["@types/react"] }, "sha512-axgeHq3/AamazrITP/xR8pYx5mUU7r3XHMOv+gMvbOyfLaMnzHMu1LVInCvxZLazsjxvoE+uadnxmeFmHHT77g=="],
 
     "@equinor/fusion-react-ag-grid-person-cell": ["@equinor/fusion-react-ag-grid-person-cell@workspace:packages/ag-grid-person-cell"],
 
