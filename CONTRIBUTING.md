@@ -34,6 +34,42 @@ curl -fsSL https://bun.sh/install | bash
 bun install
 ```
 
+### Local dark-mode preview
+
+On the dark-mode PR branch, use the shared Verdaccio instance at `http://127.0.0.1:4873`.
+Start it and publish the web-components preview first (see
+[fusion-web-components#2551](https://github.com/equinor/fusion-web-components/pull/2551)).
+The React preview needs its verified `~/.config/fusion-dark-mode/web.json` manifest and the
+private `~/.config/fusion-dark-mode/npmrc` created during registry setup.
+
+```sh
+bun scripts/dark-mode-preview.js check    # Install, validate and pack without publishing
+bun scripts/dark-mode-preview.js publish  # Repeat the checks, then publish with the dark-mode tag
+```
+
+The script uses a disposable checkout of `HEAD` and checks the installed web-components
+versions and tarball integrity against the upstream manifest, including packages whose
+dependency ranges did not change. Changesets calculates the React release versions, and the
+script verifies the tarballs and writes `~/.config/fusion-dark-mode/react.json` for downstream
+installs. It refuses to overwrite a version with different contents.
+
+In a disposable Bun consumer checkout, with no existing `.npmrc`, point Bun at the same
+registry. Use exact versions from `react.json` for the preview dependencies, and pin the
+applicable web-components versions from `web.json` in the consumer's Bun overrides so
+previously locked transitive dependencies also use the preview.
+
+```sh
+ln -s "$HOME/.config/fusion-dark-mode/npmrc" .npmrc
+bun install --registry=http://127.0.0.1:4873/
+```
+
+Confirm the preview entries in the scratch lockfile match the manifests' versions and
+integrities and use the loopback registry.
+Keep the web components' published `@equinor/fusion-web-theme` `^0.1.12` dependency; use the
+React preview's `0.2.0` only where the consumer's range admits it.
+Do not commit the npmrc, preview overrides or lockfile changes. The normal install, CI and
+public release still use the public registry.
+
 ## Start Storybook
 
 StoryBook is not handling too well composite libraries, so a clean build is needed
