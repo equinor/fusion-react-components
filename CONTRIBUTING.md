@@ -51,7 +51,8 @@ The script uses a disposable checkout of `HEAD` and checks the installed web-com
 versions and tarball integrity against the upstream manifest, including packages whose
 dependency ranges did not change. Changesets calculates the React release versions, and the
 script verifies the tarballs and writes `~/.config/fusion-dark-mode/react.json` for downstream
-installs. It refuses to overwrite a version with different contents.
+installs. Publishing refuses to overwrite a version with different contents; `check` still
+validates and packs newer commits without changing the existing preview.
 
 In a disposable Bun consumer checkout, with no existing `.npmrc`, point Bun at the same
 registry. Use exact versions from `react.json` for the preview dependencies, and pin the

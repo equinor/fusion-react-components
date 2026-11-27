@@ -1,13 +1,4 @@
-import {
-  useContext,
-  useEffect,
-  useLayoutEffect,
-  useMemo,
-  useRef,
-  useSyncExternalStore,
-  type ReactNode,
-} from 'react';
-import type { ReactElement } from 'react';
+import { useContext, useMemo, type ReactElement, type ReactNode } from 'react';
 import { styles as defaultTheme } from '@equinor/fusion-web-theme';
 import { ThemeContext } from './utils/contexts';
 import type { FusionTheme } from './theme';
@@ -18,7 +9,9 @@ import type ThemeElement from '@equinor/fusion-wc-theme';
 declare module 'react' {
   namespace JSX {
     interface IntrinsicElements {
-      'fwc-theme': React.DetailedHTMLProps<React.HTMLAttributes<ThemeElement>, ThemeElement>;
+      'fwc-theme': React.DetailedHTMLProps<React.HTMLAttributes<ThemeElement>, ThemeElement> & {
+        'color-scheme'?: ColorScheme;
+      };
     }
   }
 }
@@ -31,23 +24,6 @@ declare module 'react' {
  */
 export type ColorScheme = 'light' | 'dark' | 'system';
 
-const darkSchemeQuery = '(prefers-color-scheme: dark)';
-
-const noop = (): void => undefined;
-
-const subscribeToSystemScheme = (onChange: () => void): (() => void) => {
-  if (typeof window === 'undefined' || !window.matchMedia) return noop;
-  const media = window.matchMedia(darkSchemeQuery);
-  media.addEventListener('change', onChange);
-  return () => media.removeEventListener('change', onChange);
-};
-
-const getSystemScheme = (): 'light' | 'dark' =>
-  typeof window !== 'undefined' && window.matchMedia?.(darkSchemeQuery).matches ? 'dark' : 'light';
-
-// Avoids the server-side `useLayoutEffect` warning while applying the attribute before paint.
-const useIsomorphicLayoutEffect = typeof window === 'undefined' ? useEffect : useLayoutEffect;
-
 /**
  * Props for the ThemeProvider component
  *
@@ -59,7 +35,7 @@ export interface ThemeProviderProps<T extends FusionTheme = FusionTheme> {
   /** Theme object or function that receives outer theme and returns new theme */
   theme?: T | Partial<T> | ((outerTheme: T | null) => T);
   /**
-   * Colour scheme for this subtree, set as `data-color-scheme` on the `fwc-theme` wrapper.
+   * Colour scheme for this subtree, resolved by the `fwc-theme` wrapper.
    *
    * When omitted, no attribute is set and the subtree inherits the scheme from its
    * ancestors (for example `data-color-scheme` on `<html>` set by the portal), or follows
@@ -126,29 +102,6 @@ export function ThemeProvider<T extends FusionTheme = FusionTheme>(
   props: ThemeProviderProps<T>,
 ): ReactElement {
   const { children, theme: localTheme, colorScheme } = props;
-  const themeElementRef = useRef<ThemeElement>(null);
-  const systemScheme = useSyncExternalStore(
-    subscribeToSystemScheme,
-    getSystemScheme,
-    () => 'light' as const,
-  );
-  const resolvedScheme = colorScheme === 'system' ? systemScheme : colorScheme;
-
-  // Applied after mount because `fwc-theme` <= 1.2.6 forces `data-color-scheme="light"` when
-  // connected; removing it when no scheme is given lets the subtree inherit from its ancestors.
-  // `color-scheme` is the input attribute of newer `fwc-theme` versions, which then keep
-  // `data-color-scheme` in sync themselves.
-  useIsomorphicLayoutEffect(() => {
-    const element = themeElementRef.current;
-    if (!element) return;
-    if (colorScheme && resolvedScheme) {
-      element.setAttribute('color-scheme', colorScheme);
-      element.setAttribute('data-color-scheme', resolvedScheme);
-    } else {
-      element.removeAttribute('color-scheme');
-      element.removeAttribute('data-color-scheme');
-    }
-  }, [colorScheme, resolvedScheme]);
   // Get theme from parent ThemeProvider (if nested)
   const outerTheme = useContext(ThemeContext) as T | null;
 
@@ -172,7 +125,7 @@ export function ThemeProvider<T extends FusionTheme = FusionTheme>(
       {outerTheme === null && <EdsTokens />}
 
       {/* Wrap children in fwc-theme web component for theme application */}
-      <fwc-theme ref={themeElementRef}>{children}</fwc-theme>
+      <fwc-theme color-scheme={colorScheme}>{children}</fwc-theme>
     </ThemeContext.Provider>
   );
 }

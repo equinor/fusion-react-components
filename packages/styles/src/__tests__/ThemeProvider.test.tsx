@@ -338,32 +338,46 @@ describe('ThemeProvider - colour scheme', () => {
     };
   };
 
-  it('does not set a colour scheme when colorScheme is omitted, so it inherits', () => {
+  it('does not set a colour scheme when colorScheme is omitted, so it inherits', async () => {
     const { container } = render(<ThemeProvider>content</ThemeProvider>);
-    expect(getThemeElement(container).hasAttribute('data-color-scheme')).toBe(false);
+    const element = getThemeElement(container);
+    await element.updateComplete;
+    expect(element.hasAttribute('data-color-scheme')).toBe(false);
   });
 
-  it.each(['light', 'dark'] as const)('sets data-color-scheme="%s"', (scheme) => {
+  it.each(['light', 'dark'] as const)('sets data-color-scheme="%s"', async (scheme) => {
     const { container } = render(<ThemeProvider colorScheme={scheme}>content</ThemeProvider>);
-    expect(getThemeElement(container).getAttribute('data-color-scheme')).toBe(scheme);
-    expect(getThemeElement(container).getAttribute('color-scheme')).toBe(scheme);
+    const element = getThemeElement(container);
+    await element.updateComplete;
+    expect(element.getAttribute('data-color-scheme')).toBe(scheme);
+    expect(element.getAttribute('color-scheme')).toBe(scheme);
   });
 
-  it('updates the attribute when colorScheme changes', () => {
+  it('removes its scheme override after switching between forced schemes', async () => {
     const { container, rerender } = render(<ThemeProvider colorScheme="dark">x</ThemeProvider>);
+    const element = getThemeElement(container);
+    await element.updateComplete;
+    expect(element.getAttribute('data-color-scheme')).toBe('dark');
+
     rerender(<ThemeProvider colorScheme="light">x</ThemeProvider>);
-    expect(getThemeElement(container).getAttribute('data-color-scheme')).toBe('light');
+    await element.updateComplete;
+    expect(element.getAttribute('data-color-scheme')).toBe('light');
+
     rerender(<ThemeProvider>x</ThemeProvider>);
-    expect(getThemeElement(container).hasAttribute('data-color-scheme')).toBe(false);
+    await element.updateComplete;
+    expect(element.hasAttribute('color-scheme')).toBe(false);
+    expect(element.hasAttribute('data-color-scheme')).toBe(false);
   });
 
-  it('follows prefers-color-scheme for "system"', () => {
+  it('follows prefers-color-scheme for "system"', async () => {
     const system = mockSystemScheme(true);
     try {
       const { container } = render(<ThemeProvider colorScheme="system">x</ThemeProvider>);
-      expect(getThemeElement(container).getAttribute('data-color-scheme')).toBe('dark');
+      const element = getThemeElement(container);
+      await element.updateComplete;
+      expect(element.getAttribute('data-color-scheme')).toBe('dark');
       act(() => system.setDark(false));
-      expect(getThemeElement(container).getAttribute('data-color-scheme')).toBe('light');
+      expect(element.getAttribute('data-color-scheme')).toBe('light');
     } finally {
       system.restore();
     }

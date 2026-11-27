@@ -239,12 +239,13 @@ try {
 
   const packed = packReleases(temp, upstream, workspaceFiles, releases);
   const existing = new Set();
-  for (const artifact of packed.values()) {
-    const published = dist(temp, artifact.id, true);
-    if (!published) continue;
-    verifyDist(temp, artifact.id, artifact.integrity);
-    verifyTag(temp, artifact.name, artifact.version);
-    existing.add(artifact.name);
+  if (action === 'publish') {
+    for (const artifact of packed.values()) {
+      if (!dist(temp, artifact.id, true)) continue;
+      verifyDist(temp, artifact.id, artifact.integrity);
+      verifyTag(temp, artifact.name, artifact.version);
+      existing.add(artifact.name);
+    }
   }
   const packages = {};
   for (const artifact of packed.values()) {
