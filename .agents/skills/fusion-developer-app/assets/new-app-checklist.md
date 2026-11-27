@@ -66,6 +66,8 @@ Step-by-step checklist for creating a new Fusion Framework React app from scratc
 
 - [ ] Typecheck — zero errors (e.g. `bun run typecheck` / `pnpm typecheck`)
 - [ ] Lint — zero violations (e.g. `bun run lint` / `biome check src/`)
+- [ ] `@equinor/fusion-lint` installed as devDependency with a `lint:fusion` script (`fusion-lint src`); zero errors
+- [ ] CI runs `fusion-lint changed --against origin/<base> --github-actions` on pull requests
 - [ ] Production build succeeds (e.g. `bun run build` / `pnpm build`)
 - [ ] No new dependencies added without justification
 - [ ] No secrets or credentials in source files

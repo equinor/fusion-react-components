@@ -1,5 +1,16 @@
 # Authoring Custom Fusion Framework Modules
 
+## Contents
+
+- [When to use a custom module](#when-to-use-a-custom-module)
+- [Module contract](#module-contract)
+- [Wiring a custom module into an app](#wiring-a-custom-module-into-an-app)
+- [Accessing a custom module in components](#accessing-a-custom-module-in-components)
+- [Module lifecycle](#module-lifecycle)
+- [File structure](#file-structure)
+- [Common pitfalls](#common-pitfalls)
+- [When to use `fusion-research` first](#when-to-use-fusion-research-first)
+
 Reusable cross-cutting modules: lifecycle, configuration, usage.
 
 **Fusion docs**: [Fusion Framework modules](https://docs.equinor.com/fusion-framework/)

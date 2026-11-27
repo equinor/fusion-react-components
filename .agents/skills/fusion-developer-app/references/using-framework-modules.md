@@ -1,5 +1,18 @@
 # Using Framework Modules
 
+## Contents
+
+- [Module access patterns](#module-access-patterns)
+- [Context](#context)
+- [Authentication (MSAL)](#authentication-msal)
+- [Navigation](#navigation)
+- [Feature flags](#feature-flags)
+- [App settings](#app-settings)
+- [Environment variables](#environment-variables)
+- [Bookmarks](#bookmarks)
+- [Analytics](#analytics)
+- [Generic module access](#generic-module-access)
+
 How to access Fusion Framework modules (context, auth, navigation, feature flags, settings, environment, bookmarks, analytics) in components.
 
 ## Module access patterns

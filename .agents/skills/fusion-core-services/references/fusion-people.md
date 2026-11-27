@@ -1,5 +1,21 @@
 # People API Surface
 
+## Contents
+
+- [Service source](#service-source)
+- [Endpoint groups (controller-level)](#endpoint-groups-controller-level)
+- [Priority workflow coverage](#priority-workflow-coverage)
+- [Model clarity map](#model-clarity-map)
+- [Capability / OPTIONS defaults](#capability--options-defaults)
+- [Subscription defaults](#subscription-defaults)
+- [React/TypeScript defaults](#reacttypescript-defaults)
+- [C# HttpClient defaults](#c-httpclient-defaults)
+- [Representative model snapshots](#representative-model-snapshots)
+- [Validation highlights](#validation-highlights)
+- [Suggested local models](#suggested-local-models)
+- [Versioning notes](#versioning-notes)
+- [Explicit exclusions](#explicit-exclusions)
+
 ## Service source
 - `fusion-core-services/src/Fusion.Services.People`
 
@@ -49,7 +65,8 @@
 - Prefer `useHttpClient('people')` or a service-discovery-created client over ad hoc `fetch` setup.
 - Suggested client file: `src/api/peopleClient.ts`
 - Suggested hook file: `src/features/people/usePeople.ts`
-- Prefer local models derived from `ApiPersonV3`, `ApiPeoplePickerPerson`, and `ApiPersonSearchResponseV1`.
+- Match models to selected operation's live schema. `GET /persons` returns an array of `ApiPersonSearchResultV1`
+  in v1 or `ApiPersonSearchResultV2` in v2; v1 search is not flagged deprecated. Profile models include `ApiPersonV3`.
 - Starter shape:
 
 ```ts

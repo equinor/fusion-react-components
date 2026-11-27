@@ -1,5 +1,16 @@
 # Styling with EDS
 
+## Contents
+
+- [Packages](#packages)
+- [Component catalog](#component-catalog)
+- [Design tokens](#design-tokens)
+  - [CSS custom properties (preferred)](#css-custom-properties-preferred)
+  - [JS token imports](#js-token-imports)
+- [Icons](#icons)
+- [Density](#density)
+- [Accessibility](#accessibility)
+
 Using EDS components and design tokens in Fusion Framework apps.
 
 ## Packages
@@ -53,7 +64,7 @@ When EDS theme is active (Fusion Portal provides this):
 background: var(--eds-color-bg-neutral-surface);
 color: var(--eds-color-text-neutral-strong);
 border: 1px solid var(--eds-color-border-neutral-subtle);
-padding: var(--eds-spacing-comfortable-medium);
+padding: var(--eds-spacing-inset-md-vertical-squared) var(--eds-spacing-inset-md-horizontal);
 ```
 
 Common token categories:

@@ -1,154 +1,18 @@
 # Fixtures and advanced usage
 
+## Contents
+
+- [Extend app configuration (`/test`'s `configureApp`)](#extend-app-configuration-tests-configureapp)
+- [Fake an endpoint URL with `mergeEnvConfig`](#fake-an-endpoint-url-with-mergeenvconfig)
+- [Override a fixture for one test or `describe` block](#override-a-fixture-for-one-test-or-describe-block)
+- [Runner-level advanced behavior](#runner-level-advanced-behavior)
+- [Related](#related)
+
 The `/test` entry point extends Vitest's test context with `appEnv`, `configureApp`,
 `configureFusion`, `fusion`, `app`, `render`, and `renderHook`. Fixture declarations are reusable,
 while each test still receives fresh framework and app module instances. See Vitest's own
 [Test Context](https://vitest.dev/guide/test-context) docs for fixture scope, cleanup, and the
 general `test.extend`/`test.override` mechanics this builds on.
-
-## Choose a rendering API
-
-| API | Use it when |
-| --- | --- |
-| `test` from `/test` | The app's manifest, config, and module configurator should resolve automatically |
-| `render` from `/test` | A standard `describe`/`it` block needs the automatically resolved app scope |
-| `renderAppHook` | A hook needs an app scope with explicitly supplied options |
-| `renderAppComponent` | A component needs explicit `env`, `configure`, or parent `fusion` options |
-| `testApp` | A reusable fixture should not depend on Vite's automatic app-file resolution |
-
-All Fusion rendering APIs initialize modules asynchronously and must be awaited. The lower-level
-helpers return `fusion.framework` and `fusion.app`, letting a test drive the exact module
-instances the rendered subject consumed.
-
-## `renderAppHook`
-
-```ts
-function renderAppHook<Result, Props = undefined, TModules = unknown, TEnv extends AppEnv = AppEnv>(
-  render: (initialProps?: Props) => Result,
-  options?: {
-    configure?: AppMockConfigureFn<TModules, TEnv>;
-    env?: TEnv;
-    fusion?: Fusion;
-  } & Omit<RenderHookOptions<Props>, 'wrapper'>,
-): Promise<RenderHookResult<Result, Props> & { fusion: { framework: Fusion; app: AppModulesInstance<TModules> } }>;
-```
-
-| Option | Description |
-| --- | --- |
-| `configure` | Forwarded to `mockAppModules` for seeding app-scope modules |
-| `env` | The application environment (manifest); defaults to a generic standalone `test-app` |
-| `fusion` | The parent Fusion instance; defaults to a fresh `mockFramework` instance serving this app's own manifest |
-
-```tsx
-import { renderAppHook } from '@equinor/fusion-framework-vitest-plugin-react-app';
-import { useAccessToken } from '@equinor/fusion-framework-react-app/msal';
-
-test('resolves an access token', async () => {
-  const { result } = await renderAppHook(() => useAccessToken({ scopes: ['User.Read'] }));
-  await vi.waitFor(() => expect(result.current.pending).toBe(false));
-  expect(result.current.token).toBeDefined();
-});
-```
-
-Pass `configure` to reach a module's mock builder before the hook renders:
-
-```tsx
-test('reads the configured account', async () => {
-  const { result } = await renderAppHook(() => useCurrentAccount(), {
-    configure: (configurator) => configurator.msal.setAccount({ name: 'Ada Lovelace' }),
-  });
-  expect(result.current).toMatchObject({ name: 'Ada Lovelace' });
-});
-```
-
-Reuse a pre-built `fusion` across multiple render calls, or to pre-configure parent-level modules
-(`http`, `context`, `serviceDiscovery`):
-
-```tsx
-import { mockFramework } from '@equinor/fusion-framework/mock';
-import { enableAppManifestMock } from '@equinor/fusion-framework-app/mock';
-
-const env = { manifest: { appKey: 'test-app', displayName: 'Test App', description: '', type: 'standalone' as const } };
-
-test('shares one fusion instance across two renders', async () => {
-  const fusion = await mockFramework<[AppModule]>((configurator) => enableAppManifestMock(configurator, env));
-
-  const { result: a } = await renderAppHook(() => useAccessToken({ scopes: ['User.Read'] }), { fusion });
-  const { result: b } = await renderAppHook(() => useCurrentAccount(), { fusion });
-});
-```
-
-## `renderAppComponent`
-
-Same options shape as `renderAppHook` (`configure`, `env`, `fusion`), plus any
-`vitest-browser-react` `render` option. The result carries the usual return values (`getByText`,
-`container`, `unmount`) plus a **nested** `fusion` (not spread) — `fusion.app` is the same
-instance the rendered component reads through `useAppModule`/`useAppModules`; `fusion.framework`
-is the parent instance. Drive a module directly through `fusion.app` to exercise a state change
-after the initial render:
-
-```tsx
-import { enableContextMock } from '@equinor/fusion-framework-module-context/mock';
-import { act } from 'react';
-import { renderAppComponent } from '@equinor/fusion-framework-vitest-plugin-react-app';
-
-test('reacts when the current context switches', async () => {
-  const { getByText, fusion } = await renderAppComponent<[ContextModule]>(<App />, {
-    configure: (configurator) => enableContextMock(configurator, (mock) => mock.setCurrentContext(projectA)),
-  });
-
-  await act(() => fusion.app.context.setCurrentContextByIdAsync(projectB.id));
-  await expect.element(getByText(/project-b/)).toBeVisible();
-});
-```
-
-Loading/error-state example:
-
-```tsx
-test('mounts the child app once its script loads', async () => {
-  const manifest: AppManifest = { appKey: 'child-app', displayName: 'Child App', description: '', type: 'standalone', build: { version: '1.0.0', entryPoint: 'child-script.ts', assetPath: '' } };
-  const fusion = await mockFramework<[AppModule]>((configurator) => enableAppManifestMock(configurator, { manifest }));
-
-  const { container } = await renderAppComponent(<Apploader appKey="child-app" />, { fusion });
-
-  // the loading state renders synchronously, before the script's dynamic import resolves
-  expect(container.textContent).toContain('Loading child-app');
-  await vi.waitFor(() => expect(container.textContent).toContain('mounted: child-app'));
-});
-```
-
-## `testApp`
-
-`vitest`'s `test`, extended with an application module scope fixture: `appEnv`/`configureApp`
-become suite-level concerns overridden once per file (or per `describe`) with
-`testApp.extend(...)`, instead of an options object repeated on every call. `fusion`/`app` resolve
-lazily — a test that only destructures `app` never pays for rendering.
-
-```tsx
-import { testApp } from '@equinor/fusion-framework-vitest-plugin-react-app';
-
-testApp('resolves current context', async ({ app, render }) => {
-  const screen = await render(<App />);
-  expect(app.context).toBeDefined();
-});
-```
-
-Seed a module for every test in a suite:
-
-```tsx
-describe('with a seeded context module', () => {
-  const test = testApp.extend(
-    'configureApp',
-    { injected: true },
-    (): AppMockConfigureFn => (configurator) => enableContextMock(configurator, (mock) => mock.setCurrentContext(projectA)),
-  );
-
-  test('starts on the seeded context', async ({ render }) => {
-    const screen = await render(<App />);
-    await expect.element(screen.getByText(projectA.title)).toBeVisible();
-  });
-});
-```
 
 ## Extend app configuration (`/test`'s `configureApp`)
 
@@ -227,47 +91,6 @@ test.override('fusion', async ({ appEnv }) =>
 
 `{ injected: true }` matches the fixture's original declaration; keeping it consistent avoids
 re-deriving whether the base fixture accepts a config-injected value.
-
-## Extend the parent framework mock with `configureFusion`
-
-`fusion` (built by `resolveFusion`) always carries a mocked `app` module and a `navigation` module
-with in-memory history (so tests don't leak URL/history state), and mocks `featureFlag` with no
-flags enabled — but only when `@equinor/fusion-framework-module-feature-flag` (an optional peer
-dependency) is actually installed. `configureFusion` runs on the same configurator afterwards, so
-a test can add framework-level modules or override that setup without reimplementing it:
-
-```tsx
-import { enableFeatureFlagMock } from '@equinor/fusion-framework-module-feature-flag/mock';
-
-const test = baseTest.extend('configureFusion', { injected: true }, () => (configurator) => {
-  enableFeatureFlagMock(configurator, (mock) => mock.addFeature({ key: 'new-search', enabled: true }));
-  configurator.serviceDiscovery.addServices([{ key: 'people', uri: baseUrl('people') }]);
-});
-```
-
-This is a **framework-scope** module set, distinct from the app-scope one `configureApp` seeds —
-overriding history through `configureFusion` affects framework-scope consumers
-(`useFramework<[NavigationModule]>().modules.navigation`, `useBookmarkNavigate`), not a rendered
-app's own router (which registers its own `navigation` module inside its own `config.ts`).
-
-> [!IMPORTANT]
-> `.override('fusion', ...)` bypasses `configureFusion` entirely — it replaces the resolver that
-> calls it, so a `configureFusion` override on the same test/suite is silently never called. Reach
-> for `configureFusion` to extend the base mock; reach for `fusion` only to replace it outright.
-
-## Test routes and app lifecycle
-
-Render the complete `App` when assertions depend on route loaders, navigation, app configuration,
-or several modules working together. Set the initial browser URL before rendering, interact
-through visible controls or `app.navigation`, and assert the rendered result.
-
-## Supply a custom parent framework
-
-Override or explicitly pass `fusion` when the scenario depends on portal-level context, service
-discovery, authentication, or app manifests. Build the parent with `mockFramework`
-(`fusion-framework-mocking`), then initialize the app beneath it — this exercises
-parent-to-app propagation without a running portal. Use `enableAppManifestMock` when the custom
-parent must serve the app's manifest and config.
 
 ## Runner-level advanced behavior
 

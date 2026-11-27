@@ -1,5 +1,18 @@
 # Using Feature Flags
 
+## Contents
+
+- [When feature flags are the right fit](#when-feature-flags-are-the-right-fit)
+- [App-level setup](#app-level-setup)
+- [Framework-level setup with plugins](#framework-level-setup-with-plugins)
+- [Consuming flags in components](#consuming-flags-in-components)
+  - [Provider-based hook variant](#provider-based-hook-variant)
+- [Known API ambiguity](#known-api-ambiguity)
+- [Rollout and cleanup](#rollout-and-cleanup)
+  - [Rollout checklist](#rollout-checklist)
+- [MCP-grounded research](#mcp-grounded-research)
+- [Public source map](#public-source-map)
+
 Using Fusion Framework feature toggling in React apps.
 
 ## When feature flags are the right fit

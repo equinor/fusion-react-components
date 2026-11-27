@@ -1,5 +1,14 @@
 # Screenshots, validation, and keeping help in sync
 
+## Contents
+
+- [Write for the side sheet](#write-for-the-side-sheet)
+- [Capture components with Playwright stories](#capture-components-with-playwright-stories)
+- [Generate images; do not hand-maintain them](#generate-images-do-not-hand-maintain-them)
+- [Validate before publishing](#validate-before-publishing)
+- [Keep help in sync with the app](#keep-help-in-sync-with-the-app)
+
+
 Fusion Help opens in a narrow side sheet in the portal (about 450 CSS px wide). Full-page
 screenshots shrink to roughly a third of their size there and become unreadable. This reference
 describes a pattern that keeps help images readable, reproducible, and in step with the app.
@@ -7,6 +16,7 @@ describes a pattern that keeps help images readable, reproducible, and in step w
 ## Write for the side sheet
 
 - Second person, task first, short sentences, exact UI labels in **bold**. Use bold for UI text only.
+- Cut AI writing tells: no "not X, but Y" contrasts, throat-clearing openers ("Here is how…"), dramatic one-line closers, forced triads, or sales inflation ("seamlessly", "empowers"). State the user action directly.
 - Describe controls and workflows that exist now. Keep issue numbers, implementation details,
   release plans, and open product questions out of end-user help.
 - Avoid tables with more than two short columns; use bullets or short subsections. Keep list nesting

@@ -1,5 +1,20 @@
 # RolesV2 API Surface
 
+## Contents
+
+- [Service source](#service-source)
+- [Endpoint groups (controller-level)](#endpoint-groups-controller-level)
+- [Priority workflow coverage](#priority-workflow-coverage)
+- [Model clarity map](#model-clarity-map)
+- [Capability / OPTIONS defaults](#capability--options-defaults)
+- [Subscription defaults](#subscription-defaults)
+- [React/TypeScript defaults](#reacttypescript-defaults)
+- [C# HttpClient defaults](#c-httpclient-defaults)
+- [Representative model snapshots](#representative-model-snapshots)
+- [Validation highlights](#validation-highlights)
+- [Suggested local models](#suggested-local-models)
+- [Versioning notes](#versioning-notes)
+
 ## Service source
 - `fusion-core-services/src/Fusion.Services.RolesV2`
 

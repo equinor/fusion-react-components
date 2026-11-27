@@ -1,12 +1,12 @@
 ---
 name: fusion-roles-cli
-description: 'Deploy and manage Fusion Roles V2 configuration using the fusion-roles-cli (froles). USE FOR: deploy role config from a JSON file, create roles/bindings/assignments, export current role state, inspect role assignments. DO NOT USE FOR: database provisioning, application code changes, Azure AD group management outside role bindings, or Roles V1 management.'
+description: 'Manages Fusion Roles V2 config with froles. USE FOR: JSON role deployment, bindings, assignments, dry-run, assignment inspection and state export. DO NOT USE FOR: databases (use fusion-infra-cli), app code, Azure AD groups outside bindings, Roles V1 or exposed tokens.'
 license: MIT
 compatibility: >
   Requires froles installed as a .NET global tool from the Fusion-Public NuGet feed.
   Requires Azure CLI login (az login) or explicit token via -t flag.
 metadata:
-  version: "0.0.2"
+  version: "0.0.5"
   status: active
   owner: "@equinor/fusion-core"
   tags:
@@ -22,7 +22,7 @@ metadata:
 
 ## When to use
 
-Use when Fusion Roles V2 resources (roles, bindings, assignments, scope types) need to be created or updated from a config file, or when existing role state needs to be inspected or exported.
+Create/update Fusion Roles V2 roles, bindings, assignments and scope types from JSON; inspect/export existing state.
 
 Typical triggers:
 - "Deploy the roles config for my service"
@@ -36,145 +36,62 @@ Typical triggers:
 ## When not to use
 
 - Database provisioning — use `fusion-infra-cli`
-- Managing Azure AD groups themselves — use the Azure portal or Graph API
-- Roles V1 (legacy system) — this tool targets Roles V2 only
-- Application code changes
+- Managing Azure AD groups themselves — use Azure portal or Graph API
+- Roles V1 (legacy system); application code changes
+
+## Required inputs
+
+Config file, system identifier, target environment (`ci`, `fqa`, `fprd`, `tr`), resources/scopes to manage and reconciliation intent. Confirm files are complete for any deletion reconciliation.
+
+## Safety
+
+- Always dry-run before deploying, including production. Review mapping removals and binding diffs; confirm deployment writes with user.
+- Access role mappings on roles/claimable roles are **fully reconciled**: mappings absent from config are removed. Only access roles belonging to systems declared in config are managed.
+- Bindings/assignments are only deleted with `--reconcile-bindings=<system>` / `--reconcile-assignments[=<system>]`. `--reconcile-bindings` / `--reconcile-assignments` delete missing entries: use complete files only, dry-run first, confirm with user.
+- `delete role-assignments` is destructive: confirm with user and dry-run first.
+- `--dry-run` reads current server state (GET), needs target access and sends no create/update/delete requests. It cannot catch API validation errors; apply to `ci` before `fprd`.
+- Never store tokens in config or print/persist tokens. Use `-t <token>` from secret variables in pipelines without echoing/logging values.
+- Failed/uncertain writes: inspect current server state and fresh dry-run before retry. Idempotency is not proof nothing changed.
 
 ## Prerequisites
 
-Install `froles` as a .NET global tool:
-
-```bash
-dotnet tool install --global \
-  --add-source "https://statoil-proview.pkgs.visualstudio.com/Fusion%20-%20Packages/_packaging/Fusion-Public/nuget/v3/index.json" \
-  Fusion.Roles.Cli
-```
-
-Update to latest:
-
-```bash
-froles --update
-```
-
-Auth uses `DefaultAzureCredential` automatically (picks up `az login` session). Pass `-t <token>` to override.
+Confirm `froles` installed/current. When absent/outdated or tool help needed, read `references/setup.md` for install/update commands and source docs.
+Auth uses `DefaultAzureCredential` (`az login` session); pass `-t <token>` to override.
 
 ## Core workflow — deploy a role config
 
-New to Roles V2? Read [references/concepts.md](references/concepts.md) first: system, access role, scope type, role,
-claimable role, assignment, binding, and when to use global or scoped access.
-
 ### 1. Create the config file
 
-The config file is a JSON file declaring all role resources for your system. Always include the `$schema` reference — it enables editor validation and autocompletion.
+Always include `$schema` for editor validation/autocompletion.
+When starting config, read `references/config-examples.md` for minimal example. When authoring/validating resource fields, read `references/role-config-schema.md` for full live authoritative schema and definitions.
 
-Minimal example (`roles-config.json`):
-
-```json
-{
-  "$schema": "https://rolesv2.api.fusion.equinor.com/public/schemas/role-config.schema.json",
-  "accessRoles": [
-    {
-      "systemIdentifier": "my-service",
-      "name": "MyService.Project.Read",
-      "description": "Read access to project resources"
-    }
-  ],
-  "roles": [
-    {
-      "name": "project-viewer",
-      "displayName": "Project Viewer",
-      "accessRoleMappings": [
-        { "accessRoleIdentifier": "MyService.Project.Read" }
-      ]
-    }
-  ]
-}
-```
-
-See [references/role-config-schema.md](references/role-config-schema.md) for the full schema with all resource types and field definitions.
-
-For an app repo, split the config per environment and concern (`roles.<env>.json`, `bindings.<env>.json`,
-`access-assignments.<env>.json`) and apply them in that order. See [references/file-layout.md](references/file-layout.md)
-for the layout, deploy order, reconcile flags, scoped vs global roles, and naming.
+New to Roles V2 or modeling scoped access? Read `references/concepts.md` for system/resource concepts and global/scoped checks before choosing assignments.
+For app config layout or reconciliation flags, read `references/file-layout.md` for per-environment owners, binding reasons, naming, scope separation and complete-file rules.
+Split app config by environment/concern (`roles.<env>.json`, `bindings.<env>.json`, `access-assignments.<env>.json`); apply in that order.
 
 ### 2. Dry-run to verify changes
-
-Always dry-run before deploying to catch unexpected changes:
 
 ```bash
 froles create -e ci --file roles-config.json --dry-run
 ```
 
-The dry-run reads the current state from the server (GET requests, so you need access to the target environment) and
-prints what would be created, patched or left unchanged, including binding diffs. It sends no create, update or delete
-requests.
+Review created/patched/unchanged resources and binding diffs before approved deployment.
 
 ### 3. Deploy
 
-```bash
-# CI
-froles create -e ci --file roles-config.json
-
-# QA
-froles create -e fqa --file roles-config.json
-
-# Production
-froles create -e fprd --file roles-config.json
-```
-
-`create` is **idempotent** — safe to run repeatedly. Resources are matched on natural keys; only changed fields are patched.
+Apply to `ci` before `fprd`. When choosing CI/QA/production command variants or inspecting natural-key reconciliation/drift, read `references/command-reference.md` for exact commands and resource matching.
+`create` is **idempotent**: resources matched on natural keys, changed fields patched. Safety gates still apply on repeat runs.
 
 ### 4. Export current state (optional)
 
-To export the current configuration for a system (useful for initial onboarding or auditing):
+For onboarding/audit:
 
 ```bash
 froles export my-service -e ci -o current-state.json
 ```
 
-The export file can be modified and fed back into `create`.
+Modify export and feed back into `create` through dry-run/deployment gates.
 
-## Reconciliation behaviour
+## Expected output
 
-The `create` command reconciles each resource type against its natural key:
-
-| Resource | Natural key | Behaviour |
-|----------|------------|-----------|
-| Scope types | `name` | Create if missing; patch `description` if changed |
-| Access roles | `systemIdentifier` + `name` | Create if missing; patch if changed |
-| Roles / claimable roles | `name` | Create if missing; patch if changed; access role mappings fully reconciled |
-| Bindings | `identifier` | Patch all fields; diff shows role/group additions and removals |
-| Role assignments | `roleIdentifier` + `source` + `externalIdentifier` | Create if missing; skip if exists; delete only with `--reconcile-assignments` |
-
-**Important**: Access role mappings on roles/claimable roles are **fully reconciled** — mappings absent from the config are removed. Only access roles belonging to systems declared in the config file are managed. Bindings and assignments are only deleted with `--reconcile-bindings=<system>` / `--reconcile-assignments[=<system>]` (see [references/file-layout.md](references/file-layout.md)).
-
-## Environments
-
-| Key | Purpose |
-|-----|---------|
-| `ci` | Continuous integration |
-| `fqa` | QA / pre-production |
-| `fprd` | Production |
-| `tr` | Training environment |
-
-## Full reference
-
-For complete command and flag reference, run:
-```bash
-froles --help
-froles create --help
-```
-
-Or see the source documentation:
-- [README.md](https://github.com/equinor/fusion-core-services/blob/main/tooling/fusion-roles-cli/Fusion.Roles.Cli/README.md)
-- [USING_CREATE_COMMAND.md](https://github.com/equinor/fusion-core-services/blob/main/tooling/fusion-roles-cli/Fusion.Roles.Cli/USING_CREATE_COMMAND.md)
-- [Source: tooling/fusion-roles-cli](https://github.com/equinor/fusion-core-services/tree/main/tooling/fusion-roles-cli)
-
-## Safety
-
-- Always dry-run before deploying to production
-- Access role mapping reconciliation removes unmapped roles — review the dry-run output carefully
-- `--reconcile-bindings` / `--reconcile-assignments` delete entries missing from the file — use only on complete files, dry-run first, confirm with the user
-- `--dry-run` only reads from the server; it skips all writes, so it cannot catch API validation errors. Apply to `ci` before `fprd`
-- Never store tokens in config files; always use `-t <token>` from a secret variable in pipelines
-- `delete role-assignments` is destructive — confirm with user and dry-run first
+Config and reviewed dry-run diffs, approved deployment outcome, optional exported state, target system/environment and inspected assignments. Report failures, unrun steps and uncertain state explicitly.

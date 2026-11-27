@@ -1,5 +1,33 @@
 # Changelog
 
+## 0.2.3 - 2026-11-21
+
+### patch
+
+- [#493](https://github.com/equinor/fusion-skills/pull/493) [`6ad5348`](https://github.com/equinor/fusion-skills/commit/6ad5348913e97384b0e38b8b51d22bb917135fd5) - Add rationalization-prevention table and trigger-only description.
+
+
+  - Add `Excuse | Reality` verification table preventing over-mocking, jsdom polyfill workarounds, and unawaited render helpers
+  - Trim workflow summary from `description`
+
+## 0.2.2 - 2026-11-01
+
+### patch
+
+- [#390](https://github.com/equinor/fusion-skills/pull/390) [`8242e54`](https://github.com/equinor/fusion-skills/commit/8242e546e0375039b6f211913e2caa40b80d2f98) - Keep test setup, rendering and safety rules in a lean entry point; load explicit rendering, parent fixtures and migration recipes only when needed. Preserve setup examples and CI-only screenshot policy.
+
+
+  resolves equinor/fusion-core-tasks#2688
+
+## 0.2.1 - 2026-11-01
+
+### patch
+
+- [#363](https://github.com/equinor/fusion-skills/pull/363) [`f34c0d9`](https://github.com/equinor/fusion-skills/commit/f34c0d9dc7de15e59ec643407914e98ad8288245) - Shorten test-runner description while retaining Vitest, Browser Mode, render fixtures, Playwright journeys and visual baselines. Keep module-state and dev-server mock handoffs.
+
+
+  resolves equinor/fusion-core-tasks#2672
+
 ## 0.2.0 - 2026-10-18
 
 ### minor

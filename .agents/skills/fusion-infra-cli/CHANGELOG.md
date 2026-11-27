@@ -1,5 +1,32 @@
 # Changelog
 
+## 0.1.3 - 2026-11-08
+
+### patch
+
+- [#400](https://github.com/equinor/fusion-skills/pull/400) [`7319423`](https://github.com/equinor/fusion-skills/commit/7319423dde0b6b2dbee0e1e9f28411a2b6b66483) Thanks [@erlendthune](https://github.com/erlendthune)! - Default new database access configurations to Roles V2 autoapproval and explicit approvers. Document safe legacy ACG migration, environment isolation, access-file replacement, and separate approval for provisioning and Entra cleanup.
+
+
+  refs equinor/fusion-core-tasks#2713
+
+## 0.1.2 - 2026-11-01
+
+### patch
+
+- [#393](https://github.com/equinor/fusion-skills/pull/393) [`51da027`](https://github.com/equinor/fusion-skills/commit/51da0277628440f94532d6901d1bb3f678dc350a) - Load finf setup, provisioning variants and diagnostics only when needed; retain database approval, production targeting and output-derived migration steps in the entrypoint.
+
+
+  resolves equinor/fusion-core-tasks#2691
+
+## 0.1.1 - 2026-11-01
+
+### patch
+
+- [#372](https://github.com/equinor/fusion-skills/pull/372) [`61c8e4b`](https://github.com/equinor/fusion-skills/commit/61c8e4bba4f71a2cf00e83c73e32e992460e1e69) - Shorten discovery wording while keeping finf database provisioning, SQL migrations, PR databases and pipeline triggers, distinct from application code and role bindings. Keep secret-exposure and unconfirmed-destructive-change exclusions.
+
+
+  resolves equinor/fusion-core-tasks#2673
+
 ## 0.1.0 - 2026-10-13
 
 ### minor

@@ -1,5 +1,19 @@
 # Contract Personnel API Surface
 
+## Contents
+
+- [Service source](#service-source)
+- [Endpoint groups (controller/domain-level)](#endpoint-groups-controllerdomain-level)
+- [Priority workflow coverage](#priority-workflow-coverage)
+- [Model clarity map](#model-clarity-map)
+- [Capability / OPTIONS defaults](#capability--options-defaults)
+- [React/TypeScript defaults](#reacttypescript-defaults)
+- [C# HttpClient defaults](#c-httpclient-defaults)
+- [Suggested local models](#suggested-local-models)
+- [Representative model snapshots](#representative-model-snapshots)
+- [Validation highlights](#validation-highlights)
+- [Versioning notes](#versioning-notes)
+
 ## Service source
 - `fusion-core-services/src/Fusion.Services.ContractPersonnel`
 

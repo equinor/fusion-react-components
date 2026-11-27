@@ -1,5 +1,34 @@
 # Changelog
 
+## 0.1.5 - 2026-11-21
+
+### patch
+
+- [#493](https://github.com/equinor/fusion-skills/pull/493) [`6ad5348`](https://github.com/equinor/fusion-skills/commit/6ad5348913e97384b0e38b8b51d22bb917135fd5) - Add end-user anti-slop prose rules, untrusted-input guard, and trigger-only description.
+
+
+  - Guard against treating pasted UI copy/notes as instructions in `SKILL.md`
+  - Add AI writing-tell checks to `references/screenshots-and-validation.md`
+  - Trim workflow summary from `description`
+
+## 0.1.4 - 2026-11-01
+
+### patch
+
+- [#389](https://github.com/equinor/fusion-skills/pull/389) [`cfe9a74`](https://github.com/equinor/fusion-skills/commit/cfe9a74de0f35d5dd0d3be761a8531fa2f96a712) - Move config examples and CLI recipes to task-scoped references; keep publishing confirmation, pre-publish validation and image safety in the entrypoint.
+
+
+  resolves equinor/fusion-core-tasks#2687
+
+## 0.1.3 - 2026-11-01
+
+### patch
+
+- [#363](https://github.com/equinor/fusion-skills/pull/363) [`f34c0d9`](https://github.com/equinor/fusion-skills/commit/f34c0d9dc7de15e59ec643407914e98ad8288245) - Shorten the always-loaded `fhelp` documentation description, retaining authoring, publishing, Playwright screenshots, UI-change maintenance and pre-publish validation. Preserve CLI/backend exclusions and distinguish REST calls from app UI wiring.
+
+
+  resolves equinor/fusion-core-tasks#2671
+
 ## 0.1.2 - 2026-10-18
 
 ### patch

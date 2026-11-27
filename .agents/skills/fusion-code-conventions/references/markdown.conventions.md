@@ -1,5 +1,19 @@
 # Markdown Code Conventions
 
+## Contents
+
+- [Frontmatter](#frontmatter)
+- [Document structure](#document-structure)
+- [Links](#links)
+- [Code blocks](#code-blocks)
+- [Lists](#lists)
+- [Emphasis](#emphasis)
+- [Images](#images)
+- [Callouts](#callouts)
+- [Formatting](#formatting)
+- [GitHub-specific](#github-specific)
+
+
 Markdown conventions: docs, READMEs, changelogs, skill files.
 
 > **Applicability:** Org-wide baseline. Repo policy (`CONTRIBUTING.md`, ADRs) and tooling (`.editorconfig`, `.markdownlint.json`) take precedence on explicit override. See skill **Precedence and applicability** for resolution order.
@@ -77,7 +91,9 @@ On GitHub: use native alert syntax (see [GitHub-specific → Alerts](#alerts)).
 
 - Spaces (not tabs) for indentation in lists and code blocks
 - No trailing whitespace
-- Prose <120 chars for diff readability; code blocks may exceed
+- Repository Markdown files: prose <120 chars per line for diff readability; code blocks may exceed
+- GitHub-published prose (issues, PRs, comments, reviews): don't hard-wrap;
+  one logical line per paragraph or list item
 
 ---
 

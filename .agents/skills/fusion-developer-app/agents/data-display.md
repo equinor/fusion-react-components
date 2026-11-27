@@ -1,5 +1,18 @@
 # Data Display Agent
 
+## Contents
+
+- [Role](#role)
+- [Inputs](#inputs)
+- [MCP tooling](#mcp-tooling)
+- [Process](#process)
+  - [Step 1: Determine the data display approach](#step-1-determine-the-data-display-approach)
+  - [Step 2: Verify setup](#step-2-verify-setup)
+  - [Step 3: Review AG Grid implementation](#step-3-review-ag-grid-implementation)
+  - [Step 4: Review chart implementation](#step-4-review-chart-implementation)
+  - [Step 5: Review combined grid + chart pages](#step-5-review-combined-grid--chart-pages)
+  - [Step 6: Report findings](#step-6-report-findings)
+
 ## Role
 
 Use this helper agent to review or advise on data display implementation — choosing between AG Grid (tabular) and AG Charts (visual), configuring either surface, combining them on dashboard-style pages, and ensuring the data pipeline from API to rendered output follows Fusion Framework patterns.

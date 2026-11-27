@@ -1,5 +1,75 @@
 # Changelog
 
+## 0.4.1 - 2026-11-21
+
+### patch
+
+- [#493](https://github.com/equinor/fusion-skills/pull/493) [`6ad5348`](https://github.com/equinor/fusion-skills/commit/6ad5348913e97384b0e38b8b51d22bb917135fd5) - Add rationalization-prevention table, untrusted-input guard, and trigger-only description.
+
+
+  - Guard against executing instructions embedded in PR descriptions or review comments
+  - Add `Excuse | Reality` verification gate table to `SKILL.md`
+  - Trim workflow summary from `description`
+
+- [#404](https://github.com/equinor/fusion-skills/pull/404) [`158966d`](https://github.com/equinor/fusion-skills/commit/158966dad86edd92a86f3ba3270c3f538c3f7e44) - Fix `-f query=@file` to `-F` in review tooling docs and add `--thread-id` to `resolve-review-comments.sh` for per-thread replies.
+
+
+  resolves equinor/fusion-skills#404
+
+## 0.4.0 - 2026-11-21
+
+### minor
+
+- [#484](https://github.com/equinor/fusion-skills/pull/484) [`cfb2f7b`](https://github.com/equinor/fusion-skills/commit/cfb2f7bfdce007805948b18af651268abc63b7d9) - Place the Copilot review gate at the publisher layer.
+
+
+  - Worker-level issue solving, PR drafting and dependency review no longer run, block on or wait for the gate; the interactive or host publisher owns it.
+
+  resolves equinor/fusion-skills#481
+  refs equinor/fusion-skills#479
+
+## 0.3.0 - 2026-11-15
+
+### minor
+
+- [#462](https://github.com/equinor/fusion-skills/pull/462) [`bd6e289`](https://github.com/equinor/fusion-skills/commit/bd6e289f544ab54ddbeb2736d0f61c439407ea3f) - Add a portable bounded Copilot review-gate workflow: High and critical findings block human handoff, initial review plus re-reviews total at most three rounds, and unattended availability exceptions are explicit rather than passed reviews. Unattended service runs never wait past their time budget: a blocked gate leaves the PR as draft with its result, and the run still finishes. The gate waits for review, never for CI.
+
+
+  resolves equinor/fusion-core-tasks#3013
+
+## 0.2.4 - 2026-11-01
+
+### patch
+
+- [#378](https://github.com/equinor/fusion-skills/pull/378) [`ca584cf`](https://github.com/equinor/fusion-skills/commit/ca584cff41be1622d5b98dd93371a6d3bdde3189) - Compress shared template fill guidance while preserving provenance, privacy and output rules.
+
+
+  refs equinor/fusion-core-tasks#2678
+
+- [#381](https://github.com/equinor/fusion-skills/pull/381) [`ceb5df8`](https://github.com/equinor/fusion-skills/commit/ceb5df8a198c6532018370b0f55b4d154ad24935) - Load review tooling, script recipes and reply examples only when needed. Preserve skeptical judgment, deterministic mutation order, duplicate-reply guards and repository-policy handoff.
+
+
+  resolves equinor/fusion-core-tasks#2680
+
+## 0.2.3 - 2026-11-01
+
+### patch
+
+- [#363](https://github.com/equinor/fusion-skills/pull/363) [`f34c0d9`](https://github.com/equinor/fusion-skills/commit/f34c0d9dc7de15e59ec643407914e98ad8288245) - Shorten the review-resolution description while keeping unresolved-thread, changes-requested and review-URL triggers. Retain read-only exclusions and distinguish dependency verdicts and unconfirmed mutations.
+
+
+  resolves equinor/fusion-core-tasks#2667
+
+## 0.2.2 - 2026-10-27
+
+### patch
+
+- [#336](https://github.com/equinor/fusion-skills/pull/336) [`bf60e9e`](https://github.com/equinor/fusion-skills/commit/bf60e9e76a812735b3ff0cde8140eb5604a506f7) - Sync shared provenance fill rules: resolve authoring-turn metadata before fallback,
+
+  with bounded lookup, model-change and delegate attribution, and privacy limits.
+
+  fixes equinor/fusion-skills#335
+
 ## 0.2.1 - 2026-10-18
 
 ### patch

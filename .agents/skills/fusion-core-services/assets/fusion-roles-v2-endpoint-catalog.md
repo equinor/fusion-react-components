@@ -1,5 +1,22 @@
 # RolesV2 API Endpoint Catalog
 
+## Contents
+
+- [Subscription endpoint](#subscription-endpoint)
+- [Role endpoints](#role-endpoints)
+- [Role-assignment endpoints](#role-assignment-endpoints)
+- [Claimable-role endpoints](#claimable-role-endpoints)
+- [Claimable-role assignment endpoints](#claimable-role-assignment-endpoints)
+- [Account-scoped endpoints](#account-scoped-endpoints)
+- [System endpoints](#system-endpoints)
+- [System access-role endpoints](#system-access-role-endpoints)
+- [System access-role assignment endpoints](#system-access-role-assignment-endpoints)
+- [Scope-type endpoints](#scope-type-endpoints)
+- [Role-binding-configuration endpoints](#role-binding-configuration-endpoints)
+- [Authorization notes](#authorization-notes)
+- [Typical status codes](#typical-status-codes)
+- [Explicit exclusions](#explicit-exclusions)
+
 This catalog covers the verified public RolesV2 surface for roles, claimable roles, systems, access-role assignments, account views, scope types, and role-binding configurations. The subscription route is documented because it is public, but it is backend-only.
 
 ## Subscription endpoint

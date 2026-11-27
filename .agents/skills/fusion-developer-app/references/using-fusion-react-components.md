@@ -1,5 +1,24 @@
 # Fusion React Components
 
+## Contents
+
+- [When to use](#when-to-use)
+- [Packages](#packages)
+- [Person components (`@equinor/fusion-react-person`)](#person-components-equinorfusion-react-person)
+  - [Component catalog](#component-catalog)
+  - [Key types](#key-types)
+  - [Usage examples](#usage-examples)
+    - [Display a person avatar](#display-a-person-avatar)
+    - [Single person picker](#single-person-picker)
+    - [Multi-person picker with viewer](#multi-person-picker-with-viewer)
+  - [PeoplePicker props reference](#peoplepicker-props-reference)
+  - [Event pattern](#event-pattern)
+    - [Display a person card](#display-a-person-card)
+    - [Display a person list item](#display-a-person-list-item)
+    - [Person column in AG Grid (PersonCell)](#person-column-in-ag-grid-personcell)
+  - [Decision guide: which person component?](#decision-guide-which-person-component)
+- [Decision guide: EDS vs Fusion React](#decision-guide-eds-vs-fusion-react)
+
 Domain-specific React components complementing EDS. Integrate with Fusion platform APIs — functionality not in `@equinor/eds-core-react`.
 
 **Repository**: [equinor/fusion-react-components](https://github.com/equinor/fusion-react-components)
@@ -15,7 +34,8 @@ Use `@equinor/fusion-react-*` when EDS has no equivalent. Check EDS first.
 |---|---|
 | `@equinor/fusion-react-person` | Person display, search, and selection (People API integration) |
 | `@equinor/fusion-react-side-sheet` | Slide-over side panel |
-| `@equinor/fusion-react-progress-indicator` | Progress / loading indicators |
+
+`@equinor/fusion-react-progress-indicator` is deprecated on npm. Do not add it; use EDS `Progress` (`Progress.Circular`, `Progress.Dots`, `Progress.Linear`) for new loading indicators. Leave existing usages in place unless the user asks to migrate them.
 
 ## Person components (`@equinor/fusion-react-person`)
 

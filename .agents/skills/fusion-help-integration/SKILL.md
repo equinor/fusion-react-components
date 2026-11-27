@@ -1,10 +1,10 @@
 ---
 name: fusion-help-integration
-description: 'Wires Fusion Help Center into app pages — creates article slug constants, adds useHelpCenter hook, and connects PageLayout props so users can open contextual help articles. USE FOR: add help button to page, wire useHelpCenter, create helpArticles constants, integrate Fusion Help in app, connect PageLayout to help center, add openHelpArticle to page. DO NOT USE FOR: authoring markdown help articles (use fusion-help-docs), direct Help REST API calls (use fusion-help-api), modifying @fra/ui shared components.'
+description: 'Wires Fusion Help Center into monorepo app pages. USE FOR: help button, useHelpCenter, helpArticles constants and PageLayout openHelpArticle. DO NOT USE FOR: Markdown authoring (use fusion-help-docs), REST calls (use fusion-help-api), @fra/ui changes, non-Fusion-framework apps or apps outside this monorepo.'
 license: MIT
 compatibility: Requires @equinor/fusion-framework-react-app with help-center subpath export. Requires @fra/ui PageLayout component.
 metadata:
-  version: "0.0.2"
+  version: "0.0.4"
   status: active
   owner: "@equinor/fusion-core"
   tags:
@@ -17,72 +17,55 @@ metadata:
 
 # Fusion Help Integration
 
-Wire the Fusion Help Center into app pages so users can open contextual help articles via the PageLayout help button.
+Wire contextual Help Center into monorepo app pages via `PageLayout` help button.
 
 ## When to use
 
-- Add help button to a page
-- Wire `useHelpCenter` into a page component
-- Create/update help articles constants file
-- Connect `PageLayout` to Fusion Help Center
-- Page uses `PageLayout` without `openHelpArticle`
-- Add help support to an app
-- Open a specific help article from a page
+- Add help support/button, wire `useHelpCenter`, create/update article constants or open specific article.
+- Page uses `PageLayout` without `openHelpArticle`.
 
 ## When not to use
 
-- Authoring markdown help articles → `fusion-help-docs`
-- Direct REST API calls to Help service → `fusion-help-api`
-- Modifying `@fra/ui` shared components (`PageLayout`, `PageHeader`, `FusionHelpButton`)
-- Non-Fusion-framework apps or apps outside this monorepo
+- Markdown authoring: use `fusion-help-docs`. Direct REST: use `fusion-help-api`.
+- Modifying `@fra/ui` components (`PageLayout`, `PageHeader`, `FusionHelpButton`).
+- Non-Fusion-framework apps or apps outside this monorepo.
 
 ## Required inputs
 
-Collect before making changes:
+Collect app name under `apps/`, target pages (or `"all"` using `PageLayout`), and article slugs. Defaults: derive `{app-name}-{page-kebab}` only with confirmation; release notes `true`; constants `src/constants/helpArticles.ts`.
 
-| Input | Required | Default | Description |
-|-------|----------|---------|-------------|
-| **App name** | Yes | — | The app directory name under `apps/` (e.g., `fra-app-management`) |
-| **Target pages** | Yes | — | Which page(s) to wire up, or `"all"` for every page using `PageLayout` |
-| **Article slugs** | Yes | Auto-derive | Slug strings for each page. If not provided, derive as `{app-name}-{page-kebab}` |
-| **Include release notes** | No | `true` | Whether to also pass `openReleaseNotes` to `PageLayout` |
-| **Constants file location** | No | `src/constants/helpArticles.ts` | Path for the `FUSION_HELP_ARTICLES` object |
+When inputs are missing, read `assets/follow-up-questions.md` for focused questions.
 
-If article slugs are auto-derived, confirm with user before applying — slugs must match articles published via `fhelp`.
+## Safety & constraints
+
+- Confirm auto-derived slugs before applying; never invent unconfirmed slugs. Values must exactly match published `help-articles.json` slugs per environment via `fhelp`.
+- Wrong slug silently fails: sidesheet opens but no article content appears.
+- Call `useHelpCenter` only inside component descended from Fusion Framework app shell (`makeComponent` / `renderApp`).
+- Do not modify `@fra/ui` or add dependencies; apps already have `@equinor/fusion-framework-react-app`.
+- Extend existing wiring, never duplicate; one `useHelpCenter()` call per page.
+- Follow app aliases (usually `@/*` to `src/*`), code style and import ordering; use `type` for type-only imports.
+- Repository-local workflow instructions govern source-control and validation steps when applicable.
 
 ## Instructions
 
 ### 1. Check existing help integration
 
-Search target app for existing help wiring:
+Search target app:
 
 ```
 apps/{app-name}/src/**/helpArticles.ts
 apps/{app-name}/src/**/fusionHelpArticles.ts
 ```
 
-Also search for `useHelpCenter` imports. If app already has partial integration, extend rather than duplicate.
+Also search `useHelpCenter` imports; extend partial integration.
 
 ### 2. Determine slug convention
 
-Check if app already has a constants file with slugs:
-
-- **Has existing slugs** → follow its naming pattern
-- **No existing slugs** → use `{app-name}-{page-kebab}` convention
-
-Reference existing conventions:
-
-| App | Convention | Example |
-|-----|-----------|---------|
-| `fra-access-manager` | `{app-name}-{page-kebab}` | `fra-access-manager-access-groups` |
-| `fra-app-management` | Unprefixed page name | `overview`, `requests` |
-| `personnel-allocation` | `{app-name}-{page-kebab}` | `personnel-allocation-overview` |
-
-Prefer prefixed convention for new apps — avoids slug collisions across apps.
+Follow existing constants naming pattern. New apps: prefer `{app-name}-{page-kebab}` to avoid collisions. When checking existing app conventions, read `references/page-wiring.md` for original app matrix and recipe.
 
 ### 3. Create or update the constants file
 
-Create `src/constants/helpArticles.ts` (or the app's chosen location):
+Create `src/constants/helpArticles.ts` (or chosen location):
 
 ```typescript
 export const FUSION_HELP_ARTICLES = {
@@ -90,73 +73,26 @@ export const FUSION_HELP_ARTICLES = {
 };
 ```
 
-Keys are `SCREAMING_SNAKE_CASE` matching the page concept. Values are kebab-case slug strings.
-
-See [references/wiring-pattern.md](references/wiring-pattern.md) for the full canonical pattern with real examples.
+Keys: `SCREAMING_SNAKE_CASE` page concepts; values: kebab-case slugs.
 
 ### 4. Wire each target page
 
-For each page component that uses `PageLayout`:
+When wiring pages, read `references/page-wiring.md` for exact imports, hook and JSX recipe. External imports first, then `@fra/*`, `@/*` aliases, relative imports.
 
-**a. Add imports** (externals first, then `@fra/*`, then `@/*` aliases, then relative):
+Hook inside component body; use `openArticle` and optional `openReleaseNotes`. Pass `openHelpArticle` as callback wrapper `() => openArticle(slug)`, never direct `openArticle` (needs slug). Omit release-notes hook/prop when not requested.
 
-```typescript
-import { useHelpCenter } from '@equinor/fusion-framework-react-app/help-center';
-
-import { PageLayout } from '@fra/ui';
-
-import { FUSION_HELP_ARTICLES } from '@/constants/helpArticles';
-```
-
-**b. Destructure the hook** inside the component body:
-
-```typescript
-const { openArticle, openReleaseNotes } = useHelpCenter();
-```
-
-If release notes not needed, destructure only `{ openArticle }`.
-
-**c. Pass props to `PageLayout`**:
-
-```tsx
-<PageLayout
-    title="Page Title"
-    openHelpArticle={() => openArticle(FUSION_HELP_ARTICLES.PAGE_NAME)}
-    openReleaseNotes={openReleaseNotes}
->
-```
-
-**Important**: `openHelpArticle` must be a **callback wrapper** `() => openArticle(slug)`, not a direct reference — `openArticle` requires the slug argument.
+When adapting full examples, read `references/wiring-pattern.md` for canonical page, release-note variants, breadcrumbs/error handling and import groups. When checking props or button behavior, read `references/shared-ui-props.md`: help button requires callback; release button also requires non-collapsed header.
 
 ### 5. Verify the integration
 
-After wiring:
-
-1. Run TypeScript check: `pnpm --filter {app-name} exec tsc --noEmit`
-2. Check lint: `pnpm --filter {app-name} exec eslint src/`
-3. Visual check: page header shows info-circle (ⓘ) icon. Clicking opens Fusion Help sidesheet.
+1. TypeScript: `pnpm --filter {app-name} exec tsc --noEmit`.
+2. Lint: `pnpm --filter {app-name} exec eslint src/`.
+3. Visual: info-circle (ⓘ) in header; clicking opens Help sidesheet with matching article.
 
 ### 6. Cross-reference with published content
 
-Each slug in `FUSION_HELP_ARTICLES` must correspond to a published article. If articles don't exist:
-
-- Point to `fusion-help-docs` for authoring
-- Slug in constants must exactly match `slug` field in `help-articles.json`
-- Articles are published per-environment via `fhelp`
+Every constant slug must match published content in target environment. If missing, hand off authoring to `fusion-help-docs`; report slugs needing articles.
 
 ## Expected output
 
-- Constants file created/updated with article slug mappings
-- Target page(s) wired with `useHelpCenter` + `PageLayout` props
-- TypeScript compilation passes
-- List of slugs needing corresponding help articles (for handoff to `fusion-help-docs`)
-
-## Safety & constraints
-
-- **Never invent slug names without confirmation** — slugs must match published articles
-- **Don't modify `@fra/ui` components** — `PageLayout`, `PageHeader`, `FusionHelpButton` already support help props
-- **Don't add new dependencies** — `@equinor/fusion-framework-react-app` is already in every app
-- **Follow app's import alias convention** — most apps use `@/*` → `src/*`
-- **Respect existing code style** — use `type` for type-only imports, maintain import group ordering
-- **Don't duplicate help wiring** — if page already has `useHelpCenter`, extend rather than re-add
-- **Confirm auto-derived slugs** before applying — wrong slug silently fails (no article shown)
+Created/updated constants and wired pages, TypeScript result, and missing-article slug list for `fusion-help-docs`.
