@@ -1,5 +1,23 @@
 # Changelog
 
+## 0.0.4 - 2026-11-01
+
+### patch
+
+- [#389](https://github.com/equinor/fusion-skills/pull/389) [`cfe9a74`](https://github.com/equinor/fusion-skills/commit/cfe9a74de0f35d5dd0d3be761a8531fa2f96a712) - Load page recipes and prop examples only when wiring or inspecting help buttons; preserve monorepo scope, app-shell ancestry and confirmed-slug requirements.
+
+
+  resolves equinor/fusion-core-tasks#2687
+
+## 0.0.3 - 2026-11-01
+
+### patch
+
+- [#363](https://github.com/equinor/fusion-skills/pull/363) [`f34c0d9`](https://github.com/equinor/fusion-skills/commit/f34c0d9dc7de15e59ec643407914e98ad8288245) - Shorten the always-loaded Help Center UI-wiring description, retaining `useHelpCenter`, article constants and `PageLayout`/`openHelpArticle` triggers. Preserve the exclusion for apps outside this monorepo, non-Fusion-framework apps, shared UI changes, article authoring and REST calls.
+
+
+  resolves equinor/fusion-core-tasks#2671
+
 ## 0.0.2 - 2026-05-07
 
 ### patch

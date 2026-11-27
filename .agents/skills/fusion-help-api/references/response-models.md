@@ -1,5 +1,15 @@
 # Fusion Help API — Response Models
 
+## Contents
+
+- [Article](#article)
+- [FAQ](#faq)
+- [Release Note](#release-note)
+- [Paged Collection](#paged-collection)
+- [Account (nested object)](#account-nested-object)
+- [Section (nested in articles/release notes)](#section-nested-in-articlesrelease-notes)
+
+
 ## Article
 
 Returned by `GET /articles/{id}`, `POST /apps/{appKey}/articles`, `PATCH /apps/{appKey}/articles/{id}`.

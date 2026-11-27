@@ -1,5 +1,19 @@
 # Portal Architecture Reference
 
+## Contents
+
+- [Portal entry point](#portal-entry-point)
+- [Module configuration](#module-configuration)
+- [Portal routing](#portal-routing)
+- [Custom app loader](#custom-app-loader)
+- [Apploader component (simple embed)](#apploader-component-simple-embed)
+- [App initialization lifecycle](#app-initialization-lifecycle)
+- [Portal manifest](#portal-manifest)
+- [CLI commands](#cli-commands)
+- [Dev portal architecture](#dev-portal-architecture)
+- [MCP query examples](#mcp-query-examples)
+- [Source references](#source-references)
+
 Fusion portal patterns: entry point, module config, custom app loading, lifecycle.
 
 ## Portal entry point

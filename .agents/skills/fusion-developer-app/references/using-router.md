@@ -1,5 +1,23 @@
 # Using the Fusion Router
 
+## Contents
+
+- [Prerequisites](#prerequisites)
+- [Route DSL](#route-dsl)
+  - [DSL helpers](#dsl-helpers)
+  - [Vite plugin](#vite-plugin)
+- [Mount the Router](#mount-the-router)
+- [Page components](#page-components)
+- [Client loaders](#client-loaders)
+- [Error handling](#error-handling)
+- [Navigation](#navigation)
+  - [Links](#links)
+  - [Programmatic navigation](#programmatic-navigation)
+- [Layout routes](#layout-routes)
+- [Route schemas for manifests](#route-schemas-for-manifests)
+- [Custom router context](#custom-router-context)
+- [Choosing a routing approach](#choosing-a-routing-approach)
+
 Client-side routing in Fusion Framework apps with `@equinor/fusion-framework-react-router`.
 
 Wraps React Router v7: navigation module wiring, typed `fusion` context in loaders, route DSL for code splitting, manifest-ready schemas.

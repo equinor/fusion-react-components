@@ -1,5 +1,66 @@
 # Changelog
 
+## 0.2.0 - 2026-11-21
+
+### minor
+
+- [#491](https://github.com/equinor/fusion-skills/pull/491) [`2556c34`](https://github.com/equinor/fusion-skills/commit/2556c3476e1feeda4052f09cca7f2cb8648305a4) - Use `@equinor/fusion-lint` as mechanical evidence in TypeScript reviews.
+
+
+  - Run `fusion-lint` on targets when installed and report its diagnostics before judgement-based review.
+  - Recommend installing it as an Advisory finding when a TypeScript repository lacks it; treat `fusion-lint.config.*` as project tooling.
+
+  resolves equinor/fusion-skills#490
+
+### patch
+
+- [#493](https://github.com/equinor/fusion-skills/pull/493) [`6ad5348`](https://github.com/equinor/fusion-skills/commit/6ad5348913e97384b0e38b8b51d22bb917135fd5) - Expand dead-comment rules in `agents/intent.agent.md` to filter AI comment slop.
+
+
+  - Flag line-narrating comments, decorative section-divider banners, and redundant parameter-echoing docs for removal
+
+- [#404](https://github.com/equinor/fusion-skills/pull/404) [`158966d`](https://github.com/equinor/fusion-skills/commit/158966dad86edd92a86f3ba3270c3f538c3f7e44) - Scope prose line-length rule to repository Markdown; exempt GitHub-published prose.
+
+
+  resolves equinor/fusion-skills#298
+
+- [#497](https://github.com/equinor/fusion-skills/pull/497) [`8e3de6a`](https://github.com/equinor/fusion-skills/commit/8e3de6a448c5d06bd00656d56ddd82906899a306) - Add React guidance for single-intent components and shared client state.
+
+
+  - Move non-trivial domain rules out of components into testable functions or hooks.
+  - Point shared/workflow client state to `@equinor/fusion-observable` via `fusion-app-bloc`.
+
+  resolves equinor/fusion-skills#406
+  resolves equinor/fusion-skills#407
+
+## 0.1.10 - 2026-11-21
+
+### patch
+
+- [#480](https://github.com/equinor/fusion-skills/pull/480) [`3a91663`](https://github.com/equinor/fusion-skills/commit/3a916635f0cc0ef996746bc631767c68f7e63943) - Allow convention corrections within host-authorized task scope while preserving interactive edit confirmation and read-only reviews.
+
+
+  resolves equinor/fusion-skills#480
+  refs equinor/fusion-skills#479
+
+## 0.1.9 - 2026-11-01
+
+### patch
+
+- [#388](https://github.com/equinor/fusion-skills/pull/388) [`28d6873`](https://github.com/equinor/fusion-skills/commit/28d6873433fdda973ef1680adb5fa1777b4b79dc) - Load convention guidance only for scoped languages and review intents; defer intact intent examples while keeping full-review and correction-approval gates mandatory.
+
+
+  resolves equinor/fusion-core-tasks#2685
+
+## 0.1.8 - 2026-11-01
+
+### patch
+
+- [#363](https://github.com/equinor/fusion-skills/pull/363) [`f34c0d9`](https://github.com/equinor/fusion-skills/commit/f34c0d9dc7de15e59ec643407914e98ad8288245) - Shorten the conventions description while keeping language coverage, naming, TSDoc/XML documentation, intent and ADR review cues, and review-target and approval boundaries.
+
+
+  resolves equinor/fusion-core-tasks#2669
+
 ## 0.1.7 - 2026-10-18
 
 ### patch

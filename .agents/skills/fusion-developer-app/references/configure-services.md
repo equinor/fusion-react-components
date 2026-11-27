@@ -1,5 +1,18 @@
 # Configure Services (HTTP Clients)
 
+## Contents
+
+- [Registration strategies](#registration-strategies)
+  - [Via `app.config.ts` (auto-registration)](#via-appconfigts-auto-registration)
+  - [Via `configureHttpClient` in `config.ts`](#via-configurehttpclient-in-configts)
+  - [Multiple clients in one step](#multiple-clients-in-one-step)
+  - [Custom client class](#custom-client-class)
+  - [Via service discovery](#via-service-discovery)
+- [Consuming HTTP clients](#consuming-http-clients)
+  - [Preferred: `useHttpClient` hook](#preferred-usehttpclient-hook)
+  - [Fallback: `useAppModule`](#fallback-useappmodule)
+  - [Ad-hoc clients](#ad-hoc-clients)
+
 How to register and consume HTTP clients in a Fusion Framework app.
 
 ## Registration strategies

@@ -1,5 +1,17 @@
 # Person Components Agent
 
+## Contents
+
+- [Role](#role)
+- [Inputs](#inputs)
+- [MCP tooling](#mcp-tooling)
+- [Process](#process)
+  - [Step 1: Identify the UI need](#step-1-identify-the-ui-need)
+  - [Step 2: Confirm import paths](#step-2-confirm-import-paths)
+  - [Step 3: Apply the usage example](#step-3-apply-the-usage-example)
+  - [Step 4: Check for common pitfalls](#step-4-check-for-common-pitfalls)
+  - [Step 5: Report](#step-5-report)
+
 ## Role
 
 Use this helper agent when a developer asks how to display, search, pick, or list people in a Fusion Framework app using `@equinor/fusion-react-person`. It covers component selection, usage patterns, `PersonCell` in AG Grid, common pitfalls, and the correct import paths.

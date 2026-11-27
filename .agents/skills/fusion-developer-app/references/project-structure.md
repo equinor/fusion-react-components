@@ -1,5 +1,16 @@
 # Project Structure
 
+## Contents
+
+- [Directory structure](#directory-structure)
+- [Layer responsibilities](#layer-responsibilities)
+- [File placement rules](#file-placement-rules)
+- [Layered layout for growing apps](#layered-layout-for-growing-apps)
+  - [Enforce the direction with a test](#enforce-the-direction-with-a-test)
+- [Tooling](#tooling)
+- [Commit conventions](#commit-conventions)
+- [Architecture Decision Records](#architecture-decision-records)
+
 Directory layout, layer responsibilities, file placement, tooling, and commit conventions for Fusion Framework apps.
 
 ## Directory structure
@@ -134,6 +145,7 @@ Check the project's `package.json` scripts and installed devDependencies for exa
 | TypeScript    | `typecheck` / `tsc --noEmit` | Type checking (strict mode)|
 | Biome         | `biome check src/`         | Lint + format validation     |
 | ESLint        | `eslint src/`              | Lint (if project uses it)    |
+| Fusion lint   | `fusion-lint src` / `fusion-lint changed` | Fusion rules: intent comments, TSDoc, empty catch, `node:` imports (`@equinor/fusion-lint`; complements Biome/ESLint) |
 | Dev server    | `dev`                      | Start Fusion CLI dev server  |
 | Build         | `build`                    | Production build             |
 

@@ -1,12 +1,12 @@
 ---
 name: fusion-core-services
-description: 'Guides integrations across Fusion Core service APIs from a single installable skill. USE FOR: service discovery across apps, people, context, roles, notifications, reports, tasks, and other Fusion Core APIs; cross-service integration planning; choosing the right endpoint/model guidance for a workflow. DO NOT USE FOR: modifying Fusion backend source code, non-Fusion APIs, or generic cloud architecture work without a Fusion service integration target.'
+description: 'Guides existing Fusion Core API integrations. USE FOR: service discovery, endpoint and model selection for clients and cross-service workflows. DO NOT USE FOR: backend code changes (use fusion-developer-service), non-Fusion APIs or generic cloud architecture.'
 license: MIT
 compatibility: Works best with a web-fetch tool to read live, public OpenAPI documents
-  (`https://{service}.api.fusion.equinor.com/openapi/api-v{version}.json`, no JWT required) as the
+  (`https://{service}.api.fusion.equinor.com/openapi/{document}.json`, no JWT required) as the
   source of truth for exact schema/type names, rather than relying solely on the bundled snapshots.
 metadata:
-  version: "0.0.3"
+  version: "0.0.6"
   status: experimental
   owner: "@equinor/fusion-core"
   tags:
@@ -21,72 +21,54 @@ metadata:
 
 ## When to use
 
-Use when the task involves one or more Fusion Core service APIs and the agent needs to identify the right service guidance without requiring separate skill installs.
-
-Typical triggers:
-- implement a Fusion API client
-- wire a Fusion backend service integration
-- figure out which Fusion Core service owns a workflow
-- solve a cross-service task such as context plus people, roles plus notifications, or apps plus service messages
+Existing Fusion Core API integrations: API clients, backend integrations, service ownership, cross-service workflows (context/people, roles/notifications, apps/service messages). Select relevant guidance without separate service-skill installs.
 
 ## When not to use
 
 - Modifying code inside `fusion-core-services`
-- Non-Fusion APIs or generic Microsoft Graph / Power BI work with no Fusion service layer
-- Standalone product workflows already covered by another dedicated skill outside Fusion Core services
+- Non-Fusion APIs or generic Microsoft Graph / Power BI without Fusion service layer
+- Standalone product workflows covered by another dedicated skill
 
 ## Required inputs
 
-- target workflow or user goal
-- target consumer shape (`react`, `typescript client`, `csharp httpclient`, `backend service`, or other)
-- known service hints, if any
-- versioning or authorization expectations when relevant
+- Workflow/user goal
+- Consumer shape (`react`, `typescript client`, `csharp httpclient`, `backend service`, or other)
+- Known service hints
+- Versioning/authorization expectations when relevant
+
+## Safety & constraints
+
+- Never invent service ownership, routes, fields or schema names, including `Dto`-suffixed names absent from live `components.schemas`.
+- Fetch target services' live OpenAPI before asserting exact types/required fields; live schema wins over bundled snapshots and naming patterns.
+- Without fetch capability/network, disclose limitation, use bundled guidance as best-effort, and avoid exact schema/required-field claims.
+- Unknown subdomains require Fusion service discovery, never guessed/hardcoded addresses.
+- Use specific Fusion references, not generic SaaS assumptions. Flag routes/models needing source confirmation before shipping.
+- `/subscriptions/...` requires application tokens for backend CloudEvent-style changes, not frontend CRUD, unless service reference explicitly says otherwise.
 
 ## Instructions
 
-1. Scope the request first.
-- Identify whether the workflow touches one service or multiple.
-- If service is ambiguous, use `agents/service-router.md` to map the workflow to likely services before producing implementation guidance.
+1. Scope one-service versus cross-service workflow. If ownership is ambiguous, read and apply `agents/service-router.md` as Markdown instructions to map services before implementation guidance.
 
-2. Read only the relevant service references.
-- Start with [Combined API surface](references/api-surface.md).
-- Then open the matching per-service reference file.
-- Pull in the endpoint catalog and model asset for only the services that materially affect the answer.
+2. Read narrowly. For unresolved ownership or cross-service sequencing, read `references/api-surface.md` for combined API surface/patterns. Known-service requests can skip it and read matching catalog reference below. For route details, read only matching endpoint catalog; for model/field/code output, read only matching model asset. All are directly linked below; relevance alone does not require both assets.
 
-3. Fetch the live OpenAPI document before trusting exact names or shapes.
-- Every Fusion Core service publishes its current OpenAPI document publicly, with no JWT required:
-  `https://{service}.api.fusion.equinor.com/openapi/api-v{version}.json` (e.g.
-  `https://people.api.fusion.equinor.com/openapi/api-v3.json`,
-  `https://context.api.fusion.equinor.com/openapi/api-v1.json`).
-- The bundled reference files are a curated index of which services/controllers exist and how to
-  approach them — not the source of truth for exact schema/type names, which drift as services
-  change. Fetch the live document for the target service(s) and read `components.schemas` for the
-  real type names — responses are commonly `Api{Entity}` and request bodies a plain
-  `{Verb}{Entity}Request` name, but the live document's exact name always wins over any pattern;
-  never invent a `Dto`-suffixed name that isn't actually in `components.schemas`.
-- If you cannot fetch the live OpenAPI document (no web-fetch tool or network access), explicitly
-  state that limitation, treat bundled references/assets as best-effort, and avoid asserting exact
-  schema/type names or required fields.
-- If the subdomain isn't already known from the service catalog below, resolve it via Fusion
-  service discovery rather than guessing, per the platform-wide rule of never hardcoding service
-  addresses.
+3. Fetch live OpenAPI for each selected service/version. Public documents need no JWT:
+   `https://{service}.api.fusion.equinor.com/openapi/{document}.json`. Document names include
+   `api-v{version}`, `api-beta-v{version}` and date-based previews such as `2020-06-30-Preview`;
+   discover published names rather than guessing. Examples:
+   `https://people.api.fusion.equinor.com/openapi/api-v3.json`,
+   `https://context.api.fusion.equinor.com/openapi/api-v1.json`.
+   Read `components.schemas`. Responses commonly use `Api{Entity}`, requests `{Verb}{Entity}Request`; exact live name always wins. Bundled references index services/controllers and approaches, not authoritative names/shapes. Apply fetch/discovery failure rules above.
 
-4. Preserve source-grounded guidance.
-- Prefer the live OpenAPI document over the bundled reference's own "suggested model" lists when
-  they disagree — the live document is always current, the bundled file may not be.
-- Call out any route or model area that still requires direct source confirmation before shipping.
+4. Ground guidance in sources. Live OpenAPI overrides bundled "suggested model" lists on disagreement. Call out route/model areas still needing direct source confirmation before shipping.
 
-5. Handle capabilities explicitly.
-- If a service exposes `OPTIONS` or other access-probe routes, use them to drive capability-aware UI or mutation logic.
-- If a service does not expose stable probes, document conservative client behavior and treat `403 Forbidden` as the fallback capability signal.
+5. Handle capabilities. Use `OPTIONS` or access probes for capability-aware UI/mutations when exposed. Without stable probes, document conservative behavior and use `403 Forbidden` as fallback capability signal.
 
-6. Treat subscriptions as backend-only unless the reference says otherwise.
-- The `/subscriptions/...` routes are for application-token event registration and CloudEvent-style change handling, not normal frontend CRUD flows.
+6. Keep subscriptions backend-only unless service reference says otherwise; application-token registration/change handling is not normal frontend interaction.
 
-7. Return consumer-ready guidance.
-- For frontend consumers, return TypeScript-friendly models (named after the real schema, not `Dto`-suffixed) and a minimal client/hook pattern.
-- For .NET consumers, return a typed `HttpClient` plan that deserializes directly into the real schema type from the live document (commonly `Api{Entity}`, but use whatever `components.schemas` actually names it) rather than a hand-rolled shadow record, where one is published.
-- For cross-service tasks, explain the service sequence and data handoff between services.
+7. Return consumer-ready guidance:
+   - Frontend: TypeScript-friendly models named after real schema, not `Dto`-suffixed, plus minimal client/hook pattern.
+   - .NET: typed `HttpClient` deserializing published real schema type directly, not hand-rolled shadow record (commonly `Api{Entity}`, but exact `components.schemas` name wins).
+   - Cross-service: explicit sequence and data handoff.
 
 ## Service catalog
 
@@ -114,19 +96,3 @@ Return headings in this order:
 6. Integration code sketch
 7. Validation and test notes
 8. Risks and assumptions
-
-## Safety & constraints
-
-Never:
-- invent service ownership, routes, or model fields
-- invent a `Dto`-suffixed type name, or any name not actually present in the live OpenAPI
-  document's `components.schemas` — use the exact real name, whatever pattern it follows
-- answer from generic SaaS/API assumptions when the bundled Fusion references are specific
-- treat backend subscription routes as normal frontend interaction flows
-
-Always:
-- fetch the live OpenAPI document for the target service(s) before naming a type — the bundled
-  reference files can drift out of date, the live document cannot
-- keep cross-service reasoning explicit when more than one service is involved
-- call out capability-probe behavior when the service exposes `OPTIONS`
-- prefer the narrowest set of service references needed for the user’s workflow

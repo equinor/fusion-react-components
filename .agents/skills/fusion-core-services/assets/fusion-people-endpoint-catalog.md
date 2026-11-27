@@ -1,6 +1,20 @@
 # People API Endpoint Catalog
 
-This catalog covers all public, non-admin endpoints across API versions. Admin, cache, analytics, and most migration controllers are excluded. The subscription route is documented because it is public, but it is backend-only. Obsolete endpoints (V1/V2) are noted for reference.
+## Contents
+
+- [Subscription endpoint](#subscription-endpoint)
+- [Person profiles — Read & manage](#person-profiles--read--manage)
+- [Search — Query & search persons](#search--query--search-persons)
+- [Batch operations — Ensure, create, validate](#batch-operations--ensure-create-validate)
+- [People Picker — Search & resolve (Graph-backed)](#people-picker--search--resolve-graph-backed)
+- [Presence & awareness](#presence--awareness)
+- [Maintenance — Cache & state](#maintenance--cache--state)
+- [Legacy & special operations](#legacy--special-operations)
+- [Authorization notes](#authorization-notes)
+- [Typical status codes](#typical-status-codes)
+- [Excluded endpoints](#excluded-endpoints)
+
+This catalog covers all public, non-admin endpoints across API versions. Admin, cache, analytics, and most migration controllers are excluded. The subscription route is documented because it is public, but it is backend-only. Deprecated operations are noted individually; a version number alone does not imply deprecation.
 
 ## Subscription endpoint
 - `PUT /subscriptions/persons` → backend subscription registration/update returning `ApiEventSubscriptionV1`
@@ -24,11 +38,11 @@ This catalog covers all public, non-admin endpoints across API versions. Admin, 
 - `DELETE /persons/{personId}/linked-accounts/{targetId}` (API v1) — remove account link
 
 ### Legacy endpoints (use v3/v4 instead)
-- `GET /persons/{personId}` (API v1/v2) — OBSOLETE, use V3 or V4
+- `GET /persons/{personId}` (API v2 / `2.0`) — deprecated; no v1 / `1.0` operation exists. Use current v3/v4 (`3.0`, `4.0`).
 - `GET /serviceprincipals/{servicePrincipalId}` (API v1) — fetch service principal profile as V1
 
 ## Search — Query & search persons
-- `GET /persons` (API v1) — OBSOLETE: simple search query string parameter
+- `GET /persons` (API v1 / `1.0`, not flagged deprecated) — simple search query string parameter
   - Query parameter: `query` (string)
   - Response: `List<ApiPersonSearchResultV1>`
 - `GET /persons` (API v2) — OData search with better support
@@ -67,7 +81,7 @@ This catalog covers all public, non-admin endpoints across API versions. Admin, 
   - Response: SVG image (64x64) or SVG with initials if no photo available
 
 ## Presence & awareness
-- `GET /persons/{personId}/presence` (API v1) — fetch user's current presence status
+- `GET /persons/{personId}/presence` (API v1 and v1-preview / `1.0`, `1.0-preview`) — fetch user's current presence status
   - Response: `ApiPresenceV1` with availability and activity
 - `POST /persons/presences` — batch-fetch presence for multiple users
 
@@ -83,9 +97,8 @@ This catalog covers all public, non-admin endpoints across API versions. Admin, 
 
 ## Legacy & special operations
 
-### Group membership verification (legacy)
-- `POST /persons/{personId}/checkMemberGroups` (API v1) — check if person is member of Azure AD groups
-  - Legacy endpoint, not recommended for new integrations
+### Group membership verification
+- `POST /persons/{personId}/checkMemberGroups` (API v1–v4 / `1.0`, `2.0`, `3.0`, `4.0`) — check if person is member of Azure AD groups
 
 ## Authorization notes
 - Most endpoints require elevated-user or trusted-application checks through fluent authorization
@@ -108,5 +121,5 @@ This catalog covers all public, non-admin endpoints across API versions. Admin, 
 - `AdminController` — admin-only operations
 - `CacheController`, `AnalyticsController` — internal operations
 - `MigrationController` — operational migration routes; source also exposes `OPTIONS /persons/migrations` for elevated migration capability checks
-- Obsolete API versions (V1/V2 for most queries, use V3/V4)
+- Deprecated operations not listed above; verify each operation's live OpenAPI deprecation flag
 - Roles-related endpoints (managed by RolesV2 API)

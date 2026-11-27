@@ -1,5 +1,19 @@
 # Post-Generation Review Checklist
 
+## Contents
+
+- [TypeScript](#typescript)
+- [TSDoc](#tsdoc)
+- [Naming](#naming)
+- [Code Quality](#code-quality)
+- [EDS & Styling](#eds--styling)
+- [Accessibility](#accessibility)
+- [Fusion Framework](#fusion-framework)
+- [Data Fetching](#data-fetching)
+- [Charts & Visualization](#charts--visualization)
+- [Dependencies](#dependencies)
+- [Validation](#validation)
+
 Run through this checklist after generating or modifying code. Skip items that don't apply to the change.
 
 ## TypeScript
@@ -70,7 +84,7 @@ Run through this checklist after generating or modifying code. Skip items that d
 
 ## Data Fetching
 
-- [ ] React Query used for server state, React state for client UI state
+- [ ] React Query used for server state, `useState` for leaf UI state, `@equinor/fusion-observable` (`fusion-app-bloc`) for shared/workflow client state unless repo chose otherwise
 - [ ] Query keys derived from API path + parameters
 - [ ] Queries disabled (`enabled: false`) when required parameters are missing
 - [ ] Mutations invalidate related queries on success

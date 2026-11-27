@@ -1,5 +1,35 @@
 # Changelog
 
+## 0.1.3 - 2026-11-21
+
+### patch
+
+- [#494](https://github.com/equinor/fusion-skills/pull/494) [`cfb061e`](https://github.com/equinor/fusion-skills/commit/cfb061e8910a41c42d0c342a4b81e2a17c0d108a) - Fix border-radius tokens and drop deprecated progress indicator recommendation
+
+
+  - `references/spacing.md`: replace undefined `--eds-shape-corners-border-radius` with `@equinor/eds-tokens` v2 tokens `--eds-spacing-border-radius-rounded`, `-none`, and `-pill`; existing literal `0` / `9999px` values need no migration
+  - `references/portal-layout.md`: drop `@equinor/fusion-react-progress-indicator` (deprecated on npm) and recommend EDS `Progress.Circular` (`import { Progress } from '@equinor/eds-core-react'`)
+
+  refs equinor/fusion-skills#415
+
+## 0.1.2 - 2026-11-01
+
+### patch
+
+- [#391](https://github.com/equinor/fusion-skills/pull/391) [`ece2d45`](https://github.com/equinor/fusion-skills/commit/ece2d4547c2cfd491234816c41c780b5153850ec) - Move EDS token tables and Portal layout examples into directly linked topic references. Keep subordinate lookup scope and brand, token and shell constraints in the entrypoint.
+
+
+  resolves equinor/fusion-core-tasks#2689
+
+## 0.1.1 - 2026-11-01
+
+### patch
+
+- [#363](https://github.com/equinor/fusion-skills/pull/363) [`f34c0d9`](https://github.com/equinor/fusion-skills/commit/f34c0d9dc7de15e59ec643407914e98ad8288245) - Shorten EDS lookup description while retaining token and Portal layout cues, subordinate no-workflow scope and React props/API research exclusions.
+
+
+  resolves equinor/fusion-core-tasks#2672
+
 ## 0.1.0 - 2026-05-05
 
 ### minor
@@ -18,4 +48,3 @@
   Consumed by other skills and agents as a ground-truth lookup reference, not as a standalone workflow.
 
   resolves equinor/fusion-core-tasks#859
-

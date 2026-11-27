@@ -1,5 +1,16 @@
 # fusion-help-cli Reference
 
+## Contents
+
+- [Installation](#installation)
+- [Authentication](#authentication)
+- [Commands](#commands)
+- [Environments](#environments)
+- [Source system](#source-system)
+- [Image handling](#image-handling)
+- [Slug naming conventions](#slug-naming-conventions)
+
+
 ## Installation
 
 ```powershell

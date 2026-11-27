@@ -1,5 +1,66 @@
 # Changelog
 
+## 0.6.0 - 2026-11-21
+
+### minor
+
+- [#491](https://github.com/equinor/fusion-skills/pull/491) [`2556c34`](https://github.com/equinor/fusion-skills/commit/2556c3476e1feeda4052f09cca7f2cb8648305a4) - Promote `@equinor/fusion-lint` for Fusion apps.
+
+
+  - New-app checklist adds `@equinor/fusion-lint` as devDependency with a `lint:fusion` script and a pull-request CI step.
+  - Validation runs `fusion-lint changed` when installed; code-quality agent reports its diagnostics and recommends installing it when missing.
+
+  resolves equinor/fusion-skills#490
+
+### patch
+
+- [#494](https://github.com/equinor/fusion-skills/pull/494) [`cfb061e`](https://github.com/equinor/fusion-skills/commit/cfb061e8910a41c42d0c342a4b81e2a17c0d108a) - Mark `@equinor/fusion-react-progress-indicator` as deprecated and fix undefined EDS tokens
+
+
+  - `references/using-fusion-react-components.md`: mark `@equinor/fusion-react-progress-indicator` as deprecated on npm; use EDS `Progress` for new loading indicators and leave existing usages unless asked
+  - `references/styled-components.md`, `references/styling-with-eds.md`: replace undefined `--eds-shape-corners-border-radius` and `--eds-spacing-comfortable-medium` with `--eds-spacing-border-radius-rounded` and container inset tokens
+
+  refs equinor/fusion-skills#415
+
+- [#497](https://github.com/equinor/fusion-skills/pull/497) [`8e3de6a`](https://github.com/equinor/fusion-skills/commit/8e3de6a448c5d06bd00656d56ddd82906899a306) - Wire `fusion-design` and `fusion-app-bloc` into the workflow and clarify single-intent components.
+
+
+  - Consult `fusion-design` and app-root `DESIGN.md` for layout/navigation decisions.
+  - Default shared/workflow client state to `@equinor/fusion-observable` via `fusion-app-bloc`.
+  - Keep components focused; move non-trivial domain rules into testable functions or hooks.
+
+  resolves equinor/fusion-skills#405
+  resolves equinor/fusion-skills#406
+  resolves equinor/fusion-skills#407
+
+## 0.5.3 - 2026-11-21
+
+### patch
+
+- [#480](https://github.com/equinor/fusion-skills/pull/480) [`3a91663`](https://github.com/equinor/fusion-skills/commit/3a916635f0cc0ef996746bc631767c68f7e63943) - Defer edit and dependency approval to active host authority while retaining dependency justification, API verification and interactive safeguards.
+
+
+  resolves equinor/fusion-skills#480
+  refs equinor/fusion-skills#479
+
+## 0.5.2 - 2026-11-01
+
+### patch
+
+- [#390](https://github.com/equinor/fusion-skills/pull/390) [`8242e54`](https://github.com/equinor/fusion-skills/commit/8242e546e0375039b6f211913e2caa40b80d2f98) - Load app styling, framework, display and testing guidance only for matching tasks, and review code quality only when files change. Retain API verification, test-on-change and repository-policy gates.
+
+
+  resolves equinor/fusion-core-tasks#2688
+
+## 0.5.1 - 2026-11-01
+
+### patch
+
+- [#363](https://github.com/equinor/fusion-skills/pull/363) [`f34c0d9`](https://github.com/equinor/fusion-skills/commit/f34c0d9dc7de15e59ec643407914e98ad8288245) - Shorten app feature-development description while retaining React Query, integration tests, dev-server API mocks and explicit test setup/module-mock handoffs.
+
+
+  resolves equinor/fusion-core-tasks#2672
+
 ## 0.5.0 - 2026-10-18
 
 ### minor

@@ -1,5 +1,13 @@
 # Wiring Pattern Reference
 
+## Contents
+
+- [Constants File](#constants-file)
+- [Page Component Wiring](#page-component-wiring)
+- [Import Order](#import-order)
+- [Key Rules](#key-rules)
+
+
 Code patterns from apps that have integrated Fusion Help.
 
 ## Constants File

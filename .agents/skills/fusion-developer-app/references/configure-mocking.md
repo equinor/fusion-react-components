@@ -1,5 +1,16 @@
 # Configure Dev Server (Mocking & Proxying)
 
+## Contents
+
+- [Mock API routes](#mock-api-routes)
+- [Proxy to a local backend (simple)](#proxy-to-a-local-backend-simple)
+  - [Optional: named HTTP client](#optional-named-http-client)
+- [Proxy with service discovery (authenticated)](#proxy-with-service-discovery-authenticated)
+  - [App setup](#app-setup)
+  - [Request flow](#request-flow)
+- [Choosing a strategy](#choosing-a-strategy)
+- [Configuration format](#configuration-format)
+
 How to mock API responses and proxy to local backends during development using `dev-server.config.ts`.
 
 All dev-time API configuration lives in `dev-server.config.ts` at the project root — **not** in `app.config.ts`. The Fusion CLI dev server loads this file automatically and merges it with its defaults.

@@ -1,12 +1,12 @@
 ---
 name: fusion-infra-cli
-description: 'Provision and migrate Fusion databases (Fusion Database-as-a-Service, Azure SQL) using the fusion-infra-cli (finf). USE FOR: provision a database for a service, run SQL migrations, provision or delete PR-specific ephemeral databases, check database state, wire finf into GitHub Actions or Azure DevOps, troubleshoot provision/migrate failures. DO NOT USE FOR: EF Core or application code changes (use fusion-developer-service), service deployments, role management, or infrastructure other than databases.'
+description: 'Provisions Fusion SQL databases with finf. USE FOR: new Roles V2 database access configs, migrating legacy ACG configs, SQL migrations, PR databases and provisioning pipelines. DO NOT USE FOR: EF Core/app code (use fusion-developer-service), general role administration (use fusion-roles-cli), service deployment or non-database infrastructure.'
 license: MIT
 compatibility: >
   Requires finf installed as a .NET global tool from the Fusion-Public NuGet feed (.NET 8+ SDK).
   Requires Azure CLI login (az login), a pipeline Azure login, or an explicit token via -t.
 metadata:
-  version: "0.1.0"
+  version: "0.1.3"
   status: active
   owner: "@equinor/fusion-core"
   tags:
@@ -23,7 +23,7 @@ metadata:
 
 ## When to use
 
-Use when a Fusion service database needs to be provisioned or migrated — locally during development or inside CI/CD pipelines.
+Provision or migrate Fusion service databases locally or in CI/CD pipelines.
 
 Typical triggers:
 - "Provision the database for the context service"
@@ -32,73 +32,71 @@ Typical triggers:
 - "What does the database provision config look like?"
 - "The pipeline is failing on the database provision step"
 - "Create a PR database that copies from CI"
+- "Migrate this database config from ACG to Roles V2"
 
 ## When not to use
 
-- Application code or service changes — use the service repo (EF Core wiring, migrations script, token auth: `fusion-developer-service`)
-- Role or permission management — use `fusion-roles-cli`
-- Infrastructure other than databases (networking, storage, etc.)
-- Kubernetes or container management
+- Application code or service changes — use service repo (EF Core wiring, migrations script, token auth: `fusion-developer-service`)
+- General role administration — use `fusion-roles-cli`; database access policies belong here
+- Non-database infrastructure, Kubernetes or container management
+
+## Required inputs
+
+App name/config, target environment, SQL owner/contributor principals and migration path.
+For access policies: owner-approved autoapproval users/group object IDs and explicit approver users per environment. Legacy ACG names are not group IDs; never infer or expand permissions from them.
+For PR databases: PR number, GitHub repository and copy-source database only when copying.
+Environment names are free text used in database names; Fusion apps use `ci`, `fqa`, `fprd`, `pr`.
+
+## Safety
+
+- Do not run provision/migrate against shared environments (`ci`, `fqa`, `fprd`) without explicit user approval. Confirm PR provisioning/cleanup writes too.
+- `database delete` is irreversible; confirm before running. Only non-production databases can be deleted.
+- `--production` is an explicit guard: never omit for `fprd` provisioning; production migrate/get need it too.
+- Always use `--verbose` in pipelines and save output with `-o response.json` for downstream steps. Sanitize diagnostics before sharing.
+- Never print or persist tokens. Never pass raw tokens in pipeline YAML; use secret variables via `-t`, without echoing/logging them.
+- If a write fails or its outcome is uncertain, inspect database state before retry; do not assume failure means nothing changed.
+- Config edits do not authorize provisioning or Entra cleanup. Preserve SQL permissions; require approval before applying suggested policies or removing legacy roles, assignments or tags.
 
 ## Prerequisites
 
-Install `finf` as a .NET global tool:
-
-```bash
-dotnet tool install --global \
-  --add-source "https://statoil-proview.pkgs.visualstudio.com/Fusion%20-%20Packages/_packaging/Fusion-Public/nuget/v3/index.json" \
-  Fusion.Infra.Cli
-```
-
-Update to latest:
-
-```bash
-dotnet tool update --global \
-  --add-source "https://statoil-proview.pkgs.visualstudio.com/Fusion%20-%20Packages/_packaging/Fusion-Public/nuget/v3/index.json" \
-  Fusion.Infra.Cli
-```
-
-Auth uses `DefaultAzureCredential` automatically (picks up `az login` session). Pass `-t <token>` to override.
-
-The calling identity (pipeline service principal or user) needs the app role `Fusion.Infrastructure.Database.Manage` on
-the **Fusion Infrastructure Support** app; without it provision/migrate fail with 401/403. Request it from Fusion Core.
-The infra API URL has a built-in default; `-u` only overrides it.
+Confirm `finf` installed/current. When absent/outdated, read `references/setup.md` for exact .NET global-tool install/update commands.
+Auth uses `DefaultAzureCredential` (`az login` session); `-t <token>` overrides it.
+Calling identity needs `Fusion.Infrastructure.Database.Manage` on **Fusion Infrastructure Support**; request from Fusion Core if missing. Without it provision/migrate fail with 401/403.
+Infra API URL has built-in default; `-u` overrides it.
 
 ## Core workflow — provision a database
 
 ### 1. Create the provisioning config file
 
-The config file defines the database resource. Minimal example (`db-config.json`):
+New access configurations use Roles V2, not legacy ACG names. Read `references/db-config-schema.md` before authoring; confirm compatible CLI, InfraSupport and SQL-access workflow versions and required caller permissions.
+
+Config shape (`db-config.json`; replace example identities with approved values before use):
 
 ```json
 {
   "name": "my-service",
-  "environment": "ci"
-}
-```
-
-Full config with SQL permissions:
-
-```json
-{
-  "name": "my-service",
-  "environment": "fqa",
-  "sqlPermission": {
-    "owners": [
-      { "clientId": "<app-registration-client-id>" }
-    ],
-    "contributors": [
-      { "clientId": "<app-registration-client-id>" }
-    ]
+  "environment": "ci",
+  "accessControl": {
+    "autoApproval": {
+      "groups": [{ "id": "00000000-0000-0000-0000-000000000020", "name": "Example developers" }]
+    },
+    "approvers": {
+      "users": [{ "accountIdentifier": "approver@example.com" }]
+    }
   }
 }
 ```
 
-See [references/db-config-schema.md](references/db-config-schema.md) for the full schema.
+Users use `accountIdentifier`; groups require object `id`; approvers are explicit users only. These policies approve temporary access requests, never grant SQL access directly.
+
+For legacy `administratorGroupName` / `developerGroupName` migration, read `references/roles-v2-migration.md` before editing. Inspect assignments read-only, propose an environment-specific policy, and stop for approval when identities or intent are unresolved. Do not copy sample identities.
+
+For external policies, use `--access-file` with top-level `autoApproval` and `approvers`, without `accessControl`. It replaces both sections, not merges; omitted sections clear and `{}` clears both. Preserve legacy names only for a deliberate compatibility period.
 
 ### 2. Run provisioning
 
-**CI / non-production:**
+CI / non-production:
+
 ```bash
 finf database provision -f db-config.json -e ci \
   --sql-owner-client-id <client-id> \
@@ -106,39 +104,13 @@ finf database provision -f db-config.json -e ci \
   -o response.json --verbose
 ```
 
-**QA:**
-```bash
-finf database provision -f db-config.json -e fqa \
-  --sql-owner-client-id <client-id> \
-  --sql-contributor-client-id <client-id> \
-  -o response.json --verbose
-```
-
-**Production** (add `--production` flag):
-```bash
-finf database provision -f db-config.json -e fprd \
-  --production \
-  --sql-owner-client-id <client-id> \
-  --sql-contributor-client-id <client-id> \
-  -o response.json --verbose
-```
-
-**Pull Request** (ephemeral database, copies from CI; `-an` replaces the config file, environment defaults to `pr`):
-```bash
-finf database provision -an my-service \
-  -pr <pr-number> -ghr "equinor/my-repo" -c ci \
-  --sql-contributor-client-id <client-id> \
-  --timeout 900 -o response.json --verbose
-```
-
-`-c ci` copies `sqldb-fapp-my-service-db-ci`, which must exist. Delete PR databases when the PR closes: register the
-Fusion PR-closed webhook (request the code from Fusion Core) or run `finf database delete -d <name>` in a PR-closed
-workflow.
+When provisioning QA, production, PR databases or file-based SQL permissions, read `references/provisioning-recipes.md` for exact variants.
+For PRs, `-an` replaces config; environment defaults to `pr` with `-pr`, requiring `-ghr`. `-c ci` copies `sqldb-fapp-my-service-db-ci`, which must exist.
+Delete PR databases when PR closes: register Fusion PR-closed webhook (request code from Fusion Core) or use approved `finf database delete -d <name>` in PR-closed workflow.
 
 ### 3. Run migrations
 
-Read the database name from the provisioning output instead of guessing it (Fusion app databases are named
-`sqldb-fapp-<app>-db-<env>`, PR databases `...-db-pr-<n>`):
+Read name from provisioning output; never guess. App databases use `sqldb-fapp-<app>-db-<env>`, PR databases `...-db-pr-<n>`.
 
 ```bash
 NAME=$(jq -er '.database.name' response.json)
@@ -150,57 +122,20 @@ finf database migrate -d "$NAME" -m migrations/migration.sql -o migrations.json 
 finf database migrate -d "$NAME" -m migrations/migration.sql --production -o migrations.json --verbose
 ```
 
-The `-m` flag accepts a directory of `.sql` files or a single `.sql` file. For EF Core, generate one idempotent script
-in the build (`dotnet ef migrations script --idempotent`) and migrate before deploying the app.
+`-m` accepts directory of `.sql` files or one `.sql` file. For EF Core, generate idempotent build script (`dotnet ef migrations script --idempotent`); migrate before app deployment.
 
 ### Other commands
 
-- `finf database get -d <name> [--production]`: database details (server, users, roles).
-- `finf database delete -d <name>`: delete a non-production database (the command has no production target).
+- `finf database get -d <name> [--production]`: details (server, users, roles); inspect before retry.
+- `finf database delete -d <name>`: approved non-production deletion only.
 
-Pipeline examples (GitHub Actions, Azure DevOps): [references/pipelines.md](references/pipelines.md).
+When adding GitHub Actions/Azure DevOps steps, read `references/pipelines.md` for identity and pipeline examples.
+On failure or unfamiliar flags, read `references/troubleshooting.md` for diagnosis, help commands and source docs.
 
-## Environments
+## Expected output
 
-| Key | Purpose |
-|-----|---------|
-| `ci` | Continuous integration |
-| `fqa` | QA / pre-production |
-| `fprd` | Production (requires `--production` flag) |
-| `pr` | Pull request ephemeral (default when `-pr` is given; requires `-ghr`) |
+Config changes or provisioning/migration results, database name/state, target environment, approved identities, commands and observed outcome. Report missing policy decisions, approval blockers, failures or unknown state; never imply an unrun operation succeeded.
 
-Environment names are free text used in the database name; Fusion apps use `ci`, `fqa`, `fprd` (many app teams only
-`ci` and `fprd`).
+## Repository-policy handoff
 
-## Troubleshooting
-
-| Symptom | Cause / fix |
-| --- | --- |
-| 401/403 from the infra API | Identity lacks `Fusion.Infrastructure.Database.Manage`; check the pipeline login identity |
-| Timeout waiting for operation | Default wait is 300 s; PR copies often need `--timeout 900` |
-| `-c ci` fails to find a database | The source environment database has not been provisioned yet |
-| Migrate fails with an HTTP error only | The response does not include the failing SQL; run the script locally against SQL Server first |
-| Database not found on migrate/get | `--production` missing for production, or wrong name; use the name from the provision output |
-| Principal cannot be resolved | Client id typo, or the CLI identity lacks Graph read; `--ignore-resolve-errors` only to continue deliberately |
-
-## Full reference
-
-For complete flag reference, run:
-```bash
-finf database provision --help
-finf database migrate --help
-```
-
-Or see the source documentation:
-- Fusion docs: `https://docs.fusion.equinor.com/docs/developer/api/database` and `developer/cli-tools/fusion-infra-cli`
-- [README.md](https://github.com/equinor/fusion-core-services/blob/main/tooling/fusion-infra-cli/Fusion.Infra.Cli/README.md)
-- [Source: tooling/fusion-infra-cli](https://github.com/equinor/fusion-core-services/tree/main/tooling/fusion-infra-cli)
-
-## Safety
-
-- Always use `--verbose` in pipelines to get diagnostic output
-- Always save output with `-o response.json` so pipeline steps can reference the result
-- The `--production` flag is an explicit guard — never omit it for `fprd` provisioning
-- Never pass raw tokens in pipeline YAML — use secret variables and pass via `-t`
-- `database delete` is irreversible — confirm with user before running (only non-production databases can be deleted)
-- Do not run provision/migrate against shared environments (`ci`, `fqa`, `fprd`) without explicit user approval
+Follow target repository instructions for work tracking, validation, commits, changesets and pull requests. This skill does not authorize publication or override repository confirmation gates.

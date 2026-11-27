@@ -1,10 +1,10 @@
 ---
 name: fusion-framework-testing
-description: 'Guides writing and running Vitest tests for Fusion Framework React apps with @equinor/fusion-framework-vitest-plugin-react-app — choosing a testing layer, configuring vitest.config.ts and Browser Mode, rendering with test/render/renderAppHook/renderAppComponent/testApp fixtures, troubleshooting or migrating a suite, plus when and how to add behavior-driven Playwright journeys. USE FOR: writing a new app/component/hook test, setting up vitest.config.ts for a Fusion app, choosing between app/framework/module/HTTP test layers, composing or overriding test fixtures, diagnosing a failing Fusion app test, writing a Playwright user journey, handling visual baselines. DO NOT USE FOR: seeding module-specific mock state (auth, context, bookmarks, feature flags, HTTP) — use fusion-framework-mocking; dev-server-time API mocking/proxying (use fusion-developer-app); non-Fusion test suites; backend/service-repo tests.'
+description: 'USE FOR: Fusion React Vitest/Browser Mode tests, vitest.config.ts, render fixtures, failing suites, Playwright journeys, visual baselines. DO NOT USE FOR: module mock state (fusion-framework-mocking), dev-server API mocks (fusion-developer-app), non-Fusion or backend tests.'
 license: MIT
 compatibility: Requires a Fusion Framework React app. Rendering helpers need vitest, playwright, @vitest/browser-playwright, vitest-browser-react, and @equinor/fusion-framework-vitest-plugin-react-app as dev dependencies, plus `playwright install chromium`. React, React DOM, RxJS, and Vite are peer dependencies a Fusion app normally already provides.
 metadata:
-  version: "0.2.0"
+  version: "0.2.3"
   status: experimental
   owner: "@equinor/fusion-core"
   skills:
@@ -26,153 +26,115 @@ metadata:
 
 ## When to use
 
-Use when writing or running a Vitest test for a Fusion Framework React app — a hook, component,
-route, or complete app — or when setting up/troubleshooting the test project itself.
-
-Typical triggers:
-- "Write a test for this component / hook / route"
-- "Set up `vitest.config.ts` for this app"
-- "Why does this test hang / hit the network / fail to resolve the app?"
-- "Should this be a hook test or a component test?"
-- "Share seeded fixtures across a test file"
-- "Migrate this suite off Testing Library / jsdom"
-- "Does this change need an end-to-end journey?" / "Write a Playwright journey for this workflow"
-- "Should I update the screenshot baselines?"
-
-Implicit triggers:
-- A test file imports `@equinor/fusion-framework-vitest-plugin-react-app` (or its `/test`,
-  `/config` sub-paths)
-- `vitest.config.ts` needs Browser Mode, Playwright, or app-file resolution configured
-- A test renders a component/hook that reads `useAppModule`, `useFramework`, or similar
+Write/run Fusion Framework React hook, component, route or app tests; set up or diagnose
+Vitest/Browser Mode, fixtures, migration from Testing Library/jsdom, Playwright journeys and
+visual evidence. Includes `vitest.config.ts` and imports of
+`@equinor/fusion-framework-vitest-plugin-react-app` or its `/test`, `/config` sub-paths.
 
 ## When not to use
 
-- **Seeding module-specific state** (a signed-in user, current context, feature flags, HTTP
-  responses) — use `fusion-framework-mocking`; this skill only covers rendering/running the test
-- **`dev-server.config.ts` API mocking/proxying** for local `ffc app dev` — dev-time only, see
-  `fusion-developer-app`
-- Non-Fusion test suites, or backend/service-repo tests
+Module state (auth/context/feature flags/HTTP): `fusion-framework-mocking`.
+`dev-server.config.ts` API mocks/proxies for `ffc app dev`: `fusion-developer-app`, not test setup.
+Not non-Fusion suites or backend tests.
 
 ## Required inputs
 
-### Mandatory
-- What is under test: pure function, hook, component, route, or complete app
-- Whether the project already has `vitest.config.ts` configured for this package
+- Subject: pure function, hook, component, route or app; existing `vitest.config.ts` setup.
+- When relevant: user/context/HTTP state (hand off to `fusion-framework-mocking`), shared fixture needs.
 
-### Conditional
-- Whether the test needs a specific signed-in user, seeded context, or faked HTTP response (then
-  hand off to `fusion-framework-mocking` for the seeding details)
-- Whether several test files need the same fixture defaults
+## Safety & constraints
+
+- No real credentials, tenants or live backend services in tests.
+- Await every Fusion render/hook helper (`render`, `renderHook`, `renderAppComponent`,
+  `renderAppHook`) before claiming rendered correctness.
+- Unmatched HTTP reaches real network; answer every expected offline request and reject unexpected ones.
+- Never commit locally generated Playwright screenshot baselines or add `toHaveScreenshot` pixel gates.
+  Behavior assertions decide pass/fail; screenshots are reviewed CI evidence, not visual approval.
+- Never replace DOM-emulation gaps with untested polyfills/component swaps and call tests passing.
+- Cite real exports/APIs; invent no Fusion test helpers or undocumented Vitest/Playwright options.
+- Follow repo dependency approval and existing package manager/setup; examples are not install permission.
+  Missing required mocking companion: report and stop that branch, not guessed seeding APIs.
+- Keep `server.warmup.clientFiles` aligned with `test.include` when test files move.
 
 ## Instructions
 
 ### Step 1 — Choose the smallest layer for the behavior under test
 
-Fusion test utilities substitute external boundaries only; Vitest still owns the runner,
-assertions, lifecycle hooks, spies, timers, and coverage.
+Fusion substitutes external boundaries only. Vitest owns assertions, lifecycle hooks, spies,
+timers and coverage. Component tests must not recreate portal; lifecycle tests must not replace
+all Fusion hooks with JavaScript mocks.
 
-| Testing intent | Start with | Import |
-| --- | --- | --- |
-| Pure function or framework-independent hook | Standard Vitest | `vitest` |
-| React hook that consumes app modules | `renderAppHook` | `@equinor/fusion-framework-vitest-plugin-react-app` |
-| React component, route, or complete app | `test`/`render` fixture | `@equinor/fusion-framework-vitest-plugin-react-app/test` |
-| Reusable app fixture without automatic app-file resolution | `testApp` | `@equinor/fusion-framework-vitest-plugin-react-app` |
-| App module configuration without React | `mockAppModules` | see `fusion-framework-mocking` |
-| Parent framework or portal-level modules | `mockFramework` | see `fusion-framework-mocking` |
-| One method call, timer, global, or JS module | Vitest's `vi` APIs | `vitest` |
-| Complete workflow across routes, dialogs, or persisted state | Playwright journey against the served app | `@playwright/test` + `@equinor/fusion-openapi-mock-server` |
+| Subject | Start with |
+| --- | --- |
+| Pure logic/framework-independent hook | Standard Vitest (`vitest`) |
+| Hook consuming app modules | `renderAppHook` from `@equinor/fusion-framework-vitest-plugin-react-app` |
+| Component/route/app | `test`/`render` from `@equinor/fusion-framework-vitest-plugin-react-app/test` |
+| Reusable fixture without app-file resolution | `testApp` from `@equinor/fusion-framework-vitest-plugin-react-app` |
+| App modules/parent framework without React | `mockAppModules` / `mockFramework`: `fusion-framework-mocking` |
+| Method call/timer/global/JS module | Vitest's `vi` APIs |
+| Complete cross-route/persisted workflow | Playwright served-app journey (`@playwright/test` + `@equinor/fusion-openapi-mock-server`) |
 
-A component test should not recreate a portal; an app-lifecycle test should not replace every
-Fusion hook with a JavaScript module mock. See `references/getting-started-and-configuration.md`
-for the full layer-choosing table including module/HTTP layers.
+Prefer normal `/test` path; use explicit helpers only when supplying `env`/`configure`/`fusion`.
 
 ### Step 2 — Install and configure
 
-```sh
-pnpm add -D vitest playwright @vitest/browser-playwright vitest-browser-react \
-  @equinor/fusion-framework-vitest-plugin-react-app
-pnpm exec playwright install chromium
-```
-
-```ts
-// vitest.config.ts
-import { defineProject } from '@equinor/fusion-framework-vitest-plugin-react-app/config';
-
-export default defineProject();
-```
-
-`defineProject` registers `appTestVitePlugin`, headless Chromium via Playwright, test-file
-inclusion (`src/**/*.{test,spec}.{ts,tsx}`), and lazy-import warmup. See
-`references/getting-started-and-configuration.md` to merge overrides, replace defaults, or
-resolve non-standard app files.
+When setup/dependencies are missing or need changes, read
+`references/getting-started-and-configuration.md` for install commands, entry points,
+`defineProject` defaults, overrides and non-standard app files. Preserve needed defaults:
+`appTestVitePlugin`, headless Playwright Chromium, `src/**/*.{test,spec}.{ts,tsx}` and lazy-import warmup.
 
 ### Step 3 — Write the first test
 
-```tsx
-import { expect } from 'vitest';
-import { test } from '@equinor/fusion-framework-vitest-plugin-react-app/test';
-import { App } from './App';
-
-test('renders the app', async ({ render }) => {
-  const screen = await render(<App />);
-  await expect.element(screen.getByRole('heading')).toBeVisible();
-});
-```
-
-Always `await` every Fusion render/hook helper (`render`, `renderHook`, `renderAppComponent`,
-`renderAppHook`) — module initialization completes before the first render.
+When writing a normal app test, read `references/getting-started-and-configuration.md` for
+first-render examples. Await initialization before assertions. For explicit hooks/components
+or `testApp`, read `references/rendering-helpers.md` for options and nested `fusion.app` /
+`fusion.framework` results.
 
 ### Step 4 — Compose fixtures for reuse (when several tests share seeded state)
 
-Extend `test` (from `/test`) to seed shared state, or use `test.override(...)` for one file/suite
-without creating a new export. See `references/fixtures-and-advanced-usage.md` for
-`configureApp`/`configureFusion`/`mergeEnvConfig`, extend-vs-override, and route/app-lifecycle
-tests.
+When composing app fixtures, read `references/fixtures-and-advanced-usage.md` for
+`configureApp`, `mergeEnvConfig`, extend-versus-override and production configure composition.
+Reuse only when justified; `test.extend` exports shared fixture, `test.override(...)` changes one file/suite.
+When configuring parent scope, route/app lifecycle or custom parent, read
+`references/parent-framework-fixtures.md` for `configureFusion`, history and replacement boundaries.
 
 ### Step 5 — Diagnose failures
 
-Consult `references/troubleshooting.md`'s symptom table before guessing — most failures trace to
-an un-awaited render helper, a missing `appTestVitePlugin` registration, or an HTTP request with
-no answering middleware.
+On failure, read `references/troubleshooting.md` before guessing: await helpers, check
+`appTestVitePlugin` and answering HTTP middleware.
 
 ### Step 6 — Choose Browser Mode or an alternative renderer (only if warranted)
 
-Browser Mode (headless Chromium via Playwright) is the default for fidelity, not speed. Only move
-to `happy-dom`/jsdom for a component/hook provably independent of real browser behavior — see
-`references/browser-mode-and-migration.md` for the tradeoff and the `happy-dom` wiring.
+Browser Mode is default for fidelity, not speed. When considering another provider or
+`happy-dom`/jsdom, read `references/browser-mode-and-migration.md` for tradeoffs and wiring.
+DOM emulation only for components/hooks provably independent of real browser behavior.
 
 ### Step 7 — Migrate an existing suite (when applicable)
 
-See `references/browser-mode-and-migration.md` for moving an existing
-`@testing-library/react`/jsdom suite onto this package.
+When migrating `@testing-library/react`/jsdom suites, read `references/migrating-existing-suites.md`
+for incremental changes and intact diffs. Retain unaffected renderer/tests and real production configuration.
 
 ### Step 8 — Cover complete workflows with a Playwright journey (only when warranted)
 
-Use a journey only when the change crosses routes, dialogs, persisted state, or a primary user
-workflow. Behavior assertions decide pass/fail; screenshots are reviewed evidence generated in CI,
-never pixel gates or locally committed baselines. As an agent, run the one affected journey once as
-final validation, not while iterating. See `references/end-to-end-journeys.md`.
+Only for routes, dialogs, persisted state or primary workflow changes: read
+`references/end-to-end-journeys.md` for served-app mocks, isolation, behavior assertions and CI evidence.
+Run one affected journey once at final validation, not during iteration or full suite locally.
 
 ## Expected output
 
-- A test file using the smallest layer that exercises the behavior under test
-- `vitest.config.ts` correctly registering `appTestVitePlugin` (directly or via `defineProject`)
-- Every Fusion render/hook helper awaited
-- Fixture composition (`extend`/`override`) used only when reuse across cases/files justifies it
-- Module-specific mock seeding delegated to `fusion-framework-mocking`
+Smallest useful test layer; correctly registered `appTestVitePlugin`/`defineProject` setup;
+awaited helpers; justified fixture composition; module seeding via `fusion-framework-mocking`.
+Report exact commands/outcomes, gaps, affected journey result and whether CI evidence was requested;
+never claim unperformed visual approval.
 
-## Safety & constraints
+## Rationalization prevention
 
-Never:
-- Commit locally generated Playwright screenshot baselines or add `toHaveScreenshot` pixel gates
-- Claim a rendered result is correct without awaiting the render/hook helper first
-- Replace a DOM-emulation gap with an untested polyfill or component swap and call the test passing
-- Assume an unmatched HTTP request stays offline — an unmatched request reaches the real network
-- Invent Vitest/Playwright configuration options not documented in this skill's references
+No passing-suite claim without fresh test output exercising the real boundary.
 
-Always:
-- Prefer `@equinor/fusion-framework-vitest-plugin-react-app/test`'s `test`/`render` for the normal
-  application path; drop to `renderAppHook`/`renderAppComponent`/`testApp` only when the test must
-  supply `env`/`configure`/`fusion` explicitly
-- Keep `server.warmup.clientFiles` aligned with `test.include` when test files move
-- Cite the real export/API used rather than inventing a Fusion-specific test helper
+| Excuse | Reality |
+| --- | --- |
+| "Mocking all Fusion hooks is faster" | Mocking away the unit under test proves nothing; mock external boundaries only. |
+| "Polyfill jsdom to skip Browser Mode" | Untested polyfills hide real browser failures; use Browser Mode unless provably DOM-independent. |
+| "Render helper looks sync, skip await" | Unawaited Fusion render/hook helpers cause flaky false passes; always await. |
+| "Screenshot looks fine locally, commit baseline" | Never commit local Playwright baselines or pixel gates; assert behavior. |
+| "Targeted test passed, skip full check" | Report exact scope run; never claim full suite passed without running it. |

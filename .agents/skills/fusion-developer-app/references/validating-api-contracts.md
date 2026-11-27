@@ -1,5 +1,15 @@
 # Validating API Contracts with Zod
 
+## Contents
+
+- [Where to validate](#where-to-validate)
+- [External vs app-owned schemas](#external-vs-app-owned-schemas)
+- [Treat new fields and enum values as contract changes](#treat-new-fields-and-enum-values-as-contract-changes)
+- [Ids from SQL Server / Entity Framework](#ids-from-sql-server--entity-framework)
+- [Failure UX](#failure-ux)
+- [Testing](#testing)
+- [Zod 3 differences](#zod-3-differences)
+
 TypeScript types are erased at runtime, so `client.json<WorkOrder[]>()` only *claims* a shape.
 When a provider renames a field or adds an enum value, the app fails later, far from the cause.
 Parse every response with a schema at the API boundary so contract drift fails loudly, once, with

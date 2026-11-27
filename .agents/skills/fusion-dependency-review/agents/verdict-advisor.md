@@ -1,5 +1,16 @@
 # Verdict Advisor
 
+## Contents
+
+- [Role](#role)
+- [Inputs](#inputs)
+- [Workflow](#workflow)
+- [Recommendation semantics](#recommendation-semantics)
+- [Decision dimensions](#decision-dimensions)
+- [Handoff rules](#handoff-rules)
+- [Output contract](#output-contract)
+- [Guardrails](#guardrails)
+
 Use this advisor after research and the three lens assessments exist.
 
 ## Role
@@ -20,10 +31,28 @@ Synthesize research, security, code quality, impact into dependency-review decis
 2. Surface strongest +/- signals and open reviewer concerns.
 3. Apply recommendation rules:
    - Any `blocking` lens → verdict must be `hold` or `decline`
+   - Needs-a-human licence/terms change or missing material evidence → `hold`, except qualified
+     routine/flag cases below (`references/unattended-updates.md`); API compatibility or CI cannot waive acceptance.
+   - Routine licence/terms change (permissive → permissive, or CI/build-only tooling without new use
+     restrictions) → evidence note only; does not block `merge`. Unsure → needs a human.
+   - Missing-file exceptions below require newly introduced package or verified unchanged material terms
+     across installed-to-target interval. Actual transitions use normal licence-change tiers;
+     missing interval evidence for existing package → `hold`, never target-only packaging-gap flag.
+   - Missing tarball licence file with matching published/exact-version upstream permissive declarations
+     and applicable text, no conflicts → routine note, not `hold`; preserve notices and stricter repo/legal policy.
+   - Matching published/exact-version upstream permissive declarations, no applicable text or conflicts →
+     `hold`, except produced maintainer-only-merged PR: visible `Licence/terms change, merging accepts it:`
+     flag naming package/version, SPDX licence, `no licence file`, checked URLs and missing text.
+     Apply qualifying licences/evidence in `references/unattended-updates.md`; never infer sibling coverage.
+   - Unknown, undeclared, conflicting or uncorroborated licensing → `hold` even in maintainer-only output.
+     Declaration-only exception never applies to standalone verdicts or auto/agent merge.
+   - Output is produced PR only a maintainer merges (no auto/agent merge): verified needs-a-human change → flag line
+     `Licence/terms change, merging accepts it:`, not `hold`; maintainer merge is acceptance. Decide on other evidence.
    - Unresolved reviewer concerns usually prevent `merge`
    - Concerns without blocker: `merge with follow-up` or `hold` by evidence gaps
-   - Compatible update + no unresolved technical risk: can support `merge`
-   - Pending checks or required approval alone never change `merge` to `hold`
+   - Compatible update + no unresolved technical or licence risk: can support `merge`
+   - Pending checks or routine PR approval alone never change `merge` to `hold`; licence acceptance is
+     a policy decision, not routine approval
 4. Apply confidence model:
    - `high`: complete, consistent sources; repository usage understood; no material question unanswered
    - `medium`: bounded uncertainty, partial source coverage, or limited adoption evidence
@@ -48,12 +77,18 @@ Synthesize research, security, code quality, impact into dependency-review decis
 
 ## Decision dimensions
 
-- Recommendation answers: "Is this dependency update technically safe to accept?"
+- Recommendation answers: "Is this dependency update safe to accept, including applicable licence/terms?"
 - Confidence answers: "How complete and consistent is the evidence?"
 - Readiness answers: "Which mechanical repository gates remain?"
 
 Keep dimensions independent. Example: safe update with complete evidence and pending approval is
 `merge`, `high`, `waiting for approval`.
+
+Actions/Docker: official release evidence plus actual workflow/Dockerfile usage may support bounded
+recommendation without local execution. Report workflow/image checks as not run with reasons; missing
+material compatibility evidence requires `hold`. Never equate research with validated runtime or readiness.
+Host workflow-edit token limitations affect publication state, not technical verdict.
+Use `references/unattended-updates.md` for ecosystem evidence and licence decision gate.
 
 ## Handoff rules
 
@@ -74,6 +109,8 @@ Return:
 - Confidence
 - Readiness
 - Follow-up items
+- Licence decision when applicable: changed terms, official sources and tier; needs-a-human adds decision owner and acceptance status
+- Migration steps: upgrade guide, migration command, findings fixed, suppressions added with reasons, decisions deferred (see `references/upgrade-migration.md`)
 - Handoff recommendation when needed
 - PR-comment-ready final verdict comment body
 - Explicit confirmation prompt
@@ -86,9 +123,13 @@ every named partial before filling; no renderer ships with the skill.
 
 - Never auto-approve or auto-merge
 - Never claim CI, security, or impact is clear without cited evidence
-- Never use pending checks or required approval as the sole reason for `hold` or reduced confidence
+- Never use pending checks or routine PR approval as the sole reason for `hold` or reduced confidence
+- Never recommend `merge` or `merge with follow-up` for needs-a-human licence/terms change awaiting explicit human acceptance,
+  except flagged maintainer-merged PR output per `references/unattended-updates.md`
 - Never infer low confidence from semver-major alone
 - Don't ignore unresolved threads unless packet explains why outdated/addressed
 - No approval/merge until verdict comment posted
 - Conflicting sources: reflect in confidence/recommendation
 - Bias ambiguous/high-risk to `hold` until evidence resolved
+- Broad rule downgrades, path-based tool disables, or removed CI checks used to pass CI: technical blocker, never `merge`
+- Newly enabled default behaviour: surface as maintainer decision, never decide silently

@@ -1,5 +1,32 @@
 # Changelog
 
+## 0.0.5 - 2026-11-21
+
+### patch
+
+- [#465](https://github.com/equinor/fusion-skills/pull/465) [`bc5839a`](https://github.com/equinor/fusion-skills/commit/bc5839a7534118791cfd62fd9bfbf872e2f7ac13) Thanks [@erlendthune](https://github.com/erlendthune)! - Clarify that access-role scope types do not mandate scoped assignments. Show scoped best practice alongside a valid Global alternative.
+
+
+  refs equinor/fusion-core-tasks#3040
+
+## 0.0.4 - 2026-11-01
+
+### patch
+
+- [#393](https://github.com/equinor/fusion-skills/pull/393) [`51da027`](https://github.com/equinor/fusion-skills/commit/51da0277628440f94532d6901d1bb3f678dc350a) - Load froles setup, config examples and reconciliation catalog only when needed; retain dry-run-first, deletion confirmation and ordered role deployment in the entrypoint.
+
+
+  resolves equinor/fusion-core-tasks#2691
+
+## 0.0.3 - 2026-11-01
+
+### patch
+
+- [#372](https://github.com/equinor/fusion-skills/pull/372) [`61c8e4b`](https://github.com/equinor/fusion-skills/commit/61c8e4bba4f71a2cf00e83c73e32e992460e1e69) - Shorten discovery wording while keeping froles Roles V2 JSON deployment, bindings, assignments, inspection and export, distinct from database provisioning and application code. Keep Roles V1, group-management and token-exposure exclusions.
+
+
+  resolves equinor/fusion-core-tasks#2673
+
 ## 0.0.2 - 2026-10-13
 
 ### patch
