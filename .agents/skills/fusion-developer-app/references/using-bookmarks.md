@@ -1,5 +1,15 @@
 # Using Bookmarks
 
+## Contents
+
+- [When bookmarks are the right fit](#when-bookmarks-are-the-right-fit)
+- [Enable the bookmark module](#enable-the-bookmark-module)
+- [Read the current bookmark and restore state](#read-the-current-bookmark-and-restore-state)
+- [Choosing bookmark payload](#choosing-bookmark-payload)
+- [Multi-page flows](#multi-page-flows)
+- [Current API note](#current-api-note)
+- [Relevant sources](#relevant-sources)
+
 Saving and restoring shareable view state with Fusion Framework bookmarks.
 
 ## When bookmarks are the right fit

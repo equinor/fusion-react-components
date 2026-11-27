@@ -1,5 +1,22 @@
 # Using AG Grid
 
+## Contents
+
+- [Quick start](#quick-start)
+  - [Install](#install)
+  - [Enable the module](#enable-the-module)
+  - [Render a grid](#render-a-grid)
+- [Registering feature modules](#registering-feature-modules)
+- [Theming](#theming)
+  - [Using the default theme](#using-the-default-theme)
+  - [Customizing the theme](#customizing-the-theme)
+  - [Per-instance customization](#per-instance-customization)
+- [Default column definitions](#default-column-definitions)
+- [Column definition patterns](#column-definition-patterns)
+- [When to use AG Grid vs EDS Table](#when-to-use-ag-grid-vs-eds-table)
+- [Packages and entry points](#packages-and-entry-points)
+- [TypeScript note](#typescript-note)
+
 Displaying tabular data with AG Grid in Fusion Framework apps using `@equinor/fusion-framework-react-ag-grid`.
 
 ## Quick start

@@ -1,5 +1,23 @@
 # Using Context
 
+## Contents
+
+- [Enable context in `config.ts`](#enable-context-in-configts)
+  - [Builder options](#builder-options)
+- [Read the current context](#read-the-current-context)
+- [Use context in data fetching](#use-context-in-data-fetching)
+  - [With React Query](#with-react-query)
+  - [With plain HTTP client](#with-plain-http-client)
+- [Query related contexts](#query-related-contexts)
+- [Context types](#context-types)
+- [Common patterns](#common-patterns)
+  - [Guard a page that requires context](#guard-a-page-that-requires-context)
+  - [Extract context ID for URL routing](#extract-context-id-for-url-routing)
+- [Custom context client (bring your own context)](#custom-context-client-bring-your-own-context)
+  - [When to use a custom client](#when-to-use-a-custom-client)
+  - [Combining with standard context](#combining-with-standard-context)
+- [What not to do](#what-not-to-do)
+
 Enabling, configuring, and consuming the Fusion context module.
 
 Context: the entity the user is working with — a project, facility, contract, or other domain object selected in Fusion Portal.

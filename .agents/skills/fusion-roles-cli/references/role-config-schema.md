@@ -188,7 +188,16 @@ Links an Entra (Azure AD) group to roles or claimable roles, optionally scoped.
 **Note**: `scope` must be `null` when `type` is `Global` and is required when `type` is `Scoped`. The binding diff in
 dry-run output shows exactly which roles/groups are added or removed.
 
+An access role's `scopeTypeIdentifier` describes the resource dimension the application can check; it does not require
+direct assignments or binding entries for roles and claimable roles to be `Scoped`. Both support `Global`, which creates
+unscoped assignments. `Scoped` attaches a scope type and value, or all values when `isGlobal` is `true`. Choose the
+assignment type to match the application's authorization policy: a scope-agnostic check may accept a `Global`
+assignment, while a scoped check requires `Scoped`. This is guidance, not a CLI rule that prevents global assignments
+to scoped access roles.
+
 **Example — global role binding:**
+This example assumes `service-admin` maps to access roles the application grants without a resource scope.
+
 ```json
 {
   "identifier": "admins-global-binding",
@@ -201,7 +210,7 @@ dry-run output shows exactly which roles/groups are added or removed.
     "group": { "id": "04a439f6-cfc2-430b-8345-77d5a0151ef7" },
     "roles": [
       {
-        "name": "project-editor",
+        "name": "service-admin",
         "type": "Global",
         "scope": null
       }
@@ -210,9 +219,9 @@ dry-run output shows exactly which roles/groups are added or removed.
 }
 ```
 
-For a scoped access role that should cover every project, use `"type": "Scoped"` with
-`"scope": { "scopeTypeIdentifier": "project", "isGlobal": true }`; a `Global` assignment does not pass scoped checks
-(see [concepts.md](concepts.md)).
+When the application requires a project-scoped check and should grant access to every project, the recommended binding
+uses `"type": "Scoped"` with `"scope": { "scopeTypeIdentifier": "project", "isGlobal": true }`. A `Global` assignment
+is also supported, but it has no scope and does not pass scoped checks (see [concepts.md](concepts.md)).
 
 **Example — scoped role binding:**
 ```json
@@ -373,8 +382,11 @@ Used in `deleteRoleAssignments` to remove specific assignments by ID (ID obtaine
         "roles": [
           {
             "name": "project-editor",
-            "type": "Global",
-            "scope": null
+            "type": "Scoped",
+            "scope": {
+              "scopeTypeIdentifier": "project",
+              "isGlobal": true
+            }
           }
         ]
       }
@@ -382,3 +394,18 @@ Used in `deleteRoleAssignments` to remove specific assignments by ID (ID obtaine
   ]
 }
 ```
+
+The complete example uses a scoped assignment because its access roles declare the `project` scope type. This is the
+recommended pattern when the application enforces project-scoped checks, not a requirement imposed by the schema or
+CLI. The same role can instead be bound globally when the application intentionally treats role presence as sufficient:
+
+```json
+{
+  "name": "project-editor",
+  "type": "Global",
+  "scope": null
+}
+```
+
+That alternative creates unscoped access-role assignments and does not pass scoped checks. The application decides which
+assignment type is appropriate for its authorization policy.

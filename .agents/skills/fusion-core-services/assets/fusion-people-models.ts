@@ -473,7 +473,7 @@ export interface ApiPersonSearchResultV2 {
   accountClassification: ApiAccountClassification;
 }
 
-/** Returned by GET /persons (search, V1). OBSOLETE - use V2. */
+/** Returned by GET /persons (search, V1); operation is not flagged deprecated in live OpenAPI. */
 export interface ApiPersonSearchResultV1 {
   fusionPersonId?: string | null;
   azureUniquePersonId?: string | null;

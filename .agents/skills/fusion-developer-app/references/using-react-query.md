@@ -1,5 +1,16 @@
 # Using React Query
 
+## Contents
+
+- [Setup](#setup)
+- [Custom query hooks](#custom-query-hooks)
+- [Query key conventions](#query-key-conventions)
+- [Parameterized queries](#parameterized-queries)
+- [Mutations](#mutations)
+- [State separation](#state-separation)
+- [DevTools](#devtools)
+- [Error handling](#error-handling)
+
 Managing server state with `@tanstack/react-query`.
 
 ## Setup
@@ -114,7 +125,8 @@ export const useUpdateItem = () => {
 ## State separation
 
 - **React Query** = server state (API data, loading, error, caching, background refetch)
-- **React state/context** = client UI state (selected tab, filter input text, modal open/close)
+- **`useState`** = leaf UI state (selected tab, filter input text, modal open/close)
+- **`@equinor/fusion-observable`** via `fusion-app-bloc` = shared/workflow client state, unless the repo already chose another approach
 
 Never store UI state in React Query. Never manage server state in `useState`.
 

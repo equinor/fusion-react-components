@@ -1,5 +1,20 @@
 # Contract Personnel API Endpoint Catalog
 
+## Contents
+
+- [Project and contract endpoints](#project-and-contract-endpoints)
+- [Personnel endpoints](#personnel-endpoints)
+- [Delegate endpoints](#delegate-endpoints)
+- [Personnel request endpoints](#personnel-request-endpoints)
+- [Role endpoints](#role-endpoints)
+- [Change log endpoints](#change-log-endpoints)
+- [Recertification endpoints](#recertification-endpoints)
+- [Affiliate sponsor endpoints](#affiliate-sponsor-endpoints)
+- [Valid company and domain endpoints](#valid-company-and-domain-endpoints)
+- [Authorization notes](#authorization-notes)
+- [Typical status codes](#typical-status-codes)
+- [Explicit exclusions](#explicit-exclusions)
+
 This catalog covers the verified public contract-personnel surface for projects, contracts, personnel, delegates, requests, role assignments, change log, recertifications, affiliate sponsors, and valid-company/domain lookups. Subscription, cache, migration, and other operational controllers remain excluded.
 
 ## Project and contract endpoints

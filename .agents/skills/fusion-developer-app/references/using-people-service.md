@@ -1,5 +1,15 @@
 # Using the Fusion People Service
 
+## Contents
+
+- [When to use the people service](#when-to-use-the-people-service)
+- [The preferred path: let components resolve people](#the-preferred-path-let-components-resolve-people)
+- [Storing person references](#storing-person-references)
+- [People search via PersonPicker / PeoplePicker](#people-search-via-personpicker--peoplepicker)
+- [Integration points](#integration-points)
+- [System accounts](#system-accounts)
+- [Non-goals](#non-goals)
+
 Fusion People API: people discovery, person details, integration.
 
 **Source**: `@equinor/fusion-react-person` + Fusion Framework people service

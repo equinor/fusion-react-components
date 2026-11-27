@@ -52,6 +52,12 @@ There are two separate levels:
 | Scoped, one resource | `"type": "Scoped", "scope": { "scopeTypeIdentifier": "project", "value": "<project id>" }` | That project only |
 | Scoped, all resources | `"type": "Scoped", "scope": { "scopeTypeIdentifier": "project", "isGlobal": true }` | Every project |
 
+An access role's `scopeTypeIdentifier` makes that scope dimension available to the application; it does not require
+assignments to use `Scoped`. A `Global` assignment to a role containing scoped access roles is supported and creates
+unscoped access-role assignments. Whether that is sufficient is the application's decision: scope-agnostic checks can
+accept it, while scoped checks require a `Scoped` assignment. These examples are guidance, not restrictions imposed by
+Roles V2.
+
 The scope is copied to **every** access role in the role. API checks (`Fusion.Integration.Roles`):
 
 | Check | Passes when |
@@ -62,11 +68,13 @@ The scope is copied to **every** access role in the role. API checks (`Fusion.In
 
 Consequences:
 
-- Never protect a scoped access role with `HaveActiveAccessRole`: a user scoped to project A would pass for project B.
-- Admins who need every project of a scoped access role get `Scoped` + `isGlobal: true`, not `Global`.
-- A role that mixes unscoped and scoped access roles cannot be assigned correctly: `Global` breaks the scoped checks,
-  `Scoped` to one project hands out the unscoped access roles too. Keep them in separate roles and separate binding
-  entries (`file-layout.md`).
+- When resource isolation is required, use a scoped check. `HaveActiveAccessRole` ignores scope, so it does not enforce
+  project boundaries.
+- For applications using scoped checks, admins who need every project of a scoped access role get `Scoped` +
+  `isGlobal: true`. `Global` remains valid when the application intentionally uses a scope-agnostic check; it is not
+  equivalent to a scoped assignment for every project.
+- One assignment applies the same scope behavior to every access role in a role. Split roles and binding entries when
+  mapped access roles need different scope behavior (`file-layout.md`).
 
 ## When to use what
 
@@ -74,7 +82,8 @@ Consequences:
 | --- | --- |
 | Capability not tied to one resource (use the app, manage lookup data, admin settings) | Global access role, global assignment |
 | Data belongs to a Fusion resource and users should only see or change their own (project, contract, facility) | Scoped access role; scope value = the resource identifier your API stores |
-| Support or central admins who need all resources | `Scoped` assignment with `isGlobal: true` of the scoped access role |
+| Support or central admins who need all resources and the app uses scoped checks | `Scoped` assignment with `isGlobal: true` of the scoped access role |
+| App intentionally grants a scoped access role without resource filtering | `Global` assignment; the app's checks decide whether this is sufficient |
 | Access follows Entra group or OrgChart membership | Role binding, not hand-made assignments |
 | Powerful or rarely needed access (bulk delete, production fixes) | Claimable role, so it is off by default and time-boxed |
 | Service principal or one-off technical access | Direct role assignment (`access-assignments.<env>.json`) |

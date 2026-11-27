@@ -1,10 +1,10 @@
 ---
 name: fusion-developer-app
-description: 'Guides feature development in Fusion Framework React apps, including app-scoped framework research, test authoring, and test-time mocking needed to choose and verify the right integration patterns. USE FOR: building features, components, pages, hooks, services, API integrations, module configuration, and their tests. DO NOT USE FOR: issue authoring, skill authoring, CI/CD configuration, backend service changes, or general Fusion documentation unrelated to app implementation.'
+description: 'Guides Fusion Framework React features and integration tests. USE FOR: components, pages, hooks, APIs, modules, React Query and dev-server mocks/proxies. DO NOT USE FOR: issue/skill authoring, CI/CD, backend, secrets, general docs, test setup (fusion-framework-testing) or test module mocks (fusion-framework-mocking).'
 license: MIT
 compatibility: Requires a Fusion Framework React app bootstrapped with @equinor/fusion-framework-cli. Works best when styled-components, @equinor/eds-core-react, and @equinor/fusion-react-* packages are installed.
 metadata:
-  version: "0.5.0"
+  version: "0.6.0"
   status: active
   owner: "@equinor/fusion-core"
   skills:
@@ -12,6 +12,8 @@ metadata:
     - fusion-code-conventions
     - fusion-framework-testing
     - fusion-framework-mocking
+    - fusion-design
+    - fusion-app-bloc
   tags:
     - fusion-framework
     - react
@@ -33,203 +35,138 @@ metadata:
 
 ## When to use
 
-Use this skill when developing features, components, hooks, services, or types for a Fusion Framework React application.
-
-Typical triggers:
-- "Add a component / hook / service / page for ..."
-- "Wire up the API"
-- "Configure a Fusion module"
-- "Which Fusion Framework hook / package should this app use?"
-- "Persist this preference as an app setting"
-- "Add bookmark / analytics / feature flag support"
-- "Add a chart / people picker / person column to AG Grid"
-- "How do I write a custom Fusion Framework module?"
-- "Should this be a Fusion module or a React context?"
-- "Write tests for this Fusion component / hook / route"
-- "Mock auth, context, feature flags, or HTTP in this test"
-
-Implicit triggers:
-- Building in `src/`
-- References Fusion Framework modules, EDS, `@equinor/fusion-react-*`, or styled-components
-- References app settings, bookmarks, analytics, `app.config.ts`
-- Adding route, page, or data-fetching layer
-- Adding or updating `*.test.ts` / `*.test.tsx`, `vitest.config.ts`, or Fusion test fixtures
-- References charting: `@equinor/fusion-framework-react-ag-charts`, `chart.js`, `react-chartjs-2`
+Build Fusion Framework React features: components/hooks/services/types/pages, APIs, modules,
+settings/bookmarks/analytics/flags, grids/charts/person UI and behavior tests.
+Includes `*.test.ts` / `*.test.tsx`, `vitest.config.ts`, fixtures, `app.config.ts`,
+`@equinor/fusion-react-*`, styled-components, `chart.js`, `react-chartjs-2`.
 
 ## When not to use
 
-Do not use this skill for:
-- Issue authoring/triage → `fusion-issue-authoring`
-- Skill authoring → `fusion-skill-authoring`
-- Backend/service changes (separate repo)
-- CI/CD or deployment config
-- Architecture docs (use ADR template)
-
-For Fusion Framework package ownership, hook behavior, or example discovery → use `fusion-research` first.
+Not backend, CI/CD, deployment config or architecture docs (use ADR template).
+Issue/skill authoring: `fusion-issue-authoring` / `fusion-skill-authoring`.
+Package ownership/hook behavior/examples: `fusion-research` first.
+Test setup/rendering: `fusion-framework-testing`; module state: `fusion-framework-mocking`.
+Dev-server API mocks/proxies remain here, not test-time mocks.
 
 ## Required inputs
 
-### Mandatory
+- Feature and placement: layer, parent/sibling context.
+- When relevant: endpoints, design/layout, module, per-user/bookmark/runtime state,
+  test layer and boundaries to seed.
+- Ambiguous: read `assets/follow-up-questions.md` for domain questions before implementing.
 
-- What to build: feature, component, hook, or service description
-- Where it fits: layer (component, hook, service, type) and parent/sibling context
+## Safety & constraints
 
-For ambiguous requests, consult `assets/follow-up-questions.md` before implementing.
+This skill is mutation-capable. Repository-local workflow instructions take precedence over inline guidance when they conflict.
 
-### Conditional
-
-- API endpoint details when the feature involves data fetching
-- Design/layout specifics when building visual components
-- Fusion module name when extending module configuration
-- Whether state should persist per-user, be shareable via bookmark, or stay runtime-only
-- Expected test layer: pure logic, hook, component, route, complete app, or module graph
-- External boundaries tests must seed: auth, context, services, feature flags, bookmarks, or HTTP
+- Repo-local commit/validation/changeset/release/PR rules win; inline conventions are defaults.
+- No secrets/credentials in source, config, assets, settings, bookmarks or analytics.
+- Active host owns approvals, source-control lifecycle and publication. Interactive: confirm edits/dependency changes unless already explicitly authorized. Automated: follow authorized task scope; mode or silence grants no authority.
+- Dependencies need justification and task authority. No infrastructure files unless asked.
+- Use React, not direct DOM manipulation. TypeScript strict; no `any` types.
+- Verify uncertain Fusion APIs from source-backed evidence via `fusion-research` before coding; invent none. Live MCP is optional when prefetched/installed source verifies the API.
+  Missing required companion: report and stop dependent work, never silently fall back.
+- Test changed behavior. No real credentials/tenants/production services or accidental network in tests.
+  Await Fusion render/hook helpers; answer every expected offline request.
+  Never weaken coverage or hide flakes with sleeps, retries, `.skip`, or `.only`.
+  Report exact commands/outcomes; “no matching tests” is not success.
+- Host enforces publication/destructive-action approvals; feature/edit authority grants neither.
 
 ## Instructions
 
 ### Step 1 — Discover project conventions
 
-Inspect target repo before writing code:
-
-1. Read `package.json` — package manager (bun/pnpm/npm), scripts, dependencies.
-2. Read `tsconfig.json` — TypeScript settings, path aliases.
-3. Scan `src/` — directory layout, layer structure.
-4. Check `docs/adr/` or `contribute/` for project-specific code standards.
-5. Check formatter/linter config (`biome.json`, `.eslintrc`, `prettier`).
-6. Read `app.config.ts` and `app.manifest.ts` — endpoints, environment setup.
-7. Delegate uncertain Fusion Framework behavior, package ownership, or cookbook examples to `fusion-research` before writing code.
-
-Adapt to discovered conventions. `references/` patterns are defaults — defer to project-specific rules when they differ.
+Read `package.json`, lockfile, `tsconfig.json`, nearby `src/`, `docs/adr/` or `contribute/`,
+formatter/linter config (`biome.json`, `.eslintrc`, `prettier`, `fusion-lint.config.*`), `app.config.ts`, `app.manifest.ts`. Follow repo package manager/scripts/layers/standards,
+not reference defaults. Research uncertain Framework behavior first.
 
 ### Step 2 — Plan the implementation
 
-New app from scratch → use `assets/new-app-checklist.md`.
-
-1. Break into discrete files/changes.
-2. Map to correct directory. Typical Fusion app:
-   - `src/components/` — React components (presentation layer)
-   - `src/hooks/` — Custom React hooks (state and side-effect logic)
-   - `src/api/` — API clients, response schemas, data transforms (no business logic)
-   - `src/types/` — TypeScript interfaces, type aliases, enums
-   - `src/routes.ts` — Route definitions (when using Fusion Router)
-   - `src/config.ts` — Fusion module configuration
-   - `src/App.tsx` — Root component, layout shell
-   - Growing app with shared rules or workflow state → `api/` → `domain/` → `components/` → `routes/` layers with an import-direction test; see `references/project-structure.md`.
-3. Identify shared types early — define before referencing.
-4. Project uses routing → follow `references/using-router.md` for DSL + page patterns.
-5. Different structure → follow it.
+Plan files; shared types before consumers. Follow existing layout.
+UI implementation/review: consult `fusion-design` (typography, spacing, actions, empty/error states, accessibility, layout). Read app-root `DESIGN.md` when present; create/update it when layout/navigation decisions are made.
+Choosing layers: read `references/project-structure.md` for placement/import-direction tests.
+New app: read `assets/new-app-checklist.md`, `references/create-fusion-app.md` for scaffold/bootstrap.
 
 ### Step 3 — Implement following code conventions
 
-Follow project code standards from Step 1. For naming, TSDoc, inline comments, type patterns, code style, error handling → defer to `fusion-code-conventions`.
-
-For convention questions during implementation, invoke `fusion-code-conventions` directly.
+Apply project standards; invoke `fusion-code-conventions` for naming, TSDoc, intent comments,
+types/style/error handling and convention questions.
+Keep components focused on rendering and interaction. Move non-trivial domain rules (status derivation, permissions, validation, data transforms) into testable pure functions, selectors or hooks; keep simple presentation conditions inline, no one-line wrapper files.
 
 ### Step 4 — Style with styled-components, EDS, and Fusion React components
 
-Follow `references/styled-components.md`, `references/styling-with-eds.md`, `references/using-fusion-react-components.md`:
-
-- Use `styled-components` for custom styling (Fusion convention).
-- No CSS Modules, global CSS, Tailwind, or alternative CSS-in-JS unless project uses them.
-- Use `Styled` object pattern for co-located styled components.
-- Prefer EDS (`@equinor/eds-core-react`) for standard UI.
-- Use EDS design tokens (`@equinor/eds-tokens`) for colors, spacing, typography.
-- Extend EDS with `styled()` for customization.
-- Use `@equinor/fusion-react-*` for domain needs not in EDS (person display/selection, side sheets, progress).
-- Inline `style` props: one-off tweaks only.
-- For page/view structure (shell composition, layout zones, empty/loading states), invoke `agents/design.md`. For component-level EDS styling, invoke `agents/styling.md`.
+Visual changes: EDS first, tokens, accessibility, responsive layout. Custom styling:
+styled-components, `Styled` object, `styled()` extensions; inline `style` for one-off tweaks only.
+No CSS Modules/global CSS/Tailwind/other CSS-in-JS unless project uses them. Follow `fusion-design` and `DESIGN.md`. Read matching rows below.
 
 ### Step 5 — Wire up data fetching (when applicable)
 
-Follow `references/configure-services.md`, `references/using-react-query.md`, `references/configure-mocking.md`:
-
-- Register HTTP clients via `configureHttpClient` in `config.ts` or `app.config.ts`.
-- Access clients with `useHttpClient(name)` from `@equinor/fusion-framework-react-app/http`.
-- **Prefer `@equinor/fusion-framework-react-app/*` hooks** over direct module access. Reserve `framework.modules.*` for non-React contexts.
-- React Query: wrap `useQuery` in thin custom hooks.
-- Query keys: derived from API path + parameters.
-- Keep client UI state in React state/context, not server-state libs.
-- Validate responses with Zod in the API layer before caching; external schemas strip unknown keys, app-owned schemas stay strict → `references/validating-api-contracts.md`.
+Use named clients with `@equinor/fusion-framework-react-app/*` hooks (`useHttpClient(name)`);
+`framework.modules.*` only outside React. Thin `useQuery` hooks; API-path/parameter keys;
+server data in React Query; leaf UI state in `useState`; shared/workflow client state defaults to `@equinor/fusion-observable` via `fusion-app-bloc` unless repo already chose another approach. Zod response validation in API layer before cache: external unknown
+keys stripped, app-owned strict. Read matching API rows below.
 
 ### Step 6 — Configure Fusion modules (when applicable)
 
-Identify which module the user needs, then read only the matching reference:
+Modules: `config.ts`/`AppModuleInitiator`; endpoints: `app.config.ts`; hooks:
+`useAppModule`, `useHttpClient`, `useCurrentContext`. Routing: `enableNavigation` plus
+Fusion Router DSL (`layout`, `index`, `route`, `prefix`) for code splitting.
+When row applies, read its file for setup/examples/constraints. Paths are skill-root-relative.
 
-| Need | Reference |
-|---|---|
-| HTTP clients / API integration | `references/configure-services.md` |
-| Runtime API contract validation (Zod) | `references/validating-api-contracts.md` |
-| Context module | `references/using-context.md` |
-| Router and pages | `references/using-router.md` |
+| Work in scope | Read for implementation guidance |
+| --- | --- |
+| Custom styling | `references/styled-components.md` |
+| EDS styling/accessibility | `references/styling-with-eds.md` |
+| Fusion domain UI, person display/selection | `references/using-fusion-react-components.md` |
+| HTTP clients/API | `references/configure-services.md` |
+| React Query/server state | `references/using-react-query.md` |
+| API schemas/contracts | `references/validating-api-contracts.md` |
+| Dev-server mocks/proxies only | `references/configure-mocking.md` |
+| Context | `references/using-context.md` |
+| Shared/workflow client state | `fusion-app-bloc` |
+| UI implementation/review, `DESIGN.md` | `fusion-design` |
+| Router/pages | `references/using-router.md` |
 | AG Grid | `references/using-ag-grid.md` |
-| AG Charts (standalone) | `references/using-ag-charts.md` |
-| AG Grid integrated charts | `references/using-ag-grid-charts.md` |
-| EDS + Fusion React components | `references/using-fusion-react-components.md` |
-| People service (search, display, pick) | `references/using-people-service.md` |
+| Standalone AG Charts | `references/using-ag-charts.md` |
+| Integrated charts | `references/using-ag-grid-charts.md` |
+| Chart library choice | `assets/charts-decision-matrix.md` |
+| People service | `references/using-people-service.md` |
 | Settings | `references/using-settings.md` |
 | Bookmarks | `references/using-bookmarks.md` |
 | Analytics | `references/using-analytics.md` |
-| Runtime config / environment | `references/using-assets-and-environment.md` |
+| Runtime config/assets | `references/using-assets-and-environment.md` |
 | Feature flags | `references/using-feature-flags.md` |
-| General framework modules | `references/using-framework-modules.md` |
-| Custom module authoring | `references/using-custom-modules.md` |
-
-- Module setup in `config.ts` via `AppModuleInitiator` callback.
-- Access modules via hooks: `useAppModule`, `useHttpClient`, `useCurrentContext`.
-- Register HTTP endpoints in `app.config.ts` for new API integrations.
-- Enable navigation with `enableNavigation` in `config.ts` when app uses routing.
-- Define routes via Fusion Router DSL (`layout`, `index`, `route`, `prefix`) for auto code splitting.
-- Unclear framework API → use `fusion-research` before choosing implementation pattern.
+| General modules | `references/using-framework-modules.md` |
+| Custom modules | `references/using-custom-modules.md` |
 
 ### Step 7 — Add or update tests
 
-Follow `references/testing.md`. Use `agents/testing.md` for focused test creation, maintenance, and
-execution. It routes framework setup/rendering to `fusion-framework-testing` and module/HTTP state
-to `fusion-framework-mocking`.
+Changed behavior or test/config/fixture work: read `references/testing.md` for smallest-layer
+public assertions, regression states and execution. Setup/rendering: `fusion-framework-testing`;
+module/HTTP state: `fusion-framework-mocking`.
 
 ### Step 8 — Validate
 
-Use `assets/review-checklist.md` as post-generation checklist.
-
-1. Run typecheck (`bun run typecheck` or `pnpm typecheck`) — zero errors.
-2. Run lint/format check — zero violations.
-3. Every new exported symbol has TSDoc.
-4. Styling follows project conventions.
-5. No new dependencies unless justified/approved.
+Changed files: read `assets/review-checklist.md` for applicable checks and apply
+`agents/code-quality.md` before finalizing. Run repo typecheck/lint/format: zero errors/violations;
+check exported TSDoc, styling and dependency justification/authority. Run `fusion-lint changed` when
+`@equinor/fusion-lint` is installed; new apps add it as devDependency (`assets/new-app-checklist.md`).
 
 ## Expected output
 
-- New/modified `src/` files following project layer structure.
-- All files pass typecheck + lint.
-- Every exported function, component, hook, and type has TSDoc.
-- Styling follows project conventions.
-- Tests cover changed behavior using `fusion-framework-testing`; test-time Fusion state uses
-  `fusion-framework-mocking` where needed.
-- Brief summary of what changed and why.
+Project-layer files, TSDoc on exported functions/components/hooks/types, project styling;
+exact typecheck/lint/test outcomes and brief what/why. Report gaps/blockers, never unrun passes.
 
 ## Helper agents
 
-Optional helpers in `agents/`. Use for focused review or mid-implementation guidance. Runtimes without skill-local agents apply criteria inline.
+When helper scope applies, read and apply Markdown procedure inline if runtime lacks skill-local agents.
 
-Companion skills:
-
-- `fusion-research` for source-backed Fusion ecosystem research when implementation is blocked by uncertainty.
-- `fusion-framework-testing` for Fusion Framework React test setup, fixtures, rendering, and troubleshooting.
-- `fusion-framework-mocking` for deterministic module state and HTTP/OpenAPI boundaries in tests.
-
-- **`agents/testing.md`** — creates, maintains, and executes app tests; routes to testing/mocking companion skills. Use for changed behavior, test files, fixtures, config, or failures.
-- **`agents/framework.md`** — Fusion Framework integration: modules, HTTP clients, bootstrap, runtime config, settings, bookmarks, analytics. **Prefers `mcp_fusion_search_framework`**; falls back to `mcp_fusion_search_docs`. Consult when wiring `config.ts`, `app.config.ts`, or framework module access.
-- **`agents/styling.md`** — EDS component selection, styled-components, design tokens, accessibility. **Prefers `mcp_fusion_search_eds`**. Consult when building/modifying visual components.
-- **`agents/design.md`** — page/view structure: Fusion Portal shell composition, layout zones, side panel usage, empty/loading state patterns. References `equinor-design-system` for layout ground truth. Delegates component-level checks to `agents/styling.md`. Consult when scaffolding new pages or layout wrappers.
-- **`agents/data-display.md`** — AG Grid vs AG Charts, module setup, column defs, chart options, integrated charting. **Prefers `mcp_fusion_search_framework`**. Consult for grids, charts, dashboards. Use `assets/charts-decision-matrix.md` for library selection.
-- **`agents/person-components.md`** — `@equinor/fusion-react-person`: `PersonAvatar`, `PersonCard`, `PersonListItem`, `PersonPicker`, `PeoplePicker`, `PeopleViewer`, `PersonCell` (AG Grid). DOM event pattern, valueGetter setup, pitfalls. Consult for any person display, search, or selection UI.
-- **`agents/code-quality.md`** — delegates convention checks (naming, TSDoc, TS strictness, intent comments) to `fusion-code-conventions`, aggregates findings. Run on every new/modified file before finalizing.
-
-## Safety & constraints
-
-- No new dependencies without explicit approval.
-- No direct DOM manipulation — use React patterns.
-- No `any` types — TypeScript strict mode standard.
-- No secrets or credentials in source files.
-- Conventional commits (`feat:`, `fix:`, `refactor:`, etc.).
-- No infrastructure files (docker-compose, CI config) unless explicitly asked.
+| Scope | Helper |
+| --- | --- |
+| Test creation, maintenance, execution or failures | `agents/testing.md` |
+| Framework/bootstrap/config/module integration | `agents/framework.md` |
+| Visual component/EDS styling | `agents/styling.md` |
+| Page/view structure, layout/empty/loading states | `agents/design.md` |
+| Grids/charts/dashboards | `agents/data-display.md` |
+| Person display/search/selection | `agents/person-components.md` |
+| New/modified files before finalizing | `agents/code-quality.md` |

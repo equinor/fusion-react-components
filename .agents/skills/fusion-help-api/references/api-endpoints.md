@@ -1,5 +1,16 @@
 # API Endpoints
 
+## Contents
+
+- [Articles](#articles)
+- [FAQs](#faqs)
+- [Release Notes](#release-notes)
+- [Assets (Images)](#assets-images)
+- [Search & Suggestions](#search--suggestions)
+- [Changelog (admin)](#changelog-admin)
+- [Validation rules](#validation-rules)
+
+
 All endpoints are versioned. Add `?api-version=1.0` to requests (or use the default).
 
 See also: [Quick Reference Card](api-quick-reference.md) | [Response Models](response-models.md)

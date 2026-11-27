@@ -1,5 +1,14 @@
 # Integration Patterns
 
+## Contents
+
+- [Pattern 1: Display help articles in a Fusion app](#pattern-1-display-help-articles-in-a-fusion-app)
+- [Pattern 2: Show latest release notes on app startup](#pattern-2-show-latest-release-notes-on-app-startup)
+- [Pattern 3: Inline FAQ search](#pattern-3-inline-faq-search)
+- [Pattern 4: Backend automation script (C#)](#pattern-4-backend-automation-script-c)
+- [Pattern 5: Python automation script](#pattern-5-python-automation-script)
+
+
 Patterns for integrating Fusion Help API into apps and scripts.
 
 See also: [Authentication](authentication.md) | [API Endpoints](api-endpoints.md)

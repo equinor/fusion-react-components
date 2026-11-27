@@ -1,5 +1,20 @@
 # Getting started and configuration
 
+## Contents
+
+- [Choose the subject](#choose-the-subject)
+- [Choose the testing layer in full](#choose-the-testing-layer-in-full)
+- [Install](#install)
+- [Entry points](#entry-points)
+- [Write the first app test](#write-the-first-app-test)
+- [Run](#run)
+- [`defineProject` defaults](#defineproject-defaults)
+  - [Merge ordinary Vitest options](#merge-ordinary-vitest-options)
+  - [Replace defaults deliberately](#replace-defaults-deliberately)
+  - [Resolve non-standard app files](#resolve-non-standard-app-files)
+- [Entry-point setup example](#entry-point-setup-example)
+- [Related](#related)
+
 ## Choose the subject
 
 | Subject | Start with | What the test proves |
@@ -173,9 +188,19 @@ code into the test bundle, unlike `manifest`/`config` which are JSON-serialized 
 path that doesn't exist throws `FileNotFoundError`; convention-based lookups (default
 `src/config.ts(x|js)`) fail silently and fall back to defaults instead.
 
+## Entry-point setup example
+
+```ts
+// vitest.config.ts
+import { defineProject } from '@equinor/fusion-framework-vitest-plugin-react-app/config';
+
+export default defineProject();
+```
+
 ## Related
 
 - `references/fixtures-and-advanced-usage.md` — composing/overriding fixtures, route/app tests
 - `references/troubleshooting.md` — common setup, browser, and network failures
-- `references/browser-mode-and-migration.md` — Browser Mode tradeoffs and migrating a suite
+- `references/browser-mode-and-migration.md` — Browser Mode tradeoffs
+- `references/migrating-existing-suites.md` — migrating an existing `@testing-library/react`/jsdom suite
 - `fusion-framework-mocking` skill — seeding auth, context, bookmarks, feature flags, HTTP

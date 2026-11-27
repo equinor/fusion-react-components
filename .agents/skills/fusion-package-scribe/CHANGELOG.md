@@ -1,5 +1,33 @@
 # Changelog
 
+## 0.0.5 - 2026-11-21
+
+### patch
+
+- [#480](https://github.com/equinor/fusion-skills/pull/480) [`3a91663`](https://github.com/equinor/fusion-skills/commit/3a916635f0cc0ef996746bc631767c68f7e63943) - Separate documentation quality gates from host-owned edit, commit and publication authority; use host scratch storage and preserve council validation.
+
+
+  resolves equinor/fusion-skills#480
+  refs equinor/fusion-skills#479
+
+## 0.0.4 - 2026-11-01
+
+### patch
+
+- [#388](https://github.com/equinor/fusion-skills/pull/388) [`28d6873`](https://github.com/equinor/fusion-skills/commit/28d6873433fdda973ef1680adb5fa1777b4b79dc) - Load selected documentation standards and defer writer examples; tighten mandatory package roles without changing council, retry or mutation gates.
+
+
+  resolves equinor/fusion-core-tasks#2685
+
+## 0.0.3 - 2026-11-01
+
+### patch
+
+- [#363](https://github.com/equinor/fusion-skills/pull/363) [`f34c0d9`](https://github.com/equinor/fusion-skills/commit/f34c0d9dc7de15e59ec643407914e98ad8288245) - Shorten the package documentation description while keeping TypeScript public-export TSDoc, retrieval-friendly READMEs, single-package and monorepo passes, review and independent commits, and documentation-only boundaries.
+
+
+  resolves equinor/fusion-core-tasks#2669
+
 ## 0.0.2 - 2026-05-07
 
 ### patch

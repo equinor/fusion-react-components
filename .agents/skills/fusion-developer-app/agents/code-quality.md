@@ -14,14 +14,16 @@ Use this helper agent to review Fusion Framework app code against quality standa
 ### Step 1 — Discover project standards
 
 1. Check for project-specific overrides: `contribute/`, `.github/copilot-instructions.md`, `AGENTS.md`.
-2. Check for formatter/linter config: `biome.json`, `.editorconfig`.
+2. Check for formatter/linter config: `biome.json`, `.editorconfig`, `fusion-lint.config.*`.
 3. Project-specific rules take precedence over skill defaults.
+4. If `@equinor/fusion-lint` is installed, run `fusion-lint <file_paths>` (or `fusion-lint changed`) and include its diagnostics as mechanical findings before the convention review. If it is missing, recommend adding it as a devDependency; do not install without approval.
 
 ### Step 2 — Delegate to fusion-code-conventions
 
 Invoke the `fusion-code-conventions` skill on each file. It will activate the appropriate language agents in parallel:
 
 - TypeScript and React agents for convention, naming, TSDoc, type system, and code style
+- Single-intent check: components render and handle interaction; non-trivial domain rules live in testable pure functions, selectors or hooks (simple presentation conditions may stay inline)
 - Intent agent for inline comment quality across all files
 - Constitution agent when the project has ADRs or contributor docs
 

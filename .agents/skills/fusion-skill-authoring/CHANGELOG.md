@@ -1,5 +1,29 @@
 # Changelog
 
+## 0.3.10 - 2026-11-21
+
+### patch
+
+- [#493](https://github.com/equinor/fusion-skills/pull/493) [`6ad5348`](https://github.com/equinor/fusion-skills/commit/6ad5348913e97384b0e38b8b51d22bb917135fd5) - Document trigger-only description rules, rationalization-prevention tables, and deterministic script preference in `references/drafting-guide.md`.
+
+## 0.3.9 - 2026-11-01
+
+### patch
+
+- [#395](https://github.com/equinor/fusion-skills/pull/395) [`41ebc0f`](https://github.com/equinor/fusion-skills/commit/41ebc0fcdd462e138d299bd9a784e65f900b40bb) - Keep canonical authoring core lean with conditional intake, metadata and drafting guidance; retain provenance, representative-request validation and final readiness review. Point context-cost authors to adopted repository guidance through the existing overlay.
+
+
+  resolves equinor/fusion-core-tasks#2686
+
+## 0.3.8 - 2026-11-01
+
+### patch
+
+- [#363](https://github.com/equinor/fusion-skills/pull/363) [`f34c0d9`](https://github.com/equinor/fusion-skills/commit/f34c0d9dc7de15e59ec643407914e98ad8288245) - Shorten skill-authoring discovery wording while keeping material refresh, support-file structure and non-skill exclusions.
+
+
+  refs equinor/fusion-core-tasks#2670
+
 ## 0.3.7 - 2026-10-13
 
 ### patch

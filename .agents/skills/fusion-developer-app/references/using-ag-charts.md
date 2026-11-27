@@ -1,5 +1,24 @@
 # Using AG Charts
 
+## Contents
+
+- [Quick start](#quick-start)
+  - [Install](#install)
+  - [Register modules](#register-modules)
+  - [Render a chart](#render-a-chart)
+- [Packages and entry points](#packages-and-entry-points)
+- [Multi-series chart](#multi-series-chart)
+- [Common chart types](#common-chart-types)
+  - [Line chart](#line-chart)
+  - [Area chart](#area-chart)
+  - [Pie chart](#pie-chart)
+- [Enterprise chart types](#enterprise-chart-types)
+- [Reactive chart updates](#reactive-chart-updates)
+- [Data fetching pattern](#data-fetching-pattern)
+- [Responsive sizing](#responsive-sizing)
+- [Key concepts](#key-concepts)
+- [Sources](#sources)
+
 Rendering standalone charts with `@equinor/fusion-framework-react-ag-charts`.
 
 ## Quick start

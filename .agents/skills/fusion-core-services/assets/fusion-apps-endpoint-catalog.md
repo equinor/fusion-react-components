@@ -1,5 +1,20 @@
 # Apps API Endpoint Catalog
 
+## Contents
+
+- [Application endpoints](#application-endpoints)
+- [Build and config endpoints](#build-and-config-endpoints)
+- [Tag endpoints](#tag-endpoints)
+- [Category endpoints](#category-endpoints)
+- [Context-type capability probe](#context-type-capability-probe)
+- [Governance endpoints](#governance-endpoints)
+- [Person-scoped endpoints](#person-scoped-endpoints)
+- [Subscription endpoint](#subscription-endpoint)
+- [Authorization notes](#authorization-notes)
+- [Typical status codes](#typical-status-codes)
+- [Explicit exclusions](#explicit-exclusions)
+- [Capability probe notes](#capability-probe-notes)
+
 This catalog covers the verified public application surface in Fusion Apps. It includes application, build, tag, category, governance, and person-scoped routes. Internal support routes and widget-specific routes are still excluded here.
 
 ## Application endpoints

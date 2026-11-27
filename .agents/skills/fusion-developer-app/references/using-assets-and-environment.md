@@ -1,5 +1,16 @@
 # Using Assets and Runtime Configuration
 
+## Contents
+
+- [Put runtime values in app config](#put-runtime-values-in-app-config)
+- [Use runtime config in `config.ts`](#use-runtime-config-in-configts)
+- [Use runtime config in React components](#use-runtime-config-in-react-components)
+- [Endpoints and service discovery](#endpoints-and-service-discovery)
+- [Static assets](#static-assets)
+- [Choosing the right storage](#choosing-the-right-storage)
+- [Pitfalls](#pitfalls)
+- [Relevant sources](#relevant-sources)
+
 Separating bundled assets from runtime configuration in Fusion Framework apps.
 
 ## Put runtime values in app config

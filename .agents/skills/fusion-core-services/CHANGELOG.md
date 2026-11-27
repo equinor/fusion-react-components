@@ -1,5 +1,32 @@
 # Changelog
 
+## 0.0.6 - 2026-11-21
+
+### patch
+
+- [#498](https://github.com/equinor/fusion-skills/pull/498) [`a5dbce7`](https://github.com/equinor/fusion-skills/commit/a5dbce72112c19849bb94b0ac2472aaf60ae6ebe) - Correct People endpoint versions and deprecation claims, and cover stable, preview and date-based OpenAPI document names.
+
+
+  resolves equinor/fusion-skills#428
+
+## 0.0.5 - 2026-11-01
+
+### patch
+
+- [#392](https://github.com/equinor/fusion-skills/pull/392) [`a9c9d6b`](https://github.com/equinor/fusion-skills/commit/a9c9d6b3db4e26a9bc403b85320b4740f3ecc5ff) - Skip combined API catalog for known-service requests while retaining live-schema validation and direct service/asset links.
+
+
+  resolves equinor/fusion-core-tasks#2690
+
+## 0.0.4 - 2026-11-01
+
+### patch
+
+- [#372](https://github.com/equinor/fusion-skills/pull/372) [`61c8e4b`](https://github.com/equinor/fusion-skills/commit/61c8e4bba4f71a2cf00e83c73e32e992460e1e69) - Shorten discovery wording while keeping existing Fusion Core service, endpoint and model selection for clients and cross-service workflows, with backend-source and non-Fusion exclusions.
+
+
+  resolves equinor/fusion-core-tasks#2673
+
 ## 0.0.3 - 2026-09-07
 
 ### patch

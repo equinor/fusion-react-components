@@ -20,8 +20,8 @@ Unknown PR target: return to parent skill (`agents/target-pr-advisor.md`).
 
 Portable, source-backed signals (priority order):
 
-1. Existing top-level PR comments and review threads fetched through GitHub MCP
-2. Upstream changelog or release notes
+1. Existing top-level PR comments and review threads, host-prefetched or fetched through GitHub MCP/`gh`
+2. Upstream official upgrade or migration guide for the version range, and upstream changelog or release notes
 3. Security advisories from GitHub or the package ecosystem
 4. Issue tracker or discussion threads for regressions in the target version
 5. Manifest and lockfile diff for transitive changes, peer dependency shifts, or install-script changes
@@ -30,24 +30,37 @@ Portable, source-backed signals (priority order):
 ## Workflow
 
 1. Ambiguous PR: stop, return to parent skill via `agents/target-pr-advisor.md`.
-2. Live PR: fetch all PR comments and review threads via GitHub MCP before lens scoring.
+2. Live PR: use host-prefetched PR comments and review threads; fetch via GitHub MCP/`gh` only what is missing and only with host-granted GitHub access, before lens scoring. Missing live auth never aborts when prefetched context exists.
 3. Summarize PR discussion: maintainer requests, reviewer concerns, unresolved threads, outdated items.
 4. Confirm exact version jump and update type.
 5. Summarize release notes (old → new).
-6. Record breaking changes, deprecations, migration steps.
+6. Record breaking changes, deprecations, migration steps. Not a pure patch, breaking change reported, or CI needs code/config changes: follow `references/upgrade-migration.md`. Read upstream upgrade guide, run documented migration commands or codemods before any hand-editing, record command and output summary (including "no migration needed"), list manual steps it prints, and flag newly enabled default behaviour.
 7. Look for known regressions or open issues against target version.
 8. Capture notable transitive dependency changes in diff.
 9. Draft findings with sources, discussion context, unknowns. Same content as PR-comment-ready checkpoint, shaped by `assets/research-template.md.hbs`.
+
+### Ecosystem and licence evidence
+
+- Every update: compare official licence files/terms and release announcements over full installed-to-target
+  interval, including skipped releases and relevant transitives. Record changes or explicit evidence gaps,
+  affected use (shipped/linked vs CI/build-only) and licence tier.
+- GitHub Actions: resolve tags/SHAs, compare action/reusable-workflow contracts and release notes with
+  caller permissions, inputs, output consumers, scripts and runner requirements. `actions.lock` diff: changed
+  direct/transitive `commit`, `owner_id`/`repo_id` and `gh actions-lock --verify` evidence at head.
+- Docker: resolve tags/digests/platforms; research publisher image, distro and runtime changes against
+  affected Dockerfile stages. Unprivileged sandbox build unavailable: record research-only, not a passing build.
+- Use `references/unattended-updates.md` ecosystem checklists and licence gate; pass one evidence packet
+  to impact/verdict. Distinguish unavailable local execution from missing compatibility evidence.
 
 ## Portable boundaries
 
 Reusable patterns:
 
 - When target PR unknown: ask minimal follow-up or present shortlist via `agents/target-pr-advisor.md`
-- Fetch existing PR comments and review threads before analysis for a live PR
+- Load existing PR comments and review threads (prefetched or live) before analysis for a live PR
 - Research first, then lens scoring, then verdict
 - Structured notes instead of ad hoc comments
-- For a live PR, post completed research packet as checkpoint comment before any rebase, push, approval, or merge
+- For a live PR in an interactive run, post completed research packet as checkpoint comment before any rebase, push, approval, or merge; host-assigned runs follow the calling host
 - Explicit consent gate before any approval, merge, or PR mutation
 
 Don't import repo-specific branch/rebase/push/package-manager automation unless repo explicitly requires it.
@@ -59,6 +72,9 @@ Return:
 - Normalized context: package, versions, ecosystem, update type, changed files, CI status
 - Existing discussion summary: top-level comment themes, review-thread themes, unresolved concerns, already-answered items
 - Research summary: changelog highlights, breaking changes, known issues, transitive changes
+- Licence/terms record: old/new terms, transition release, official sources and tier (routine or needs a human) with reason, or explicit unknowns
+- Infrastructure evidence when relevant: action/workflow or image usage, runtime requirements, unrun checks and reasons
+- Migration record: upgrade guide URL or `None found`, migration command and output summary or `None documented`, manual steps, new default behaviour, existing suppressions or overrides in the PR diff
 - Source list with detail to re-check evidence
 - PR-comment-ready research checkpoint body
 - Explicit unknowns or missing evidence
@@ -70,8 +86,9 @@ every named partial before filling; no renderer ships with the skill.
 ## Guardrails
 
 - Don't fabricate changelog entries or issue reports
+- Don't claim migration tooling ran or reported "no migration needed" without running it
 - Don't claim source checked if not
 - Don't guess between multiple plausible PRs; require explicit user selection
-- No lens scoring until PR comments/threads fetched or escalated as unavailable
-- No mutation planning until checkpoint comment posted or escalated as blocked
+- No lens scoring until PR comments/threads loaded (prefetched or live) or escalated as unavailable
+- Interactive runs: no mutation planning until checkpoint comment posted or escalated as blocked
 - Read-only until maintainer asks for mutation step

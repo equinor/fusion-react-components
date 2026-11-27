@@ -1,5 +1,15 @@
 # Using AG Grid Integrated Charts
 
+## Contents
+
+- [Prerequisites](#prerequisites)
+- [Enable integrated charts](#enable-integrated-charts)
+- [How users create charts from the grid](#how-users-create-charts-from-the-grid)
+- [Enable chart menu item](#enable-chart-menu-item)
+- [Programmatic chart creation](#programmatic-chart-creation)
+- [When to use integrated charts vs standalone AG Charts](#when-to-use-integrated-charts-vs-standalone-ag-charts)
+- [Sources](#sources)
+
 How to enable chart creation from AG Grid data in a Fusion Framework app, using the AG Grid `IntegratedChartsModule` with AG Charts enterprise.
 
 ## Prerequisites

@@ -1,5 +1,15 @@
 # styled-components Patterns
 
+## Contents
+
+- [The `Styled` object pattern](#the-styled-object-pattern)
+- [Using EDS tokens in styled-components](#using-eds-tokens-in-styled-components)
+  - [CSS custom properties (preferred)](#css-custom-properties-preferred)
+  - [JS token imports](#js-token-imports)
+- [Extending EDS components](#extending-eds-components)
+- [Responsive design](#responsive-design)
+- [What NOT to do](#what-not-to-do)
+
 Using styled-components for custom styling in Fusion Framework apps.
 
 ## The `Styled` object pattern
@@ -46,8 +56,8 @@ const MyComponent = () => (
 const Styled = {
   Card: styled.div`
     background: var(--eds-color-bg-neutral-surface);
-    border-radius: var(--eds-shape-corners-border-radius);
-    padding: var(--eds-spacing-comfortable-medium);
+    border-radius: var(--eds-spacing-border-radius-rounded);
+    padding: var(--eds-spacing-inset-md-vertical-squared) var(--eds-spacing-inset-md-horizontal);
   `,
 };
 ```

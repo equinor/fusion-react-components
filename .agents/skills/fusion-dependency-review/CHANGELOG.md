@@ -1,5 +1,171 @@
 # Changelog
 
+## 0.7.1 - 2026-11-21
+
+### patch
+
+- [#499](https://github.com/equinor/fusion-skills/pull/499) [`14a3592`](https://github.com/equinor/fusion-skills/commit/14a359218a76802da27a4a46f54cbdfb34c151ff) - Document repository-pinned Bun regeneration and frozen verification, including observed incomplete-lockfile
+
+  and newer-format risks. Distinguish missing distributed licence files from unknown terms: corroborated
+  permissive text is routine evidence; matching declaration-only gaps require visible maintainer-only PR
+  acceptance flags. Preserve notice obligations, stricter repository policy and HOLD for unknown or conflicting terms.
+
+  resolves equinor/fusion-skills#469
+  resolves equinor/fusion-skills#461
+
+- [#493](https://github.com/equinor/fusion-skills/pull/493) [`6ad5348`](https://github.com/equinor/fusion-skills/commit/6ad5348913e97384b0e38b8b51d22bb917135fd5) - Trim workflow summary from `SKILL.md` description to pure trigger and anti-trigger cues.
+
+## 0.7.0 - 2026-11-21
+
+### minor
+
+- [#476](https://github.com/equinor/fusion-skills/pull/476) [`05f2a51`](https://github.com/equinor/fusion-skills/commit/05f2a5120558c9cfe49ae247ed8b027d9b830d05) Thanks [@perkjelsvik](https://github.com/perkjelsvik)! - Review `actions.lock` changes in GitHub Actions dependency updates
+
+
+  - Treat `.github/workflows/actions.lock` changes as dependency updates. Research each changed direct or transitive `commit` like a version bump
+  - Hold a changed `owner_id`/`repo_id` until a maintainer investigates
+  - Treat `--relock` as a reviewed update. Use `--accept-moved` only after human upstream review, never in unattended runs
+  - Require passing `gh actions-lock --verify` at the reviewed head after an approved update. Missing or partial evidence is **not verified**. A failed verification needs changes
+  - Keep full 40-character SHA pins for reusable-workflow calls, even when a lockfile exists
+
+  resolves equinor/fusion-core-tasks#3163
+
+- [#484](https://github.com/equinor/fusion-skills/pull/484) [`cfb2f7b`](https://github.com/equinor/fusion-skills/commit/cfb2f7bfdce007805948b18af651268abc63b7d9) - Accept host-prefetched PR metadata, diffs and comments as sufficient input.
+
+
+  - Move `github` MCP from required to suggested; live `gh`/MCP lookup only fills missing context when the host grants GitHub access.
+  - Never abort analysis on missing live auth when prefetched context is supplied; interactive live-PR behavior is unchanged.
+  - Post-PR Copilot review gate runs at the publisher layer; host-managed runs return the verdict only.
+
+  resolves equinor/fusion-skills#481
+  refs equinor/fusion-skills#479
+
+## 0.6.0 - 2026-11-15
+
+### minor
+
+- [#462](https://github.com/equinor/fusion-skills/pull/462) [`bd6e289`](https://github.com/equinor/fusion-skills/commit/bd6e289f544ab54ddbeb2736d0f61c439407ea3f) - Apply repository-local Copilot review gates before human dependency-PR review; keep research verdicts, licence acceptance and CI independent of gate status.
+
+
+  refs equinor/fusion-core-tasks#3013
+
+### patch
+
+- [#455](https://github.com/equinor/fusion-skills/pull/455) [`3a501ab`](https://github.com/equinor/fusion-skills/commit/3a501ab1df73c11db97afbc22f803c0b577e7926) - Flag licence/terms changes in maintainer-merged pull requests instead of holding
+
+
+  - When review output is a pull request only a maintainer merges, a verified needs-a-human licence/terms change gets a visible `Licence/terms change, merging accepts it:` line instead of HOLD; the merge is the explicit acceptance
+  - Unverified terms, auto-merge or agent-merge paths and verdicts on existing pull requests still HOLD
+  - Align SKILL.md, verdict and impact advisors with the reference rule; add an eval case
+
+  resolves equinor/fusion-core-tasks#3000
+
+## 0.5.1 - 2026-11-13
+
+### patch
+
+- [#454](https://github.com/equinor/fusion-skills/pull/454) [`3b4ce5f`](https://github.com/equinor/fusion-skills/commit/3b4ce5fa02732cd60e2d0ff2a02ad5418f9f97ef) - Make the licence gate risk-tiered so routine licence changes no longer need a human
+
+
+  - Routine, no HOLD: permissive to permissive (MIT, Apache-2.0, BSD, ISC; CC-BY for docs) and changes in CI-only or build-only tooling that add no use restrictions; record a one-line evidence note
+  - Needs a human, HOLD as before: copyleft in shipped or linked code, commercial or dual licensing, licence keys or paid tiers, source-available or usage restrictions, narrowed terms for shipped or linked code, and unknown terms; when unsure, choose needs a human
+  - Keep full-interval licence evidence, keep MediatR as the needs-a-human example and add APM MIT to Apache-2.0 as the routine example
+  - Align SKILL.md and the research, impact and verdict advisors with the tiers
+
+  resolves equinor/fusion-core-tasks#2999
+
+## 0.5.0 - 2026-11-10
+
+### minor
+
+- [#430](https://github.com/equinor/fusion-skills/pull/430) [`b529e41`](https://github.com/equinor/fusion-skills/commit/b529e410c0c893c2ed4a0e5d945f881c28b10b8a) - Add security-audit remediation guidance for pnpm, npm, Yarn, Bun and NuGet
+
+
+  - New `references/audit-remediation.md`: JSON audit baseline and same-scope re-audit, then a four-step order: fix stale overrides, update within the allowed range, override on the same release line, report the rest
+  - Guardrails against hiding findings: no unattended ignore or suppress entries (`--ignore-unfixable`, `audit.ignore`, `NuGetAuditSuppress`), registry-error tolerance is informational only, no forced majors, auto-fix output is a proposal
+  - Patch handling for `patchedDependencies` and `patch:` resolutions: verify or re-create the patch, or leave the package and report it
+  - Per-manager commands and override fields checked against official documentation, including `bun audit fix` and `dotnet package update --vulnerable`
+  - Route audit findings from `SKILL.md` and the unattended-update reference; overrides stay held proposals unless the host authorises manifest changes
+
+  resolves equinor/fusion-skills#429
+
+## 0.4.2 - 2026-11-01
+
+### patch
+
+- [#383](https://github.com/equinor/fusion-skills/pull/383) [`9dd268f`](https://github.com/equinor/fusion-skills/commit/9dd268f19bf27e76c2b0371448ba47218a001c0d) - Point combined dependency PR bodies to the `fusion-pr-documentation` combined PR outline, from both the human-first output section and the unattended maintainer summary. Verdicts feed its attention and not-included sections; worker and candidate jargon stays out of the visible text.
+
+
+  refs equinor/fusion-skills#380
+
+- [#378](https://github.com/equinor/fusion-skills/pull/378) [`ca584cf`](https://github.com/equinor/fusion-skills/commit/ca584cff41be1622d5b98dd93371a6d3bdde3189) - Compress shared template fill guidance while preserving provenance, privacy and output rules.
+
+
+  refs equinor/fusion-core-tasks#2678
+
+- [#385](https://github.com/equinor/fusion-skills/pull/385) [`822abf6`](https://github.com/equinor/fusion-skills/commit/822abf66b9a3dc7f4e48d97cf85db2c4ee4cca8e) - Load dependency-review phase guidance by run type and keep tracker checkpoints mandatory without an unconditional tracker read. Preserve verdict, licence, migration and publication gates.
+
+
+  resolves equinor/fusion-core-tasks#2683
+
+## 0.4.1 - 2026-11-01
+
+### patch
+
+- [#363](https://github.com/equinor/fusion-skills/pull/363) [`f34c0d9`](https://github.com/equinor/fusion-skills/commit/f34c0d9dc7de15e59ec643407914e98ad8288245) - Shorten the skill description, which is loaded on every turn. Triggers, exclusions that separate it from sibling skills, and safety exclusions are unchanged, and a routing evaluation confirms requests still reach this skill.
+
+
+  resolves equinor/fusion-core-tasks#2666
+
+## 0.4.0 - 2026-10-31
+
+### minor
+
+- [#357](https://github.com/equinor/fusion-skills/pull/357) [`70cc23a`](https://github.com/equinor/fusion-skills/commit/70cc23adab3506bf96f31972a7e1e0a04c71dad7) - Extend dependency review with GitHub Actions and Docker base-image evidence checklists and an explicit licence-change HOLD gate.
+
+
+  - Preserve action SHA and image digest conventions; assess workflow contracts, runner requirements, distro and runtime changes.
+  - Distinguish research-only sandbox evidence and host-owned workflow publication permissions from compatibility failures.
+  - Check licence and terms changes across the installed version interval; require human acceptance before recommending merge.
+
+  refs equinor/fusion-poc-greenkeeper#45
+
+## 0.3.0 - 2026-10-31
+
+### minor
+
+- [#353](https://github.com/equinor/fusion-skills/pull/353) [`e2c276a`](https://github.com/equinor/fusion-skills/commit/e2c276a0be5dd41001061948859471aa12ec0d0f) - Add stack-neutral unattended-update guidance for version-checked Node and NuGet regeneration,
+
+  consumer discovery, release research, verdicts, release artifacts and maintainer summaries.
+  Separate host-assigned from interactive routing: live-PR checkpoint comments stay mandatory for
+  interactive runs; the calling host owns confirmation, comment and publication gates otherwise.
+
+  refs equinor/fusion-poc-greenkeeper#45
+
+## 0.2.3 - 2026-10-28
+
+### patch
+
+- [#348](https://github.com/equinor/fusion-skills/pull/348) [`1528b11`](https://github.com/equinor/fusion-skills/commit/1528b11a5ad762678ba4b5c977dbf23fe0a55090) - Follow upstream upgrade guides and resolve new tool findings instead of suppressing them.
+
+
+  - Require the upstream upgrade or migration guide and documented migration tooling before hand-editing config
+  - Forbid broad rule downgrades, path-based tool disables, and removed CI checks used only to pass CI; allow narrow, inline-justified suppressions
+  - Surface newly enabled default behaviour as a maintainer decision, using first-class opt-outs meanwhile
+  - Add migration steps to the research checkpoint, verdict template, and review tracker
+
+  resolves equinor/fusion-core-tasks#2611
+
+## 0.2.2 - 2026-10-27
+
+### patch
+
+- [#336](https://github.com/equinor/fusion-skills/pull/336) [`bf60e9e`](https://github.com/equinor/fusion-skills/commit/bf60e9e76a812735b3ff0cde8140eb5604a506f7) - Sync shared provenance fill rules: resolve authoring-turn metadata before fallback,
+
+  with bounded lookup, model-change and delegate attribution, and privacy limits.
+
+  fixes equinor/fusion-skills#335
+
 ## 0.2.1 - 2026-10-18
 
 ### patch
