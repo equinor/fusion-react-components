@@ -37,31 +37,34 @@ bun install
 ### Local dark-mode preview
 
 On the dark-mode PR branch, use the shared Verdaccio instance at `http://127.0.0.1:4873`.
-Start it and publish the web-components preview first (see
-[fusion-web-components#2551](https://github.com/equinor/fusion-web-components/pull/2551)).
-The React preview needs its verified `~/.config/fusion-dark-mode/web.json` manifest and the
-private `~/.config/fusion-dark-mode/npmrc` created during registry setup.
+Start it and publish a commit-qualified Web Components snapshot first (see
+[equinor/fusion-web-components#2551](https://github.com/equinor/fusion-web-components/pull/2551)).
+Keep its verified `web-<web-short-sha>.json` and the registry's private `npmrc` in
+`~/.config/fusion-dark-mode/`.
 
 ```sh
-bun scripts/dark-mode-preview.js check    # Install, validate and pack without publishing
-bun scripts/dark-mode-preview.js publish  # Repeat the checks, then publish with the dark-mode tag
+bun scripts/dark-mode-preview.js check 090f40d9 ec11c849421411f069ed73335271041128dd1ed5
+bun scripts/dark-mode-preview.js publish 090f40d9 ec11c849421411f069ed73335271041128dd1ed5
 ```
 
-The script uses a disposable checkout of `HEAD` and checks the installed web-components
-versions and tarball integrity against the upstream manifest, including packages whose
-dependency ranges did not change. Changesets calculates the React release versions, and the
-script verifies the tarballs and writes `~/.config/fusion-dark-mode/react.json` for downstream
-installs. Publishing refuses to overwrite a version with different contents; `check` still
-validates and packs newer commits without changing the existing preview.
+These commands use Web commit `090f40d9` and React source `ec11c849`, which includes the
+theme inheritance fix. Omit the full React commit to use `HEAD` for a new snapshot.
+`check` installs exact upstream versions in a disposable checkout, verifies the registry URLs
+and integrity hashes, then lints, builds, tests and packs without publishing. `publish` verifies
+an existing matching manifest with a clean consumer install and reuses it. For a new snapshot,
+it runs the same build checks, publishes under `dark-mode-<react-short-sha>-<web-short-sha>`,
+verifies a clean install and writes a private `react-<react-short-sha>-<web-short-sha>.json`.
+It does not replace existing versions, manifests, `dark-mode` or `latest`.
 
 In a disposable Bun consumer checkout, with no existing `.npmrc`, point Bun at the same
-registry. Use exact versions from `react.json` for the preview dependencies, and pin the
-applicable web-components versions from `web.json` in the consumer's Bun overrides so
-previously locked transitive dependencies also use the preview.
+registry. Use exact `packages[name].version` values from `react-ec11c849-090f40d9.json`
+and `web-090f40d9.json` for direct preview dependencies. React snapshot tarballs already
+pin their Web snapshot dependencies. Do not globally override incompatible transitive ranges.
 
 ```sh
 ln -s "$HOME/.config/fusion-dark-mode/npmrc" .npmrc
 bun install --registry=http://127.0.0.1:4873/
+unlink .npmrc
 ```
 
 Confirm the preview entries in the scratch lockfile match the manifests' versions and
