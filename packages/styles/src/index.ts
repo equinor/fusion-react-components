@@ -10,6 +10,15 @@ export { default as clsx } from 'clsx';
 export { StylesProvider } from './StyleProvider';
 export type { StylesProviderProps } from './StyleProvider';
 export { ThemeProvider, useTheme } from './ThemeProvider';
-export type { ThemeProviderProps } from './ThemeProvider';
+export {
+  classicColourDeclarations,
+  classicColourSchemeStyles,
+  classicColourVariables,
+  classicOverlayColour,
+  classicOverlayColours,
+  classicOverlayTextStyles,
+  classicScrimColour,
+} from './classic-colours';
+export type { ColorScheme, ThemeProviderProps } from './ThemeProvider';
 
 export type { StyleRules, StyleCSSProperties, Styles } from './types';

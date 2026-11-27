@@ -9,10 +9,10 @@ const useStyles = makeStyles(() =>
   createStyles({
     root: {
       padding: '16px',
-      backgroundColor: 'white',
+      backgroundColor: 'var(--eds-color-bg-neutral-surface)',
       borderRadius: '4px',
       position: 'absolute',
-      boxShadow: '0px 1px 3px rgba(0, 0, 0, 0.2), 0px 2px 2px rgba(0, 0, 0, 0.12), 0px 0px 2px rgba(0, 0, 0, 0.14)',
+      boxShadow: 'var(--eds-elevation-low)',
       transform: 'translateX(-50%)',
       marginTop: '8px',
     },

@@ -10,8 +10,8 @@
  * Components can access theme via useTheme hook or useTheme in makeStyles.
  */
 
-import { describe, it, expect } from 'vitest';
-import { render, screen, renderHook } from '@testing-library/react';
+import { describe, it, expect, vi } from 'vitest';
+import { act, render, screen, renderHook } from '@testing-library/react';
 import { useContext } from 'react';
 import { StyleSheetManager } from 'styled-components';
 import { ThemeProvider, useTheme } from '../ThemeProvider';
@@ -308,5 +308,78 @@ describe('EdsTokens - CSS Variables Rendering', () => {
 
     // EdsTokens component successfully rendered child content
     expect(container.querySelector('[data-testid="child"]')).not.toBeNull();
+  });
+});
+
+describe('ThemeProvider - colour scheme', () => {
+  const getThemeElement = (container: HTMLElement) => {
+    const element = container.querySelector('fwc-theme');
+    if (!element) throw new Error('fwc-theme not rendered');
+    return element;
+  };
+
+  const mockSystemScheme = (dark: boolean) => {
+    const listeners = new Set<() => void>();
+    const media = {
+      matches: dark,
+      addEventListener: (_: string, listener: () => void) => listeners.add(listener),
+      removeEventListener: (_: string, listener: () => void) => listeners.delete(listener),
+    };
+    const original = window.matchMedia;
+    window.matchMedia = vi.fn(() => media) as unknown as typeof window.matchMedia;
+    return {
+      setDark: (value: boolean) => {
+        media.matches = value;
+        for (const listener of listeners) listener();
+      },
+      restore: () => {
+        window.matchMedia = original;
+      },
+    };
+  };
+
+  it('does not set a colour scheme when colorScheme is omitted, so it inherits', async () => {
+    const { container } = render(<ThemeProvider>content</ThemeProvider>);
+    const element = getThemeElement(container);
+    await element.updateComplete;
+    expect(element.hasAttribute('data-color-scheme')).toBe(false);
+  });
+
+  it.each(['light', 'dark'] as const)('sets data-color-scheme="%s"', async (scheme) => {
+    const { container } = render(<ThemeProvider colorScheme={scheme}>content</ThemeProvider>);
+    const element = getThemeElement(container);
+    await element.updateComplete;
+    expect(element.getAttribute('data-color-scheme')).toBe(scheme);
+    expect(element.getAttribute('color-scheme')).toBe(scheme);
+  });
+
+  it('removes its scheme override after switching between forced schemes', async () => {
+    const { container, rerender } = render(<ThemeProvider colorScheme="dark">x</ThemeProvider>);
+    const element = getThemeElement(container);
+    await element.updateComplete;
+    expect(element.getAttribute('data-color-scheme')).toBe('dark');
+
+    rerender(<ThemeProvider colorScheme="light">x</ThemeProvider>);
+    await element.updateComplete;
+    expect(element.getAttribute('data-color-scheme')).toBe('light');
+
+    rerender(<ThemeProvider>x</ThemeProvider>);
+    await element.updateComplete;
+    expect(element.hasAttribute('color-scheme')).toBe(false);
+    expect(element.hasAttribute('data-color-scheme')).toBe(false);
+  });
+
+  it('follows prefers-color-scheme for "system"', async () => {
+    const system = mockSystemScheme(true);
+    try {
+      const { container } = render(<ThemeProvider colorScheme="system">x</ThemeProvider>);
+      const element = getThemeElement(container);
+      await element.updateComplete;
+      expect(element.getAttribute('data-color-scheme')).toBe('dark');
+      act(() => system.setDark(false));
+      expect(element.getAttribute('data-color-scheme')).toBe('light');
+    } finally {
+      system.restore();
+    }
   });
 });

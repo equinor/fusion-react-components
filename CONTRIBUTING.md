@@ -34,6 +34,46 @@ curl -fsSL https://bun.sh/install | bash
 bun install
 ```
 
+### Local dark-mode preview
+
+On the dark-mode PR branch, use the shared Verdaccio instance at `http://127.0.0.1:4873`.
+Start it and publish a commit-qualified Web Components snapshot first (see
+[equinor/fusion-web-components#2551](https://github.com/equinor/fusion-web-components/pull/2551)).
+Keep its verified `web-<web-short-sha>.json` and the registry's private `npmrc` in
+`~/.config/fusion-dark-mode/`.
+
+```sh
+bun scripts/dark-mode-preview.js check 090f40d9 ec11c849421411f069ed73335271041128dd1ed5
+bun scripts/dark-mode-preview.js publish 090f40d9 ec11c849421411f069ed73335271041128dd1ed5
+```
+
+These commands use Web commit `090f40d9` and React source `ec11c849`, which includes the
+theme inheritance fix. Omit the full React commit to use `HEAD` for a new snapshot.
+`check` installs exact upstream versions in a disposable checkout, verifies the registry URLs
+and integrity hashes, then lints, builds, tests and packs without publishing. `publish` verifies
+an existing matching manifest with a clean consumer install and reuses it. For a new snapshot,
+it runs the same build checks, publishes under `dark-mode-<react-short-sha>-<web-short-sha>`,
+verifies a clean install and writes a private `react-<react-short-sha>-<web-short-sha>.json`.
+It does not replace existing versions, manifests, `dark-mode` or `latest`.
+
+In a disposable Bun consumer checkout, with no existing `.npmrc`, point Bun at the same
+registry. Use exact `packages[name].version` values from `react-ec11c849-090f40d9.json`
+and `web-090f40d9.json` for direct preview dependencies. React snapshot tarballs already
+pin their Web snapshot dependencies. Do not globally override incompatible transitive ranges.
+
+```sh
+ln -s "$HOME/.config/fusion-dark-mode/npmrc" .npmrc
+bun install --registry=http://127.0.0.1:4873/
+unlink .npmrc
+```
+
+Confirm the preview entries in the scratch lockfile match the manifests' versions and
+integrities and use the loopback registry.
+Keep the web components' published `@equinor/fusion-web-theme` `^0.1.12` dependency; use the
+React preview's `0.2.0` only where the consumer's range admits it.
+Do not commit the npmrc, preview overrides or lockfile changes. The normal install, CI and
+public release still use the public registry.
+
 ## Start Storybook
 
 StoryBook is not handling too well composite libraries, so a clean build is needed
@@ -43,24 +83,18 @@ bun run build
 bun run start
 ```
 
-### Temporary light-only Storybook
+### Colour scheme (light / dark / system)
 
-Storybook's preview document follows the EDS
+Use the **Colour scheme** toolbar item to switch the preview between System, Light and Dark.
+The decorator in `storybook/.storybook/preview.tsx` always sets an explicit `light` or `dark`
+`data-color-scheme` on the preview `<html>`, the way the Fusion portal passes the scheme down.
+For System it resolves `prefers-color-scheme` with `matchMedia` and updates the attribute when
+the OS setting changes, as the portal does.
+`ThemeProvider` inherits it, and content portaled to `body` follows it too. The body uses the EDS
+neutral surface background and text colours from `preview-head.html`.
+Follow the EDS
 [colour scheme detection](https://eds.equinor.com/docs/foundation/colour/getting_started#colour-scheme-detection)
-guidance: `preview-head.html` declares `<html data-color-scheme="light">`,
-which the HTML parser merges onto the preview document's root element before
-any styles load. EDS then resolves its light CSS variables and applies
-`color-scheme: light`, so EDS colours and native controls stay light on initial
-load and when the OS/browser preference changes, including docs canvases and
-content portaled to `body`.
-Only the preview, where components use EDS CSS variables, is affected; the
-Storybook manager UI is left unchanged.
-
-This is a temporary Storybook-only policy for
-[equinor/fusion-core-tasks#2120](https://github.com/equinor/fusion-core-tasks/issues/2120),
-not dark-mode support or a change to reusable `ThemeProvider` defaults.
-Explicit nested color-scheme examples remain free to override the inherited
-scheme. Remove the preview head override when Storybook supports automatic theming.
+guidance.
 
 Run the regression checks with:
 
@@ -68,17 +102,26 @@ Run the regression checks with:
 bun run --cwd storybook test
 ```
 
-The checks verify the preview head markup and render an EDS CSS variable in
-headless Chromium with a dark `prefers-color-scheme`, asserting it resolves to
-the EDS light token value. Install the browser once with
-`bun run --cwd storybook test:setup`.
+The checks verify that `preview-head.html` does not force a scheme. They also render an
+EDS CSS colour variable and the classic (EDS 2.x) colour mapping in headless Chromium for Light,
+Dark and System (with light and dark `prefers-color-scheme`) and assert each matches the explicit
+scheme. They also unit test how System resolves and follows OS changes. Install the browser once
+with `bun run --cwd storybook test:setup`.
 
-For browser verification, load Storybook with both light and dark
-`prefers-color-scheme` preferences, then switch each preference live without
-reloading. Check an ordinary story, its Docs canvas, and body-portaled
-content. The preview root must keep `data-color-scheme="light"`,
-EDS colors must remain light, and preview native controls must resolve to
-`color-scheme: light`.
+For browser verification, check an ordinary story, its Docs canvas and body-portaled content
+(Tooltip, Menu, Popover, Dialog, Scrim) in each toolbar scheme, and switch the OS preference
+while System is selected.
+
+### Colours
+
+Style components with EDS CSS custom properties (`var(--eds-color-…)`), not the JavaScript
+`tokens` object from `@equinor/eds-tokens`, whose colours are static light values. Do not
+hard-code colours or add literal fallbacks inside `var()`.
+
+Use the stable `@equinor/eds-core-react` 2.x components. They read classic `--eds_*` colour
+properties, which the root `ThemeProvider` from `@equinor/fusion-react-styles` maps to EDS colour
+variables in dark mode only (see `classicColourDeclarations` in its README). Do not wrap or restyle
+them per component for dark mode.
 
 ## Development
 

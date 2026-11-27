@@ -40,7 +40,7 @@
   },
   "dependencies": {
     "@equinor/eds-tokens": "^2.3.2",
-    "@equinor/fusion-wc-theme": "^1.2.6",
+    "@equinor/fusion-wc-theme": "^2.0.0",
     "@equinor/fusion-web-theme": "workspace:^",
     "clsx": "^2.1.0",
     "hoist-non-react-statics": "^3.3.2",
@@ -59,6 +59,7 @@
     "@types/node": "^26.6.6",
     "@types/react": "^19.3.0",
     "@vitest/coverage-v8": "^5.1.0",
+    "jsdom": "^31.0.1",
     "react": "^19.3.1",
     "styled-components": "^6.6.0",
     "vitest": "^5.1.0"

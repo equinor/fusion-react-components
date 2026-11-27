@@ -1,5 +1,4 @@
-import { useContext, useMemo, type ReactNode } from 'react';
-import type { ReactElement } from 'react';
+import { useContext, useMemo, type ReactElement, type ReactNode } from 'react';
 import { styles as defaultTheme } from '@equinor/fusion-web-theme';
 import { ThemeContext } from './utils/contexts';
 import type { FusionTheme } from './theme';
@@ -10,10 +9,20 @@ import type ThemeElement from '@equinor/fusion-wc-theme';
 declare module 'react' {
   namespace JSX {
     interface IntrinsicElements {
-      'fwc-theme': React.DetailedHTMLProps<React.HTMLAttributes<ThemeElement>, ThemeElement>;
+      'fwc-theme': React.DetailedHTMLProps<React.HTMLAttributes<ThemeElement>, ThemeElement> & {
+        'color-scheme'?: ColorScheme;
+      };
     }
   }
 }
+
+/**
+ * Colour scheme applied by {@link ThemeProvider}.
+ *
+ * - `light` / `dark` force the EDS colour scheme for the provider subtree.
+ * - `system` follows the user's `prefers-color-scheme` setting.
+ */
+export type ColorScheme = 'light' | 'dark' | 'system';
 
 /**
  * Props for the ThemeProvider component
@@ -25,6 +34,14 @@ export interface ThemeProviderProps<T extends FusionTheme = FusionTheme> {
   children?: ReactNode;
   /** Theme object or function that receives outer theme and returns new theme */
   theme?: T | Partial<T> | ((outerTheme: T | null) => T);
+  /**
+   * Colour scheme for this subtree, resolved by the `fwc-theme` wrapper.
+   *
+   * When omitted, no attribute is set and the subtree inherits the scheme from its
+   * ancestors (for example `data-color-scheme` on `<html>` set by the portal), or follows
+   * `prefers-color-scheme` when no ancestor sets one.
+   */
+  colorScheme?: ColorScheme;
 }
 
 /**
@@ -45,6 +62,13 @@ export interface ThemeProviderProps<T extends FusionTheme = FusionTheme> {
  * <ThemeProvider theme={myTheme}>
  *   <App />
  * </ThemeProvider>
+ * ```
+ *
+ * @example
+ * ```tsx
+ * // Force dark mode, or follow the operating system setting
+ * <ThemeProvider colorScheme="dark"><App /></ThemeProvider>
+ * <ThemeProvider colorScheme="system"><App /></ThemeProvider>
  * ```
  *
  * @example
@@ -77,7 +101,7 @@ export interface ThemeProviderProps<T extends FusionTheme = FusionTheme> {
 export function ThemeProvider<T extends FusionTheme = FusionTheme>(
   props: ThemeProviderProps<T>,
 ): ReactElement {
-  const { children, theme: localTheme } = props;
+  const { children, theme: localTheme, colorScheme } = props;
   // Get theme from parent ThemeProvider (if nested)
   const outerTheme = useContext(ThemeContext) as T | null;
 
@@ -101,7 +125,7 @@ export function ThemeProvider<T extends FusionTheme = FusionTheme>(
       {outerTheme === null && <EdsTokens />}
 
       {/* Wrap children in fwc-theme web component for theme application */}
-      <fwc-theme>{children}</fwc-theme>
+      <fwc-theme color-scheme={colorScheme}>{children}</fwc-theme>
     </ThemeContext.Provider>
   );
 }

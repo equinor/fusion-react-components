@@ -13,7 +13,7 @@ export const Styled = {
     overflow-y: auto;
   `,
   Title: styled.span`
-    color: ${tokens.typography.heading.h3.color};
+    color: var(--eds-color-text-neutral-strong);
     font-family: ${tokens.typography.heading.h3.fontFamily};
     font-size: ${tokens.typography.heading.h3.fontSize};
     font-weight: ${tokens.typography.heading.h3.fontWeight};
